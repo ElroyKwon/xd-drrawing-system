@@ -1,0 +1,13 @@
+tag: ELC-BUSBAR-001
+verdict: demoted
+confidence: 0.98
+missing_fields: []
+missing_relations: []
+reason: CU-Busbar는 독립 설비가 아니라 전력접지 단자함 및 통신접지 단자함 내부 구성요소로 확인됨. 자체 사양(material, name)은
+  있으나 connection_specs와 observed_relations 모두 포함 관계(included_in)로만 나타나며, ontology_hints.suggested_parent_class도
+  Busbar로 상위 구성요소 성격을 지시한다. 따라서 독립 엔티티가 아니므로 component_of로 강등한다.
+demoted_to: component_of
+target_entity: GRD-TERM-004 / GRD-TERM-005
+preserved_info:
+  spec: material=구리, name=CU-Busbar
+  relation: included_in

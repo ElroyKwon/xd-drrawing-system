@@ -1,0 +1,289 @@
+placement:
+  tag: EXT-OFFICE-2F
+  name: 사무동 지상2층 전산실 연결점
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:EXT-OFFICE-2F
+    class_hint: CommunicationConnectionPoint
+    alternative_class_hints:
+    - ExternalConnectionPoint
+    - FiberOpticTermination
+    - CommunicationConnectionEntity
+    related_assertions:
+    - type: cable
+      target_hint: TRAY-EXISTING-COMM
+      note: source_page 9; visual_semantics; FIBER OPTICAL S.M 12CORE (IN TRAY), 기존
+        CABLE 포설
+    applicable_axioms:
+    - AX039
+    - AX060
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationConnectionPoint
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: TO.사무동 지상2층 전산실
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destinationLabel
+          suggested_datatype: xsd:string
+          rationale: TO. 접두가 붙은 목적지 표기이며 연결 대상 공간명이 직접 기재됨
+      - raw_text: FIBER OPTICAL S.M 12CORE (IN TRAY)
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격/포설 방식으로 보이는 문자열
+      - raw_text: 기존 CABLE 포설
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: noteText
+          suggested_datatype: xsd:string
+          rationale: 시공 상태/설명성 주석
+      - raw_text: 'label_prefix: TO.'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: labelPrefix
+          suggested_datatype: xsd:string
+          rationale: 라벨 접두 정보
+      - raw_text: 'equipment_symbols.type: external_connection_point, count: 1'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: symbolTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 유형과 개수 정보
+      - raw_text: 'function_category: EXTERNAL_CONNECTION_POINT'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 텍스트
+      - raw_text: 'type: EXTERNAL_CONNECTION'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문
+      - raw_text: 'position: center'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 텍스트
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationConnectionPoint'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트의 상위 클래스 제안
+      - raw_text: 'ontology_hints.function_candidates: External Connection; Fiber
+          Optic Termination'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'specs.destination: 사무동 지상2층 전산실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destination
+          suggested_datatype: xsd:string
+          rationale: 목적지 속성으로 해석 가능
+      - raw_text: 'relations.from: TRAY-EXISTING-COMM -> EXT-OFFICE-2F (cable)'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: connectedFrom
+          suggested_datatype: owl:ObjectProperty
+          rationale: 연결 관계 원형
+      - raw_text: 'collection_sources.visual_semantics: true'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: sourceMethod
+          suggested_datatype: xsd:string
+          rationale: 추출 근거 메타데이터
+      - raw_text: 'collection_sources.visual_semantics_gemini: true'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: sourceMethodDetail
+          suggested_datatype: xsd:string
+          rationale: 추출 근거 메타데이터
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: sourceMethodDetail
+          suggested_datatype: xsd:string
+          rationale: 추출 근거 메타데이터
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class + entity_detail.type/function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates + type
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 9
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 9
+      method: relations.from
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 9
+      method: relations.annotation + specs.cable_specifications + specs.note
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 9
+      method: specs.cable_specifications
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 9
+      method: specs.note
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 9
+      method: specs.label_prefix
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 9
+      method: equipment_symbols
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 9
+      method: function_category
+    discipline_context.sub_kinds.free_notes[6].raw_text:
+      source_pages:
+      - 9
+      method: type
+    discipline_context.sub_kinds.free_notes[7].raw_text:
+      source_pages:
+      - 9
+      method: position
+    discipline_context.sub_kinds.free_notes[8].raw_text:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    discipline_context.sub_kinds.free_notes[9].raw_text:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[10].raw_text:
+      source_pages:
+      - 9
+      method: specs.destination
+    discipline_context.sub_kinds.free_notes[11].raw_text:
+      source_pages:
+      - 9
+      method: relations
+    discipline_context.sub_kinds.free_notes[12].raw_text:
+      source_pages:
+      - 9
+      method: collection_sources.visual_semantics
+    discipline_context.sub_kinds.free_notes[13].raw_text:
+      source_pages:
+      - 9
+      method: collection_sources.visual_semantics_gemini
+    discipline_context.sub_kinds.free_notes[14].raw_text:
+      source_pages:
+      - 9
+      method: collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: TO.사무동 지상2층 전산실
+    source_page: 9
+    reason: 라벨 원문은 보존 가능하나 별도 표준 속성으로 확정하지 않음
+    preservation_note: TO. 접두와 목적지 공간명이 결합된 연결점 표기
+  - field_candidate: specs.raw_labels
+    raw_text: FIBER OPTICAL S.M 12CORE (IN TRAY)
+    source_page: 9
+    reason: 케이블 규격/포설 문구로 보이나 확정 데이터 속성 미지정
+    preservation_note: 케이블 사양 후보
+  - field_candidate: specs.note
+    raw_text: 기존 CABLE 포설
+    source_page: 9
+    reason: 주석성 문구
+    preservation_note: 기존 배선 포설 상태 설명
+  - field_candidate: specs.destination
+    raw_text: 사무동 지상2층 전산실
+    source_page: 9
+    reason: 목적지 텍스트이나 공간/실 개체로 분해하지 않음
+    preservation_note: 연결 종착 공간명
+  - field_candidate: specs.label_prefix
+    raw_text: TO.
+    source_page: 9
+    reason: 접두 표기
+    preservation_note: 방향성 라벨 접두
+  - field_candidate: equipment_symbols
+    raw_text: 'type: external_connection_point, count: 1'
+    source_page: 9
+    reason: 심볼 메타데이터
+    preservation_note: 도면 심볼 1개
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationConnectionPoint
+    source_page: 9
+    reason: 힌트는 보존하되 확정 클래스 아님
+    preservation_note: 상위 클래스 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: External Connection; Fiber Optic Termination
+    source_page: 9
+    reason: 기능 후보 목록
+    preservation_note: 기능 해석 후보
+  - field_candidate: relations
+    raw_text: from TRAY-EXISTING-COMM to EXT-OFFICE-2F relation cable
+    source_page: 9
+    reason: 관계 사실은 있으나 정식 property 확정 전
+    preservation_note: 케이블 연결 원형
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 연결점으로 보이지만, 물리적 종단점인지 단순 주석/표기인지와 class 세분화가 도면 원문만으로는 완전히 확정되지 않음
+    recommended_handling: 0-9c에서 CommunicationConnectionPoint 계열 후보로 검토하고, 0-9d에서
+      cable/connectedTo 계열 관계로 정식화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부연결/인입/출처 지점 패턴에 맞춰 EXT-* 연결점으로 배치
+    - connectedTo/cable 관계 원형을 related_assertions에 보존
+    - destination, cable_specifications, note, label_prefix, position, equipment_symbols,
+      ontology_hints를 모두 스캔하여 free_notes/unresolved/provenance에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:22.185073'
+  confidence: 0.86

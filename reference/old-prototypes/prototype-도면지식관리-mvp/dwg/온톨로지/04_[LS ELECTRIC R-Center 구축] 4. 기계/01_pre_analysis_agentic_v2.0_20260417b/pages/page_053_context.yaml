@@ -1,0 +1,439 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 전선 및 전선관 표기 범례/기호 표
+  discipline: MECHANICAL
+  classification: FLOOR_PLAN
+  drawing_genre: genre_fire_damper_control
+  title_block:
+    drawing_number: M92-104
+    title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 3
+  next_step_hints:
+  - 도면 우하단에 '전선 및 전선관' 범례 표가 보임
+  - 도면명은 SMFD 제어 평면도이나 표제란 도면번호는 M92-104로 표시됨
+  - 도면 중앙 우측에 작은 제어/설비 심볼과 배선 표기가 일부 보임
+  confidence: 0.93
+  note: 표제란 도면번호 접두사 M에 따라 discipline은 ELECTRICAL보다 MECHANICAL로 해석될 여지가 있으나, 현재 페이지의
+    시각적 내용은 SMFD 제어 평면도 및 전선/전선관 범례가 함께 보여 전기/제어 성격이 강함. 다만 접두사 우선 규칙과 시각 내용이 충돌함.
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_fire_damper_control/supplement_p4_05.yaml
+    P-10: discipline/mechanical/_general/supplement_p10.yaml
+    P-11: discipline/mechanical/_general/supplement_p11.yaml
+  routing_confidence: 0.78
+  routing_reason: 표제란 도면번호 M92-104가 보이지만, 페이지 제목과 범례가 SMFD 제어 평면도/전선 및 전선관으로 확인되어
+    floor_plan 계열로 라우팅했다. electrical discipline의 genre_floor_plan 보조프롬프트가 카탈로그에 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    position: center
+    labels_near:
+    - A-D
+    - 1-7
+    - 12,000
+    - 13,000
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 전선 및 전선관
+    position: bottom-right
+    labels_near:
+    - KEY
+    - CV
+    - C3052
+    - UTP
+    - 2.5 x 3C
+    - 0.6 x 4P
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: M92-104
+    position: bottom-right
+    labels_near:
+    - 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    - R-Center
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: dashed
+    annotation: 제어 배선 (추정)
+  notable_shapes:
+  - shape: circle
+    label: A
+    note: 도면 중앙, EPS/TPS 실 인근의 riser 또는 제어점 심볼
+  - shape: circle
+    label: B
+    note: 도면 중앙, EPS/TPS 실 인근의 riser 또는 제어점 심볼
+  - shape: circle
+    label: '1'
+    note: 도면 하단 제목 옆의 상세 번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.98
+  note: 도면 우하단에 '전선 및 전선관' 표가 명확히 배치되어 있음
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: genre_fire_damper_control
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 M92-104의 접두사 M에 따라 MECHANICAL로 갱신. 시각 내용이 SMFD 제어 평면도이므로 mechanical
+    카탈로그의 genre_fire_damper_control로 라우팅.
+classification: FLOOR_PLAN
+discipline: MECHANICAL
+key_elements_from_text:
+- 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+- 전선 및 전선관
+- 'PROJECT TITLE: R-Center 구축'
+- 'BUILDING NAME: R-Center'
+- 'PROJECT NUMBER: 224001'
+- 'DRAWING NO.: M92-104'
+- 'SCALE: A1:1/200, A3:1/400'
+- 'DATE: 2024.05'
+- 축척 1/400
+- '그리드 표기: 1-7, A-D'
+title_block:
+  drawing_number: M92-104
+  title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+  revision: null
+confidence: 0.96
+note: 페이지 하단 우측 범례/표에 '전선 및 전선관'이 보이며, 표제란의 도면번호는 M92-104, 제목은 '지붕층 스마트 방화댐퍼(SMFD)
+  제어 평면도'로 확인됨. 기존 분석의 MECHANICAL/FLOOR_PLAN 판정과 일치한다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - 지붕층 평면도 (지붕층 스마트 방화댐퍼 제어 평면도)
+    - '그리드 축: 1-7 (수평), A-D (수직)'
+    - '스팬 치수: 12,000 / 12,000 / 12,000 / 14,000 / 11,000 / 10,000'
+    - '전체 폭: 71,000'
+    - '전체 높이: 43,000 (17,900 + 13,000 + 13,000 구성)'
+    labels_above:
+    - 1 2 3 4 5 6 7 (그리드 번호)
+    labels_below:
+    - 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    - 축척 1/400
+    equipment_symbols:
+    - type: SMFD 제어 심볼 클러스터 (원형 라벨 A, B 포함)
+      count: 1
+    - type: 계단실 (DN 표기)
+      count: 1
+    - type: 소형 설비실/EPS 구획
+      count: 1
+    inferred_name: 지붕층 전체 평면 (SMFD 제어 배선 포함)
+    position: center
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - SMFD 제어 심볼 클러스터
+    - 원형 라벨 A (하부)
+    - 원형 라벨 B (상부)
+    - 배선 인출선 (DN 방향)
+    - C 라벨 (우측 상단 인근)
+    labels_above:
+    - C
+    labels_below:
+    - DN
+    equipment_symbols:
+    - type: SMFD 제어반/단자함 심볼
+      count: 1
+    - type: 원형 라벨 A (리저 또는 제어점)
+      count: 1
+    - type: 원형 라벨 B (리저 또는 제어점)
+      count: 1
+    inferred_name: SMFD 제어 집중 구역 (그리드 5-6 / B-C 교차점 인근)
+    position: center-right
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 전선 및 전선관
+    - KEY | CV | C3052 | UTP
+    - E | 2.5 x 3C | 0.6 x 4P
+    - Y | 2,5 3C | 0.6 4P
+    - A (원형 심볼) | 전선관 표기
+    labels_above:
+    - 전선 및 전선관
+    labels_below: []
+    equipment_symbols:
+    - type: 전선/전선관 범례 표
+      count: 1
+    inferred_name: 전선 및 전선관 범례 표 (도면 우하단)
+    position: bottom-right
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축 GAUN Architects & Engineers
+    - M92-104
+    - 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    - R-Center
+    - A1:1/200 A3:1/400
+    - '2024.05'
+    - 정명호 / 안동식 / 이준진 / 정유재
+    - (주)선진이앤씨
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란 (Title Block)
+    position: right
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - 소형 구획 (그리드 6-7 / A-B 교차점)
+    - 내부 설비 심볼 (판독 불명확)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소형 설비실 또는 기계실 구획
+      count: 1
+    inferred_name: 소형 설비 구획 (우측 상단)
+    position: top-right
+  connections:
+  - from: BLK-M02
+    to: BLK-M01
+    line_type: cable
+    line_style: solid
+    annotation: CV 2.5 x 3C (제어 배선, 전선관 내 포설)
+  - from: BLK-M02
+    to: BLK-M01
+    line_type: cable
+    line_style: solid
+    annotation: UTP 0.6 x 4P (신호 배선)
+  - from: BLK-M02
+    to: BLK-M01
+    line_type: other
+    line_style: solid
+    annotation: DN (하층으로 배선 인출 방향 표기)
+  groups:
+  - group_id: GRP-001
+    label: 지붕층 SMFD 제어 구역
+    members:
+    - BLK-M01
+    - BLK-M02
+  - group_id: GRP-002
+    label: 도면 정보 및 범례 구역
+    members:
+    - BLK-M03
+    - BLK-M04
+  spaces:
+  - space_id: ROOM-ROOF
+    name: 지붕층
+    floor_label: 지붕층
+    contains:
+    - BLK-M02
+    - BLK-M05
+  legend_references:
+  - text: CV 2.5 x 3C — 제어용 전력 케이블
+    linked_to: BLK-M03
+  - text: UTP 0.6 x 4P — 신호/통신 케이블
+    linked_to: BLK-M03
+  - text: A (원형) — 전선관 종류 키 심볼
+    linked_to: BLK-M03
+  - text: E — 전선관 표기 키
+    linked_to: BLK-M03
+  - text: Y — 전선관 표기 키
+    linked_to: BLK-M03
+  notable_shapes:
+  - shape: circle
+    label: A
+    position: center-right (그리드 5-6 / C 라인 인근)
+    note: SMFD 제어점 또는 리저 심볼 — 하층 연결 기준점
+  - shape: circle
+    label: B
+    position: center-right (그리드 5-6 / B-C 라인 사이)
+    note: SMFD 제어점 또는 리저 심볼
+  - shape: text
+    label: C
+    position: center-right 상단
+    note: 제어 구역 참조 라벨 또는 상세도 번호
+  - shape: text
+    label: DN
+    position: BLK-M02 하단
+    note: 배선 하층 인출 방향 표기
+  - shape: circle
+    label: '1'
+    position: 도면 하단 제목 좌측
+    note: 상세도 번호 또는 도면 참조 번호
+  diagram_meta:
+    title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    drawing_number: M92-104
+    project: LS Electric R-Center 구축
+    building_name: R-Center
+    project_number: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    discipline: MECHANICAL/ELECTRICAL (SMFD 제어)
+    drawing_subtype: equipment_layout
+    floor_label: 지붕층
+    flow_direction: UNKNOWN
+    grid_axes: 1-7 (수평), A-D (수직)
+    has_cable_schedule: false
+    has_equipment_list: false
+    has_legend_section: true
+    legend_region: bottom-right
+    smfd_control_zone_grid: 5-6 / B-C
+    total_width_mm: 71000
+    total_depth_mm: 43000
+    span_breakdown_mm:
+    - 12000
+    - 12000
+    - 12000
+    - 14000
+    - 11000
+    - 10000
+    cable_types_noted:
+    - CV 2.5 x 3C
+    - UTP 0.6 x 4P
+    confidence: 0.91
+    note: 도면 중앙 우측(그리드 5-6, B-C 교차 인근)에 SMFD 제어 심볼 클러스터가 집중되어 있으며, 원형 라벨 A·B와 DN 인출
+      표기가 확인됨. 전선 및 전선관 범례 표(우하단)에서 CV 2.5x3C 및 UTP 0.6x4P 케이블 사양이 확인됨. 도면번호 접두사 M은
+      MECHANICAL 계열이나 내용은 SMFD 제어 배선 평면도로 전기/제어 성격이 혼재함.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PLN-001
+    shape: rectangle
+    labels_inside:
+    - 지붕층 평면도
+    - '그리드: 1-7 (수평), A-D (수직)'
+    - '전체 치수: W 71,000 x D 43,000'
+    - '스팬 치수(수평): 12,000, 12,000, 12,000, 14,000, 11,000, 10,000'
+    - '스팬 치수(수직): 13,000, 17,000, 13,000'
+    labels_above:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    labels_below:
+    - 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    - 축척 1/400
+    - 1 (상세 참조 심볼)
+    equipment_symbols: []
+    inferred_name: 지붕층 전체 평면도
+    position: center
+  - panel_id: CORE-001
+    shape: rectangle
+    labels_inside:
+    - EPS/TPS
+    - DN
+    - C
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_label
+      label: A
+      count: 1
+      note: SMFD 제어반 또는 접속함 (평면도 내 심볼)
+    - type: circle_with_label
+      label: B
+      count: 1
+      note: SMFD 제어반 또는 접속함 (평면도 내 심볼)
+    - type: stairs
+      count: 1
+      note: 계단실
+    inferred_name: 코어부 (계단실 및 EPS/TPS)
+    position: center (그리드 5-6, B-C 구간)
+  - panel_id: LGD-001
+    shape: rectangle
+    labels_inside:
+    - 전선 및 전선관
+    - KEY | CV | C3052 | UTP
+    - E | 2.5 x 3C | - | 0.6 x 4P
+    - Y | - | 2.5 x 3C | 0.6 x 4P
+    - A(원형) | (16C) | (16C) | -
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 전선 및 전선관 범례표
+    position: bottom-right
+  - panel_id: TTL-001
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - M92-104
+    - 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    - R-Center
+    - A1:1/200, A3:1/400
+    - '2024.05'
+    - (주)선진이앤씨
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: STR-001
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지붕 구조물 (우측 상단)
+    position: top-right (그리드 6-7, A-B 구간)
+  connections:
+  - from: CORE-001 (Symbol A)
+    to: CORE-001 (Symbol B)
+    line_type: cable
+    line_style: solid
+    annotation: SMFD 제어 배선 (추정)
+  - from: CORE-001 (Symbol A/B)
+    to: CORE-001 (DN)
+    line_type: cable
+    line_style: solid
+    annotation: 하층 인출 배선 (DN)
+  groups: []
+  spaces:
+  - space_id: ROOM-ROOF
+    name: 지붕층
+    floor_label: 지붕층
+    contains:
+    - PLN-001
+    - CORE-001
+    - STR-001
+  - space_id: ROOM-EPS
+    name: EPS/TPS실
+    floor_label: 지붕층
+    contains:
+    - CORE-001의 내부 심볼들
+  legend_references:
+  - text: CV 2.5 x 3C (KEY E)
+    linked_to: LGD-001
+  - text: UTP 0.6 x 4P (KEY E, Y)
+    linked_to: LGD-001
+  - text: C3052 2.5 x 3C (KEY Y)
+    linked_to: LGD-001
+  - text: 전선관 16C (KEY A원형)
+    linked_to: LGD-001
+  diagram_meta:
+    title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    drawing_number: M92-104
+    project_name: LS Electric R-Center 구축
+    building_name: R-Center
+    project_number: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    discipline: MECHANICAL (기계) / ELECTRICAL (전기/제어)
+    drawing_type: FLOOR_PLAN
+    drawing_subtype: control_plan
+    floor_label: 지붕층
+    grid_axes: 1-7, A-D
+    overall_dimensions: 71000 x 43000 mm
+    has_legend: true
+    notes: 도면번호는 기계(M) 계열이나, 내용은 SMFD 제어 배선으로 전기/제어 성격임. 중앙 코어부(EPS/TPS)에 제어반/접속함(A,
+      B)과 하층 인출(DN) 배선이 표현됨. 범례의 원형 A는 전선관 규격을 의미하며, 평면도의 원형 A 심볼과는 다름.

@@ -1,0 +1,111 @@
+ontology_readiness:
+  tag: BLK-MANHOLE
+  verdict: qualified
+  confidence: 0.98
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 3
+    reason: 고유 tag가 있고, 자체 specs(labels_inside, dimensions, raw_labels)가 있으며, 다른 설비의
+      부품으로만 보이지 않는 독립 인프라 엔티티로 판단됨.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 3
+    convertible: 2
+    ambiguous_attributes:
+    - key: labels_inside
+      value:
+      - 전력 인입용 전력맨홀
+      - 2,000x2,000x2,000mm
+      reason: 라벨 텍스트와 치수 문자열이 함께 포함된 목록으로, 단일 온톨로지 속성으로 직접 변환하기보다 annotation으로 보존하는
+        것이 안전함.
+    - key: raw_labels
+      value:
+      - 전력 인입용 전력맨홀
+      - 2,000x2,000x2,000mm
+      reason: 원문 라벨 보존용 필드로, 속성값이라기보다 주석/증거 텍스트에 해당함.
+    auxiliary_attributes:
+    - labels_inside
+    - dimensions
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes: []
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: Manhole
+    alternative_parent_classes:
+    - Infrastructure
+    - CableRoutingStructure
+  spatial_context:
+    position: bottom-left
+    source_pages:
+    - 23
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - 전력 인입용 전력맨홀
+      - 2,000x2,000x2,000mm
+      dimensions: 2,000x2,000x2,000mm
+      raw_labels:
+      - 전력 인입용 전력맨홀
+      - 2,000x2,000x2,000mm
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Manhole
+    annotations_to_emit:
+    - labels_inside
+    - raw_labels
+    - source_attribution
+    - collection_sources
+    relations_to_emit:
+    - EXT-UT-ELEC connects_to BLK-MANHOLE
+    - BLK-MANHOLE feeds BLK-SS-RCENTER
+    needs_human_review: false
+tag: BLK-MANHOLE
+discovered_relations: 2

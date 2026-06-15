@@ -1,0 +1,114 @@
+entity_detail:
+  tag: 피뢰침
+  type: lightning_rod
+  specs:
+    height:
+      value: 3,000
+      unit: ㎜
+      source: 37
+      confidence: 0.98
+    quantity:
+      value: '1'
+      unit: 개소
+      source: 37
+      confidence: 0.98
+    installation_note:
+      value: 현장 제작 사이즈 변경 가능
+      source: 40
+      confidence: 0.98
+  drawing_texts:
+  - source: page_037_context.yaml
+    page_number: 37
+    text: 피뢰침 1개소
+  - source: page_037_context.yaml
+    page_number: 37
+    text: H:3,000㎜, 1개소
+  - source: page_038_context.yaml
+    page_number: 38
+    text: 피뢰침 1개소
+  - source: page_038_context.yaml
+    page_number: 38
+    text: H:3,000㎜, 1개소
+  - source: page_040_context.yaml
+    page_number: 40
+    text: 피뢰침 (현장 제작 사이즈 변경 가능)
+  - source: page_040_context.yaml
+    page_number: 40
+    text: 돌침피뢰침 상세도
+  requirements:
+  - text: 보호등급 IV등급
+    source: page_037_context.yaml
+    type: performance
+  - text: 회전구체반경 60 m
+    source: page_037_context.yaml
+    type: performance
+  - text: 한국전기설비규정(KEC) 150 피뢰시스템
+    source: page_037_context.yaml
+    type: standard
+  - text: KS C IEC 62305
+    source: page_037_context.yaml
+    type: standard
+  - text: 현장 제작 사이즈 변경 가능
+    source: page_040_context.yaml
+    type: installation_condition
+  connection_specs:
+  - relation: connected_via
+    partner: 수평도체
+    details:
+      source: 37
+      text: 피뢰침 1개소를 중심으로 수평도체(STS 환봉 8㎜)와 연결
+      confidence: 0.98
+  - relation: connected_via
+    partner: 수평도체
+    details:
+      source: 38
+      text: 피뢰침 1개소와 이를 둘러싼 수평도체
+      confidence: 0.98
+  - relation: 지지
+    partner: 일체형 지지대(STS 304)
+    details:
+      source: 40
+      text: 피뢰침 -> 일체형 지지대(STS 304)
+      confidence: 0.95
+  - relation: 지지
+    partner: 지지대(STS 304)
+    details:
+      source: 40
+      text: 피뢰침 -> 지지대(STS 304)
+      confidence: 0.95
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: HC-001
+      direction: bidirectional
+      source: 37
+    - relation_type: connected_via
+      partner_tag: null
+      direction: downstream
+      source: 38
+    - relation_type: 지지
+      partner_tag: LP-COMP-011
+      direction: 피뢰침 -> 일체형 지지대(STS 304)
+      source: 40
+    - relation_type: 지지
+      partner_tag: LP-COMP-012
+      direction: 피뢰침 -> 지지대(STS 304)
+      source: 40
+    observed_attributes:
+    - height
+    - quantity
+    - installation_note
+    - 보호등급
+    - 회전구체반경
+    - 적용기준
+    similar_equipment:
+    - LR-001
+    - LP-COMP-010
+    suggested_parent_class: LightningProtectionEquipment
+    cross_discipline:
+    - ELECTRICAL
+    - STRUCTURAL
+  notes:
+  - 페이지 37, 38에서는 동일 설비가 피뢰침 1개소, H:3,000㎜로 확인됨.
+  - 페이지 40에는 돌침피뢰침 상세도 내 피뢰침이 별도 부품으로 나타남.
+tag: 피뢰침

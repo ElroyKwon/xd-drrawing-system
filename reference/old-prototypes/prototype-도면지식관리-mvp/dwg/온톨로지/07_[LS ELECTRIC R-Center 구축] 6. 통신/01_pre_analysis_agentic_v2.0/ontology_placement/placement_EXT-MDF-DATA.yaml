@@ -1,0 +1,184 @@
+placement:
+  tag: EXT-MDF-DATA
+  name: 기존 MDF DATA에 연결
+  discipline: communication
+  ontology_core:
+    owl_role: ObjectPropertyAssertion
+    iri_hint: ''
+    class_hint: CommunicationInterface
+    alternative_class_hints:
+    - CommunicationEquipment
+    - ExternalConnectionPoint
+    related_assertions:
+    - type: cable
+      target_hint: FDF-OUT-1
+      note: EXT-MDF-DATA에서 FDF-OUT-1로 케이블 관계가 관찰됨
+    applicable_axioms:
+    - AX046
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationInterface
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 MDF DATA에 연결
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionNote
+          suggested_datatype: xsd:string
+          rationale: 도면 주석성 문구로 연결 대상과 용도를 설명함
+      - raw_text: 외부 인입점
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: inferred_name에 포함된 기능 설명으로 보존 가치가 있음
+      - raw_text: 기존 MDF DATA 연결
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: raw_labels의 핵심 표기이며 원문 보존이 필요함
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail
+    name:
+      source_pages:
+      - 18
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: inferred_from_relation
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 18
+      method: preservation
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.shape:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.labels_above:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.labels_below:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.position:
+      source_pages:
+      - 18
+      method: entity_detail
+    relations:
+      source_pages:
+      - 18
+      method: entity_detail
+    collection_sources.visual_semantics:
+      source_pages:
+      - 18
+      method: entity_detail
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 18
+      method: entity_detail
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 18
+      method: entity_detail
+    position:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.shape
+    raw_text: other
+    source_page: 18
+    reason: 도형 값은 있으나 이 단계에서 의미 분류를 확정하지 않음
+    preservation_note: 원문 shape 값 보존
+  - field_candidate: specs.labels_inside
+    raw_text: '[]'
+    source_page: 18
+    reason: 빈 배열이지만 관찰 결과로 보존
+    preservation_note: 내부 라벨 없음 상태 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 18
+    reason: 빈 배열이지만 관찰 결과로 보존
+    preservation_note: 하단 라벨 없음 상태 보존
+  - field_candidate: relations[0].relation
+    raw_text: cable
+    source_page: 18
+    reason: 관계 원형만 보존하고 정식 property IRI는 미확정
+    preservation_note: 0-9d에서 정식 관계명 승격 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: External Connection; Data Distribution
+    source_page: 18
+    reason: 후보 기능은 있으나 확정 분류 아님
+    preservation_note: 기능 후보 목록 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 equipment로 입력되었으나 실제로는 외부 인입점/연결 주석 성격이 강하고, 물리 설비와 관계 사실이 혼재함
+    recommended_handling: 0-9c에서 CommunicationEquipment vs ExternalConnectionPoint
+      vs AnnotationOnly 가능성을 함께 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부연결/인입/출처 지점 패턴으로 해석
+    - relations의 cable 관계 사실 원형 보존
+    - 공간/문서/설비 혼합 가능성에 대한 ambiguity 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:07.880832'
+  confidence: 0.78

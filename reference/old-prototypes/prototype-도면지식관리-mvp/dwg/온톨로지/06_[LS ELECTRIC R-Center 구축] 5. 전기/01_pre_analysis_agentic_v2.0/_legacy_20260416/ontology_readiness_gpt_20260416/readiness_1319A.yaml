@@ -1,0 +1,200 @@
+ontology_readiness:
+  tag: 1319A
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 21
+    reason: 고유 tag 1319A가 있고, VCB/CT/ZCT/SA/GIPAM 및 정격값이 자체 specs에 명시되어 독립 엔티티로 판단됨.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 21
+    convertible: 18
+    ambiguous_attributes:
+    - key: ct_ratio_gemini
+      value: 200/5A
+      reason: ct_ratio(75/5A)와 충돌하는 이중 출처 값이며, 원문 보존 필요
+    - key: load_name_gemini
+      value: 사무동력
+      reason: 부하명은 속성 후보이나 출처별 값으로 보존 필요
+    - key: destination_gemini
+      value: 4301/HV
+      reason: 출처별 목적지 표기이며 원문 보존 필요
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - zct_rating
+    - sa_rating
+    - protection_functions
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - ct_ratio_sonnet
+    - ct_ratio_gemini
+    - zct_count
+    - zct_rating_mA
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    - load_name_gemini
+    - destination_gemini
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: ct_ratio_sonnet
+      value: 75/5A
+      source: sonnet
+      conflict_with: ct_ratio_gemini=200/5A
+    - key: ct_ratio_gemini
+      value: 200/5A
+      source: gemini
+      conflict_with: ct_ratio_sonnet=75/5A
+    - key: load_name_gemini
+      value: 사무동력
+      source: gemini
+      conflict_with: null
+    - key: destination_gemini
+      value: 4301/HV
+      source: gemini
+      conflict_with: null
+    conflicts:
+    - key: ct_ratio
+      values:
+      - 75/5A
+      - 200/5A
+      sources:
+      - specs.ct_ratio
+      - specs.ct_ratio_gemini
+      - ontology_hints.observed_attributes
+      - source_attribution.gemini
+      - source_attribution.sonnet
+  duplicate_candidates:
+  - 1319B
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: SwitchgearPanel
+    alternative_parent_classes:
+    - HV_Feeder
+    - VCB_Panel
+    - Protection_Panel
+  spatial_context:
+    position: bottom-center
+    source_pages:
+    - 5
+    room_or_zone: U/T 동 주변전실-1(기존)
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1319A
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      bus_section: HV
+      vcb_rating: 3P 24kV 600A 750MVA
+      ct_ratio: 75/5A
+      zct_rating: 200mA
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      - '67'
+      panel_id: 1319A
+      voltage_kV: 3.3
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 24
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 750
+      ct_count: 2
+      ct_ratio_sonnet: 75/5A
+      ct_ratio_gemini: 200/5A
+      zct_count: 1
+      zct_rating_mA: 200
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      load_name_gemini: 사무동력
+      destination_gemini: 4301/HV
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  - source_attribution
+  - read_page_context.page_5.relationships
+  - read_page_context.page_5.spaces
+  - read_page_context.page_5.diagram_spec
+  - read_page_context.page_5.disagreements
+  - read_page_context.page_5.key_elements_from_text
+  - read_page_context.page_5.initial_scan
+  - read_page_context.page_5.visual_sketch
+  - read_page_context.page_5.visual_semantics
+  - read_page_context.page_5.entity_synthesis
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SwitchgearPanel
+    annotations_to_emit:
+    - ct_ratio_sonnet=75/5A
+    - ct_ratio_gemini=200/5A
+    - load_name_gemini=사무동력
+    - destination_gemini=4301/HV
+    - 'conflict: ct_ratio'
+    relations_to_emit:
+    - connects_to(1304B)
+    - connects_to(1319B)
+    needs_human_review: false
+tag: 1319A
+discovered_relations: 2

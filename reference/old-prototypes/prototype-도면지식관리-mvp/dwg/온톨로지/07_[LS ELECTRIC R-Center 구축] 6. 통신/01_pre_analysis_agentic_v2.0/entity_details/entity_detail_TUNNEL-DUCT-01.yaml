@@ -1,0 +1,50 @@
+tag: TUNNEL-DUCT-01
+name: 지하공동구 (기존 CABLE TRAY 공용)
+type: structural_element
+discipline: COMMUNICATION
+function_category: CABLE_TRAY
+source_pages:
+- 4
+specs:
+  raw_labels:
+  - 공동구
+  - 기존 공동구 CABLE TRAY 사용
+  - IN TRAY
+  labels_inside:
+  - 공동구
+  - 기존 공동구 CABLE TRAY 사용
+  - IN TRAY
+  notes:
+  - 기존 공동구 CABLE TRAY 사용
+  - '터파기 신설 구역: 기존 도로 컷팅 및 터파기후 배관배선 신설'
+  - 터파기, 되메우기 및 도로포장은 토목공사분
+relations:
+- from: MANHOLE-01
+  to: TUNNEL-DUCT-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 터파기 신설 구역 / EMPTY PIPE (ELP50)
+- from: TUNNEL-DUCT-01
+  to: HUB-RACK-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 'IN TRAY / 기존 공동구 CABLE TRAY 사용 / FROM : 사무동 지하1층 통신실 UTP 0.5mm/25Px1,
+    CAT.5 / FROM : 사무동 지상2층 전산실 FIBER OPTICAL S.M 12CORE / FROM : 사무동 지상1층 방송실 FR-3
+    2.5sq / 10C'
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-bottom
+ontology_hints:
+  suggested_parent_class: CableManagementSystem
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - notes
+  similar_equipment: []
+  function_candidates:
+  - Cable Routing
+  - Underground Containment

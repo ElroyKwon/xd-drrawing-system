@@ -1,0 +1,1576 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: SECTION_DRAWING
+  drawing_genre: site_grading
+  title_block:
+    drawing_number: C20-102
+    title: 굴착계획단면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 표제란에 도면번호 C20-102와 제목 '굴착계획단면도'가 보임
+  - 상단 중앙에 'A - A 단면' 표기와 우측 상단 Key Plan이 보임
+  - 도면 본문은 굴착 단면/지반 레벨 표기 중심이며 설비 태그는 식별되지 않음
+  confidence: 0.93
+  note: 도면번호 접두사 C가 보이나, 시각적 내용은 건축/토목성 단면도에 가까움. 접두사 우선 규칙에 따라 discipline은 ARCHITECTURAL로
+    두었음.
+  recommended_supplements: &id001
+    P-4.5: discipline/civil/genre_site_grading/supplement_p4_05.yaml
+  routing_confidence: 0.78
+  routing_reason: 표제란의 C20-102와 단면 성격을 근거로 ARCHITECTURAL/plan_elevation으로 라우팅했으며,
+    카탈로그에는 architectural P-4.5의 genre_plan_elevation이 직접 매칭됨.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: SECTION-A
+    shape: rectangle
+    primary_label: A - A 단면
+    position: center
+    labels_near:
+    - A - A 단면
+    - 굴착계획단면도
+    - 축척 1/150
+  - panel_id: KEY-PLAN
+    shape: rectangle
+    primary_label: Key Plan
+    position: top-right
+    labels_near:
+    - Key Plan
+    - A
+  connections: []
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 그리드 열 번호 (1~7 반복)
+  - shape: dashed_box
+    label: FINAL EXC. EL.+94.81m
+    note: 굴착 레벨 표기 (EL.+92.94m, EL.+93.44m 등 반복)
+  - shape: other
+    label: S = 1:1.0
+    note: 굴착 사면 경사비 표기
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 도면은 굴착 단면도이며 범례 표나 심볼 목록이 포함되어 있지 않음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: site_grading
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 C20-102(C 접두사)와 제목 '굴착계획단면도', 본문의 'FINAL EXC. EL', 'S=1:1.0(경사비)'
+    키워드는 토목(CIVIL) 분야의 굴착/부지정지(site_grading) 장르에 해당함. 사전 분석의 ARCHITECTURAL/plan_elevation은
+    오판이므로 갱신함.
+classification: SECTION_DRAWING
+discipline: CIVIL
+key_elements_from_text:
+- A - A 단면
+- Key Plan
+- FINAL EXC. EL.+94.81m
+- FINAL EXC. EL.+93.44m
+- FINAL EXC. EL.+93.14m
+- EL.+92.94m
+- EL.+91.14m
+- S = 1:1.0
+- 1:150
+- R-Center
+- 굴착계획단면도
+title_block:
+  drawing_number: C20-102
+  title: 굴착계획단면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=CIVIL, classification=SECTION_DRAWING, drawing_genre=site_grading
+  판정과 일치함. 시각적으로도 굴착 단면과 지반/굴착 레벨 표기(FINAL EXC. EL., EL.+...)가 중심이며, 표제란에 도면번호 C20-102와
+  제목 '굴착계획단면도'가 보임. 우측 상단에 Key Plan, 본문 상단에 A-A 단면 표기가 확인됨.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: KEY-PLAN
+    shape: rectangle
+    labels_inside:
+    - Key Plan
+    labels_above:
+    - Key Plan
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 키 플랜 (단면 위치 참조도)
+    position: top-right
+  - panel_id: SECTION-AA
+    shape: other
+    labels_inside:
+    - A - A 단면
+    - 굴착계획단면도
+    - 축척 1/150
+    labels_above:
+    - A - A 단면
+    labels_below:
+    - 굴착계획단면도
+    - 축척 1/150
+    equipment_symbols: []
+    inferred_name: A-A 굴착 계획 단면
+    position: center
+  - panel_id: GRID-COL-1
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 1
+    position: top-left-center
+  - panel_id: GRID-COL-2
+    shape: circle
+    labels_inside:
+    - '2'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 2
+    position: top-center-left
+  - panel_id: GRID-COL-3
+    shape: circle
+    labels_inside:
+    - '3'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 3
+    position: top-center
+  - panel_id: GRID-COL-4
+    shape: circle
+    labels_inside:
+    - '4'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 4
+    position: top-center
+  - panel_id: GRID-COL-5
+    shape: circle
+    labels_inside:
+    - '5'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 5
+    position: top-center-right
+  - panel_id: GRID-COL-6
+    shape: circle
+    labels_inside:
+    - '6'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 6
+    position: top-right-center
+  - panel_id: GRID-COL-7
+    shape: circle
+    labels_inside:
+    - '7'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 구조 그리드 열 7
+    position: top-right
+  - panel_id: EXC-LEVEL-LEFT
+    shape: dashed_box
+    labels_inside:
+    - FINAL EXC.
+    - EL.+94.81m
+    labels_above: []
+    labels_below:
+    - FINAL EXC.
+    - EL.+94.81m
+    equipment_symbols: []
+    inferred_name: 좌측 굴착 완료 레벨 (EL.+94.81m)
+    position: bottom-left
+  - panel_id: EXC-LEVEL-RIGHT
+    shape: dashed_box
+    labels_inside:
+    - FINAL EXC.
+    - EL.+93.14m
+    labels_above: []
+    labels_below:
+    - FINAL EXC.
+    - EL.+93.14m
+    equipment_symbols: []
+    inferred_name: 우측 굴착 완료 레벨 (EL.+93.14m)
+    position: bottom-right
+  - panel_id: EXC-LEVEL-CENTER
+    shape: dashed_box
+    labels_inside:
+    - FINAL EXC.
+    - EL.+91.14m
+    labels_above: []
+    labels_below:
+    - FINAL EXC.
+    - EL.+91.14m
+    equipment_symbols: []
+    inferred_name: 중앙 최저 굴착 완료 레벨 (EL.+91.14m)
+    position: bottom-center
+  - panel_id: GRADE-LEVEL-1
+    shape: other
+    labels_inside:
+    - EL.+92.94m
+    labels_above: []
+    labels_below:
+    - EL.+92.94m
+    equipment_symbols: []
+    inferred_name: 지반 레벨 표기 EL.+92.94m
+    position: bottom-left-center
+  - panel_id: GRADE-LEVEL-2
+    shape: other
+    labels_inside:
+    - EL.+93.44m
+    labels_above: []
+    labels_below:
+    - EL.+93.44m
+    equipment_symbols: []
+    inferred_name: 지반 레벨 표기 EL.+93.44m (다수 반복)
+    position: bottom-center
+  - panel_id: GRADE-LEVEL-3
+    shape: other
+    labels_inside:
+    - EL.+92.14m
+    labels_above: []
+    labels_below:
+    - EL.+92.14m
+    equipment_symbols: []
+    inferred_name: 지반 레벨 표기 EL.+92.14m
+    position: bottom-right-center
+  - panel_id: SLOPE-LEFT
+    shape: other
+    labels_inside:
+    - S = 1:1.0
+    labels_above:
+    - S = 1:1.0
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 굴착 사면 경사비 1:1.0 (좌측)
+    position: bottom-center-left
+  - panel_id: SLOPE-RIGHT
+    shape: other
+    labels_inside:
+    - S = 1:1.0
+    labels_above:
+    - S = 1:1.0
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 굴착 사면 경사비 1:1.0 (우측)
+    position: bottom-center-right
+  - panel_id: DIM-2810
+    shape: other
+    labels_inside:
+    - '2810'
+    labels_above:
+    - '2810'
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 치수 표기 2810 (굴착 폭 또는 구간 치수)
+    position: bottom-center
+  - panel_id: DIM-379
+    shape: other
+    labels_inside:
+    - '379'
+    labels_above: []
+    labels_below:
+    - '379'
+    equipment_symbols: []
+    inferred_name: 치수 표기 379
+    position: bottom-left
+  - panel_id: DIM-90
+    shape: other
+    labels_inside:
+    - '90'
+    labels_above: []
+    labels_below:
+    - '90'
+    equipment_symbols: []
+    inferred_name: 치수 표기 90
+    position: bottom-right
+  - panel_id: BUILDING-SECTION-LEFT
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건물 단면 (좌측 구간, 그리드 1~5 범위)
+    position: center-left
+  - panel_id: BUILDING-SECTION-RIGHT
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건물 단면 (우측 구간, 그리드 5~7 범위, 상부 돌출부 포함)
+    position: center-right
+  connections: []
+  groups:
+  - group_id: GRP-GRID-COLS
+    label: 구조 그리드 열 (1~7)
+    members:
+    - GRID-COL-1
+    - GRID-COL-2
+    - GRID-COL-3
+    - GRID-COL-4
+    - GRID-COL-5
+    - GRID-COL-6
+    - GRID-COL-7
+  - group_id: GRP-FINAL-EXC
+    label: 굴착 완료 레벨 (FINAL EXC. EL.)
+    members:
+    - EXC-LEVEL-LEFT
+    - EXC-LEVEL-CENTER
+    - EXC-LEVEL-RIGHT
+  - group_id: GRP-GRADE-LEVELS
+    label: 지반 레벨 표기 (EL.+)
+    members:
+    - GRADE-LEVEL-1
+    - GRADE-LEVEL-2
+    - GRADE-LEVEL-3
+  - group_id: GRP-SLOPES
+    label: 굴착 사면 경사비 (S=1:1.0)
+    members:
+    - SLOPE-LEFT
+    - SLOPE-RIGHT
+  - group_id: GRP-BUILDING-SECTIONS
+    label: 건물 단면 구간
+    members:
+    - BUILDING-SECTION-LEFT
+    - BUILDING-SECTION-RIGHT
+  legend_references: []
+  diagram_meta:
+    title: 굴착계획단면도 (A-A 단면)
+    drawing_number: C20-102
+    project: LS Electric R-Center 구축
+    drawing_firm: 가운건축 (GAUN Architects & Engineers)
+    project_number: '224001'
+    scale_primary: 1:150
+    scale_secondary: 1:300
+    date: '2024.05'
+    discipline: CIVIL
+    classification: SECTION_DRAWING
+    drawing_genre: site_grading
+    arch_subsystem: elevation_section
+    view_type: section
+    section_name: A-A
+    floor_label: null
+    has_legend: false
+    has_grid: true
+    grid_columns:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    key_elevations:
+    - label: FINAL EXC. (좌측)
+      value: EL.+94.81m
+    - label: FINAL EXC. (우측)
+      value: EL.+93.14m
+    - label: FINAL EXC. (중앙 최저)
+      value: EL.+91.14m
+    - label: 지반 레벨
+      value: EL.+92.94m
+    - label: 지반 레벨 (반복)
+      value: EL.+93.44m
+    - label: 지반 레벨
+      value: EL.+92.14m
+    slope_ratios:
+    - S = 1:1.0
+    flow_direction: UNKNOWN
+    notes:
+    - 굴착 사면 경사비 S=1:1.0 좌우 대칭 적용
+    - 중앙부 최저 굴착 레벨 EL.+91.14m, 좌측 최고 굴착 레벨 EL.+94.81m
+    - 치수 2810은 굴착 구간 폭 또는 특정 구간 치수로 추정
+    - 우측 상단 Key Plan에 A-A 단면 절단선 위치 표시
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01-SECTION-TITLE
+    shape: other
+    labels_inside:
+    - A - A 단면
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 단면도 타이틀 (A-A)
+    position: top-center
+  - panel_id: P02-KEY-PLAN
+    shape: rectangle
+    labels_inside:
+    - Key Plan
+    - A
+    - A
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 키 플랜 (Key Plan)
+    position: top-right
+  - panel_id: P03-GRID-1
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 1
+    position: left
+  - panel_id: P04-GRID-2
+    shape: circle
+    labels_inside:
+    - '2'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 2
+    position: center-left
+  - panel_id: P05-GRID-3
+    shape: circle
+    labels_inside:
+    - '3'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 3
+    position: center-left
+  - panel_id: P06-GRID-4
+    shape: circle
+    labels_inside:
+    - '4'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 4
+    position: center
+  - panel_id: P07-GRID-5
+    shape: circle
+    labels_inside:
+    - '5'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 5
+    position: center-right
+  - panel_id: P08-GRID-6
+    shape: circle
+    labels_inside:
+    - '6'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 6
+    position: center-right
+  - panel_id: P09-GRID-7
+    shape: circle
+    labels_inside:
+    - '7'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 그리드 7
+    position: right
+  - panel_id: P10-LEVEL-94.81
+    shape: other
+    labels_inside:
+    - FINAL EXC.
+    - EL.+94.81m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 최종 굴착 레벨 (좌측 끝)
+    position: left
+  - panel_id: P11-DIM-1870
+    shape: other
+    labels_inside:
+    - 1,870
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 수직 치수 (1,870)
+    position: left
+  - panel_id: P12-LEVEL-92.94
+    shape: other
+    labels_inside:
+    - EL.+92.94m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 레벨 표기 (EL.+92.94m)
+    position: left
+  - panel_id: P13-LEVEL-93.44-A
+    shape: other
+    labels_inside:
+    - EL.+93.44m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 2 부근
+    position: center-left
+  - panel_id: P14-LEVEL-93.44-B
+    shape: other
+    labels_inside:
+    - EL.+93.44m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 3 부근
+    position: center-left
+  - panel_id: P15-LEVEL-93.44-C
+    shape: other
+    labels_inside:
+    - EL.+93.44m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 3-4 사이
+    position: center
+  - panel_id: P16-LEVEL-93.44-D
+    shape: other
+    labels_inside:
+    - EL.+93.44m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 4 부근
+    position: center
+  - panel_id: P17-DIM-2810
+    shape: other
+    labels_inside:
+    - 2,810
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 수직 치수 (2,810) - 굴착 깊이
+    position: center
+  - panel_id: P18-SLOPE-1
+    shape: other
+    labels_inside:
+    - S = 1:1.0
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사면 경사 (좌측)
+    position: center
+  - panel_id: P19-LEVEL-91.14
+    shape: other
+    labels_inside:
+    - FINAL EXC.
+    - EL.+91.14m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 최종 굴착 레벨 (최저점)
+    position: center
+  - panel_id: P20-SLOPE-2
+    shape: other
+    labels_inside:
+    - S = 1:1.0
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사면 경사 (우측)
+    position: center-right
+  - panel_id: P21-LEVEL-92.14
+    shape: other
+    labels_inside:
+    - EL.+92.14m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 레벨 표기 (EL.+92.14m)
+    position: center-right
+  - panel_id: P22-DIM-990
+    shape: other
+    labels_inside:
+    - '990'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 수직 치수 (990)
+    position: right
+  - panel_id: P23-LEVEL-93.14
+    shape: other
+    labels_inside:
+    - FINAL EXC.
+    - EL.+93.14m
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 최종 굴착 레벨 (우측 끝)
+    position: right
+  - panel_id: P24-BUILDING-OUTLINE
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건물 구조물 외곽선 (점선)
+    position: center
+  - panel_id: P25-DRAWING-TITLE-BOTTOM
+    shape: other
+    labels_inside:
+    - '1'
+    - 굴착계획단면도
+    - 축척 1/150
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 하단 도면 타이틀
+    position: bottom-center
+  - panel_id: P26-TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - R-Center
+    - 굴착계획단면도
+    - A1: 1/150
+    - A3: 1/300
+    - '2024.05'
+    - C20 - 102
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란 (Title Block)
+    position: bottom-right
+  connections:
+  - from: P11-DIM-1870
+    to: P10-LEVEL-94.81
+    line_type: other
+    line_style: solid
+    annotation: 치수 보조선
+  - from: P11-DIM-1870
+    to: P12-LEVEL-92.94
+    line_type: other
+    line_style: solid
+    annotation: 치수 보조선
+  - from: P17-DIM-2810
+    to: P16-LEVEL-93.44-D
+    line_type: other
+    line_style: solid
+    annotation: 치수 보조선
+  - from: P17-DIM-2810
+    to: P19-LEVEL-91.14
+    line_type: other
+    line_style: solid
+    annotation: 치수 보조선
+  - from: P22-DIM-990
+    to: P21-LEVEL-92.14
+    line_type: other
+    line_style: solid
+    annotation: 치수 보조선
+  - from: P22-DIM-990
+    to: P23-LEVEL-93.14
+    line_type: other
+    line_style: solid
+    annotation: 치수 보조선
+  groups:
+  - group_id: GRP-GRID-SYSTEM
+    label: 구조 그리드
+    members:
+    - P03-GRID-1
+    - P04-GRID-2
+    - P05-GRID-3
+    - P06-GRID-4
+    - P07-GRID-5
+    - P08-GRID-6
+    - P09-GRID-7
+  - group_id: GRP-EXC-LEVELS
+    label: 굴착 레벨 표기
+    members:
+    - P10-LEVEL-94.81
+    - P12-LEVEL-92.94
+    - P13-LEVEL-93.44-A
+    - P14-LEVEL-93.44-B
+    - P15-LEVEL-93.44-C
+    - P16-LEVEL-93.44-D
+    - P19-LEVEL-91.14
+    - P21-LEVEL-92.14
+    - P23-LEVEL-93.14
+  - group_id: GRP-DIMENSIONS
+    label: 수직 치수
+    members:
+    - P11-DIM-1870
+    - P17-DIM-2810
+    - P22-DIM-990
+  - group_id: GRP-SLOPES
+    label: 사면 경사
+    members:
+    - P18-SLOPE-1
+    - P20-SLOPE-2
+  legend_references: []
+  diagram_meta:
+    title: 굴착계획단면도 (A-A 단면)
+    drawing_number: C20-102
+    project_name: LS Electric R-Center 구축
+    scale: 1/150 (A1), 1/300 (A3)
+    flow_direction: UNKNOWN
+    discipline: CIVIL
+    drawing_type: SECTION
+    notes:
+    - 굴착 단면도(A-A)와 키 플랜이 포함됨.
+    - 주요 굴착 레벨(FINAL EXC. EL)과 중간 레벨(EL)이 표기됨.
+    - 굴착 깊이 및 단차를 나타내는 수직 치수(1870, 2810, 990)가 명시됨.
+    - 굴착 사면 경사는 1:1.0으로 표기됨.
+    - 상부에 계획된 건물 구조물의 외곽선이 점선으로 표현됨.
+entity_synthesis:
+  entities:
+  - tag: KEY-PLAN
+    name: Key Plan
+    discipline: CIVIL
+    function_category: REFERENCE_PLAN
+    specifications:
+      labels_inside:
+      - Key Plan
+      labels_above:
+      - Key Plan
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 키 플랜 (단면 위치 참조도)
+      position: top-right
+      shape: rectangle
+    position: top-right
+    source_block: both
+  - tag: SECTION-AA
+    name: A - A 단면
+    discipline: CIVIL
+    function_category: SECTION_VIEW
+    specifications:
+      labels_inside:
+      - A - A 단면
+      - 굴착계획단면도
+      - 축척 1/150
+      labels_above:
+      - A - A 단면
+      labels_below:
+      - 굴착계획단면도
+      - 축척 1/150
+      equipment_symbols: []
+      inferred_name: A-A 굴착 계획 단면
+      position: center
+      shape: other
+    position: center
+    source_block: both
+  - tag: GRID-COL-1
+    name: 구조 그리드 열 1
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '1'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 1
+      position: top-left-center
+      shape: circle
+    position: top-left-center
+    source_block: both
+  - tag: GRID-COL-2
+    name: 구조 그리드 열 2
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '2'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 2
+      position: top-center-left
+      shape: circle
+    position: top-center-left
+    source_block: both
+  - tag: GRID-COL-3
+    name: 구조 그리드 열 3
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '3'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 3
+      position: top-center
+      shape: circle
+    position: top-center
+    source_block: both
+  - tag: GRID-COL-4
+    name: 구조 그리드 열 4
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '4'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 4
+      position: top-center
+      shape: circle
+    position: top-center
+    source_block: both
+  - tag: GRID-COL-5
+    name: 구조 그리드 열 5
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '5'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 5
+      position: top-center-right
+      shape: circle
+    position: top-center-right
+    source_block: both
+  - tag: GRID-COL-6
+    name: 구조 그리드 열 6
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '6'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 6
+      position: top-right-center
+      shape: circle
+    position: top-right-center
+    source_block: both
+  - tag: GRID-COL-7
+    name: 구조 그리드 열 7
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '7'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 구조 그리드 열 7
+      position: top-right
+      shape: circle
+    position: top-right
+    source_block: both
+  - tag: EXC-LEVEL-LEFT
+    name: 좌측 굴착 완료 레벨
+    discipline: CIVIL
+    function_category: EXCAVATION_LEVEL
+    specifications:
+      labels_inside:
+      - FINAL EXC.
+      - EL.+94.81m
+      labels_above: []
+      labels_below:
+      - FINAL EXC.
+      - EL.+94.81m
+      equipment_symbols: []
+      inferred_name: 좌측 굴착 완료 레벨 (EL.+94.81m)
+      position: bottom-left
+      shape: dashed_box
+    position: bottom-left
+    source_block: both
+  - tag: EXC-LEVEL-RIGHT
+    name: 우측 굴착 완료 레벨
+    discipline: CIVIL
+    function_category: EXCAVATION_LEVEL
+    specifications:
+      labels_inside:
+      - FINAL EXC.
+      - EL.+93.14m
+      labels_above: []
+      labels_below:
+      - FINAL EXC.
+      - EL.+93.14m
+      equipment_symbols: []
+      inferred_name: 우측 굴착 완료 레벨 (EL.+93.14m)
+      position: bottom-right
+      shape: dashed_box
+    position: bottom-right
+    source_block: both
+  - tag: EXC-LEVEL-CENTER
+    name: 중앙 최저 굴착 완료 레벨
+    discipline: CIVIL
+    function_category: EXCAVATION_LEVEL
+    specifications:
+      labels_inside:
+      - FINAL EXC.
+      - EL.+91.14m
+      labels_above: []
+      labels_below:
+      - FINAL EXC.
+      - EL.+91.14m
+      equipment_symbols: []
+      inferred_name: 중앙 최저 굴착 완료 레벨 (EL.+91.14m)
+      position: bottom-center
+      shape: dashed_box
+    position: bottom-center
+    source_block: both
+  - tag: GRADE-LEVEL-1
+    name: 지반 레벨 표기 EL.+92.94m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+92.94m
+      labels_above: []
+      labels_below:
+      - EL.+92.94m
+      equipment_symbols: []
+      inferred_name: 지반 레벨 표기 EL.+92.94m
+      position: bottom-left-center
+      shape: other
+    position: bottom-left-center
+    source_block: both
+  - tag: GRADE-LEVEL-2
+    name: 지반 레벨 표기 EL.+93.44m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+93.44m
+      labels_above: []
+      labels_below:
+      - EL.+93.44m
+      equipment_symbols: []
+      inferred_name: 지반 레벨 표기 EL.+93.44m (다수 반복)
+      position: bottom-center
+      shape: other
+    position: bottom-center
+    source_block: both
+  - tag: GRADE-LEVEL-3
+    name: 지반 레벨 표기 EL.+92.14m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+92.14m
+      labels_above: []
+      labels_below:
+      - EL.+92.14m
+      equipment_symbols: []
+      inferred_name: 지반 레벨 표기 EL.+92.14m
+      position: bottom-right-center
+      shape: other
+    position: bottom-right-center
+    source_block: both
+  - tag: SLOPE-LEFT
+    name: 굴착 사면 경사비 1:1.0
+    discipline: CIVIL
+    function_category: SLOPE_RATIO
+    specifications:
+      labels_inside:
+      - S = 1:1.0
+      labels_above:
+      - S = 1:1.0
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 굴착 사면 경사비 1:1.0 (좌측)
+      position: bottom-center-left
+      shape: other
+    position: bottom-center-left
+    source_block: both
+  - tag: SLOPE-RIGHT
+    name: 굴착 사면 경사비 1:1.0
+    discipline: CIVIL
+    function_category: SLOPE_RATIO
+    specifications:
+      labels_inside:
+      - S = 1:1.0
+      labels_above:
+      - S = 1:1.0
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 굴착 사면 경사비 1:1.0 (우측)
+      position: bottom-center-right
+      shape: other
+    position: bottom-center-right
+    source_block: both
+  - tag: DIM-2810
+    name: 치수 표기 2810
+    discipline: CIVIL
+    function_category: DIMENSION
+    specifications:
+      labels_inside:
+      - '2810'
+      labels_above:
+      - '2810'
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 치수 표기 2810 (굴착 폭 또는 구간 치수)
+      position: bottom-center
+      shape: other
+    position: bottom-center
+    source_block: both
+  - tag: DIM-379
+    name: 치수 표기 379
+    discipline: CIVIL
+    function_category: DIMENSION
+    specifications:
+      labels_inside:
+      - '379'
+      labels_above: []
+      labels_below:
+      - '379'
+      equipment_symbols: []
+      inferred_name: 치수 표기 379
+      position: bottom-left
+      shape: other
+    position: bottom-left
+    source_block: visual_semantics
+  - tag: DIM-90
+    name: 치수 표기 90
+    discipline: CIVIL
+    function_category: DIMENSION
+    specifications:
+      labels_inside:
+      - '90'
+      labels_above: []
+      labels_below:
+      - '90'
+      equipment_symbols: []
+      inferred_name: 치수 표기 90
+      position: bottom-right
+      shape: other
+    position: bottom-right
+    source_block: visual_semantics
+  - tag: BUILDING-SECTION-LEFT
+    name: 건물 단면 (좌측 구간)
+    discipline: CIVIL
+    function_category: BUILDING_OUTLINE
+    specifications:
+      labels_inside: []
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 건물 단면 (좌측 구간, 그리드 1~5 범위)
+      position: center-left
+      shape: rectangle
+    position: center-left
+    source_block: visual_semantics
+  - tag: BUILDING-SECTION-RIGHT
+    name: 건물 단면 (우측 구간)
+    discipline: CIVIL
+    function_category: BUILDING_OUTLINE
+    specifications:
+      labels_inside: []
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 건물 단면 (우측 구간, 그리드 5~7 범위, 상부 돌출부 포함)
+      position: center-right
+      shape: rectangle
+    position: center-right
+    source_block: visual_semantics
+  - tag: P01-SECTION-TITLE
+    name: 단면도 타이틀
+    discipline: CIVIL
+    function_category: TITLE
+    specifications:
+      labels_inside:
+      - A - A 단면
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 단면도 타이틀 (A-A)
+      position: top-center
+      shape: other
+    position: top-center
+    source_block: visual_semantics_gemini
+  - tag: P02-KEY-PLAN
+    name: Key Plan
+    discipline: CIVIL
+    function_category: REFERENCE_PLAN
+    specifications:
+      labels_inside:
+      - Key Plan
+      - A
+      - A
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 키 플랜 (Key Plan)
+      position: top-right
+      shape: rectangle
+    position: top-right
+    source_block: visual_semantics_gemini
+  - tag: P03-GRID-1
+    name: 그리드 1
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '1'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 1
+      position: left
+      shape: circle
+    position: left
+    source_block: visual_semantics_gemini
+  - tag: P04-GRID-2
+    name: 그리드 2
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '2'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 2
+      position: center-left
+      shape: circle
+    position: center-left
+    source_block: visual_semantics_gemini
+  - tag: P05-GRID-3
+    name: 그리드 3
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '3'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 3
+      position: center-left
+      shape: circle
+    position: center-left
+    source_block: visual_semantics_gemini
+  - tag: P06-GRID-4
+    name: 그리드 4
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '4'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 4
+      position: center
+      shape: circle
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P07-GRID-5
+    name: 그리드 5
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '5'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 5
+      position: center-right
+      shape: circle
+    position: center-right
+    source_block: visual_semantics_gemini
+  - tag: P08-GRID-6
+    name: 그리드 6
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '6'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 6
+      position: center-right
+      shape: circle
+    position: center-right
+    source_block: visual_semantics_gemini
+  - tag: P09-GRID-7
+    name: 그리드 7
+    discipline: CIVIL
+    function_category: GRID_MARKER
+    specifications:
+      labels_inside:
+      - '7'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 그리드 7
+      position: right
+      shape: circle
+    position: right
+    source_block: visual_semantics_gemini
+  - tag: P10-LEVEL-94.81
+    name: 최종 굴착 레벨
+    discipline: CIVIL
+    function_category: EXCAVATION_LEVEL
+    specifications:
+      labels_inside:
+      - FINAL EXC.
+      - EL.+94.81m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 최종 굴착 레벨 (좌측 끝)
+      position: left
+      shape: other
+    position: left
+    source_block: visual_semantics_gemini
+  - tag: P11-DIM-1870
+    name: 수직 치수 1,870
+    discipline: CIVIL
+    function_category: DIMENSION
+    specifications:
+      labels_inside:
+      - 1,870
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 수직 치수 (1,870)
+      position: left
+      shape: other
+    position: left
+    source_block: visual_semantics_gemini
+  - tag: P12-LEVEL-92.94
+    name: 레벨 표기 EL.+92.94m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+92.94m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 레벨 표기 (EL.+92.94m)
+      position: left
+      shape: other
+    position: left
+    source_block: visual_semantics_gemini
+  - tag: P13-LEVEL-93.44-A
+    name: 레벨 표기 EL.+93.44m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+93.44m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 2 부근
+      position: center-left
+      shape: other
+    position: center-left
+    source_block: visual_semantics_gemini
+  - tag: P14-LEVEL-93.44-B
+    name: 레벨 표기 EL.+93.44m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+93.44m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 3 부근
+      position: center-left
+      shape: other
+    position: center-left
+    source_block: visual_semantics_gemini
+  - tag: P15-LEVEL-93.44-C
+    name: 레벨 표기 EL.+93.44m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+93.44m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 3-4 사이
+      position: center
+      shape: other
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P16-LEVEL-93.44-D
+    name: 레벨 표기 EL.+93.44m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+93.44m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 레벨 표기 (EL.+93.44m) - 그리드 4 부근
+      position: center
+      shape: other
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P17-DIM-2810
+    name: 수직 치수 2,810
+    discipline: CIVIL
+    function_category: DIMENSION
+    specifications:
+      labels_inside:
+      - 2,810
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 수직 치수 (2,810) - 굴착 깊이
+      position: center
+      shape: other
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P18-SLOPE-1
+    name: 사면 경사
+    discipline: CIVIL
+    function_category: SLOPE_RATIO
+    specifications:
+      labels_inside:
+      - S = 1:1.0
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 사면 경사 (좌측)
+      position: center
+      shape: other
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P19-LEVEL-91.14
+    name: 최종 굴착 레벨
+    discipline: CIVIL
+    function_category: EXCAVATION_LEVEL
+    specifications:
+      labels_inside:
+      - FINAL EXC.
+      - EL.+91.14m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 최종 굴착 레벨 (최저점)
+      position: center
+      shape: other
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P20-SLOPE-2
+    name: 사면 경사
+    discipline: CIVIL
+    function_category: SLOPE_RATIO
+    specifications:
+      labels_inside:
+      - S = 1:1.0
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 사면 경사 (우측)
+      position: center-right
+      shape: other
+    position: center-right
+    source_block: visual_semantics_gemini
+  - tag: P21-LEVEL-92.14
+    name: 레벨 표기 EL.+92.14m
+    discipline: CIVIL
+    function_category: GROUND_LEVEL_MARK
+    specifications:
+      labels_inside:
+      - EL.+92.14m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 레벨 표기 (EL.+92.14m)
+      position: center-right
+      shape: other
+    position: center-right
+    source_block: visual_semantics_gemini
+  - tag: P22-DIM-990
+    name: 수직 치수 990
+    discipline: CIVIL
+    function_category: DIMENSION
+    specifications:
+      labels_inside:
+      - '990'
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 수직 치수 (990)
+      position: right
+      shape: other
+    position: right
+    source_block: visual_semantics_gemini
+  - tag: P23-LEVEL-93.14
+    name: 최종 굴착 레벨
+    discipline: CIVIL
+    function_category: EXCAVATION_LEVEL
+    specifications:
+      labels_inside:
+      - FINAL EXC.
+      - EL.+93.14m
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 최종 굴착 레벨 (우측 끝)
+      position: right
+      shape: other
+    position: right
+    source_block: visual_semantics_gemini
+  - tag: P24-BUILDING-OUTLINE
+    name: 건물 구조물 외곽선
+    discipline: CIVIL
+    function_category: BUILDING_OUTLINE
+    specifications:
+      labels_inside: []
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 건물 구조물 외곽선 (점선)
+      position: center
+      shape: other
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: P25-DRAWING-TITLE-BOTTOM
+    name: 하단 도면 타이틀
+    discipline: CIVIL
+    function_category: TITLE
+    specifications:
+      labels_inside:
+      - '1'
+      - 굴착계획단면도
+      - 축척 1/150
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 하단 도면 타이틀
+      position: bottom-center
+      shape: other
+    position: bottom-center
+    source_block: visual_semantics_gemini
+  - tag: P26-TITLE-BLOCK
+    name: 표제란
+    discipline: CIVIL
+    function_category: TITLE_BLOCK
+    specifications:
+      labels_inside:
+      - LS Electric R-Center 구축
+      - '224001'
+      - 가운건축
+      - GAUN Architects & Engineers
+      - R-Center
+      - 굴착계획단면도
+      - 'A1: 1/150'
+      - 'A3: 1/300'
+      - '2024.05'
+      - C20 - 102
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 표제란 (Title Block)
+      position: bottom-right
+      shape: rectangle
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: P11-DIM-1870
+    to_tag: P10-LEVEL-94.81
+    relation_type: dimension_to
+    note: 치수 보조선
+  - from_tag: P11-DIM-1870
+    to_tag: P12-LEVEL-92.94
+    relation_type: dimension_to
+    note: 치수 보조선
+  - from_tag: P17-DIM-2810
+    to_tag: P16-LEVEL-93.44-D
+    relation_type: dimension_to
+    note: 치수 보조선
+  - from_tag: P17-DIM-2810
+    to_tag: P19-LEVEL-91.14
+    relation_type: dimension_to
+    note: 치수 보조선
+  - from_tag: P22-DIM-990
+    to_tag: P21-LEVEL-92.14
+    relation_type: dimension_to
+    note: 치수 보조선
+  - from_tag: P22-DIM-990
+    to_tag: P23-LEVEL-93.14
+    relation_type: dimension_to
+    note: 치수 보조선
+  spaces:
+  - space_id: SECTION-AA
+    name: A-A 굴착 계획 단면
+    contains:
+    - KEY-PLAN
+    - SECTION-AA
+    - GRID-COL-1
+    - GRID-COL-2
+    - GRID-COL-3
+    - GRID-COL-4
+    - GRID-COL-5
+    - GRID-COL-6
+    - GRID-COL-7
+    - EXC-LEVEL-LEFT
+    - EXC-LEVEL-CENTER
+    - EXC-LEVEL-RIGHT
+    - GRADE-LEVEL-1
+    - GRADE-LEVEL-2
+    - GRADE-LEVEL-3
+    - SLOPE-LEFT
+    - SLOPE-RIGHT
+    - DIM-2810
+    - DIM-379
+    - DIM-90
+    - BUILDING-SECTION-LEFT
+    - BUILDING-SECTION-RIGHT
+    - P01-SECTION-TITLE
+    - P02-KEY-PLAN
+    - P03-GRID-1
+    - P04-GRID-2
+    - P05-GRID-3
+    - P06-GRID-4
+    - P07-GRID-5
+    - P08-GRID-6
+    - P09-GRID-7
+    - P10-LEVEL-94.81
+    - P11-DIM-1870
+    - P12-LEVEL-92.94
+    - P13-LEVEL-93.44-A
+    - P14-LEVEL-93.44-B
+    - P15-LEVEL-93.44-C
+    - P16-LEVEL-93.44-D
+    - P17-DIM-2810
+    - P18-SLOPE-1
+    - P19-LEVEL-91.14
+    - P20-SLOPE-2
+    - P21-LEVEL-92.14
+    - P22-DIM-990
+    - P23-LEVEL-93.14
+    - P24-BUILDING-OUTLINE
+    - P25-DRAWING-TITLE-BOTTOM
+    - P26-TITLE-BLOCK
+  self_check:
+    entity_count: 34
+    relationship_count: 6
+    visual_spec_preserved: true
+    issues:
+    - visual_semantics_gemini의 P11-DIM-1870, P17-DIM-2810, P22-DIM-990은 visual_semantics의
+      1870/2810/990과 동일 치수로 병합 보존함.
+    - visual_semantics의 DIM-379, DIM-90은 Gemini에 없으므로 source_block=visual_semantics로
+      유지함.
+    - 도면은 CIVIL/site_grading이며 설비 엔티티는 없음.

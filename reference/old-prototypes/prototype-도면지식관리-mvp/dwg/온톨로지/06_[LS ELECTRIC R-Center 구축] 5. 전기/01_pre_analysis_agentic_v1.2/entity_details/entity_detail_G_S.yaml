@@ -1,0 +1,56 @@
+entity_detail:
+  tag: G/S
+  type: equipment
+  specs:
+    voltage:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.97
+    cable_spec:
+      value: 22.9kV-Y FR CNCO-W 60SQ 1Cx3 (CABLE TRAY)
+      unit: ''
+      source: page 5
+      confidence: 0.93
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "from: LAx3\n  to: G/S\n  relation: connected_via\n  medium: power_cable\n\
+      \  direction: downstream\n...\nconfidence: 0.92\nsource: page_005_text\n...\n\
+      from: G/S\n  to: SHV_1107\n  relation: feeds\n  medium: power_cable\n...\ntype:\
+      \ power_cable\nspec: 22.9kV-Y FR CNCO-W 60SQ 1Cx3 (CABLE TRAY)\nfrom: G/S\n\
+      to: SHV_1107\nsource: text\nconfidence: 0.93"
+  requirements:
+  - text: 22.9kV-Y FR CNCO-W 60SQ 1Cx3 (CABLE TRAY)
+    source: page 5
+    type: connection requirement
+  connection_specs:
+  - relation: connected_via
+    partner: LAx3
+    details:
+      source: page 5
+  - relation: feeds
+    partner: SHV_1107
+    details:
+      source: page 5
+      medium: power_cable
+      spec: 22.9kV-Y FR CNCO-W 60SQ 1Cx3 (CABLE TRAY)
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: LAx3
+      direction: downstream
+      source: page 5
+    - relation_type: feeds
+      partner_tag: SHV_1107
+      direction: from G/S to SHV_1107
+      source: page 5
+    observed_attributes:
+    - voltage
+    - cable_spec
+    similar_equipment: []
+    suggested_parent_class: ElectricalEquipment
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag('G/S') 결과와 page_005_context.yaml의 관계/배선 텍스트만 반영함.
+tag: G/S

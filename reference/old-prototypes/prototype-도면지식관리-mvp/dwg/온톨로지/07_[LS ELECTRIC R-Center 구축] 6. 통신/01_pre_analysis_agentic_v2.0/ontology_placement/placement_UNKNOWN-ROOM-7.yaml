@@ -1,0 +1,139 @@
+placement:
+  tag: UNKNOWN-ROOM-7
+  name: 회의실-2
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-7
+    class_hint: Space
+    alternative_class_hints:
+    - MeetingRoom
+    - CommunicationSpace
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-2F-4
+      note: specs.members에 포함된 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: ROOM-회의실-2'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 식별용 그룹 문자열
+      - raw_text: 'type: space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기
+      - raw_text: 'function_category: SPACE'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문
+      - raw_text: 'members: OUTLET-2F-4'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: xsd:string
+          rationale: 공간에 속한 멤버 태그
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문
+      - raw_text: 'ontology_hints.function_candidates: MeetingRoom'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: space entity with own tag and members
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + entity type/function
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 5
+      method: specs.members
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 5
+      method: specs.members
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 5
+      method: specs.members
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: raw preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 5
+      method: space vs meeting room candidate
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: ontology_plan focus on space/room entities
+  unresolved:
+  - field_candidate: specs.group_id
+    raw_text: ROOM-회의실-2
+    source_page: 5
+    reason: 도면 원문 식별 문자열로 보이나 표준화된 의미를 외부 지식 없이 확정 불가
+    preservation_note: group_id 원문 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 5
+    reason: 힌트이므로 확정 클래스 아님
+    preservation_note: class_hint 후보로만 반영
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: MeetingRoom
+    source_page: 5
+    reason: 후보 기능명이며 확정 불가
+    preservation_note: alternative_class_hints로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 UNKNOWN-ROOM-7이지만 name은 회의실-2로 공간/회의실 후보가 혼재함
+    recommended_handling: 0-9c에서 Space 계열로 검토하되 MeetingRoom 후보를 함께 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/room entities
+    - locatedIn/hasMember 계열의 공간-구성원 패턴
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:48.708219'
+  confidence: 0.86

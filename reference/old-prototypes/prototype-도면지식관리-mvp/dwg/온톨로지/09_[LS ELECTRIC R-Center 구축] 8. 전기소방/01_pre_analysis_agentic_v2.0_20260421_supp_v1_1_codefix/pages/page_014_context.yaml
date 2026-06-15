@@ -1,0 +1,372 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 유도등 범례/기호 설명 섹션
+  discipline: ELECTRICAL
+  classification: LIGHTING_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-303
+    title: 옥탑층 유도등설비 평면도
+    revision: null
+  visible_tags:
+  - tag: null
+    type: 유도등 범례 항목
+    source: both
+  - tag: null
+    type: 유도등 범례 항목
+    source: both
+  - tag: EX
+    type: escape_sign / exit_sign
+    source: both
+  - tag: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    type: wire_spec
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 4
+  next_step_hints:
+  - 좌하단에 '유도등 범례 및 주기사항' 표가 있어 범례/기호 설명 섹션이 포함됨
+  - 도면번호 EF-303으로 전기(ELECTRICAL) 우선
+  - 유도등 배선 및 유도등 종류(계단/복도/거실/피난구)가 함께 표기됨
+  confidence: 0.96
+  note: 표제란 도면번호 EF-303, 제목 '옥탑층 유도등설비 평면도' 확인. 좌하단 범례 표에 '계단 유도등-60분용(LED)', '복도
+    유도등-60분용(LED)', '피난구 유도등 (전체 중형)', '피난구 유도등 (전체 중형) 펜던트', '거실 유도등-60분용(LED)',
+    'HFIX 2.5㎟ x 2 E-2.5㎟ (16C)'가 보이나, 태그로 독립 표기된 설비 식별코드는 거의 없음.
+  recommended_supplements: &id001
+    P-4.5: discipline/electrical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/electrical/genre_floor_plan/supplement_p10.yaml
+    P-0.5: discipline/electrical/_general/supplement_p0.5.yaml
+    P-09b: discipline/electrical/_general/supplement_p09b.yaml
+  routing_confidence: 0.93
+  routing_reason: 전기 도면이며 평면도 성격이므로 electrical/floor_plan 매칭이 가장 적합하고, 카탈로그에 해당 genre
+    보조프롬프트가 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN
+    shape: rectangle
+    primary_label: 옥탑층 유도등설비 평면도
+    position: center
+    labels_near:
+    - 옥탑층 유도등설비 평면도
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+  - panel_id: LEGEND_SECTION
+    shape: rectangle
+    primary_label: 유도등 범례 및 주기사항
+    position: bottom-left
+    labels_near:
+    - 심벌
+    - 명칭 및 규격
+    - 수량
+    - 피난구 유도등 (전체 중형)
+    - 계단 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: EF - 303
+    position: bottom-right
+    labels_near:
+    - 옥탑층 유도등설비 평면도
+    - EF - 303
+    - LS Electric R-Center 구축
+  connections:
+  - from: LEGEND_SECTION
+    to: FLOOR_PLAN
+    line_style: dotted
+    annotation: 범례 심볼이 평면도에 적용됨
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: A
+    note: 좌측 그리드 알파벳
+  - shape: circle
+    label: EX
+    note: 평면도 내 유도등 심볼 (범례 참조)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-left
+  confidence: 0.98
+  note: 좌하단에 '유도등 범례 및 주기사항' 표가 명확히 배치되어 있음
+supplement_routing:
+  discipline: ELECTRICAL
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 도면번호 EF-303(E접두사), 제목 '평면도', 내용 '유도등설비 배치'로 ELECTRICAL/floor_plan
+    확정. 0-0 결과 유지.
+classification: LIGHTING_LAYOUT
+discipline: ELECTRICAL
+key_elements_from_text:
+- 옥탑층 유도등설비 평면도
+- 유도등 범례 및 주기사항
+- 계단 유도등-60분용(LED)
+- 복도 유도등-60분용(LED)
+- 피난구 유도등 (전체 중형)
+- 피난구 유도등 (전체 중형) 펜던트
+- 거실 유도등-60분용(LED)
+- 유도등 배선
+- HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+- LS Electric R-Center 구축
+title_block:
+  drawing_number: EF-303
+  title: 옥탑층 유도등설비 평면도
+  revision: null
+confidence: 0.98
+note: 기존 분석의 ELECTRICAL / LIGHTING_LAYOUT / EF-303 / 옥탑층 유도등설비 평면도 판정과 일치함. 좌하단에 유도등
+  범례 표가 있어 legend_section 존재가 보이며, 도면 본문은 옥탑층 유도등 배치 평면도 형태로 보임. 페이지 내에서 리비전 값은 확인되지
+  않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ROOFTOP-FLOOR-PLAN
+    shape: rectangle
+    labels_inside:
+    - 옥탑층 유도등설비 평면도
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    labels_above: []
+    labels_below:
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형)
+      count: 1
+    - type: 계단 유도등-60분용(LED)
+      count: 1
+    - type: 전선관 입상/입하 표시
+      count: 2
+    inferred_name: 옥탑층 유도등설비 배치 평면도
+    position: center
+  - panel_id: EXIT-LIGHT-01
+    shape: rectangle
+    labels_inside:
+    - 피난구 유도등 (전체 중형)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형)
+      count: 1
+    inferred_name: 피난구 유도등 (전체 중형)
+    position: grid 5-6, row B-C (우측 계단 인근)
+  - panel_id: STAIR-LIGHT-01
+    shape: rectangle
+    labels_inside:
+    - 계단 유도등-60분용(LED)
+    - 1EA
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 계단 유도등-60분용(LED)
+      count: 1
+    inferred_name: 계단 유도등 (60분용 LED)
+    position: grid 5-6, row B-C (계단실 내부)
+  - panel_id: RISER-01
+    shape: other
+    labels_inside:
+    - EX
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 전선관 입상/입하 표시
+      count: 1
+    inferred_name: 유도등 배선 입상/입하 포인트 (상층 또는 하층 연결)
+    position: grid 5, row B (계단 벽체 인근)
+  - panel_id: LEGEND-BOX
+    shape: rectangle
+    labels_inside:
+    - 유도등 범례 및 주기사항
+    - 심볼
+    - 명칭 및 규격
+    - 수량
+    - 피난구 유도등 (전체 중형)
+    - 피난구 유도등 (전체 중형) 펜던트
+    - 계단 유도등-60분용(LED)
+    - 복도 유도등-60분용(LED)
+    - 거실 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    - 유도등 배선
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 유도등 범례 및 주기사항 표
+    position: bottom-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - (주)정연엔지니어링
+    - 옥탑층 유도등설비 평면도
+    - EF - 303
+    - 안동식
+    - 이은전
+    - 정용재
+    - '2024.01'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: RISER-01
+    to: EXIT-LIGHT-01
+    line_type: cable
+    line_style: solid
+    annotation: EX / HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  - from: RISER-01
+    to: STAIR-LIGHT-01
+    line_type: cable
+    line_style: solid
+    annotation: EX / HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  groups:
+  - group_id: GRP-ROOFTOP-EX
+    label: 옥탑층 유도등 회로 (EX)
+    members:
+    - RISER-01
+    - EXIT-LIGHT-01
+    - STAIR-LIGHT-01
+  spaces:
+  - space_id: ROOM-ROOFTOP
+    name: 옥탑층
+    contains:
+    - EXIT-LIGHT-01
+    - STAIR-LIGHT-01
+    - RISER-01
+  legend_references:
+  - text: 피난구 유도등 (전체 중형)
+    symbol_id: SYM-010
+    linked_to: EXIT-LIGHT-01
+  - text: 피난구 유도등 (전체 중형) 펜던트
+    symbol_id: null
+    linked_to: null
+  - text: 계단 유도등-60분용(LED) 1EA
+    symbol_id: null
+    linked_to: STAIR-LIGHT-01
+  - text: 복도 유도등-60분용(LED)
+    symbol_id: null
+    linked_to: null
+  - text: 거실 유도등-60분용(LED)
+    symbol_id: null
+    linked_to: null
+  - text: 유도등 배선 HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    symbol_id: SYM-016
+    linked_to: RISER-01
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 상단 그리드 번호 (열 방향)
+  - shape: circle
+    label: '2'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: '3'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: '4'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: '5'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: '6'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: '7'
+    note: 상단 그리드 번호
+  - shape: circle
+    label: A
+    note: 좌측 그리드 알파벳 (행 방향)
+  - shape: circle
+    label: B
+    note: 좌측 그리드 알파벳
+  - shape: circle
+    label: C
+    note: 좌측 그리드 알파벳
+  - shape: circle
+    label: D
+    note: 좌측 그리드 알파벳
+  diagram_meta:
+    title: 옥탑층 유도등설비 평면도
+    drawing_number: EF-303
+    project: LS Electric R-Center 구축
+    floor_label: 옥탑층
+    drawing_subtype: lighting
+    discipline: ELECTRICAL
+    classification: LIGHTING_LAYOUT
+    scale_a3: 1/300
+    scale_a1: 1/150
+    grid_axes: 1-7, A-D
+    grid_dimensions:
+      span_total: 71,000mm
+      col_1_2: 12,000mm
+      col_2_3: 12,000mm
+      col_3_4: 12,000mm
+      col_4_5: 14,000mm
+      col_5_6: 11,000mm
+      col_6_7: 10,000mm
+      row_A_B: 13,000mm
+      row_B_C: 17,000mm (43,000 total A-D)
+      row_C_D: 13,000mm
+    has_cable_schedule: false
+    has_equipment_list: false
+    has_legend_section: true
+    legend_region: bottom-left
+    flow_direction: UNKNOWN
+    wire_spec: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    conduit_annotation: EX
+    revision: null
+    drawn_by: 안동식
+    checked_by: 이은전
+    approved_by: 정용재
+    date: '2024.01'
+    design_firm: 가운건축 / GAUN Architects & Engineers
+    engineering_firm: (주)정연엔지니어링
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: EXIT_LIGHT-01
+    shape: rectangle
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형)
+      count: 1
+    inferred_name: 피난구 유도등
+    position: grid 5-B/C, near stairs
+  - panel_id: RISER-01
+    shape: other
+    inferred_name: 배선 입상/입하 포인트
+    position: grid 5-B, wall near stairs
+  connections:
+  - from: RISER-01
+    to: EXIT_LIGHT-01
+    line_type: cable
+    line_style: solid
+    annotation: EX
+  legend_references:
+  - text: 피난구 유도등 (전체 중형)
+    symbol_image: rectangle with arrow and figure
+  - text: 피난구 유도등 (전체 중형) 펜던트
+    symbol_image: pendant style exit light
+  - text: 계단 유도등-60분용(LED) (1EA)
+    symbol_image: rectangle with '계단'
+  - text: 복도 유도등-60분용(LED)
+    symbol_image: rectangle with '복도'
+  - text: 거실 유도등-60분용(LED)
+    symbol_image: rectangle with '거실'
+  - text: 유도등 배선 (HFIX 2.5㎟ x 2 E-2.5㎟ (16C))
+    symbol_image: line with 'EX'
+  diagram_meta:
+    title: 옥탑층 유도등설비 평면도
+    floor_label: 옥탑층
+    drawing_subtype: lighting
+    grid_axes: 1-7, A-D
+    flow_direction: UNKNOWN

@@ -1,0 +1,88 @@
+placement:
+  tag: S06.21-2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:S06.21-2
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: sourcePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 출처 정보이며, 엔티티의 가용 페이지 범위를 보존할 필요가 있음.
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: relationNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내용이 아니라 안내 문구로, 주석/설명성 텍스트로 보존 가능.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    owl_role:
+      source_pages:
+      - 0
+      method: rule_based_classification
+    iri_hint:
+      source_pages:
+      - 0
+      method: tag_to_iri_hint
+    class_hint:
+      source_pages:
+      - 0
+      method: plan_guidance_inference
+    alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guidance_inference
+    free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: entity_detail에 도면 실체 정보가 없고, 페이지 안내 문구만 존재함.
+    preservation_note: 페이지 목록과 안내 문구를 그대로 보존. 후속 단계에서 페이지별 분석 결과와 연결 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 시트/세부 식별자처럼 보이나, 원문에는 실체/관계/속성 정보가 없고 페이지 안내만 존재함.
+    recommended_handling: 다음 단계에서 문서 메타 또는 상세 식별자 후보로 보수적으로 유지하고, 페이지별 원문이 확보되면 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 계열 및 상세/시리즈형 태그가 다수라는 점을 반영해 문서 메타/식별자 후보로 보존'
+    - 'discipline_context_plan.unknown: unknown discipline로 남기되 문서 메타 또는 미해결 구조 엔티티
+      가능성을 보수적으로 유지'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:10.210295'
+  confidence: 0.62

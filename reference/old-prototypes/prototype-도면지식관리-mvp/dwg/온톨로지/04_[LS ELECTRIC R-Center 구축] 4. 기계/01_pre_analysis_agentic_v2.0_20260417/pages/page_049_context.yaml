@@ -1,0 +1,183 @@
+initial_scan:
+  page_type: schedule
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: EQUIPMENT_SCHEDULE
+  drawing_genre: schedule
+  title_block:
+    drawing_number: M92-003
+    title: 스마트 방화댐퍼(SMFD) 일람표
+    revision: null
+  visible_tags:
+  - tag: SMFD
+    type: fire_damper
+    source: both
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 1
+  next_step_hints:
+  - 층별로 SMFD 일람표가 분리되어 있으며 PIT층, 지상1층, 지상2층, 지붕층 항목이 보임
+  - 표 형식의 자재/기기 수량 및 규격 목록으로 구성됨
+  confidence: 0.98
+  note: 도면번호 접두사 M이 보이나, 시각적 내용은 스마트 방화댐퍼(SMFD) 일람표로 소방/기계 성격의 자재 스케줄에 해당함. 표제란의 도면번호는
+    M92-003, 제목은 스마트 방화댐퍼(SMFD) 일람표, 날짜는 2024.05로 보임.
+  recommended_supplements: &id001
+    P-10: discipline/mechanical/genre_schedule/supplement_p10.yaml
+    P-4.5: discipline/mechanical/_general/supplement_p4_05.yaml
+  routing_confidence: 0.93
+  routing_reason: 페이지는 SMFD 일람표로 schedule 성격이 명확하며, 카탈로그에서 mechanical/genre_schedule
+    및 mechanical/_general 보조프롬프트가 उपलब्ध하다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TBL-001
+    shape: rectangle
+    primary_label: PIT층
+    position: middle-left
+    labels_near:
+    - 'NO'
+    - KEY
+    - SIZE (W x H)
+    - Q'ty
+    - SMFD
+    - 300x250
+    - TOTAL
+  - panel_id: TBL-002
+    shape: rectangle
+    primary_label: 지상1층
+    position: middle-center
+    labels_near:
+    - 'NO'
+    - KEY
+    - SIZE (W x H)
+    - Q'ty
+    - SMFD
+    - 300x300
+    - TOTAL
+  - panel_id: TBL-003
+    shape: rectangle
+    primary_label: 지상2층
+    position: middle-center
+    labels_near:
+    - 'NO'
+    - KEY
+    - SIZE (W x H)
+    - Q'ty
+    - SMFD
+    - 200x200
+    - TOTAL
+  - panel_id: TBL-004
+    shape: rectangle
+    primary_label: 지붕층
+    position: middle-right
+    labels_near:
+    - 'NO'
+    - KEY
+    - SIZE (W x H)
+    - Q'ty
+    - SMFD
+    - 350x500
+    - TOTAL
+    - GRAND TOTAL
+  connections: null
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 하단 중앙의 상세 번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.99
+  note: 페이지는 4개의 표로 구성된 스마트 방화댐퍼(SMFD) 일람표이며, 범례 섹션은 포함되어 있지 않음.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: schedule
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 접두사 M(M92-003)에 따라 discipline을 MECHANICAL로 갱신함. 내용은 SMFD 일람표로
+    schedule 장르가 명확함.
+classification: EQUIPMENT_SCHEDULE
+discipline: MECHANICAL
+key_elements_from_text:
+- 스마트 방화댐퍼(SMFD) 일람표
+- '층별 표: PIT층, 지상1층, 지상2층, 지붕층'
+- '표 항목: NO, KEY, SIZE (W x H), Q''ty, TOTAL'
+- 'SMFD 규격 및 수량: 300x250, 300x300, 200x200, 250x250, 550x350, 650x400, 700x450, 800x500,
+  350x500'
+- GRAND TOTAL 15
+- '프로젝트 제목: R-Center 구축'
+- '건물명: R-Center'
+- '프로젝트 번호: 224001'
+- '도면번호: M92-003'
+- '날짜: 2024.05'
+- '설계사: 가운건축 / GAUN'
+title_block:
+  drawing_number: M92-003
+  title: 스마트 방화댐퍼(SMFD) 일람표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 discipline=MECHANICAL, classification=EQUIPMENT_SCHEDULE, drawing_genre=schedule
+  판정과 일치함. 페이지는 범례가 아니라 층별 SMFD 수량/규격을 정리한 일람표이며, 표제란에 도면번호 M92-003, 제목 스마트 방화댐퍼(SMFD)
+  일람표, 날짜 2024.05가 보임. 리비전 값은 보이지 않아 UNKNOWN으로 둠.
+visual_semantics: {}
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: TBL-PIT
+    shape: rectangle
+    labels_inside:
+    - PIT층
+    - NO | KEY | SIZE (W x H) | Q'ty
+    - 1 | SMFD | 300x250 | 2
+    - TOTAL | 2
+    inferred_name: PIT층 스마트 방화댐퍼 일람표
+    position: middle-left
+  - panel_id: TBL-1F
+    shape: rectangle
+    labels_inside:
+    - 지상1층
+    - NO | KEY | SIZE (W x H) | Q'ty
+    - 1 | SMFD | 300x300 | 1
+    - TOTAL | 1
+    inferred_name: 지상1층 스마트 방화댐퍼 일람표
+    position: middle-center-left
+  - panel_id: TBL-2F
+    shape: rectangle
+    labels_inside:
+    - 지상2층
+    - NO | KEY | SIZE (W x H) | Q'ty
+    - 1 | SMFD | 200x200 | 2
+    - 2 | SMFD | 250x250 | 1
+    - 3 | SMFD | 550x350 | 2
+    - 4 | SMFD | 650x400 | 2
+    - 5 | SMFD | 700x450 | 2
+    - 5 | SMFD | 800x500 | 2
+    - TOTAL | 11
+    inferred_name: 지상2층 스마트 방화댐퍼 일람표
+    position: middle-center-right
+  - panel_id: TBL-RF
+    shape: rectangle
+    labels_inside:
+    - 지붕층
+    - NO | KEY | SIZE (W x H) | Q'ty
+    - 1 | SMFD | 350x500 | 1
+    - TOTAL | 1
+    - GRAND TOTAL | 15
+    inferred_name: 지붕층 스마트 방화댐퍼 일람표
+    position: middle-right
+  connections: []
+  groups: []
+  legend_references: []
+  diagram_meta:
+    title: 스마트 방화댐퍼(SMFD) 일람표
+    drawing_number: M92-003
+    project_title: LS Electric R-Center 구축
+    flow_direction: UNKNOWN
+    mech_subsystem: fire_damper_control
+    view_type: schedule
+    has_equipment_list: true

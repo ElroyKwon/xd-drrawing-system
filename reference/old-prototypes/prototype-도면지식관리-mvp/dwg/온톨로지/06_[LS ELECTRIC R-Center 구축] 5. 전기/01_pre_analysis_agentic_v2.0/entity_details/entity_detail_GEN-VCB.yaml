@@ -1,0 +1,94 @@
+tag: GEN-VCB
+name: 발전기 연결 VCB 패널
+type: SWITCHGEAR_PANEL
+discipline: ELECTRICAL
+function_category: SWITCHGEAR_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - VCB 3P
+  - 7.2kV 600A
+  - 250MVA
+  - 2×CT 100/5A
+  - GIPAM
+  - 50/51
+  - 6.6kV FR 8 100SQ 1C×1LINE(CABLE TRAY)
+  vcb_rating: 3P 7.2kV 600A 250MVA
+  ct_ratio: 100/5A
+  cable: 6.6kV FR 8 100SQ 1C×1LINE(CABLE TRAY)
+  protection_functions:
+  - 50/51
+  panel_id: GEN-VCB
+  bus_section: GP
+  voltage_kV: 6.6
+  vcb_poles: 3
+  vcb_rated_voltage_kV: 24
+  vcb_rated_current_A: 600
+  vcb_breaking_capacity_MVA: 250
+  ct_count: 2
+  protection_relay_model: GIPAM
+  protection_relay_indicators_gemini:
+  - A
+  cable_type: 6.6kV FR-8
+  cable_size: 100SQ
+  cable_cores: 1Cx3x1LINE
+  cable_routing: CABLE TRAY
+relations:
+- from: GEN
+  to: GEN-VCB
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 발전기 → VCB 6.6kV
+- from: GEN-VCB
+  to: GP-BUS-VCB
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV FR 8 100SQ 1C×1LINE(CABLE TRAY)
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-left
+confidence: 0.95
+equipment_symbols:
+- type: VCB
+  count: 1
+- type: CT
+  count: 2
+- type: GIPAM
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalPanel
+  observed_attributes:
+  - raw_labels
+  - vcb_rating
+  - ct_ratio
+  - cable
+  - protection_functions
+  - panel_id
+  - bus_section
+  - voltage_kV
+  - vcb_poles
+  - vcb_rated_voltage_kV
+  - vcb_rated_current_A
+  - vcb_breaking_capacity_MVA
+  - ct_count
+  - protection_relay_model
+  - protection_relay_indicators_gemini
+  - cable_type
+  - cable_size
+  - cable_cores
+  - cable_routing
+  similar_equipment: []
+  function_candidates:
+  - GeneratorConnection
+  - CircuitProtection
+  - PowerDistribution

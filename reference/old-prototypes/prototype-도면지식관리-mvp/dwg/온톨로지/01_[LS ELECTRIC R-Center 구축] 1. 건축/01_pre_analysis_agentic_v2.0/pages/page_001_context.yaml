@@ -1,0 +1,311 @@
+cross_validated:
+  page_num: 1
+  model: gemini-3.1-pro
+  entities:
+  - tag: UNKNOWN-COVER-01
+    name: 건축 실시설계 도서 표지
+    discipline: ARCHITECTURAL
+    function_category: COVER_PAGE
+    specifications:
+      labels_inside:
+      - LS ELECTRIC 천안 R-Center 구축설계
+      - '- 실시설계 도서 -'
+      - '[ 건축 ]'
+      - '2024.05'
+      - (주)가운종합건축사사무소
+      project_name: 천안 R-Center 구축설계
+      client_or_owner: LS ELECTRIC
+      document_type: 실시설계 도서
+      date: '2024.05'
+      design_firm: (주)가운종합건축사사무소
+    equipment_symbols: []
+    position: center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.99
+  - tag: UNKNOWN-MARK-01
+    name: 도면 인덱스 표식 (우측 상단 대각선 포함 직사각형)
+    discipline: ARCHITECTURAL
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+    equipment_symbols:
+    - type: diagonal_mark
+      count: 1
+    position: top-right
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.99
+  relationships: []
+  spaces: []
+  diagram_spec:
+    title: LS ELECTRIC 천안 R-Center 구축설계 — 실시설계 도서 [건축] 표지
+    discipline: ARCHITECTURAL
+    arch_subsystem: general_info
+    view_type: cover
+    classification: COVER_PAGE
+    drawing_number: null
+    revision: null
+    date: '2024.05'
+    client_or_owner: LS ELECTRIC
+    project_name: 천안 R-Center 구축설계
+    design_firm: (주)가운종합건축사사무소
+    document_type: 실시설계 도서
+    floor_label: null
+    scale_primary: null
+    has_legend: false
+    has_grid: false
+    flow_direction: UNKNOWN
+    confidence: 0.99
+    note: 표지 페이지. 도면번호·리비전 없음. 우측 상단의 대각선 포함 직사각형은 도면 인덱스/시트 마커로 추정되나 내부 텍스트 확인 불가
+      → null 처리. 사전 분석과 동일한 판단 유지; 추가 오류 없음.
+  disagreements:
+  - item_type: entity
+    tag_affected: UNKNOWN-COVER-01
+    field: name
+    values:
+      sonnet: 건축 실시설계 도서 표지
+      gemini: 프로젝트 표제란
+      mini: 건축 실시설계 도서 표지
+    resolved_to: 건축 실시설계 도서 표지
+    reason: Sonnet의 시각 분석 결과 우선 적용
+  - item_type: entity
+    tag_affected: UNKNOWN-MARK-01
+    field: name
+    values:
+      sonnet: 도면 인덱스 표식 (우측 상단 대각선 포함 직사각형)
+      gemini: 도면 인덱스/시트 마커
+      mini: 도면 인덱스/시트 마커
+    resolved_to: 도면 인덱스 표식 (우측 상단 대각선 포함 직사각형)
+    reason: Sonnet의 상세한 시각적 묘사 우선 적용
+  preservation_check:
+    sonnet_spec_count: 24
+    preserved_count: 24
+    lost_fields: []
+  summary:
+    entity_count: 2
+    relationship_count: 0
+    high_confidence_count: 2
+    disagreement_count: 2
+    diagram_spec_preserved: true
+initial_scan:
+  page_type: cover
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: ARCHITECTURAL
+  classification: null
+  drawing_genre: other
+  title_block:
+    drawing_number: null
+    title: LS ELECTRIC 천안 R-Center 구축설계
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 표지 페이지로 보이며 도면번호 표제란은 보이지 않음
+  - 상단/우측에 작은 사각형 표식 1개가 있으나 의미는 확인 불가
+  confidence: 0.99
+  note: 페이지 상단 제목과 중앙의 '- 실시설계 도서 - [ 건축 ]' 표기로 표지로 판단. 도면번호/리비전은 보이지 않음.
+  recommended_supplements: {}
+  routing_confidence: 1.0
+  routing_reason: 도면이 아닌 표지 페이지이므로 recommended_supplements는 빈 dict로 처리.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: LS ELECTRIC 천안 R-Center 구축설계
+    position: center
+    labels_near:
+    - '- 실시설계 도서 -'
+    - '[ 건축 ]'
+    - '2024.05'
+    - (주)가운종합건축사사무소
+  connections: []
+  notable_shapes:
+  - shape: rectangle
+    label: INDEX_MARK
+    note: 우측 상단에 위치한, 대각선이 포함된 작은 직사각형 표식
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 1.0
+  note: 건축 분야 실시설계 도서의 표지 페이지로, 범례 정보를 포함하지 않음.
+supplement_routing:
+  discipline: ARCHITECTURAL
+  drawing_genre: other
+  changed_from_p00: false
+  recommended_supplements: {}
+  routing_confidence: 1.0
+  routing_reason: 이미지 분석 결과, 사전 분석(existing_yaml)과 동일하게 '[ 건축 ]' 표기가 명확한 표지 페이지임.
+    도면이 아니므로 recommended_supplements는 빈 상태를 유지함.
+classification: COVER_PAGE
+discipline: ARCHITECTURAL
+key_elements_from_text:
+- LS ELECTRIC 천안 R-Center 구축설계
+- '- 실시설계 도서 -'
+- '[ 건축 ]'
+- '2024.05'
+- (주)가운종합건축사사무소
+title_block:
+  drawing_number: UNKNOWN
+  title: LS ELECTRIC 천안 R-Center 구축설계
+  revision: UNKNOWN
+confidence: 0.99
+note: 페이지 1은 표지 페이지로 보이며, 표제란의 도면번호와 리비전은 보이지 않음. 기존 분석의 ARCHITECTURAL / cover 판단과
+  일치하며, 우측 상단의 작은 직사각형 표식은 의미를 확인할 수 없어 UNKNOWN으로 둠.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: COVER-MAIN
+    shape: rectangle
+    labels_inside:
+    - LS ELECTRIC 천안 R-Center 구축설계
+    - '- 실시설계 도서 -'
+    - '[ 건축 ]'
+    - '2024.05'
+    - (주)가운종합건축사사무소
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건축 실시설계 도서 표지
+    position: center
+  - panel_id: COVER-INDEX-MARK
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: diagonal_mark
+      count: 1
+    inferred_name: 도면 인덱스 표식 (우측 상단 대각선 포함 직사각형)
+    position: top-right
+  connections: []
+  groups: []
+  legend_references: []
+  diagram_meta:
+    title: LS ELECTRIC 천안 R-Center 구축설계 — 실시설계 도서 [건축] 표지
+    discipline: ARCHITECTURAL
+    arch_subsystem: general_info
+    view_type: cover
+    classification: COVER_PAGE
+    drawing_number: null
+    revision: null
+    date: '2024.05'
+    client_or_owner: LS ELECTRIC
+    project_name: 천안 R-Center 구축설계
+    design_firm: (주)가운종합건축사사무소
+    document_type: 실시설계 도서
+    floor_label: null
+    scale_primary: null
+    has_legend: false
+    has_grid: false
+    flow_direction: UNKNOWN
+    confidence: 0.99
+    note: 표지 페이지. 도면번호·리비전 없음. 우측 상단의 대각선 포함 직사각형은 도면 인덱스/시트 마커로 추정되나 내부 텍스트 확인 불가
+      → null 처리. 사전 분석과 동일한 판단 유지; 추가 오류 없음.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: COVER-TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS ELECTRIC 천안 R-Center 구축설계
+    - '- 실시설계 도서 -'
+    - '[ 건축 ]'
+    - '2024.05'
+    - (주)가운종합건축사사무소
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 프로젝트 표제란
+    position: center
+  - panel_id: COVER-INDEX-MARK
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: diagonal_mark
+      count: 1
+    inferred_name: 도면 인덱스/시트 마커
+    position: top-right
+  connections: []
+  groups: []
+  legend_references: []
+  diagram_meta:
+    title: LS ELECTRIC 천안 R-Center 구축설계 — 실시설계 도서 [건축] 표지
+    discipline: ARCHITECTURAL
+    arch_subsystem: general_info
+    view_type: cover
+    classification: COVER_PAGE
+    drawing_number: null
+    revision: null
+    date: '2024.05'
+    client_or_owner: LS ELECTRIC
+    project_name: 천안 R-Center 구축설계
+    design_firm: (주)가운종합건축사사무소
+    document_type: 실시설계 도서
+    floor_label: null
+    scale_primary: null
+    has_legend: false
+    has_grid: false
+    flow_direction: UNKNOWN
+    confidence: 1.0
+    note: 건축 분야 실시설계 도서의 표지 페이지. 프로젝트명, 도서 유형, 분야, 날짜, 설계사 정보가 중앙에 명시됨. 우측 상단의 대각선이
+      포함된 직사각형은 도면 인덱스 또는 시트 마커로 추정되나 내부 텍스트는 없음. 도면번호와 리비전 정보는 이 페이지에 없음.
+entity_synthesis:
+  entities:
+  - tag: UNKNOWN-PANEL-001
+    name: 건축 실시설계 도서 표지
+    discipline: ARCHITECTURAL
+    function_category: COVER_PAGE
+    specifications:
+      title: LS ELECTRIC 천안 R-Center 구축설계
+      document_type: 실시설계 도서
+      discipline_label: 건축
+      date: '2024.05'
+      client_or_owner: LS ELECTRIC
+      project_name: 천안 R-Center 구축설계
+      design_firm: (주)가운종합건축사사무소
+      drawing_number: null
+      revision: null
+      scale_primary: null
+      floor_label: null
+      has_legend: false
+      has_grid: false
+      flow_direction: UNKNOWN
+      classification: COVER_PAGE
+      arch_subsystem: general_info
+      confidence: 0.99
+      note: 표지 페이지. 도면번호·리비전 없음.
+    position: center
+    source_block: both
+  - tag: UNKNOWN-SHAPE-001
+    name: 도면 인덱스/시트 마커
+    discipline: ARCHITECTURAL
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      count: 1
+      location: top-right
+      visual_description: 대각선이 포함된 작은 직사각형 표식
+      note: 내부 텍스트 확인 불가
+    position: top-right
+    source_block: both
+  relationships: []
+  spaces: []
+  self_check:
+    entity_count: 2
+    relationship_count: 0
+    visual_spec_preserved: true
+    issues: []

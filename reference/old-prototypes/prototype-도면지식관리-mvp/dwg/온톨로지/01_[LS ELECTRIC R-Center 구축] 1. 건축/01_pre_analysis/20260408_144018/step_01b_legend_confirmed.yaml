@@ -1,0 +1,30 @@
+step: 0-1b
+timestamp: '2026-04-07T12:29:55.150526'
+confirmed:
+- page: 4
+  is_legend: true
+  type: GENERAL_NOTES_AND_LEGEND
+  confidence: 0.98
+  content_summary: 좌측과 중앙에는 '건축 일반 사항'의 일반사항, 설계기준, 콘크리트, 조적, 금속재 가공, 지붕공사와 방수, 내화피복,
+    내부마감, 간막이벽, 천장, 단열 등의 서술형 설명과 표가 배치되어 있다. 우측 상단에는 '도면 표기 부호' 섹션이 있으며 도면 TITLE,
+    축열 BUBBLE, 실명 BOX, 전개도/입면도, 단면 MARKING, 상세 MARKING에 대한 심볼 그림과 설명이 쌍으로 나열되어 있다.
+    중앙 우측에는 '일반약어' 테이블이 있어 약어와 의미가 표 형태로 정리되어 있다. 하단 우측에는 선 종류 정의로 보이는 예시 선들이 일부 보인다.
+  symbol_count: 14
+  cross_feedback:
+    accepted:
+    - 상대 모델의 '도면 표기 부호' 섹션 존재 판단 수용
+    - 상대 모델의 '일반약어' 테이블 존재 판단 수용
+    - 상대 모델의 심볼-설명 쌍이 여러 개 존재한다는 판단 수용
+    rejected:
+    - 상대 모델의 'GENERAL_NOTES_AND_LEGEND'는 페이지 전체 성격을 과장한 표현으로 보임. 실제로는 좌측/중앙의 일반사항
+      비중이 크고, 우측에 범례 섹션이 포함된 혼합 페이지로 보임
+  note: 시각적으로 확인 가능한 범례 요소는 우측의 '도면 표기 부호'와 '일반약어' 표이다. 페이지 전체는 범례 전용 페이지라기보다 일반사항
+    + 범례 혼합 페이지로 판단된다.
+  cross_validation:
+    models:
+    - GPT-5.4-mini
+    - Gemini-3.1-Flash
+    agreement: FULL
+    rounds: 2
+    adopted_model: GPT-5.4-mini
+rejected: []

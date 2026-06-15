@@ -1,0 +1,57 @@
+tag: BRANCH-P-C-4PP
+name: P-C-4PP 분기회로
+type: LOAD
+discipline: ELECTRICAL
+function_category: LOAD
+specifications:
+  parent_panel: P-C-4PP
+  voltage: 440V
+  phase: 3Ø
+  branch_circuits:
+  - circuit_id: 회로
+    type: MCCB
+    poles: 4
+    at_rating: 100
+    af_rating: 125
+    interrupting_capacity: 25kA
+    note: 분기 차단기 적용 차단 용량 표 참조
+  - circuit_id: SP
+    type: MCCB
+    poles: 3
+    at_rating: 75
+    af_rating: 125
+    interrupting_capacity: 25kA
+    note: 서지보호 분기 (SPD 보호)
+source_pages:
+- 22
+relations:
+- from: P-C-4PP
+  to: BRANCH-P-C-4PP
+  relation: feeds
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: 분기 MCCB 회로 (100AT/125AF/4P, 75AT/125AF/3P SP)
+collection_sources:
+  cross_validated: true
+confidence: 0.7
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: false
+ontology_hints:
+  suggested_parent_class: ElectricalBranchCircuit
+  observed_attributes:
+  - voltage: 440V
+  - phase: 3Ø
+  - circuit_count: 2
+  - protection_type: MCCB
+  similar_equipment:
+  - BRANCH-P-A-4PP-7
+  - BRANCH-P-AC-4PP-1
+  - BRANCH-P-E-4PP
+  - BRANCH-P-F-4PP
+  - BRANCH-P-P-4PP
+  function_candidates:
+  - PowerDistribution
+  - LoadConnection

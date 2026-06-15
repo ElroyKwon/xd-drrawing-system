@@ -1,0 +1,130 @@
+page_34_entities:
+- tag: PLAN-PIT
+  name: PIT 구조평면도 본체
+  type: framing_plan
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: MEMBER-LIST
+  name: 부재 일람표 (Member Schedule)
+  type: schedule
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: TITLE-BLOCK
+  name: 표제란
+  type: title_block
+  discipline: STRUCTURAL
+  confidence: 0.85
+- tag: GRID-SYSTEM
+  name: 구조 그리드 시스템
+  type: grid
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: PW1
+  name: PIT 벽체 1
+  type: wall
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: PW2
+  name: PIT 벽체 2
+  type: wall
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: PW3
+  name: PIT 벽체 3
+  type: wall
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: W1
+  name: 일반 벽체 1
+  type: wall
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: GRP-PIT-WALL
+  name: PIT 벽체 그룹
+  type: group
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: GRP-GENERAL-WALL
+  name: 일반 벽체 그룹
+  type: group
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: GRP-GRID-X
+  name: X방향 그리드 (1~7)
+  type: group
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: GRP-GRID-Y
+  name: Y방향 그리드 (A~D)
+  type: group
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: UNKNOWN-SHAPE-01
+  name: PIT 영역
+  type: notable_shape
+  discipline: STRUCTURAL
+  confidence: 0.6
+- tag: UNKNOWN-SHAPE-02
+  name: 상단 그리드 번호
+  type: notable_shape
+  discipline: STRUCTURAL
+  confidence: 0.6
+- tag: UNKNOWN-SHAPE-03
+  name: 좌측 그리드 열 번호
+  type: notable_shape
+  discipline: STRUCTURAL
+  confidence: 0.6
+- tag: UNKNOWN-SHAPE-04
+  name: 부재 마크
+  type: notable_shape
+  discipline: STRUCTURAL
+  confidence: 0.6
+- tag: UNKNOWN-SHAPE-05
+  name: 기둥 심볼
+  type: equipment_symbol
+  discipline: STRUCTURAL
+  confidence: 0.6
+- tag: UNKNOWN-SHAPE-06
+  name: 부재 마크 심볼
+  type: equipment_symbol
+  discipline: STRUCTURAL
+  confidence: 0.6
+- tag: UNKNOWN-SHAPE-07
+  name: 레벨 표기 화살표
+  type: equipment_symbol
+  discipline: STRUCTURAL
+  confidence: 0.6
+page_34_relations:
+- from: MEMBER-LIST
+  to: PLAN-PIT
+  relation: references
+- from: GRP-PIT-WALL
+  to: PW1
+  relation: contains
+- from: GRP-PIT-WALL
+  to: PW2
+  relation: contains
+- from: GRP-PIT-WALL
+  to: PW3
+  relation: contains
+- from: GRP-GENERAL-WALL
+  to: W1
+  relation: contains
+- from: GRP-GRID-X
+  to: GRID-SYSTEM
+  relation: contains
+- from: GRP-GRID-Y
+  to: GRID-SYSTEM
+  relation: contains
+- from: PW1
+  to: PLAN-PIT
+  relation: linked_to
+- from: PW2
+  to: PLAN-PIT
+  relation: linked_to
+- from: PW3
+  to: PLAN-PIT
+  relation: linked_to
+- from: W1
+  to: PLAN-PIT
+  relation: linked_to

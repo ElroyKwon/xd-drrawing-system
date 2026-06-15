@@ -1,0 +1,168 @@
+ontology_readiness:
+  tag: UNKNOWN-FOUNDATION-01
+  verdict: demoted
+  confidence: 0.97
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 3
+    reason: 고유 tag가 있고 자체 specs(material, classification, sub_details)가 있으나, 도면상 콘크리트
+      기초는 피뢰침/지지대/Steel Plate의 고정 대상인 foundation으로 사용되며 독립 설비라기보다 구조적 기반 부품으로 분류됨.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 3
+    convertible: 3
+    ambiguous_attributes:
+    - key: classification
+      value: 전기공사
+      reason: 구조물 자체의 물성/기능 속성이라기보다 도면 분류/공사 분류 성격의 표기일 수 있어 annotation으로 보존 필요
+    - key: sub_details
+      value:
+      - name: 기초 앙카 상세도
+        dimensions: 200×200, 300×300 등 (현장 제작 사이즈 변경 가능)
+      - name: 기초 상세도
+        dimensions: 800(높이), 500(폭), 300×300(단면) 등 (현장 제작 사이즈 변경 가능)
+      - name: 베이스 상세도
+        dimensions: 200×365 등 (현장 제작 사이즈 변경 가능)
+      reason: 하위 상세도 목록과 가변 치수 문구가 포함되어 있어 단일 정규 속성으로 단순 변환하기보다 원문 보존이 필요
+    auxiliary_attributes:
+    - material
+    - classification
+    - sub_details
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: sonnet
+      value: true
+      source: source_attribution
+      conflict_with: null
+    - key: gemini
+      value: true
+      source: source_attribution
+      conflict_with: null
+    - key: mini
+      value: true
+      source: source_attribution
+      conflict_with: null
+    conflicts:
+    - key: sub_details.dimensions
+      values:
+      - 200×200, 300×300 등 (현장 제작 사이즈 변경 가능)
+      - 800(높이), 500(폭), 300×300(단면) 등 (현장 제작 사이즈 변경 가능)
+      - 200×365 등 (현장 제작 사이즈 변경 가능)
+      sources:
+      - entity_detail.specs.sub_details
+      - read_page_context.disagreements.resolved_to
+      note: 치수 표기 변형/정리 이력은 있으나 최종 보존값이 존재함
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from: UNKNOWN-SUPPORT-MEMBER-02
+      to: UNKNOWN-FOUNDATION-01
+      relation: connects_to
+      partner_discipline: ELECTRICAL
+    - from: UNKNOWN-PLATE-STEEL-01
+      to: UNKNOWN-FOUNDATION-01
+      relation: connects_to
+      partner_discipline: STRUCTURAL
+    hints_added:
+    - STRUCTURAL foundation element connected to ELECTRICAL lightning protection support
+      assembly
+    - Cross-discipline linkage preserved via connects_to relations
+  ontology_class_hint:
+    suggested_parent_class: Foundation
+    alternative_parent_classes:
+    - StructuralFoundation
+    - EquipmentFoundation
+    - CivilFoundation
+  spatial_context:
+    position: BLK-004 bottom-left
+    source_pages:
+    - 40
+    room_or_zone: BLK-004
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      material: 콘크리트
+      classification: 전기공사
+      sub_details:
+      - name: 기초 앙카 상세도
+        dimensions: 200×200, 300×300 등 (현장 제작 사이즈 변경 가능)
+      - name: 기초 상세도
+        dimensions: 800(높이), 500(폭), 300×300(단면) 등 (현장 제작 사이즈 변경 가능)
+      - name: 베이스 상세도
+        dimensions: 200×365 등 (현장 제작 사이즈 변경 가능)
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - notes
+  - drawing_texts
+  - requirements
+  - connection_specs
+  - ontology_hints.observed_relations
+  - ontology_hints.cross_discipline
+  - disagreements
+  - equipment_symbols
+  skipped_fields:
+  - requirements (not present)
+  - drawing_texts (not present)
+  - connection_specs (not present)
+  - ontology_hints.observed_relations (not present)
+  - ontology_hints.cross_discipline (not present)
+  - notes (not present)
+  - ambiguous_attributes (not present)
+  - source_attribution.*_sonnet/*_gemini/*_mini beyond booleans (no per-source conflicts
+    present)
+  demoted_to:
+    role: spatial_container
+    parent_tag: UNKNOWN-SUPPORT-MEMBER-02
+    relation_type: part_of
+    owl_pattern: :UNKNOWN-FOUNDATION-01 rdf:type :Component ; :partOf :UNKNOWN-SUPPORT-MEMBER-02
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Foundation
+    annotations_to_emit:
+    - classification=전기공사
+    - material=콘크리트
+    - 'sub_details=[{name: 기초 앙카 상세도, dimensions: 200×200, 300×300 등 (현장 제작 사이즈 변경
+      가능)}, {name: 기초 상세도, dimensions: 800(높이), 500(폭), 300×300(단면) 등 (현장 제작 사이즈 변경
+      가능)}, {name: 베이스 상세도, dimensions: 200×365 등 (현장 제작 사이즈 변경 가능)}]'
+    - source_pages=[40]
+    - position=BLK-004 bottom-left
+    - 'source_attribution={sonnet: true, gemini: true, mini: true}'
+    - 'collection_sources={cross_validated: true, entity_synthesis: true}'
+    relations_to_emit:
+    - part_of -> UNKNOWN-SUPPORT-MEMBER-02
+    - connects_to <- UNKNOWN-SUPPORT-MEMBER-02
+    - connects_to <- UNKNOWN-PLATE-STEEL-01
+    needs_human_review: false
+tag: UNKNOWN-FOUNDATION-01
+discovered_relations: 2

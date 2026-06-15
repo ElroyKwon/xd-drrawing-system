@@ -1,0 +1,73 @@
+entity_detail:
+  tag: CENTRAL MONITORING ROOM
+  type: monitoring_facility
+  specs:
+    discipline:
+      value: CONTROL
+      source: page 5
+      confidence: 0.95
+    function_category:
+      value: CONTROL
+      source: page 5
+      confidence: 0.9
+  drawing_texts:
+  - source: page 5 search_entity_by_tag
+    page_number: 5
+    text: "tag: CENTRAL MONITORING ROOM\nname: 중앙감시실 (Central Monitoring Room)\ntype:\
+      \ monitoring_facility\ndiscipline: CONTROL\nfunction_category: CONTROL\n...\n\
+      \    direction: bidirectional\n    confidence: 0.9\n    note: RS-485 통신 케이블\
+      \ (communication cable to central monitoring room)\n    source: text\n  - from:\
+      \ '1309'\n    to: 1301A"
+  - source: page 5 search_entity_by_tag
+    page_number: 5
+    text: "note: CP-1을 통해 수전\n  - tag: CENTRAL MONITORING ROOM\n    name: 중앙감시실 (Central\
+      \ Monitoring Room)\n    type: monitoring_facility\ndiscipline: CONTROL"
+  requirements:
+  - text: CP-1을 통해 수전
+    source: page 5 search_entity_by_tag
+    type: power_supply
+  - text: RS-485 통신 케이블 (communication cable to central monitoring room)
+    source: page 5 search_entity_by_tag
+    type: communication
+  connection_specs:
+  - relation: power_supply
+    partner: CP-1
+    details:
+      source: page 5 search_entity_by_tag
+  - relation: communication
+    partner: '1309'
+    details:
+      source: page 5 search_entity_by_tag
+  - relation: communication
+    partner: 1301A
+    details:
+      source: page 5 search_entity_by_tag
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_supply
+      partner_tag: CP-1
+      direction: UNKNOWN
+      source: page 5 search_entity_by_tag
+    - relation_type: communication
+      partner_tag: '1309'
+      direction: bidirectional
+      source: page 5 search_entity_by_tag
+    - relation_type: communication
+      partner_tag: 1301A
+      direction: UNKNOWN
+      source: page 5 search_entity_by_tag
+    observed_attributes:
+    - tag
+    - name
+    - type
+    - discipline
+    - function_category
+    similar_equipment: []
+    suggested_parent_class: control_room
+    cross_discipline:
+    - CONTROL
+    - ELECTRICAL
+  notes:
+  - 도면 분석 결과에서 확인 가능한 정보만 기록함.
+  - 전원 공급의 정확한 방향은 원문에서 명시되지 않아 UNKNOWN으로 처리함.
+tag: CENTRAL MONITORING ROOM

@@ -1,0 +1,441 @@
+ontology_plan:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: entity_details/*.yaml (n=252)
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T14:41:32.420964'
+  project_overview:
+    discipline_mix:
+      communication: 252
+    dominant_equipment_types:
+    - type: CommunicationEquipment
+      count: 90
+      reasoning: 허브랙, FDF, 패치패널, 스위치, 단자함, AP, 시스템박스, 범례 기반 장비 심볼 등에서 suggested_parent_class가
+        반복적으로 CommunicationEquipment 계열로 수렴한다.
+    - type: Space/Zone
+      count: 80
+      reasoning: 통신실, 방송실, 회의실, 사무실, 주차장, 층별 구역, 사용자구간 등 공간/구역 엔티티가 다수이며 floor_plan/system_diagram
+        양쪽에서 반복 관찰된다.
+    - type: Cable/Route/Containment
+      count: 45
+      reasoning: 케이블 규격, 케이블 트레이, 지하공동구, 맨홀, 풀박스, 케이블 경로, 배관/배선 방식이 범례와 계통도/평면도 전반에
+        걸쳐 반복된다.
+    - type: Metadata/Legend/Reference
+      count: 25
+      reasoning: TITLE-BLOCK, TOC, NOTE, LEGEND, CABLE SCHEDULE, 섹션 인덱스, 표지 정보 등 문서성
+        엔티티가 별도 군을 이룬다.
+    complexity_estimate: high
+    estimated_class_count: 28
+    estimated_individual_count: 240
+    estimated_property_count:
+      object: 16
+      data: 34
+  predicted_ontology_structure:
+    class_hierarchy_hint:
+      top_level:
+      - PhysicalCommunicationAsset
+      - SpatialEntity
+      - CableAndPathway
+      - InformationEntity
+      - DocumentEntity
+      expected_depth: 4
+      likely_disjoint_pairs:
+      - - SpatialEntity
+        - InformationEntity
+      - - CommunicationEquipment
+        - CableSpec
+      - - CommunicationDevice
+        - CableTray
+      - - DocumentEntity
+        - CommunicationEquipment
+      - - JunctionBox
+        - Manhole
+      reasoning: 관찰된 suggested_parent_class와 type/function_category를 종합하면 장비/공간/케이블경로/문서정보가
+        가장 큰 축이다. 다만 일부 엔티티는 equipment/space 혼합(COMM-ROOM-1F), equipment_or_panel(PA-HEAD-END),
+        BOUNDARY로 추출된 물리설비(PULL-BOX, EXT-DUCT)처럼 혼합성이 있어 완전한 분리는 다음 단계 검증이 필요하다.
+    expected_object_properties:
+    - label: connectedTo
+      signal: relations의 relation=cable가 가장 광범위하게 등장하며 랙-단말-실-외부인입-맨홀-트레이를 연결한다.
+      est_evidence: 70
+      inverse_hint: connectedTo
+    - label: routesThrough
+      signal: 케이블이 MANHOLE, PULL BOX, TRAY, UNDERGROUND-DUCT, TUNNEL-DUCT를 경유하는 패턴이
+        반복된다.
+      est_evidence: 18
+      inverse_hint: isRouteFor
+    - label: servesZone
+      signal: HUB-RACK/IDF/PA-HEAD-END/AMP-RACK가 ROOM/ZONE/FLOOR로 배선되는 구조가 반복된다.
+      est_evidence: 25
+      inverse_hint: servedBy
+    - label: hasInstalledEquipment
+      signal: 공간 엔티티 다수에 equipment_symbols가 포함되어 공간-장비 내재 관계가 필요하다.
+      est_evidence: 55
+      inverse_hint: installedIn
+    - label: hasCableSpec
+      signal: relation annotation에 케이블 규격 문자열이 반복되고, 별도 cable_spec 엔티티도 존재한다.
+      est_evidence: 40
+      inverse_hint: specifiedForConnection
+    - label: hasSubcomponent
+      signal: HUB-RACK-1/2 내부에 FDF, SWITCH, PATCH PANEL, 110BLOCK, AP 컨트롤러 등 구성품이
+        명시된다.
+      est_evidence: 20
+      inverse_hint: componentOf
+    - label: referencesLegend
+      signal: LEGEND-BOX, NOTE-LEGEND, CABLE-SCHEDULE가 다른 엔티티의 심볼/규격 해석 근거로 연결된다.
+      est_evidence: 10
+      inverse_hint: definesFor
+    - label: referencesDocumentSection
+      signal: SEC-GENERAL/SEC-COMM/SEC-BROADCAST/SEC-BLOCKDIAG/TOC-MAIN/TITLE-BLOCK
+        등 문서 구조 엔티티가 존재한다.
+      est_evidence: 8
+      inverse_hint: listedIn
+    - label: originatesFrom
+      signal: EXT-SOURCE*, EXT-MDF*, EXT-1F-COMM, EXT-사무동방송실 등 외부 인입 출처가 반복된다.
+      est_evidence: 14
+      inverse_hint: sourceFor
+    - label: terminatesAt
+      signal: 110BLOCK, FDF, SYSTEM BOX, OUTLET BOX, Speaker Terminal Board 등 종단점
+        성격이 강하다.
+      est_evidence: 22
+      inverse_hint: terminationOf
+    - label: locatedOnPage
+      signal: 모든 엔티티에 source_pages가 있으며 문서 추적성이 중요하다.
+      est_evidence: 240
+      inverse_hint: hasEntity
+    - label: belongsToSystem
+      signal: 통합배선설비, 방송설비, CCTV, 외부 인입, 구내간선계, 수평배선계 등 시스템 군집이 관찰된다.
+      est_evidence: 60
+      inverse_hint: hasMember
+    expected_data_properties:
+    - label: tag
+      datatype_hint: xsd:string
+      coverage_estimate: 1.0
+      reasoning: 모든 entity_detail에 tag가 존재한다.
+    - label: name
+      datatype_hint: xsd:string
+      coverage_estimate: 1.0
+      reasoning: 모든 entity_detail에 name이 존재한다.
+    - label: entityType
+      datatype_hint: xsd:string
+      coverage_estimate: 1.0
+      reasoning: type 필드가 전 엔티티에 존재하나 표기 일관성은 낮다.
+    - label: functionCategory
+      datatype_hint: xsd:string
+      coverage_estimate: 0.98
+      reasoning: 대부분 function_category가 존재하며 분류 축으로 반복 사용된다.
+    - label: inferredName
+      datatype_hint: xsd:string
+      coverage_estimate: 0.8
+      reasoning: visual semantics 기반 엔티티에서 매우 자주 등장한다.
+    - label: rawLabel
+      datatype_hint: xsd:string
+      coverage_estimate: 0.85
+      reasoning: raw_labels/labels_inside/labels_above/labels_below가 광범위하다.
+    - label: position
+      datatype_hint: xsd:string
+      coverage_estimate: 0.75
+      reasoning: top-right, center 등 위치 정보가 다수 엔티티에 있다.
+    - label: shape
+      datatype_hint: xsd:string
+      coverage_estimate: 0.65
+      reasoning: rectangle, dashed_box, shaded_box, circle 등 도형 정보가 반복된다.
+    - label: panelId
+      datatype_hint: xsd:string
+      coverage_estimate: 0.45
+      reasoning: panel_id가 문서/공간/장비 일부에만 존재한다.
+    - label: visualDescription
+      datatype_hint: xsd:string
+      coverage_estimate: 0.18
+      reasoning: 범례 기반 심볼 엔티티에서 집중적으로 등장한다.
+    - label: mountType
+      datatype_hint: xsd:string
+      coverage_estimate: 0.12
+      reasoning: 아울렛/스피커/시스템박스 범례 엔티티에서 반복된다.
+    - label: powerRating
+      datatype_hint: xsd:string
+      coverage_estimate: 0.08
+      reasoning: 스피커류에서 3W, 10W, 20~30W가 관찰된다.
+    - label: cableType
+      datatype_hint: xsd:string
+      coverage_estimate: 0.1
+      reasoning: HFIX, UTP 등 cable_spec 엔티티에 명시된다.
+    - label: conductorCount
+      datatype_hint: xsd:string
+      coverage_estimate: 0.04
+      reasoning: HFIX 케이블 규격 엔티티에서만 직접 관찰된다.
+    - label: conductorSize
+      datatype_hint: xsd:string
+      coverage_estimate: 0.08
+      reasoning: 1.5sq, 0.5mm, 2.5sq 등 케이블/주석에서 반복된다.
+    - label: pairCount
+      datatype_hint: xsd:string
+      coverage_estimate: 0.05
+      reasoning: UTP 규격 엔티티에서 4Px1~4Px8, 25Px1 등이 관찰된다.
+    - label: category
+      datatype_hint: xsd:string
+      coverage_estimate: 0.06
+      reasoning: CAT.5e, CAT.5, CAT.6가 반복된다.
+    - label: dimensions
+      datatype_hint: xsd:string
+      coverage_estimate: 0.12
+      reasoning: 랙, 맨홀, 트레이, 풀박스, 캐비닛 등에서 치수 문자열이 자주 보인다.
+    - label: scheduleText
+      datatype_hint: xsd:string
+      coverage_estimate: 0.06
+      reasoning: HUB-RACK-1/2 schedule, CABLE-SCHEDULE 등 표 형식 정보가 존재한다.
+    - label: drawingNumber
+      datatype_hint: xsd:string
+      coverage_estimate: 0.08
+      reasoning: TITLE-BLOCK, SEC-* 등 문서 엔티티에서 반복된다.
+    - label: drawingTitle
+      datatype_hint: xsd:string
+      coverage_estimate: 0.08
+      reasoning: TITLE-BLOCK, 섹션/목록표 엔티티에서 관찰된다.
+    - label: date
+      datatype_hint: xsd:string
+      coverage_estimate: 0.05
+      reasoning: 표제란/표지에서 반복된다.
+    - label: note
+      datatype_hint: xsd:string
+      coverage_estimate: 0.2
+      reasoning: notes, correction_note, reference_note, labels_below 등 주석성 데이터가 많다.
+    expected_axioms:
+    - type: SubClassOf
+      example: CommunicationRack SubClassOf CommunicationEquipment
+      evidence_hint: HUB-RACK-1/2, HUB-RACK-01, HUB-RACK-2F, AMP-RACK, PA-RACK-01
+        등 랙류가 반복된다.
+    - type: SubClassOf
+      example: FiberDistributionFrame SubClassOf CommunicationEquipment
+      evidence_hint: BB-FDF-DATA, R1-FDF-IN, R1-FDF-OUT-1/2, R2-FDF-IN/OUT 등 FDF 계열이
+        독립 군집을 이룬다.
+    - type: SubClassOf
+      example: JunctionBox SubClassOf CableAndPathway
+      evidence_hint: PULL-BOX-01, PB-01, PULLBOX-ZONE, 조인트 박스, 풀 박스 등 접속/경유 설비가 반복된다.
+    - type: SubClassOf
+      example: CommunicationRoom SubClassOf SpatialEntity
+      evidence_hint: COMM-ROOM-1F, ROOM-COMM-1F, SPACE-COMM, JEONSAN-ROOM, BROADCAST-ROOM
+        등.
+    - type: DisjointWith
+      example: CableSpec DisjointWith CommunicationRoom
+      evidence_hint: 케이블 규격 엔티티와 공간 엔티티는 속성 패턴이 명확히 다르다.
+    - type: InverseOf
+      example: servesZone inverseOf servedBy
+      evidence_hint: 랙/헤드엔드/단자함에서 공간으로 향하는 배선 관계가 반복된다.
+    - type: DomainRange
+      example: hasInstalledEquipment domain SpatialEntity range CommunicationEquipment
+      evidence_hint: 공간 엔티티의 equipment_symbols 패턴이 매우 빈번하다.
+    - type: DomainRange
+      example: hasCableSpec domain connectedTo-like relation context range CableSpec
+      evidence_hint: annotation 문자열과 cable_spec 엔티티 간 연결 필요성이 높다.
+    expected_constraints:
+    - type: FunctionalProperty
+      target: tag
+      expected: 각 개체당 단일 tag
+      reasoning: 모든 엔티티가 고유 tag를 가진다. 다만 중복 의미 태그는 merge 단계에서 정리 필요.
+    - type: FunctionalProperty
+      target: panelId
+      expected: 존재 시 단일 값
+      reasoning: panel_id는 식별자 역할로 보이며 복수값 사례는 드물다.
+    - type: DomainRange
+      target: hasInstalledEquipment
+      expected: SpatialEntity -> CommunicationEquipment
+      reasoning: 공간 내부 장비 심볼 표현을 구조화하기 위한 핵심 제약.
+    - type: DomainRange
+      target: routesThrough
+      expected: CableRoute/Connection -> PathwayOrContainment
+      reasoning: 맨홀/트레이/공동구/풀박스 경유 패턴이 반복된다.
+    - type: Cardinality
+      target: CommunicationRack hasSubcomponent
+      expected: 0..many
+      reasoning: 랙 내부 구성품 수가 랙마다 다르며 HUB-RACK-1/2는 다수 구성품을 가진다.
+    - type: Cardinality
+      target: CableSpec
+      expected: at least one identifying spec among cableType/conductorCount/pairCount/category
+      reasoning: 케이블 규격 엔티티는 최소 하나 이상의 규격 속성으로 식별된다.
+    - type: DomainRange
+      target: locatedOnPage
+      expected: AnyEntity -> DocumentPage
+      reasoning: source_pages가 전반적으로 존재하여 문서 추적성이 중요하다.
+  discipline_context_plan:
+    communication:
+      observed_system_clusters:
+      - 통합배선설비/데이터 배선
+      - 방송설비/PA
+      - 외부 인입 및 구내간선
+      - CCTV 외부 제어반 연계
+      - 문서 메타데이터/범례/스케줄
+      likely_sub_kinds:
+        equipment:
+        - rack
+        - switch
+        - fdf
+        - patch_panel
+        - 110block
+        - terminal_board
+        - system_box/outlet
+        - wireless_ap
+        - speaker
+        - control_panel
+        spaces:
+        - communication_room
+        - broadcast_room
+        - office/meeting/lab
+        - floor_zone
+        - user_zone
+        - support_area
+        pathways:
+        - cable_tray
+        - underground_duct
+        - manhole
+        - pull_box
+        - duct_bank_section
+        - cable_route
+        information:
+        - legend
+        - note
+        - cable_schedule
+        - title_block
+        - drawing_index
+      expected_relation_patterns:
+      - rack -> zone/room cable distribution
+      - external source -> manhole/duct/tray -> rack/room
+      - broadcast head-end/amplifier -> speaker terminal board -> speaker zones
+      - legend/schedule -> equipment or route reference
+      - space -> installed equipment symbols
+      expected_data_density:
+        high_fields:
+        - raw_labels
+        - labels_inside
+        - position
+        - equipment_symbols
+        - inferred_name
+        medium_fields:
+        - shape
+        - panel_id
+        - dimensions
+        - notes
+        low_fields:
+        - schedule
+        - mount_type
+        - power
+        - explosion_proof
+      reasoning: 단일 discipline이지만 실제로는 데이터통신, 방송, 외부 인입, 문서 메타가 혼재한다. 따라서 후속 단계에서
+        communication 내부 서브도메인 분리가 중요하다.
+  merge_candidates_hint:
+    likely_duplicates:
+    - pattern: '동일 실체의 표기 변형: HUB-RACK-2 / RACK-HUB-2 / HUB RACK -2 (RACK TYPE)'
+      estimate: 3~4건
+      resolution_hint: 페이지/맥락별 동일 랙인지, 상세도와 계통도 표현 차이인지 확인 후 canonical rack individual
+        + alias 처리
+    - pattern: IDF-1 / RACK-IDF-1 / HUB-RACK-01과의 부분중첩
+      estimate: 2~3건
+      resolution_hint: 1층 통신실 랙, IDF 개념, 허브랙 개념이 동일 개체인지 상하위 구성인지 분리 검토
+    - pattern: CABLE-SCHEDULE / META-CABLE-SCH
+      estimate: 2건
+      resolution_hint: 동일 표의 중복 추출 가능성이 높아 문서 엔티티 병합 우선
+    - pattern: LEGEND-BOX / META-NOTES / NOTES-SECTION / NOTES-SECTION / NOTE-LEGEND
+        / NOTE-SECTION / LEGEND-NOTE
+      estimate: 6~8건
+      resolution_hint: 페이지별 별도 범례인지 동일 유형 반복인지 구분하고, 개체 병합보다 공통 클래스 정리가 우선
+    - pattern: MANHOLE-01 / MH-01 / MANHOLE-IC / ITB-CABINET(정보통신용 맨홀)
+      estimate: 3~4건
+      resolution_hint: 동일 위치 개체인지, 동일 타입의 다른 페이지 표현인지 source_page와 관계망으로 판별
+    - pattern: PULL-BOX / PULL-BOX-MAIN / PB-01 / PULL-BOX-01 / 풀 박스 (P.B)
+      estimate: 4~6건
+      resolution_hint: 범례 심볼, 실제 설치 개체, 구역 집계 엔티티를 분리한 뒤 동일 설치점만 병합
+    - pattern: TRAY-GONGDONG / CABLE-TRAY-MAIN / UNKNOWN-SPACE-01 / TUNNEL-DUCT-01
+      estimate: 3~5건
+      resolution_hint: 공동구 트레이라는 공통 개념 아래 실제 위치별 개체와 추상 경로를 분리
+    - pattern: SHOWROOM / SHOW-ROOM, DRIVE-DEV-LAB / DRIVE-LAB, SPACE-SOFTLAB / SPACE-SoftwareLab
+      estimate: 6건 내외
+      resolution_hint: 통신 평면과 방송 평면의 동일 공간 가능성이 높으므로 공간 canonicalization 필요
+    - pattern: EXT-SOURCE-* / EXT-* / ROUTE-TO-* / UNKNOWN-SPACE-03~05
+      estimate: 8~12건
+      resolution_hint: 외부 출처, 경로, 목적지 주석이 혼합되어 있으므로 source-point와 route-note를 분리
+  ambiguity_risk_areas:
+  - tag_pattern: type=BOUNDARY 또는 METADATA인데 실제 물리설비처럼 보이는 엔티티
+    reason: EXT-DUCT, PULL-BOX, MANHOLE-IC, Without Conduit 등은 추출기 관점 type과 실제 도면
+      의미가 다르다.
+    recommended_handling: type보다 specs/relations/function_category 우선으로 재분류하고 원본 type은
+      annotation으로 보존
+  - tag_pattern: equipment/space 혼합 엔티티
+    reason: COMM-ROOM-1F, PA-HEAD-END, BROADCAST-ROOM 등은 공간이면서 장비 설치 블록 역할도 한다.
+    recommended_handling: 단일 개체로 둘지 공간+장비 복합 모델로 분해할지 다음 단계에서 판단하되, 정보 손실 방지를 위해 우선
+      둘 다 기록
+  - tag_pattern: 범례 심볼 엔티티 vs 실제 설치 개체
+    reason: 천정형 스피커 (3W), Speaker Terminal Board, LAN OUTLET(OA) 2PORT는 범례 정의이고, UNKNOWN-SPEAKER-*,
+      STB-S1, SYSBOX-*는 실제 배치다.
+    recommended_handling: SymbolDefinition 클래스와 InstalledAsset 클래스를 분리
+  - tag_pattern: 공간명 동일하지만 시스템별 표현이 다른 엔티티
+    reason: SHOWROOM/SHOW-ROOM, Software Lab 관련 엔티티처럼 통신/방송 도면에서 동일 공간이 다른 장비를 가진다.
+    recommended_handling: 공간 canonical entity를 만들고 시스템별 설비 관계를 별도 연결
+  - tag_pattern: relation annotation 안의 케이블 규격 문자열
+    reason: 실제 CableSpec 개체와 문자열 annotation이 혼재한다.
+    recommended_handling: annotation 원문 보존 후 가능한 경우 cable_spec 개체와 링크
+  - tag_pattern: unknown/placeholder/document cover 엔티티
+    reason: UNKNOWN-PANEL-001/002, UNKNOWN-SPACE-*는 추출 불확실성이 높다.
+    recommended_handling: 초기에는 저신뢰 annotation entity로 유지하고 병합/삭제는 후순위
+  - tag_pattern: 유사하지만 다른 계층의 랙/프레임/존
+    reason: ZONE-IDF, ZONE-MDF, IDF-1, HUB-RACK-1, EXT-MDF-*가 개념/개체/영역을 혼합한다.
+    recommended_handling: Zone, Equipment, ExternalInterface를 엄격히 분리하여 모델링
+  guidance_for_next_steps:
+    for_0_9b_placement:
+      focus:
+      - 범례 정의 엔티티와 실제 설치 엔티티 분리 배치
+      - 공간/구역/층 엔티티를 우선 정리
+      - 랙-단말-사용자기기 연결 체인 배치
+      - 외부 인입 경로(소스-맨홀-공동구-트레이-랙) 배치
+      - 방송 계통(AMP/PA-HEAD-END-STB-스피커구역) 배치
+      expected_owl_role_distribution:
+        NamedIndividual: 185
+        PartOf: 28
+        ObjectPropertyAssertion: 95
+        DataPropertyValue: 520
+        AnnotationOnly: 35
+      watch_outs:
+      - equipment_symbols count=null은 실제 개수 미상으로 cardinality 단정 금지
+      - source_pages가 여러 개인 엔티티는 동일 개체/반복표현 여부 확인 필요
+      - 문서 메타 엔티티를 물리설비와 같은 레벨로 섞지 말 것
+      - UNKNOWN-*는 삭제보다 보류가 안전
+    for_0_9c_taxonomy:
+      focus:
+      - CommunicationEquipment 내부 세분화
+      - SpatialEntity와 CommunicationZone의 경계 정리
+      - CableAndPathway 계층 정리
+      - InformationEntity/DocumentEntity 분리
+      seed_top_classes:
+      - CommunicationEquipment
+      - SpatialEntity
+      - CableAndPathway
+      - CommunicationDevice
+      - InformationEntity
+    for_0_9d_properties:
+      focus:
+      - cable 관계를 일반 연결과 경유 관계로 분해
+      - 공간 내 설치장비 표현 표준화
+      - annotation 문자열에서 케이블 규격/목적지/비고 분리
+      - 문서 참조 관계 정의
+      priority_properties:
+      - connectedTo
+      - routesThrough
+      - servesZone
+      - hasInstalledEquipment
+      - hasCableSpec
+      - hasSubcomponent
+      - originatesFrom
+      - locatedOnPage
+    for_0_9e_axioms:
+      focus:
+      - 상위 클래스 disjoint 설정은 보수적으로
+      - 랙/단자함/FDF/스위치의 subclass 체계 확정
+      - 공간과 장비의 domain/range 제약 설정
+      - 문서 엔티티와 물리 엔티티 분리 공리 도출
+      priority_axioms:
+      - SubClassOf
+      - DomainRange
+      - InverseOf
+      - DisjointWith
+      - FunctionalProperty
+  confidence: 0.79
+  self_assessment: 전수 스캔 결과 통신 단일 discipline 안에서도 방송, 데이터배선, 외부 인입, 문서 메타가 혼재해 구조
+    예측은 비교적 가능하다. 다만 동일 공간/동일 랙의 중복 추출과 범례 심볼 대 실제 설치 개체의 혼합이 많아 개체 병합과 클래스 경계에는 불확실성이
+    남는다.

@@ -1,0 +1,205 @@
+placement:
+  tag: SMFD-GRP-003
+  name: 제어룸 SMFD 그룹
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SMFD-GRP-003
+    class_hint: FireDamperGroup
+    alternative_class_hints:
+    - LogicalGroup
+    - EquipmentGroup
+    - FireProtectionEquipmentGroup
+    related_assertions:
+    - type: connects_to
+      target_hint: CTRL-PANEL-1F
+      note: CTRL-PANEL-1F에서 SMFD-GRP-003으로 connects_to 관계가 관찰됨
+    applicable_axioms:
+    - AX024
+    - AX027
+    applicable_constraints:
+    - CN028
+    confirmed_class: dks:EquipmentGroup
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: group'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasEntityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 group 타입이 명시됨
+      - raw_text: 'function_category: PROTECT'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주가 원문에 직접 표기됨
+      - raw_text: 'specs.position: center-left / grid A-B / 2-3'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 위치 정보가 문자열 형태로 직접 제공됨
+      - raw_text: 'specs.equipment_symbols: SMFD_symbol x1'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 기호 종류와 수량이 명시됨
+      - raw_text: 'specs.inferred_name: 제어룸 SMFD 그룹'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭이 원문에 포함됨
+      - raw_text: 'ontology_hints.suggested_parent_class: FireDamperGroup'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 상위 클래스 후보가 제시됨
+      - raw_text: 'ontology_hints.observed_attributes: position, equipment_symbols,
+          inferred_name'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록이 원문에 존재함
+      - raw_text: 'ontology_hints.function_candidates: Smoke Control, Fire Protection,
+          HVAC Isolation'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 복수로 제시됨
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: isCrossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 수집 출처의 교차 검증 여부가 명시됨
+      - raw_text: 'collection_sources.visual_semantics_gemini: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasVisualSemanticsValidation
+          suggested_datatype: xsd:boolean
+          rationale: 시각 의미 해석에 Gemini가 사용되었음
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasEntitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 여부가 명시됨
+      - raw_text: 'source_attribution.gemini: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasGeminiAttribution
+          suggested_datatype: xsd:boolean
+          rationale: 출처 기여 정보가 존재함
+      - raw_text: 'source_attribution.mini: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasMiniAttribution
+          suggested_datatype: xsd:boolean
+          rationale: 출처 기여 정보가 존재함
+      - raw_text: 'confidence: 0.85'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 엔티티 자체 신뢰도 값이 제공됨
+  provenance:
+    tag:
+      source_pages:
+      - 51
+      method: entity_detail
+    name:
+      source_pages:
+      - 51
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 51
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 51
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 51
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 51
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 51
+      method: ontology_hints + plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 51
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 51
+      method: entity_detail + ontology_hints + collection_sources + source_attribution
+    ambiguous:
+      source_pages:
+      - 51
+      method: assessment
+    merge_info:
+      source_pages:
+      - 51
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 51
+      method: ontology_plan
+  unresolved:
+  - field_candidate: specs.position
+    raw_text: center-left / grid A-B / 2-3
+    source_page: 51
+    reason: 위치 표현은 있으나 표준화된 좌표 체계로 변환하지 않음
+    preservation_note: 원문 문자열 그대로 보존
+  - field_candidate: specs.equipment_symbols
+    raw_text: SMFD_symbol x1
+    source_page: 51
+    reason: 기호명과 수량은 있으나 기호의 정확한 의미/클래스는 확정하지 않음
+    preservation_note: symbol type과 count를 분리해 후속 승격 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Smoke Control, Fire Protection, HVAC Isolation
+    source_page: 51
+    reason: 기능 후보가 복수이며 단일 확정 불가
+    preservation_note: 후속 분류에서 기능 속성 후보로 활용 가능
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: false, gemini: true, mini: true'
+    source_page: 51
+    reason: 출처 기여 정보는 있으나 의미론적 분류 대상은 아님
+    preservation_note: provenance 보강용 메타정보로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SMFD-GRP-003은 group으로 명시되며, FireDamperGroup/LogicalGroup/EquipmentGroup
+      중 어느 상위 클래스로 확정할지 도면 텍스트만으로는 단정하기 어려움
+    recommended_handling: 0-9c에서 FireDamperGroup 또는 LogicalGroup 계열 후보로 검토하고, 0-9d에서
+      connects_to 관계를 유지한 채 그룹성/장비성 분리를 재평가
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:15.889871'
+  confidence: 0.85

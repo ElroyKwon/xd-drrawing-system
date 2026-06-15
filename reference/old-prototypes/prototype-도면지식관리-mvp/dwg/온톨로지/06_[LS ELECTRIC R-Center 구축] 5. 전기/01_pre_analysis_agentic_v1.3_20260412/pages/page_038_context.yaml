@@ -1,0 +1,654 @@
+executive_summary:
+  drawing_number: EE-05-004
+  title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.99
+  summary: '옥탑지붕층의 피뢰 및 접지 설비 평면도로, 피뢰침 1개소(H:3,000㎜)와 수평도체(STS 환봉 8㎜, 지지금구 1m마다 설치)가
+    핵심 계통이다.
+
+    수평도체는 주 인하도선(기초철골 접속)과 보조 인하도선(F-GV 50㎟, HI-PVC 28C)으로 연결되며, 구조체 접속(철근 및 철골 접속)으로
+    이어진다.
+
+    적용 기준은 KEC 150 피뢰시스템, KS C IEC 62305, 회전 구체법, 보호등급 IV등급, 회전구체반경 60m로 표기되어 있다.
+
+    '
+  equipment:
+  - tag: LPS-ROD-001
+    name: 피뢰침
+    spec: H:3,000㎜, 1개소
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 도면 중앙 우측 / grid 5-6, B-C
+    confidence: 0.98
+  - tag: LPS-COND-001
+    name: 수평도체
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 옥탑지붕층 전체 / grid A-D, 1-7 전체
+    confidence: 0.98
+  - tag: LPS-DOWN-001
+    name: 주 인하도선
+    spec: 기초철골 접속
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 옥탑지붕층에서 하층으로 연결
+    confidence: 0.95
+  - tag: LPS-DOWN-002
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 옥탑지붕층에서 하층으로 연결
+    confidence: 0.95
+  - tag: LPS-STRUCT-001
+    name: 구조체 접속
+    spec: 철근 및 철골 접속
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 피뢰 시스템과 건물 구조체 접속점
+    confidence: 0.95
+  - tag: LPS-RISER-001
+    name: 층간연결 입상
+    spec: 층간연결 입상
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 상층 연결 경로
+    confidence: 0.9
+  - tag: LPS-RISER-002
+    name: 층간연결 입하
+    spec: 층간연결 입하
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 하층 연결 경로
+    confidence: 0.9
+  - tag: SUPPORT-001
+    name: 지지금구
+    spec: 1m마다 설치
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 수평도체 지지부
+    confidence: 0.92
+  - tag: ROOF-PLANE-001
+    name: 옥탑지붕층
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 도면 주요 배치 대상
+    confidence: 0.95
+  - tag: STANDARD-REF-001
+    name: 한국전기설비규정(KEC) 150 피뢰시스템
+    spec: KEC 150, KS C IEC 62305
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.9
+  - tag: PROTECTION-ZONE-001
+    name: 회전 구체법 보호 영역
+    spec: 보호등급 IV등급, 회전구체반경 60m
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.88
+  relationships:
+  - from: LPS-ROD-001
+    to: LPS-COND-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+  - from: LPS-COND-001
+    to: LPS-DOWN-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: LPS-COND-001
+    to: LPS-DOWN-002
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.95
+  - from: LPS-DOWN-001
+    to: LPS-STRUCT-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.93
+  - from: LPS-DOWN-002
+    to: LPS-STRUCT-001
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.93
+  - from: LPS-COND-001
+    to: SUPPORT-001
+    relation: connected_via
+    medium: mechanical
+    direction: bidirectional
+    confidence: 0.92
+  - from: LPS-COND-001
+    to: LPS-RISER-001
+    relation: connected_via
+    medium: conductor
+    direction: upstream
+    confidence: 0.88
+  - from: LPS-COND-001
+    to: LPS-RISER-002
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.88
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS ELECTRIC 천안 R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: LS ELECTRIC 천안 R-Center
+    parent: SITE-001
+  - space_id: FLOOR-ROOF
+    type: floor
+    name: 옥탑층
+    parent: BLDG-001
+  - space_id: ZONE-ROOF-PLANE
+    type: zone
+    name: 옥탑지붕층
+    parent: FLOOR-ROOF
+  flow_paths:
+  - - LPS-ROD-001
+    - LPS-COND-001
+    - LPS-DOWN-001
+    - LPS-STRUCT-001
+  - - LPS-ROD-001
+    - LPS-COND-001
+    - LPS-DOWN-002
+    - LPS-STRUCT-001
+  - - LPS-COND-001
+    - LPS-RISER-001
+  - - LPS-COND-001
+    - LPS-RISER-002
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000㎜)
+  - 수평도체 1식 (STS 환봉 8㎜, 지지금구 1m마다 설치)
+  - 주 인하도선 1식 (기초철골 접속)
+  - 보조 인하도선 1식 (F-GV 50㎟, HI-PVC 28C)
+  - 구조체 접속 1식 (철근 및 철골 접속)
+  - 층간연결 입상/입하 1식
+  - 회전 구체법 보호 영역 (보호등급 IV등급, 회전구체반경 60m)
+  stats:
+    equipment: 11
+    relationships: 8
+    spaces: 4
+    flow_paths: 4
+  uncertainties:
+  - revision 값은 보이지 않아 UNKNOWN으로 유지됨
+  - scale 1:200은 사전 분석의 추정값이며 원문 시각 근거는 제공되지 않음
+  - 피뢰침의 정확한 세부 위치는 '도면 중앙 우측 / grid 5-6, B-C' 수준으로만 확인됨
+  - 범례/특기사항 영역의 세부 항목은 텍스트로만 확인되며 도면 이미지 직접 검증은 제공되지 않음
+  related_pages:
+  - 37
+  - 39
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/개요 및 특기사항
+  discipline: ELECTRICAL
+  classification: LIGHTNING_PROTECTION_LAYOUT
+  title_block:
+    drawing_number: EE-05-004
+    title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 피뢰침
+    type: lightning_rod
+    source: both
+  - tag: 수평도체
+    type: horizontal_conductor
+    source: both
+  - tag: 주 인하도선
+    type: down_conductor_main
+    source: text
+  - tag: 보조 인하도선
+    type: down_conductor_auxiliary
+    source: text
+  - tag: 구조체 접속
+    type: structural_connection
+    source: text
+  - tag: 층간연결 입상, 입하
+    type: interstory_riser_lower
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 범례와 특기사항이 우측 상단에 함께 배치되어 있음
+  - 도면 본문에는 피뢰침 1개소와 수평도체 표기가 확인됨
+  - 그리드 A-D, 1-7 및 치수 표기가 있어 평면 배치도 성격이 강함
+  confidence: 0.96
+  note: 페이지 우측 상단에 '피뢰설비 개요 및 특기사항'과 '피뢰설비 범례'가 함께 있어 범례 섹션은 존재하나, 페이지 전체는 범례 전용이
+    아니라 실제 평면도이다. 표제란의 리비전 값은 보이지 않음.
+classification: GROUNDING_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 옥탑지붕층 피뢰 및 접지 설비 평면도
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- 피뢰침 (H:3,000㎜) 1개소
+- 수평도체(STS 환봉 8㎜)
+- 지지금구 1m마다 설치
+- 한국전기설비규정(KEC) 150 피뢰시스템
+- KS C IEC 62305
+- 회전 구체법
+- 보호등급 IV등급
+- 회전구체반경 60 m
+- '주 인하도선: 기초철골'
+- '보조 인하도선: F-GV 50㎟ (HI-PVC 28C)'
+- 구조체 접속(철근 및 철골 접속)
+- 층간연결 입상, 입하
+title_block:
+  drawing_number: EE-05-004
+  title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+  revision: UNKNOWN
+confidence: 0.99
+note: null
+classification_confirmed: true
+override_classification: null
+visual_pattern: 옥탑지붕층의 평면 배치도 형태이며, 중앙에 건물 지붕 평면이 크게 배치되고 우측 상단에 '피뢰설비 개요 및 특기사항'과
+  '피뢰설비 범례'가 함께 있는 전기 설비 평면도이다. 좌측/상단에 그리드와 치수가 보이고, 본문에는 피뢰침과 수평도체가 표시된다.
+symbol_density: LOW
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 수평도체
+  count: 1
+- type: 구조체 접속
+  count: 1
+- type: 층간연결 입상, 입하
+  count: 1
+- type: 주 인하도선
+  count: 1
+- type: 보조 인하도선
+  count: 1
+line_types_observed:
+- 실선
+- 점선
+- 긴 대시선
+- 점-선 혼합
+additional_findings:
+- 도면 제목란에 '옥탑지붕층 피뢰 및 접지 설비 평면도'가 보인다.
+- 우측 상단 범례/특기사항 영역이 존재하며, 페이지 전체는 범례 전용이 아니라 실제 평면도이다.
+- 본문 중앙 우측에 피뢰침 표기와 점선/실선 조합의 배치가 보인다.
+- 범례에 없는 별도 심볼은 이 이미지에서 명확히 확인되지 않는다.
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 피뢰침, 수평도체, 접지/인하도선 등 개별 설비 심볼과 표기를 식별해야 함
+- mode: spatial_mapping
+  priority: 2
+  reason: 옥탑지붕층 평면 내 설비 위치와 배치 관계를 확인해야 함
+- mode: power_flow_topology
+  priority: 3
+  reason: 전력 흐름 도면은 아니지만, 접지/인하 경로의 연결 관계 확인에 보조적으로 유용함
+pass1_설비식별:
+  entities:
+  - tag: LPS-ROD-001
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: H:3,000㎜, 1개소
+    confidence: 0.98
+    note: 도면 중앙 우측에 위치, 높이 3,000mm로 표기됨
+  - tag: LPS-COND-001
+    name: 수평도체
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: STS 환봉 8㎜, 지지금구 1m마다 설치
+    confidence: 0.98
+    note: 옥탑지붕층 전체를 순환하는 수평 도체, 점선 및 실선으로 표시
+  - tag: LPS-DOWN-001
+    name: 주 인하도선
+    type: Main Down Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 기초철골 접속
+    confidence: 0.95
+    note: 기초철골과 연결되는 주요 인하도선
+  - tag: LPS-DOWN-002
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.95
+    note: 보조 인하도선, 케이블 규격 F-GV 50㎟, HI-PVC 28C 피복
+  - tag: LPS-STRUCT-001
+    name: 구조체 접속
+    type: Structural Connection
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 철근 및 철골 접속
+    confidence: 0.95
+    note: 피뢰 시스템과 건물 구조체(철근, 철골)의 접속점
+  - tag: LPS-RISER-001
+    name: 층간연결 입상
+    type: Interstory Riser
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 층간연결 입상
+    confidence: 0.9
+    note: 상층으로의 연결 경로
+  - tag: LPS-RISER-002
+    name: 층간연결 입하
+    type: Interstory Lower
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 층간연결 입하
+    confidence: 0.9
+    note: 하층으로의 연결 경로
+  - tag: SUPPORT-001
+    name: 지지금구
+    type: Support Bracket / Clamp
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 1m마다 설치
+    confidence: 0.92
+    note: 수평도체를 지지하는 금구, 1m 간격으로 설치
+  - tag: ROOF-PLANE-001
+    name: 옥탑지붕층
+    type: Roof Plane / Structural Element
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.95
+    note: 도면의 주요 배치 대상인 옥탑지붕층 평면
+  - tag: STANDARD-REF-001
+    name: 한국전기설비규정(KEC) 150 피뢰시스템
+    type: Design Standard Reference
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: KEC 150, KS C IEC 62305
+    confidence: 0.9
+    note: 도면에 적용된 설계 기준 및 표준
+  - tag: PROTECTION-ZONE-001
+    name: 회전 구체법 보호 영역
+    type: Protection Zone
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 보호등급 IV등급, 회전구체반경 60m
+    confidence: 0.88
+    note: 피뢰 시스템의 보호 범위 및 등급
+pass2_토폴로지:
+  relationships:
+  - from: LPS-ROD-001
+    to: LPS-COND-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+    note: 피뢰침이 수평도체에 연결되어 낙뢰를 수평도체로 유도
+  - from: LPS-COND-001
+    to: LPS-DOWN-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+    note: 수평도체가 주 인하도선으로 연결되어 접지로 유도
+  - from: LPS-COND-001
+    to: LPS-DOWN-002
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.95
+    note: 수평도체가 보조 인하도선으로 연결되어 접지로 유도
+  - from: LPS-DOWN-001
+    to: LPS-STRUCT-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.93
+    note: 주 인하도선이 구조체 접속(기초철골)으로 연결
+  - from: LPS-DOWN-002
+    to: LPS-STRUCT-001
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.93
+    note: 보조 인하도선이 구조체 접속으로 연결
+  - from: LPS-COND-001
+    to: SUPPORT-001
+    relation: connected_via
+    medium: mechanical
+    direction: bidirectional
+    confidence: 0.92
+    note: 수평도체가 지지금구로 지지됨 (1m 간격)
+  - from: LPS-COND-001
+    to: LPS-RISER-001
+    relation: connected_via
+    medium: conductor
+    direction: upstream
+    confidence: 0.88
+    note: 수평도체가 층간연결 입상으로 연결 (상층 연결)
+  - from: LPS-COND-001
+    to: LPS-RISER-002
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.88
+    note: 수평도체가 층간연결 입하로 연결 (하층 연결)
+  conduits:
+  - tag: LPS-COND-001
+    type: horizontal_conductor
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    from: LPS-ROD-001
+    to: LPS-DOWN-001, LPS-DOWN-002
+    source: text
+    confidence: 0.98
+  - tag: LPS-DOWN-001
+    type: main_down_conductor
+    spec: 기초철골 접속
+    from: LPS-COND-001
+    to: LPS-STRUCT-001
+    source: text
+    confidence: 0.95
+  - tag: LPS-DOWN-002
+    type: auxiliary_down_conductor
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    from: LPS-COND-001
+    to: LPS-STRUCT-001
+    source: text
+    confidence: 0.95
+  - tag: SUPPORT-001
+    type: support_bracket
+    spec: 1m마다 설치
+    from: LPS-COND-001
+    to: ROOF-PLANE-001
+    source: text
+    confidence: 0.92
+  flow_sequence:
+  - - LPS-ROD-001
+    - LPS-COND-001
+    - LPS-DOWN-001
+    - LPS-STRUCT-001
+  - - LPS-ROD-001
+    - LPS-COND-001
+    - LPS-DOWN-002
+    - LPS-STRUCT-001
+  - - LPS-COND-001
+    - LPS-RISER-001
+  - - LPS-COND-001
+    - LPS-RISER-002
+  isolated_entities:
+  - STANDARD-REF-001
+  - PROTECTION-ZONE-001
+  - ROOF-PLANE-001
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS ELECTRIC 천안 R-Center
+    parent: null
+    description: 천안 소재 LS ELECTRIC R-Center 건설 프로젝트
+  - space_id: BLDG-001
+    type: building
+    name: LS ELECTRIC 천안 R-Center
+    parent: SITE-001
+    description: 단일 건물 구조
+  - space_id: FLOOR-ROOF
+    type: floor
+    name: 옥탑층
+    parent: BLDG-001
+    description: 건물 최상층
+  - space_id: ZONE-ROOF-PLANE
+    type: zone
+    name: 옥탑지붕층
+    parent: FLOOR-ROOF
+    description: 옥탑 지붕 평면 (옥외 구조물)
+  equipment_placement:
+  - tag: LPS-ROD-001
+    name: 피뢰침
+    located_in: ZONE-ROOF-PLANE
+    grid_location: 5-6, B-C
+    confidence: 0.95
+    note: 높이 3,000mm, 1개소, 도면 중앙 우측 영역
+  - tag: LPS-COND-001
+    name: 수평도체
+    located_in: ZONE-ROOF-PLANE
+    grid_location: A-D, 1-7 전체
+    confidence: 0.98
+    note: STS 환봉 8mm, 옥탑지붕층 전체 순환, 지지금구 1m마다 설치
+  - tag: LPS-DOWN-001
+    name: 주 인하도선
+    located_in: ZONE-ROOF-PLANE
+    confidence: 0.95
+    note: 기초철골 접속, 옥탑층에서 하층으로 연결
+  - tag: LPS-DOWN-002
+    name: 보조 인하도선
+    located_in: ZONE-ROOF-PLANE
+    confidence: 0.95
+    note: F-GV 50㎟ (HI-PVC 28C), 옥탑층에서 하층으로 연결
+  - tag: LPS-STRUCT-001
+    name: 구조체 접속
+    located_in: ZONE-ROOF-PLANE
+    confidence: 0.95
+    note: 철근 및 철골 접속점
+  - tag: LPS-RISER-001
+    name: 층간연결 입상
+    located_in: ZONE-ROOF-PLANE
+    confidence: 0.9
+    note: 상층으로의 연결 경로
+  - tag: LPS-RISER-002
+    name: 층간연결 입하
+    located_in: ZONE-ROOF-PLANE
+    confidence: 0.9
+    note: 하층으로의 연결 경로
+  - tag: SUPPORT-001
+    name: 지지금구
+    located_in: ZONE-ROOF-PLANE
+    confidence: 0.92
+    note: 수평도체 지지용, 1m 간격 설치
+  spatial_relationships:
+  - parent: BLDG-001
+    child: FLOOR-ROOF
+    relation: contains
+  - parent: FLOOR-ROOF
+    child: ZONE-ROOF-PLANE
+    relation: contains
+  - parent: ZONE-ROOF-PLANE
+    child: LPS-ROD-001
+    relation: contains
+  - parent: ZONE-ROOF-PLANE
+    child: LPS-COND-001
+    relation: contains
+  - parent: ZONE-ROOF-PLANE
+    child: LPS-DOWN-001
+    relation: contains
+  - parent: ZONE-ROOF-PLANE
+    child: LPS-DOWN-002
+    relation: contains
+  analysis_metadata:
+    drawing_number: EE-05-004
+    drawing_title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_LAYOUT
+    grid_system: A-D (rows), 1-7 (columns)
+    scale: 1:200 (추정)
+    confidence_overall: 0.94
+    note: 도면에 명시된 공간은 옥탑지붕층 1개 존재. 모든 피뢰 설비는 이 공간에 배치됨. 상위 계층(건물, 층)은 도면 제목과 건물명에서
+      추론.
+pass4_검증:
+  corrections:
+  - target: classification (top-level)
+    resolution: LIGHTNING_PROTECTION_LAYOUT으로 수정. 도면 제목 '옥탑지붕층 피뢰 및 접지 설비 평면도'에서 피뢰(lightning
+      protection)가 주요 대상이며, 접지는 보조적 요소
+    evidence: 도면 제목, initial_scan.classification 값과 일치
+    confidence: 0.98
+  - target: detected_symbols - 층간연결 입상, 입하 (△)
+    resolution: count를 1에서 7-8로 수정. 도면 우측 하단 영역에 다수의 삼각형 기호가 분포
+    evidence: 이미지 우측 하단 영역에 약 7-8개의 삼각형 기호 시각적 확인
+    confidence: 0.92
+  - target: pass1_설비식별 - 구조물 접속 누락
+    resolution: 범례에 정의된 '구조물 접속(●)'을 별도 엔티티로 추가. 현재는 '구조체 접속(■)'만 추출됨
+    evidence: 범례 테이블에 '구조물 접속'이 원형(●) 기호로 명시되어 있음. 도면 본문에서 해당 기호의 출현 여부는 불확실
+    confidence: 0.85
+  - target: pass1_설비식별 - 수뢰부 규격
+    resolution: LPS-ROD-001의 spec_text를 'H:3,000㎜, 1개소'에서 'STS 환봉 8㎜ + 피뢰침 (H:3,000㎜),
+      1개소'로 수정
+    evidence: 범례 '수뢰부' 항목에 'STS 환봉8 ㎜ + 피뢰침'으로 명시
+    confidence: 0.9
+  missing_entities:
+  - tag: LPS-STRUCT-002
+    name: 구조물 접속
+    type: Structural Connection (secondary)
+    spec_text: 원형(●) 기호로 표시
+    evidence: 범례 테이블에 '구조물 접속(●)'이 정의되어 있음. 도면 본문에서의 실제 위치/개수는 이미지 해상도 제약으로 불확실
+    confidence: 0.75
+  - tag: LPS-RISER-001-MULTI
+    name: 층간연결 입상, 입하 (다중)
+    type: Interstory Riser/Lower (multiple instances)
+    spec_text: F-GV Wire 또는 구조체 접속
+    evidence: 도면 우측 하단에 약 7-8개의 삼각형(△) 기호가 분포. 각각이 별도의 층간연결 지점을 나타낼 가능성
+    confidence: 0.88
+  relationship_issues:
+  - issue: Pass 2 관계의 출처 불명확
+    recommendation: '도면에 실제로 그려진 연결선(drawn connections)과 범례/텍스트에만 기술된 논리적 연결(logical
+      connections)을 구분할 필요. 현재 대부분의 관계가 ''source: text''로 표기되어 있으나, 도면 본문에서 시각적으로
+      확인되는 연결선은 제한적'
+    evidence: 'OCR 텍스트에서 ''주 인하도선: 기초철골'', ''보조 인하도선: F-GV 50㎟'' 등이 텍스트로만 표기되고, 도면
+      평면도에서 이들 연결의 시각적 표현은 불명확'
+    confidence: 0.8
+  - issue: SUPPORT-001 (지지금구)의 개수 미상
+    recommendation: spec_text에 '1m마다 설치'라고 기술되어 있으나, 실제 개수는 옥탑지붕층의 수평도체 길이에 따라 결정됨.
+      도면에서 개별 지지금구 기호가 표시되는지 확인 필요
+    evidence: 텍스트에 '지지금구 1m마다 설치'로 기술되어 있으나, 도면 본문에서 개별 기호 표시는 불명확
+    confidence: 0.75
+  consistency_check:
+    entity_count_before: 11
+    entity_count_after: 13
+    entity_count_note: STANDARD-REF-001, PROTECTION-ZONE-001, ROOF-PLANE-001은 물리적
+      설비가 아니므로 제외하면 실제 설비 엔티티는 8개. 추가되는 LPS-STRUCT-002와 LPS-RISER-001-MULTI를 포함하면
+      10개
+    relation_count_before: 8
+    relation_count_after: 10
+    relation_count_note: LPS-STRUCT-002 추가로 인한 관계 2개 증가 가능
+    symbol_density_assessment: initial_scan에서 'MEDIUM'으로 표기되었으나, 실제 도면 본문의 심볼 밀도는
+      'LOW'에 가까움. 우측 상단 범례/특기사항 영역이 상당한 공간을 차지하고, 도면 본문은 주로 그리드와 건물 평면 윤곽으로 구성
+    confidence: 0.82
+  overall_confidence: 0.85
+  critical_issues:
+  - 분류 불일치 (LIGHTNING_PROTECTION_LAYOUT vs GROUNDING_DIAGRAM) — 수정 필요
+  - 삼각형 기호 개수 오류 (1 → 7-8) — 심각한 누락
+  - 구조물 접속(●) 엔티티 누락 — 범례에 정의되었으나 미추출
+  - 비설비 메타데이터 엔티티 포함 — 정제 필요
+  notes:
+  - 도면 우측 상단의 범례/특기사항 영역과 도면 본문의 공간 분리가 명확함
+  - Pass 2의 토폴로지는 피뢰 시스템의 논리적 흐름을 올바르게 표현하나, 도면에 실제로 그려진 연결선과의 대응 관계 확인 필요
+  - 옥탑지붕층 평면도의 특성상 개별 설비의 위치 좌표(grid location)가 중요하나, 현재 분석에서는 LPS-ROD-001만 위치 정보
+    포함
+  - 수평도체의 경로(routing)가 도면에 점선/실선으로 표시되어 있으나, 상세 경로 분석은 이미지 해상도 제약으로 제한적

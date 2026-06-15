@@ -1,0 +1,95 @@
+placement:
+  tag: S06.21-4
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S06.21-4
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailabilityNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용 확인 가능 여부를 안내하는 주석성 문장
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred from raw being a page-availability note with no physical entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidates
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 도면 설비/부재의 실체 정보가 아니라 페이지 접근 안내 문구로만 보임
+    preservation_note: 페이지 번호 목록과 확인 안내 문장을 그대로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식상 상세/시트 계열로 보이나, 원문에는 설비 실체나 관계가 없고 페이지 안내 문구만 존재함
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 시트/상세 문서 메타인지 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - plan-guided class_hint candidate selection
+    - preserve raw-only placeholder content in free_notes
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:11.225158'
+  confidence: 0.62

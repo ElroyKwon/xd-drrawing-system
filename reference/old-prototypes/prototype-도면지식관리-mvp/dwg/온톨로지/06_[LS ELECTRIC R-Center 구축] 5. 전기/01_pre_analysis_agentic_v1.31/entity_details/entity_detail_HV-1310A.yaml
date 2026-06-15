@@ -1,0 +1,92 @@
+entity_detail:
+  tag: HV-1310A
+  type: breaker_bay
+  specs:
+    primary_label:
+      value: 1310A
+      source: 5
+      confidence: 0.95
+    panel_id:
+      value: PNL_HV_1310A
+      source: 5
+      confidence: 0.95
+    voltage_label:
+      value: HV
+      source: 5
+      confidence: 0.95
+    connected_bus_annotation:
+      value: 6.6kV Bus
+      source: 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'panel_id: PNL_HV_1310A'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'primary_label: 1310A'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'labels_near:
+
+      - HV'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "from: PNL-HV-1309\n    to: PNL-HV-1310A\n    line_type: power_cable\n \
+      \   line_style: solid\n    annotation: 6.6kV Bus"
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "from: PNL-HV-1310A\n    to: PNL-HV-1310B\n    line_type: power_cable\n\
+      \    line_style: solid"
+  - source: read_page_image(page 5)
+    page_number: 5
+    text: 1310A
+  - source: read_page_image(page 5)
+    page_number: 5
+    text: HV
+  - source: read_page_image(page 5)
+    page_number: 5
+    text: INTER-LOCK
+  requirements:
+  - text: INTER-LOCK
+    source: read_page_image(page 5)
+    type: operational_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-HV-1310B
+    details:
+      source: page_005_context.yaml
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  - relation: feeds
+    partner: PNL-HV-1309
+    details:
+      source: page_005_context.yaml
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1309
+      direction: PNL-HV-1309 -> PNL-HV-1310A
+      source: page_005_context.yaml
+    - relation_type: feeds
+      partner_tag: PNL-HV-1310B
+      direction: PNL-HV-1310A -> PNL-HV-1310B
+      source: page_005_context.yaml
+    observed_attributes:
+    - primary_label
+    - panel_id
+    - voltage_label
+    - connected_bus_annotation
+    - inter-lock
+    similar_equipment:
+    - 1310B
+    - '1309'
+    suggested_parent_class: ElectricalBreakerBay
+    cross_discipline: []
+  notes:
+  - 도면상 해당 대상은 HV 6.6kV 계통의 breaker bay로 보이며, 페이지 5에서 확인된 텍스트만 기록함.
+tag: HV-1310A

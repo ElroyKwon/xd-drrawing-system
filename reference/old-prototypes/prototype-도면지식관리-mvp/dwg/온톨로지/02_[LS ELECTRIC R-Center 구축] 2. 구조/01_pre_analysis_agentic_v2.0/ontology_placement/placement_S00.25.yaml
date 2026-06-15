@@ -1,0 +1,93 @@
+placement:
+  tag: S00.25
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S00.25
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 주석/설명 텍스트 성격
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred from raw being page-availability note
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: assessment based on note-only content
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비 실체가 아니라 페이지 안내 문구로 보이며, 구조화된 설비/spec/relation 정보가 없음
+    preservation_note: 페이지 목록과 안내 문장을 free_notes로 보존함
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 존재하지만 원문이 페이지 안내 문구만 포함하여 물리적 설비/관계/수치인지 판정이 어려움
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 문서 메타 또는 시트 안내 노트로 재분류 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 document metadata / unresolved structural entities 가능성을
+      우선 고려
+    - free_notes에 분류 불가 정보와 promotion_hint를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:13.520574'
+  confidence: 0.93

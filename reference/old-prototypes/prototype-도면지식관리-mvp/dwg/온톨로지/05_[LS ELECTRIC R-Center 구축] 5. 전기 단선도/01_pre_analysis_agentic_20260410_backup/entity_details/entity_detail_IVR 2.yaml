@@ -1,0 +1,62 @@
+entity_detail:
+  tag: IVR 2
+  type: regulator
+  specs:
+    rated_capacity:
+      value: 300
+      unit: kVA
+      source: page 2
+      confidence: 0.98
+    primary_voltage:
+      value: 440
+      unit: V
+      source: page 2
+      confidence: 0.98
+    secondary_voltage_range:
+      value: 320~550
+      unit: V
+      source: page 2
+      confidence: 0.98
+    type:
+      value: OIL TYPE
+      unit: null
+      source: page 2
+      confidence: 0.98
+  drawing_texts:
+  - source: page 2
+    page_number: 2
+    text: IVR 2 300kVA
+  - source: page 2
+    page_number: 2
+    text: IVR 2 300kVA, P:440, S:320~550V, OIL TYPE
+  requirements: []
+  connection_specs:
+  - source: page 2
+    page_number: 2
+    text: IVR 2 is shown within the R-Center 변전실 single-line diagram and connected
+      in the electrical system context.
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: R-Center 변전실
+      direction: within
+      source: page 2
+    - relation_type: associated_with
+      partner_tag: 주변전실
+      direction: contextual
+      source: page 2
+    observed_attributes:
+    - rated_capacity
+    - primary_voltage
+    - secondary_voltage_range
+    - type
+    similar_equipment:
+    - IVR 1
+    suggested_parent_class: ElectricalEquipment
+    cross_discipline: []
+  notes:
+  - connection_specs 보완을 위해 page 2 context 및 page 2 image를 확인했으나, IVR 2에 대한 개별 접속
+    대상 설비명은 도구 결과에서 명시적으로 확인되지 않음.
+  - 사용한 도구: read_entity_detail(IVR 2), read_entity_detail(IVR 1), read_page_context(page
+      2), read_entity_list, read_page_image(page 2)
+tag: IVR 2

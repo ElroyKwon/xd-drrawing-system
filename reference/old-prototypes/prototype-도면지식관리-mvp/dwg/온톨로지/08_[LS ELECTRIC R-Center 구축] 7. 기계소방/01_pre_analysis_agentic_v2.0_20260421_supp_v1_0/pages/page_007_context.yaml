@@ -1,0 +1,1176 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-006
+    title: 1층 소화 배관 평면도
+    revision: null
+  visible_tags:
+  - tag: MF-006
+    type: drawing_number
+    source: image
+  - tag: R-Center
+    type: project_name_or_area_name
+    source: image
+  - tag: 1층 소화 배관 평면도
+    type: drawing_title
+    source: image
+  - tag: EM/EMS Shield
+    type: equipment_or_system_label
+    source: image
+  - tag: A.O.C 콘솔 스위치기
+    type: equipment_or_system_label
+    source: image
+  - tag: 스프링클러헤드
+    type: fire_protection_component
+    source: image
+  - tag: 연결송수구(공용)
+    type: fire_protection_component
+    source: image
+  - tag: 소화기
+    type: fire_protection_component
+    source: image
+  - tag: 소화전함
+    type: fire_protection_component
+    source: image
+  - tag: 소화배관
+    type: fire_protection_component
+    source: image
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 평면도 위에 소화설비 배치와 방호반경(점선 원호)이 다수 중첩됨
+  - 우측 표제란에 도면번호 MF-006, 제목 1층 소화 배관 평면도 확인됨
+  - 범례 전용 페이지는 아니며, 우하단에 소화설비 기호/설명 박스가 일부 존재함
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.93
+  routing_reason: 도면번호 MF-006과 제목 '1층 소화 배관 평면도'가 보이며 소화설비 평면 배치도이므로 FIRE_PROTECTION
+    / FIRE_DETECTION_LAYOUT / floor_plan으로 판단했고, 카탈로그에 fire_protection P-4.5 및 P-10의
+    genre_mechanical 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 1층 소화 배관 평면도
+    position: center
+    labels_near:
+    - R25,000 (방호반경 점선 원호)
+    - 스프링클러헤드 심볼
+    - 소화전함 심볼
+    - 소화배관 (실선)
+  - panel_id: LEGEND_SECTION
+    shape: rectangle
+    primary_label: 범례 (소화설비 기호)
+    position: bottom-right
+    labels_near:
+    - A.B.C 분말 소화기
+    - 옥내소화전함(호스릴형)
+    - 쌍구형 연결송수구
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: right
+    labels_near:
+    - MF - 006
+    - 1층 소화 배관 평면도
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: LEGEND_SECTION
+    line_style: dotted
+    annotation: 심볼 매칭
+  notable_shapes:
+  - shape: dashed_circle
+    label: R25,000
+    note: 스프링클러 헤드 유효방호반경 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.98
+  note: 우하단 표제란 상부에 소화설비 심볼과 명칭을 정의한 범례 표가 명확히 존재함
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 도면번호 MF-006, 제목 '1층 소화 배관 평면도', 배관 및 스프링클러 헤드 배치, 방호반경 표시 등을 통해
+    FIRE_PROTECTION 분야의 mechanical 서브시스템 floor_plan으로 확정. 카탈로그에서 fire_protection/genre_floor_plan
+    경로의 P-4.5 supplement를 채택하고, P-10은 기존 mechanical 유지.
+classification: FIRE_PROTECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- MF-006
+- 1층 소화 배관 평면도
+- R-Center
+- LS Electric
+- 가운건축
+- A.O.C 콘솔 스위치기
+- EM/EMS Shield
+- 스프링클러헤드
+- 연결송수구(공용)
+- 소화기
+- 소화전함
+- 소화배관
+title_block:
+  drawing_number: MF-006
+  title: 1층 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=FIRE_PROTECTION, classification=FIRE_DETECTION_LAYOUT, drawing_genre=floor_plan은
+  이미지 상 표제 '1층 소화 배관 평면도'와 소화설비 배치/방호반경 표시에 의해 대체로 일치함. 다만 페이지 7은 범례 전용 페이지가 아니며,
+  우하단에 소화설비 심볼/설명 박스가 일부 보이는 것으로 확인됨(visual_sketch/legend_candidate의 '범례 섹션'은 보조 영역
+  수준). 리비전 표기는 이미지에서 확인되지 않아 UNKNOWN.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ROOM-전기항온항습실
+    shape: rectangle
+    labels_inside:
+    - 전기항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 전기항온항습실
+    position: center-top
+  - panel_id: ROOM-전력변환실
+    shape: rectangle
+    labels_inside:
+    - 전력변환실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 전력변환실
+    position: center-top
+  - panel_id: ROOM-제어실
+    shape: rectangle
+    labels_inside:
+    - 제어실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 제어실
+    position: center
+  - panel_id: ROOM-전기통신실
+    shape: rectangle
+    labels_inside:
+    - 전기통신실
+    - EM/EMS Shield
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 3
+    inferred_name: 전기통신실 (EM/EMS 차폐)
+    position: center
+  - panel_id: ROOM-전도실
+    shape: rectangle
+    labels_inside:
+    - 전도실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 전도실
+    position: center-right
+  - panel_id: ROOM-EMC-CHAMBER
+    shape: rectangle
+    labels_inside:
+    - EMC CHAMBER
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 3
+    inferred_name: EMC 챔버
+    position: right-center
+  - panel_id: ROOM-고객견학실
+    shape: rectangle
+    labels_inside:
+    - 고객견학실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 고객견학실
+    position: right
+  - panel_id: ROOM-전기기술시험실
+    shape: rectangle
+    labels_inside:
+    - 전기기술시험실
+    - 전기/반도체/차전자 In-Line 검증시스템
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 4
+    inferred_name: 전기기술시험실 (In-Line 검증시스템)
+    position: center-left
+  - panel_id: ROOM-Drive기술시험실
+    shape: rectangle
+    labels_inside:
+    - Drive 기술시험실
+    - Drive 시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 5
+    inferred_name: Drive 기술시험실
+    position: center-bottom
+  - panel_id: ROOM-대용량오차부실
+    shape: rectangle
+    labels_inside:
+    - 대용량 오차부실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 3
+    inferred_name: 대용량 오차부실
+    position: left-center
+  - panel_id: ROOM-부하제어기술시험실
+    shape: rectangle
+    labels_inside:
+    - 부하 제어 기술시험실
+    - PLC/Drive 접속시스템 및 신속한 접속시스템
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 4
+    inferred_name: 부하제어기술시험실
+    position: center-bottom
+  - panel_id: ROOM-전기기술보전실
+    shape: rectangle
+    labels_inside:
+    - 전기기술보전실
+    - A.O.C 콘솔 스위치기
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 전기기술보전실 (A.O.C 콘솔)
+    position: center
+  - panel_id: ROOM-총괄관리실
+    shape: rectangle
+    labels_inside:
+    - 총괄관리실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 총괄관리실
+    position: top-center
+  - panel_id: RISER-DN-1
+    shape: circle
+    labels_inside:
+    - DN
+    - 50e
+    labels_above:
+    - ①
+    labels_below: []
+    equipment_symbols:
+    - type: riser_down
+      count: 1
+    inferred_name: 하향 입상관 DN50 (구역 1)
+    position: top-left
+  - panel_id: RISER-DN-2
+    shape: circle
+    labels_inside:
+    - DN
+    - 50e
+    labels_above:
+    - ②
+    labels_below: []
+    equipment_symbols:
+    - type: riser_down
+      count: 1
+    inferred_name: 하향 입상관 DN50 (구역 2)
+    position: top-center-left
+  - panel_id: RISER-DN-3
+    shape: circle
+    labels_inside:
+    - DN
+    - 130e
+    labels_above:
+    - LW
+    labels_below: []
+    equipment_symbols:
+    - type: riser_down
+      count: 1
+    inferred_name: 하향 입상관 DN130 (LW)
+    position: top-center
+  - panel_id: RISER-DN-4
+    shape: circle
+    labels_inside:
+    - DN
+    - 65e
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: riser_down
+      count: 1
+    inferred_name: 하향 입상관 DN65
+    position: top-right-center
+  - panel_id: RISER-DN-5
+    shape: circle
+    labels_inside:
+    - DN
+    - 50e
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: riser_down
+      count: 1
+    inferred_name: 하향 입상관 DN50 (하부)
+    position: center-left
+  - panel_id: RISER-DN-6
+    shape: circle
+    labels_inside:
+    - DN
+    - 50e
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: riser_down
+      count: 1
+    inferred_name: 하향 입상관 DN50 (하부 중앙)
+    position: bottom-center
+  - panel_id: FDC-연결송수구
+    shape: other
+    labels_inside:
+    - 연결송수구(공용)
+    - 100e x 65e x 65e
+    labels_above: []
+    labels_below:
+    - 들어에 따라 쌍구형소화전 조화기로 변경가능
+    - (만약 표시 면밀 부착)
+    equipment_symbols:
+    - type: fire_department_connection
+      count: 1
+    inferred_name: 쌍구형 연결송수구 (공용) 100x65x65
+    position: bottom-center
+  - panel_id: LEGEND-소화설비
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말 소화기
+    - 3단 부
+    - 간막이 추가(A) 설비로 추가(설치), 들어에 따라 쌍구형소화전 조화기로 변경가능
+    - x 23EA
+    - 옥내소화전함(호스릴형)
+    - 25ex10M 호스 25e관경 12개
+    - 친연(STS), 후면(STEEL)
+    - x 6EA
+    - 쌍구형연결송수구
+    - 100e x 65e x 45e
+    - x 1EA
+    labels_above:
+    - A.B.C 분말 소화기
+    labels_below: []
+    equipment_symbols:
+    - type: fire_extinguisher_ABC
+      count: 23
+    - type: fire_hose_reel_cabinet
+      count: 6
+    - type: fire_department_connection_dual
+      count: 1
+    inferred_name: 소화설비 범례 및 수량표
+    position: bottom-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 기존동
+    - MF-006
+    - 1층 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.04'
+    - 오단일
+    - 명동식
+    - 이은진
+    - 정용재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: COVERAGE-CIRCLE
+    shape: dashed_box
+    labels_inside:
+    - R25,000 (추정)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sprinkler_coverage_circle
+      count: 4
+    inferred_name: 스프링클러 유효방호반경 표시 (점선 원호)
+    position: center
+  - panel_id: PIPE-PT1-연결
+    shape: other
+    labels_inside:
+    - P1 소화 배관 평면도에 연결
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: P1 소화배관 평면도 연결 참조
+    position: bottom-center
+  connections:
+  - from: RISER-DN-1
+    to: ROOM-전기항온항습실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 스프링클러배관 DN50
+  - from: RISER-DN-2
+    to: ROOM-전력변환실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 스프링클러배관 DN50
+  - from: RISER-DN-3
+    to: ROOM-전기통신실
+    line_type: pipe
+    line_style: solid
+    annotation: LW DN130 주배관
+  - from: RISER-DN-4
+    to: ROOM-EMC-CHAMBER
+    line_type: pipe
+    line_style: solid
+    annotation: SP 스프링클러배관 DN65
+  - from: RISER-DN-5
+    to: ROOM-전기기술시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 스프링클러배관 DN50
+  - from: RISER-DN-6
+    to: ROOM-Drive기술시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 스프링클러배관 DN50
+  - from: FDC-연결송수구
+    to: PIPE-PT1-연결
+    line_type: pipe
+    line_style: solid
+    annotation: SC 연결송수구배관 100x65x65
+  - from: COVERAGE-CIRCLE
+    to: ROOM-Drive기술시험실
+    line_type: other
+    line_style: dashed
+    annotation: 스프링클러 유효방호반경 표시 (검증용 보조선)
+  groups:
+  - group_id: GRP-SP-MAIN
+    label: 스프링클러 주배관 계통 (SP)
+    members:
+    - RISER-DN-1
+    - RISER-DN-2
+    - RISER-DN-3
+    - RISER-DN-4
+    - RISER-DN-5
+    - RISER-DN-6
+  - group_id: GRP-ROOMS-CENTER
+    label: 중앙부 시험실 구역
+    members:
+    - ROOM-전기항온항습실
+    - ROOM-전력변환실
+    - ROOM-제어실
+    - ROOM-전기통신실
+    - ROOM-전도실
+    - ROOM-전기기술보전실
+  - group_id: GRP-ROOMS-TEST
+    label: 기술시험실 구역
+    members:
+    - ROOM-전기기술시험실
+    - ROOM-Drive기술시험실
+    - ROOM-부하제어기술시험실
+    - ROOM-대용량오차부실
+  - group_id: GRP-ROOMS-RIGHT
+    label: 우측 구역 (EMC/견학)
+    members:
+    - ROOM-EMC-CHAMBER
+    - ROOM-고객견학실
+  legend_references:
+  - text: A.B.C 분말 소화기 x 23EA
+    linked_to: LEGEND-소화설비
+  - text: 옥내소화전함(호스릴형) 25ex10M 호스 x 6EA
+    linked_to: LEGEND-소화설비
+  - text: 쌍구형연결송수구 100e x 65e x 45e x 1EA
+    linked_to: FDC-연결송수구
+  - text: SP 스프링클러배관
+    linked_to: RISER-DN-1
+  - text: SC 연결송수구배관
+    linked_to: FDC-연결송수구
+  - text: H 옥내소화전배관
+    linked_to: LEGEND-소화설비
+  diagram_meta:
+    title: 1층 소화 배관 평면도
+    drawing_number: MF-006
+    project: LS Electric R-Center 구축
+    project_code: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.04'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: fire_water_supply
+    has_seismic: false
+    has_sprinkler: true
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    has_equipment_list: true
+    coverage_circles_present: true
+    pump_count: null
+    seismic_scope: null
+    flow_direction: radial
+    floor: 1층
+    building: 기존동
+    design_firm: 정연엔지니어링
+    architect: 가운건축 (GAUN Architects & Engineers)
+    drawn_by: 오단일
+    checked_by: 명동식
+    reviewed_by: 이은진
+    approved_by: 정용재
+    notes:
+    - 도면의 설계적 표현(시스템 관련)은 실기 표준 또는 동등 이상의 제품으로(A종 21형)함
+    - 붉게 도면이 있어야 한 곳 무에는 현장여건에 맞게 시공하며 준공도 작성할 것
+    - 기존 설비 및 기구류는 피손이 되지 않게 주의하여 철거후 재설치 할 것
+    - 발주처의 요구에 따라 변경이 한 경우가 있을 수 있으며, 그에 따른 물량표와 연관이 있으므로 요청하여 승인을 득한 후 시공할 것
+    pipe_systems:
+    - abbreviation: SP
+      name: 스프링클러배관
+      nominal_diameters_A:
+      - 50
+      - 65
+      - 130
+    - abbreviation: SC
+      name: 연결송수구배관
+      nominal_diameters_A:
+      - 100
+      - 65
+    - abbreviation: H
+      name: 옥내소화전배관
+      nominal_diameters_A:
+      - 25
+    equipment_schedule:
+    - item: A.B.C 분말 소화기
+      quantity: 23
+      unit: EA
+      spec: 3단 부
+    - item: 옥내소화전함(호스릴형)
+      quantity: 6
+      unit: EA
+      spec: 25ex10M 호스, 25e관경 12개, 친연(STS), 후면(STEEL)
+    - item: 쌍구형연결송수구
+      quantity: 1
+      unit: EA
+      spec: 100e x 65e x 45e
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: RISER-DN-H-1-TL
+    shape: circle
+    labels_inside:
+    - DN
+    - H
+    - 50ø
+    labels_above:
+    - ①
+    equipment_symbols:
+    - type: riser_down_hydrant_sprinkler
+      count: 1
+    inferred_name: 하향 입상관 (소화전/스프링클러 겸용) DN50 - 구역1 (좌측 상단)
+    position: top-left
+  - panel_id: RISER-DN-H-2-TC
+    shape: circle
+    labels_inside:
+    - DN
+    - H
+    - 50ø
+    labels_above:
+    - ②
+    equipment_symbols:
+    - type: riser_down_hydrant_sprinkler
+      count: 1
+    inferred_name: 하향 입상관 (소화전/스프링클러 겸용) DN50 - 구역2 (상단 중앙)
+    position: top-center
+  - panel_id: RISER-UP-H-TC
+    shape: circle
+    labels_inside:
+    - UP
+    - 100ø
+    - H
+    labels_above: []
+    equipment_symbols:
+    - type: riser_up_hydrant
+      count: 1
+    inferred_name: 상향 입상관 (소화전용) DN100 (상단 중앙)
+    position: top-center
+  - panel_id: RISER-DN-H-1-TR
+    shape: circle
+    labels_inside:
+    - DN
+    - H
+    - 50ø
+    labels_above:
+    - ①
+    equipment_symbols:
+    - type: riser_down_hydrant_sprinkler
+      count: 1
+    inferred_name: 하향 입상관 (소화전/스프링클러 겸용) DN50 - 구역1 (우측 상단)
+    position: top-right
+  - panel_id: RISER-DN-H-1-L
+    shape: circle
+    labels_inside:
+    - DN
+    - H
+    - 50ø
+    labels_above:
+    - ①
+    equipment_symbols:
+    - type: riser_down_hydrant_sprinkler
+      count: 1
+    inferred_name: 하향 입상관 (소화전/스프링클러 겸용) DN50 - 구역1 (좌측)
+    position: center-left
+  - panel_id: RISER-UP-H-C
+    shape: circle
+    labels_inside:
+    - UP
+    - H
+    - 65ø
+    labels_above: []
+    equipment_symbols:
+    - type: riser_up_hydrant
+      count: 1
+    inferred_name: 상향 입상관 (소화전용) DN65 (중앙)
+    position: center
+  - panel_id: RISER-DN-H-1-BC
+    shape: circle
+    labels_inside:
+    - DN
+    - H
+    - 50ø
+    labels_above:
+    - ①
+    equipment_symbols:
+    - type: riser_down_hydrant_sprinkler
+      count: 1
+    inferred_name: 하향 입상관 (소화전/스프링클러 겸용) DN50 - 구역1 (하단 중앙)
+    position: bottom-center
+  - panel_id: FDC-1
+    shape: other
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+    labels_below:
+    - SC 100
+    equipment_symbols:
+    - type: fire_department_connection_dual
+      count: 1
+    inferred_name: 쌍구형 연결송수구
+    position: bottom-right
+  - panel_id: ROOM-극한환경시험실
+    shape: rectangle
+    labels_inside:
+    - 극한환경시험실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 6
+    inferred_name: 극한환경시험실
+    position: top-left
+  - panel_id: ROOM-진동시험실
+    shape: rectangle
+    labels_inside:
+    - 진동시험실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 4
+    inferred_name: 진동시험실
+    position: top-left
+  - panel_id: ROOM-환경시험실
+    shape: rectangle
+    labels_inside:
+    - 환경시험실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 4
+    inferred_name: 환경시험실
+    position: top-center-left
+  - panel_id: ROOM-제어룸
+    shape: rectangle
+    labels_inside:
+    - 제어룸
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 제어룸
+    position: top-center-left
+  - panel_id: ROOM-전기항온항습실
+    shape: rectangle
+    labels_inside:
+    - 전기 항온항습실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 전기 항온항습실
+    position: top-center
+  - panel_id: ROOM-컨트롤실
+    shape: rectangle
+    labels_inside:
+    - 컨트롤실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 컨트롤실
+    position: top-center-right
+  - panel_id: ROOM-EMC-CHAMBER
+    shape: rectangle
+    labels_inside:
+    - EMC CHAMBER
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 9
+    inferred_name: EMC CHAMBER
+    position: top-right
+  - panel_id: ROOM-IN-LINE-검증
+    shape: rectangle
+    labels_inside:
+    - 전기/반도체/2차전지 In-Line 검증시스템
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 12
+    inferred_name: In-Line 검증시스템실
+    position: center-left
+  - panel_id: ROOM-부하제어시험실
+    shape: rectangle
+    labels_inside:
+    - 부하 제어 및
+    - 기능시험실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 4
+    inferred_name: 부하 제어 및 기능시험실
+    position: center-left
+  - panel_id: ROOM-시스템연동실
+    shape: rectangle
+    labels_inside:
+    - 시스템연동실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 시스템연동실
+    position: center
+  - panel_id: ROOM-PLC-DRIVE-검증
+    shape: rectangle
+    labels_inside:
+    - PLC/Drive 검증시스템
+    - 및 신뢰성 검증시스템
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 6
+    inferred_name: PLC/Drive 및 신뢰성 검증시스템실
+    position: center
+  - panel_id: ROOM-DRIVE-기능시험실
+    shape: rectangle
+    labels_inside:
+    - Drive 기능시험실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 4
+    inferred_name: Drive 기능시험실
+    position: center-right
+  - panel_id: ROOM-로비
+    shape: rectangle
+    labels_inside:
+    - 로비
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 3
+    inferred_name: 로비
+    position: center-right
+  - panel_id: ROOM-고객접견실
+    shape: rectangle
+    labels_inside:
+    - 고객 접견실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 2
+    inferred_name: 고객 접견실
+    position: center-right
+  - panel_id: ROOM-대용량모터부하실
+    shape: rectangle
+    labels_inside:
+    - 대용량 모터부하실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 6
+    inferred_name: 대용량 모터부하실
+    position: bottom-left
+  - panel_id: ROOM-DRIVE-시험실
+    shape: rectangle
+    labels_inside:
+    - Drive 시험실
+    equipment_symbols:
+    - type: sprinkler_head
+      count: 8
+    inferred_name: Drive 시험실
+    position: bottom-center
+  - panel_id: FHC-1
+    shape: rectangle
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: 옥내소화전함
+    position: center-left
+  - panel_id: FHC-2
+    shape: rectangle
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: 옥내소화전함
+    position: center
+  - panel_id: FHC-3
+    shape: rectangle
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: 옥내소화전함
+    position: center-right
+  - panel_id: FHC-4
+    shape: rectangle
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: 옥내소화전함
+    position: top-right
+  - panel_id: FHC-5
+    shape: rectangle
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: 옥내소화전함
+    position: bottom-left
+  - panel_id: FE-1
+    shape: circle
+    labels_inside:
+    - A.B.C
+    equipment_symbols:
+    - type: fire_extinguisher
+      count: 1
+    inferred_name: A.B.C 분말소화기
+    position: center-left
+  - panel_id: FE-2
+    shape: circle
+    labels_inside:
+    - A.B.C
+    equipment_symbols:
+    - type: fire_extinguisher
+      count: 1
+    inferred_name: A.B.C 분말소화기
+    position: center
+  - panel_id: FE-3
+    shape: circle
+    labels_inside:
+    - A.B.C
+    equipment_symbols:
+    - type: fire_extinguisher
+      count: 1
+    inferred_name: A.B.C 분말소화기
+    position: center-right
+  - panel_id: FE-4
+    shape: circle
+    labels_inside:
+    - A.B.C
+    equipment_symbols:
+    - type: fire_extinguisher
+      count: 1
+    inferred_name: A.B.C 분말소화기
+    position: top-right
+  - panel_id: FE-5
+    shape: circle
+    labels_inside:
+    - A.B.C
+    equipment_symbols:
+    - type: fire_extinguisher
+      count: 1
+    inferred_name: A.B.C 분말소화기
+    position: bottom-left
+  - panel_id: LEGEND-BLOCK
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말 소화기
+    - 3단 위
+    - x 23EA
+    - 옥내소화전함(호스릴형)
+    - 25øx30M호스, 25ø관창1개
+    - 전면(STS), 후면(STEEL)
+    - x 6EA
+    - 쌍구형연결송수구
+    - 100ø x 65ø x 65ø
+    - x 1EA
+    equipment_symbols:
+    - type: fire_extinguisher_symbol
+    - type: fire_hose_cabinet_symbol
+    - type: fire_department_connection_symbol
+    inferred_name: 범례 및 수량표
+    position: bottom-right
+  - panel_id: NOTES-BLOCK
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설치된 제품(시스템 공법등)은 상기 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 설계 도면과 상이한 경우는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의있게 철거후 재설치 할 것.
+    - 4. 발주처의 요구에 의해 경미한 변경이 있을 수 있으며, 그에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    inferred_name: 주기 사항
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - 224001
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 기존동
+    - 1층 소화 배관 평면도
+    - MF - 006
+    - A1: 1/200
+    - A3: 1/400
+    - 2024.04
+    - (주) 정연엔지니어링
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: RISER-DN-H-1-TL
+    to: ROOM-극한환경시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-TL
+    to: ROOM-진동시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-2-TC
+    to: ROOM-환경시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-2-TC
+    to: ROOM-제어룸
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-2-TC
+    to: ROOM-전기항온항습실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-TR
+    to: ROOM-컨트롤실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-TR
+    to: ROOM-EMC-CHAMBER
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-L
+    to: ROOM-IN-LINE-검증
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-L
+    to: ROOM-부하제어시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-UP-H-C
+    to: ROOM-시스템연동실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관 분기
+  - from: RISER-UP-H-C
+    to: ROOM-PLC-DRIVE-검증
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관 분기
+  - from: RISER-DN-H-1-TR
+    to: ROOM-DRIVE-기능시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-TR
+    to: ROOM-로비
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-TR
+    to: ROOM-고객접견실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-BC
+    to: ROOM-대용량모터부하실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: RISER-DN-H-1-BC
+    to: ROOM-DRIVE-시험실
+    line_type: pipe
+    line_style: solid
+    annotation: SP 배관
+  - from: FDC-1
+    to: RISER-UP-H-TC
+    line_type: pipe
+    line_style: solid
+    annotation: SC 100 연결송수구 배관
+  - from: RISER-UP-H-TC
+    to: RISER-UP-H-C
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관 연결
+  - from: RISER-DN-H-1-TL
+    to: FHC-5
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관
+  - from: RISER-DN-H-1-L
+    to: FHC-1
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관
+  - from: RISER-UP-H-C
+    to: FHC-2
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관
+  - from: RISER-DN-H-1-TR
+    to: FHC-3
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관
+  - from: RISER-DN-H-1-TR
+    to: FHC-4
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관
+  groups:
+  - group_id: GRP-RISERS
+    label: 소화배관 입상관 그룹
+    members:
+    - RISER-DN-H-1-TL
+    - RISER-DN-H-2-TC
+    - RISER-UP-H-TC
+    - RISER-DN-H-1-TR
+    - RISER-DN-H-1-L
+    - RISER-UP-H-C
+    - RISER-DN-H-1-BC
+  - group_id: GRP-TEST-LABS
+    label: 시험실 구역
+    members:
+    - ROOM-극한환경시험실
+    - ROOM-진동시험실
+    - ROOM-환경시험실
+    - ROOM-IN-LINE-검증
+    - ROOM-부하제어시험실
+    - ROOM-PLC-DRIVE-검증
+    - ROOM-DRIVE-기능시험실
+    - ROOM-대용량모터부하실
+    - ROOM-DRIVE-시험실
+  - group_id: GRP-CONTROL-ROOMS
+    label: 제어 및 서버실 구역
+    members:
+    - ROOM-제어룸
+    - ROOM-전기항온항습실
+    - ROOM-컨트롤실
+    - ROOM-시스템연동실
+  - group_id: GRP-PUBLIC-AREA
+    label: 공용부 및 접견실
+    members:
+    - ROOM-EMC-CHAMBER
+    - ROOM-로비
+    - ROOM-고객접견실
+  legend_references:
+  - text: A.B.C 분말 소화기
+    linked_to: LEGEND-BLOCK
+  - text: 옥내소화전함(호스릴형)
+    linked_to: LEGEND-BLOCK
+  - text: 쌍구형연결송수구
+    linked_to: LEGEND-BLOCK
+  diagram_meta:
+    title: 1층 소화 배관 평면도
+    drawing_number: MF-006
+    project: LS Electric R-Center 구축
+    project_code: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.04'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: fire_water_supply
+    has_seismic: false
+    has_sprinkler: true
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    has_equipment_list: true
+    coverage_circles_present: true
+    floor: 1층
+    building: 기존동
+    design_firm: (주) 정연엔지니어링
+    architect: 가운건축 (GAUN Architects & Engineers)
+    notes:
+    - 1. 도면에 설치된 제품(시스템 공법등)은 상기 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 설계 도면과 상이한 경우는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거후 재설치 할 것.
+    - 4. 발주처의 요구에 의해 경미한 변경이 있을 수 있으며, 그에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    pipe_systems:
+    - abbreviation: SP
+      name: 스프링클러배관
+    - abbreviation: H
+      name: 옥내소화전배관
+      nominal_diameters_A:
+      - 50
+      - 65
+      - 100
+    - abbreviation: SC
+      name: 연결송수구배관
+      nominal_diameters_A:
+      - 100
+    equipment_schedule:
+    - item: A.B.C 분말 소화기
+      quantity: 23
+      unit: EA
+      spec: 3단 위
+    - item: 옥내소화전함(호스릴형)
+      quantity: 6
+      unit: EA
+      spec: 25øx30M호스, 25ø관창1개, 전면(STS), 후면(STEEL)
+    - item: 쌍구형연결송수구
+      quantity: 1
+      unit: EA
+      spec: 100ø x 65ø x 65ø

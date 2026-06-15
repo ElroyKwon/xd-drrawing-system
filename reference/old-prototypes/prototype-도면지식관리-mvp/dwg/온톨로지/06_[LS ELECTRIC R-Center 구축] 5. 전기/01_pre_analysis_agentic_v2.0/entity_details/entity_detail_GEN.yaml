@@ -1,0 +1,67 @@
+tag: GEN
+name: 비상 발전기
+type: GENERATOR
+discipline: ELECTRICAL
+function_category: GENERATOR
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - GEN
+  - GENERATOR
+  - 30.5W @ 6kV
+  - 비상발전기 1,250kVA / 1,000kW
+  - 역률 1.25kVA / 900kW
+  - RADIATOR COOLING SYSTEM
+  capacity_kVA: 1250
+  capacity_kW: 1000
+  voltage_kV: 6.6
+  cooling: RADIATOR COOLING SYSTEM
+  equipment_type: Generator
+  phases: 3Ø 3W
+  emergency_output_kVA: 1250
+  emergency_output_kW: 1000
+  continuous_output_kVA_gemini: 1125
+  continuous_output_kW_gemini: 900
+  cooling_system: RADIATOR COOLING SYSTEM
+  power_rating_W_sonnet: 30.5
+relations:
+- from: GEN
+  to: GEN-VCB
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 발전기 → VCB 6.6kV
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-left
+confidence: 0.95
+equipment_symbols:
+- type: generator
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: Generator
+  observed_attributes:
+  - raw_labels
+  - capacity_kVA
+  - capacity_kW
+  - voltage_kV
+  - cooling
+  - equipment_type
+  - phases
+  - emergency_output_kVA
+  - emergency_output_kW
+  - continuous_output_kVA_gemini
+  - continuous_output_kW_gemini
+  - cooling_system
+  - power_rating_W_sonnet
+  similar_equipment: []
+  function_candidates:
+  - EmergencyPowerSupply
+  - ElectricalPowerGeneration

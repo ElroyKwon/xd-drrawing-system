@@ -1,0 +1,124 @@
+placement:
+  tag: EPS/TPS
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:EPS_TPS
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - DocumentEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 원문 정보이며, 도면 분석 가능 범위를 나타내는 메타 정보로 보존 가치가 있음.
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 태그 자체의 설비 정보가 아니라 응답 안내 문구이므로 주석성 메타로 보존.
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: EPS/TPS
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 원 태그 문자열 자체를 식별자 값으로 보존.
+        promoted_to: dks:hasTag
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: absent_in_entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_from_raw_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: normalized_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate_only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate_only
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 설비/도면 객체의 속성으로 직접 해석되지 않는 안내 문구와 페이지 목록이 포함됨.
+    preservation_note: 페이지 범위는 후속 페이지 기반 재분석의 입력 힌트로 유지.
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드가 제공되지 않음.
+    preservation_note: 빈 값 자체를 provenance로 기록.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 EPS/TPS만으로는 물리 설비, 주석, 약어, 문서 참조 중 어느 범주인지 도면 관찰 근거가 부족함.
+    recommended_handling: 0-9c에서 페이지별 원문을 추가 확인한 뒤 NamedIndividual/AnnotationOnly/DocumentEntity
+      후보를 재평가.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그는 우선 UnknownEntity 계열 후보로 두고, 확정 class는 비우는 방향
+    - raw에 포함된 페이지 목록과 안내 문구를 free_notes 및 unresolved로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:41.447730'
+  confidence: 0.42

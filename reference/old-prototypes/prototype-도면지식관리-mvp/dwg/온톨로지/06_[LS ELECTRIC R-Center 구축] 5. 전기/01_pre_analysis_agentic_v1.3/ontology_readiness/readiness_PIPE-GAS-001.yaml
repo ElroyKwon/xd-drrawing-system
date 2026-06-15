@@ -1,0 +1,16 @@
+tag: PIPE-GAS-001
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- name
+- discipline
+- specifications
+missing_relations: []
+reason: entity_detail에 가스 배관 자체의 독립 사양이 없고(specs 비어 있음), 페이지 39에서 확인되는 것은 등전위 접속 대상인
+  '가스관' 언급뿐이다. 이는 독립 설비가 아니라 다른 설비/배관 시스템의 연결 대상 또는 속성으로 보는 것이 타당하다. connection_specs와
+  observed_relations는 접지/단자함/버스바 등과의 관계를 보여주지만, PIPE-GAS-001 자체의 고유 사양을 입증하지 못한다.
+demoted_to: component_of
+target_entity: 가스관
+preserved_info:
+  spec: 가스관
+  relation: bonded_to

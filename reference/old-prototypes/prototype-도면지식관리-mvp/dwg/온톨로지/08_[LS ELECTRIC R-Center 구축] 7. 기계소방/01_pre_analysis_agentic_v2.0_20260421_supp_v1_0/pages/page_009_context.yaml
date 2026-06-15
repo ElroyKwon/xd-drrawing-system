@@ -1,0 +1,512 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_PROTECTION_DETAIL
+  drawing_genre: detail
+  title_block:
+    drawing_number: MF-008
+    title: 소화 일반 상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 3
+  next_step_hints:
+  - 페이지 하단 제목에 'MF 소화 일반 상세도'가 보이며, 중앙/우측에 소화 관련 상세 시공도 3개가 배치됨
+  - 우측 상단 표제란에 프로젝트명 'R-Center 구축', 도면번호 'MF-008'이 보임
+  - 범례 전용 페이지는 아니며, 상세도 내 주석/치수/시공 지시가 포함됨
+  confidence: 0.93
+  note: 도면번호 접두사 MF 중 M을 우선 적용하여 MECHANICAL로 판단함. 시각적으로는 소화(방재) 상세도이나, 접두사 우선 규칙에
+    따라 discipline을 MECHANICAL로 기록함.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_detail/supplement_p4_05.yaml
+    P-0.5: discipline/fire_protection/_general/supplement_p0_05.yaml
+  routing_confidence: 0.88
+  routing_reason: discipline=MECHANICAL, drawing_genre=detail에 대해 카탈로그에 genre_detail(P-4.5)
+    매칭이 존재하고, P-10은 _general fallback만 가능함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: DETAIL-01
+    shape: rectangle
+    primary_label: 소방호스걸이 상세
+    position: top-left
+    labels_near:
+    - 소화전함
+    - 방수구
+    - 설치 규격
+  - panel_id: DETAIL-02
+    shape: rectangle
+    primary_label: 옥내소화전함 바닥 안내표지
+    position: top-center
+    labels_near:
+    - 안내표지부착
+    - 650 mm이상
+  - panel_id: DETAIL-03
+    shape: rectangle
+    primary_label: 연결송수구
+    position: top-right
+    labels_near:
+    - 송수구 용도 표시
+    - 연결송수구(매립형)
+    - 자동배수밸브
+  connections: []
+  notable_shapes:
+  - shape: dashed_box
+    label: B 상세
+    note: 소방호스걸이 상세도 내 확대 상세 영역
+  - shape: shaded_box
+    label: 설치 규격
+    note: 소방호스걸이 상세도 내 자재 사양 표
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지는 3개의 독립적인 소화 설비 시공 상세도로 구성되어 있으며, 범례 표나 심볼 목록은 포함되어 있지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: detail
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '소화 일반 상세도' 및 내용(소화전, 연결송수구)이 소방 분야임을 명확히 지시하므로, 도면번호 접두사
+    MF(Mechanical Fire)의 M보다 우선하여 FIRE_PROTECTION으로 교정함. 장르는 detail 유지.
+classification: DETAIL_DRAWING
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- MF 소화 일반 상세도
+- 소화호스걸이 상세
+- 옥내소화전함 바닥 안내표지
+- 연결송수구
+- 설치 규격
+- 소화전함
+- 방수구
+- 안내표지부착
+- 연결송수구(매립형)
+- 자동배수밸브
+title_block:
+  drawing_number: MF-008
+  title: 소화 일반 상세도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline=MECHANICAL 판정은 도면 하단 제목 ''MF 소화 일반 상세도''와 상세 내용(소화호스걸이, 옥내소화전함,
+  연결송수구) 기준으로 FIRE_PROTECTION으로 교정함. 페이지는 범례 페이지가 아니라 3개의 소방 상세도 패널로 구성된 상세도임. 근거:
+  페이지 하단 제목, 중앙 3개 상세 패널, 우측 표제란의 MF-008.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: FIRE-HOSE-RACK-01
+    shape: rectangle
+    labels_inside:
+    - 소방호스걸이 상세
+    - 소화전함
+    - 방수구
+    - 호스걸이
+    - 앵글밸브
+    - 소방호스
+    - 관창
+    - 설치 규격
+    - '380'
+    - '640'
+    - '425'
+    labels_above:
+    - 소방호스걸이 상세
+    labels_below:
+    - '주기1: 배관호스걸이 설치 및 고정나사는 마감재에 따라 적절한 방법으로 설치할 것'
+    - '주기2: 소화전함(ANSI/UL 1037-2014 이하)에 설치하고 소화전 함몸통에 부착하여 설치할 것'
+    - '주기3: 소화전함 내부에 소방호스 및 관창 설치 시 소방청 고시에 따라 설치할 것'
+    - '주기4: 기타 사항은 관련 법규 및 소방청 고시에 따를 것'
+    - 조소형 파나스화전함
+    labels_near:
+    - B 상세
+    - 진입방향 표시 (좌/우)
+    - 소화전함 내부 배치도
+    equipment_symbols:
+    - type: 소화전함 정면도
+      count: 1
+    - type: 소화전함 측면도
+      count: 1
+    - type: B 상세 확대도 (호스걸이 단면)
+      count: 1
+    - type: 설치규격 표
+      count: 1
+    sub_details:
+    - detail_id: B-DETAIL
+      shape: dashed_box
+      label: B 상세
+      description: 소방호스걸이 확대 단면 상세
+    - detail_id: SPEC-TABLE
+      shape: shaded_box
+      label: 설치 규격
+      attributes:
+      - '번호: ①②③④⑤⑥'
+      - '품명: 소화전함, 호스, 관창, 앵글밸브, 소방호스걸이, 방수구'
+      - '규격: 각 항목별 사양 기재'
+      - '전압: 420/220V OFF 110V'
+      - '박스 외형 치수: 650×350×500'
+    inferred_name: 소방호스걸이 상세도 (옥내소화전함 내부 구성)
+    position: top-left
+    detail_category: wall_mount_detail
+    is_standard: true
+  - panel_id: FIRE-HOSE-BOX-FLOOR-02
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함 바닥 안내표지
+    - 650 mm이상
+    - 650 mm이상
+    - 안내표지부착
+    labels_above:
+    - 옥내소화전함 바닥 안내표지
+    labels_below:
+    - '주기1: 표시판은 표준규격의 것을 사용하고 도장 및 디자인에 대한 제작사에 따라 달리 할 수 있음'
+    - '주기2: 바닥표시판은 미끄럼방지가 되는 재질을 사용하고 바닥에 단단히 부착하여 설치할 것'
+    - '주기3: 안내표지는 바닥에 부착하는 방식으로 설치하고 관련 법규에 따라 설치할 것'
+    - 바닥 안내표지 안내표지
+    equipment_symbols:
+    - type: 바닥 안내표지 평면도 (사각형 테두리 + 내부 표지)
+      count: 1
+    - type: 옥내소화전함 아이소메트릭 뷰
+      count: 1
+    inferred_name: 옥내소화전함 바닥 안내표지 상세도
+    position: top-center
+    detail_category: wall_mount_detail
+    is_standard: true
+    parameters:
+      floor_marking_min_size: 650mm × 650mm
+  - panel_id: FIRE-SIAMESE-CONN-03
+    shape: rectangle
+    labels_inside:
+    - 연결송수구
+    - 송수구 용도 표시
+    - 연결송수구(매립형)
+    - 자동배수밸브
+    - 체크밸브
+    - 개폐밸브
+    - 소화수 공급관
+    - 연결송수구 배관
+    - SC 배관
+    - 호스연결구
+    - 마개
+    - 조수구 용도 표시 (스프링클러)
+    - 연결금속구 배관 연결부
+    - 방수구 캡
+    - 40Ø 지관배관
+    - 40Ø 지관배관 (기계실)
+    - 연결금속구 배관 연결부
+    - 연결송수구 수직배관
+    labels_above:
+    - 연결송수구
+    labels_below:
+    - '주기1: 배관호스걸이 설치 및 고정나사는 마감재에 따라 적절한 방법으로 설치할 것'
+    - '주기2: 송수구는 소방차가 쉽게 접근할 수 있는 위치에 설치할 것'
+    - '주기3: 자동배수밸브는 배관 내 잔류수를 자동으로 배수할 수 있도록 설치할 것'
+    - '주기4: 체크밸브는 역류방지를 위해 설치할 것'
+    - '주기5: 개폐밸브는 유지보수 시 배관을 차단할 수 있도록 설치할 것'
+    - '주기6: 송수구 주변 배관은 관련 법규 및 소방청 고시에 따라 설치할 것'
+    - 연결송수구
+    equipment_symbols:
+    - type: 연결송수구 정면도 (쌍구형)
+      count: 1
+    - type: 연결송수구 배관 계통 상세도
+      count: 1
+    - type: 자동배수밸브 심볼
+      count: 1
+    - type: 체크밸브 심볼
+      count: 2
+    - type: 개폐밸브 심볼
+      count: 1
+    inferred_name: 연결송수구 상세도 (매립형, 쌍구형)
+    position: top-right
+    detail_category: pipe_joint_detail
+    is_standard: true
+    fluid_type: SC
+    nominal_diameter_notes:
+    - 40Ø 지관배관
+    connection_components:
+    - 자동배수밸브
+    - 체크밸브
+    - 개폐밸브
+    - 쌍구형 연결금속구
+  connections:
+  - from: FIRE-SIAMESE-CONN-03
+    to: FIRE-SIAMESE-CONN-03
+    line_type: pipe
+    line_style: solid
+    annotation: SC 배관 → 체크밸브 → 개폐밸브 → 연결송수구 수직배관
+    flow_direction: bottom-to-top
+  - from: FIRE-SIAMESE-CONN-03
+    to: FIRE-SIAMESE-CONN-03
+    line_type: pipe
+    line_style: solid
+    annotation: 자동배수밸브 → 드레인
+    flow_direction: downward
+  groups:
+  - group_id: GRP-FIRE-DETAIL
+    label: 소화 일반 상세도 (MF-008)
+    members:
+    - FIRE-HOSE-RACK-01
+    - FIRE-HOSE-BOX-FLOOR-02
+    - FIRE-SIAMESE-CONN-03
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: FIRE-HOSE-RACK-01
+  - text: SC (연결송수구배관)
+    linked_to: FIRE-SIAMESE-CONN-03
+  - text: 옥내소화전함
+    linked_to: FIRE-HOSE-RACK-01
+  - text: 쌍구형연결송수구
+    linked_to: FIRE-SIAMESE-CONN-03
+  - text: 체크밸브
+    linked_to: FIRE-SIAMESE-CONN-03
+  - text: 게이트밸브
+    linked_to: FIRE-SIAMESE-CONN-03
+  diagram_meta:
+    title: 소화 일반 상세도
+    drawing_number: MF-008
+    project: LS Electric R-Center 구축
+    scale: 1:200
+    discipline: FIRE_PROTECTION
+    mech_subsystem: fire_suppression
+    view_type: detail
+    drawing_genre: detail
+    flow_direction: UNKNOWN
+    detail_count: 3
+    detail_categories:
+      wall_mount_detail: 2
+      pipe_joint_detail: 1
+    is_project_specific: true
+    has_equipment_list: false
+    fluid_types_present:
+    - H (옥내소화전배관)
+    - SC (연결송수구배관)
+    notes:
+    - 도면번호 MF-008의 MF는 Mechanical Fire Protection 약어로 판단
+    - discipline은 FIRE_PROTECTION으로 확정
+    - '3개 상세 블록: 소방호스걸이 상세, 옥내소화전함 바닥 안내표지, 연결송수구 상세'
+    - 연결송수구는 매립형 쌍구형으로 자동배수밸브·체크밸브·개폐밸브 포함
+    - 소방호스걸이 상세에는 설치규격 표(품명/규격/수량) 포함
+    - 바닥 안내표지는 650mm×650mm 이상 규격 명시
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FIRE-HOSE-RACK-01
+    shape: rectangle
+    labels_inside:
+    - 소방호스걸이 상세
+    - '700'
+    - '1200'
+    - 소화전
+    - 방수구
+    - 위치표시등
+    - 발신기
+    - 경종
+    - 호스걸이
+    - 앵글밸브
+    - 소방호스
+    - 관창
+    - '200'
+    - '400'
+    - '870'
+    - B 상세
+    - 설치 규격
+    - 번호
+    - 품명
+    - 규격
+    - 비고
+    - ①
+    - 소화전함
+    - 1.5t 이상
+    - ②
+    - 호스
+    - FE 40A x 15m x 2본 이상
+    - ③
+    - 관창
+    - FE 40A x 1개 이상
+    - ④
+    - 앵글밸브
+    - 40A
+    - ⑤
+    - 소방호스걸이
+    - SUS 304
+    - ⑥
+    - 방수구
+    - 40A
+    - 주기
+    - 1. 소화전함은 KFI인증품 및 제품검사에 합격한 제품을 사용할 것.
+    - 2. 앵글밸브는 KFI인증품(청동제)을 사용하고, 호스걸이 및 관창은 KFI인증품 또는 KS제품을 사용할 것.
+    - 3. 호스걸이 설치높이는 바닥에서 1.5m 이하로 하고, 호스는 꼬이지 않게 수납할 것.
+    - 4. 위치표시등은 함 상부에 설치하고, 발신기, 경종은 함 내부에 설치할 것.
+    - 호스릴 옥내소화전함
+    labels_above:
+    - 소방호스걸이 상세
+    equipment_symbols:
+    - type: 소화전함 정면도 및 측면도
+      count: 1
+    - type: B 상세 확대도 (호스걸이 단면)
+      count: 1
+    - type: 설치규격 표
+      count: 1
+    sub_details:
+    - detail_id: B-DETAIL
+      shape: dashed_box
+      label: B 상세
+      description: 소방호스걸이 확대 단면 상세
+      labels_inside:
+      - 호스걸이
+      - 앵글밸브
+      - 소방호스
+      - 관창
+    - detail_id: SPEC-TABLE
+      shape: shaded_box
+      label: 설치 규격
+      attributes:
+      - '① 소화전함: 1.5t 이상'
+      - '② 호스: FE 40A x 15m x 2본 이상'
+      - '③ 관창: FE 40A x 1개 이상'
+      - '④ 앵글밸브: 40A'
+      - '⑤ 소방호스걸이: SUS 304'
+      - '⑥ 방수구: 40A'
+    inferred_name: 소방호스걸이 및 옥내소화전함 상세
+    position: top-left
+    detail_category: wall_mount_detail
+  - panel_id: FIRE-HOSE-BOX-FLOOR-02
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함 바닥 안내표지
+    - 안내표지부착
+    - 650 mm이상
+    - 650 mm이상
+    - (현장에 따라 문구변경 가능)
+    - 소화전함 앞 물건 적재금지
+    - 주기
+    - 1. 안내표지는 바닥에 견고하게 부착하고, 문구 및 디자인은 발주처와 협의 후 결정할 것.
+    - 2. 안내표지 재질은 미끄럼방지 기능이 있는 제품을 사용할 것.
+    - 3. 안내표지 색상은 적색으로 하고, 글씨는 백색으로 할 것.
+    - 옥내소화전함 바닥 안내표지
+    labels_above:
+    - 옥내소화전함 바닥 안내표지
+    equipment_symbols:
+    - type: 바닥 안내표지 아이소메트릭 뷰
+      count: 1
+    - type: 옥내소화전함 아이소메트릭 뷰
+      count: 1
+    inferred_name: 옥내소화전함 바닥 안내표지 상세
+    position: top-center
+    detail_category: wall_mount_detail
+    parameters:
+      floor_marking_min_size: 650mm × 650mm
+      marking_text: 소화전함 앞 물건 적재금지
+  - panel_id: FIRE-SIAMESE-CONN-03
+    shape: rectangle
+    labels_inside:
+    - 연결송수구
+    - 송수구 용도 표시
+    - 연결송수구(매립형)
+    - 자동배수밸브
+    - 체크밸브
+    - 개폐밸브
+    - 소화수 공급관
+    - 연결송수구 배관
+    - SC 배관
+    - 호스연결구
+    - 마개
+    - 송수구 용도 표시 (스프링클러)
+    - 벽체매립설치
+    - G.L
+    - 조경 흡수 접근구
+    - 소방용수 배관
+    - 40Ø 지관배관
+    - 40Ø 지관배관 (기계실)
+    - 연결송수구 수직배관
+    - 500~1000
+    - 주기
+    - 1. 연결송수구는 소방차가 쉽게 접근할 수 있는 위치에 설치할 것.
+    - 2. 송수구의 설치높이는 지면으로부터 0.5m 이상 1.0m 이하로 할 것.
+    - 3. 송수구에는 그 가까운 곳에 보기 쉬운 곳에 송수압력범위를 표시한 표지를 설치할 것.
+    - 4. 송수구는 이물질을 걸러낼 수 있는 거름망이 있는 것으로 할 것.
+    - 5. 송수구에는 마개를 씌울 것.
+    - 6. 배관은 배수를 위하여 기울기를 줄 것.
+    - 연결송수구
+    labels_above:
+    - 연결송수구
+    equipment_symbols:
+    - type: 연결송수구 정면도 (쌍구형)
+      count: 1
+    - type: 연결송수구 배관 계통 상세도
+      count: 1
+    - type: 자동배수밸브 심볼
+      count: 1
+    - type: 체크밸브 심볼
+      count: 2
+    - type: 개폐밸브 심볼
+      count: 1
+    inferred_name: 연결송수구 상세 (매립형, 쌍구형)
+    position: top-right
+    detail_category: pipe_joint_detail
+    fluid_type: SC
+    nominal_diameter_notes:
+    - 40Ø 지관배관
+    - 40Ø 지관배관 (기계실)
+    connection_components:
+    - 자동배수밸브
+    - 체크밸브
+    - 개폐밸브
+    - 쌍구형 연결송수구
+  connections:
+  - from: FIRE-SIAMESE-CONN-03
+    to: FIRE-SIAMESE-CONN-03
+    line_type: pipe
+    line_style: solid
+    annotation: SC 배관 → 체크밸브 → 개폐밸브 → 연결송수구 수직배관
+    flow_direction: bottom-to-top
+  - from: FIRE-SIAMESE-CONN-03
+    to: FIRE-SIAMESE-CONN-03
+    line_type: pipe
+    line_style: solid
+    annotation: 자동배수밸브 → 드레인
+    flow_direction: downward
+  groups:
+  - group_id: GRP-FIRE-DETAIL
+    label: 소화 일반 상세도 (MF-008)
+    members:
+    - FIRE-HOSE-RACK-01
+    - FIRE-HOSE-BOX-FLOOR-02
+    - FIRE-SIAMESE-CONN-03
+  legend_references:
+  - text: 옥내소화전함
+    linked_to: FIRE-HOSE-RACK-01
+  - text: 쌍구형연결송수구
+    linked_to: FIRE-SIAMESE-CONN-03
+  - text: 체크밸브
+    linked_to: FIRE-SIAMESE-CONN-03
+  - text: 게이트밸브
+    linked_to: FIRE-SIAMESE-CONN-03
+  - text: SC
+    linked_to: FIRE-SIAMESE-CONN-03
+  diagram_meta:
+    title: 소화 일반 상세도
+    drawing_number: MF-008
+    project: LS Electric R-Center 구축
+    scale: 1:200
+    discipline: FIRE_PROTECTION
+    mech_subsystem: fire_suppression
+    view_type: detail
+    drawing_genre: detail
+    flow_direction: UNKNOWN
+    detail_count: 3
+    detail_categories:
+      wall_mount_detail: 2
+      pipe_joint_detail: 1
+    is_project_specific: true
+    has_equipment_list: false
+    fluid_types_present:
+    - SC (연결송수구배관)
+    notes:
+    - 도면번호 MF-008의 MF는 Mechanical Fire Protection 약어로 판단
+    - '3개 상세 블록: 소방호스걸이 상세, 옥내소화전함 바닥 안내표지, 연결송수구 상세'
+    - 각 상세도 하단에 시공 관련 주기(Note)가 포함되어 있음

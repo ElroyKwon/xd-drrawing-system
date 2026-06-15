@@ -1,0 +1,106 @@
+placement:
+  tag: UNKNOWN-STRUCTURAL-009
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:UNKNOWN-STRUCTURAL-009
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - UnknownEntity
+    - DocumentEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+          119, 120, 121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 출처 정보이며, 엔티티 자체의 의미보다 참조 가능한 페이지 범위를 보존하는 것이 유용함.
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아니라 응답 안내 문구로, 주석/메타 문장으로 보존하는 것이 적절함.
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred from raw being note-like text with no physical entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-level candidate only
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 실체 설비/구조물의 속성이나 관계가 아니라 안내성 문장과 페이지 목록만 포함됨.
+    preservation_note: 주석/참조 텍스트로 보존. 페이지 목록은 후속 페이지 기반 재검토에 활용 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 STRUCTURAL이지만 원문에는 구조물 자체의 실체 정보가 없고, 페이지 목록과 안내 문구만 있어 AnnotationOnly와
+      DocumentEntity 후보가 모두 가능함.
+    recommended_handling: 후속 단계에서 동일 태그의 주변 문맥 또는 원본 페이지를 확인해 문서 주석인지 참조 엔티티인지 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야의 unresolved_document_component / unresolved_reference_marker 성격으로
+      보존
+    - free_notes에 분류 불가 정보와 promotion_hint를 함께 기록
+    deviations:
+    - plan의 예상 구조상 structural 태그는 실제 건축요소일 가능성도 있으나, 현재 entity_detail에는 물리 실체를 지시하는
+      정보가 없어 AnnotationOnly로 보수적으로 배치함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:38.614689'
+  confidence: 0.78

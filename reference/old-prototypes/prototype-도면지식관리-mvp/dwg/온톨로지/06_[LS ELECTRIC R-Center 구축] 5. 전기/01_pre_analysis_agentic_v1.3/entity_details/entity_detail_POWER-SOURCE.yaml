@@ -1,0 +1,142 @@
+entity_detail:
+  tag: POWER-SOURCE
+  type: Power Source
+  specs:
+    source_name:
+      value: 전기실
+      unit: null
+      source:
+      - 20
+      - 22
+      confidence: 0.99
+    from_label:
+      value: 'FROM: 전기실'
+      unit: null
+      source:
+      - 20
+      - 22
+      confidence: 0.99
+    related_voltage:
+      value: 3Ø 380V
+      unit: V
+      source:
+      - 20
+      confidence: 0.95
+    related_voltage_2:
+      value: 3Ø 440V
+      unit: V
+      source:
+      - 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: 생산동력(3Ø 380V) 분전반 결선도
+  - source: page 20
+    page_number: 20
+    text: 3Ø 380V 생산동력용 분전반 결선도로, P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP,
+      P-I-3PP의 7개 분전반이 병렬 배치되어 있다.
+  - source: page 20
+    page_number: 20
+    text: 각 분전반에는 MAIN, MCCB, CBR, E3 접지 및 일부 SPD가 표시되며, 분기 회로가 다수 포함된 패널이 보인다.
+  - source: page 20
+    page_number: 20
+    text: 우측 표제란과 주기사항에 차단기 정격, 외함 재질/두께, 설치 조건, 주의사항이 함께 표기되어 있다.
+  - source: page 22
+    page_number: 22
+    text: 생산동력(3Ø 440V) 분전반 결선도-2
+  - source: page 22
+    page_number: 22
+    text: 생산동력(3Ø 440V) 분전반 결선도-2로, 한 페이지에 6개의 분전반 결선도가 2행×3열로 배치되어 있다.
+  - source: page 22
+    page_number: 22
+    text: '각 분전반은 FROM: 전기실, R/S/T 3상 전원 라인, MCCB, SPD, 접지(E3) 표기가 반복되며, 우측에는 주기사항과
+      차단용량 표가 있다.'
+  - source: page 22
+    page_number: 22
+    text: 차단용량 표에는 30AF 5KA 이상, 50AF 10KA 이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF
+      25KA 이상, 400AF 35KA 이상, 600AF 50KA 이상이 보인다.
+  requirements:
+  - text: '각 분전반은 FROM: 전기실로부터 전원을 받는다.'
+    source: page 20, 22
+    type: power_supply_condition
+  - text: 3Ø 380V 생산동력용 분전반 결선도
+    source: page 20
+    type: voltage_condition
+  - text: 생산동력(3Ø 440V) 분전반 결선도-2
+    source: page 22
+    type: voltage_condition
+  - text: 각 분전반에는 MAIN, MCCB, CBR, E3 접지 및 일부 SPD가 표시된다.
+    source: page 20
+    type: equipment_configuration
+  - text: '각 분전반은 FROM: 전기실, R/S/T 3상 전원 라인, MCCB, SPD, 접지(E3) 표기가 반복된다.'
+    source: page 22
+    type: equipment_configuration
+  - text: 우측 표제란과 주기사항에 차단기 정격, 외함 재질/두께, 설치 조건, 주의사항이 함께 표기되어 있다.
+    source: page 20
+    type: note_requirement
+  - text: 우측에는 주기사항과 차단용량 표가 있다.
+    source: page 22
+    type: note_requirement
+  connection_specs:
+  - relation: power_supply_from
+    partner: 전기실
+    details:
+      source: page 20, 22
+      text: 'FROM: 전기실'
+  - relation: power_line
+    partner: R/S/T 3상 전원 라인
+    details:
+      source: page 22
+      text: R/S/T 3상 전원 라인
+  - relation: associated_protection
+    partner: MAIN / MCCB / CBR / SPD / E3
+    details:
+      source: page 20, 22
+      text: MAIN, MCCB, CBR, E3 접지 및 일부 SPD / MCCB, SPD, 접지(E3)
+  - relation: breaker_capacity_note
+    partner: MCCB
+    details:
+      source: page 20, 22
+      text: '정격전압: 3P/4P 600V, 2P 250V, 정격용량: 30AF~600AF, 차단용량: 5KA 이상~50KA 이상 / 30AF
+        5KA 이상, 50AF 10KA 이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF 25KA 이상, 400AF 35KA
+        이상, 600AF 50KA 이상'
+  ontology_hints:
+    observed_relations:
+    - relation_type: FROM
+      partner_tag: 전기실
+      direction: source_to_target
+      source: page 20, 22
+    observed_attributes:
+    - 'FROM: 전기실'
+    - 3Ø 380V
+    - 3Ø 440V
+    - R/S/T 3상 전원 라인
+    - MAIN
+    - MCCB
+    - CBR
+    - SPD
+    - E3
+    - 차단용량
+    - 정격전압
+    - 정격용량
+    similar_equipment:
+    - P-A-3PP
+    - P-AC-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    - P-A-4PP-7
+    - P-AC-4PP-1
+    - P-C-4PP
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: Power Source
+    cross_discipline: []
+  notes:
+  - '도면에서 POWER-SOURCE 자체의 상세 사양은 제한적이며, 주로 ''FROM: 전기실'' 표기와 관련 분전반의 전원 조건이 확인됨.'
+  - page 20과 page 22의 전압 표기가 서로 다름(3Ø 380V, 3Ø 440V).
+tag: POWER-SOURCE

@@ -1,0 +1,145 @@
+page_11_entities:
+- tag: PIPE-DTL-01
+  name: 이중벽 PVC 주름관 본체 상세
+  type: PIPE_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PIPE-DTL-02
+  name: 소켓 'A' 부위 상세 및 A-A 단면도
+  type: PIPE_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SOCKET-DTL-01
+  name: 연결소켓 사출품 상세
+  type: SOCKET_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SOCKET-DTL-02
+  name: 연결소켓 PVC 가공품 상세
+  type: SOCKET_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: TABLE-PVC-01
+  name: PVC 이중벽관 치수표 (규격 150~300)
+  type: TABLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: FOUNDATION-DTL-01
+  name: 모래 기초(90°) 상세 단면
+  type: FOUNDATION_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: TABLE-FOUND-01
+  name: 모래 기초 치수표 (내경 300~800mm)
+  type: TABLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PROC-SEQ-01
+  name: 소켓식 연결 시공순서 상세 (6단계)
+  type: PROCEDURE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: NOTES-01
+  name: 소켓식 연결 시공 주의사항 및 순서 텍스트
+  type: NOTES
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PIPE-MAIN-DTL
+  name: 이중벽 주름관 본체 및 소켓 연결부 상세
+  type: PIPE_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PIPE-DETAIL-A
+  name: 소켓부 'A' 상세 및 A-A 단면
+  type: PIPE_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SOCKET-INJ-DTL
+  name: 연결소켓 (사출) 상세
+  type: SOCKET_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SOCKET-MACH-DTL
+  name: 연결소켓 (PVC 가공) 상세
+  type: SOCKET_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: TABLE-PVC-DIM
+  name: PVC 이중벽관 치수표
+  type: TABLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: FOUNDATION-DTL
+  name: 모래 기초(90°) 단면 상세
+  type: FOUNDATION_DETAIL
+  discipline: CIVIL
+  confidence: 0.98
+- tag: TABLE-FOUND-DIM
+  name: 모래 기초 치수표
+  type: TABLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PROC-STEP-1
+  name: 시공순서 1 (침목 설치)
+  type: PROCEDURE_STEP
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PROC-STEP-2-3
+  name: 시공순서 2,3 (고무링/윤활제)
+  type: PROCEDURE_STEP
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PROC-STEP-4
+  name: 시공순서 4 (소켓 삽입 시작)
+  type: PROCEDURE_STEP
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PROC-STEP-5-6
+  name: 시공순서 5,6 (조임 및 완료)
+  type: PROCEDURE_STEP
+  discipline: CIVIL
+  confidence: 0.98
+- tag: PROC-NOTES
+  name: 시공순서 텍스트
+  type: NOTES
+  discipline: CIVIL
+  confidence: 0.98
+- tag: TITLE-BLOCK
+  name: 표제란
+  type: TITLE_BLOCK
+  discipline: CIVIL
+  confidence: 0.98
+page_11_relations:
+- from: PIPE-DTL-01
+  to: PIPE-DTL-02
+  relation: connects_to
+- from: TABLE-PVC-01
+  to: PIPE-DTL-01
+  relation: applies_to
+- from: TABLE-FOUND-01
+  to: FOUNDATION-DTL-01
+  relation: applies_to
+- from: PROC-SEQ-01
+  to: NOTES-01
+  relation: corresponds_to
+- from: PIPE-MAIN-DTL
+  to: PIPE-DETAIL-A
+  relation: connects_to
+- from: TABLE-PVC-DIM
+  to: PIPE-MAIN-DTL
+  relation: applies_to
+- from: TABLE-PVC-DIM
+  to: PIPE-DETAIL-A
+  relation: applies_to
+- from: TABLE-FOUND-DIM
+  to: FOUNDATION-DTL
+  relation: applies_to
+- from: DETAIL-01
+  to: PROCEDURE-01
+  relation: references
+- from: TABLE-01
+  to: DETAIL-01
+  relation: applies_to
+- from: TABLE-02
+  to: DETAIL-03
+  relation: applies_to

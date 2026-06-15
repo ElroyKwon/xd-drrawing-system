@@ -1,0 +1,860 @@
+initial_scan:
+  page_type: toc
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: null
+  drawing_genre: index
+  title_block:
+    drawing_number: C00-001
+    title: 도면목록표
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 도면목록표(목차) 페이지로 보이며, 좌측 표에 도면번호/도면명/축척이 나열됨
+  - 우측 표제란에 프로젝트명 'R-Center', 도면번호 'C00-001', 제목 '도면목록표'가 보임
+  - legend_data.yaml 조회 결과 NOT FOUND
+  confidence: 0.99
+  note: null
+  recommended_supplements: &id001
+    P-0.5: discipline/civil/_general/supplement_p0_05.yaml
+    P-4.5: discipline/civil/genre_index/supplement_p4_05.yaml
+  routing_confidence: 1.0
+  routing_reason: 페이지 제목이 '도면목록표'이고 도면 목록 표 형식이므로 toc/index로 판단되며, 비도면 페이지라 supplement
+    라우팅 대상이 아님.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TOC_TABLE
+    shape: rectangle
+    primary_label: 도면목록표
+    position: center
+    labels_near:
+    - 도면번호
+    - 도면명
+    - 축척
+    - 비고
+    - C00 공통도면
+    - C01 토공
+    - C02 우수공
+    - C03 오수공
+    - C04 포장공
+    - C04 굴착공
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: TITLE BLOCK
+    position: right
+    labels_near:
+    - LS Electric
+    - R-Center 구축
+    - 가운 건축
+    - 도면목록표
+    - C00 - 001
+  connections: []
+  notable_shapes:
+  - shape: shaded_box
+    label: C00 공통도면
+    note: 목록 내 분야/공종별 구분 음영 행
+  - shape: shaded_box
+    label: C01 토공
+    note: 목록 내 분야/공종별 구분 음영 행
+  - shape: shaded_box
+    label: C02 우수공
+    note: 목록 내 분야/공종별 구분 음영 행
+  - shape: shaded_box
+    label: C03 오수공
+    note: 목록 내 분야/공종별 구분 음영 행
+  - shape: shaded_box
+    label: C04 포장공
+    note: 목록 내 분야/공종별 구분 음영 행
+  - shape: shaded_box
+    label: C04 굴착공
+    note: 목록 내 분야/공종별 구분 음영 행
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 1.0
+  note: 페이지 제목이 '도면목록표'이며, 도면 목록 표 형식으로 구성되어 범례가 아님.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: index
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 1.0
+  routing_reason: existing_yaml에서 UNKNOWN_DISCIPLINE이었으나, vision으로 도면목록표 내 '토공', '우수공',
+    '오수공', '포장공', '굴착공' 등 토목 키워드 다수 확인 및 도면번호 접두사 C00-001 확인. 토목 분야 판정 원칙(C 접두사 +
+    토목 키워드 3개 이상)에 따라 CIVIL로 확정. drawing_genre는 index 유지.
+classification: DRAWING_LIST
+discipline: CIVIL
+key_elements_from_text:
+- 도면목록표
+- 도면번호 / 도면명 / 축척 / 비고
+- C00 공통도면
+- C01 토공
+- C02 우수공
+- C03 오수공
+- C04 포장공
+- C04 굴착공
+- LS Electric
+- R-Center 구축
+- '224001'
+- 가운건축
+title_block:
+  drawing_number: C00-001
+  title: 도면목록표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 CIVIL / index / C00-001 / 도면목록표 판정과 일치함. 페이지는 범례가 아니라 도면목록표(목차)이며, 표제란
+  우측에 프로젝트명 LS Electric, R-Center 구축, 번호 224001, 회사명 가운건축, 도면번호 C00-001, 제목 도면목록표가
+  보임. 페이지 내 목록에는 C00 공통도면, C01 토공, C02 우수공, C03 오수공, C04 포장공, C04 굴착공이 확인됨.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: TOC-MAIN
+    shape: rectangle
+    labels_inside:
+    - 도면번호
+    - 도면명
+    - 축척
+    - 비고
+    - 토목
+    - A 3
+    labels_above:
+    - 도면목록표
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면목록표 전체 표
+    position: center
+  - panel_id: SEC-C00
+    shape: shaded_box
+    labels_inside:
+    - C00 공통도면
+    - C00-001 | 도면목록표 | NONE
+    - C00-002 | 현황평면도 | 1/700
+    - C00-003 | 지장매설물도 | 1/600
+    - C00-004 | 철거계획평면도 | 1/600
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C00 공통도면 섹션
+    position: top-left
+  - panel_id: SEC-C01
+    shape: shaded_box
+    labels_inside:
+    - C01 토공
+    - C10-101 | 공사계획평면도 | 1/400
+    - C10-102 | 부지출단면도 | 1/400
+    - C10-103 | 부지횡단면도 | 1/400
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C01 토공 섹션
+    position: center-left
+  - panel_id: SEC-C02
+    shape: shaded_box
+    labels_inside:
+    - C02 우수공
+    - C10-201 | 우수계획평면도 | 1/400
+    - C10-202 | 집수정(500x500) 상세도 | NONE
+    - C10-203 | 연결관 상세도 | NONE
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C02 우수공 섹션
+    position: center-left
+  - panel_id: SEC-C03
+    shape: shaded_box
+    labels_inside:
+    - C03 오수공
+    - C10-301 | 오수계획평면도 | 1/400
+    - C10-302 | 오수종단면도 | 1/1000
+    - C10-303 | 원형맨홀(φ900)상세도 | NONE
+    - C10-304 | 맨홀 인버트 상세도 | NONE
+    - C10-305 | 오수맨홀 뚜껑 상세도 | NONE
+    - C10-306 | 오수관 상세도 | NONE
+    - C10-307 | CCTV 및 수밀검사 예시도 | NONE
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C03 오수공 섹션
+    position: center-left
+  - panel_id: SEC-C04-PAVEMENT
+    shape: shaded_box
+    labels_inside:
+    - C04 포장공
+    - C10-401 | 포장계획평면도 | 1/400
+    - C10-402 | 포장단면 상세도 | NONE
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C04 포장공 섹션
+    position: center-left
+  - panel_id: SEC-C04-EXCAVATION
+    shape: shaded_box
+    labels_inside:
+    - C04 굴착공
+    - C20-101 | 굴착계획평면도 | 1/400
+    - C20-102 | 굴착계획단면도 | 1/300
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C04 굴착공 섹션
+    position: center-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 608, 18층 (논현동, 럭스타워)
+    - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+    - www.gaun.co.kr
+    - R-Center
+    - 도면목록표
+    - 'A1 : NONE'
+    - 'A3 : NONE'
+    - '2024.05'
+    - C00 - 001
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections: []
+  groups:
+  - group_id: GRP-C00
+    label: C00 공통도면
+    members:
+    - SEC-C00
+  - group_id: GRP-C01
+    label: C01 토공
+    members:
+    - SEC-C01
+  - group_id: GRP-C02
+    label: C02 우수공
+    members:
+    - SEC-C02
+  - group_id: GRP-C03
+    label: C03 오수공
+    members:
+    - SEC-C03
+  - group_id: GRP-C04-PAV
+    label: C04 포장공
+    members:
+    - SEC-C04-PAVEMENT
+  - group_id: GRP-C04-EXC
+    label: C04 굴착공
+    members:
+    - SEC-C04-EXCAVATION
+  legend_references: []
+  diagram_meta:
+    title: 도면목록표
+    drawing_number: C00-001
+    project: LS Electric R-Center 구축
+    client: LS Electric
+    designer: 가운건축 (GAUN Architects & Engineers)
+    project_number: '224001'
+    date: '2024.05'
+    scale_primary: NONE
+    scale_secondary: 'A3 : NONE'
+    discipline: CIVIL
+    drawing_genre: index
+    classification: DRAWING_LIST
+    flow_direction: UNKNOWN
+    is_reference_only: false
+    coordinate_system: null
+    drawing_catalog:
+    - section: C00 공통도면
+      drawings:
+      - number: C00-001
+        name: 도면목록표
+        scale: NONE
+      - number: C00-002
+        name: 현황평면도
+        scale: 1/700
+      - number: C00-003
+        name: 지장매설물도
+        scale: 1/600
+      - number: C00-004
+        name: 철거계획평면도
+        scale: 1/600
+    - section: C01 토공
+      drawings:
+      - number: C10-101
+        name: 공사계획평면도
+        scale: 1/400
+      - number: C10-102
+        name: 부지출단면도
+        scale: 1/400
+      - number: C10-103
+        name: 부지횡단면도
+        scale: 1/400
+    - section: C02 우수공
+      drawings:
+      - number: C10-201
+        name: 우수계획평면도
+        scale: 1/400
+      - number: C10-202
+        name: 집수정(500x500) 상세도
+        scale: NONE
+      - number: C10-203
+        name: 연결관 상세도
+        scale: NONE
+    - section: C03 오수공
+      drawings:
+      - number: C10-301
+        name: 오수계획평면도
+        scale: 1/400
+      - number: C10-302
+        name: 오수종단면도
+        scale: 1/1000
+      - number: C10-303
+        name: 원형맨홀(φ900)상세도
+        scale: NONE
+      - number: C10-304
+        name: 맨홀 인버트 상세도
+        scale: NONE
+      - number: C10-305
+        name: 오수맨홀 뚜껑 상세도
+        scale: NONE
+      - number: C10-306
+        name: 오수관 상세도
+        scale: NONE
+      - number: C10-307
+        name: CCTV 및 수밀검사 예시도
+        scale: NONE
+    - section: C04 포장공
+      drawings:
+      - number: C10-401
+        name: 포장계획평면도
+        scale: 1/400
+      - number: C10-402
+        name: 포장단면 상세도
+        scale: NONE
+    - section: C04 굴착공
+      drawings:
+      - number: C20-101
+        name: 굴착계획평면도
+        scale: 1/400
+      - number: C20-102
+        name: 굴착계획단면도
+        scale: 1/300
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: TOC-MAIN
+    shape: rectangle
+    labels_inside:
+    - 도면번호
+    - 도면명
+    - 축척
+    - 비고
+    - 토목
+    - A 3
+    labels_above:
+    - 도면목록표
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면목록표 전체 표
+    position: center
+  - panel_id: SEC-C00
+    shape: shaded_box
+    labels_inside:
+    - C00 공통도면
+    - C00-001 | 도면목록표 | NONE
+    - C00-002 | 현황평면도 | 1/700
+    - C00-003 | 지장매설물도 | 1/600
+    - C00-004 | 철거계획평면도 | 1/600
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C00 공통도면 섹션
+    position: top-left
+  - panel_id: SEC-C01
+    shape: shaded_box
+    labels_inside:
+    - C01 토공
+    - C10-101 | 공사계획평면도 | 1/400
+    - C10-102 | 부지출단면도 | 1/400
+    - C10-103 | 부지횡단면도 | 1/400
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C01 토공 섹션
+    position: center-left
+  - panel_id: SEC-C02
+    shape: shaded_box
+    labels_inside:
+    - C02 우수공
+    - C10-201 | 우수계획평면도 | 1/400
+    - C10-202 | 집수정(500x500) 상세도 | NONE
+    - C10-203 | 연결관 상세도 | NONE
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C02 우수공 섹션
+    position: center-left
+  - panel_id: SEC-C03
+    shape: shaded_box
+    labels_inside:
+    - C03 오수공
+    - C10-301 | 오수계획평면도 | 1/400
+    - C10-302 | 오수종단면도 | 1/1000
+    - C10-303 | 원형맨홀(φ900)상세도 | NONE
+    - C10-304 | 맨홀 인버트 상세도 | NONE
+    - C10-305 | 오수맨홀 뚜껑 상세도 | NONE
+    - C10-306 | 오수관 상세도 | NONE
+    - C10-307 | CCTV 및 수밀검사 예시도 | NONE
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C03 오수공 섹션
+    position: center-left
+  - panel_id: SEC-C04-PAVEMENT
+    shape: shaded_box
+    labels_inside:
+    - C04 포장공
+    - C10-401 | 포장계획평면도 | 1/400
+    - C10-402 | 포장단면 상세도 | NONE
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C04 포장공 섹션
+    position: center-left
+  - panel_id: SEC-C04-EXCAVATION
+    shape: shaded_box
+    labels_inside:
+    - C04 굴착공
+    - C20-101 | 굴착계획평면도 | 1/400
+    - C20-102 | 굴착계획단면도 | 1/300
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: C04 굴착공 섹션
+    position: center-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 608, 18층 (논현동, 럭스타워)
+    - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+    - www.gaun.co.kr
+    - R-Center
+    - 도면목록표
+    - 'A1 : NONE'
+    - 'A3 : NONE'
+    - '2024.05'
+    - C00 - 001
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections: []
+  groups:
+  - group_id: GRP-C00
+    label: C00 공통도면
+    members:
+    - SEC-C00
+  - group_id: GRP-C01
+    label: C01 토공
+    members:
+    - SEC-C01
+  - group_id: GRP-C02
+    label: C02 우수공
+    members:
+    - SEC-C02
+  - group_id: GRP-C03
+    label: C03 오수공
+    members:
+    - SEC-C03
+  - group_id: GRP-C04-PAV
+    label: C04 포장공
+    members:
+    - SEC-C04-PAVEMENT
+  - group_id: GRP-C04-EXC
+    label: C04 굴착공
+    members:
+    - SEC-C04-EXCAVATION
+  legend_references: []
+  diagram_meta:
+    title: 도면목록표
+    drawing_number: C00-001
+    project: LS Electric R-Center 구축
+    client: LS Electric
+    designer: 가운건축 (GAUN Architects & Engineers)
+    project_number: '224001'
+    date: '2024.05'
+    scale_primary: NONE
+    scale_secondary: 'A3 : NONE'
+    discipline: CIVIL
+    drawing_genre: index
+    classification: DRAWING_LIST
+    flow_direction: UNKNOWN
+    is_reference_only: false
+    coordinate_system: null
+    drawing_catalog:
+    - section: C00 공통도면
+      drawings:
+      - number: C00-001
+        name: 도면목록표
+        scale: NONE
+      - number: C00-002
+        name: 현황평면도
+        scale: 1/700
+      - number: C00-003
+        name: 지장매설물도
+        scale: 1/600
+      - number: C00-004
+        name: 철거계획평면도
+        scale: 1/600
+    - section: C01 토공
+      drawings:
+      - number: C10-101
+        name: 공사계획평면도
+        scale: 1/400
+      - number: C10-102
+        name: 부지출단면도
+        scale: 1/400
+      - number: C10-103
+        name: 부지횡단면도
+        scale: 1/400
+    - section: C02 우수공
+      drawings:
+      - number: C10-201
+        name: 우수계획평면도
+        scale: 1/400
+      - number: C10-202
+        name: 집수정(500x500) 상세도
+        scale: NONE
+      - number: C10-203
+        name: 연결관 상세도
+        scale: NONE
+    - section: C03 오수공
+      drawings:
+      - number: C10-301
+        name: 오수계획평면도
+        scale: 1/400
+      - number: C10-302
+        name: 오수종단면도
+        scale: 1/1000
+      - number: C10-303
+        name: 원형맨홀(φ900)상세도
+        scale: NONE
+      - number: C10-304
+        name: 맨홀 인버트 상세도
+        scale: NONE
+      - number: C10-305
+        name: 오수맨홀 뚜껑 상세도
+        scale: NONE
+      - number: C10-306
+        name: 오수관 상세도
+        scale: NONE
+      - number: C10-307
+        name: CCTV 및 수밀검사 예시도
+        scale: NONE
+    - section: C04 포장공
+      drawings:
+      - number: C10-401
+        name: 포장계획평면도
+        scale: 1/400
+      - number: C10-402
+        name: 포장단면 상세도
+        scale: NONE
+    - section: C04 굴착공
+      drawings:
+      - number: C20-101
+        name: 굴착계획평면도
+        scale: 1/400
+      - number: C20-102
+        name: 굴착계획단면도
+        scale: 1/300
+entity_synthesis:
+  entities:
+  - tag: TOC-MAIN
+    name: 도면목록표 전체 표
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_TABLE
+    specifications:
+      labels_inside:
+      - 도면번호
+      - 도면명
+      - 축척
+      - 비고
+      - 토목
+      - A 3
+      labels_above:
+      - 도면목록표
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 도면목록표 전체 표
+      position: center
+      shape: rectangle
+    position: center
+    source_block: both
+  - tag: SEC-C00
+    name: C00 공통도면 섹션
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_SECTION
+    specifications:
+      labels_inside:
+      - C00 공통도면
+      - C00-001 | 도면목록표 | NONE
+      - C00-002 | 현황평면도 | 1/700
+      - C00-003 | 지장매설물도 | 1/600
+      - C00-004 | 철거계획평면도 | 1/600
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: C00 공통도면 섹션
+      position: top-left
+      shape: shaded_box
+    position: top-left
+    source_block: both
+  - tag: SEC-C01
+    name: C01 토공 섹션
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_SECTION
+    specifications:
+      labels_inside:
+      - C01 토공
+      - C10-101 | 공사계획평면도 | 1/400
+      - C10-102 | 부지출단면도 | 1/400
+      - C10-103 | 부지횡단면도 | 1/400
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: C01 토공 섹션
+      position: center-left
+      shape: shaded_box
+    position: center-left
+    source_block: both
+  - tag: SEC-C02
+    name: C02 우수공 섹션
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_SECTION
+    specifications:
+      labels_inside:
+      - C02 우수공
+      - C10-201 | 우수계획평면도 | 1/400
+      - C10-202 | 집수정(500x500) 상세도 | NONE
+      - C10-203 | 연결관 상세도 | NONE
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: C02 우수공 섹션
+      position: center-left
+      shape: shaded_box
+    position: center-left
+    source_block: both
+  - tag: SEC-C03
+    name: C03 오수공 섹션
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_SECTION
+    specifications:
+      labels_inside:
+      - C03 오수공
+      - C10-301 | 오수계획평면도 | 1/400
+      - C10-302 | 오수종단면도 | 1/1000
+      - C10-303 | 원형맨홀(φ900)상세도 | NONE
+      - C10-304 | 맨홀 인버트 상세도 | NONE
+      - C10-305 | 오수맨홀 뚜껑 상세도 | NONE
+      - C10-306 | 오수관 상세도 | NONE
+      - C10-307 | CCTV 및 수밀검사 예시도 | NONE
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: C03 오수공 섹션
+      position: center-left
+      shape: shaded_box
+    position: center-left
+    source_block: both
+  - tag: SEC-C04-PAVEMENT
+    name: C04 포장공 섹션
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_SECTION
+    specifications:
+      labels_inside:
+      - C04 포장공
+      - C10-401 | 포장계획평면도 | 1/400
+      - C10-402 | 포장단면 상세도 | NONE
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: C04 포장공 섹션
+      position: center-left
+      shape: shaded_box
+    position: center-left
+    source_block: both
+  - tag: SEC-C04-EXCAVATION
+    name: C04 굴착공 섹션
+    discipline: CIVIL
+    function_category: DRAWING_INDEX_SECTION
+    specifications:
+      labels_inside:
+      - C04 굴착공
+      - C20-101 | 굴착계획평면도 | 1/400
+      - C20-102 | 굴착계획단면도 | 1/300
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: C04 굴착공 섹션
+      position: center-left
+      shape: shaded_box
+    position: center-left
+    source_block: both
+  - tag: TITLE-BLOCK
+    name: 표제란
+    discipline: CIVIL
+    function_category: TITLE_BLOCK
+    specifications:
+      labels_inside:
+      - LS Electric
+      - R-Center 구축
+      - '224001'
+      - 가운건축
+      - GAUN | Architects & Engineers
+      - 서울시 강남구 언주로 608, 18층 (논현동, 럭스타워)
+      - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+      - www.gaun.co.kr
+      - R-Center
+      - 도면목록표
+      - 'A1 : NONE'
+      - 'A3 : NONE'
+      - '2024.05'
+      - C00 - 001
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 표제란
+      position: right
+      shape: rectangle
+    position: right
+    source_block: both
+  relationships: []
+  spaces:
+  - space_id: INDEX-TABLE-01
+    name: 도면목록표 전체 표
+    contains:
+    - TOC-MAIN
+    - SEC-C00
+    - SEC-C01
+    - SEC-C02
+    - SEC-C03
+    - SEC-C04-PAVEMENT
+    - SEC-C04-EXCAVATION
+  - space_id: TITLE-BLOCK-01
+    name: 표제란
+    contains:
+    - TITLE-BLOCK
+  diagram_meta:
+    title: 도면목록표
+    drawing_number: C00-001
+    project: LS Electric R-Center 구축
+    client: LS Electric
+    designer: 가운건축 (GAUN Architects & Engineers)
+    project_number: '224001'
+    date: '2024.05'
+    scale_primary: NONE
+    scale_secondary: 'A3 : NONE'
+    discipline: CIVIL
+    drawing_genre: index
+    classification: DRAWING_LIST
+    flow_direction: UNKNOWN
+    is_reference_only: false
+    coordinate_system: null
+    drawing_catalog:
+    - section: C00 공통도면
+      drawings:
+      - number: C00-001
+        name: 도면목록표
+        scale: NONE
+      - number: C00-002
+        name: 현황평면도
+        scale: 1/700
+      - number: C00-003
+        name: 지장매설물도
+        scale: 1/600
+      - number: C00-004
+        name: 철거계획평면도
+        scale: 1/600
+    - section: C01 토공
+      drawings:
+      - number: C10-101
+        name: 공사계획평면도
+        scale: 1/400
+      - number: C10-102
+        name: 부지출단면도
+        scale: 1/400
+      - number: C10-103
+        name: 부지횡단면도
+        scale: 1/400
+    - section: C02 우수공
+      drawings:
+      - number: C10-201
+        name: 우수계획평면도
+        scale: 1/400
+      - number: C10-202
+        name: 집수정(500x500) 상세도
+        scale: NONE
+      - number: C10-203
+        name: 연결관 상세도
+        scale: NONE
+    - section: C03 오수공
+      drawings:
+      - number: C10-301
+        name: 오수계획평면도
+        scale: 1/400
+      - number: C10-302
+        name: 오수종단면도
+        scale: 1/1000
+      - number: C10-303
+        name: 원형맨홀(φ900)상세도
+        scale: NONE
+      - number: C10-304
+        name: 맨홀 인버트 상세도
+        scale: NONE
+      - number: C10-305
+        name: 오수맨홀 뚜껑 상세도
+        scale: NONE
+      - number: C10-306
+        name: 오수관 상세도
+        scale: NONE
+      - number: C10-307
+        name: CCTV 및 수밀검사 예시도
+        scale: NONE
+    - section: C04 포장공
+      drawings:
+      - number: C10-401
+        name: 포장계획평면도
+        scale: 1/400
+      - number: C10-402
+        name: 포장단면 상세도
+        scale: NONE
+    - section: C04 굴착공
+      drawings:
+      - number: C20-101
+        name: 굴착계획평면도
+        scale: 1/400
+      - number: C20-102
+        name: 굴착계획단면도
+        scale: 1/300
+  self_check:
+    entity_count: 8
+    relationship_count: 0
+    visual_spec_preserved: true
+    issues:
+    - 페이지는 도면목록표(index)로 entity는 표/섹션/표제란 중심이며, 설비 관계는 없음.
+    - visual_semantics와 visual_semantics_gemini의 specifications를 그대로 보존함.

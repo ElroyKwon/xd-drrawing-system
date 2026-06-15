@@ -1,0 +1,102 @@
+placement:
+  tag: S03.11
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S03.11
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: availablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 접근 가능 범위를 나타내는 주석성 정보로 보임.
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: analysisAvailabilityNote
+        suggested_datatype: xsd:string
+        rationale: 사용자 안내 문구로서 문서 주석/응답 메타에 해당하며 물리 설비 정보는 아님.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw header
+    name:
+      source_pages:
+      - 0
+      method: not provided
+    discipline:
+      source_pages:
+      - 0
+      method: input metadata
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification from raw text as non-physical note
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-based candidate only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-based candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: assessment from raw text
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus applied
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비 실체가 아니라 페이지 안내/응답 문구로 해석됨
+    preservation_note: 문서 메타 또는 주석성 텍스트로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 실체 설비가 아니라 페이지 안내 문구로만 구성되어 있어 주석성 항목으로 판정 가능
+    recommended_handling: AnnotationOnly로 유지하고, 필요 시 문서 메타 노드로 승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: dominant_equipment_types 중 도면/시트 식별자 계열 및 문서 메타 계층 관찰'
+    - 'predicted_ontology_structure: DocumentEntity / NoteOrLegend 후보 반영'
+    - 'discipline_context_plan.unknown: document_metadata 관찰 신호 반영'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:45.341807'
+  confidence: 0.93

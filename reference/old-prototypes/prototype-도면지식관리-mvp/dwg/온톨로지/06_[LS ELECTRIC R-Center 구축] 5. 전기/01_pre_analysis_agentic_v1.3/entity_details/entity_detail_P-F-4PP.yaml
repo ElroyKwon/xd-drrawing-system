@@ -1,0 +1,174 @@
+entity_detail:
+  tag: P-F-4PP
+  type: equipment
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    panel_location:
+      value: 1층 진동시험실
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    box_size:
+      value: '-'
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    from:
+      value: 전기실
+      unit: null
+      source:
+      - 22
+      - 23
+      confidence: 0.96
+    supply_voltage:
+      value: 3상 440V
+      unit: null
+      source:
+      - 22
+      confidence: 0.95
+    mccb_rating_voltage:
+      value: 3P, 4P MCCB 600V 이상
+      unit: null
+      source:
+      - 22
+      confidence: 0.95
+    mccb_rating_voltage_2p:
+      value: 2P MCCB 250V 이상
+      unit: null
+      source:
+      - 22
+      confidence: 0.95
+    breaking_capacity:
+      value:
+      - 30AF 5KA 이상
+      - 50AF 10KA 이상
+      - 100AF 25KA 이상
+      - 125AF 25KA 이상
+      - 250AF 25KA 이상
+      - 400AF 35KA 이상
+      - 600AF 50KA 이상
+      unit: null
+      source:
+      - 22
+      confidence: 0.95
+    grounding:
+      value: E3 접지 단자
+      unit: null
+      source:
+      - 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page_22_context.yaml
+    page_number: 22
+    text: 'P-F-4PP
+
+      분전반 P-F-4PP
+
+      COVER TYPE: 노출형(STEEL), PANEL LOCATION: 1층 진동시험실, BOX SIZE: -, FROM: 전기실'
+  - source: page_22_context.yaml
+    page_number: 22
+    text: '정격전압 3P, 4P MCCB 600V 이상, 2P MCCB 250V 이상, 차단용량: 30AF 5KA 이상, 50AF 10KA
+      이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF 25KA 이상, 400AF 35KA 이상, 600AF 50KA 이상'
+  - source: page_22_context.yaml
+    page_number: 22
+    text: 3상 440V 서지 보호기
+  - source: page_22_context.yaml
+    page_number: 22
+    text: E3 접지 단자
+  - source: page_23_context.yaml
+    page_number: 23
+    text: "from: S/S R-Center\n    to: P-F-4PP\n    relation: power_supply\n    medium:\
+      \ cable\n    direction: source_to_load"
+  requirements:
+  - text: 노출형(STEEL)
+    source: page_22_context.yaml
+    type: installation_requirement
+  - text: 3상 440V
+    source: page_22_context.yaml
+    type: electrical_requirement
+  - text: 3P, 4P MCCB 600V 이상
+    source: page_22_context.yaml
+    type: protection_requirement
+  - text: 2P MCCB 250V 이상
+    source: page_22_context.yaml
+    type: protection_requirement
+  - text: '차단용량: 30AF 5KA 이상, 50AF 10KA 이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF 25KA
+      이상, 400AF 35KA 이상, 600AF 50KA 이상'
+    source: page_22_context.yaml
+    type: protection_requirement
+  connection_specs:
+  - relation: power_supply
+    partner: 전기실
+    details:
+      source: page_22_context.yaml
+      medium: R/S/T 3상 전원 라인
+      direction: 전기실 -> P-F-4PP
+  - relation: power_supply
+    partner: S/S R-Center
+    details:
+      source: page_23_context.yaml
+      medium: cable
+      direction: source_to_load
+  - relation: contains
+    partner: MCCB-P-F-4PP
+    details:
+      source: page_22_context.yaml
+  - relation: contains
+    partner: SPD-P-F-4PP
+    details:
+      source: page_22_context.yaml
+  - relation: contains
+    partner: E3-P-F-4PP
+    details:
+      source: page_22_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_supply
+      partner_tag: 전기실
+      direction: 전기실 -> P-F-4PP
+      source: page_22_context.yaml
+    - relation_type: power_supply
+      partner_tag: S/S R-Center
+      direction: source_to_load
+      source: page_23_context.yaml
+    - relation_type: contains
+      partner_tag: MCCB-P-F-4PP
+      direction: internal
+      source: page_22_context.yaml
+    - relation_type: contains
+      partner_tag: SPD-P-F-4PP
+      direction: internal
+      source: page_22_context.yaml
+    - relation_type: contains
+      partner_tag: E3-P-F-4PP
+      direction: internal
+      source: page_22_context.yaml
+    observed_attributes:
+    - cover_type
+    - panel_location
+    - box_size
+    - from
+    - supply_voltage
+    - mccb_rating_voltage
+    - mccb_rating_voltage_2p
+    - breaking_capacity
+    - grounding
+    similar_equipment:
+    - P-A-4PP-7
+    - P-AC-4PP-1
+    - P-C-4PP
+    - P-E-4PP
+    - P-P-4PP
+    suggested_parent_class: 분전반
+    cross_discipline: []
+  notes:
+  - page 22와 page 23에서 동일 태그 P-F-4PP가 확인됨.
+  - page 23의 관계는 전원 공급 관계로 확인되며 방향은 source_to_load로 기록됨.
+tag: P-F-4PP

@@ -1,0 +1,87 @@
+entity_detail:
+  tag: VCB
+  type: equipment
+  specs:
+  - key: abbreviation
+    value: V.C.B
+    unit: null
+    source: legend_data.yaml
+    confidence: 0.99
+  - key: name
+    value: Vacuum Circuit Breaker
+    unit: null
+    source: legend_data.yaml
+    confidence: 0.99
+  - key: function_category
+    value: PROTECT
+    unit: null
+    source: legend_data.yaml
+    confidence: 0.99
+  - key: discipline
+    value: ELECTRICAL
+    unit: null
+    source: legend_data.yaml
+    confidence: 0.99
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: '22.9kV 수전설비 단선결선도로, 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI),
+      계량(MOF) 및 개폐기(VCB, G/S)를 거쳐 하단 다수 피더로 분기되는 구조가 보인다.
+
+
+      주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.
+
+
+      도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.'
+  - source: legend_data.yaml
+    page_number: 0
+    text: Vacuum Circuit Breaker / V.C.B
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도에서 개폐기(VCB)로 표시됨
+    source: page_005_context.yaml
+    type: functional
+  - text: 보호계전(GIPAM/GIPAM-2000FI)과 연계된 설비로 보임
+    source: page_005_context.yaml
+    type: control/protection
+  connection_specs:
+  - relation: controls
+    partner: GIPAM-2000FI
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line
+    partner: G/S
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line
+    partner: MOF
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line
+    partner: TR
+    details:
+      source: page_005_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: controls
+      partner_tag: GIPAM-2000FI
+      direction: bidirectional
+      source: page_005_context.yaml
+    observed_attributes:
+    - abbreviation
+    - name
+    - function_category
+    - discipline
+    similar_equipment:
+    - G/S
+    - MOF
+    - PT
+    - CT
+    - LA
+    - SA
+    suggested_parent_class: ElectricalProtectiveSwitchingEquipment
+    cross_discipline: []
+  notes:
+  - 페이지 21, 37의 제공된 분석 결과에서는 VCB가 명확히 확인되지 않음.
+tag: VCB

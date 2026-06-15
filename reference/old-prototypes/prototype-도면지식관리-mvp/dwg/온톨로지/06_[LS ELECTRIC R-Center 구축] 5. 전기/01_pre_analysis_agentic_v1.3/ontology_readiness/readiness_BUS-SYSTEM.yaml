@@ -1,0 +1,15 @@
+tag: BUS-SYSTEM
+verdict: demoted
+confidence: 0.96
+missing_fields: []
+missing_relations: []
+reason: tag와 자체 사양은 확인되지만, specs에 포함된 drawing_number/title은 도면 메타데이터 성격이며 물리적 설비의
+  독립 사양으로 보기 어렵다. bus_name, system_voltage, panel_count는 확인되지만 BUS-SYSTEM 자체가 다른 설비(P-A-3PP
+  등)를 공급하는 버스바 시스템으로서 개별 독립 설비라기보다 분전반 결선도 상의 시스템/메타 수준 엔티티에 가깝다. 또한 connection_specs와
+  observed_relations가 모두 존재하여 관계는 확인되지만, 독립 설비로 강하게 분리할 근거는 부족하다.
+demoted_to: document_metadata
+target_entity: null
+preserved_info:
+  spec: bus_name=R S T N Bus; system_voltage=3Ø 380V; panel_count=7; panel_tags=[P-A-3PP,
+    P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP]
+  relation: feeds -> P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP

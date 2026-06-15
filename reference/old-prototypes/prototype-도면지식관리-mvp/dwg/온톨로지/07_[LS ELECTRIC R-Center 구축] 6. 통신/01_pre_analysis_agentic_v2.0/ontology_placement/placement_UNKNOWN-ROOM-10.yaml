@@ -1,0 +1,160 @@
+placement:
+  tag: UNKNOWN-ROOM-10
+  name: 사장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-10
+    class_hint: Room
+    alternative_class_hints:
+    - Office
+    - CommunicationSpace
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-2F-9
+      note: specs.members에 포함된 구성원
+      confirmed_property: dks:hasMember
+      confirmed_target: dks:OUTLET-2F-9
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    - type: memberOf
+      target_hint: ROOM-사장실
+      note: specs.group_id로 식별되는 그룹에 속하는 것으로 관찰됨
+      confirmed_property: dks:memberOf
+      confirmed_target: dks:ROOM_사장실
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Room
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: ROOM-사장실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별 문자열
+      - raw_text: 'members: OUTLET-2F-9'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: xsd:string
+          rationale: 구성원 목록 값
+      - raw_text: 'function_category: OFFICE'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 텍스트
+      - raw_text: 'type: space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 엔티티 타입 표기
+      - raw_text: 'ontology_hints.suggested_parent_class: Room'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: Office'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification_from_space_entity_with_group_members
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + entity_detail.type/function_category
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 5
+      method: specs.members
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 5
+      method: specs.members
+    ontology_core.related_assertions[1].type:
+      source_pages:
+      - 5
+      method: specs.group_id
+    ontology_core.related_assertions[1].target_hint:
+      source_pages:
+      - 5
+      method: specs.group_id
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 5
+      method: specs.group_id
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 5
+      method: specs.members
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 5
+      method: function_category
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 5
+      method: type
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/room entity classification
+    - group_id and members preservation
+    - ontology_hints reflected as class candidates
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:27.872295'
+  confidence: 0.93

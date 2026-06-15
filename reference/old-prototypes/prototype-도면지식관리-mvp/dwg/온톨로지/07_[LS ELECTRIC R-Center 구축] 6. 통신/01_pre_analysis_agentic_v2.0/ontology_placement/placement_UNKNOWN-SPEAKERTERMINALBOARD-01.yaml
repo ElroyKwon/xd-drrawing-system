@@ -1,0 +1,176 @@
+placement:
+  tag: UNKNOWN-SPEAKERTERMINALBOARD-01
+  name: Speaker Terminal Board
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SPEAKERTERMINALBOARD-01
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - TerminalBoard
+    - SpeakerTerminalBoard
+    - WireTermination
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: speaker_terminal_board'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 원문 type 값 보존 필요
+      - raw_text: 'full_name_ko: 스피커 단자반'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 한글 명칭 보존 필요
+      - raw_text: 'visual_description: 스피커 단자반 심볼, 사각형 형태'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 및 심볼 설명
+      - raw_text: 'mounting_type: 벽매입형 (Fuse Mounted Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountingType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 정보
+      - raw_text: 'source: 좌측 범례, 전관방송설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/근거 보존
+      - raw_text: 'source_pages: 3, 12'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourcePage
+          suggested_datatype: xsd:integer
+          rationale: 출처 페이지 목록 보존
+      - raw_text: 'source_pages: 3, 12'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: sourcePage
+          suggested_datatype: xsd:integer
+          rationale: 출처 페이지 목록 보존
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      - 12
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      - 12
+      method: inferred_from_individual_equipment
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      - 12
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      - 12
+      method: inferred_from_name_and_function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      - 12
+      method: inferred_from_name_and_function_category
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      - 12
+      method: preservation
+    specs.full_name_ko:
+      source_pages:
+      - 3
+      method: direct
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: direct
+    specs.mounting_type:
+      source_pages:
+      - 3
+      method: direct
+    specs.source:
+      source_pages:
+      - 3
+      method: direct
+    source_pages:
+      source_pages:
+      - 3
+      - 12
+      method: direct
+  unresolved:
+  - field_candidate: specs.mounting_type
+    raw_text: 벽매입형 (Fuse Mounted Type)
+    source_page: 3
+    reason: 원문은 보존 가능하나 supplement sub_kind가 없어 정규 분류 불가
+    preservation_note: 설치 방식 문자열 그대로 유지
+  - field_candidate: specs.source
+    raw_text: 좌측 범례, 전관방송설비 항목
+    source_page: 3
+    reason: 출처/근거 설명이지만 표준 관계로 단정 불가
+    preservation_note: 도면 내 위치/범례 근거로 재사용 가능
+  - field_candidate: visual_description
+    raw_text: 스피커 단자반 심볼, 사각형 형태
+    source_page: 3
+    reason: 도형 설명은 있으나 별도 표준 속성으로 확정하지 않음
+    preservation_note: shape/annotation 후보
+  - field_candidate: type
+    raw_text: speaker_terminal_board
+    source_page: 3
+    reason: 원문 타입 문자열은 보존하되 class 확정은 보류
+    preservation_note: 후속 단계에서 class mapping 후보로 사용
+  - field_candidate: source_pages
+    raw_text: 3, 12
+    source_page: 3
+    reason: 복수 페이지 값은 provenance에 보존했으나 단일 필드로 정규화하지 않음
+    preservation_note: 페이지 배열 그대로 유지
+  - field_candidate: source_pages
+    raw_text: 3, 12
+    source_page: 12
+    reason: 복수 페이지 값은 provenance에 보존했으나 단일 필드로 정규화하지 않음
+    preservation_note: 페이지 배열 그대로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: speaker_terminal_board는 독립 설비인지 단자반 부품인지, 또는 주석성 범례 항목인지 도면 정보만으로 단정하기
+      어려움
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열 후보와 Annotation/PartOf 가능성을
+      함께 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 통신 설비/단자보드 계열로 배치
+    - name, type, specs, source_pages를 모두 보존
+    - free_notes에 분류 불가 원문을 promotion_hint와 함께 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:18:04.960456'
+  confidence: 0.78

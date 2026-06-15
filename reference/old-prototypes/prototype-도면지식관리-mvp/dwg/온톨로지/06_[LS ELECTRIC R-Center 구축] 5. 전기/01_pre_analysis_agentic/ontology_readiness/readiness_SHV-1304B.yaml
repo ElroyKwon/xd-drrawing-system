@@ -1,0 +1,12 @@
+tag: SHV-1304B
+verdict: demoted
+confidence: 0.96
+missing_fields: []
+missing_relations: []
+reason: tag와 전기 분야 정보는 있으나, entity_detail의 핵심 specs가 drawing_number, drawing_title,
+  project_title, project_number, panel_board_names, cover_type, breaker_rating_notes,
+  breaker_spec_text, spd_spec, grounding_mark, voltage 등 도면 메타데이터와 표기 정보로 구성되어 있어
+  독립 물리 설비로 보기 어렵다. page_019_context.yaml에서 확인되는 실제 독립 설비는 P-EA-2PP, P-F-2PP, P-G-2PP,
+  P-I-2PP이며 SHV-1304B는 이들로 분기되는 feeder 성격의 표기일 뿐 자체 설비 사양이 확인되지 않는다. 따라서 독립 엔티티가 아니며
+  document_metadata 또는 component_of 성격으로 강등된다.
+demoted_to: document_metadata

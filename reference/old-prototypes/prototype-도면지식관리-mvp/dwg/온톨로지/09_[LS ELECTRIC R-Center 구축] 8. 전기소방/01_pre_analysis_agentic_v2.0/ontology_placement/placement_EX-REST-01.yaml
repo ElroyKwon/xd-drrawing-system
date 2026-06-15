@@ -1,0 +1,199 @@
+placement:
+  tag: EX-REST-01
+  name: 피난구 유도등 (휴게공간)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EX-REST-01
+    class_hint: EmergencyLighting
+    alternative_class_hints:
+    - ExitGuidanceLight
+    - EmergencyLightingFixture
+    related_assertions:
+    - type: feeds
+      target_hint: EX-MTG-S1-01
+      note: cross_validated / visual_semantics 기반으로 EX-MTG-S1-01에서 EX-REST-01로 feeds
+        관계 관찰
+    applicable_axioms:
+    - AX013
+    - AX024
+    - AX025
+    - AX027
+    - AX029
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN004
+    - CN005
+    - CN006
+    confirmed_class: dks:EmergencyLighting
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: 휴게공간
+        source_page: 13
+      free_notes:
+      - raw_text: 'shape: circle'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도면 기호 형상 표기
+      - raw_text: 'labels_inside: EX'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 심벌 내부 라벨 문자열
+      - raw_text: 'position: grid 6-7, A-B'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 그리드 좌표 위치 표기
+      - raw_text: 'raw_labels: EX'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존
+      - raw_text: 'inferred_name: 피난구 유도등 (휴게공간)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭 필드
+      - raw_text: 'equipment_symbol_type: 피난구 유도등 (전체 소형)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: 장비 심벌 유형 문자열
+      - raw_text: 'count: 1'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasCount
+          suggested_datatype: xsd:integer
+          rationale: 수량 표기
+      - raw_text: 'type: 피난구 유도등 (전체 소형)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols 항목의 유형 문자열
+      - raw_text: 'function_candidates: Exit Guidance, Emergency Lighting'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열 목록
+      - raw_text: 'suggested_parent_class: EmergencyLighting'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'similar_equipment: EX-MTG-S1-01'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 설비 참조
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasCrossValidatedSource
+          suggested_datatype: xsd:boolean
+          rationale: 수집 출처의 교차 검증 여부
+      - raw_text: 'collection_sources.visual_semantics: true'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasVisualSemantics
+          suggested_datatype: xsd:boolean
+          rationale: 시각 의미 기반 수집 여부
+      - raw_text: 'collection_sources.visual_semantics_gemini: true'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasVisualSemanticsGemini
+          suggested_datatype: xsd:boolean
+          rationale: Gemini 시각 의미 기반 수집 여부
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasEntitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 여부
+      - raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처 귀속 정보 보존
+      - raw_text: 'confidence: 0.95'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 판정 신뢰도 수치
+  provenance:
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class + name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: name + function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 13
+      method: relations
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 13
+      method: name
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 13
+      method: specs + equipment_symbols + ontology_hints + collection_sources + source_attribution
+        + confidence
+    confidence:
+      source_pages:
+      - 13
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - '0-9b placement: electrical emergency lighting / EX-* 계열을 NamedIndividual로 배치'
+    - '0-9b placement: relation feeds를 related_assertions 원형으로 보존'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:58:24.161752'
+  confidence: 0.95

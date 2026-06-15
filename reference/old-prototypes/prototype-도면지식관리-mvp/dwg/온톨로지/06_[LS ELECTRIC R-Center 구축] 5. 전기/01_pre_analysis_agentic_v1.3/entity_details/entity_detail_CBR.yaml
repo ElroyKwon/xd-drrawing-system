@@ -1,0 +1,52 @@
+entity_detail:
+  tag: CBR
+  type: equipment
+  specs:
+    정격전압:
+      value: 220V 이상
+      unit: V
+      source: page 20
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20 / page_020_context.yaml
+    page_number: 20
+    text: 'CBR
+
+      Circuit Breaker
+
+      정격전압: 220V 이상'
+  requirements:
+  - text: '정격전압: 220V 이상'
+    source: page 20
+    type: performance
+  connection_specs:
+  - relation: branches to
+    partner: MCCB
+    details:
+      source: page 20
+  - relation: feeds/protects
+    partner: MCCB
+    details:
+      source: page 20
+  ontology_hints:
+    observed_relations:
+    - relation_type: branches to
+      partner_tag: MCCB
+      direction: from MCCB to CBR
+      source: page 20
+    - relation_type: feeds/protects
+      partner_tag: MCCB
+      direction: from MAIN to MCCB
+      source: page 20
+    observed_attributes:
+    - 정격전압
+    similar_equipment:
+    - MCCB
+    - MAIN
+    - SPD
+    - E3
+    suggested_parent_class: CircuitBreaker
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 CBR에 대해 확인 가능한 사양은 정격전압 220V 이상뿐임.
+tag: CBR

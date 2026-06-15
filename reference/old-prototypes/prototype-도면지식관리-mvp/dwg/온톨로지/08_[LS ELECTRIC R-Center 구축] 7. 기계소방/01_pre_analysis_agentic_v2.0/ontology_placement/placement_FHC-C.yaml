@@ -1,0 +1,185 @@
+placement:
+  tag: FHC-C
+  name: 옥내소화전함 (중앙)
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: FHC-C
+    class_hint: FireFightingEquipment
+    alternative_class_hints:
+    - FireHoseCabinet
+    - ManualFireFightingEquipment
+    - EquipmentHousing
+    related_assertions: []
+    applicable_axioms:
+    - AX016
+    - AX038
+    - AX040
+    - AX042
+    applicable_constraints:
+    - CN015
+    confirmed_class: dks:FireFightingEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 옥내소화전함
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: raw_labels
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 텍스트 보존
+      - raw_text: 옥내소화전함 (중앙)
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: inferred_name
+          suggested_datatype: xsd:string
+          rationale: 중앙 위치를 포함한 추론명 보존
+      - raw_text: rectangle
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도면에서 관찰된 형상 정보
+      - raw_text: center
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: Fire suppression
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: Manual fire fighting
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: Equipment housing
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class + function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 13
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 13
+      method: entity_detail.name + specs.inferred_name
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 13
+      method: specs.shape
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 13
+      method: specs.position
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[6]:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates
+    unresolved:
+      source_pages:
+      - 13
+      method: full_entity_scan
+    ambiguous:
+      source_pages:
+      - 13
+      method: classification_review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 13
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 13
+    reason: 관계 항목이 비어 있음
+    preservation_note: 관계 없음으로 보존
+  - field_candidate: collection_sources.visual_semantics_gemini
+    raw_text: 'true'
+    source_page: 13
+    reason: 메타 플래그로서 별도 온톨로지 값으로 해석하지 않음
+    preservation_note: 출처 메타데이터로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 13
+    reason: 메타 플래그로서 별도 온톨로지 값으로 해석하지 않음
+    preservation_note: 출처 메타데이터로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: FireFightingEquipment
+    source_page: 13
+    reason: 후보 클래스이지만 확정 불가
+    preservation_note: class_hint 후보 근거로만 사용
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Fire suppression; Manual fire fighting; Equipment housing
+    source_page: 13
+    reason: 기능 후보는 관찰 텍스트이나 확정 속성 아님
+    preservation_note: free_notes로 분해 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 옥내소화전함이라는 명칭과 도면 형상/위치/기능 후보가 일치하여 독립 설비로 분류 가능
+    recommended_handling: 0-9c에서 class 확정 검토, 0-9d에서 관계/속성 승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관, 내진, 공간, 문서가 혼재하는 도면에서 설비 실체를 독립 Individual로 우선 배치
+    - FHC 계열을 옥내소화전함 설비로 보존
+    - 관찰된 shape/position/raw_labels/inferred_name을 free_notes 및 provenance로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:03:27.023137'
+  confidence: 0.93

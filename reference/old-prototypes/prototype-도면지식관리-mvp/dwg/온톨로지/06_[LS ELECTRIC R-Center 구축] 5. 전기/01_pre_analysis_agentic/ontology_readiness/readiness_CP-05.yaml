@@ -1,0 +1,12 @@
+tag: CP-05
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: CP-05는 entity_list에서 Circuit로 존재하지만, 제공된 entity_detail과 page_019_context에서
+  확인되는 내용은 분전반 결선도/도면 메타데이터와 회로 표기이다. 자체 독립 설비로서의 고유 사양은 voltage 외에 있으나, tag CP-05
+  자체가 page 19에서 직접 식별된 물리 설비가 아니고, 도면 메타데이터(drawing_number, drawing_title, project_title,
+  project_number)는 물리적 설비가 아니므로 독립 엔티티로 보기 어렵다. 관계는 power_feed, protection, surge_protection_to_ground,
+  grounding이 확인되며 누락 관계는 보이지 않는다. 따라서 온톨로지 진입 대상의 독립 설비가 아니라 도면 기반 회로/메타 정보로 강등한다.

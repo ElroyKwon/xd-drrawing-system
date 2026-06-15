@@ -1,0 +1,126 @@
+entity_detail:
+  tag: '주 인하도선 : 기초철골'
+  type: down_conductor_main
+  specs:
+    main_down_conductor:
+      value: 기초철골
+      source: pages 37, 38
+      confidence: 0.97
+    natural_component_use:
+      value: 자연적 구성부재
+      source: page 38
+      confidence: 0.92
+    protection_class:
+      value: IV등급
+      unit: ''
+      source: pages 37, 38
+      confidence: 0.95
+    rolling_sphere_radius:
+      value: '60'
+      unit: m
+      source: pages 37, 38
+      confidence: 0.95
+    standard:
+      value: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      source: pages 37, 38
+      confidence: 0.94
+    auxiliary_down_conductor:
+      value: F-GV 50㎟ (HI-PVC 28C)
+      source: pages 37, 38
+      confidence: 0.96
+    conductor_material:
+      value: STS 환봉8㎜
+      source: pages 37, 38
+      confidence: 0.98
+    conductor_support_spacing:
+      value: '1'
+      unit: m마다
+      source: pages 37, 38
+      confidence: 0.94
+    lightning_rod_height:
+      value: 3,000
+      unit: ㎜
+      source: pages 37, 38
+      confidence: 0.98
+  drawing_texts:
+  - source: page 37
+    page_number: 37
+    text: 주 인하도선은 기초철골, 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로 기재됨.
+  - source: page 37
+    page_number: 37
+    text: 보호등급은 IV등급, 회전구체반경은 60 m로 표기되어 있으며
+  - source: page 37
+    page_number: 37
+    text: 피뢰설비 개요/특기사항
+  - source: page 37
+    page_number: 37
+    text: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+  - source: page 37
+    page_number: 37
+    text: '주 인하도선 : 기초철골'
+  - source: page 38
+    page_number: 38
+    text: 주 인하도선은 기초철골을 자연적 구성부재로 사용하고
+  - source: page 38
+    page_number: 38
+    text: 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로 표기됨.
+  - source: page 38
+    page_number: 38
+    text: 보호등급 IV등급, 회전구체반경 60m, KEC 150 및 KS C IEC 62305 기준이 함께 명시됨.
+  - source: page 38
+    page_number: 38
+    text: '주 인하도선 : 기초철골'
+  requirements:
+  - text: 보호등급 IV등급
+    source: pages 37, 38
+    type: protection_requirement
+  - text: 회전구체반경 60 m
+    source: pages 37, 38
+    type: protection_requirement
+  - text: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305 기준 적용
+    source: pages 37, 38
+    type: standard_requirement
+  - text: 주 인하도선은 기초철골을 자연적 구성부재로 사용
+    source: page 38
+    type: construction_requirement
+  connection_specs:
+  - relation: connected_via
+    partner: 수평도체
+    details:
+      source: page 38
+      text: LPS-COND-H-001 to LPS-DOWN-MAIN-001
+      direction: downstream
+  - relation: connected_via
+    partner: 층간연결 입상/입하
+    details:
+      source: page 38
+      text: LPS-DOWN-MAIN-001 to LPS-INTERSTORY-001
+      direction: downstream
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: LPS-COND-H-001
+      direction: downstream
+      source: page 38
+    - relation_type: connected_via
+      partner_tag: LPS-INTERSTORY-001
+      direction: downstream
+      source: page 38
+    observed_attributes:
+    - 기초철골
+    - 자연적 구성부재
+    - IV등급
+    - 60 m
+    - KEC 150
+    - KS C IEC 62305
+    - F-GV 50㎟ (HI-PVC 28C)
+    similar_equipment:
+    - LPS-DOWN-MAIN-001
+    - MAIN_DOWNCONDUCTOR
+    suggested_parent_class: LightningProtectionSystemComponent
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 페이지 37, 38의 분석 결과에 근거해 작성함.
+  - 연결 상대는 도면 분석 결과의 태그 수준 정보만 기록함.
+tag: '주 인하도선 : 기초철골'

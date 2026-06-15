@@ -1,0 +1,73 @@
+entity_detail:
+  tag: SHV-1106
+  type: switchgear_bay
+  specs:
+    panel_label:
+      value: '1106'
+      unit: null
+      source: 5
+      confidence: 0.95
+    feeder_name:
+      value: 1106 SHV 22.9kV 피더
+      unit: null
+      source: 5
+      confidence: 0.95
+    voltage:
+      value: 22.9kV
+      unit: kV
+      source: 5
+      confidence: 0.96
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'panel_id: PNL-SHV-1106
+
+      shape: hexagon
+
+      labels_inside:
+
+      - ''1106'''
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'from: SHV-1106
+
+      to: TR-1201
+
+      relation: connected_to
+
+      medium: 24kV CNCV-W 100SQ 1Cx3x1LINE(CABLE TRAY)'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "- - SHV-1106\n  - TR-1201"
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 1106 SHV 22.9kV 피더
+  requirements:
+  - text: 22.9kV
+    source: page 5
+    type: voltage_requirement
+  connection_specs:
+  - relation: connected_to
+    partner: TR-1201
+    details:
+      source: page 5
+      medium: 24kV CNCV-W 100SQ 1Cx3x1LINE(CABLE TRAY)
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_to
+      partner_tag: TR-1201
+      direction: from_to
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - labels_inside
+    - feeder_name
+    - voltage
+    similar_equipment:
+    - SHV-1105
+    suggested_parent_class: switchgear_bay
+    cross_discipline: []
+  notes:
+  - page 5 context indicates panel_id PNL-SHV-1106 with label '1106'.
+  - connection relation and medium were taken from search result context.
+tag: SHV-1106

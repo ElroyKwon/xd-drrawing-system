@@ -1,0 +1,99 @@
+placement:
+  tag: UNKNOWN-MICRO_PILE-1
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: UnresolvedStructuralEntity
+    alternative_class_hints:
+    - MemberMark
+    - DetailEntity
+    - DocumentEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnresolvedStructuralEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 메타 정보이며, 정규화 전 원문 보존이 필요함
+      - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserAssistanceNote
+          suggested_datatype: xsd:string
+          rationale: 대화형 안내 문구로 도면 실체 정보는 아니지만 원문 보존이 필요함
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    discipline:
+      source_pages:
+      - 0
+      method: input_metadata
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: placement_inference
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: placement_inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: placement_inference
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 태그 자체의 물리적/도면상 실체를 직접 지시하지 않고, 페이지 접근 가능 안내만 포함
+    preservation_note: 문서 메타/대화 안내로 보존; 후속 페이지 조회 시 참조 가능
+  - field_candidate: class_hint
+    raw_text: UnresolvedStructuralEntity
+    source_page: 0
+    reason: supplement 부재 및 태그명만으로 확정 분류 불가
+    preservation_note: 미해결 구조 엔티티 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 MICRO_PILE을 포함하지만 entity_detail에는 실제 마이크로파일의 속성, 관계, 위치, 규격이 없고 페이지
+      안내만 존재함
+    recommended_handling: 후속 페이지 조회로 실제 도면 텍스트/관계 확인 후 PartOf 또는 NamedIndividual 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline로 보수적으로 유지
+    - raw only placeholder responses를 free_notes와 unresolved에 보존
+    - supplement 부재 시 free_notes에 promotion_hint 포함
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:02.183977'
+  confidence: 0.41

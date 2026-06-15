@@ -1,0 +1,84 @@
+tag: RISER-UP-100a
+name: 스프링클러/옥내소화전 배관 상향 입상관 UP100a (중앙)
+type: PIPE_RISER
+discipline: FIRE_PROTECTION
+function_category: PIPE_RISER
+source_pages:
+- 12
+specs:
+  inferred_name: 스프링클러 배관 상향 입상관 UP100a (중앙)
+  shape: circle
+  labels_inside:
+  - UP
+  - 100a
+  equipment_symbols:
+  - type: pipe_riser_up
+    count: 1
+  position: center
+  nominal_diameter_A: 100
+  direction: up
+  raw_labels:
+  - UP
+  - 100a
+relations:
+- from: RISER-UP-100a
+  to: ROOM-drive-시험실
+  relation: connects_to
+  source_page: 12
+  origin: cross_validated
+  line_style: solid
+  note: UP 100a 주배관 상향
+- from: RISER-UP-100a
+  to: ROOM-컨트롤실
+  relation: connects_to
+  source_page: 12
+  origin: cross_validated
+  line_style: solid
+  note: 분기 배관
+- from: PIPE-CONNECT-ANNOTATION
+  to: RISER-UP-100a
+  relation: connects_to
+  source_page: 12
+  origin: cross_validated
+  line_style: dashed
+  note: PIT 소화 배관 평면도에 연결 (100a × 65a × 65a)
+- from: RISER-UP-100a
+  to: ROOM-drive-시험실
+  relation: pipe
+  source_page: 12
+  origin: visual_semantics
+  annotation: UP 100a 주배관 상향
+- from: PIPE-CONNECT-ANNOTATION
+  to: RISER-UP-100a
+  relation: pipe
+  source_page: 12
+  origin: visual_semantics
+  annotation: PIT 소화 배관 평면도에 연결 (100a × 65a × 65a)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+position: center
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+equipment_symbols:
+- type: pipe_riser_up
+  count: 1
+ontology_hints:
+  suggested_parent_class: FireProtectionEquipment
+  observed_attributes:
+  - inferred_name
+  - shape
+  - labels_inside
+  - equipment_symbols
+  - position
+  - nominal_diameter_A
+  - direction
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - Vertical Water Supply
+  - Fire Suppression Distribution
+  - Upward Riser

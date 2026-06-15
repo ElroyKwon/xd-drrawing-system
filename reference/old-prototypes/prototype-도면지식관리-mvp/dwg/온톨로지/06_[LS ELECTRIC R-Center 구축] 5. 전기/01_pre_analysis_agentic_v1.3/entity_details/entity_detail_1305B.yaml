@@ -1,0 +1,115 @@
+entity_detail:
+  tag: 1305B
+  type: equipment
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.95
+    breaker_rating:
+      value: VCB 3P 7.2kV 600A 25kVA
+      unit: null
+      source: page 5
+      confidence: 0.93
+    relay:
+      value: GIPAM
+      unit: null
+      source: page 5
+      confidence: 0.92
+    ct:
+      value: 2CT 300/5A
+      unit: null
+      source: page 5
+      confidence: 0.92
+    sa:
+      value: SA 9kV 5kA
+      unit: null
+      source: page 5
+      confidence: 0.92
+    cable:
+      value: 6.6kV CV 100sq 3C*1L
+      unit: null
+      source: page 5
+      confidence: 0.9
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 1305B
+  - source: page 5
+    page_number: 5
+    text: VCB 3P 7.2kV 600A 25kVA
+  - source: page 5
+    page_number: 5
+    text: GIPAM
+  - source: page 5
+    page_number: 5
+    text: 2CT 300/5A
+  - source: page 5
+    page_number: 5
+    text: SA 9kV 5kA
+  - source: page 5
+    page_number: 5
+    text: 6.6kV CV 100sq 3C*1L
+  requirements:
+  - text: 6.6kV 계통의 피더 ID로 표시됨
+    source: page 5
+    type: operational
+  - text: VCB, CT, SA 및 GIPAM과 연계된 피더 구성
+    source: page 5
+    type: functional
+  connection_specs:
+  - relation: feeds
+    partner: '6.6kV Bus #1'
+    details:
+      source: search_entity_by_tag(1305B), page 5
+  - relation: connected_to
+    partner: VCB
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: CT
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: SA
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: GIPAM
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: '6.6kV Bus #1'
+      direction: downstream
+      source: search_entity_by_tag(1305B)
+    observed_attributes:
+    - voltage
+    - breaker_rating
+    - relay
+    - ct
+    - sa
+    - cable
+    similar_equipment:
+    - 1301A
+    - 1301B
+    - 1302A
+    - 1302B
+    - 1303A
+    - 1303B
+    - 1304A
+    - 1304B
+    - 1305A
+    - '1306'
+    - '1309'
+    - '1310'
+    - 1311A
+    - 1311B
+    suggested_parent_class: Feeder
+    cross_discipline: []
+  notes:
+  - 도면 이미지에서 1305B 주변 표기를 직접 확인함.
+  - 'feeds 관계는 검색 결과에 따라 6.6kV Bus #1 -> 1305B 방향으로 기록함.'
+tag: 1305B

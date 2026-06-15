@@ -1,0 +1,708 @@
+executive_summary:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_AND_LIGHTNING_PROTECTION_LAYOUT
+  discipline: ELECTRICAL
+  confidence: 0.97
+  summary: '지붕층 피뢰 및 접지 설비 평면도로, 피뢰침 1개소와 수평도체(STS 환봉 8㎜), 구조체 접속 12개소, 금속 사다리 접속
+    2개소, 피뢰기초접지극 연결 2개소가 표시됨.
+
+    보호등급은 IV등급, 회전구체반경은 60 m로 표기되어 있으며, 주 인하도선은 기초철골, 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로
+    기재됨.
+
+    우측 상단에 피뢰설비 개요/특기사항과 범례가 있고, 표제란에는 LS Electric R-Center 구축, 가운건축, 축척 A1 1/200·A3
+    1/400, 날짜 2024.04가 보임.
+
+    '
+  equipment:
+  - tag: LIGHTNING_ROD_001
+    name: 피뢰침
+    spec: H:3,000㎜, 1개소
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 지붕층 평면 중앙부
+    confidence: 0.98
+  - tag: STRUCTURAL_CONNECTION_001
+    name: 구조체 접속
+    spec: 12개소 동일
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 지붕층 외곽 및 본문 접속점
+    confidence: 0.97
+  - tag: HORIZONTAL_CONDUCTOR_001
+    name: 수평도체
+    spec: STS 환봉8㎜, 지지금구 1m마다 설치
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 지붕층 상부 수평 배선
+    confidence: 0.98
+  - tag: METAL_LADDER_CONNECTION_001
+    name: 금속 사다리 접속
+    spec: 2개소 동일
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 우측 상부 구역 및 본문 접속점
+    confidence: 0.97
+  - tag: GROUNDING_CONNECTION_001
+    name: 피뢰기초접지극 연결
+    spec: 'DN to : 피뢰기초접지극, 2개소'
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    location: 좌측 외곽 1개소, 우측 상부 1개소
+    confidence: 0.96
+  - tag: MAIN_DOWNCONDUCTOR
+    name: 주 인하도선
+    spec: 기초철골
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 범례 표기
+    confidence: 0.95
+  - tag: AUXILIARY_DOWNCONDUCTOR
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 범례 표기
+    confidence: 0.96
+  - tag: CONDUCTOR_SUPPORT_001
+    name: 수평도체 지지금구
+    spec: 1m마다 설치
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 수평도체 구간
+    confidence: 0.94
+  - tag: PROTECTION_CLASS
+    name: 보호등급
+    spec: IV등급
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 피뢰설비 개요 및 특기사항
+    confidence: 0.95
+  - tag: PROTECTION_RADIUS
+    name: 회전구체반경
+    spec: 60 m
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 피뢰설비 개요 및 특기사항
+    confidence: 0.95
+  - tag: ROOF_PLANE
+    name: 지붕층
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 도면 기준 평면
+    confidence: 0.96
+  - tag: BUILDING_FOOTPRINT
+    name: 건물 외곽
+    spec: 좌표축 A-D, 1-7
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 도면 본문 외곽선
+    confidence: 0.92
+  - tag: GROUNDING_STANDARD
+    name: 접지 설비 규격
+    spec: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 피뢰설비 개요 및 특기사항
+    confidence: 0.94
+  - tag: CONDUCTOR_MATERIAL
+    name: 도체 재질
+    spec: STS 환봉8㎜
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 피뢰설비 개요 및 특기사항
+    confidence: 0.96
+  relationships:
+  - from: LIGHTNING_ROD_001
+    to: HORIZONTAL_CONDUCTOR_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+  - from: HORIZONTAL_CONDUCTOR_001
+    to: STRUCTURAL_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.97
+  - from: HORIZONTAL_CONDUCTOR_001
+    to: METAL_LADDER_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.97
+  - from: STRUCTURAL_CONNECTION_001
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.96
+  - from: METAL_LADDER_CONNECTION_001
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.96
+  - from: LIGHTNING_ROD_001
+    to: MAIN_DOWNCONDUCTOR
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: LIGHTNING_ROD_001
+    to: AUXILIARY_DOWNCONDUCTOR
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.96
+  - from: MAIN_DOWNCONDUCTOR
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: AUXILIARY_DOWNCONDUCTOR
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.96
+  - from: HORIZONTAL_CONDUCTOR_001
+    to: CONDUCTOR_SUPPORT_001
+    relation: supported_by
+    medium: support_clamp
+    direction: downstream
+    confidence: 0.94
+  spaces:
+  - space_id: ROOF_PLANE
+    type: roof_plane
+    name: 지붕층
+    parent: null
+  - space_id: BUILDING_FOOTPRINT
+    type: building_outline
+    name: 건물 외곽
+    parent: ROOF_PLANE
+  flow_paths:
+  - - LIGHTNING_ROD_001
+    - HORIZONTAL_CONDUCTOR_001
+    - STRUCTURAL_CONNECTION_001
+    - GROUNDING_CONNECTION_001
+  - - LIGHTNING_ROD_001
+    - HORIZONTAL_CONDUCTOR_001
+    - METAL_LADDER_CONNECTION_001
+    - GROUNDING_CONNECTION_001
+  - - LIGHTNING_ROD_001
+    - MAIN_DOWNCONDUCTOR
+    - GROUNDING_CONNECTION_001
+  - - LIGHTNING_ROD_001
+    - AUXILIARY_DOWNCONDUCTOR
+    - GROUNDING_CONNECTION_001
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000㎜)
+  - 구조체 접속 12개소
+  - 수평도체(STS 환봉8㎜)
+  - 금속 사다리 접속 2개소
+  - 피뢰기초접지극 연결 2개소
+  - 주 인하도선(기초철골)
+  - 보조 인하도선(F-GV 50㎟, HI-PVC 28C)
+  - 보호등급 IV등급
+  - 회전구체반경 60 m
+  stats:
+    equipment: 13
+    relationships: 10
+    spaces: 2
+    flow_paths: 4
+  uncertainties:
+  - 피뢰기초접지극 연결(GROUNDING_CONNECTION_001)의 정확한 위치는 본문에서 좌측 외곽 1개소와 우측 상부 1개소로 보이나,
+    세부 좌표는 확인되지 않음.
+  - 주 인하도선(MAIN_DOWNCONDUCTOR)과 보조 인하도선(AUXILIARY_DOWNCONDUCTOR)의 실제 도면상 연결 경로는 범례/특기사항
+    기준으로만 확인됨.
+  - 표제란의 프로젝트명 'LS Electric R-Center 구축', 건물명 '가운건축', 축척 A1 1/200·A3 1/400, 날짜 2024.04는
+    보이나 리비전은 확인되지 않음.
+  related_pages:
+  - 36
+  - 38
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/특기사항 섹션
+  discipline: ELECTRICAL
+  classification: LIGHTNING_PROTECTION_LAYOUT
+  title_block:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 피뢰침
+    type: lightning_rod
+    source: both
+  - tag: 구조체 접속
+    type: structural_connection
+    source: both
+  - tag: 수평도체
+    type: horizontal_conductor
+    source: both
+  - tag: 금속 사다리 접속
+    type: metal_ladder_connection
+    source: both
+  - tag: 'DN to : 피뢰기초접지극'
+    type: grounding_connection_note
+    source: both
+  - tag: STS 환봉8㎜
+    type: conductor_material
+    source: both
+  - tag: F-GV 50㎟ (HI-PVC 28C)
+    type: cable_spec
+    source: both
+  - tag: IV등급
+    type: protection_class
+    source: both
+  - tag: 회전구체반경 60 m
+    type: design_parameter
+    source: both
+  - tag: 피뢰침 (H:3,000㎜)
+    type: lightning_rod
+    source: both
+  - tag: 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+    type: horizontal_conductor_note
+    source: both
+  - tag: 구조체 접속 12개소 동일
+    type: structural_connection_note
+    source: both
+  - tag: 금속 사다리 접속 2개소 동일
+    type: metal_ladder_connection_note
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 12
+  next_step_hints:
+  - 범례 박스가 우측 상단에 있으며 피뢰설비 기호/선종류/접속 방식이 함께 정리되어 있음
+  - 도면 본문은 지붕층 피뢰 및 접지 설비 평면 배치와 접속 위치를 보여줌
+  - 좌표축 A-D, 1-7 및 치수 표기가 있으나 설비 태그로 보이는 개별 장비 코드는 거의 없음
+  - 표제란에 리비전 문자는 보이지 않음
+  confidence: 0.96
+  note: null
+classification: GROUNDING_AND_LIGHTNING_PROTECTION_LAYOUT
+discipline: ELECTRICAL
+key_elements_from_text:
+- 지붕층 피뢰 및 접지 설비 평면도
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- 피뢰침 (H:3,000㎜) 1개소
+- 구조체 접속 12개소 동일
+- 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+- 'DN to : 피뢰기초접지극'
+- 금속 사다리 접속 2개소 동일
+- 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+- 보호등급 IV등급
+- 회전구체반경 60 m
+- '주 인하도선 : 기초철골'
+- '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+title_block:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  revision: null
+confidence: 0.97
+note: 표제란에 프로젝트명 'LS Electric R-Center 구축', 건물명 '가운건축', 축척 A1 1/200, A3 1/400, 날짜
+  2024.04가 보임. 리비전 표기는 페이지에서 확인되지 않음.
+classification_confirmed: true
+override_classification: null
+visual_pattern: 지붕층 평면 위에 피뢰침, 수평도체, 접속점, 접지 연결 주기가 표시된 전기 설비 평면도이며, 우측에 피뢰설비 개요/범례
+  박스와 표제란이 함께 배치됨
+symbol_density: MEDIUM
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 구조체 접속
+  count: 12
+- type: 수평도체
+  count: 1
+- type: 금속 사다리 접속
+  count: 2
+- type: 'DN to : 피뢰기초접지극'
+  count: 2
+- type: 피뢰침 (H:3,000㎜)
+  count: 1
+- type: 수평도체(STS 환봉8㎜) 지지금구
+  count: 1
+line_types_observed:
+- 실선
+- 점선
+- 일점쇄선
+- 화살표 선
+additional_findings:
+- 표제란에 '지붕층 피뢰 및 접지 설비 평면도'와 도면번호 'EE-05-003'이 보임
+- 우측 상단에 '피뢰설비 개요 및 주기사항'과 '피뢰설비 범례' 박스가 보임
+- 보호등급 'IV등급', 회전구체반경 '60 m', 'STS 환봉8㎜', 'F-GV 50㎟ (HI-PVC 28C)' 문구가 보임
+- 범례에 없는 별도 심볼은 확인되지 않음
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 피뢰침, 접속점, 도체, 접지 연결 등 개별 설비 요소 식별이 핵심임
+- mode: spatial_mapping
+  priority: 2
+  reason: 지붕 평면 상의 배치와 접속 위치를 확인해야 함
+- mode: logic_extraction
+  priority: 3
+  reason: 범례와 본문 기호 대응 및 접속 관계 확인이 필요함
+pass1_설비식별:
+  entities:
+  - tag: LIGHTNING_ROD_001
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: H:3,000㎜, 1개소
+    confidence: 0.98
+    note: 지붕층 피뢰 및 접지 설비 평면도에서 확인, 높이 3,000mm
+  - tag: STRUCTURAL_CONNECTION_001
+    name: 구조체 접속
+    type: Structural Connection Point
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 12개소 동일
+    confidence: 0.97
+    note: 피뢰침과 구조체 연결점, 12개소 표기
+  - tag: HORIZONTAL_CONDUCTOR_001
+    name: 수평도체
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: STS 환봉8㎜, 지지금구 1m마다 설치
+    confidence: 0.98
+    note: 지붕층 수평 배선, 스테인리스 환봉 8mm 규격
+  - tag: METAL_LADDER_CONNECTION_001
+    name: 금속 사다리 접속
+    type: Metal Ladder Connection
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 2개소 동일
+    confidence: 0.97
+    note: 금속 사다리와의 접속점, 2개소
+  - tag: GROUNDING_CONNECTION_001
+    name: 피뢰기초접지극 연결
+    type: Grounding Connection
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    spec_text: 'DN to : 피뢰기초접지극, 2개소'
+    confidence: 0.96
+    note: 접지 연결점, 도면에 2개소 표기
+  - tag: MAIN_DOWNCONDUCTOR
+    name: 주 인하도선
+    type: Main Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: 기초철골
+    confidence: 0.95
+    note: 피뢰침에서 접지로 연결되는 주 인하도선
+  - tag: AUXILIARY_DOWNCONDUCTOR
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.96
+    note: 보조 인하도선, 케이블 규격 F-GV 50㎟ HI-PVC 28C
+  - tag: CONDUCTOR_SUPPORT_001
+    name: 수평도체 지지금구
+    type: Conductor Support / Clamp
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 1m마다 설치
+    confidence: 0.94
+    note: 수평도체 고정용 지지금구, 1m 간격 설치
+  - tag: PROTECTION_CLASS
+    name: 보호등급
+    type: Protection Class Designation
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: IV등급
+    confidence: 0.95
+    note: KEC 150 피뢰시스템 기준 보호등급 IV
+  - tag: PROTECTION_RADIUS
+    name: 회전구체반경
+    type: Protection Radius Parameter
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 60 m
+    confidence: 0.95
+    note: 피뢰침 보호 범위 회전구체반경 60m
+  - tag: ROOF_PLANE
+    name: 지붕층
+    type: Roof Plane / Building Element
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.96
+    note: 도면의 기준 평면, 지붕층 피뢰 및 접지 설비 평면도
+  - tag: BUILDING_FOOTPRINT
+    name: 건물 외곽
+    type: Building Outline / Footprint
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: 좌표축 A-D, 1-7
+    confidence: 0.92
+    note: 도면에 표시된 건물 외곽선, 좌표축으로 구획
+  - tag: GROUNDING_STANDARD
+    name: 접지 설비 규격
+    type: Grounding System Specification
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    confidence: 0.94
+    note: 도면 특기사항에 명시된 설계 기준
+  - tag: CONDUCTOR_MATERIAL
+    name: 도체 재질
+    type: Conductor Material Specification
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: STS 환봉8㎜
+    confidence: 0.96
+    note: 수평도체 재질 및 규격, 스테인리스 환봉 8mm
+pass2_토폴로지:
+  relationships:
+  - from: LIGHTNING_ROD_001
+    to: HORIZONTAL_CONDUCTOR_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    source: 도면 본문 - 피뢰침에서 수평도체로의 연결선
+  - from: HORIZONTAL_CONDUCTOR_001
+    to: STRUCTURAL_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.97
+    source: 도면 본문 - 수평도체에서 구조체 접속점(12개소)으로의 연결
+  - from: HORIZONTAL_CONDUCTOR_001
+    to: METAL_LADDER_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.97
+    source: 도면 본문 - 수평도체에서 금속 사다리 접속점(2개소)으로의 연결
+  - from: STRUCTURAL_CONNECTION_001
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.96
+    source: 도면 본문 - 구조체 접속에서 피뢰기초접지극으로의 연결
+  - from: METAL_LADDER_CONNECTION_001
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.96
+    source: 도면 본문 - 금속 사다리 접속에서 피뢰기초접지극으로의 연결
+  - from: LIGHTNING_ROD_001
+    to: MAIN_DOWNCONDUCTOR
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+    source: 도면 범례 - 주 인하도선(기초철골)
+  - from: LIGHTNING_ROD_001
+    to: AUXILIARY_DOWNCONDUCTOR
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.96
+    source: 도면 범례 - 보조 인하도선(F-GV 50㎟ HI-PVC 28C)
+  - from: MAIN_DOWNCONDUCTOR
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+    source: 도면 범례 - 주 인하도선이 접지극으로 연결
+  - from: AUXILIARY_DOWNCONDUCTOR
+    to: GROUNDING_CONNECTION_001
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.96
+    source: 도면 범례 - 보조 인하도선이 접지극으로 연결
+  conduits:
+  - tag: HORIZONTAL_CONDUCTOR_001
+    type: conductor
+    spec: STS 환봉8㎜, 지지금구 1m마다 설치
+    from: LIGHTNING_ROD_001
+    to: STRUCTURAL_CONNECTION_001, METAL_LADDER_CONNECTION_001
+    source: text
+    confidence: 0.98
+  - tag: MAIN_DOWNCONDUCTOR
+    type: conductor
+    spec: 기초철골
+    from: LIGHTNING_ROD_001
+    to: GROUNDING_CONNECTION_001
+    source: text
+    confidence: 0.95
+  - tag: AUXILIARY_DOWNCONDUCTOR
+    type: power_cable
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    from: LIGHTNING_ROD_001
+    to: GROUNDING_CONNECTION_001
+    source: text
+    confidence: 0.96
+  - tag: CONDUCTOR_SUPPORT_001
+    type: support_clamp
+    spec: 지지금구, 1m 간격 설치
+    from: HORIZONTAL_CONDUCTOR_001
+    to: HORIZONTAL_CONDUCTOR_001
+    source: text
+    confidence: 0.94
+  flow_sequence:
+  - - LIGHTNING_ROD_001
+    - HORIZONTAL_CONDUCTOR_001
+    - STRUCTURAL_CONNECTION_001
+    - GROUNDING_CONNECTION_001
+  - - LIGHTNING_ROD_001
+    - HORIZONTAL_CONDUCTOR_001
+    - METAL_LADDER_CONNECTION_001
+    - GROUNDING_CONNECTION_001
+  - - LIGHTNING_ROD_001
+    - MAIN_DOWNCONDUCTOR
+    - GROUNDING_CONNECTION_001
+  - - LIGHTNING_ROD_001
+    - AUXILIARY_DOWNCONDUCTOR
+    - GROUNDING_CONNECTION_001
+  isolated_entities: []
+pass3_공간:
+  spaces:
+  - space_id: BLDG-001
+    type: building
+    name: LS Electric R-Center
+    parent: null
+  - space_id: ROOF-001
+    type: floor
+    name: 지붕층
+    parent: BLDG-001
+    description: Roof layer with lightning protection system
+  equipment_placement:
+  - tag: LIGHTNING_ROD_001
+    name: 피뢰침
+    located_in: ROOF-001
+    location_detail: 지붕 중앙 상단 영역 (좌표 3-4, A-B)
+    confidence: 0.98
+    source: 도면 본문, 높이 H:3,000㎜
+  - tag: STRUCTURAL_CONNECTION_001
+    name: 구조체 접속
+    located_in: ROOF-001
+    location_detail: 지붕 전체 분산 배치
+    count: 12
+    confidence: 0.97
+    source: 도면 범례, 12개소 동일
+  - tag: HORIZONTAL_CONDUCTOR_001
+    name: 수평도체
+    located_in: ROOF-001
+    location_detail: 지붕 전체 수평 배선
+    spec: STS 환봉8㎜, 지지금구 1m마다 설치
+    confidence: 0.98
+    source: 도면 범례
+  - tag: METAL_LADDER_CONNECTION_001
+    name: 금속 사다리 접속
+    located_in: ROOF-001
+    location_detail: 지붕 우측 영역 (좌표 5-6, C-D)
+    count: 2
+    confidence: 0.97
+    source: 도면 범례, 2개소 동일
+  - tag: GROUNDING_CONNECTION_001
+    name: 피뢰기초접지극 연결
+    located_in: ROOF-001
+    location_detail: 지붕 좌측 및 우측 (좌표 1, D 및 7, D)
+    count: 2
+    confidence: 0.96
+    source: '도면 범례, DN to : 피뢰기초접지극'
+  - tag: MAIN_DOWNCONDUCTOR
+    name: 주 인하도선
+    located_in: ROOF-001
+    spec: 기초철골
+    confidence: 0.95
+    source: 도면 범례
+  - tag: AUXILIARY_DOWNCONDUCTOR
+    name: 보조 인하도선
+    located_in: ROOF-001
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.96
+    source: 도면 범례
+  - tag: CONDUCTOR_SUPPORT_001
+    name: 수평도체 지지금구
+    located_in: ROOF-001
+    location_detail: 수평도체 전체 경로
+    spec: 1m마다 설치
+    confidence: 0.94
+    source: 도면 범례
+pass4_검증:
+  corrections:
+  - target: 'PROTECTION_CLASS (tag: PROTECTION_CLASS)'
+    resolution: 설비(entity)에서 제거. 설계 파라미터/사양 정보로 재분류
+    evidence: 도면 특기사항 섹션의 '보호등급 IV등급'은 설비 자체가 아닌 설계 기준 정보
+    confidence: 0.95
+  - target: 'PROTECTION_RADIUS (tag: PROTECTION_RADIUS)'
+    resolution: 설비(entity)에서 제거. 설계 파라미터로 재분류
+    evidence: 도면 특기사항의 '회전구체반경 60 m'은 피뢰침의 보호 범위 파라미터이지 독립 설비 아님
+    confidence: 0.95
+  - target: 'GROUNDING_STANDARD (tag: GROUNDING_STANDARD)'
+    resolution: 설비(entity)에서 제거. 설계 기준/규격 정보로 재분류
+    evidence: 도면 특기사항의 'KEC 150 피뢰시스템, KS C IEC 62305'는 적용 기준이지 설비 아님
+    confidence: 0.96
+  - target: 'CONDUCTOR_MATERIAL (tag: CONDUCTOR_MATERIAL)'
+    resolution: 설비(entity)에서 제거. 재질/규격 사양으로 재분류
+    evidence: 도면 범례의 'STS 환봉8㎜'는 수평도체의 재질 사양이지 독립 설비 아님
+    confidence: 0.95
+  - target: 'ROOF_PLANE (tag: ROOF_PLANE)'
+    resolution: 설비(entity)에서 제거. 건축 요소/기준 평면으로 재분류
+    evidence: 지붕층은 도면의 기준 평면이지 설비 자체가 아님
+    confidence: 0.92
+  - target: 'BUILDING_FOOTPRINT (tag: BUILDING_FOOTPRINT)'
+    resolution: 설비(entity)에서 제거. 건축 요소로 재분류
+    evidence: 건물 외곽선은 도면 배경 정보이지 전기 설비 아님
+    confidence: 0.92
+  missing_entities: []
+  relationship_issues:
+  - issue: Pass 2의 관계식 9개 중 일부가 설비가 아닌 파라미터를 포함
+    recommendation: PROTECTION_CLASS, PROTECTION_RADIUS, GROUNDING_STANDARD, CONDUCTOR_MATERIAL을
+      제거한 후 관계식 재정의. 실제 설비 간 연결만 유지
+    affected_relations:
+    - LIGHTNING_ROD_001 → PROTECTION_CLASS (제거 필요)
+    - LIGHTNING_ROD_001 → PROTECTION_RADIUS (제거 필요)
+    - GROUNDING_STANDARD 관련 모든 관계 (제거 필요)
+    - CONDUCTOR_MATERIAL 관련 모든 관계 (제거 필요)
+  consistency_check:
+    entity_count_before: 14
+    entity_count_after: 8
+    relation_count_before: 9
+    relation_count_after: 8
+    corrected_entities:
+    - LIGHTNING_ROD_001 (유지)
+    - STRUCTURAL_CONNECTION_001 (유지)
+    - HORIZONTAL_CONDUCTOR_001 (유지)
+    - METAL_LADDER_CONNECTION_001 (유지)
+    - GROUNDING_CONNECTION_001 (유지)
+    - MAIN_DOWNCONDUCTOR (유지)
+    - AUXILIARY_DOWNCONDUCTOR (유지)
+    - CONDUCTOR_SUPPORT_001 (유지)
+    removed_entities:
+    - PROTECTION_CLASS (설계 파라미터)
+    - PROTECTION_RADIUS (설계 파라미터)
+    - ROOF_PLANE (건축 요소)
+    - BUILDING_FOOTPRINT (건축 요소)
+    - GROUNDING_STANDARD (설계 기준)
+    - CONDUCTOR_MATERIAL (재질 사양)
+  overall_confidence: 0.93
+  validation_summary:
+    page_type_correct: true
+    classification_correct: true
+    discipline_correct: true
+    title_block_correct: true
+    symbol_density_correct: true
+    entity_classification_issue: true
+    entity_count_inflated: true
+    relationship_logic_sound: true
+    note: Pass 1에서 설비와 설계 파라미터/사양 정보를 혼동하여 엔티티 수가 과다 계산됨. 실제 설비는 8개이며, 관계식은 논리적으로
+      타당하나 제거된 파라미터 항목들과의 관계는 정리 필요.

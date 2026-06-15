@@ -1,0 +1,63 @@
+tag: TUNNEL-DUCT-01
+name: 지하 공동구
+type: structural_element
+discipline: COMMUNICATION
+function_category: CABLE_TRAY
+source_pages:
+- 4
+specs:
+  raw_labels:
+  - 공동구
+  - IN TRAY
+  - 기존 공동구 CABLE TRAY 사용
+  panel_id: TUNNEL-DUCT-01
+  shape: dashed_box
+  labels_inside:
+  - 공동구
+  - IN TRAY
+  - 기존 공동구 CABLE TRAY 사용
+  labels_above: []
+  labels_below:
+  - 사무동 지하1층 평면도 참조
+  equipment_symbols:
+  - type: cable_tray
+    count: 1
+  inferred_name: 지하 공동구 (기존 CABLE TRAY 활용 구간)
+  position: center-bottom
+relations:
+- from: MANHOLE-01
+  to: TUNNEL-DUCT-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: EMPTY PIPE (ELP50), 기존 도로 및 터파기후 배관배선 토목공사분
+- from: TUNNEL-DUCT-01
+  to: HUB-RACK-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: IN TRAY, 기존 공동구 CABLE TRAY 사용
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-bottom
+equipment_symbols:
+- type: cable_tray
+  count: 1
+ontology_hints:
+  suggested_parent_class: CableManagementSystem
+  observed_attributes:
+  - raw_labels
+  - panel_id
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  similar_equipment: []
+  function_candidates:
+  - Cable Routing
+  - Cable Support

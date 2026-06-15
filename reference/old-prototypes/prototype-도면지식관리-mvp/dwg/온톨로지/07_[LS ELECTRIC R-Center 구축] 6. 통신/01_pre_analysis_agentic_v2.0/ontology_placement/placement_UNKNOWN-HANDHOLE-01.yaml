@@ -1,0 +1,142 @@
+placement:
+  tag: UNKNOWN-HANDHOLE-01
+  name: HAND HOLE FOR TEL
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-HANDHOLE-01
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CableAccess
+    - CableProtection
+    - UndergroundEnclosure
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'visual_description: 점선 타원형 핸드홀 심볼'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasVisualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼의 외형 설명
+      - raw_text: 'note: 규격은 도면 참조 (Standard Reference drawings)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasReferenceNote
+          suggested_datatype: xsd:string
+          rationale: 규격이 외부 도면 참조로만 제시됨
+      - raw_text: 'source: 우측 범례, 공통사항 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasSourceNote
+          suggested_datatype: xsd:string
+          rationale: 범례/공통사항 출처 메모
+      - raw_text: 'function_category: HAND_HOLE'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasFunctionCategoryText
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 텍스트 보존
+      - raw_text: 'type: hand_hole'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasEntityTypeText
+          suggested_datatype: xsd:string
+          rationale: 원문 타입 문자열 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationEquipment'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasOntologyHint
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: CableAccess, CableProtection,
+          UndergroundEnclosure'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 후보 기능명 보존
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: entity_header
+    name:
+      source_pages:
+      - 3
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 3
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 3
+      method: preserve_unclassified_fields
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 3
+      method: assessment
+  unresolved:
+  - field_candidate: specs.note
+    raw_text: 규격은 도면 참조 (Standard Reference drawings)
+    source_page: 3
+    reason: 구체 규격값이 없고 외부 도면 참조만 존재
+    preservation_note: 추후 참조 도면 확인 시 규격 속성으로 승격 가능
+  - field_candidate: specs.visual_description
+    raw_text: 점선 타원형 핸드홀 심볼
+    source_page: 3
+    reason: 형상 설명은 있으나 정식 속성명으로 단정 불가
+    preservation_note: 심볼/형상 속성 후보로 보존
+  - field_candidate: specs.source
+    raw_text: 우측 범례, 공통사항 항목
+    source_page: 3
+    reason: 출처 메모로서 구조화된 관계로 해석 불가
+    preservation_note: legend/common note provenance로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CableAccess, CableProtection, UndergroundEnclosure
+    source_page: 3
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 기능 후보 목록으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 핸드홀은 물리 설비로 보이지만, 도면상 심볼/범례 항목 성격도 강해 equipment와 annotation 경계가 불명확함
+    recommended_handling: 0-9c에서 실제 클래스 확정 시 심볼/설비 이중 가능성을 검토하고, 필요 시 AnnotationOnly와
+      PhysicalEntity 계열을 분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 공간/인프라/문서 혼합 패턴을 고려해 물리 설비 후보로 배치
+    - ontology_hints의 suggested_parent_class와 function_candidates를 후보로만 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:58.049015'
+  confidence: 0.74

@@ -1,0 +1,96 @@
+entity_detail:
+  tag: P-F
+  type: Power Panelboard
+  specs:
+    voltage:
+      value: 3Ф 4W 380/220V
+      unit: V
+      source: 23
+      confidence: 0.98
+    cable_spec:
+      value: F-CV 35㎟ -4C x1
+      unit: cable
+      source: 23
+      confidence: 0.98
+    earth_wire_spec:
+      value: E-16㎟ (54C)
+      unit: wire
+      source: 23
+      confidence: 0.98
+    main_breaker:
+      value: MCCB 1개
+      unit: ea
+      source: 23
+      confidence: 0.98
+    source_page_equipment_spec:
+      value: 3Ф 4W 380/220V, F-CV 35㎟ -4C x1, E-16㎟ (54C), MCCB 1개
+      unit: text
+      source: 23
+      confidence: 0.98
+  drawing_texts:
+  - source: page_023_context.yaml
+    page_number: 23
+    text: "P-F\n    name: P-F 소방 분전반\n    spec: 3Ф 4W 380/220V, F-CV 35㎟ -4C x1, E-16㎟\
+      \ (54C), MCCB 1개\n    discipline: ELECTRICAL\n    function_category: DISTRIBUTE\n\
+      \    location: 1층 F.L\n    confidence: 0.98"
+  - source: page_023_context.yaml
+    page_number: 23
+    text: S/S R-Center 수전반에서 LP-1F, LP-2F, P-C-3PP, P-OAC-1/2/3, P-F, IVR-2, LV-6
+      및 다수의 2PP/3PP/4PP 패널로 연결된다.
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 표기 전압은 6.6kV, 380/220V, 440V, 220V가 보이며, 인입은 UT동 전기실에서 오는 것으로 표시된다.
+  requirements:
+  - text: 3Ф 4W 380/220V
+    source: page 23
+    type: electrical_supply_condition
+  - text: MCCB 1개
+    source: page 23
+    type: protection_requirement
+  - text: E-16㎟ (54C)
+    source: page 23
+    type: grounding_requirement
+  connection_specs:
+  - relation: feeds
+    partner: S/S R-Center 수전반
+    details:
+      source: page 23
+  - relation: connected_to
+    partner: 전기실
+    details:
+      source: page 23
+  - relation: grounded_to
+    partner: E3
+    details:
+      source: page 23
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: S/S R-Center
+      direction: source_to_target
+      source: page 23
+    - relation_type: grounded_to
+      partner_tag: E3
+      direction: source_to_target
+      source: page 23
+    observed_attributes:
+    - voltage
+    - cable_spec
+    - earth_wire_spec
+    - main_breaker
+    - function_category
+    - location
+    - discipline
+    similar_equipment:
+    - P-C-3PP
+    - P-OAC-1
+    - P-OAC-2
+    - P-OAC-3
+    - IVR-2
+    - LV-6
+    suggested_parent_class: ElectricalPanelboard
+    cross_discipline: []
+  notes:
+  - 페이지 23에서 P-F는 P-F 소방 분전반으로 표기됨.
+  - 페이지 19, 20, 22에는 동일 tag P-F의 다른 설비(P-F-2PP, P-F-3PP, P-F-4PP)가 존재하므로 혼동 주의.
+tag: P-F

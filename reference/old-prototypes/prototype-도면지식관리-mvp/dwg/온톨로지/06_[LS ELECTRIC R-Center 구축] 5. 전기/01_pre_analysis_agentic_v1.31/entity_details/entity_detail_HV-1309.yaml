@@ -1,0 +1,70 @@
+entity_detail:
+  tag: HV-1309
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    label:
+      value: 1309 HV 6.6kV BUS TIE (INTER-LOCK)
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "panel_id: PNL-HV-1309\nshape: hexagon\nlabels_inside:\n- '1309'\n...\n\
+      annotation: 6.6kV\n- from: PNL-TR-1202\n  to: PNL-HV-1309\n  line_type: power_cable\n\
+      \  line_style: solid\n  annotation: 6.6kV\n...\nline_style: solid\nannotation:\
+      \ INTER-LOCK\n- from: PNL-HV-1309\n  to: PNL-BUS-TIE-1309\n  line_type: power_cable\n\
+      \  line_style: solid"
+  requirements:
+  - text: INTER-LOCK
+    source: page 5
+    type: operational_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-HV-1309
+    details:
+      source: page 5
+      annotation: 6.6kV
+      line_type: power_cable
+      line_style: solid
+      from: PNL-TR-1202
+      to: PNL-HV-1309
+  - relation: feeds
+    partner: PNL-BUS-TIE-1309
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+      from: PNL-HV-1309
+      to: PNL-BUS-TIE-1309
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1309
+      direction: PNL-TR-1202 -> PNL-HV-1309
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-BUS-TIE-1309
+      direction: PNL-HV-1309 -> PNL-BUS-TIE-1309
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - annotation
+    - line_type
+    - line_style
+    similar_equipment:
+    - '1308'
+    - '1309'
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - page 5 context에서 HV-1309는 PNL-HV-1309로 표시됨
+  - 도면 텍스트에 INTER-LOCK 표기가 있음
+tag: HV-1309

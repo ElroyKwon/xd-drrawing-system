@@ -1,0 +1,119 @@
+placement:
+  tag: UNKNOWN-ROOM-14
+  name: 대기실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-14
+    class_hint: Space
+    alternative_class_hints:
+    - WaitingArea
+    - CommunicationSpace
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-2F-13
+      note: specs.members에 포함된 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: ROOM-대기실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별자 형태의 문자열
+      - raw_text: 'members: OUTLET-2F-13'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간 그룹에 포함된 멤버 태그
+      - raw_text: 'function_candidates: WaitingArea'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 라벨
+      - raw_text: 'type: space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 분야 표기
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: sourceModel
+          suggested_datatype: xsd:string
+          rationale: 합성 생성 출처 메타정보
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_type_and_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: direct_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 5
+      method: inferred_from_specs.members
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 5
+      method: direct_from_specs.members
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: preserved_raw
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag는 공간(space)로 보이지만 name이 '대기실'이고 ontology_hints에 WaitingArea가 있어 일반
+      공간인지 기능적 공간인지 단정하기 어렵다.
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, WaitingArea를 보조 class 후보로 유지하고
+      members 관계를 함께 확인.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - group_id와 members 보존
+    - function_candidates를 class_hint 후보로 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:31.936675'
+  confidence: 0.91

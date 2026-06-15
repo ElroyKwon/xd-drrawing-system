@@ -1,0 +1,122 @@
+page_4_entities:
+- tag: ROOM-R-CENTER-001
+  name: R-Center 변전실
+  type: space
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: ROOM-UT-001
+  name: UT동 1층 변전실
+  type: space
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: ROOM-A-INVERTER-001
+  name: A동 지상1층 인버터 시험센타
+  type: space
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: ROOM-A-ELECTRICAL-001
+  name: A동 지하1층 전기실
+  type: space
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-MANHOLE-001
+  name: 전력용 맨홀 (R-Center 인근)
+  type: manhole
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-MANHOLE-002
+  name: 전력용 맨홀 (공동구 연결부)
+  type: manhole
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-PULLBOX-001
+  name: PULL BOX (UT동 1층 변전실 인근)
+  type: pull_box
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-DUCTBANK-001
+  name: DUCT BANK (터파기 신설)
+  type: duct_bank
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-CABLETRAY-001
+  name: CABLE TRAY (공동구 내)
+  type: cable_tray
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-EMPTYPIPE-001
+  name: EMPTY PIPE (ELP100)
+  type: empty_pipe
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: INF-MARKER-001
+  name: 지중선표시기
+  type: underground_cable_marker
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SECTION-001
+  name: SECTION 1 - DUCT BANK 단면 상세
+  type: section_detail
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SECTION-002
+  name: SECTION 2 - DUCT BANK 단면 상세
+  type: section_detail
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: PHOTO-UTILITY-001
+  name: 지하공동구 현황 사진
+  type: photo_reference
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: BUILDING-UT-001
+  name: U.T.동
+  type: building_outline
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: BUILDING-B-001
+  name: B동
+  type: building_outline
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: BUILDING-OFFICE-001
+  name: 사무동
+  type: building_outline
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: BUILDING-A-001
+  name: A동
+  type: building_outline
+  discipline: STRUCTURAL
+  confidence: 0.95
+page_4_relations:
+- from: ROOM-UT-001
+  to: ROOM-R-CENTER-001
+  relation: feeds
+- from: ROOM-UT-001
+  to: ROOM-R-CENTER-001
+  relation: feeds
+- from: ROOM-UT-001
+  to: INF-PULLBOX-001
+  relation: connects_to
+- from: ROOM-A-INVERTER-001
+  to: ROOM-R-CENTER-001
+  relation: feeds
+- from: ROOM-A-ELECTRICAL-001
+  to: ROOM-R-CENTER-001
+  relation: feeds
+- from: INF-DUCTBANK-001
+  to: SECTION-001
+  relation: references
+- from: INF-CABLETRAY-001
+  to: SECTION-002
+  relation: references
+- from: ROOM-UTILITY-TUNNEL-001
+  to: INF-CABLETRAY-001
+  relation: contains
+- from: BUILDING-A-001
+  to: ROOM-A-INVERTER-001
+  relation: contains
+- from: BUILDING-A-001
+  to: ROOM-A-ELECTRICAL-001
+  relation: contains

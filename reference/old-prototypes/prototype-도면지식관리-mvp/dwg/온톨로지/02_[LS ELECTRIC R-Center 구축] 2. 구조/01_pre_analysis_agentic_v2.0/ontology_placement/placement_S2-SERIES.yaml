@@ -1,0 +1,167 @@
+placement:
+  tag: S2-SERIES
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:S2-SERIES
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DocumentMetadata
+    - SeriesIdentifier
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 시트/시리즈 참조 가능성이 있음
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUsageNote
+          suggested_datatype: xsd:string
+          rationale: 도면/시트 안내 문구로 보이는 주석성 텍스트
+      - raw_text: S2-SERIES
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 대표 태그
+      - raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35,\
+          \ 61, 62, 63, 64, 65\n\n  원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'"
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체 보존용 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: entity_detail.name absent
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification by raw text as standalone entity metadata
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag normalization
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate classification
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidate classification
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw preservation
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 도면 실체나 관계로 단정할 수 없는 안내/메타 문구이며, supplement sub_kind가 없어 직접 분류 불가
+    preservation_note: 시트/시리즈 안내 문구로 보이며, 페이지 목록은 후속 DataProperty 후보로 승격 가능
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드가 제공되지 않음
+    preservation_note: 빈 값 유지
+  - field_candidate: entity_detail.specs
+    raw_text: ''
+    source_page: 0
+    reason: specs 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.relations
+    raw_text: ''
+    source_page: 0
+    reason: relations 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: connection_specs 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.requirements
+    raw_text: ''
+    source_page: 0
+    reason: requirements 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: drawing_texts 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: ontology_hints 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.notes
+    raw_text: ''
+    source_page: 0
+    reason: notes 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.source_pages
+    raw_text: ''
+    source_page: 0
+    reason: source_pages 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: source_attribution 정보 없음
+    preservation_note: 미제공
+  - field_candidate: entity_detail.position
+    raw_text: ''
+    source_page: 0
+    reason: position 정보 없음
+    preservation_note: 미제공
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그가 SERIES 형태의 문서/시트 메타로 보이지만, 실제로는 도면 시트 식별자, 시리즈 컨테이너, 또는 단순 안내 텍스트
+      엔티티 중 어느 것인지 raw만으로 확정 불가
+    recommended_handling: 후속 단계에서 동일 패턴의 S*-SERIES 태그들과 비교하여 DocumentEntity/PlanOrView
+      후보로 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서 메타 계층 우선 관찰
+    - raw only placeholder responses 보존
+    - sheet/series identifier 패턴을 DocumentEntity 후보로 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:43.446310'
+  confidence: 0.74

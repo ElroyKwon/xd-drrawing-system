@@ -1,0 +1,655 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (observed tags in prompt)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T16:02:07.874545'
+  classes:
+  - iri: dks:ElectricalEquipment
+    label: 전기설비
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - BATTERY-01
+    - CAPACITOR-01
+    - CAPACITOR-02
+    - ELD-01
+    - EXT-CABLE-TRENCH-1
+    - EXT-CABLE-TRENCH-2
+    - EXT-HV-SOURCE
+    - GPT-01
+    - HV-1
+    - HV-2
+    - HV-3
+    - HV-4
+    - HV-5
+    - HV-6
+    - HV-7
+    - INCOMING-01
+    - IVR-1
+    - IVR-2
+    - LV-1
+    - LV-2
+    - LV-3L
+    - LV-3U
+    - LV-4
+    - LV-5
+    - LV-6
+    - LV-7
+    - LV-8
+    - LV-R
+    - MG-01
+    - PANEL-4PP-A1
+    - PANEL-4PP-A2
+    - PANEL-4PP-A3
+    - PANEL-4PP-A4
+    - PANEL-4PP-A5
+    - PANEL-4PP-A6
+    - PANEL-4PP-A7
+    - PANEL-4PP-AC1
+    - PANEL-4PP-AC2
+    - PANEL-4PP-AC3
+    - PANEL-4PP-AC4
+    - PANEL-4PP-AC5
+    - PANEL-4PP-AC6
+    - PANEL-4PP-AC7
+    - PANEL-A-2PP-1
+    - PANEL-A-2PP-2
+    - PANEL-A-3PP
+    - PANEL-AC-3PP
+    - PANEL-C-2PP
+    - PANEL-C-4PP
+    - PANEL-D-2PP
+    - PANEL-D-3PP
+    - PANEL-E-2PP-1
+    - PANEL-E-2PP-2
+    - PANEL-E-3PP
+    - PANEL-E-4PP
+    - PANEL-EA-2PP
+    - PANEL-F-3PP
+    - PANEL-F-4PP
+    - PANEL-F
+    - PANEL-G-3PP
+    - PANEL-I-3PP
+    - PANEL-LP-1F
+    - PANEL-LP-C-3PP
+    - PANEL-OAC-1
+    - PANEL-OAC-2
+    - PANEL-OAC-3
+    - PANEL-P-4PP
+    - RECTIFIER-01
+    - SPARE-LV-01
+    - SPARE-MCCB-01
+    - SWGR-380V-MAIN
+    - TR-1
+    - TR-2
+    - TR-3
+    - TR-3204
+    derivation: 공간류를 제외한 거의 모든 태그가 장비/전원/패널/차단기/변환기/경로설비 성격의 class_hint를 가짐. 최상위 장비군으로
+      귀납.
+    source_pages:
+    - '2'
+    confidence: 0.86
+  - iri: dks:ElectricalSpace
+    label: 전기공간
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-SPACE-01
+    - UNKNOWN-SPACE-02
+    - UNKNOWN-SPACE-03
+    derivation: class_hint가 ElectricalSpace 또는 ElectricalRoom으로 관찰되며, 장비 연결 assertion
+      없이 공간명만 존재.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalRoom
+    label: 전기실
+    super_classes:
+    - dks:ElectricalSpace
+    evidence_tags:
+    - UNKNOWN-SPACE-02
+    - UNKNOWN-SPACE-03
+    derivation: 두 태그의 class_hint가 직접 ElectricalRoom이며, alternative_class_hints에 ElectricalSpace가
+      포함되어 공간 하위로 귀납.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:PowerSource
+    label: 전원
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - EXT-HV-SOURCE
+    derivation: EXT-HV-SOURCE의 class_hint가 직접 PowerSource.
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:CableContainmentSystem
+    label: 케이블 트렌치/케이블 수용·경유 설비
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - EXT-CABLE-TRENCH-1
+    - EXT-CABLE-TRENCH-2
+    derivation: 두 태그 모두 class_hint가 CableContainmentSystem이며 이름 패턴도 '케이블 트렌치 경유'.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:CableTermination
+    label: 케이블 종단
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - INCOMING-01
+    derivation: INCOMING-01의 class_hint가 CableTermination이며 이름도 '인입 케이블헤드'.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:CircuitBreaker
+    label: 차단기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - HV-1
+    - HV-2
+    - HV-3
+    - HV-4
+    - HV-5
+    - HV-6
+    - HV-7
+    - LV-1
+    - LV-2
+    - LV-3L
+    - LV-3U
+    - LV-4
+    - LV-5
+    - LV-6
+    - LV-7
+    - LV-8
+    - LV-R
+    - SPARE-LV-01
+    - SPARE-MCCB-01
+    derivation: HV/LV/SPARE 계열의 class_hint가 반복적으로 CircuitBreaker로 관찰됨.
+    source_pages:
+    - '2'
+    confidence: 0.97
+  - iri: dks:VCB
+    label: VCB
+    super_classes:
+    - dks:CircuitBreaker
+    evidence_tags:
+    - HV-1
+    - HV-2
+    - HV-3
+    - HV-4
+    - HV-5
+    - HV-6
+    - HV-7
+    derivation: HV-1~HV-7의 alternative_class_hints에 일관되게 VCB가 나타나고 이름에도 'VCB'가 직접
+      표기됨.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:ACB
+    label: ACB
+    super_classes:
+    - dks:CircuitBreaker
+    evidence_tags:
+    - LV-1
+    - LV-2
+    - LV-3L
+    - LV-3U
+    - LV-4
+    - LV-5
+    - LV-6
+    - LV-7
+    - LV-8
+    - LV-R
+    - SPARE-LV-01
+    derivation: LV 계열과 SPARE-LV-01의 alternative_class_hints 또는 equipment symbol에 ACB가
+      반복되며 이름에도 'ACB 피더'가 직접 표기됨.
+    source_pages:
+    - '2'
+    confidence: 0.95
+  - iri: dks:MCCB
+    label: MCCB
+    super_classes:
+    - dks:CircuitBreaker
+    evidence_tags:
+    - SPARE-MCCB-01
+    derivation: SPARE-MCCB-01의 alternative_class_hints와 raw label/equipment symbol에
+      MCCB가 직접 관찰됨.
+    source_pages:
+    - '2'
+    confidence: 0.97
+  - iri: dks:Switchgear
+    label: 스위치기어
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - SWGR-380V-MAIN
+    derivation: SWGR-380V-MAIN의 class_hint가 직접 Switchgear.
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:DistributionPanel
+    label: 분전반
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - PANEL-4PP-A1
+    - PANEL-4PP-A3
+    - PANEL-4PP-A6
+    - PANEL-A-3PP
+    - PANEL-AC-3PP
+    derivation: 일부 PANEL-* 태그의 class_hint가 직접 DistributionPanel.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:DistributionBoard
+    label: 배전반/분전반
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - PANEL-4PP-A2
+    - PANEL-4PP-A4
+    - PANEL-4PP-A5
+    - PANEL-4PP-A7
+    - PANEL-4PP-AC1
+    - PANEL-4PP-AC2
+    - PANEL-4PP-AC3
+    - PANEL-4PP-AC4
+    - PANEL-4PP-AC5
+    - PANEL-4PP-AC6
+    - PANEL-4PP-AC7
+    - PANEL-A-2PP-1
+    - PANEL-A-2PP-2
+    - PANEL-C-2PP
+    - PANEL-C-4PP
+    - PANEL-D-2PP
+    - PANEL-D-3PP
+    - PANEL-E-2PP-1
+    - PANEL-E-2PP-2
+    - PANEL-E-3PP
+    - PANEL-E-4PP
+    - PANEL-EA-2PP
+    - PANEL-F-3PP
+    - PANEL-F
+    - PANEL-G-3PP
+    - PANEL-I-3PP
+    - PANEL-LP-1F
+    - PANEL-LP-C-3PP
+    - PANEL-OAC-1
+    - PANEL-OAC-2
+    - PANEL-OAC-3
+    - PANEL-P-4PP
+    derivation: 대다수 PANEL-* 태그의 class_hint가 직접 DistributionBoard.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:ElectricalPanel
+    label: 전기 패널
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - PANEL-F-4PP
+    derivation: PANEL-F-4PP의 class_hint가 직접 ElectricalPanel.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Transformer
+    label: 변압기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - TR-1
+    - TR-2
+    - TR-3
+    - TR-3204
+    derivation: TR-* 태그의 class_hint가 직접 Transformer이며 이름에도 변압기 표기.
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:InstrumentTransformer
+    label: 계기용 변압기
+    super_classes:
+    - dks:Transformer
+    evidence_tags:
+    - GPT-01
+    derivation: GPT-01의 class_hint가 InstrumentTransformer이며 이름도 계기용 변압기. 변압기 명칭 패턴과
+      직접 연결됨.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:VoltageRegulator
+    label: 전압조정기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - IVR-1
+    - IVR-2
+    derivation: IVR-1, IVR-2의 class_hint가 직접 VoltageRegulator.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:PowerConverter
+    label: 전력변환장치
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - RECTIFIER-01
+    derivation: RECTIFIER-01의 class_hint가 직접 PowerConverter.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:MotorGeneratorSet
+    label: 모터-발전기 세트
+    super_classes:
+    - dks:PowerConverter
+    evidence_tags:
+    - MG-01
+    derivation: MG-01의 class_hint가 MotorGeneratorSet이고 alternative_class_hints에 PowerConverter가
+      포함됨.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:Battery
+    label: 축전지
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - BATTERY-01
+    derivation: BATTERY-01의 class_hint가 직접 Battery.
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:Capacitor
+    label: 콘덴서
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - CAPACITOR-01
+    derivation: CAPACITOR-01의 class_hint가 직접 Capacitor.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:ProtectionDevice
+    label: 보호장치
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - ELD-01
+    derivation: ELD-01의 class_hint가 직접 ProtectionDevice.
+    source_pages: []
+    confidence: 0.97
+  subclass_relations:
+  - sub: dks:ElectricalRoom
+    super: dks:ElectricalSpace
+    derivation: ElectricalRoom이라는 class_hint 자체가 ElectricalSpace의 특수화로 관찰되며 alternative_class_hints에도
+      ElectricalSpace 포함.
+    confidence: 0.96
+  - sub: dks:PowerSource
+    super: dks:ElectricalEquipment
+    derivation: 외부 인입 전원도 feeds/cable 관계를 가지는 전기 계통 객체로 관찰되어 장비 최상위 아래에 배치.
+    confidence: 0.78
+  - sub: dks:CableContainmentSystem
+    super: dks:ElectricalEquipment
+    derivation: 케이블 트렌치 경유 객체가 feeds/cable 관계의 대상이 되는 계통 객체로 관찰됨.
+    confidence: 0.74
+  - sub: dks:CableTermination
+    super: dks:ElectricalEquipment
+    derivation: 인입 케이블헤드가 feeds/supplies/bus_bar 관계를 가지는 전기 객체로 관찰됨.
+    confidence: 0.9
+  - sub: dks:CircuitBreaker
+    super: dks:ElectricalEquipment
+    derivation: HV/LV/SPARE 계열이 모두 차단기 class_hint를 가지며 전기 계통 장비군에 속함.
+    confidence: 0.97
+  - sub: dks:VCB
+    super: dks:CircuitBreaker
+    derivation: HV-1~HV-7에서 CircuitBreaker class_hint + VCB 명시가 반복.
+    confidence: 0.96
+  - sub: dks:ACB
+    super: dks:CircuitBreaker
+    derivation: LV 계열에서 CircuitBreaker class_hint + ACB 명시가 반복.
+    confidence: 0.95
+  - sub: dks:MCCB
+    super: dks:CircuitBreaker
+    derivation: SPARE-MCCB-01에서 CircuitBreaker class_hint + MCCB 명시가 함께 관찰.
+    confidence: 0.97
+  - sub: dks:Switchgear
+    super: dks:ElectricalEquipment
+    derivation: SWGR-380V-MAIN의 직접 class_hint.
+    confidence: 0.98
+  - sub: dks:DistributionPanel
+    super: dks:ElectricalEquipment
+    derivation: PANEL-* 일부의 직접 class_hint.
+    confidence: 0.88
+  - sub: dks:DistributionBoard
+    super: dks:ElectricalEquipment
+    derivation: PANEL-* 다수의 직접 class_hint.
+    confidence: 0.93
+  - sub: dks:ElectricalPanel
+    super: dks:ElectricalEquipment
+    derivation: PANEL-F-4PP의 직접 class_hint.
+    confidence: 0.9
+  - sub: dks:Transformer
+    super: dks:ElectricalEquipment
+    derivation: TR-*의 직접 class_hint.
+    confidence: 0.98
+  - sub: dks:InstrumentTransformer
+    super: dks:Transformer
+    derivation: GPT-01이 '계기용 변압기'로 명시되고 class_hint가 InstrumentTransformer.
+    confidence: 0.94
+  - sub: dks:VoltageRegulator
+    super: dks:ElectricalEquipment
+    derivation: IVR-*의 직접 class_hint.
+    confidence: 0.97
+  - sub: dks:PowerConverter
+    super: dks:ElectricalEquipment
+    derivation: RECTIFIER-01의 직접 class_hint.
+    confidence: 0.95
+  - sub: dks:MotorGeneratorSet
+    super: dks:PowerConverter
+    derivation: MG-01의 class_hint가 MotorGeneratorSet이고 alternative_class_hints에 PowerConverter
+      포함.
+    confidence: 0.93
+  - sub: dks:Battery
+    super: dks:ElectricalEquipment
+    derivation: BATTERY-01의 직접 class_hint.
+    confidence: 0.98
+  - sub: dks:Capacitor
+    super: dks:ElectricalEquipment
+    derivation: CAPACITOR-01의 직접 class_hint.
+    confidence: 0.97
+  - sub: dks:ProtectionDevice
+    super: dks:ElectricalEquipment
+    derivation: ELD-01의 직접 class_hint.
+    confidence: 0.97
+  disjoint_candidates:
+  - classes:
+    - dks:ElectricalSpace
+    - dks:ElectricalEquipment
+    reason: evidence_tags 교집합이 0이며 공간류 태그와 장비류 태그가 완전히 분리되어 관찰됨.
+    confidence: 0.96
+  - classes:
+    - dks:ElectricalRoom
+    - dks:PowerSource
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.78
+  - classes:
+    - dks:ElectricalRoom
+    - dks:CircuitBreaker
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.9
+  - classes:
+    - dks:ElectricalRoom
+    - dks:Transformer
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.9
+  - classes:
+    - dks:ElectricalRoom
+    - dks:DistributionBoard
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.9
+  - classes:
+    - dks:ElectricalRoom
+    - dks:Switchgear
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.88
+  - classes:
+    - dks:ElectricalRoom
+    - dks:Battery
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.82
+  - classes:
+    - dks:ElectricalRoom
+    - dks:ProtectionDevice
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.82
+  - classes:
+    - dks:PowerSource
+    - dks:CircuitBreaker
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.72
+  - classes:
+    - dks:PowerSource
+    - dks:Transformer
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.72
+  - classes:
+    - dks:PowerSource
+    - dks:DistributionBoard
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.72
+  - classes:
+    - dks:CableTermination
+    - dks:Transformer
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.74
+  - classes:
+    - dks:CableTermination
+    - dks:DistributionBoard
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.74
+  - classes:
+    - dks:Battery
+    - dks:Transformer
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.8
+  - classes:
+    - dks:Battery
+    - dks:DistributionBoard
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.8
+  - classes:
+    - dks:ProtectionDevice
+    - dks:Transformer
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.8
+  - classes:
+    - dks:ProtectionDevice
+    - dks:DistributionBoard
+    reason: evidence_tags 교집합이 0.
+    confidence: 0.8
+  hierarchy_summary:
+    total_classes: 19
+    max_depth: 3
+    by_discipline:
+      electrical: 19
+  unclassified_tags:
+  - tag: CAPACITOR-02
+    reason: class_hint가 너무 상위적인 ElectricalEquipment이며 alternative_class_hints에 CapacitorBank/PowerFactorCorrectionEquipment가
+      있으나 단일 확정 클래스 귀납 근거가 부족함.
+    hint: 후속 단계에서 CAPACITOR-01과의 명칭/사양 패턴 비교로 Capacitor 계열 하위 여부 재검토
+  - tag: PANEL-F-4PP
+    reason: class_hint는 ElectricalPanel이지만 다른 PANEL-* 다수는 DistributionBoard/DistributionPanel로
+      분산되어 있어 패널 공통 상위 통합 전 단일 귀속이 불안정함.
+    hint: ElectricalPanel을 유지하되 DistributionBoard/DistributionPanel과의 병합 여부 후속 검토
+  plan_deviations:
+  - plan_item: predicted top_level에 ReserveOrSpareAsset 포함
+    actual_finding: SPARE 태그들도 class_hint는 CircuitBreaker로 관찰되었고 reserve는 alternative_class_hints/이름
+      수준에 머묾.
+    action_taken: ReserveOrSpareAsset 클래스를 생성하지 않고 SPARE 태그를 CircuitBreaker 계열로 분류,
+      예비 의미는 미확정으로 남김.
+  - plan_item: predicted top_level에 CableContainmentOrRouteMarker 포함
+    actual_finding: 실제 class_hint는 CableContainmentSystem으로 관찰되며 하나는 NamedIndividual,
+      하나는 AnnotationOnly.
+    action_taken: 관찰된 라벨 그대로 dks:CableContainmentSystem 클래스를 생성.
+  - plan_item: 패널 계열 상위 클래스 통합 예상
+    actual_finding: 실제 evidence에는 DistributionBoard, DistributionPanel, ElectricalPanel이
+      혼재하나 이들 사이의 직접 계층 근거는 부족.
+    action_taken: 세 클래스를 병렬로 두고 상위는 ElectricalEquipment로만 연결.
+  - plan_item: Converter cluster를 하나의 상위로 묶을 가능성
+    actual_finding: VoltageRegulator, PowerConverter, MotorGeneratorSet은 관찰되나 VoltageRegulator를
+      PowerConverter 하위로 둘 직접 근거는 부족.
+    action_taken: MotorGeneratorSet만 alternative_class_hints 근거로 PowerConverter 하위에
+      두고, VoltageRegulator는 독립 하위로 유지.
+  back_update_instructions:
+    per_tag_confirmed_class:
+      BATTERY-01: dks:Battery
+      CAPACITOR-01: dks:Capacitor
+      CAPACITOR-02: ''
+      ELD-01: dks:ProtectionDevice
+      EXT-CABLE-TRENCH-1: dks:CableContainmentSystem
+      EXT-CABLE-TRENCH-2: dks:CableContainmentSystem
+      EXT-HV-SOURCE: dks:PowerSource
+      GPT-01: dks:InstrumentTransformer
+      HV-1: dks:VCB
+      HV-2: dks:VCB
+      HV-3: dks:VCB
+      HV-4: dks:VCB
+      HV-5: dks:VCB
+      HV-6: dks:VCB
+      HV-7: dks:VCB
+      INCOMING-01: dks:CableTermination
+      IVR-1: dks:VoltageRegulator
+      IVR-2: dks:VoltageRegulator
+      LV-1: dks:ACB
+      LV-2: dks:ACB
+      LV-3L: dks:ACB
+      LV-3U: dks:ACB
+      LV-4: dks:ACB
+      LV-5: dks:ACB
+      LV-6: dks:ACB
+      LV-7: dks:ACB
+      LV-8: dks:ACB
+      LV-R: dks:ACB
+      MG-01: dks:MotorGeneratorSet
+      PANEL-4PP-A1: dks:DistributionPanel
+      PANEL-4PP-A2: dks:DistributionBoard
+      PANEL-4PP-A3: dks:DistributionPanel
+      PANEL-4PP-A4: dks:DistributionBoard
+      PANEL-4PP-A5: dks:DistributionBoard
+      PANEL-4PP-A6: dks:DistributionPanel
+      PANEL-4PP-A7: dks:DistributionBoard
+      PANEL-4PP-AC1: dks:DistributionBoard
+      PANEL-4PP-AC2: dks:DistributionBoard
+      PANEL-4PP-AC3: dks:DistributionBoard
+      PANEL-4PP-AC4: dks:DistributionBoard
+      PANEL-4PP-AC5: dks:DistributionBoard
+      PANEL-4PP-AC6: dks:DistributionBoard
+      PANEL-4PP-AC7: dks:DistributionBoard
+      PANEL-A-2PP-1: dks:DistributionBoard
+      PANEL-A-2PP-2: dks:DistributionBoard
+      PANEL-A-3PP: dks:DistributionPanel
+      PANEL-AC-3PP: dks:DistributionPanel
+      PANEL-C-2PP: dks:DistributionBoard
+      PANEL-C-4PP: dks:DistributionBoard
+      PANEL-D-2PP: dks:DistributionBoard
+      PANEL-D-3PP: dks:DistributionBoard
+      PANEL-E-2PP-1: dks:DistributionBoard
+      PANEL-E-2PP-2: dks:DistributionBoard
+      PANEL-E-3PP: dks:DistributionBoard
+      PANEL-E-4PP: dks:DistributionBoard
+      PANEL-EA-2PP: dks:DistributionBoard
+      PANEL-F-3PP: dks:DistributionBoard
+      PANEL-F-4PP: ''
+      PANEL-F: dks:DistributionBoard
+      PANEL-G-3PP: dks:DistributionBoard
+      PANEL-I-3PP: dks:DistributionBoard
+      PANEL-LP-1F: dks:DistributionBoard
+      PANEL-LP-C-3PP: dks:DistributionBoard
+      PANEL-OAC-1: dks:DistributionBoard
+      PANEL-OAC-2: dks:DistributionBoard
+      PANEL-OAC-3: dks:DistributionBoard
+      PANEL-P-4PP: dks:DistributionBoard
+      RECTIFIER-01: dks:PowerConverter
+      SPARE-LV-01: dks:ACB
+      SPARE-MCCB-01: dks:MCCB
+      SWGR-380V-MAIN: dks:Switchgear
+      TR-1: dks:Transformer
+      TR-2: dks:Transformer
+      TR-3: dks:Transformer
+      TR-3204: dks:Transformer
+      UNKNOWN-SPACE-01: dks:ElectricalSpace
+      UNKNOWN-SPACE-02: dks:ElectricalRoom
+      UNKNOWN-SPACE-03: dks:ElectricalRoom
+    confirmed_at: '2026-04-21T16:20:00Z'
+    by: step_0-9c
+  confidence_overall: 0.87
+  self_assessment: 관찰 evidence만으로는 패널류 통합과 CAPACITOR-02, PANEL-F-4PP의 귀속이 가장 불안정하다.
+    반면 HV/LV 차단기군, 변압기군, 공간군은 class_hint와 이름 패턴이 강하게 일치하여 비교적 확실하다.

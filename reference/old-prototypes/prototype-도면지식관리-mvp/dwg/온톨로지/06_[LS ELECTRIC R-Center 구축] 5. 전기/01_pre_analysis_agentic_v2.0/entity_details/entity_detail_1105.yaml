@@ -1,0 +1,116 @@
+tag: '1105'
+name: SHV 직류전원 및 보조전원 패널 1105
+type: AUXILIARY_POWER_PANEL
+discipline: ELECTRICAL
+function_category: AUXILIARY_POWER_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - '1105'
+  - SHV
+  - LV PNL
+  - HV PNL
+  - MCCB 2P
+  - 5H
+  - RECTIFIER
+  - SCR DEVICE
+  - 100AF/75AT
+  - NVR
+  - 2P 30AF/20AT
+  - DC LIGHTING 2P 30AF/15AT
+  - SPARE
+  - DC CELL 150 Ah
+  bus_section: SHV
+  panel_id: '1105'
+  voltage_kV: 22.9
+  transformer_capacity_kVA: 10
+  transformer_primary_V: 440
+  transformer_secondary_V: 110
+  rectifier_type: SCR DEVICE
+  rectifier_output_A: 50
+  rectifier_type_gemini: 3상전파정류
+  mccb_count: 8
+  mccb_2p_count: 7
+  mccb_main_rating_AF: 100
+  mccb_main_rating_AT: 75
+  mccb_hv_pnl_rating_AF: 50
+  mccb_hv_pnl_rating_AT: 20
+  mccb_lv_pnl_rating_AF: 50
+  mccb_lv_pnl_rating_AT: 20
+  mccb_dc_lighting_rating_AF: 30
+  mccb_dc_lighting_rating_AT: 20
+  dc_cell_type: 2V 55CELL
+  dc_cell_capacity_Ah: 150
+  dc_cell_maintenance_type: 무보수 무누액
+  dc_cell_enclosure_type: 완전 밀폐형
+  spare_slots: 3
+relations:
+- from: EXT-FROM-250V
+  to: '1105'
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: FROM 250V LV 3Ø 3W 440V
+- from: '1104'
+  to: '1105'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+- from: '1105'
+  to: '1106'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-right
+confidence: 0.95
+equipment_symbols:
+- type: MCCB
+  count: 7
+- type: rectifier
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: AuxiliaryPowerPanel
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - panel_id
+  - voltage_kV
+  - transformer_capacity_kVA
+  - transformer_primary_V
+  - transformer_secondary_V
+  - rectifier_type
+  - rectifier_output_A
+  - rectifier_type_gemini
+  - mccb_count
+  - mccb_2p_count
+  - mccb_main_rating_AF
+  - mccb_main_rating_AT
+  - mccb_hv_pnl_rating_AF
+  - mccb_hv_pnl_rating_AT
+  - mccb_lv_pnl_rating_AF
+  - mccb_lv_pnl_rating_AT
+  - mccb_dc_lighting_rating_AF
+  - mccb_dc_lighting_rating_AT
+  - dc_cell_type
+  - dc_cell_capacity_Ah
+  - dc_cell_maintenance_type
+  - dc_cell_enclosure_type
+  - spare_slots
+  similar_equipment: []
+  function_candidates:
+  - DC_POWER_SUPPLY
+  - BATTERY_CHARGING
+  - AUXILIARY_POWER_DISTRIBUTION

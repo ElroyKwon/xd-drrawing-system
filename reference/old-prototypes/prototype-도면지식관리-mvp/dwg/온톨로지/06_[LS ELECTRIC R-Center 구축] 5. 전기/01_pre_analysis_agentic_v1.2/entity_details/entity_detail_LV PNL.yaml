@@ -1,0 +1,88 @@
+entity_detail:
+  tag: LV PNL
+  type: equipment
+  specs:
+    voltage_level:
+      value: 440V
+      unit: V
+      source: page 5
+      confidence: 0.97
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: 본문에는 22.9kV, 6.6kV, 440V 전압 레벨이 함께 보이며, MOF/DM, SA/LA/PF/PT/CT/ZCT, BUS
+      TIE, JUNCTION BOX, REC/RECTIFIER/SCR, LV PNL/HV PNL, NVR, DC LIGHTING, DEMAND
+      관련 표기가 확인된다.
+  - source: page 5 executive_summary
+    page_number: 5
+    text: 부하/피더 명칭으로 공장B2동 동력, 사무동력, 오폐수처리장동력, UT동 부속동력, 오폐수동 비상, 사무동 비상, B동 비상, 공장
+      A 동, U/T 비상, 이오스솔라 동력이 보인다.
+  - source: page 5 equipment
+    page_number: 5
+    text: LV PNL
+  - source: page 5 equipment
+    page_number: 5
+    text: Low Voltage Panel
+  requirements:
+  - text: 440V 전압 레벨과 관련됨
+    source: page 5
+    type: electrical_condition
+  connection_specs:
+  - relation: connected_to
+    partner: HV PNL
+    details:
+      source: 'page 5 executive_summary: ''LV PNL/HV PNL'''
+  - relation: associated_with
+    partner: REC / RECTIFIER / SCR
+    details:
+      source: 'page 5 executive_summary: ''REC/RECTIFIER/SCR, LV PNL/HV PNL'''
+  - relation: associated_with
+    partner: NVR
+    details:
+      source: 'page 5 executive_summary: ''NVR, DC LIGHTING, DEMAND 관련 표기'''
+  - relation: associated_with
+    partner: DC LIGHTING
+    details:
+      source: 'page 5 executive_summary: ''NVR, DC LIGHTING, DEMAND 관련 표기'''
+  ontology_hints:
+    observed_relations:
+    - relation_type: mentioned_with
+      partner_tag: HV PNL
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: mentioned_with
+      partner_tag: REC
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: mentioned_with
+      partner_tag: RECTIFIER
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: mentioned_with
+      partner_tag: SCR
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: mentioned_with
+      partner_tag: NVR
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: mentioned_with
+      partner_tag: DC LIGHTING
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: mentioned_with
+      partner_tag: DEMAND
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    observed_attributes:
+    - voltage_level
+    - panel
+    - low_voltage
+    similar_equipment:
+    - HV PNL
+    suggested_parent_class: ElectricalPanel
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 LV PNL의 개별 사양은 거의 확인되지 않았고, 440V 전압 레벨만 명시적으로 확인됨.
+  - 연결 방향은 도면 원문에서 명확히 확인되지 않아 UNKNOWN으로 기록함.
+tag: LV PNL

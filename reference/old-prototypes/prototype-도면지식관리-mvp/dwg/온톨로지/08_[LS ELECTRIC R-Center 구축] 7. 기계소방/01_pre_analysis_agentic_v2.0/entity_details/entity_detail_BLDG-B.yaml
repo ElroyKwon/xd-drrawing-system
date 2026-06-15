@@ -1,0 +1,48 @@
+tag: BLDG-B
+name: B동 건물
+type: SPACE
+discipline: FIRE_PROTECTION
+function_category: SPACE
+source_pages:
+- 4
+specs:
+  shape: rectangle
+  labels_inside:
+  - B동
+  raw_labels:
+  - B동
+relations:
+- from: BLDG-B
+  to: DUCT-CORRIDOR
+  relation: connects_to
+  source_page: 4
+  origin: cross_validated
+  line_style: dashed
+  note: 옥외 소화 배관 경로
+- from: BLDG-B
+  to: DUCT-CORRIDOR
+  relation: pipe
+  source_page: 4
+  origin: visual_semantics
+  annotation: 옥외 소화 배관 경로
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-center
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: Building
+  observed_attributes:
+  - shape
+  - labels_inside
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - Building
+  - FireProtectionZone

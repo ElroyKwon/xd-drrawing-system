@@ -1,0 +1,72 @@
+tag: TR-2
+name: 6.6kV/440V 몰드 변압기 TR#2
+type: TRANSFORMER
+discipline: ELECTRICAL
+function_category: CONVERT
+source_pages:
+- 2
+specs:
+  primary_voltage_kV: 6.6
+  secondary_voltage_kV: 0.44
+  capacity_kVA: 2000
+  type: MOLD
+  phase: 3Φ
+  raw_labels:
+  - 'TR #2'
+  - 6.6kV / 440V
+  - 2,000kVA
+  - MOLD TYPE
+  - PSV 8500
+relations:
+- from: HV-4
+  to: TR-2
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV 피더 → TR#2 / F-CV 70SQ/1C x 3 (CABLE TRENCH)
+- from: TR-2
+  to: LV-2
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 2차측 → LV-2 / F-CV 300SQ/1C x 6 (CABLE TRAY)
+- from: HV-4
+  to: TR-2
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV 피더 → TR#2
+- from: TR-2
+  to: LV-2
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 2차측 → LV-2
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: middle-center
+confidence: 0.95
+equipment_symbols:
+- type: transformer
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - primary_voltage_kV
+  - secondary_voltage_kV
+  - capacity_kVA
+  - type
+  - phase
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - VoltageConversion
+  - PowerDistribution

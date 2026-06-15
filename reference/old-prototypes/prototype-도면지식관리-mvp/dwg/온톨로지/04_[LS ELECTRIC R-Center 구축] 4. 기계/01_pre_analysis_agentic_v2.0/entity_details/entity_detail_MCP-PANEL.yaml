@@ -1,0 +1,327 @@
+tag: MCP-PANEL
+name: 메인 제어 패널
+type: power_panel
+discipline: MECHANICAL
+function_category: CONTROL
+source_pages:
+- 25
+specs:
+  shape: dashed_box
+  labels_inside:
+  - MCP PANEL
+  - 3Ø4W 380V 60Hz
+  - MAIN MCCB ABS-34 4P/30AF/30A
+  - CT 100/5 5VA
+  - V/M 0~600V
+  - A/M 0~100A
+  labels_above:
+  - 공기조화기(천정형) 감시반 POWER DIAGRAM
+  - 메인입력 전기공사 3Ø4W 380V 60Hz (8.5Kw)
+  labels_below: []
+  inferred_name: 메인 제어 패널 (MCP PANEL) — 공기조화기(천정형) 감시반
+  position: center-left
+  raw_labels:
+  - MCP PANEL
+  - 3Ø4W 380V 60Hz
+  - MAIN MCCB ABS-34 4P/30AF/30A
+  - CT 100/5 5VA
+  - V/M 0~600V
+  - A/M 0~100A
+  - 공기조화기(천정형) 감시반 POWER DIAGRAM
+  - 메인입력 전기공사 3Ø4W 380V 60Hz (8.5Kw)
+  panel_shape: dashed_box
+  equipment_symbols:
+  - type: MCCB (Main Circuit Breaker)
+    count: 1
+  - type: CT (Current Transformer)
+    count: 1
+  - type: Voltmeter (V/M)
+    count: 1
+  - type: Ammeter (A/M)
+    count: 1
+  main_voltage_V: 380
+  system_phase: 3Ø4W
+  frequency_Hz: 60
+  total_capacity_kW: 8.5
+  drawing_number: M22-204
+  title: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM
+  drawing_genre: power_diagram
+  mech_subsystem: hvac_power
+  flow_direction: top-to-bottom
+  load_categories:
+  - HVAC_FAN
+  - EHP_INDOOR_UNIT
+  - CONTROL_POWER
+  load_equipment_tags:
+  - DCF-1
+  - DCF-2
+  - DCF-3
+  - DCF-4
+  - DCF-5
+  - EHP-1
+  - EHP-2
+  - EHP-3
+  - EHP-4
+  - EHP-5
+  - CONTROL POWER-1
+  - CONTROL POWER-2
+  has_bas_interface: false
+  bas_protocols: []
+  starter_types:
+  - DOL (적입기동)
+  external_source_panels:
+  - 메인입력 전기공사
+  has_load_schedule: true
+  schedule_columns:
+  - Feeder NO.
+  - Item NO.
+  - Feeder Name
+  - Capacity HP
+  - Capacity Kw
+  - STAB Connector
+  - MCCB/ELCB/NFB AF/AT
+  - CT /5A
+  - A-Meter /A
+  - MAGNETIC CONTACTOR MCM(88)
+  - MAGNETIC CONTACTOR MCD(88)
+  - MAGNETIC CONTACTOR MCY(88)
+  - EOCR/EMPR/OMPR
+  - TRANS
+  - V-Meter
+  - Condenser uF
+  - Wire Sq
+  - Power I.B A
+  - Sequence Type
+  - Remark
+  linked_schedule: SCHEDULE-TABLE
+  vendor_scope_boundary: 우측 경계 — EHP 실내기 제어반 내부는 장비업체 SCOPE
+relations:
+- from: MAIN-MCCB
+  to: MCP-PANEL
+  relation: feeds
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-DCF1
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-DCF2
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-DCF3
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-DCF4
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-DCF5
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-EHP1
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-EHP2
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-EHP3
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-EHP4
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-EHP5
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-CTRL-PWR1
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MCP-PANEL
+  to: FEEDER-CTRL-PWR2
+  relation: supplies
+  source_page: 25
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: MAIN-MCCB
+  to: MCP-PANEL
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: 3Ø4W 380V 60Hz
+- from: MCP-PANEL
+  to: FEEDER-DCF1
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELCR-1 EBC-13 3P/30AF/10A
+- from: MCP-PANEL
+  to: FEEDER-DCF2
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELCR-2 EBC-13 3P/30AF/10A
+- from: MCP-PANEL
+  to: FEEDER-DCF3
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELCR-3 EBC-13 3P/30AF/10A
+- from: MCP-PANEL
+  to: FEEDER-DCF4
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELCR-4 EBC-13 3P/30AF/10A
+- from: MCP-PANEL
+  to: FEEDER-DCF5
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELCR-5 EBC-13 3P/30AF/10A
+- from: MCP-PANEL
+  to: FEEDER-EHP1
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-1 EBC-13 2P/30AF/15A
+- from: MCP-PANEL
+  to: FEEDER-EHP2
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-2 EBC-13 2P/30AF/15A
+- from: MCP-PANEL
+  to: FEEDER-EHP3
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-3 EBC-13 2P/30AF/15A
+- from: MCP-PANEL
+  to: FEEDER-EHP4
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-4 EBC-13 2P/30AF/15A
+- from: MCP-PANEL
+  to: FEEDER-EHP5
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-5 EBC-13 2P/30AF/15A
+- from: MCP-PANEL
+  to: FEEDER-CTRL-PWR1
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-7 UMG30Ra 2P/30AF/10A FUSE-2 6A
+- from: MCP-PANEL
+  to: FEEDER-CTRL-PWR2
+  relation: cable
+  source_page: 25
+  origin: visual_semantics
+  annotation: ELB-8 UMG30Ra 2P/30AF/10A
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+confidence: 0.95
+equipment_symbols:
+- type: MCCB (Main Circuit Breaker)
+  count: 1
+- type: CT (Current Transformer)
+  count: 1
+- type: Voltmeter (V/M)
+  count: 1
+- type: Ammeter (A/M)
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+position: center-left
+ontology_hints:
+  suggested_parent_class: ControlPanel
+  observed_attributes:
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - inferred_name
+  - position
+  - raw_labels
+  - panel_shape
+  - equipment_symbols
+  - main_voltage_V
+  - system_phase
+  - frequency_Hz
+  - total_capacity_kW
+  - drawing_number
+  - title
+  - drawing_genre
+  - mech_subsystem
+  - flow_direction
+  - load_categories
+  - load_equipment_tags
+  - has_bas_interface
+  - bas_protocols
+  - starter_types
+  - external_source_panels
+  - has_load_schedule
+  - schedule_columns
+  - linked_schedule
+  - vendor_scope_boundary
+  similar_equipment:
+  - MCC
+  - LCP
+  - DDC
+  function_candidates:
+  - Power Distribution
+  - HVAC Control
+  - Circuit Protection
+  - Equipment Monitoring

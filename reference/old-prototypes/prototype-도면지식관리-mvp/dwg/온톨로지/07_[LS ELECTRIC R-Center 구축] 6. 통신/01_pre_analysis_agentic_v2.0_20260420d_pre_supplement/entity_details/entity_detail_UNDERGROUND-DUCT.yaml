@@ -1,0 +1,44 @@
+tag: UNDERGROUND-DUCT
+name: 지하공동구
+type: structural_element
+discipline: COMMUNICATION
+function_category: CABLE_CONDUIT
+source_pages:
+- 12
+specs:
+  raw_labels:
+  - 지하공동구
+  labels_inside:
+  - 지하공동구
+  labels_below:
+  - 지하공동구 사용
+  inferred_name: 지하공동구 (케이블 경로)
+relations:
+- from: EXT-사무동방송실
+  to: UNDERGROUND-DUCT
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: ELP 50 / IN TRAY, FR-3 2.5sq / 10C, 지하공동구 사용
+- from: UNDERGROUND-DUCT
+  to: MANHOLE-01
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: 지하공동구 경유
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-right
+ontology_hints:
+  suggested_parent_class: CableContainment
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_below
+  - inferred_name
+  similar_equipment:
+  - MANHOLE
+  function_candidates:
+  - CableRouting
+  - UndergroundPathway

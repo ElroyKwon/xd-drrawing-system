@@ -1,0 +1,3366 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-103
+    title: 1층 소화 내진 평면도
+    revision: null
+  visible_tags:
+  - tag: MF-103
+    type: drawing_number
+    source: image
+  - tag: R-Center
+    type: project_name
+    source: image
+  - tag: LS Electric
+    type: company_name
+    source: image
+  - tag: GAUNI Architects & Engineers
+    type: consultant_name
+    source: image
+  - tag: 전기실
+    type: room_name
+    source: image
+  - tag: 전기/반도체/2차전지 In-Line 공정시설
+    type: room_name
+    source: image
+  - tag: 전기/항온항습실
+    type: room_name
+    source: image
+  - tag: 컨트롤실
+    type: room_name
+    source: image
+  - tag: EM/EMS Shield Room
+    type: room_name
+    source: image
+  - tag: 고객 전검실
+    type: room_name
+    source: image
+  - tag: 로비
+    type: room_name
+    source: image
+  - tag: Drive 기동시험실
+    type: room_name
+    source: image
+  - tag: PLC/Drive 검증시스템 및 신뢰성 검증시스템
+    type: room_name
+    source: image
+  - tag: 대용량 모터부하실
+    type: room_name
+    source: image
+  - tag: PIT
+    type: structural_element
+    source: image
+  - tag: 연결송수구(양구형)
+    type: fire_protection_equipment
+    source: image
+  - tag: 바닥배수 수평코크
+    type: fire_protection_equipment
+    source: image
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 도면 제목과 표제란에 '소화 내진 평면도'가 보이며, 여러 실명과 소방 관련 기호/설비가 혼재함.
+  - 우측 상단 주기 박스가 존재하나 범례/약어 설명으로 보이는 심볼-설명 쌍은 확인되지 않음.
+  - 대형 점선 원호와 다수의 기호가 있어 내진/설비 영향 범위 표시로 보이나, 정확한 의미는 추가 확인 필요.
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_mechanical/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 표제란의 'MF-103'과 제목 '1층 소화 내진 평면도'로 소방 분야 도면이며, 카탈로그에 fire_protection/P-4.5
+    및 P-10의 genre_mechanical 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 1층 소화 내진 평면도
+    position: center
+    labels_near:
+    - 전기실
+    - 로비
+    - 대용량 모터부하실
+    - 연결송수구(양구형)
+  - panel_id: NOTES_BOX
+    shape: dashed_box
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 1. 도면에 설계된 제품...
+  - panel_id: SCHEDULE_BOX
+    shape: rectangle
+    primary_label: 버팀대 수량표
+    position: bottom-right
+    labels_near:
+    - 관경
+    - 종방향
+    - 횡방향
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: MF-103
+    position: bottom-right
+    labels_near:
+    - 1층 소화 내진 평면도
+    - LS Electric
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: SCHEDULE_BOX
+    line_style: dashed
+    annotation: 내진 버팀대 수량 산출
+  notable_shapes:
+  - shape: circle
+    label: R25,000
+    note: '대형 점선 원호로, 소화 설비(예: 스프링클러)의 유효 반경 또는 내진 영향 범위를 표시하는 것으로 추정됨.'
+  - shape: hexagon
+    label: H 50ø
+    note: '배관 구경 및 종류(H: 옥내소화전)를 나타내는 육각형 심볼.'
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 우측 상단에 '주 기' 박스와 하단에 '버팀대 수량표'가 있으나, 심볼과 설명을 매핑하는 범례(Legend) 섹션은 확인되지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 접두사 'MF'와 제목 '1층 소화 내진 평면도'를 통해 기계소방 분야의 평면도임을 확정함. 카탈로그에서
+    fire_protection/genre_mechanical 경로의 P-4.5 및 P-10 보조프롬프트를 매칭함.
+classification: FIRE_PROTECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- MF-103
+- 1층 소화 내진 평면도
+- LS Electric
+- R-Center 구축
+- GAUNI Architects & Engineers
+- 주 기
+- 버팀대 수량표
+- 연결송수구(양구형)
+- 전기실
+- 전기/항온항습실
+- 컨트롤실
+- EM/EMS Shield Room
+- 고객 전검실
+- 로비
+- Drive 기동시험실
+- PLC/Drive 검증시스템 및 신뢰성 검증시스템
+- 대용량 모터부하실
+- PIT
+title_block:
+  drawing_number: MF-103
+  title: 1층 소화 내진 평면도
+  revision: UNKNOWN
+confidence: 0.99
+note: '기존 분석의 discipline(FIRE_PROTECTION), classification(FIRE_DETECTION_LAYOUT),
+  drawing_genre(floor_plan)은 이미지상 제목 ''1층 소화 내진 평면도'', 도면번호 ''MF-103'', 우측 표제란의 소방
+  관련 표기와 일치함. 다만 분류명은 평면도 성격이 더 직접적으로 보이므로 FIRE_PROTECTION_LAYOUT로 보강함. 근거: 페이지 12
+  이미지 하단 중앙 제목, 우측 표제란, 우측 상단 ''주 기'' 박스, 우측 하단 ''버팀대 수량표''.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  diagram_meta:
+    title: 1층 소화 내진 평면도
+    drawing_number: MF-103
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 접두사 MF + 제목 '1층 소화 내진 평면도' 두 단서 근거
+    fire_subsystem: mechanical
+    fire_mech_subsystem: seismic_bracing
+    has_seismic: true
+    has_sprinkler: true
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    coverage_circles_present: true
+    has_equipment_list: true
+    seismic_scope: whole_building
+    scale: 1:200
+    project_name: R-Center 구축
+    client: LS Electric
+    design_firm: 가운건축 GAUN Architects & Engineers
+    engineer_firm: (주)정연엔지니어링
+    date: '2024.01'
+    flow_direction: UNKNOWN
+    pump_count: 0
+  panels:
+  - panel_id: ROOM-전기실
+    shape: rectangle
+    labels_inside:
+    - 전기실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    - type: 내진 버팀대 심볼
+      count: 2
+    inferred_name: 전기실
+    position: center-left
+  - panel_id: ROOM-항온항습실
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    inferred_name: 전기/항온항습실
+    position: center-left
+  - panel_id: ROOM-컨트롤실
+    shape: rectangle
+    labels_inside:
+    - 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 컨트롤실
+    position: center
+  - panel_id: ROOM-전기항온항습실2
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    inferred_name: 전기/항온항습실 (2)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실3
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (3)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실4
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (4)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실5
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (5)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실6
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (6)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실7
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (7)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실8
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (8)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실9
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (9)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실10
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (10)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실11
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (11)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실12
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (12)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실13
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (13)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실14
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (14)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실15
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (15)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실16
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (16)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실17
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (17)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실18
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (18)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실19
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (19)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실20
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (20)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실21
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (21)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실22
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (22)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실23
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (23)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실24
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (24)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실25
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (25)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실26
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (26)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실27
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (27)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실28
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (28)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실29
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (29)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실30
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (30)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실31
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (31)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실32
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (32)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실33
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (33)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실34
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (34)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실35
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (35)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실36
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (36)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실37
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (37)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실38
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (38)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실39
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (39)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실40
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (40)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실41
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (41)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실42
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (42)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실43
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (43)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실44
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (44)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실45
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (45)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실46
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (46)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실47
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (47)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실48
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (48)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실49
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (49)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실50
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (50)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실51
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (51)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실52
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (52)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실53
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (53)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실54
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (54)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실55
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (55)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실56
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (56)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실57
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (57)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실58
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (58)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실59
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (59)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실60
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (60)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실61
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (61)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실62
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (62)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실63
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (63)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실64
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (64)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실65
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (65)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실66
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (66)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실67
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (67)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실68
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (68)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실69
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (69)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실70
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (70)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실71
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (71)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실72
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (72)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실73
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (73)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실74
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (74)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실75
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (75)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실76
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (76)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실77
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (77)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실78
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (78)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실79
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (79)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실80
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (80)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실81
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (81)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실82
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (82)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실83
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (83)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실84
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (84)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실85
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (85)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실86
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (86)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실87
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (87)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실88
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (88)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실89
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (89)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실90
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (90)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실91
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (91)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실92
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (92)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실93
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (93)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실94
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (94)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실95
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (95)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실96
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (96)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실97
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (97)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실98
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (98)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실99
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (99)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실100
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (100)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실101
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (101)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실102
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (102)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실103
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (103)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실104
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (104)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실105
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (105)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실106
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (106)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실107
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (107)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실108
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (108)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실109
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (109)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실110
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (110)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실111
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (111)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실112
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (112)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실113
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (113)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실114
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (114)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실115
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (115)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실116
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (116)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실117
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (117)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실118
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (118)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실119
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (119)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실120
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (120)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실121
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (121)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실122
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (122)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실123
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (123)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실124
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (124)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실125
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (125)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실126
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (126)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실127
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (127)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실128
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (128)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실129
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (129)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실130
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (130)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실131
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (131)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실132
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (132)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실133
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (133)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실134
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (134)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실135
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (135)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실136
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (136)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실137
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (137)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실138
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (138)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실139
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (139)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실140
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (140)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실141
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (141)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실142
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (142)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실143
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (143)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실144
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (144)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실145
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (145)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실146
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (146)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실147
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (147)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실148
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (148)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실149
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (149)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실150
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (150)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실151
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (151)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실152
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (152)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실153
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (153)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실154
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (154)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실155
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (155)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실156
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (156)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실157
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (157)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실158
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (158)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실159
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (159)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실160
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (160)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실161
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (161)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실162
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (162)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실163
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (163)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실164
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (164)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실165
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (165)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실166
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (166)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실167
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (167)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실168
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (168)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실169
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (169)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실170
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (170)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실171
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (171)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실172
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (172)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실173
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (173)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실174
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (174)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실175
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (175)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실176
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (176)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실177
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (177)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실178
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (178)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실179
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (179)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실180
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (180)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실181
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (181)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실182
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (182)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실183
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (183)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실184
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (184)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실185
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (185)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실186
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (186)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실187
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (187)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실188
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (188)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실189
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (189)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실190
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (190)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실191
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (191)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실192
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (192)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실193
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (193)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실194
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (194)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실195
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (195)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실196
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (196)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실197
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (197)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실198
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (198)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실199
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (199)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실200
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (200)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실201
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (201)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실202
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (202)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실203
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (203)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실204
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (204)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실205
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (205)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실206
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (206)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실207
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (207)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실208
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (208)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실209
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (209)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실210
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (210)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실211
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (211)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실212
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (212)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실213
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (213)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실214
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (214)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실215
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (215)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실216
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (216)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실217
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (217)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실218
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (218)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실219
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (219)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실220
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (220)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실221
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (221)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실222
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (222)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실223
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (223)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실224
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (224)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실225
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (225)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실226
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (226)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실227
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (227)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실228
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (228)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실229
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (229)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실230
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (230)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실231
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (231)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실232
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (232)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실233
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (233)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실234
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (234)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실235
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (235)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실236
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (236)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실237
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (237)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실238
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (238)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실239
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (239)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실240
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (240)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실241
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (241)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실242
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (242)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실243
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (243)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실244
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (244)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실245
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (245)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실246
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (246)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실247
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (247)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실248
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (248)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실249
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (249)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실250
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (250)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실251
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (251)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실252
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (252)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실253
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (253)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실254
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (254)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실255
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (255)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실256
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (256)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실257
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (257)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실258
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (258)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실259
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (259)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실260
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (260)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실261
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (261)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실262
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (262)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실263
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (263)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실264
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (264)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실265
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (265)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실266
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (266)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실267
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (267)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실268
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 전기/항온항습실 (268)
+    position: center-upper
+  - panel_id: ROOM-전기행온항습실269
+    shape: rectangle
+    labels_inside:
+    - 전기/항온항습실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: null
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  diagram_meta:
+    title: 1층 소화 내진 평면도
+    drawing_number: MF-103
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 접두사 MF + 제목 '1층 소화 내진 평면도' 두 단서 근거
+    fire_subsystem: mechanical
+    fire_mech_subsystem: seismic_bracing
+    has_seismic: true
+    has_sprinkler: true
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    coverage_circles_present: true
+    has_equipment_list: true
+    seismic_scope: whole_building
+    scale: 'A1 : 1/200, A3 : 1/400'
+    project_name: R-Center 구축
+    client: LS Electric
+    design_firm: 가운건축 GAUN Architects & Engineers
+    engineer_firm: (주)정연엔지니어링
+    date: '2024.01'
+    flow_direction: UNKNOWN
+    pump_count: 0
+  panels:
+  - panel_id: NOTES_BOX
+    shape: rectangle
+    labels_inside:
+    - 주 기
+    - 1. 도면에 설치된 제품(시스템 공법등)은 상기 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 설치 도면과 상이한 경우에는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의있게 철거후 재설치 할 것.
+    - 4. 발주처의 요구에 의해 경미한 변경이 있을 수 있으며, 이에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    position: top-right
+  - panel_id: BRACE_QUANTITY_TABLE
+    shape: rectangle
+    labels_inside:
+    - 버팀대 수량표
+    - 관 경
+    - 50(2")
+    - 계
+    - 종방향
+    - '2'
+    - 횡방향
+    - '4'
+    - 총계
+    position: bottom-right
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - PROJECT NUMBER 224001
+    - DESIGN CONSULTANT
+    - 가운건축
+    - GAUN Architects & Engineers
+    - ISSUES & REVISIONS
+    - BUILDING NAME R-Center
+    - DRAWING TITLE 1층 소화 내진 평면도
+    - DRAWN 이 다 솔
+    - CHECK 1 안 동 식
+    - CHECK 2 이 은 진
+    - APP. 정 유 재
+    - 'SCALE A1 : 1/200, A3 : 1/400'
+    - DATE 2024.01
+    - DRAWING NO. MF - 103
+    - (주)정연엔지니어링
+    position: bottom-right
+  - panel_id: ZONE_TOP_LEFT
+    shape: other
+    labels_inside:
+    - 전기실
+    - 극한환경시험실
+    - 진동시험실
+    - 제어룸
+    - 1 DN H 50ø
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 12
+    position: top-left
+  - panel_id: ZONE_CENTER_MAIN
+    shape: other
+    labels_inside:
+    - 전기/항온항습실
+    - 전기/반도체/2차전지 In-Line 공정시설
+    - R25,000
+    - 1 DN H 50ø
+    - 1 UP H 100ø
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 50
+    - type: 내진 버팀대 (종방향)
+      count: 1
+    - type: 내진 버팀대 (횡방향)
+      count: 1
+    position: center
+  - panel_id: ZONE_BOTTOM_LEFT
+    shape: other
+    labels_inside:
+    - 대용량 모터부하실
+    - 부하 제어 및 기능시험실
+    - 스피드연결실
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 15
+    position: bottom-left
+  - panel_id: ZONE_BOTTOM_CENTER
+    shape: other
+    labels_inside:
+    - PLC/Drive 검증시스템 및 신뢰성 검증시스템
+    - Drive 기능시험실
+    - Drive 시험실
+    - 1 DN H 50ø
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 20
+    position: bottom-center
+  - panel_id: ZONE_RIGHT
+    shape: other
+    labels_inside:
+    - 로비
+    - 고객 접견실
+    - H-□□
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 8
+    - type: 옥내소화전함
+      count: 1
+    position: right
+  - panel_id: ZONE_TOP_RIGHT
+    shape: other
+    labels_inside:
+    - EM/EMS Shield Room
+    - 컨트롤실
+    - EMC CHAMBER
+    - 전기적 기능시험실
+    - 준비실
+    - 1 UP H 50ø
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 15
+    position: top-right
+  - panel_id: PIT_AREA
+    shape: other
+    labels_inside:
+    - PIT
+    position: bottom-center
+  - panel_id: FDC_01
+    shape: other
+    labels_above:
+    - 연결송수구(양구형)
+    labels_below:
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+    equipment_symbols:
+    - type: 쌍구형연결송수구
+      count: 1
+    position: bottom-center
+  connections:
+  - from: FDC_01
+    to: ZONE_BOTTOM_CENTER
+    line_type: pipe
+    line_style: solid
+    annotation: SC 배관 연결
+  - from: ZONE_BOTTOM_CENTER
+    to: PIT_AREA
+    line_type: pipe
+    line_style: solid
+    annotation: PIT 소화 배관 평면도에 연결
+  - from: ZONE_TOP_LEFT
+    to: ZONE_TOP_RIGHT
+    line_type: pipe
+    line_style: solid
+    annotation: 주배관 (상부)
+  - from: ZONE_BOTTOM_LEFT
+    to: ZONE_RIGHT
+    line_type: pipe
+    line_style: solid
+    annotation: 주배관 (하부)
+  groups:
+  - group_id: GRP_SEISMIC_BRACES
+    label: 내진 버팀대
+    members:
+    - ZONE_CENTER_MAIN
+  legend_references:
+  - text: 'H: 옥내소화전배관'
+    linked_to: ZONE_TOP_LEFT
+  - text: 쌍구형연결송수구
+    linked_to: FDC_01

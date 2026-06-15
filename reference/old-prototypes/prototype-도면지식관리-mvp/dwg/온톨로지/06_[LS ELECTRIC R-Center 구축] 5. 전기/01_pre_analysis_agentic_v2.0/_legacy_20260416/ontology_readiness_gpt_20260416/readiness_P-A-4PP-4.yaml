@@ -1,0 +1,378 @@
+ontology_readiness:
+  tag: P-A-4PP-4
+  verdict: qualified
+  confidence: 0.98
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 24
+    reason: 고유 tag가 있고, panel_board/volt/main_cb/spd_capacity_kA/rated_voltage_V/main_cb_af_A/main_cb_at_A
+      등 자체 사양이 명확하며, 다른 설비의 부품으로만 식별되지 않음.
+  relation_completeness:
+    declared_relations: 5
+    discovered_relations: 5
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 24
+    convertible: 18
+    ambiguous_attributes:
+    - key: box_size
+      value: —
+      reason: 값이 비어 있음/미기재로 온톨로지 속성화 불가
+    - key: labels_above
+      value:
+      - 'PANEL BOARD: P-A-4PP-4'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      reason: 라벨 원문 목록으로, 개별 속성으로 단정 변환보다 annotation 보존이 적절
+    - key: labels_inside
+      value:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - AT AF P TYPE NO CCM
+      - 1 MCCB 해당부하
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      reason: 원문 라벨 묶음으로 보존 필요
+    - key: labels_below
+      value:
+      - E3
+      reason: 라벨 원문으로 annotation 보존 필요
+    - key: equipment_symbols
+      value:
+      - type: MCCB
+        count: 3
+      - type: SPD
+        count: 1
+      - type: CT
+        count: 1
+      reason: 심볼 집계 정보로서 속성보다는 annotation/보조정보로 보존
+    - key: connections_internal
+      value:
+      - circuit: MAIN
+        spec: MCCB 3P 30/20AT
+        annotation: MAIN FEEDER FROM 전기실
+      - circuit: '1'
+        breaker: MCCB 3P
+        annotation: 해당부하
+        status: active
+      - circuit: '2'
+        breaker: MCCB 3P 125/75A
+        annotation: SP
+        status: spare
+      reason: 내부 회로 연결 정보는 관계/주석으로 보존하는 것이 적절
+    - key: raw_labels
+      value:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - AT AF P TYPE NO CCM
+      - 1 MCCB 해당부하
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      - 'PANEL BOARD: P-A-4PP-4'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      - 'CKT#: 3P 630 AF / 500 AT'
+      - AT AF P TYPE NO CKT#
+      - '[[''3 MCCB 전원(인버터) 구동용(2) 0~600V 45Hz~65Hz'']]'
+      - CKT# NO TYPE P AF AT
+      reason: 원문 텍스트 전량 보존 필요
+    - key: branch_circuits[0].breaker_af_A
+      value: null
+      reason: 값 미기재
+    - key: branch_circuits[0].breaker_at_A
+      value: null
+      reason: 값 미기재
+    auxiliary_attributes:
+    - panel_board
+    - cover_type
+    - panel_location
+    - box_size
+    - source
+    - volt
+    - voltage_V
+    - main_cb
+    - spd_capacity_kA
+    - labels_above
+    - labels_inside
+    - labels_below
+    - equipment_symbols
+    - connections_internal
+    - raw_labels
+    - rated_voltage_V
+    - main_cb_type
+    - main_cb_poles
+    - main_cb_af_A
+    - main_cb_at_A
+    - spd_spec
+    - spd_protection_mccb
+    - branch_circuits
+    - grounding
+    requirement_attributes: []
+    extracted_attributes:
+    - 'PANEL BOARD: P-A-4PP-4'
+    - 'COVER TYPE: 노출형(STEEL)'
+    - 'PANEL LOCATION: 1층 Drive 시험실'
+    - 'SOURCE: 전기실'
+    - 'VOLT: 440V'
+    - 'MAIN C.B: MCCB'
+    - MCCB 3P 30/20AT
+    - 3Ø S.P.D 40KA/mode
+    - 'FROM: 전기실 (R S T)'
+    - AT AF P TYPE NO CCM
+    - 1 MCCB 해당부하
+    - SP MCCB 3 125 75
+    - E3 (접지)
+    - 'CKT#: 3P 630 AF / 500 AT'
+    - 3 MCCB 전원(인버터) 구동용(2) 0~600V 45Hz~65Hz
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    - key: collection_sources.cross_validated
+      value: true
+      source: cross_validated
+      conflict_with: null
+    - key: collection_sources.visual_semantics
+      value: true
+      source: visual_semantics
+      conflict_with: null
+    - key: collection_sources.visual_semantics_gemini
+      value: true
+      source: visual_semantics_gemini
+      conflict_with: null
+    - key: collection_sources.entity_synthesis
+      value: true
+      source: entity_synthesis
+      conflict_with: null
+    conflicts:
+    - key: main_cb / main_cb_type
+      values:
+      - MCCB
+      - MCCB
+      sources:
+      - specs.main_cb
+      - specs.main_cb_type
+    - key: voltage
+      values:
+      - 440V
+      - '440'
+      sources:
+      - specs.volt
+      - specs.voltage_V
+    - key: main feeder rating
+      values:
+      - MCCB 3P 30/20AT
+      - 3P 630 AF / 500 AT
+      sources:
+      - specs.connections_internal[0].spec
+      - specs.raw_labels
+      reason: 서로 다른 회로/표기일 가능성이 있어 충돌로 보존
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from: 전기실
+      to: P-A-4PP-4
+      relation: feeds
+    - from: P-A-4PP-4
+      to: E3
+      relation: grounds_to
+    hints_added:
+    - 타 분야 설비 연결은 확인되지 않음
+    - 전기실과의 feed/cable 관계만 확인됨
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - PowerDistribution
+    - CircuitProtection
+  spatial_context:
+    position: bottom-left
+    source_pages:
+    - 21
+    room_or_zone: 1층 Drive 시험실
+    floor: 1층
+  preserved_auxiliary:
+    specs_full:
+      panel_board: P-A-4PP-4
+      cover_type: 노출형(STEEL)
+      panel_location: 1층 Drive 시험실
+      box_size: —
+      source: 전기실
+      volt: 440V
+      voltage_V: 440
+      main_cb: MCCB
+      spd_capacity_kA: 40
+      labels_above:
+      - 'PANEL BOARD: P-A-4PP-4'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      labels_inside:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - AT AF P TYPE NO CCM
+      - 1 MCCB 해당부하
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      labels_below:
+      - E3
+      equipment_symbols:
+      - type: MCCB
+        count: 3
+      - type: SPD
+        count: 1
+      - type: CT
+        count: 1
+      connections_internal:
+      - circuit: MAIN
+        spec: MCCB 3P 30/20AT
+        annotation: MAIN FEEDER FROM 전기실
+      - circuit: '1'
+        breaker: MCCB 3P
+        annotation: 해당부하
+        status: active
+      - circuit: '2'
+        breaker: MCCB 3P 125/75A
+        annotation: SP
+        status: spare
+      raw_labels:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - AT AF P TYPE NO CCM
+      - 1 MCCB 해당부하
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      - 'PANEL BOARD: P-A-4PP-4'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      - 'CKT#: 3P 630 AF / 500 AT'
+      - AT AF P TYPE NO CKT#
+      - '[[''3 MCCB 전원(인버터) 구동용(2) 0~600V 45Hz~65Hz'']]'
+      - CKT# NO TYPE P AF AT
+      rated_voltage_V: 440
+      main_cb_type: MCCB
+      main_cb_poles: 3
+      main_cb_af_A: 630
+      main_cb_at_A: 500
+      spd_spec: 3Ø S.P.D 40KA/mode
+      spd_protection_mccb: MCCB 3P 30/20AT
+      branch_circuits:
+      - circuit_no: 1
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: null
+        breaker_at_A: null
+        annotation: 전원(인버터) 구동용(2) 0~600V 45Hz~65Hz
+        status: active
+      - circuit_no: 2
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 125
+        breaker_at_A: 75
+        annotation: SP
+        status: spare
+      grounding: E3
+    notes: []
+    drawing_texts:
+    - 'SOURCE: 전기실'
+    - 'VOLT: 440V'
+    - 'MAIN C.B: MCCB'
+    - MCCB 3P 30/20AT
+    - 3Ø S.P.D 40KA/mode
+    - 'FROM: 전기실 (R S T)'
+    - AT AF P TYPE NO CCM
+    - 1 MCCB 해당부하
+    - SP MCCB 3 125 75
+    - E3 (접지)
+    - 'PANEL BOARD: P-A-4PP-4'
+    - 'COVER TYPE: 노출형(STEEL)'
+    - 'PANEL LOCATION: 1층 Drive 시험실'
+    - 'BOX SIZE: —'
+    - 'CKT#: 3P 630 AF / 500 AT'
+    - AT AF P TYPE NO CKT#
+    - '[[''3 MCCB 전원(인버터) 구동용(2) 0~600V 45Hz~65Hz'']]'
+    - CKT# NO TYPE P AF AT
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - equipment_symbols
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: ElectricalEquipment
+    annotations_to_emit:
+    - ambiguous_attributes
+    - provenance_attributes
+    - conflicts
+    - source_attribution
+    - collection_sources
+    - drawing_texts
+    - notes
+    - requirements
+    relations_to_emit:
+    - feeds
+    - grounds_to
+    - contains
+    - cable
+    needs_human_review: false
+tag: P-A-4PP-4
+discovered_relations: 5

@@ -1,0 +1,55 @@
+page_50_entities:
+- tag: PIT-ZONE
+  name: PIT층 제어 구역
+  type: ZONE
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: SMFD-01
+  name: '스마트 방화댐퍼 #1'
+  type: FIRE_DAMPER
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: SMFD-02
+  name: '스마트 방화댐퍼 #2'
+  type: FIRE_DAMPER
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: JB-A-01
+  name: '전선 접속함 A #1'
+  type: JUNCTION_BOX
+  discipline: ELECTRICAL
+  confidence: 0.85
+- tag: JB-A-02
+  name: '전선 접속함 A #2'
+  type: JUNCTION_BOX
+  discipline: ELECTRICAL
+  confidence: 0.85
+- tag: LEGEND-WIRE
+  name: 전선 및 전선관 범례표
+  type: LEGEND
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: UNKNOWN-DESTINATION-UP
+  name: 상부 연결점
+  type: CONNECTION_POINT
+  discipline: MECHANICAL
+  confidence: 0.8
+page_50_relations:
+- from: SMFD-01
+  to: SMFD-02
+  relation: connects_to
+- from: PIT-ZONE
+  to: LEGEND-WIRE
+  relation: references
+- from: SMFD-01
+  to: JB-A-01
+  relation: connects_to
+- from: SMFD-02
+  to: JB-A-02
+  relation: connects_to
+- from: JB-A-02
+  to: JB-A-01
+  relation: connects_to
+- from: JB-A-01
+  to: UNKNOWN-DESTINATION-UP
+  relation: connects_to

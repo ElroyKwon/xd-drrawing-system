@@ -1,0 +1,177 @@
+placement:
+  tag: UNKNOWN-PANEL-002
+  name: 도면 번호/개정 표식
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DocumentElement
+    alternative_class_hints:
+    - IdentificationMark
+    - RevisionMark
+    - TitleBlockElement
+    related_assertions: []
+    applicable_axioms:
+    - AX014
+    applicable_constraints: []
+    confirmed_class: dks:DocumentElement
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'panel_id: TITLE-MARK-01'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 식별자 문자열이 명시됨
+      - raw_text: 'shape: rectangle'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보가 명시됨
+      - raw_text: 'labels_inside: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 목록이 비어 있음
+      - raw_text: 'labels_above: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: labelsAbove
+          suggested_datatype: xsd:string
+          rationale: 상단 라벨 목록이 비어 있음
+      - raw_text: 'labels_below: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: labelsBelow
+          suggested_datatype: xsd:string
+          rationale: 하단 라벨 목록이 비어 있음
+      - raw_text: 'equipment_symbols: type=대각선 포함 직사각형 표식, count=1'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: equipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: 기호 유형과 수량이 명시됨
+      - raw_text: 'inferred_name: 도면 번호/개정 표식 (내용 미기재)'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추정명과 미기재 상태가 함께 기록됨
+      - raw_text: 'position: top-right'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치가 명시됨
+      - raw_text: 'function_category: DOCUMENT_MARK'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주가 명시됨
+      - raw_text: 'ontology_hints.suggested_parent_class: DocumentElement'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트의 상위 클래스 후보
+      - raw_text: 'ontology_hints.function_candidates: Identification, Revision Tracking'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 명시됨
+  provenance:
+    name:
+      source_pages:
+      - 1
+    ontology_core.owl_role:
+      source_pages:
+      - 1
+    ontology_core.class_hint:
+      source_pages:
+      - 1
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 1
+    discipline_context.free_notes:
+      source_pages:
+      - 1
+    specs.panel_id:
+      source_pages:
+      - 1
+    specs.shape:
+      source_pages:
+      - 1
+    specs.labels_inside:
+      source_pages:
+      - 1
+    specs.labels_above:
+      source_pages:
+      - 1
+    specs.labels_below:
+      source_pages:
+      - 1
+    specs.equipment_symbols:
+      source_pages:
+      - 1
+    specs.inferred_name:
+      source_pages:
+      - 1
+    specs.position:
+      source_pages:
+      - 1
+    function_category:
+      source_pages:
+      - 1
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 1
+    ontology_hints.function_candidates:
+      source_pages:
+      - 1
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: '[]'
+    source_page: 1
+    reason: 비어 있는 목록으로 관찰값은 있으나 내용은 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 1
+    reason: 비어 있는 목록으로 관찰값은 있으나 내용은 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 1
+    reason: 비어 있는 목록으로 관찰값은 있으나 내용은 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 도면 번호/개정 표식으로 보이나 실제 물리 설비인지, 문서 주석 요소인지 경계가 다소 모호함. 다만 내용 미기재와 위치/형상상
+      문서 표식 성격이 강함.
+    recommended_handling: AnnotationOnly로 유지하고, 이후 동일 패널 패턴이 반복되면 DocumentElement
+      하위의 식별/개정 표식 클래스로 승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CommunicationDocumentEntity / DocumentMetadata 계열로 해석
+    - DocumentElement 후보 class_hint 반영
+    - 도면 표식/주석성 요소는 AnnotationOnly로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:11.364114'
+  confidence: 0.86

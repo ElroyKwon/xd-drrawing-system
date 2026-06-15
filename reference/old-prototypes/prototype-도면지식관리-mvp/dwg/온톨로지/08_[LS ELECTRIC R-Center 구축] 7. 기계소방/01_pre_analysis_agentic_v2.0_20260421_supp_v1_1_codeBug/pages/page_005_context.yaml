@@ -1,0 +1,633 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: MF-004
+    title: 소화배관계통도
+    revision: null
+  visible_tags:
+  - tag: A.B.C
+    type: valve/fixture label in symbol table
+    source: image
+  - tag: PIT
+    type: structural_element_label
+    source: image
+  - tag: 지붕층
+    type: space/level label
+    source: image
+  - tag: 2층
+    type: space/level label
+    source: image
+  - tag: 1층
+    type: space/level label
+    source: image
+  - tag: 연결송수구
+    type: fire_protection_component_label
+    source: image
+  - tag: 소화배관계통도
+    type: drawing_title
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 도면 제목이 '소화배관계통도'이며, 우측 표제란 도면번호는 MF-004로 보임
+  - 상단 우측에 주기(Notes) 박스가 있으나 심볼-설명 범례 전용 페이지는 아님
+  - 하단 중앙에 A.B.C 분사기/소화설비 관련 소형 표가 있어 일부 기호 설명처럼 보이나 범례 전용으로 단정 불가
+  - 층별(지붕층/2층/1층/PIT) 수직 계통과 연결송수구 표기가 보임
+  confidence: 0.93
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_system_diagram/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 도면번호 MF-004와 제목 '소화배관계통도'로 fire_protection 판정 가능하며, 카탈로그에 fire_protection/P-4.5
+    및 P-10의 genre_mechanical 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 소화배관계통도
+    position: bottom-right
+    labels_near:
+    - MF-004
+    - R-Center
+  - panel_id: NOTES_BOX
+    shape: rectangle
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 1. 도면에 설계된 제품...
+    - 6. 범례
+  - panel_id: SYSTEM_DIAGRAM
+    shape: rectangle
+    primary_label: 소화배관계통도
+    position: center
+    labels_near:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    - 연결송수구
+  - panel_id: EQUIPMENT_SCHEDULE
+    shape: rectangle
+    primary_label: A.B.C 분말소화기
+    position: bottom-center
+    labels_near:
+    - 옥내소화전함(호스릴형)
+    - 쌍구형 연결송수구
+  connections:
+  - from: SYSTEM_DIAGRAM
+    to: EQUIPMENT_SCHEDULE
+    line_style: dashed
+    annotation: 심볼 매칭
+  notable_shapes:
+  - shape: circle
+    label: 1 / MF
+    note: 도면 상세 번호 기호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.9
+  note: 우측 상단 '주 기' 박스 내부에 '6. 범례' 섹션이 포함되어 배관 종류를 설명함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: system_diagram
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면 제목 '소화배관계통도'와 수직 배관 구성을 통해 system_diagram으로 확정. 0-0의 other에서
+    갱신됨. 카탈로그에서 fire_protection/system_diagram 경로 추출.
+classification: FIRE_PROTECTION_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 소화배관계통도
+- 지붕층
+- 2층
+- 1층
+- PIT
+- 연결송수구
+- A.B.C 분말소화기
+- 옥내소화전함(호스릴형)
+- 쌍구형 연결송수구
+title_block:
+  drawing_number: MF-004
+  title: 소화배관계통도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline=FIRE_PROTECTION, title_block(MF-004/소화배관계통도), system_diagram
+  판정과 일치함. 페이지 우측 상단 주기 박스에 ''6. 범례'' 문구가 보이지만 범례 전용 페이지는 아님. 하단 중앙 장비/기호 표에는 A.B.C
+  분말소화기, 옥내소화전함(호스릴형), 쌍구형 연결송수구가 보임. 출처: 페이지 5 시각 정보 및 기존 분석 결과.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 소화배관계통도
+    - MF-004
+    - 'A1: 1/NONE'
+    - 'A3: 1/NONE'
+    - '2024.04'
+    - R-Center
+    labels_above: []
+    labels_below: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설계된 제품[시스템 포함]은 설계 목표 또는 동등 이상의 제품으로 사용가능.
+    - 2. 붉게 도면이 칠해진 곳 부위에는 현장여건에 맞게 시공하며 시공관리 충분히 확인 할 것.
+    - 3. 기존 장비 및 기구류는 최선의 위치 맞게 주변에다 철거 후 재설치 할 것.
+    - 4. 날부치의 오구에 비어 경기(한 판결이 있을 수 있으며, 그에 따른 물량들과 연관이 있을수도 있으므로 충분히 확인할 것.
+    - 5. 배관 위치 철물은 기존 재시공.
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+    - '7. 기존배관 재질 : 백강관'
+    - 8. 통과우려가 있는 배관 동파방지배선 설치후 임통보온 한다.
+    - 9. 기존 소방용품은(IT등) 기존 변경 없음.
+    labels_above: []
+    labels_below: []
+    inferred_name: 주기(Notes) 박스
+    position: top-right
+  - panel_id: SYSTEM-DIAGRAM
+    shape: rectangle
+    labels_inside:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    - 연결송수구
+    - T-50
+    - T-50
+    - T-50
+    - T-50
+    - T-50
+    - T-100
+    - T-50
+    - T-100
+    - T-100
+    - 기존 공동구 폐내소화전 배관에서 분기 (공동구 내부 기미트_피(케이블 이상)
+    labels_above:
+    - 지붕층
+    labels_below:
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 6
+    - type: A.B.C 분말소화기
+      count: 6
+    - type: 게이트밸브
+      count: 8
+    - type: 쌍구형 연결송수구
+      count: 1
+    inferred_name: 소화배관 수직 계통도 (층별 배관 분기 다이어그램)
+    position: center
+  - panel_id: EQUIP-SCHEDULE
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말소화기
+    - 3단위
+    - '각면: 추가(A: 소화능력 추가설치)'
+    - 일도에 따라 정상소화약제 소화기로 변경가능
+    - x 29EA
+    - 옥내소화전함(호스릴형)
+    - 25ex30M 호스 25a관창 1개
+    - 전면(ST) 후면(STEEL)
+    - x 6EA
+    - 쌍구형 연결송수구
+    - 100φ x 65φ x 65φ
+    - x 1EA
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: A.B.C 분말소화기 심볼
+      count: 1
+    - type: 옥내소화전함 심볼
+      count: 1
+    - type: 쌍구형 연결송수구 심볼
+      count: 1
+    inferred_name: 장비 일람표 / 수량표
+    position: bottom-center
+  - panel_id: DRAWING-STAMP
+    shape: circle
+    labels_inside:
+    - '1'
+    - MF
+    - 소화배관계통도
+    - '축척(A1): 1/NONE'
+    - '축척(A3): 1/NONE'
+    labels_above: []
+    labels_below: []
+    inferred_name: 도면 상세 참조 번호 원형 스탬프
+    position: bottom-center
+  - panel_id: ENGINEER-STAMP
+    shape: rectangle
+    labels_inside:
+    - (주)정연엔지니어링
+    - 소방기술사 등록 [제기술2017-1호]
+    - 전문소방시설설계등록 [제2017-01-0007호]
+    - 소방설비기술사 등록 [제 E-6-825호]
+    - 전문소방시설설계등록 [제 E-6-825호]
+    - 기계설비기술사 등록 [제 E-6-825호]
+    - 건축기계설비기술사 등록 기간
+    - 경기도 양양시 동안구 흥안대로 415, 1155호, 1116호 [관운동, 두산벤처타임]
+    - 대표전화 (031) 456-9666
+    labels_above: []
+    labels_below: []
+    inferred_name: 설계사 직인 및 등록 정보
+    position: bottom-right
+  connections:
+  - from: SYSTEM-DIAGRAM
+    to: SYSTEM-DIAGRAM
+    line_type: pipe
+    line_style: solid
+    annotation: 수직 주배관 (입상관) — 지붕층~PIT 관통
+  - from: SYSTEM-DIAGRAM
+    to: SYSTEM-DIAGRAM
+    line_type: pipe
+    line_style: solid
+    annotation: 각 층 수평 분기배관 T-50 / T-100 (옥내소화전 분기)
+  - from: SYSTEM-DIAGRAM
+    to: SYSTEM-DIAGRAM
+    line_type: pipe
+    line_style: solid
+    annotation: 연결송수구 → 1층 입상관 연결 (T-100)
+  - from: SYSTEM-DIAGRAM
+    to: SYSTEM-DIAGRAM
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 공동구 폐내소화전 배관에서 분기 (기존 배관 — 백강관)
+  - from: EQUIP-SCHEDULE
+    to: SYSTEM-DIAGRAM
+    line_type: other
+    line_style: dashed
+    annotation: 장비 일람표 심볼이 계통도 내 심볼과 매칭
+  groups:
+  - group_id: GRP-RISER
+    label: 소화 입상 배관 계통 (지붕층~PIT)
+    members:
+    - SYSTEM-DIAGRAM
+  - group_id: GRP-FLOOR-BRANCH
+    label: 층별 분기 배관 그룹 (지붕층/2층/1층)
+    members:
+    - SYSTEM-DIAGRAM
+  - group_id: GRP-EQUIPMENT
+    label: 소화 장비 일람 그룹
+    members:
+    - EQUIP-SCHEDULE
+  legend_references:
+  - text: 신설 배관 (실선)
+    linked_to: SYSTEM-DIAGRAM
+  - text: 기존 배관 (점선/회색)
+    linked_to: SYSTEM-DIAGRAM
+  - text: H — 옥내소화전배관
+    linked_to: SYSTEM-DIAGRAM
+  - text: SC — 연결송수구배관
+    linked_to: SYSTEM-DIAGRAM
+  - text: 게이트밸브 (개폐표시형)
+    linked_to: SYSTEM-DIAGRAM
+  - text: 체크밸브 (스프링식)
+    linked_to: SYSTEM-DIAGRAM
+  - text: 옥내소화전함 (호스릴형)
+    linked_to: EQUIP-SCHEDULE
+  - text: A.B.C 분말소화기
+    linked_to: EQUIP-SCHEDULE
+  - text: 쌍구형 연결송수구 100φ x 65φ x 65φ
+    linked_to: EQUIP-SCHEDULE
+  diagram_meta:
+    title: 소화배관계통도
+    drawing_number: MF-004
+    project_name: R-Center 구축
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: system_diagram
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    pump_count: 0
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: top-to-bottom
+    levels:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameter_labels:
+      - T-50
+      - T-100
+    - abbreviation: SC
+      system_type: 연결송수구배관
+      nominal_diameter_labels:
+      - T-100
+    equipment_quantities:
+    - name: A.B.C 분말소화기
+      spec: 3단위
+      quantity: 29
+    - name: 옥내소화전함(호스릴형)
+      spec: 25ex30M 호스, 25a관창 1개, 전면(ST) 후면(STEEL)
+      quantity: 6
+    - name: 쌍구형 연결송수구
+      spec: 100φ x 65φ x 65φ
+      quantity: 1
+    design_firm: (주)정연엔지니어링
+    drawn_date: '2024.04'
+    scale_A1: 1/NONE
+    scale_A3: 1/NONE
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    notes:
+    - '기존배관 재질: 백강관'
+    - 통과우려가 있는 배관 동파방지배선 설치 후 임통보온 한다.
+    - 기존 소방용품(IT등) 기존 변경 없음.
+    - 기존 공동구 폐내소화전 배관에서 분기 (공동구 내부 기미트_피 케이블 이상)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01-TITLE_BLOCK
+    shape: rectangle
+    position: bottom-right
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - PROJECT NUMBER
+    - '224001'
+    - DESIGN CONSULTANT
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 테헤란로 309, 15층 (역삼동, 삼성제일빌딩)
+    - Tel.02-544-3799 Fax.02-544-3807
+    - www.gaun.co.kr
+    - ISSUE & REVISION
+    - 'NO'
+    - DESCRIPTION
+    - DATE
+    - BUILDING NAME
+    - R-Center
+    - DRAWING TITLE
+    - 소화배관계통도
+    - DRAWN
+    - 이 다 솔
+    - CHECK 1
+    - 안 동 식
+    - CHECK 2
+    - 이 은 진
+    - APP.
+    - 정 광 재
+    - SCALE
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - DATE
+    - '2024.04'
+    - DRAWING NO.
+    - MF - 004
+    inferred_name: 표제란 (Title Block)
+  - panel_id: P02-NOTES_LEGEND
+    shape: rectangle
+    position: top-right
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설계된 제품(시스템 포함등)은 상기 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 설계 도면과 상이한 경우에는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의있게 철거후 재설치 할 것.
+    - 4. 발주처의 요구에 의해 경미한 변경이 있을 수 있으며, 그에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    - 5. 배관 지지 철물은 기존 재사용.
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+    - '7. 기존배관 재질 : 백강관'
+    - 8. 동파우려가 있는 배관은 동파방지열선 설치후 발포보온 한다.
+    - 9. 기존 소방용품(IT등)는 변경 없음.
+    inferred_name: 주기 및 범례 박스 (Notes & Legend Box)
+  - panel_id: P03-EQUIP_SCHEDULE
+    shape: rectangle
+    position: bottom-center
+    labels_inside:
+    - A.B.C 분말소화기
+    - 3 단 위
+    - '각층: 2개소(A급: 3단위 2개소 설치)'
+    - 법규에 따라 청정소화약제 소화기로 변경가능
+    - x 29EA
+    - 옥내소화전함(호스릴형)
+    - 25A x 30M 호스릴, 25A 관창 1개
+    - 전면(STS), 후면(STEEL)
+    - x 6EA
+    - 쌍구형 연결송수구
+    - 100ø x 65ø x 65ø
+    - x 1EA
+    equipment_symbols:
+    - type: A.B.C 분말소화기 심볼
+      count: 1
+    - type: 옥내소화전함 심볼
+      count: 1
+    - type: 쌍구형 연결송수구 심볼
+      count: 1
+    inferred_name: 장비 일람표 (Equipment Schedule)
+  - panel_id: P04-SYSTEM_DIAGRAM
+    shape: rectangle
+    position: center
+    labels_inside:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    - T-50
+    - T-50
+    - T-50
+    - T-50
+    - T-50
+    - '100'
+    - '50'
+    - 연결송수구
+    - T-100
+    - 기존 공동구 폐내소화전 배관에서 분기
+    - (공동구 내부 게이트 밸브 이상)
+    equipment_symbols:
+    - type: 옥내소화전설비 (Hydrant Station)
+      count: 10
+    - type: A.B.C 분말소화기 (Extinguisher)
+      count: 10
+    - type: 게이트밸브 (Gate Valve)
+      count: 8
+    - type: 체크밸브 (Check Valve)
+      count: 1
+    - type: 쌍구형 연결송수구 (Siamese Connection)
+      count: 1
+    inferred_name: 소화배관 계통도 (Fire Piping System Diagram)
+  - panel_id: P05-MAIN_TITLE
+    shape: other
+    position: bottom-center
+    labels_inside:
+    - 소화배관계통도
+    - '축척(A1) : 1/ NONE'
+    - '축척(A3) : 1/ NONE'
+    labels_near:
+    - MF
+    - '1'
+    inferred_name: 메인 도면 제목 (Main Drawing Title)
+  - panel_id: P06-ENGINEER_STAMP
+    shape: rectangle
+    position: bottom-right
+    labels_inside:
+    - (주)정연엔지니어링
+    - 전문소방시설공사업등록 [경기안양1-1호]
+    - 건축기계설비기술사 조 성 환
+    - 전문소방시설설계업등록 [제2017-01-00007호]
+    - 소방설비기술사 홍 기 만
+    - 정보통신공사업등록 [제 E-6-825호]
+    - 정보통신특급기술자 황 신 덕
+    - 기계설비등록 [제 E-6-825호]
+    - 건축기계설비기술사 홍 기 만
+    - 경기도 안양시 동안구 흥안대로 415,
+    - 1115호, 1116호 (평촌동, 두산벤처타임)
+    - 대표전화 (031) 456 - 9666
+    inferred_name: 엔지니어링사 날인 (Engineering Firm Stamp)
+  connections:
+  - from: P04-SYSTEM_DIAGRAM
+    to: P04-SYSTEM_DIAGRAM
+    line_type: pipe
+    line_style: solid
+    annotation: 주 입상배관 (Main Riser) - PIT에서 지붕층으로 연결
+  - from: P04-SYSTEM_DIAGRAM
+    to: P04-SYSTEM_DIAGRAM
+    line_type: pipe
+    line_style: solid
+    annotation: 각 층 분기배관 (Floor Branches) - 입상관에서 1층, 2층 소화전으로 연결
+  - from: P04-SYSTEM_DIAGRAM
+    to: P04-SYSTEM_DIAGRAM
+    line_type: pipe
+    line_style: solid
+    annotation: 연결송수구 라인 (Siamese Connection Line) - 연결송수구에서 주 입상배관으로 연결
+  - from: P04-SYSTEM_DIAGRAM
+    to: P04-SYSTEM_DIAGRAM
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 배관 연결 (Existing Main Connection) - 기존 공동구 배관에서 주 입상배관으로 연결
+  - from: P03-EQUIP_SCHEDULE
+    to: P04-SYSTEM_DIAGRAM
+    line_type: other
+    line_style: dashed
+    annotation: 장비 일람표와 계통도 내 심볼의 논리적 연결
+  groups:
+  - group_id: GRP-LEVEL-ROOF
+    label: 지붕층 (Roof Level)
+    members:
+    - P04-SYSTEM_DIAGRAM
+  - group_id: GRP-LEVEL-2F
+    label: 2층 (2nd Floor)
+    members:
+    - P04-SYSTEM_DIAGRAM
+  - group_id: GRP-LEVEL-1F
+    label: 1층 (1st Floor)
+    members:
+    - P04-SYSTEM_DIAGRAM
+  - group_id: GRP-LEVEL-PIT
+    label: PIT층 (Pit Level)
+    members:
+    - P04-SYSTEM_DIAGRAM
+  - group_id: GRP-RISER-MAIN
+    label: 주 소화 입상관 (Main Fire Riser)
+    members:
+    - P04-SYSTEM_DIAGRAM
+  - group_id: GRP-RISER-INDIVIDUAL
+    label: 개별 소화전 입상관 (Individual Hydrant Risers)
+    members:
+    - P04-SYSTEM_DIAGRAM
+  legend_references:
+  - text: 신설 배관 (실선)
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: 기존 배관 (점선)
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: H - 옥내소화전배관
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: SC - 연결송수구배관
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: 게이트밸브
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: 체크밸브
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: A.B.C 분말소화기
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: 옥내소화전함
+    linked_to: P04-SYSTEM_DIAGRAM
+  - text: 쌍구형연결송수구
+    linked_to: P04-SYSTEM_DIAGRAM
+  diagram_meta:
+    title: 소화배관계통도
+    drawing_number: MF-004
+    project_name: R-Center 구축
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: system_diagram
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    pump_count: 0
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: bottom-to-top
+    levels:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+    - abbreviation: SC
+      system_type: 연결송수구배관
+    - abbreviation: null
+      system_type: 신설 배관
+      nominal_diameter_labels:
+      - '100'
+      - '50'
+      - T-100
+      - T-50
+    - abbreviation: null
+      system_type: 기존 배관
+      nominal_diameter_labels:
+      - T-100
+    equipment_quantities:
+    - name: A.B.C 분말소화기
+      spec: 3단위, 각층 2개소
+      quantity: 29
+    - name: 옥내소화전함(호스릴형)
+      spec: 25A x 30M 호스릴, 25A 관창 1개, 전면(STS) 후면(STEEL)
+      quantity: 6
+    - name: 쌍구형 연결송수구
+      spec: 100ø x 65ø x 65ø
+      quantity: 1
+    design_firm: (주)정연엔지니어링 / 가운건축
+    drawn_date: '2024.04'
+    scale_A1: 1/NONE
+    scale_A3: 1/NONE
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 접두사 'MF'와 제목 '소화배관계통도', 범례의 'H'(옥내소화전), 'SC'(연결송수구)
+      약어를 근거로 기계소방(FIRE_PROTECTION/mechanical)으로 재확정함.
+    notes:
+    - '기존배관 재질 : 백강관'
+    - 동파우려가 있는 배관은 동파방지열선 설치후 발포보온 한다.
+    - 기존 소방용품(IT등)는 변경 없음.
+    - 배관 지지 철물은 기존 재사용.

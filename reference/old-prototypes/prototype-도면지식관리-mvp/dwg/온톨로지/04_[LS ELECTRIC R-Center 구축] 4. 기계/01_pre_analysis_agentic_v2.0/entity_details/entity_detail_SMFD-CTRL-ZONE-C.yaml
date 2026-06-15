@@ -1,0 +1,64 @@
+tag: SMFD-CTRL-ZONE-C
+name: SMFD 제어 구역 C (하부 Drive 시험실 구역)
+type: zone
+discipline: MECHANICAL
+function_category: CONTROL
+source_pages:
+- 51
+specs:
+  shape: dashed_box
+  position: bottom / grid C-D
+  labels_inside:
+  - Drive 시험실
+  - Drive 기기시험실
+  - 시험 전원실
+  - 다층형 포트부실
+  - BBB 장비실
+  equipment_symbols:
+  - type: SMFD 방화댐퍼 심볼
+    count: null
+  raw_labels:
+  - Drive 시험실
+  - Drive 기기시험실
+  - 시험 전원실
+  - 다층형 포트부실
+  - BBB 장비실
+relations:
+- from: CTRL-PANEL-1F
+  to: SMFD-CTRL-ZONE-C
+  relation: connects_to
+  source_page: 51
+  origin: cross_validated
+  line_style: solid
+  note: CV 2.5×3C 또는 UTP 0.6×4P (범례 참조)
+- from: CTRL-PANEL-1F
+  to: SMFD-CTRL-ZONE-C
+  relation: cable
+  source_page: 51
+  origin: visual_semantics
+  annotation: CV 2.5×3C 또는 UTP 0.6×4P (범례 참조)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+position: bottom / grid C-D
+confidence: 0.65
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: false
+equipment_symbols:
+- type: SMFD 방화댐퍼 심볼
+  count: null
+ontology_hints:
+  suggested_parent_class: ControlZone
+  observed_attributes:
+  - shape
+  - position
+  - labels_inside
+  - equipment_symbols
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - Control Zone
+  - Fire Damper Control Area
+  - Testing Area

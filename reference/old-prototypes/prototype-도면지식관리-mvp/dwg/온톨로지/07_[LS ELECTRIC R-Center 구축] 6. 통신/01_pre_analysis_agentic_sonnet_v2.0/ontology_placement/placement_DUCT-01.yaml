@@ -1,0 +1,136 @@
+placement:
+  tag: DUCT-01
+  name: 지하공동구
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:DUCT-01
+    class_hint: CivilStructure
+    alternative_class_hints:
+    - CableAndPathway
+    - UtilityContainment
+    - UtilityTunnel
+    related_assertions: []
+    applicable_axioms:
+    - AX031
+    applicable_constraints: []
+    confirmed_class: dks:CivilStructure
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 지하공동구
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 직접 표기된 명칭
+      - raw_text: 지하공동구 사용
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: labels_below에 나타난 사용 용도성 주석
+      - raw_text: 'function_category: UTILITY_TUNNEL'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 기능 분류 값
+      - raw_text: 'suggested_parent_class: CivilStructure'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: ontologyHint
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스 정보
+      - raw_text: 'observed_attributes: raw_labels, labels_inside, labels_below, inferred_name'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'function_candidates: Cable Routing; Utility Containment'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 12
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 12
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 12
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 12
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 12
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 12
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 12
+      method: ontology_hints + function_category
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 12
+      method: preservation_of_unclassified_content
+  unresolved:
+  - field_candidate: specs
+    raw_text: 'raw_labels: [지하공동구], labels_inside: [지하공동구], labels_below: [지하공동구 사용],
+      inferred_name: 지하공동구'
+    source_page: 12
+    reason: 구조물 표기와 주석성 문구는 있으나 supplement sub_kind가 없어 직접 분류 불가
+    preservation_note: 원문 라벨과 사용 문구를 free_notes로 보존
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 12
+    reason: 관계 항목이 비어 있음
+    preservation_note: 관계 없음으로 보존
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: '[raw_labels, labels_inside, labels_below, inferred_name]'
+    source_page: 12
+    reason: 속성 목록 자체는 정보이지만 별도 표준 키로 승격하지 않음
+    preservation_note: 후속 단계에서 데이터 속성 후보로 검토 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: '[Cable Routing, Utility Containment]'
+    source_page: 12
+    reason: 기능 후보는 확정 분류가 아니므로 보존만 수행
+    preservation_note: class/function 후보로 재검토 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag와 name은 지하공동구로 명확하지만, communication 도면 내에서 물리 설비인지 경로/구조물인지 혼합성이 있으며
+      ontology_hints가 CivilStructure를 제시함
+    recommended_handling: 0-9c에서 공간/경로/구조물 계열 후보를 비교 검증하고, 필요 시 CableAndPathway 또는
+      SpatialEntity 계열로 재분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 Cable/Route/Containment 및 Space/Zone 축을 우선 검토
+    - ontology_hints의 suggested_parent_class를 후보 class_hint로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:21.078849'
+  confidence: 0.78

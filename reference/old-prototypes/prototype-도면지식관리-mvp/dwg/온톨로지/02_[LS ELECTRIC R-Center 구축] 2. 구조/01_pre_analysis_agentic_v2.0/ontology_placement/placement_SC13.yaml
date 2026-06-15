@@ -1,0 +1,108 @@
+placement:
+  tag: SC13
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions: []
+    applicable_axioms:
+    - AX008
+    - AX009
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 메타 정보이며, 추후 문서/시트 참조 속성으로 승격 가능
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 대화형 안내 문구로 도면 실체가 아닌 주석성 텍스트
+      - raw_text: 'tag: SC13'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 식별자 메타 정보
+      - raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35,\
+          \ 61, 62, 63, 64, 65\n\n  원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'"
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체 보존용 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail header
+    discipline:
+      source_pages:
+      - 0
+      method: input
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: classification
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim preservation
+    raw:
+      source_pages:
+      - 0
+      method: verbatim preservation
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 도면 설비 실체나 관계가 아니라 안내성 텍스트이며, supplement sub_kind로도 직접 분류 불가
+    preservation_note: 페이지 목록과 안내 문구를 원문 그대로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 실체 설비가 아니라 페이지 안내/주석성 텍스트로 보이지만, 문서 메타인지 노트인지 경계가 완전히 명확하지 않음
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 문서 메타 또는 노트 계층으로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타/주석성 텍스트를 보수적으로 보존
+    - raw 텍스트 전체를 unresolved/free_notes에 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:54.216083'
+  confidence: 0.93

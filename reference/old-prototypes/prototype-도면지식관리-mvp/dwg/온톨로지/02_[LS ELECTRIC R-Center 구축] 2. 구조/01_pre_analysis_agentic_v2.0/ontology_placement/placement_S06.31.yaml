@@ -1,0 +1,127 @@
+placement:
+  tag: S06.31
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S06.31
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    - DetailEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아니라 응답 안내 문구
+      - raw_text: 'tag: S06.31'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 식별자 원문
+      - raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35,\
+          \ 61, 62, 63, 64, 65\n\n  원하시면 특정 페이지의 내용을 확인해드릴게요.'"
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: entity_detail.name absent
+    discipline:
+      source_pages:
+      - 0
+      method: input header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification from raw text only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: content is page-availability notice, not physical entity
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 도면 설비/부재의 실체나 관계가 아니라 페이지 안내 문구임
+    preservation_note: 문서 메타 또는 대화형 안내 텍스트로 보존
+  - field_candidate: entity_detail.tag
+    raw_text: S06.31
+    source_page: 0
+    reason: 태그는 있으나 본문이 실체 설명이 아니라 시트/페이지 식별 가능성만 있음
+    preservation_note: 시트/문서 식별자 후보로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식은 시트/문서 식별자처럼 보이지만, 제공된 원문은 특정 페이지 목록 안내만 포함하여 물리 설비인지 문서 메타인지 확정
+      불가
+    recommended_handling: 후속 단계에서 DocumentEntity 또는 PlanOrView 후보로 재검토하되, 현재는 AnnotationOnly로
+      보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: 도면/시트 식별자 계열 및 문서 메타 계층 우선
+      고려'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: raw only placeholder responses는
+      unknown/document metadata로 보존'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:31.586812'
+  confidence: 0.86

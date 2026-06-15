@@ -1,0 +1,153 @@
+placement:
+  tag: GND-PLATE-001
+  name: STS 316 접지판
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:GND-PLATE-001
+    class_hint: GroundingEquipment
+    alternative_class_hints:
+    - GroundingPlate
+    - GroundingSystemComponent
+    related_assertions:
+    - type: connects_to
+      target_hint: GND-ELEC-001
+      note: STS 316 접지판과 슬리브 접속
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroundingEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: STS 316 접지판
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: material
+          suggested_datatype: xsd:string
+          rationale: 재질 표기
+      - raw_text: 500 x 500
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasDimensions
+          suggested_datatype: xsd:string
+          rationale: 치수 표기(가로 x 세로)
+      - raw_text: '70'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasThickness
+          suggested_datatype: xsd:decimal
+          rationale: 두께 수치 표기
+      - raw_text: X자 보강재
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasReinforcement
+          suggested_datatype: xsd:string
+          rationale: 보강 형식 표기
+      - raw_text: 현장 여건에 따라 기초접지극은 토양매설 또는 콘크리트 기초 매립으로 시공
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: installationNote
+          suggested_datatype: xsd:string
+          rationale: 시공 조건/설치 방식에 대한 주석성 문장
+      - raw_text: 접지판 평면도 (X자 보강재 포함 사각판)
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: symbolDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼/형상 설명
+      - raw_text: Grounding
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 표기
+      - raw_text: Earthing
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 표기
+  provenance:
+    name:
+      source_pages:
+      - 39
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 39
+      method: placement_inference_from_physical_equipment
+    ontology_core.iri_hint:
+      source_pages:
+      - 39
+      method: tag_based
+    ontology_core.class_hint:
+      source_pages:
+      - 39
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 39
+      method: ontology_hints.function_candidates + observed_attributes
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 39
+      method: relations
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 39
+      method: relations
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 39
+      method: relations.note
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 39
+      method: scan_all_fields
+    provenance:
+      source_pages:
+      - 39
+      method: entity_detail.source_pages
+    unresolved:
+      source_pages:
+      - 39
+      method: none_explicitly_unresolved
+    orphan_relations:
+      source_pages:
+      - 39
+      method: none
+    ambiguous:
+      source_pages:
+      - 39
+      method: assessment
+    merge_info:
+      source_pages:
+      - 39
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 39
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:10:18.215622'
+  confidence: 0.95

@@ -1,0 +1,16 @@
+tag: TEST-PT-001
+verdict: demoted
+confidence: 0.93
+missing_fields:
+- name
+missing_relations: []
+reason: type이 test_point이며, entity_detail에서 확인되는 specs는 page_number, drawing_number,
+  title, classification, discipline 등 도면 메타데이터뿐이다. TEST-PT-001 자체의 독립 사양은 확인되지 않았고,
+  drawing_texts의 Test 접지(E극/P극/C극, Test Rod) 설명은 페이지 내 상세 설명일 뿐 TEST-PT-001의 자체 spec으로
+  확정할 수 없다. 따라서 독립 엔티티가 아니라 도면 내 표기/시험점 관련 요소로 강등한다.
+demoted_to: document_metadata
+target_entity: ''
+preserved_info:
+  spec: page_number=39; drawing_number=EE-05-005; title=피뢰접지설비 상세도-1; classification=GROUNDING_DIAGRAM;
+    discipline=ELECTRICAL
+  relation: 'related_to: GRD-ELEC-002, GRD-AUX-001, GRD-AUX-002'

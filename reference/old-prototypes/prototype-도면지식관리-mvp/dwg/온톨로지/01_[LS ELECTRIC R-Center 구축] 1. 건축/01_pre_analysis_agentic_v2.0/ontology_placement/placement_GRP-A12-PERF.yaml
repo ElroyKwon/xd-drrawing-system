@@ -1,0 +1,164 @@
+placement:
+  tag: GRP-A12-PERF
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:GRP-A12-PERF
+    class_hint: Group
+    alternative_class_hints:
+    - PanelGroup
+    - DrawingGroup
+    - ContainerGroup
+    related_assertions:
+    - type: contains
+      target_hint: TOC-A12
+      note: incoming relation recorded; panel/group inclusion
+      confirmed_property: dks:contained_in
+      confirmed_target: TOC-A12
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: contained_in
+      target_hint: TOC-A12
+      note: from TOC-A12 to GRP-A12-PERF, relation contains, source_page 3, cross_validated
+      confirmed_property: dks:contained_in
+      confirmed_target: TOC-A12
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX017
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:Group
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 패널 내 그룹 포함
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasRelationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 보이는 한국어 설명이며, 그룹 포함 문맥을 보존할 필요가 있음
+        promoted_to: dks:hasRelationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: TOC-A12 -> GRP-A12-PERF contains
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실이 명시되어 있으나 supplement 정의 sub_kind가 없어 원문 관계를 보존
+      - raw_text: 'partner: TOC-A12, relation_type: contains, direction: incoming'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 레코드 원문이며 방향성과 상대 태그를 함께 보존해야 함
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: heuristic
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: heuristic
+    ontology_core.related_assertions:
+      source_pages:
+      - 3
+      - 0
+      method: direct_relation_scan
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      - 0
+      method: verbatim_preservation
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: plan_guidance_applied
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: TOC-A12
+    source_page: 0
+    reason: 관계 상대는 식별되지만, 이 태그의 정확한 온톨로지 역할은 확정 불가
+    preservation_note: TOC-A12와의 포함 관계 원형을 유지
+  - field_candidate: relations[0].relation_type
+    raw_text: contains
+    source_page: 0
+    reason: 관계명은 명시되었으나 확정 property IRI는 다음 단계에서 결정
+    preservation_note: 원문 relation_type 보존
+  - field_candidate: relations[0].direction
+    raw_text: incoming
+    source_page: 0
+    reason: 방향 정보는 있으나 정규화된 역관계명은 미확정
+    preservation_note: incoming 방향성 보존
+  - field_candidate: relations[1].from
+    raw_text: TOC-A12
+    source_page: 3
+    reason: 관계 출발점은 명시되었으나 이 단계에서 property 확정 불가
+    preservation_note: 원문 from 보존
+  - field_candidate: relations[1].to
+    raw_text: GRP-A12-PERF
+    source_page: 3
+    reason: 현재 태그와 동일하여 별도 해석 불필요하지만 원문 관계 보존 필요
+    preservation_note: self-tag relation endpoint 보존
+  - field_candidate: relations[1].relation
+    raw_text: contains
+    source_page: 3
+    reason: 관계명은 명시되었으나 확정 property IRI는 미정
+    preservation_note: contains 원문 보존
+  - field_candidate: relations[1].note
+    raw_text: 패널 내 그룹 포함
+    source_page: 3
+    reason: 관계 설명이지만 supplement sub_kind로 분류되지 않음
+    preservation_note: 관계 주석으로 후속 승격 가능
+  - field_candidate: relations[1].origin
+    raw_text: cross_validated
+    source_page: 3
+    reason: 검증 출처 메타정보이나 별도 표준 필드 없음
+    preservation_note: 출처 메타로 보존
+  - field_candidate: relations[1].line_style
+    raw_text: none
+    source_page: 3
+    reason: 도면 선형 속성이나 의미 확정 불가
+    preservation_note: 관계 표현 방식 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: GRP-A12-PERF는 TOC-A12에 포함된 그룹으로 보이지만, supplement가 없어 sub_kind를 확정할 수 없고
+      Group/PanelGroup/DrawingGroup 중 어느 쪽인지 단정 불가
+    recommended_handling: NamedIndividual로 유지하고, 0-9c에서 상위 class를 group/container
+      계열로 재검토하며 0-9d에서 contains/contained_in 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - TOC-A12와 GRP-* 관계를 목차-그룹 구조로 우선 보존
+    - contains 관계와 incoming/outgoing 방향을 원형 그대로 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:59.556852'
+  confidence: 0.78

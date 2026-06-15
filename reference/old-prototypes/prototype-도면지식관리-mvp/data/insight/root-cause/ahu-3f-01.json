@@ -1,0 +1,55 @@
+{
+  "id": "ahu-3f-01-perf-degradation",
+  "title": "공조기 AHU-3F-01 성능 저하 근본원인 분석",
+  "focus_node": "AHU-3F-01",
+  "nodes": [
+    { "id": "KEPCO", "label": "KEPCO 인입", "type": "source" },
+    { "id": "VCB-001", "label": "VCB-001\n(22.9kV)", "type": "electrical" },
+    { "id": "TR-001", "label": "TR-001\n(변압기)", "type": "electrical" },
+    { "id": "MCC-001", "label": "MCC-001\n(동력반)", "type": "electrical" },
+    { "id": "CH-001", "label": "CH-001\n(냉동기)", "type": "chiller" },
+    { "id": "CHWP-001", "label": "CHWP-001\n(냉수 펌프)", "type": "pump", "alarm": true },
+    { "id": "AHU-3F-01", "label": "AHU-3F-01\n(공조기)", "type": "ahu", "focus": true },
+    { "id": "3F-server", "label": "3F 서버실", "type": "space" },
+    { "id": "3F-office", "label": "3F 사무실", "type": "space" }
+  ],
+  "edges": [
+    { "source": "KEPCO", "target": "VCB-001", "rel": "feeds" },
+    { "source": "VCB-001", "target": "TR-001", "rel": "feeds" },
+    { "source": "TR-001", "target": "MCC-001", "rel": "feeds" },
+    { "source": "MCC-001", "target": "CH-001", "rel": "powers" },
+    { "source": "MCC-001", "target": "CHWP-001", "rel": "powers" },
+    { "source": "CH-001", "target": "CHWP-001", "rel": "supplies_chw" },
+    { "source": "CHWP-001", "target": "AHU-3F-01", "rel": "supplies_chw" },
+    { "source": "AHU-3F-01", "target": "3F-server", "rel": "serves" },
+    { "source": "AHU-3F-01", "target": "3F-office", "rel": "serves" }
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "cause": "냉수 공급 온도 상승 (CHWP-001 고온)",
+      "confidence": 0.78,
+      "description": "CHWP-001 출구 온도 15.3°C로 기준 초과. AHU 냉각 능력 직접 저하.",
+      "evidence": [
+        { "type": "alarm", "ref": "CHW-T-HI-007", "alarmId": "alarm-001" },
+        { "type": "drawing_page", "reference": "doc-004 p.1", "tag": "CH-001" }
+      ]
+    },
+    {
+      "rank": 2,
+      "cause": "팬 벨트 슬립 또는 모터 과부하",
+      "confidence": 0.42,
+      "description": "AHU 급기 풍량 감소 패턴. 팬 회전수 저하 가능성.",
+      "evidence": [
+        { "type": "drawing_page", "reference": "LSE-기계 p.1", "tag": "M-001" }
+      ]
+    },
+    {
+      "rank": 3,
+      "cause": "급기 필터 막힘",
+      "confidence": 0.31,
+      "description": "정기 교체 주기 초과(6개월) 가능성. 정압 상승 패턴 확인 필요.",
+      "evidence": []
+    }
+  ]
+}

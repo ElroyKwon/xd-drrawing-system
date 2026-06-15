@@ -1,0 +1,86 @@
+entity_detail:
+  tag: HV-1303B
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: 5
+      confidence: 0.95
+    feeder_name:
+      value: 1303B HV 6.6kV 피더 - 냉동기 4호기
+      unit: null
+      source: 5
+      confidence: 0.95
+    panel_id:
+      value: PNL_HV_1303B
+      unit: null
+      source: 5
+      confidence: 0.95
+    label:
+      value: 1303B
+      unit: null
+      source: 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "panel_id: PNL-HV-1303B\nshape: hexagon\nlabels_inside:\n- 1303B\n...\n\
+      annotation: 6.6kV Bus\n- from: PNL-HV-1303A\n  to: PNL-HV-1303B\n  line_type:\
+      \ power_cable\n  line_style: solid\n  annotation: 6.6kV Bus\n...\nline_style:\
+      \ solid\nannotation: 6.6kV Bus"
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "tag: 1303B\n    name: Breaker\n    spec: null\n    discipline: ELECTRICAL\n\
+      \    function_category: breaker\n    location: null\n    confidence: 0.95"
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "panel_id: PNL_HV_1303B\n    shape: rectangle\n    primary_label: 1303B\n\
+      \    position: bottom-left"
+  requirements: []
+  connection_specs:
+  - relation: power_cable
+    partner: PNL-HV-1303A
+    details:
+      source: 5
+      annotation: 6.6kV Bus
+      line_style: solid
+      direction: PNL-HV-1303A -> PNL-HV-1303B
+      confidence: 0.95
+  - relation: power_cable
+    partner: PNL-HV-1304A
+    details:
+      source: 5
+      annotation: 6.6kV Bus
+      line_style: solid
+      direction: PNL-HV-1303B -> PNL-HV-1304A
+      confidence: 0.95
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_to
+      partner_tag: PNL-HV-1303A
+      direction: incoming
+      source: 5
+    - relation_type: connected_to
+      partner_tag: PNL-HV-1304A
+      direction: outgoing
+      source: 5
+    observed_attributes:
+    - voltage
+    - feeder_name
+    - panel_id
+    - label
+    - annotation
+    - line_style
+    - line_type
+    similar_equipment:
+    - 1303A
+    - 1304A
+    - 1304B
+    - 1305A
+    - 1305B
+    suggested_parent_class: ElectricalBreakerBay
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 확인 가능한 정보만 기록함.
+tag: HV-1303B

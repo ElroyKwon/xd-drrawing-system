@@ -1,0 +1,193 @@
+placement:
+  tag: RECEPTION-ROOM
+  name: 접견실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:RECEPTION-ROOM
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationRoom
+    - Reception
+    - SpatialEntity
+    related_assertions:
+    - type: hasInstalledEquipment
+      target_hint: LAN OUTLET
+      note: equipment_symbols에 LAN OUTLET 1개 관찰
+    - type: hasInstalledEquipment
+      target_hint: SYSTEM BOX
+      note: equipment_symbols에 SYSTEM BOX 1개 관찰
+    - type: locatedOnPage
+      target_hint: page 10
+      note: source_pages에 10 기록
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 접견실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 직접 표기 문자열
+      - raw_text: 'labels_inside: 접견실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 라벨 문자열
+      - raw_text: 'equipment_symbols: LAN OUTLET x1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 설치 장비 심볼 관찰
+      - raw_text: 'equipment_symbols: SYSTEM BOX x1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 설치 장비 심볼 관찰
+      - raw_text: 'inferred_name: 접견실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추론명
+      - raw_text: 'position: bottom-center'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'shape: rectangle'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'panel_id: RECEPTION-ROOM'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 패널/영역 식별자
+      - raw_text: 'source_models: visual_semantics_gemini'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: sourceModel
+          suggested_datatype: xsd:string
+          rationale: 생성/추출 출처 모델 정보
+  provenance:
+    tag:
+      source_pages:
+      - 10
+      method: direct
+    name:
+      source_pages:
+      - 10
+      method: direct
+    discipline:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      method: inferred_from_type_and_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 10
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 10
+      method: from_specs
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 10
+      method: preserved_all_unclassified_fields
+    specs.raw_labels:
+      source_pages:
+      - 10
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 10
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 10
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 10
+      method: direct
+    specs.position:
+      source_pages:
+      - 10
+      method: direct
+    specs.shape:
+      source_pages:
+      - 10
+      method: direct
+    specs.panel_id:
+      source_pages:
+      - 10
+      method: direct
+    specs.source_models:
+      source_pages:
+      - 10
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 10
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 10
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 10
+      method: direct
+    source_pages:
+      source_pages:
+      - 10
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: ontology_hints의 suggested_parent_class는 Space이지만 function_candidates에
+      Reception과 Communication이 함께 있어 공간/기능 해석이 혼재됨. 또한 equipment_symbols가 포함되어 공간
+      엔티티이면서 설치 장비를 내포하는 혼합형으로 보임.
+    recommended_handling: 0-9c에서 Space/CommunicationRoom 계열 후보를 우선 검토하고, 0-9d에서 공간-설치장비
+      관계를 별도 객체로 분리 검증.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 우선 축 반영
+    - hasInstalledEquipment 관계 후보 반영
+    - locatedOnPage 추적 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:44:57.136658'
+  confidence: 0.86

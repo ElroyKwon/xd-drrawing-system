@@ -1,0 +1,104 @@
+entity_detail:
+  tag: LIGHTNING_ROD_001
+  type: equipment
+  specs:
+    H:
+      value: 3000
+      unit: ㎜
+      source: page 37
+      confidence: 0.98
+    quantity:
+      value: 1
+      unit: 개소
+      source: page 37
+      confidence: 0.98
+  drawing_texts:
+  - source: page 37
+    page_number: 37
+    text: 피뢰침 (H:3,000㎜) 1개소
+  - source: page 37
+    page_number: 37
+    text: 지붕층 피뢰 및 접지 설비 평면도
+  - source: page 37
+    page_number: 37
+    text: 피뢰설비 개요 및 특기사항
+  - source: page 37
+    page_number: 37
+    text: 피뢰설비 범례
+  - source: page 37
+    page_number: 37
+    text: 보호등급 IV등급
+  - source: page 37
+    page_number: 37
+    text: 회전구체반경 60 m
+  - source: page 37
+    page_number: 37
+    text: '주 인하도선 : 기초철골'
+  - source: page 37
+    page_number: 37
+    text: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+  - source: page 37
+    page_number: 37
+    text: 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+  - source: page 37
+    page_number: 37
+    text: 구조체 접속 12개소 동일
+  - source: page 37
+    page_number: 37
+    text: 금속 사다리 접속 2개소 동일
+  - source: page 37
+    page_number: 37
+    text: '''DN to : 피뢰기초접지극'''
+  requirements:
+  - text: 보호등급 IV등급
+    source: page 37
+    type: performance/safety
+  - text: 회전구체반경 60 m
+    source: page 37
+    type: design_parameter
+  - text: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    source: page 37
+    type: code/standard
+  - text: 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+    source: page 37
+    type: installation_requirement
+  connection_specs:
+  - relation: connected_via
+    partner: HORIZONTAL_CONDUCTOR_001
+    details:
+      source: page 37
+      text: 피뢰침 → 수평도체
+  - relation: connected_via
+    partner: MAIN_DOWNCONDUCTOR
+    details:
+      source: page 37
+      text: 피뢰침 → 주 인하도선
+  - relation: connected_via
+    partner: AUXILIARY_DOWNCONDUCTOR
+    details:
+      source: page 37
+      text: 피뢰침 → 보조 인하도선
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: HORIZONTAL_CONDUCTOR_001
+      direction: downstream
+      source: page 37
+    - relation_type: connected_via
+      partner_tag: MAIN_DOWNCONDUCTOR
+      direction: downstream
+      source: page 37
+    - relation_type: connected_via
+      partner_tag: AUXILIARY_DOWNCONDUCTOR
+      direction: downstream
+      source: page 37
+    observed_attributes:
+    - H
+    - quantity
+    similar_equipment: []
+    suggested_parent_class: LightningProtectionEquipment
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에 있는 정보만 반영함.
+  - 피뢰침 자체의 추가 사양은 page 37에서 확인된 H:3,000㎜, 1개소만 기록함.
+tag: LIGHTNING_ROD_001

@@ -1,0 +1,159 @@
+placement:
+  tag: 벽부형_스피커_(10W)
+  name: 벽부형 스피커 (10W)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:벽부형_스피커_(10W)
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - PublicAddress
+    - AudioOutput
+    - EmergencyAnnouncement
+    - WallSpeaker
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'power: 10W'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasPowerRating
+          suggested_datatype: xsd:string
+          rationale: 전력값과 W 단위가 명시됨
+      - raw_text: 'mount_type_sonnet: 벽부형 (Wall Bracket Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasMountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식/형태를 나타내는 문자열
+      - raw_text: 'mount_type_gemini: 벽부형 (Wall Bracket Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasMountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식/형태를 나타내는 문자열
+      - raw_text: 'visual_description: 벽부형 스피커 심볼'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasVisualDescription
+          suggested_datatype: xsd:string
+          rationale: 범례 기반 심볼 설명
+      - raw_text: 'source: 좌측 범례, 전관방송설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasSourceReference
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/근거 설명
+      - raw_text: 'function_category: SENSE'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 기능 분류값 보존
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasDiscipline
+          suggested_datatype: xsd:string
+          rationale: 원문 분야값 보존
+      - raw_text: 'type: wall_speaker'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasEntityType
+          suggested_datatype: xsd:string
+          rationale: 원문 타입값 보존
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: direct_and_preserved
+    confidence:
+      source_pages:
+      - 3
+      method: heuristic
+  unresolved:
+  - field_candidate: specs.power
+    raw_text: 10W
+    source_page: 3
+    reason: 수치와 단위는 명확하나, 정식 데이터 속성으로 승격 전 단계로 보존
+    preservation_note: 전력값 후보
+  - field_candidate: specs.mount_type_sonnet
+    raw_text: 벽부형 (Wall Bracket Type)
+    source_page: 3
+    reason: 설치형태 문자열이지만 supplement sub_kind가 없어 free_notes로 보존
+    preservation_note: 설치 방식 후보
+  - field_candidate: specs.mount_type_gemini
+    raw_text: 벽부형 (Wall Bracket Type)
+    source_page: 3
+    reason: 설치형태 문자열이지만 supplement sub_kind가 없어 free_notes로 보존
+    preservation_note: 설치 방식 후보
+  - field_candidate: specs.visual_description
+    raw_text: 벽부형 스피커 심볼
+    source_page: 3
+    reason: 범례 심볼 설명으로 물리 속성인지 주석인지 확정 불가
+    preservation_note: 심볼 설명 보존
+  - field_candidate: specs.source
+    raw_text: 좌측 범례, 전관방송설비 항목
+    source_page: 3
+    reason: 출처 설명은 관계/주석 성격이 강해 정규 속성 확정 불가
+    preservation_note: 도면 근거 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: PublicAddress; AudioOutput; EmergencyAnnouncement
+    source_page: 3
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 기능 후보군 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 벽부형 스피커는 독립 장비로 보이지만, 범례 기반 심볼 정보와 기능 후보가 함께 존재하여 class/role 해석이 단일하지
+      않음
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열의 개별 장비로 검증하고, 필요 시 PublicAddress/AudioOutput
+      관련 클래스 후보를 비교 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 장비/범례/심볼 엔티티를 CommunicationEquipment 계열로 수렴시키는 guidance
+    - powerRating, mountType, visualDescription, note 성격 정보를 free_notes로 보존하는 guidance
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:58.599823'
+  confidence: 0.86

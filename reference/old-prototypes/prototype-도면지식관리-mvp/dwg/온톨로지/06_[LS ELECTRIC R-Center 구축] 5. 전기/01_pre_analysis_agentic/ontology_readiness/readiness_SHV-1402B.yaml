@@ -1,0 +1,11 @@
+tag: SHV-1402B
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- discipline
+missing_relations: []
+reason: entity_detail에는 tag, type, name, specs가 있으나, drawing_number/drawing_title/project_title/project_number는
+  도면 메타데이터로 물리적 설비 사양이 아니다. page_019_context.yaml에서 확인되는 실제 독립 설비는 P-EA-2PP, P-F-2PP,
+  P-G-2PP, P-I-2PP이며 SHV-1402B는 직접 확인되지 않았다. 또한 type=Feeder는 독립 설비라기보다 분전반으로의 전원 분기/회로
+  성격에 가깝고, connection_specs도 다른 설비(P-EA-2PP 등)로의 feeds 관계만 보여 독립 엔티티로 보기 어렵다. 따라서
+  독립 엔티티가 아니며 document_metadata 및 component/connection 성격으로 강등한다.

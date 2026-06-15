@@ -1,0 +1,159 @@
+placement:
+  tag: EX-OFFICE-01
+  name: 피난구 유도등 (사무실 좌)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:EX-OFFICE-01
+    class_hint: EmergencyLighting
+    alternative_class_hints:
+    - EmergencyLightingFixture
+    - ExitGuidanceLight
+    - ProtectiveLightingDevice
+    related_assertions:
+    - type: feeds
+      target_hint: PULLBOX-02
+      note: PULLBOX-02에서 EX-OFFICE-01로 공급/배선됨
+    - type: feeds
+      target_hint: EX-CENTER-01
+      note: EX-CENTER-01에서 EX-OFFICE-01로 공급/배선됨
+    - type: feeds
+      target_hint: EX-OFFICE-02
+      note: EX-OFFICE-01에서 EX-OFFICE-02로 공급/배선됨
+    - type: cable
+      target_hint: PULLBOX-02
+      note: 유도등용 배관배선
+    applicable_axioms:
+    - AX013
+    - AX024
+    - AX025
+    - AX027
+    - AX029
+    - AX030
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN004
+    - CN005
+    - CN006
+    confirmed_class: dks:EmergencyLighting
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: grid 6-7, B-C 좌
+        source_page: 13
+      free_notes:
+      - raw_text: 'shape: circle'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도면 심벌 형상 표기
+      - raw_text: 'labels_inside: EX'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 심벌 내부 라벨 텍스트
+      - raw_text: 'raw_labels: EX'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존
+      - raw_text: 'equipment_symbol_type: 피난구 유도등 (전체 소형)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: 장치 심벌 유형 표기
+      - raw_text: 'count: 1'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasCount
+          suggested_datatype: xsd:integer
+          rationale: 수량 표기
+      - raw_text: 'function_category: PROTECT'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'confidence: 0.95'
+        source_page: null
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 수치
+      - raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+        source_page: null
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처 기여 정보 보존
+  provenance:
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: placement_rule
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: tag_based
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates + similar_equipment
+    ontology_core.related_assertions:
+      source_pages:
+      - 13
+      method: relations
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 13
+      method: specs.position
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 13
+      method: specs + relations + ontology_hints + confidence + source_attribution
+    confidence:
+      source_pages:
+      - 13
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 13
+      method: entity_detail.source_attribution
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: electrical emergency lighting
+      fixture 계열로 분류'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: feeds/cable 관계 사실 보존'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:58:18.308676'
+  confidence: 0.95

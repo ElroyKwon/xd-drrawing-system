@@ -1,0 +1,110 @@
+summary:
+  total_placements: 94
+  expected_total_tags: 94
+  owl_role_distribution:
+    NamedIndividual: 90
+    AnnotationOnly: 3
+    DataPropertyValue: 1
+  discipline_distribution:
+    mechanical: 90
+    electrical: 2
+    structural: 2
+  ambiguous_count: 54
+  merge_candidate_count: 11
+  unresolved_entries: 485
+ambiguous_samples:
+- tag: CTRL-PANEL-1F
+  reason: 태그는 SMFD 제어반으로 명시되어 control_panel 기호 1개와 다수의 connects_to/cable 관계를 가지므로
+    NamedIndividual로 보는 것이 타당하나, function_category=CONTROL 및 function_candidates(Damper
+    Control, Smoke Management Control, Fire Safety Control)로 인해 세부 클래스는 단정 불가함.
+- tag: LEGEND-WIRE
+  reason: legend 타입이므로 AnnotationOnly가 적합하지만, 범례 자체가 문서 객체인지 주석 객체인지 경계가 다소 모호함. 또한
+    signal 관계의 의미가 references와 중복될 수 있음.
+- tag: LOAD-CTRL-PWR2
+  reason: LOAD-* 태그는 물리 장비가 아니라 전기적 부하를 의미할 수 있으며, 도면 텍스트만으로 실제 기계 장비와의 경계를 완전히 확정하기
+    어려움.
+- tag: LOAD-DCF1
+  reason: LOAD-* 태그는 물리 장비가 아니라 전기적 부하를 의미할 수 있으며, 본 태그는 DCF-1 급기팬과 연결된 부하 표기이므로 ElectricalLoad/DataPropertyValue
+    성격이 혼재함
+- tag: LOAD-DCF2
+  reason: LOAD-* 태그는 전기적 부하로 보이지만, 명칭에 급기팬이 포함되어 물리 장비와 전기 부하 해석이 혼재됨
+- tag: LOAD-DCF3
+  reason: 태그는 LOAD-*로 전기적 부하 성격이 강하지만, 명칭에 급기팬이 포함되어 기계 장비와 전기 부하가 혼재됨.
+- tag: LOAD-DCF4
+  reason: tag는 LOAD-*이지만 name과 주석은 급기팬 부하로, 물리 장비 자체가 아니라 전기적 부하를 나타내는 것으로 보임
+- tag: LOAD-DCF5
+  reason: 태그는 load로 명시되지만, 이름은 급기팬 부하이고 관계상 FEEDER-DCF5에 의해 공급되는 전기적 부하로 보이며 물리 팬
+    자체와는 구분 필요
+- tag: LOAD-EHP1
+  reason: tag는 LOAD-* 형식이지만 name/ontology_hints는 실내기 제어반(ControlPanel)로 지시하며, plan에서는
+    LOAD-*를 ElectricalLoad로 다루라고 안내함. 물리 장비와 전기 부하의 경계가 텍스트만으로 완전히 확정되지 않음.
+- tag: LOAD-EHP2
+  reason: tag가 LOAD-* 형식이지만 name과 심볼은 EHP 실내기 제어반으로 보여 전기적 부하와 물리적 제어반 의미가 혼재함
+- tag: LOAD-EHP3
+  reason: tag가 load이지만 실제로는 EHP-3 실내기제어반이라는 물리적 제어반으로 보이며, 전기적 부하 표기와 기계 설비 제어반 표기가
+    함께 존재함
+- tag: LOAD-EHP5
+  reason: 태그 형식은 LOAD-*이지만 실제 표기는 '실내기제어반'으로 제어반 성격이 강하고, 동시에 plan 상 LOAD-*는 ElectricalLoad로
+    해석될 수 있어 물리 장비와 전기 부하 사이의 경계가 모호함.
+- tag: MAIN-MCCB
+  reason: MAIN-MCCB는 기계 분야 태그로 들어왔지만 실제 내용은 전기 차단기(MCCB)와 전력 공급 관계를 포함하며, 도면 주석 '장비업체
+    SCOPE'의 의미도 장비 경계/범례인지 불명확함.
+- tag: MCP-PANEL
+  reason: MCP-PANEL은 물리적 패널이지만 도면 맥락상 전력 분배, HVAC 제어, 계측, 보호 기능이 함께 나타나 단일 세부 클래스
+    확정이 어려움
+- tag: PANEL-ROOF-PLAN
+  reason: 도면 제목상 평면도(Plan)이며 SMFD 제어 관련 문서이지만, 물리적 설비 자체가 아니라 도면/주석 객체로 보는 것이 타당함.
+    또한 contains 관계의 일부 대상은 공간/미상 객체로 혼재됨.
+- tag: SMFD-01
+  reason: SMFD-01은 물리적 방화댐퍼로 보이지만, relations에 contains/references/signal/cable 등 여러
+    관계가 혼재하며 일부는 문서/범례/배선 의미가 중첩됨.
+- tag: SMFD-02
+  reason: SMFD-02는 물리적 방화댐퍼로 보이지만, 제어 배선(signal/cable)과 범례 참조(references), 도면 포함(contains)
+    관계가 함께 존재하여 장비 인스턴스와 관계 사실이 혼재함.
+- tag: SMFD-CTRL-ZONE-A
+  reason: SMFD-CTRL-ZONE-A는 물리적 장비가 아니라 제어 구역/논리적 구획으로 보이며, 동시에 SMFD 방화댐퍼 배선 및 제어
+    대상 구역이라는 점에서 Space, LogicalGroup, ControlZone 해석이 모두 가능함.
+- tag: SMFD-CTRL-ZONE-B
+  reason: SMFD-CTRL-ZONE-B는 물리적 장비라기보다 제어 구역/논리적 구획으로 보이며, 동시에 SMFD 심볼과 전기/통신 기기 심볼이
+    함께 관찰되어 Zone, LogicalGroup, ControlZone 해석이 모두 가능함.
+- tag: SMFD-CTRL-ZONE-C
+  reason: 태그는 zone으로 명시되지만 SMFD 방화댐퍼 심볼과 CTRL-PANEL-1F 연결이 함께 있어, 물리적 장비 구역인지 제어 논리
+    구역인지 텍스트만으로 완전 확정이 어려움
+merge_candidates:
+- tag: 34-OAC
+  other_tag: 30-OAC
+  reason: 동일 계열 OAC 장비로 보이며, ontology_hints의 similar_equipment에 포함되어 비교/병합 검토 대상임
+- tag: JB-A-01
+  other_tag: JB-A-02
+  reason: 동일 접속함 계열 태그로 보이며, 인근 태그 요약에 JB-A-02가 존재하고 관계/명명 패턴이 유사함
+- tag: JB-A-02
+  other_tag: JB-A-01
+  reason: 인근 태그 요약에 JB-A-01이 있으며, 동일한 접속함 계열 태그로 보이고 관계 연결도 존재함. 스펠링 변형은 아니지만 동일 계열/병합
+    검토 후보로 보존.
+- tag: LEGEND-CABLE
+  other_tag: LEGEND-WIRE
+  reason: ontology_plan의 merge_candidates_hint에 따라 전선/전선관 범례와 유사한 범례로 병합 검토 대상
+- tag: LEGEND-WIRE
+  other_tag: LEGEND-SYMBOL
+  reason: ontology_hints.similar_equipment에 포함되어 있고, 범례/기호 정의 객체로 기능이 유사할 가능성이 있음
+- tag: SMFD
+  other_tag: MFD / FD / SFD
+  reason: ontology_hints.similar_equipment에 유사 약어가 명시되어 있어 철자·약어 변형 또는 관련 장비군일 가능성이
+    있음
+- tag: SPACE-EPS-TPS
+  other_tag: SPACE-EPS
+  reason: similar_equipment에 SPACE-EPS가 포함되어 있어 스펠링/명명 패턴상 유사 태그 병합 후보로 보임.
+- tag: SPACE-실습시스템전트롤실
+  other_tag: SPACE-실습시스템컨트롤실
+  reason: 전트롤실 vs 컨트롤실은 오타 가능성이 높고, name도 동일하게 실습시스템 컨트롤실로 제시됨
+- tag: SPACE-실습시스템컨트롤실
+  other_tag: SPACE-실습시스템전트롤실
+  reason: 인근 태그 요약 및 ontology plan의 merge 후보에서 오타 변형(전트롤실 -> 컨트롤실) 가능성이 높음
+- tag: ZONE-대형공간서측
+  other_tag: ZONE-좌측대형공간
+  reason: 인근 태그 요약에 유사한 공간 태그가 존재하며, 대형공간의 좌/서측 표현이 중복 또는 상하위 관계일 가능성이 있음.
+- tag: ZONE-좌측대형공간
+  other_tag: ZONE-대형공간서측
+  reason: 인근 태그 요약과 plan의 merge_candidates_hint에 동일/유사 공간으로 제시됨. 좌측/서측 표현 차이로 중복 가능성
+    있음.
+generated_at: '2026-04-20T08:38:14.467536'

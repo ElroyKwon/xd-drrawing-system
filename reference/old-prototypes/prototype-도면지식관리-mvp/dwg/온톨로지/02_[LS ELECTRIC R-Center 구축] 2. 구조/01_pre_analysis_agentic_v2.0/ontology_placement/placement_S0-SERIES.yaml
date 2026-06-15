@@ -1,0 +1,117 @@
+placement:
+  tag: S0-SERIES
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: S0-SERIES
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePage
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 문서 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUsageNote
+          suggested_datatype: xsd:string
+          rationale: 태그 사용 안내 문구로서 주석성 텍스트
+      - raw_text: S0-SERIES
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 대표 태그 문자열
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: entity_detail.name absent
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: tag/raw pattern + plan context
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag literal
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan guidance + raw text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan guidance + raw text
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 문서 안내 문구와 페이지 목록이 함께 있어 구조화된 단일 속성으로 확정하기 어려움
+    preservation_note: 페이지 목록은 문서 메타 후보, 안내 문구는 주석 후보로 분리 승격 가능
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드가 제공되지 않음
+    preservation_note: 빈 값 유지
+  - field_candidate: discipline
+    raw_text: unknown
+    source_page: 0
+    reason: 분야가 명시되지 않음
+    preservation_note: plan 상 unknown 다수와 일치
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SERIES 형태의 태그로 문서 메타/시트 시리즈/주석성 엔티티 가능성이 모두 존재하며, 물리 설비 실체로 단정할 근거가 부족함
+    recommended_handling: 후속 단계에서 DocumentEntity 또는 PlanOrView 계열 후보로 재검토하되, 현재는 NamedIndividual로
+      보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 도면/시트 식별자 계열 및 시리즈형 태그를 문서 메타 계층으로 우선 보존
+    - raw 텍스트의 페이지 목록과 안내 문구를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:59.768009'
+  confidence: 0.78

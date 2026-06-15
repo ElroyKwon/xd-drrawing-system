@@ -1,0 +1,139 @@
+entity_detail:
+  tag: BLDG-001
+  type: equipment
+  specs:
+    building_name:
+      value: R-Center
+      unit: null
+      source:
+      - 4
+      confidence: 0.99
+    building_name_alt:
+      value: 가운건축
+      unit: null
+      source:
+      - 19
+      confidence: 0.99
+    building_name_alt_2:
+      value: 생산동
+      unit: null
+      source:
+      - 22
+      confidence: 0.99
+    building_name_alt_3:
+      value: UNKNOWN
+      unit: null
+      source:
+      - 37
+      confidence: 0.95
+    building_name_alt_4:
+      value: 옥탑지붕층
+      unit: null
+      source:
+      - 38
+      confidence: 0.95
+  drawing_texts:
+  - source: page 4
+    page_number: 4
+    text: 옥외 전력간선설비 인입 배치도
+  - source: page 19
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page 20
+    page_number: 20
+    text: 생산동력(3Ø 380V) 분전반 결선도
+  - source: page 22
+    page_number: 22
+    text: 생산동력(3Ø 440V) 분전반 결선도-2
+  - source: page 37
+    page_number: 37
+    text: 지붕층 피뢰 및 접지 설비 평면도
+  - source: page 38
+    page_number: 38
+    text: 옥탑지붕층
+  requirements:
+  - text: 보호등급 IV등급
+    source: page 37
+    type: safety
+  - text: 회전구체반경 60 m
+    source: page 37
+    type: design_condition
+  - text: 축척 A1 1/200·A3 1/400
+    source: page 37
+    type: drawing_scale
+  connection_specs:
+  - relation: 전력 케이블 인입
+    partner: 공동구·맨홀·풀박스·덕트뱅크·빈관(ELP100)
+    details:
+      source: page 4
+  - relation: 접지/피뢰 연결
+    partner: 피뢰기초접지극
+    details:
+      source: page 37
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: SITE-001
+      direction: UNKNOWN
+      source: page 4, 19, 20, 22, 37, 38
+    - relation_type: contains
+      partner_tag: SP-01
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-02
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-03
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-04
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-05
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-06
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-07
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-08
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: SP-09
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: ZONE-001
+      direction: UNKNOWN
+      source: page 19, 20, 22, 37, 38
+    observed_attributes:
+    - building_name
+    - building_name_alt
+    - building_name_alt_2
+    - building_name_alt_3
+    - building_name_alt_4
+    - drawing_title
+    - drawing_scale
+    - protection_grade
+    - rotation_sphere_radius
+    similar_equipment:
+    - BLDG-001
+    suggested_parent_class: Building
+    cross_discipline:
+    - ELECTRICAL
+    - ARCHITECTURAL
+    - STRUCTURAL
+  notes:
+  - 도면 컨텍스트에서 BLDG-001은 페이지별로 서로 다른 건물명/공간명으로 나타나며, 확정 단일 명칭은 확인되지 않음.
+  - 페이지 4, 19, 20, 22, 37, 38의 분석 결과에 나타난 원문만 사용함.
+tag: BLDG-001

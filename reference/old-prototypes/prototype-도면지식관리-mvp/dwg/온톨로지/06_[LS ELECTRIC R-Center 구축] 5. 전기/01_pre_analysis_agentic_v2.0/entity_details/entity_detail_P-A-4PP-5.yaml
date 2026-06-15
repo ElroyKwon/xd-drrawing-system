@@ -1,0 +1,179 @@
+tag: P-A-4PP-5
+name: 생산동력 분전반 5호
+type: DISTRIBUTION_PANEL
+discipline: ELECTRICAL
+function_category: DISTRIBUTION_PANEL
+source_pages:
+- 21
+specs:
+  panel_board: P-A-4PP-5
+  cover_type: 노출형(STEEL)
+  panel_location: 1층 Drive 시험실
+  box_size: —
+  source: 전기실
+  volt: 440V
+  voltage_V: 440
+  main_cb: MCCB
+  spd_capacity_kA: 40
+  labels_above:
+  - 'PANEL BOARD: P-A-4PP-5'
+  - 'COVER TYPE: 노출형(STEEL)'
+  - 'PANEL LOCATION: 1층 Drive 시험실'
+  - 'BOX SIZE: —'
+  labels_inside:
+  - 'SOURCE: 전기실'
+  - 'VOLT: 440V'
+  - 'MAIN C.B: MCCB'
+  - MCCB 3P 30/20AT
+  - 3Ø S.P.D 40KA/mode
+  - 'FROM: 전기실 (R S T)'
+  - AT AF P TYPE NO CCM
+  - 1 MCCB MH 대형부하
+  - SP MCCB 3 125 75
+  - E3 (접지)
+  labels_below:
+  - E3
+  equipment_symbols:
+  - type: MCCB
+    count: 3
+  - type: SPD
+    count: 1
+  - type: CT
+    count: 1
+  connections_internal:
+  - circuit: MAIN
+    spec: MCCB 3P 30/20AT
+    annotation: MAIN FEEDER FROM 전기실
+  - circuit: '1'
+    breaker: MCCB 3P
+    annotation: MH 대형부하
+    status: active
+  - circuit: '2'
+    breaker: MCCB 3P 125/75A
+    annotation: SP
+    status: spare
+  raw_labels:
+  - 'SOURCE: 전기실'
+  - 'VOLT: 440V'
+  - 'MAIN C.B: MCCB'
+  - MCCB 3P 30/20AT
+  - 3Ø S.P.D 40KA/mode
+  - 'FROM: 전기실 (R S T)'
+  - AT AF P TYPE NO CCM
+  - 1 MCCB MH 대형부하
+  - SP MCCB 3 125 75
+  - E3 (접지)
+  - 'PANEL BOARD: P-A-4PP-5'
+  - 'COVER TYPE: 노출형(STEEL)'
+  - 'PANEL LOCATION: 1층 Drive 시험실'
+  - 'BOX SIZE: —'
+  - 'CKT#: 3P 630 AF / 500 AT'
+  - AT AF P TYPE NO CKT#
+  - '[[''3 MCCB IVR 전원2'']]'
+  - CKT# NO TYPE P AF AT
+  rated_voltage_V: 440
+  main_cb_type: MCCB
+  main_cb_poles: 3
+  main_cb_af_A: 630
+  main_cb_at_A: 500
+  spd_spec: 3Ø S.P.D 40KA/mode
+  spd_protection_mccb: MCCB 3P 30/20AT
+  branch_circuits:
+  - circuit_no: 1
+    breaker_type: MCCB
+    breaker_poles: 3
+    breaker_af_A: null
+    breaker_at_A: null
+    annotation: MH 대형부하
+    status: active
+  - circuit_no: 2
+    breaker_type: MCCB
+    breaker_poles: 3
+    breaker_af_A: 125
+    breaker_at_A: 75
+    annotation: SP
+    status: spare
+  grounding: E3
+relations:
+- from: 전기실
+  to: P-A-4PP-5
+  relation: feeds
+  source_page: 21
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: P-A-4PP-5
+  to: E3
+  relation: grounds_to
+  source_page: 21
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: P-A-4PP-5
+  to: UNKNOWN-SPD-05
+  relation: contains
+  source_page: 21
+  origin: cross_validated
+  line_style: null
+  note: null
+- from: 전기실
+  to: P-A-4PP-5
+  relation: cable
+  source_page: 21
+  origin: visual_semantics
+  annotation: 'FROM: 전기실 (R S T) 3상 440V'
+- from: P-A-4PP-5
+  to: E3
+  relation: cable
+  source_page: 21
+  origin: visual_semantics
+  annotation: 접지 E3
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: bottom-center
+confidence: 0.98
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+equipment_symbols:
+- type: MCCB
+  count: 3
+- type: SPD
+  count: 1
+- type: CT
+  count: 1
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - panel_board
+  - cover_type
+  - panel_location
+  - box_size
+  - source
+  - volt
+  - voltage_V
+  - main_cb
+  - spd_capacity_kA
+  - labels_above
+  - labels_inside
+  - labels_below
+  - equipment_symbols
+  - connections_internal
+  - raw_labels
+  - rated_voltage_V
+  - main_cb_type
+  - main_cb_poles
+  - main_cb_af_A
+  - main_cb_at_A
+  - spd_spec
+  - spd_protection_mccb
+  - branch_circuits
+  - grounding
+  similar_equipment: []
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection

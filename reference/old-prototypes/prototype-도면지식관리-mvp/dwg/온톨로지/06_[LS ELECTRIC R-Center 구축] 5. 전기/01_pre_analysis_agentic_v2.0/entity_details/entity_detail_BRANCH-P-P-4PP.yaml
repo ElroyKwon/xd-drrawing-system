@@ -1,0 +1,55 @@
+tag: BRANCH-P-P-4PP
+name: P-P-4PP 분기회로
+type: LOAD
+discipline: ELECTRICAL
+function_category: LOAD
+source_pages:
+- 22
+specifications:
+  branch_circuits:
+  - circuit_id: 회로
+    at: 50
+    af: 125
+    poles: 4
+    type: MCCB
+  - circuit_id: SP
+    at: 75
+    af: 125
+    poles: 3
+    type: MCCB
+  parent_panel: P-P-4PP
+  parent_panel_location: 고객접견공간
+  parent_panel_voltage: 440V
+  parent_panel_phase: 3Ø
+  source: 전기실
+  grounding: E3
+relations:
+- from: P-P-4PP
+  to: BRANCH-P-P-4PP
+  relation: feeds
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: 분기 MCCB 회로 (50AT/125AF/4P, 75AT/125AF/3P SP)
+collection_sources:
+  cross_validated: true
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: false
+ontology_hints:
+  suggested_parent_class: ElectricalBranchCircuit
+  observed_attributes:
+  - branch_circuit_protection
+  - molded_case_circuit_breaker
+  - surge_protection
+  similar_equipment:
+  - BRANCH-P-A-4PP-7
+  - BRANCH-P-AC-4PP-1
+  - BRANCH-P-C-4PP
+  - BRANCH-P-E-4PP
+  - BRANCH-P-F-4PP
+  function_candidates:
+  - PowerDistribution
+  - LoadProtection

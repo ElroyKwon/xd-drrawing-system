@@ -1,0 +1,309 @@
+ontology_plan:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: entity_details/*.yaml (n=189)
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T10:13:03.956774'
+  project_overview:
+    discipline_mix:
+      structural: 2
+      unknown: 187
+    dominant_equipment_types:
+    - type: 도면/시트 식별자 계열
+      count: 80
+      reasoning: S00.01~S06.41-8, INDEX-S00.01, S0/S1/S2/S3/S4/S5/S6-SERIES 등 시트/시리즈형
+        태그가 대량 관찰됨. 다수는 raw만 있고 관계가 없어 문서 메타 계층의 비중이 큼.
+    - type: 기초/부재 마크 계열
+      count: 15
+      reasoning: PF1, PF1A, PF1B, PF1C, PF2, PF2A, PF3, PF21, WF1, MF1, MF2, MF3,
+        PW1, PW2, PW3, W1 등이 반복적으로 FOUNDATION-PLAN, PLAN-PIT, UNKNOWN-SCHEDULE-01과
+        연결됨.
+    - type: 도면 컨테이너/플랜 계열
+      count: 6
+      reasoning: FOUNDATION-PLAN, MAIN-PLAN, PLAN-PIT, GRID-SYSTEM, MEMBER-LIST, NOTES-SECTION이
+        다수 관계의 허브로 관찰됨.
+    - type: 그룹/묶음 계열
+      count: 4
+      reasoning: GRP-GRID-X, GRP-GRID-Y, GRP-PIT-WALL, GRP-GENERAL-WALL이 contains
+        관계의 중간 집합체로 반복됨.
+    - type: 상세/접합 계열
+      count: 8
+      reasoning: S06.31-1~S06.31-8 중 일부가 connects_to 관계를 가지며 상세 간 연속성/참조성이 관찰됨.
+    complexity_estimate: medium
+    estimated_class_count: 14
+    estimated_individual_count: 189
+    estimated_property_count:
+      object: 7
+      data: 6
+  predicted_ontology_structure:
+    class_hierarchy_hint:
+      top_level:
+      - DocumentEntity
+      - PlanOrView
+      - MemberMark
+      - GroupingEntity
+      - NoteOrLegend
+      - ScheduleOrList
+      - DetailEntity
+      expected_depth: 3
+      likely_disjoint_pairs:
+      - - PlanOrView
+        - MemberMark
+      - - GroupingEntity
+        - MemberMark
+      - - ScheduleOrList
+        - MemberMark
+      - - NoteOrLegend
+        - GroupingEntity
+      reasoning: 관찰상 태그들은 크게 문서/시트 식별자, 플랜/뷰, 부재 마크, 그룹, 노트/범례, 일람표/스케줄, 상세로 나뉜다.
+        FOUNDATION-PLAN·MAIN-PLAN·PLAN-PIT은 컨테이너 역할, PF/WF/MF/PW/W 계열은 도면 내 마크 역할,
+        GRP-*는 집합 역할, UNKNOWN-SCHEDULE-01·MEMBER-LIST는 참조원 역할을 보인다.
+    expected_object_properties:
+    - label: references
+      signal: FOUNDATION-PLAN↔MEMBER-LIST, NOTES-SECTION→FOUNDATION-PLAN, UNKNOWN-SCHEDULE-01→PF/WF/MF,
+        MAIN-PLAN→DOUBLE-FOUNDATION-NOTE 등 가장 반복적으로 관찰됨.
+      est_evidence: 24
+      inverse_hint: isReferencedBy
+    - label: located_in
+      signal: PF1/PF1A/PF1B/PF1C/PF2/PF2A/PF3/PF21/WF1/MF1이 FOUNDATION-PLAN에 위치하는
+        패턴이 집중적으로 관찰됨.
+      est_evidence: 10
+      inverse_hint: hosts
+    - label: contains
+      signal: GRP-PIT-WALL→PW1/PW2/PW3, GRP-GENERAL-WALL→W1, GRP-GRID-X/Y→GRID-SYSTEM,
+        PIT-ZONE→FOUNDATION-PLAN 등 포함 구조가 반복됨.
+      est_evidence: 9
+      inverse_hint: isContainedIn
+    - label: connects_to
+      signal: VBR1→VBR2→VBR3, S06.31-1/2→S06.31-5, S06.31-3→S06.31-4 등 연속 상세/연결 부재
+        패턴이 존재함.
+      est_evidence: 6
+      inverse_hint: connects_to
+    - label: linked_to
+      signal: PW1/PW2/PW3/W1→PLAN-PIT에서 동일 패턴으로 반복됨.
+      est_evidence: 4
+      inverse_hint: hasLinkedMember
+    - label: other
+      signal: visual_semantics 단계에서 다수 관계가 other로 남아 있으며 후속 정규화 필요.
+      est_evidence: 14
+      inverse_hint: ''
+    - label: member_tag_matches
+      signal: MEMBER-LIST와 FOUNDATION-PLAN/PLAN-PIT 사이 annotation에 'MARK 태그 매칭', '부재
+        마크 참조'가 반복되어 별도 정제 속성 후보임.
+      est_evidence: 5
+      inverse_hint: matched_in_list
+    expected_data_properties:
+    - label: hasTag
+      datatype_hint: xsd:string
+      coverage_estimate: 1.0
+      reasoning: 모든 엔티티에 tag가 존재함.
+    - label: hasName
+      datatype_hint: xsd:string
+      coverage_estimate: 0.03
+      reasoning: GRID-SYSTEM, VBR2, S06.31-3, S06.31-4 등 일부만 name 보유.
+    - label: hasDiscipline
+      datatype_hint: xsd:string
+      coverage_estimate: 0.02
+      reasoning: 명시 discipline은 GRID-SYSTEM, VBR2 등 극소수만 존재하나 프로젝트 전반 discipline 문맥은
+        structural 우세.
+    - label: hasFunctionCategory
+      datatype_hint: xsd:string
+      coverage_estimate: 0.02
+      reasoning: GRID-SYSTEM=function_category:grid, VBR2=function_category:BEAM 등
+        일부만 관찰.
+    - label: sourcePage
+      datatype_hint: xsd:integer
+      coverage_estimate: 0.22
+      reasoning: 관계 레코드에는 source_page가 반복적으로 존재하며 엔티티 수준 메타로 승격 가능.
+    - label: relationNote
+      datatype_hint: xsd:string
+      coverage_estimate: 0.18
+      reasoning: annotation/note에 의미 정보가 풍부하며 특히 other 관계 해석에 중요함.
+    expected_axioms:
+    - type: SubClassOf
+      example: FoundationMemberMark ⊑ MemberMark
+      evidence_hint: PF*, WF*, MF*가 공통적으로 plan 내 위치 및 schedule 참조 패턴을 공유.
+    - type: SubClassOf
+      example: PitWallMark ⊑ MemberMark
+      evidence_hint: PW1/PW2/PW3가 동일 그룹 포함 및 PLAN-PIT linked_to 패턴을 공유.
+    - type: SubClassOf
+      example: PlanOrView ⊑ DocumentEntity
+      evidence_hint: FOUNDATION-PLAN, MAIN-PLAN, PLAN-PIT, GRID-SYSTEM이 도면 컨텍스트 허브로
+        기능.
+    - type: InverseOf
+      example: located_in inverse hosts
+      evidence_hint: 부재 마크에서 플랜으로 향하는 located_in이 반복되어 역방향 질의 필요성이 높음.
+    - type: SymmetricProperty
+      example: connects_to may be symmetric for detail-to-detail continuity
+      evidence_hint: S06.31-3↔S06.31-4, VBR1→VBR2→VBR3에서 연결 의미가 상호적일 가능성.
+    - type: DisjointWith
+      example: GroupingEntity DisjointWith MemberMark
+      evidence_hint: GRP-*는 집합체, PW*/W1 등은 개별 부재로 역할이 분리됨.
+    expected_constraints:
+    - type: DomainRange
+      target: located_in
+      expected: domain=MemberMark, range=PlanOrView
+      reasoning: PF/WF/MF 계열만 플랜에 located_in으로 연결됨.
+    - type: DomainRange
+      target: contains
+      expected: domain=GroupingEntity or PlanOrView, range=MemberMark or sub-group
+      reasoning: GRP-*와 PIT-ZONE이 contains를 사용.
+    - type: DomainRange
+      target: references
+      expected: domain=PlanOrView|ScheduleOrList|NoteOrLegend|MemberMark, range=PlanOrView|MemberMark|DetailEntity|NoteOrLegend
+      reasoning: references의 사용 범위가 넓어 단일 좁은 범위보다 다중 상위 클래스 범위가 적합.
+    - type: Cardinality
+      target: GRID-SYSTEM.contains
+      expected: at least 2 grouped axes
+      reasoning: GRP-GRID-X, GRP-GRID-Y 두 축 그룹이 동시에 관찰됨.
+    - type: Cardinality
+      target: PLAN-PIT.hasLinkedMember
+      expected: multiple
+      reasoning: PW1/PW2/PW3/W1 네 개 linked_to가 확인됨.
+    - type: FunctionalProperty
+      target: hasTag
+      expected: likely functional per entity
+      reasoning: 각 엔티티는 단일 대표 tag를 가짐. 단, 복합 태그 파일은 예외 후보.
+  discipline_context_plan:
+    structural:
+      observed_signals:
+        plan_views:
+        - FOUNDATION-PLAN
+        - MAIN-PLAN
+        - PLAN-PIT
+        - GRID-SYSTEM
+        member_marks:
+        - PF*
+        - WF1
+        - MF*
+        - PW*
+        - W1
+        - VBR*
+        detail_entities:
+        - S06.31-*
+        support_entities:
+        - MEMBER-LIST
+        - UNKNOWN-SCHEDULE-01
+        - NOTES-SECTION
+        - UNKNOWN-NOTE-*
+        - UNKNOWN-REINFORCEMENT-*
+      expected_sub_kinds:
+      - foundation_member_marks
+      - pit_wall_marks
+      - grid_groups
+      - detail_connections
+      - schedule_note_references
+      relation_patterns:
+        strongest:
+        - member mark -> located_in -> plan
+        - schedule/list -> references -> member mark
+        - group -> contains -> member mark
+        - detail/beam -> connects_to -> detail/beam
+        weaker_or_ambiguous:
+        - other relation from visual semantics awaiting normalization
+      reasoning: 페이지 장르가 framing_plan, floor_plan, detail, general_notes로 구성되고, 실제
+        관계도 구조 부재/기초/상세 중심으로 집중됨.
+    unknown:
+      observed_signals:
+        dominant_forms:
+        - raw only placeholder responses
+        - sheet identifiers
+        - series identifiers
+        - unresolved notes/schedules/material legends
+      expected_sub_kinds:
+      - document_metadata
+      - unresolved_structural_entities
+      handling_plan: unknown discipline로 남아 있으나 태그 패턴상 상당수는 structural 문맥의 문서 메타 또는
+        미해결 구조 엔티티로 보임. 후속 단계에서 structural 귀속 여부를 보수적으로 재판정.
+      reasoning: 187개가 unknown으로 집계되지만 실제 내용은 구조 도면 시트명/시리즈명/미해결 구조 태그가 대부분이다.
+  merge_candidates_hint:
+    likely_duplicates:
+    - pattern: 시트/시리즈 계층 중복 (S0-SERIES, S1-SERIES... 와 S00.01, S00.11... 개별 시트)
+      estimate: 40~60건
+      resolution_hint: 중복 병합보다 상위-하위 문서 계층으로 모델링. SERIES는 컬렉션, Sxx.xx는 개별 시트로 분리.
+    - pattern: 복합 태그 파일 vs 개별 태그 파일 (PF1/PF1A/.../PF21, MF2/MF3, SC1~SC21)
+      estimate: 3~6건
+      resolution_hint: 복합 태그 엔티티는 독립 개체보다 annotation 또는 grouping candidate로 낮춰 검토.
+    - pattern: UNKNOWN-SCHEDULE-01 vs MEMBER-LIST vs MEMBER-LIST-TABLE
+      estimate: 2~3건
+      resolution_hint: 동일 일람표 실체의 명칭 차이 가능성 높음. 페이지/annotation 기준으로 동일성 검토.
+    - pattern: FOUNDATION-PLAN 관련 other/references 중복 진술
+      estimate: 8~12건
+      resolution_hint: visual_semantics의 other와 cross_validated의 references를 별도 provenance로
+        유지하되 의미 속성은 하나로 정규화.
+    - pattern: direction 값 표기 변형 (outgoing/outbound/to/PF21 -> FOUNDATION-PLAN)
+      estimate: 10건 내외
+      resolution_hint: 관계 방향은 from/to 기준으로 재정규화하고 direction 문자열은 신뢰하지 말 것.
+  ambiguity_risk_areas:
+  - tag_pattern: raw만 존재하는 대부분의 태그
+    reason: 실제 클래스 힌트, 속성, 관계가 없고 페이지 안내 문구만 있어 의미 추론 근거가 약함.
+    recommended_handling: 후속 단계에서 ontology 핵심 개체로 승격하지 말고 annotation-only 또는 document
+      placeholder로 우선 배치.
+  - tag_pattern: UNKNOWN-*
+    reason: 노트, 스케줄, 보강근, 파일, 재료 범례 등이 혼재되어 동일 상위 클래스로 묶기 어려움.
+    recommended_handling: UNKNOWN-NOTE, UNKNOWN-SCHEDULE, UNKNOWN-REINFORCEMENT, UNKNOWN-PHC_PILE/MICRO_PILE처럼
+      접두 패턴별로 분리 검토.
+  - tag_pattern: other relation
+    reason: visual_semantics 단계의 임시 관계로 의미가 references/contains/connects_to와 중첩됨.
+    recommended_handling: annotation 문구를 근거로 후속 단계에서 정규 속성으로 재매핑하고 provenance는 보존.
+  - tag_pattern: '복합 태그명 포함 엔티티 (예: MF1 vs MF2/MF3, PIT-ZONE / UNKNOWN-SHAPE-01)'
+    reason: 단일 개체인지 비교/설명용 레이블인지 불명확함.
+    recommended_handling: 개체 생성보다 비교노트/annotation 후보로 처리하고 독립 관계가 있는지 우선 확인.
+  - tag_pattern: S06.31-* 상세 태그
+    reason: 일부만 관계가 있고 나머지는 raw뿐이라 상세군 내부 구조가 부분 관찰 상태임.
+    recommended_handling: 64페이지 상세군을 하나의 detail cluster로 보고 연결 공리 도출은 관계가 확인된 항목에
+      한정.
+  guidance_for_next_steps:
+    for_0_9b_placement:
+      focus:
+      - FOUNDATION-PLAN, MAIN-PLAN, PLAN-PIT, GRID-SYSTEM, MEMBER-LIST를 허브 NamedIndividual로
+        우선 배치
+      - PF/WF/MF/PW/W/VBR/S06.31-*를 관계 기반 개체로 우선 배치
+      - raw-only 시트/시리즈 태그는 AnnotationOnly 또는 문서 메타 개체로 보수 배치
+      - UNKNOWN-*는 접두 패턴별 임시 버킷으로 분리
+      expected_owl_role_distribution:
+        NamedIndividual: 55
+        PartOf: 12
+        ObjectPropertyAssertion: 65
+        DataPropertyValue: 35
+        AnnotationOnly: 87
+      watch_outs:
+      - direction 필드보다 from/to를 우선 신뢰
+      - 복합 태그 파일을 개별 실체와 중복 생성하지 말 것
+      - visual_semantics와 cross_validated를 provenance 차원에서 분리 보존
+    for_0_9c_taxonomy:
+      focus:
+      - 문서/플랜/부재마크/그룹/노트/스케줄/상세의 1차 분류 확정
+      - PF/WF/MF/PW/W/VBR를 MemberMark 하위로 세분
+      - UNKNOWN-*를 단일 UnknownEntity로 뭉개지 말고 기능별 분리
+      seed_top_classes:
+      - DocumentEntity
+      - PlanOrView
+      - MemberMark
+      - GroupingEntity
+      - ReferenceSupportEntity
+    for_0_9d_properties:
+      focus:
+      - references, located_in, contains, connects_to, linked_to의 도메인/레인지 정제
+      - other 관계의 의미 재분류
+      - annotation/note/source_page를 데이터 속성 또는 관계 메타로 보존
+      priority_properties:
+      - references
+      - located_in
+      - contains
+      - connects_to
+      - linked_to
+    for_0_9e_axioms:
+      focus:
+      - MemberMark 하위군의 SubClassOf
+      - GroupingEntity와 MemberMark의 DisjointWith
+      - located_in / contains / references의 inverse 및 domain-range
+      - connects_to의 대칭성 여부 검토
+      priority_axioms:
+      - SubClassOf
+      - DomainRange
+      - InverseOf
+      - DisjointWith
+  confidence: 0.72
+  self_assessment: 관계가 명시된 핵심 구조 엔티티들에 대해서는 비교적 안정적인 청사진을 제시할 수 있으나, 전체 189개 중 다수가
+    raw-only placeholder라 클래스 수와 문서 메타 계층은 보수적으로 추정했다. 특히 UNKNOWN-*와 시트/시리즈 태그의 실체성은
+    후속 단계에서 재검증이 필요하다.

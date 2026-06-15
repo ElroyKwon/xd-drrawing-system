@@ -1,0 +1,107 @@
+placement:
+  tag: UNKNOWN-DUCTTRAY-01
+  name: Duct, Tray내 배선
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: CommunicationWiring
+    alternative_class_hints:
+    - WiringInsidePathway
+    - DuctTrayWiring
+    related_assertions: []
+    applicable_axioms:
+    - AX038
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationWiring
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 직선형 배선 표기
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면상 시각적 표현에 대한 설명 문구
+      - raw_text: Without Conduit
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: conduitStatus
+          suggested_datatype: xsd:string
+          rationale: 배선이 conduit 없이 표현되었다는 범례성 문구
+      - raw_text: 우측 범례, 공통사항 항목
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceContext
+          suggested_datatype: xsd:string
+          rationale: 범례/공통사항에서 온 설명 텍스트
+      - raw_text: duct_tray_wiring
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 원문 type 값 보존
+      - raw_text: WIRING
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 function_category 값 보존
+  provenance:
+    name:
+      source_pages:
+      - 3
+    discipline:
+      source_pages:
+      - 3
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 3
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 3
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 3
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 3
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 3
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 도면 범례의 'Duct, Tray내 배선'은 물리 설비 자체라기보다 배선 표기/주석 성격이 강하지만, type 값이 duct_tray_wiring으로
+      주어져 있어 물리 경로 요소인지 표기 요소인지 단정하기 어렵다.
+    recommended_handling: AnnotationOnly로 보존하되, 후속 단계에서 동일 범례/공통사항 문구와의 대응 여부를 검토해
+      필요 시 Wiring 관련 개체로 승격 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 배선/인프라 계열로 해석
+    - 범례/공통사항 출처를 provenance에 반영
+    - 분류 불가 원문을 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:51.952683'
+  confidence: 0.78

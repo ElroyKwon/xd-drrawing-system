@@ -1,0 +1,212 @@
+placement:
+  tag: SPACE-COMM
+  name: 통신실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-COMM
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationRoom
+    - SpatialEntity
+    related_assertions:
+    - type: hasInstalledEquipment
+      target_hint: ITB (전화 단자함)
+      note: specs.equipment_symbols에 통신실 내부 설비로 관찰됨
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: relations에서 HUB-RACK-2F -> SPACE-COMM cable, FO 광케이블 / FDF 연결
+    applicable_axioms:
+    - AX001
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 통신실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 라벨
+      - raw_text: 'labels_inside: 통신실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기 텍스트
+      - raw_text: 'equipment_symbols: ITB (전화 단자함)'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼 관찰
+      - raw_text: 'inferred_name: 통신실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추정명
+      - raw_text: 'position: center-left'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'shape: rectangle'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationSpace'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.observed_attributes: raw_labels, labels_inside,
+          equipment_symbols, inferred_name, position, shape'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: CommunicationHub, CableTermination'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+      - raw_text: 'relations.annotation: FO 광케이블 / FDF 연결'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: relationAnnotation
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 8
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 8
+      method: entity_detail.discipline
+    function_category:
+      source_pages:
+      - 8
+      method: entity_detail.function_category
+    source_pages:
+      source_pages:
+      - 8
+      method: entity_detail.source_pages
+    specs.raw_labels:
+      source_pages:
+      - 8
+      method: entity_detail.specs.raw_labels
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: entity_detail.specs.labels_inside
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      method: entity_detail.specs.equipment_symbols
+    specs.inferred_name:
+      source_pages:
+      - 8
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 8
+      method: entity_detail.specs.position
+    specs.shape:
+      source_pages:
+      - 8
+      method: entity_detail.specs.shape
+    relations:
+      source_pages:
+      - 8
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 8
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: entity_detail.ontology_hints.function_candidates
+    position:
+      source_pages:
+      - 8
+      method: entity_detail.position
+    collection_sources.visual_semantics:
+      source_pages:
+      - 8
+      method: entity_detail.collection_sources.visual_semantics
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 8
+      method: entity_detail.collection_sources.visual_semantics_gemini
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 8
+      method: entity_detail.collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: relations[0].relation
+    raw_text: cable
+    source_page: 8
+    reason: 확정 property IRI로 승격하지 않음
+    preservation_note: 관계 사실 원형으로만 보존
+  - field_candidate: relations[0].annotation
+    raw_text: FO 광케이블 / FDF 연결
+    source_page: 8
+    reason: 관계 주석은 해석 여지가 있어 원문 보존 필요
+    preservation_note: 광케이블 및 FDF 연결 주석
+  - field_candidate: equipment_symbols[0].type
+    raw_text: ITB (전화 단자함)
+    source_page: 8
+    reason: 장비 심볼의 정확한 클래스 확정은 다음 단계 필요
+    preservation_note: 공간 내부 설치 장비 후보로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CommunicationHub, CableTermination
+    source_page: 8
+    reason: 후보 기능이며 확정 불가
+    preservation_note: class/function 후보로만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 space이고 function_category는 COMMUNICATION_ROOM이며, ontology_hints는
+      CommunicationSpace를 제안하지만 내부 equipment_symbols와 relation cable이 함께 존재하여 공간/장비
+      혼합성이 있음
+    recommended_handling: 0-9c에서 SpatialEntity 계열로 우선 검토하되, CommunicationRoom/CommunicationSpace
+      후보를 함께 유지하고 관계는 별도 assertion으로 분리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 계열 엔티티로서 CommunicationSpace/CommunicationRoom 후보를 우선 반영
+    - relations의 cable 연결 사실을 related_assertions 원형으로 보존
+    - equipment_symbols와 ontology_hints의 후보 정보를 free_notes 및 provenance로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:43.819681'
+  confidence: 0.86

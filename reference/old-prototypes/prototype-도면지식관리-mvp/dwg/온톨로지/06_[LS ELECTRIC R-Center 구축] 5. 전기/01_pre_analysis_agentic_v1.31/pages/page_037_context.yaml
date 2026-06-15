@@ -1,0 +1,1138 @@
+executive_summary:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.98
+  summary: '지붕층 피뢰 및 접지 설비 평면도로, 피뢰침 1개소와 수평도체(STS 환봉 8㎜)를 중심으로 구조체 접속 12개소, 금속 사다리
+    접속 2개소, 피뢰기초접지극 2개소가 연결된다.
+
+    주 인하도선은 기초철골, 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로 표기되어 있으며, 피뢰설비 개요 및 특기사항과 범례가 우측
+    상단에 함께 보인다.
+
+    도면 표제란에는 프로젝트명 LS Electric R-Center 구축, 프로젝트번호 624001, 도면번호 EE-05-003이 확인된다.
+
+    '
+  equipment:
+  - tag: LTN-001
+    name: 피뢰침
+    spec: H:3,000㎜, 1개소
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 지붕층 중앙부
+    confidence: 0.99
+  - tag: CND-001
+    name: 수평도체
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 지붕층 외곽 및 내부 루프
+    confidence: 0.99
+  - tag: BND-001
+    name: 구조체 접속
+    spec: 12개소 동일
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 지붕층 구조체 접속점
+    confidence: 0.99
+  - tag: BND-002
+    name: 금속 사다리 접속
+    spec: 2개소 동일
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 금속 사다리 접속점
+    confidence: 0.99
+  - tag: GND-001
+    name: 피뢰기초접지극
+    spec: 2개소
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    location: 좌측 하단 B열 1열 부근, 우측 중단 B~C열 6열 부근
+    confidence: 0.98
+  - tag: CND-002
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 지붕층
+    confidence: 0.98
+  - tag: CND-003
+    name: 주 인하도선
+    spec: 기초철골
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 지붕층
+    confidence: 0.9
+  - tag: SP-CORE-001
+    name: 계단실/코어 영역
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 도면 중앙 우측
+    confidence: 0.95
+  relationships:
+  - from: LTN-001
+    to: CND-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: CND-001
+    to: BND-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: CND-001
+    to: BND-002
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: CND-001
+    to: GND-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: CND-001
+    to: GND-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.95
+  - from: CND-001
+    to: CND-003
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.9
+  - from: BND-002
+    to: CND-002
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.85
+  - from: SC-001
+    to: GND-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.9
+  - from: MLC-001
+    to: GND-001
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.85
+  spaces:
+  - space_id: ROOF-001
+    type: ROOF_LEVEL
+    name: 지붕층
+    parent: null
+  - space_id: SP-CORE-001
+    type: CORE_AREA
+    name: 계단실/코어 영역
+    parent: ROOF-001
+  flow_paths:
+  - - LTN-001
+    - CND-001
+    - SC-001
+    - GND-001
+  - - LTN-001
+    - CND-001
+    - MLC-001
+    - GND-001
+  - - LTN-001
+    - CND-001
+    - GND-001
+  - - LTN-001
+    - CND-001
+    - GND-001
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000㎜)
+  - 수평도체 1식 (STS 환봉 8㎜, 지지금구 1m마다 설치)
+  - 구조체 접속 12개소
+  - 금속 사다리 접속 2개소
+  - 피뢰기초접지극 2개소
+  - 보조 인하도선 F-GV 50㎟ (HI-PVC 28C)
+  - 주 인하도선 기초철골
+  stats:
+    equipment: 8
+    relationships: 9
+    spaces: 2
+    flow_paths: 4
+  uncertainties:
+  - SC-001, MLC-001, GE-001, GE-002는 관계 항목에만 나타나며, 본 입력의 equipment 목록에는 별도 상세 태그/사양이
+    완전히 제공되지 않음.
+  - pass3_공간의 equipment_placement 이후 내용이 잘려 있어 추가 공간/배치 정보는 확인 불가.
+  - 피뢰기초접지극 2개소의 정확한 개별 태그 구분은 입력에서 명시되지 않음.
+  related_pages:
+  - 36
+  - 38
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/특기사항 섹션
+  discipline: ELECTRICAL
+  classification: FLOOR_LAYOUT
+  title_block:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 피뢰침
+    type: lightning_rod
+    source: both
+  - tag: 수평도체(STS 환봉 8㎜)
+    type: horizontal_conductor
+    source: both
+  - tag: 구조체 접속
+    type: structural_connection
+    source: both
+  - tag: 금속 사다리 접속
+    type: metal_ladder_connection
+    source: both
+  - tag: 'DN to : 피뢰기초접지극'
+    type: grounding_connection_note
+    source: both
+  - tag: '주 인하도선 : 기초철골'
+    type: down_conductor_note
+    source: text
+  - tag: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+    type: down_conductor_note
+    source: text
+  - tag: 피뢰침 (H:3,000㎜)
+    type: lightning_rod_note
+    source: both
+  - tag: 수평도체 (STS 환봉 8㎜)
+    type: conductor_note
+    source: both
+  - tag: F-GV 50㎟ (HI-PVC 28C)
+    type: cable_spec
+    source: text
+  - tag: STS 환봉 8㎜
+    type: material_spec
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 범례 박스에 피뢰심볼, 구조체 접속, 입상/입하, 층간연결 입상/입하, 수평도체, F-GV 50㎟ 선종이 함께 표시됨
+  - 도면 우측 상단에 피뢰설비 개요 및 특기사항 표가 있어 범례/설명 섹션이 존재함
+  - '도면 본문에는 그리드 A-D, 1-7과 치수(예: 71,000, 43,000, 13,000, 12,000, 11,500)가 보임'
+  - 표제란의 리비전 값은 이미지/텍스트에서 확인되지 않음
+  confidence: 0.96
+  note: 페이지 37의 텍스트와 이미지가 일치하며, 지붕층 피뢰 및 접지 설비 평면도임. 범례 전용 페이지는 아니지만 우측에 피뢰설비 범례와
+    개요/특기사항 섹션이 포함됨.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: PNL-001
+    shape: dashed_box
+    primary_label: 지붕층 피뢰 및 접지 설비 평면도
+    position: center
+    labels_near:
+    - 피뢰침 (H:3,000mm)
+    - 수평도체(STS 환봉 8mm)
+    - 'DN to : 피뢰기초접지극'
+    - 구조체 접속
+    - 금속 사다리 접속
+  - panel_id: PNL-002
+    shape: rectangle
+    primary_label: 피뢰설비 개요 및 특기사항
+    position: top-right
+    labels_near:
+    - 적용기준
+    - 보호등급
+    - 수뢰부
+    - 인하도선
+  - panel_id: PNL-003
+    shape: rectangle
+    primary_label: 피뢰설비 범례
+    position: right-center
+    labels_near:
+    - 피뢰침
+    - 구조체 접속
+    - 수평도체
+    - F-GV 50㎟
+  - panel_id: PNL-004
+    shape: rectangle
+    primary_label: TITLE BLOCK
+    position: bottom-right
+    labels_near:
+    - LS Electric
+    - 지붕층 피뢰 및 접지 설비 평면도
+    - EE-05-003
+  - panel_id: PNL-005
+    shape: rectangle
+    primary_label: KEY PLAN
+    position: right-middle
+    labels_near: null
+  connections:
+  - from: PNL-001
+    to: PNL-001
+    line_style: dashed
+    annotation: 수평도체 (지붕 외곽 및 내부)
+  - from: PNL-001
+    to: PNL-001
+    line_style: solid
+    annotation: 구조체 접속선
+  - from: PNL-001
+    to: PNL-001
+    line_style: dotted
+    annotation: 그리드 보조선
+  notable_shapes:
+  - shape: dashed_box
+    label: 지붕 구조물 윤곽
+    note: 도면 본문의 주 영역을 형성하는 점선 박스
+  - shape: circle
+    label: 피뢰침
+    note: 이중 원 기호
+  - shape: hexagon
+    label: 선종류 번호
+    note: 범례 및 도면 내 ⑤, ⑥ 표기
+  - shape: shaded_box
+    label: 계단실/코어 영역
+    note: 도면 내 음영 처리된 부분
+classification: GROUNDING_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 지붕층 피뢰 및 접지 설비 평면도
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- 피뢰침 (H:3,000㎜) 1개소
+- 구조체 접속 12개소 동일
+- 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+- 'DN to : 피뢰기초접지극'
+- 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+- 회전 구체법 / IV등급 / 회전구체반경 60 m
+- '주 인하도선 : 기초철골'
+- '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+- '프로젝트명: LS Electric R-Center 구축'
+- '프로젝트번호: 624001'
+- '설계사: 가운건축(GAUN Architects & Engineers)'
+title_block:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: null
+classification_confirmed: true
+override_classification: null
+visual_pattern: 지붕층 평면 위에 피뢰침, 수평도체, 구조체 접속, 금속 사다리 접속, DN to 피뢰기초접지극 등의 접속점이 배치된
+  전기 설비 평면도이며, 우측 상단에 피뢰설비 개요 및 특기사항 표와 범례가 함께 있는 구성이다. 중앙 본문은 그리드(A-D, 1-7)와 치수선이
+  있는 평면 배치, 우측은 설명/범례, 하단 우측은 표제란으로 구성된다.
+symbol_density: MEDIUM
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 수평도체(STS 환봉 8㎜)
+  count: 1
+- type: 구조체 접속
+  count: 2
+- type: 금속 사다리 접속
+  count: 1
+- type: 'DN to : 피뢰기초접지극'
+  count: 2
+- type: 입상/입하
+  count: 0
+- type: 층간연결 입상/입하
+  count: 0
+- type: F-GV 50㎟ (HI-PVC 28C)
+  count: 1
+line_types_observed:
+- 실선 형태의 평면/치수 보조선
+- 점선 형태의 외곽/도체 경로
+- 화살표/표식이 포함된 접속 지시선
+additional_findings:
+- 기존 텍스트 분석의 '지붕층 피뢰 및 접지 설비 평면도' 분류와 이미지가 일치한다.
+- 우측 상단에 '피뢰설비 개요 및 특기사항' 표가 보이며, 범례 섹션이 함께 존재한다.
+- 범례에 있는 심볼로 보이는 항목은 피뢰침, 구조체 접속, 입상/입하, 층간연결 입상/입하, 수평도체, F-GV 50㎟ 선종이다.
+- 범례에 없는 별도 설비 심볼은 이 이미지에서 명확히 확인되지 않는다.
+- 페이지 하단 표제란에 도면명 '지붕층 피뢰 및 접지 설비 평면도'와 도면번호 'EE-05-003'이 보인다.
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 피뢰침, 도체, 접속점, 접지 연결 등 개별 심볼과 태그를 식별해야 한다.
+- mode: spatial_mapping
+  priority: 2
+  reason: 지붕 평면 위 설비 배치와 접속 위치를 확인해야 한다.
+- mode: power_flow_topology
+  priority: 3
+  reason: 전력계통은 아니지만 접지/피뢰 연결 경로를 상하류 관계로 확인하는 데 유용하다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PNL-001
+    shape: dashed_box
+    labels_inside:
+    - 피뢰침 (H:3,000㎜) 1개소
+    - 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+    - 금속 사다리 접속 2개소 동일
+    - 구조체 접속 12개소 동일
+    - 'DN to : 피뢰기초접지극'
+    labels_above: []
+    labels_below: []
+    labels_near:
+    - 'DN to : 피뢰기초접지극 (좌측 하단)'
+    - 'DN to : 피뢰기초접지극 (우측 중단)'
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    - type: 구조체 접속
+      count: 12
+    - type: 금속 사다리 접속
+      count: 2
+    - type: 수평도체 (STS 환봉 8㎜)
+      count: 1
+    - type: DN to 피뢰기초접지극
+      count: 2
+    inferred_name: 지붕층 피뢰 및 접지 설비 평면도 본문 영역
+    position: center
+    grid_info:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - C
+      - D
+      dimensions:
+        total_width_mm: 71000
+        total_height_mm: 43000
+        bay_widths_mm:
+        - 12000
+        - 12000
+        - 12000
+        - 12000
+        - 11500
+        - 11500
+        row_heights_mm:
+        - 13000
+        - 17000
+        - 13000
+  - panel_id: PNL-002
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 개요 및 특기사항
+    - '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+    - '보호등급: IV등급'
+    - '회전구체반경: 60m'
+    - '수뢰부: STS 환봉 8㎜ + 피뢰침'
+    - '주 인하도선: 기초철골'
+    - '보조 인하도선: F-GV 50㎟ (HI-PVC 28C)'
+    - 특기사항 1~5항
+    labels_above:
+    - 피뢰설비 개요 및 특기사항
+    labels_below: []
+    inferred_name: 피뢰설비 개요 및 특기사항 표
+    position: top-right
+  - panel_id: PNL-003
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 범례
+    - 피뢰침 (⊙ 기호)
+    - 구조체 접속 (철근 및 철골 접속) (■ 기호)
+    - 구조물 접속 (● 기호)
+    - 입상, 입하 (↗ 기호)
+    - 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속) (↗ 기호)
+    - 수평도체 (STS 환봉 8㎜) (⑤ 점선)
+    - F-GV 50㎟ (HI-PVC 28C) (⑥ 실선)
+    labels_above:
+    - 피뢰설비 범례
+    labels_below: []
+    inferred_name: 피뢰설비 범례 섹션
+    position: right-center
+  - panel_id: PNL-004
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축 (GAUN Architects & Engineers)
+    - 지붕층 피뢰 및 접지 설비 평면도
+    - EE-05-003
+    - '축척 A1: 1/200, A3: 1/400'
+    - 안동식
+    - 이윤찬
+    - 정윤목
+    - '2024.04'
+    - (주)정명기술단
+    labels_above: []
+    labels_below: []
+    inferred_name: 표제란 (Title Block)
+    position: bottom-right
+  - panel_id: PNL-005
+    shape: shaded_box
+    labels_inside:
+    - 계단실/코어 영역 (음영 처리)
+    labels_above: []
+    labels_below: []
+    inferred_name: 계단실 또는 코어 영역 (지붕층 내부)
+    position: center-right
+  connections:
+  - from: PNL-001
+    to: GROUND-피뢰기초접지극-LEFT
+    line_type: ground
+    line_style: solid
+    annotation: 'DN to : 피뢰기초접지극 (좌측 하단, B열 1열 부근)'
+  - from: PNL-001
+    to: GROUND-피뢰기초접지극-RIGHT
+    line_type: ground
+    line_style: solid
+    annotation: 'DN to : 피뢰기초접지극 (우측 중단, B~C열 6열 부근)'
+  - from: PNL-001
+    to: PNL-001
+    line_type: other
+    line_style: dashed
+    annotation: 수평도체 (STS 환봉 8㎜) - 지붕 외곽 및 내부 루프 배선
+  - from: PNL-001
+    to: PNL-001
+    line_type: ground
+    line_style: solid
+    annotation: 구조체 접속 12개소 - 수평도체와 구조체 철골 연결
+  - from: PNL-001
+    to: PNL-001
+    line_type: other
+    line_style: solid
+    annotation: 금속 사다리 접속 2개소 - 수평도체와 금속 사다리 연결
+  buses: []
+  grounding_points:
+  - id: GND-001
+    type: 피뢰기초접지극
+    location: B열 1열 부근 (좌측 하단)
+    annotation: 'DN to : 피뢰기초접지극'
+  - id: GND-002
+    type: 피뢰기초접지극
+    location: B~C열 6열 부근 (우측 중단)
+    annotation: 'DN to : 피뢰기초접지극'
+  lightning_protection_system:
+    standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    protection_class: IV등급
+    rolling_sphere_radius_m: 60
+    air_termination:
+    - type: 피뢰침
+      height_mm: 3000
+      count: 1
+      location: 지붕층 중앙부 (B~C열 3~4열 부근)
+    - type: 수평도체 (STS 환봉 8㎜)
+      support_spacing_m: 1
+      routing: 지붕 외곽 루프 및 내부 격자
+    down_conductors:
+    - type: 주 인하도선
+      material: 기초철골
+    - type: 보조 인하도선
+      cable_spec: F-GV 50㎟ (HI-PVC 28C)
+    earth_termination:
+    - type: 피뢰기초접지극
+      count: 2
+  legend_references:
+  - text: ⊙ 피뢰침
+    linked_to: PNL-003
+  - text: ■ 구조체 접속 (철근 및 철골 접속)
+    linked_to: PNL-003
+  - text: ● 구조물 접속
+    linked_to: PNL-003
+  - text: ↗ 입상, 입하
+    linked_to: PNL-003
+  - text: ↗ 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    linked_to: PNL-003
+  - text: ⑤ 수평도체 (STS 환봉 8㎜)
+    linked_to: PNL-003
+  - text: ⑥ F-GV 50㎟ (HI-PVC 28C)
+    linked_to: PNL-003
+  diagram_meta:
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-003
+    project_name: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 (GAUN Architects & Engineers)
+    engineer: (주)정명기술단
+    date: '2024.04'
+    scale_A1: 1/200
+    scale_A3: 1/400
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_GROUNDING_PLAN
+    floor: 지붕층 (Roof Level)
+    direction: top-to-bottom
+    grid:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - C
+      - D
+    overall_dimensions:
+      width_mm: 71000
+      height_mm: 43000
+    confidence: 0.97
+    notes:
+    - 피뢰침 1개소 (H:3,000㎜) 지붕층 중앙부 배치
+    - 구조체 접속 12개소 동일 조건으로 설치
+    - 금속 사다리 접속 2개소 동일 조건으로 설치
+    - 수평도체 지지금구 1m마다 설치
+    - DN to 피뢰기초접지극 2개소 (좌측 하단, 우측 중단)
+    - 회전구체법 적용, 보호등급 IV, 회전구체반경 60m
+visual_semantics_gemini:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PNL-001
+    shape: dashed_box
+    labels_inside:
+    - 피뢰침 (H:3,000㎜) 1개소
+    - 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+    - 금속 사다리 접속 2개소 동일
+    - 구조체 접속 12개소 동일
+    labels_above: []
+    labels_below:
+    - 지붕층 피뢰 및 접지 설비 평면도
+    - '축척:A1 : 1/200'
+    - 'A3 : 1/400'
+    labels_near:
+    - 'DN to : 피뢰기초접지극'
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    - type: 구조체 접속
+      count: 12
+    - type: 금속 사다리 접속
+      count: 2
+    - type: 수평도체 (STS 환봉 8㎜)
+      count: 1
+    - type: DN to 피뢰기초접지극
+      count: 2
+    inferred_name: 지붕층 피뢰 및 접지 설비 평면도 본문 영역
+    position: center
+    grid_info:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - C
+      - D
+      dimensions:
+        total_width_mm: 71000
+        total_height_mm: 43000
+        bay_widths_mm:
+        - 12000
+        - 12000
+        - 12000
+        - 12000
+        - 11500
+        - 11500
+        row_heights_mm:
+        - 13000
+        - 17000
+        - 13000
+  - panel_id: PNL-002
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 개요 및 특기사항
+    - '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+    - '방식: 회전 구체법'
+    - '보호등급: IV등급'
+    - '회전구체반경: 60m'
+    - '수뢰부: STS 환봉 8㎜ + 피뢰침'
+    - '주 인하도선: 기초철골'
+    - '보조 인하도선: F-GV 50㎟ (HI-PVC 28C)'
+    - 1. KS C IEC 62305 의거 건축 구조물은 수뢰부 시스템의 자연적구성부재요건(KS C IEC 62305-3/5.2.5절)을 충족하고,
+      전기저항이 0.2 Ω 이하인 경우, 수평도체를 생략할 수 있다.
+    - 2. 피뢰인하도선을 자연적 구성부재인 철골 또는 철근 등을 이용하는 경우에는 접지전극과 수뢰부 사이의 전기저항이 0.2 Ω 이하로 확보되어야
+      하며 구조체 접속방법을 따른다.
+    - 3. 수뢰부를 설치하여 구조물을 보호하는 경우 피뢰침 높이는 옥상구조물 보다 최소 250 ㎜이상 높아야 한다.
+    - 4. 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+    - 5. 높은 구조물의 상층부의 높이가 60 m 이상이면 구조물 높이의 최상부 20%와 이부분에 설치한 설비를 보호할 수 있도록 수뢰부시스템을
+      설치해야 한다.
+    labels_above: []
+    labels_below: []
+    inferred_name: 피뢰설비 개요 및 특기사항 표
+    position: top-right
+  - panel_id: PNL-003
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 범례
+    - 구분
+    - 내용
+    - 피뢰침
+    - 구조체 접속 (철근 및 철골 접속)
+    - 구조물 접속
+    - 입상, 입하
+    - 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    - 수평도체 (STS 환봉 8㎜)
+    - F-GV 50㎟ (HI-PVC 28C)
+    labels_above: []
+    labels_below: []
+    inferred_name: 피뢰설비 범례 섹션
+    position: right-center
+  - panel_id: PNL-004
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축 (GAUN Architects & Engineers)
+    - 지붕층 피뢰 및 접지 설비 평면도
+    - EE-05-003
+    - '축척 A1: 1/200, A3: 1/400'
+    - 안동식
+    - 이윤찬
+    - 정윤목
+    - '2024.04'
+    - (주)정명기술단
+    labels_above: []
+    labels_below: []
+    inferred_name: 표제란 (Title Block)
+    position: bottom-right
+  connections:
+  - from: PNL-001
+    to: GROUND-피뢰기초접지극-LEFT
+    line_type: ground
+    line_style: solid
+    annotation: 'DN to : 피뢰기초접지극 (좌측 하단, B열 1열 부근)'
+  - from: PNL-001
+    to: GROUND-피뢰기초접지극-RIGHT
+    line_type: ground
+    line_style: solid
+    annotation: 'DN to : 피뢰기초접지극 (우측 중단, B~C열 6열 부근)'
+  - from: PNL-001
+    to: PNL-001
+    line_type: other
+    line_style: dashed
+    annotation: 수평도체 (STS 환봉 8㎜) - 지붕 외곽 및 내부 루프 배선
+  - from: PNL-001
+    to: PNL-001
+    line_type: ground
+    line_style: solid
+    annotation: 구조체 접속 12개소 - 수평도체와 구조체 철골 연결
+  - from: PNL-001
+    to: PNL-001
+    line_type: other
+    line_style: solid
+    annotation: 금속 사다리 접속 2개소 - 수평도체와 금속 사다리 연결
+  buses: []
+  legend_references:
+  - text: ⊙ 피뢰침
+    linked_to: PNL-003
+  - text: ■ 구조체 접속 (철근 및 철골 접속)
+    linked_to: PNL-003
+  - text: ● 구조물 접속
+    linked_to: PNL-003
+  - text: ↗ 입상, 입하
+    linked_to: PNL-003
+  - text: ↗ 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    linked_to: PNL-003
+  - text: ⑤ 수평도체 (STS 환봉 8㎜)
+    linked_to: PNL-003
+  - text: ⑥ F-GV 50㎟ (HI-PVC 28C)
+    linked_to: PNL-003
+  diagram_meta:
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-003
+    project_name: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 (GAUN Architects & Engineers)
+    engineer: (주)정명기술단
+    date: '2024.04'
+    scale_A1: 1/200
+    scale_A3: 1/400
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_GROUNDING_PLAN
+    floor: 지붕층 (Roof Level)
+    direction: top-to-bottom
+    grid:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - C
+      - D
+    overall_dimensions:
+      width_mm: 71000
+      height_mm: 43000
+pass1_설비식별:
+  entities:
+  - tag: LTN-001
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: H:3,000㎜, 1개소
+    confidence: 0.99
+    note: 지붕층 중앙부 배치, 도면 기호 ⊙
+  - tag: CND-001
+    name: 수평도체
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: STS 환봉 8㎜, 지지금구 1m마다 설치, 지붕 외곽 및 내부 루프 배선
+    confidence: 0.99
+    note: 도면 기호 ⑤ (점선), 피뢰침과 구조체 접속을 연결하는 주요 도체
+  - tag: BND-001
+    name: 구조체 접속
+    type: Structural Bonding Point
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 철근 및 철골 접속, 12개소 동일
+    confidence: 0.99
+    note: 도면 기호 ■, 수평도체와 구조체 철골 연결점
+  - tag: BND-002
+    name: 금속 사다리 접속
+    type: Metal Ladder Bonding Point
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 2개소 동일
+    confidence: 0.99
+    note: 수평도체와 금속 사다리 연결점
+  - tag: GND-001
+    name: 피뢰기초접지극
+    type: Grounding Electrode / Earth Termination
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    spec_text: 2개소 (좌측 하단 B열 1열 부근, 우측 중단 B~C열 6열 부근)
+    confidence: 0.98
+    note: 'DN to : 피뢰기초접지극 표기, 접지 시스템의 최종 접지점'
+  - tag: CND-002
+    name: 보조 인하도선
+    type: Down Conductor / Grounding Cable
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.98
+    note: 도면 기호 ⑥ (실선), 피뢰기초접지극으로 연결되는 보조 인하도선
+  - tag: CND-003
+    name: 주 인하도선
+    type: Primary Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: 기초철골
+    confidence: 0.9
+    note: 건축 구조체의 철골을 주 인하도선으로 이용, 도면 본문에 명시적 기호 없음
+  - tag: SP-CORE-001
+    name: 계단실/코어 영역
+    type: Stairwell / Core Area
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.95
+    note: 지붕층 내부 음영 처리 영역, 도면 중앙 우측 위치
+pass2_토폴로지:
+  relationships:
+  - from: LR-001
+    to: HC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    annotation: 피뢰침에서 수평도체로 연결
+    confidence: 0.95
+    source: page_37_visual_semantics
+  - from: HC-001
+    to: SC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    annotation: 수평도체에서 구조체 접속 12개소로 연결
+    confidence: 0.95
+    source: page_37_visual_semantics
+  - from: HC-001
+    to: MLC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    annotation: 수평도체에서 금속 사다리 접속 2개소로 연결
+    confidence: 0.95
+    source: page_37_visual_semantics
+  - from: HC-001
+    to: GE-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    annotation: 수평도체에서 피뢰기초접지극(좌측 하단)으로 연결 - DN to 표기
+    confidence: 0.95
+    source: page_37_visual_semantics
+  - from: HC-001
+    to: GE-002
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    annotation: 수평도체에서 피뢰기초접지극(우측 중단)으로 연결 - DN to 표기
+    confidence: 0.95
+    source: page_37_visual_semantics
+  - from: SC-001
+    to: GE-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    annotation: 구조체 접속을 통한 기초철골 인하도선 연결
+    confidence: 0.9
+    source: page_37_text
+  - from: MLC-001
+    to: GE-001
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    annotation: 금속 사다리 접속을 통한 보조 인하도선(F-GV 50㎟) 연결
+    confidence: 0.85
+    source: page_37_text
+  conduits:
+  - tag: HC-001
+    type: conductor
+    spec: STS 환봉 8㎜
+    from: LR-001
+    to: GE-001, GE-002
+    support_spacing: 1m마다 지지금구 설치
+    source: image
+    confidence: 0.95
+  - tag: DC-001
+    type: cable
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    from: MLC-001
+    to: GE-001, GE-002
+    annotation: 보조 인하도선
+    source: text
+    confidence: 0.9
+  - tag: DC-002
+    type: conductor
+    spec: 기초철골
+    from: SC-001
+    to: GE-001, GE-002
+    annotation: 주 인하도선
+    source: text
+    confidence: 0.9
+  flow_sequence:
+  - - LR-001
+    - HC-001
+    - SC-001
+    - GE-001
+  - - LR-001
+    - HC-001
+    - MLC-001
+    - GE-001
+  - - LR-001
+    - HC-001
+    - GE-001
+  - - LR-001
+    - HC-001
+    - GE-002
+  isolated_entities: []
+  diagram_metadata:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_GROUNDING_PLAN
+    floor: 지붕층 (Roof Level)
+    scale: 'A1: 1/200, A3: 1/400'
+    date: '2024.04'
+    grid:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - C
+      - D
+    overall_dimensions:
+      width_mm: 71000
+      height_mm: 43000
+    confidence: 0.95
+pass3_공간:
+  spaces:
+  - space_id: BLDG-001
+    type: building
+    name: LS Electric R-Center
+    parent: null
+    project_number: '624001'
+  - space_id: ROOF-001
+    type: floor
+    name: 지붕층 (Roof Level)
+    parent: BLDG-001
+    description: 지붕층 피뢰 및 접지 설비 평면도 (EE-05-003)
+  - space_id: ROOF-CORE-001
+    type: zone
+    name: 계단실/코어 영역
+    parent: ROOF-001
+    confidence: 0.7
+    note: 도면 내 음영 처리로 표시됨. 명시적 텍스트 라벨 없음 (시각 분석 기반)
+  equipment_placement:
+  - tag: LR-001
+    name: 피뢰침
+    type: lightning_rod
+    located_in: ROOF-001
+    quantity: 1
+    specification: H:3,000㎜
+    position: 지붕층 중앙부 (B~C열 3~4열 부근)
+    confidence: 0.95
+    source: 도면 본문 및 텍스트 주석
+  - tag: HC-001
+    name: 수평도체
+    type: horizontal_conductor
+    located_in: ROOF-001
+    quantity: 1
+    specification: STS 환봉 8㎜, 지지금구 1m마다 설치
+    routing: 지붕 외곽 루프 및 내부 격자
+    confidence: 0.95
+    source: 도면 본문 및 텍스트 주석
+  - tag: SC-001
+    name: 구조체 접속
+    type: structural_connection
+    located_in: ROOF-001
+    quantity: 12
+    description: 철근 및 철골 접속
+    note: 12개소 동일 조건으로 설치
+    confidence: 0.95
+    source: 도면 본문 텍스트 주석 '구조체 접속 12개소 동일'
+  - tag: ML-001
+    name: 금속 사다리 접속
+    type: metal_ladder_connection
+    located_in: ROOF-001
+    quantity: 2
+    note: 2개소 동일 조건으로 설치
+    confidence: 0.95
+    source: 도면 본문 텍스트 주석 '금속 사다리 접속 2개소 동일'
+  grounding_connections:
+  - connection_id: GND-001
+    type: down_conductor_reference
+    from: ROOF-001
+    to: GROUND_LEVEL
+    annotation: 'DN to : 피뢰기초접지극 (좌측 하단, B열 1열 부근)'
+    note: 피뢰기초접지극은 지붕층이 아닌 지반 레벨에 위치. 이 도면에서는 연결 지시만 표시
+    confidence: 0.95
+  - connection_id: GND-002
+    type: down_conductor_reference
+    from: ROOF-001
+    to: GROUND_LEVEL
+    annotation: 'DN to : 피뢰기초접지극 (우측 중단, B~C열 6열 부근)'
+    note: 피뢰기초접지극은 지붕층이 아닌 지반 레벨에 위치. 이 도면에서는 연결 지시만 표시
+    confidence: 0.95
+  down_conductors:
+  - conductor_id: DC-001
+    name: 주 인하도선
+    type: primary_down_conductor
+    material: 기초철골
+    located_in: ROOF-001
+    confidence: 0.95
+    source: 피뢰설비 개요 및 특기사항
+  - conductor_id: DC-002
+    name: 보조 인하도선
+    type: secondary_down_conductor
+    specification: F-GV 50㎟ (HI-PVC 28C)
+    located_in: ROOF-001
+    confidence: 0.95
+    source: 피뢰설비 개요 및 특기사항
+  metadata:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    project_name: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 (GAUN Architects & Engineers)
+    engineer: (주)정명기술단
+    date: '2024.04'
+    scale: 'A1: 1/200, A3: 1/400'
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_GROUNDING_PLAN
+    grid:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - C
+      - D
+    overall_dimensions:
+      width_mm: 71000
+      height_mm: 43000
+    page_number: 37
+pass4_검증:
+  corrections:
+  - target: Title Block - 설계자 이름 (Designers)
+    resolution: 'OCR 텍스트와 Visual Analysis 간 불일치 발견. OCR: 이은진, 정용재 / Visual: 이윤찬, 정윤목.
+      원본 이미지 재확인 필요.'
+    evidence: page_037.txt OCR 결과 vs. visual_semantics PNL-004 labels_inside
+    confidence: 0.65
+  - target: detected_symbols - 구조체 접속 count
+    resolution: 'count: 2 → count: 12 수정 필요. 도면 본문의 annotation ''구조체 접속 12개소 동일''과
+      visual_semantics 일치. 이미지에서 ■ 기호가 A, B, D 행의 여러 열에 분산 배치됨.'
+    evidence: '이미지 중앙 평면도 내 ■ 기호 다중 배치 확인, visual_semantics equipment_symbols count:
+      12'
+    confidence: 0.92
+  - target: detected_symbols - 금속 사다리 접속 count
+    resolution: 'count: 1 → count: 2 수정 필요. 도면 본문의 annotation ''금속 사다리 접속 2개소 동일''과
+      일치.'
+    evidence: 'page_037.txt 및 visual_semantics equipment_symbols count: 2'
+    confidence: 0.88
+  missing_entities:
+  - tag: 입상/입하 (↗ 기호)
+    name: 입상, 입하 (Vertical conductors - up/down)
+    evidence: '범례(PNL-003)에 ''입상, 입하 (↗ 기호)'' 정의되어 있으나, detected_symbols에서 count:
+      0으로 기록됨. 이미지에서 ''DN to : 피뢰기초접지극'' 지시선 근처(B열 1열, B~C열 6열)에 화살표 기호가 보임. 이는 입하(down
+      conductor) 경로를 나타내는 것으로 추정.'
+    confidence: 0.75
+    recommendation: 입상/입하 심볼 count 재검토 필요. 최소 2개소(좌측 하단, 우측 중단)의 입하 경로 확인됨.
+  relationship_issues:
+  - issue: PNL-005 정체 불명확 - KEY PLAN vs. 계단실/코어 영역
+    recommendation: visual_sketch에서는 PNL-005를 'KEY PLAN'으로, visual_semantics에서는 '계단실/코어
+      영역 (음영 처리)'으로 분류. 이미지에서 우측 중앙의 음영 박스(계단실/코어)와 우측 상단의 별도 KEY PLAN 박스가 존재하는지 확인
+      필요. 두 개의 별도 패널로 분리할 가능성 있음.
+    confidence: 0.7
+  - issue: Classification 불일치
+    recommendation: 'initial_scan: FLOOR_LAYOUT / main: GROUNDING_DIAGRAM / visual_semantics:
+      LIGHTNING_PROTECTION_GROUNDING_PLAN. 가장 정확한 분류는 LIGHTNING_PROTECTION_GROUNDING_PLAN
+      (피뢰 및 접지 설비 평면도).'
+    confidence: 0.85
+  consistency_check:
+    entity_count_before: 6
+    entity_count_after: 8
+    entity_count_note: 'detected_symbols 수정 후: 피뢰침(1) + 수평도체(1) + 구조체 접속(12) + 금속
+      사다리 접속(2) + DN to 피뢰기초접지극(2) + 입상/입하(2 추정) = 20개 설비 심볼'
+    relation_count_before: 5
+    relation_count_after: 5
+    relation_count_note: 연결 관계는 visual_semantics에서 5개 정의됨 (PNL-001 내부 및 외부 접지 연결).
+      추가 입상/입하 심볼 발견 시 관계 수 증가 가능.
+    grid_dimensions_verified: true
+    grid_note: 총 너비 71,000mm (12,000 + 12,000 + 12,000 + 12,000 + 11,500 + 11,500),
+      총 높이 43,000mm (13,000 + 17,000 + 13,000) — 일치 확인
+  overall_confidence: 0.82
+  summary: '주요 수정사항: (1) 구조체 접속 count 2→12, (2) 금속 사다리 접속 count 1→2, (3) 설계자 이름 OCR
+    vs. Visual 불일치 보고, (4) 입상/입하 심볼 누락 의심, (5) PNL-005 정체 불명확. 도면 본문의 텍스트 annotation과
+    visual_semantics는 대체로 일치하며, detected_symbols 섹션의 심볼 개수 오류가 주요 이슈.'

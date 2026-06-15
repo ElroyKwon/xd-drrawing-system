@@ -1,0 +1,151 @@
+placement:
+  tag: UNKNOWN-SPACE-02
+  name: 기존 통신 트레이 구간
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: CableTray
+    alternative_class_hints:
+    - CommunicationEquipment
+    - CableAndPathway
+    - SpatialEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CableTray
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 통신 TRAY
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 라벨/표기 문자열로 관찰됨
+      - raw_text: 기존 통신 트레이 구간
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: name
+          suggested_datatype: xsd:string
+          rationale: entity_detail.name으로 제공된 구간 명칭
+      - raw_text: 'function_category: CABLE_TRAY'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값으로 관찰됨
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: ontologyHint
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스 정보
+      - raw_text: 'observed_attributes: labels_inside'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: observedAttribute
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'similar_equipment: []'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 목록이 비어 있음
+      - raw_text: 'function_candidates: Communication cable routing'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문구
+      - raw_text: 'relations: []'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: relations
+          suggested_datatype: xsd:string
+          rationale: 관계 정보가 비어 있음
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: entitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 합성 생성 여부 플래그
+      - raw_text: 'source_pages: [9]'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: locatedOnPage
+          suggested_datatype: xsd:integer
+          rationale: 도면 출처 페이지
+    provenance:
+      free_notes:
+        source_pages:
+        - 9
+      name:
+        source_pages:
+        - 9
+      ontology_hints.suggested_parent_class:
+        source_pages:
+        - 9
+      ontology_hints.observed_attributes:
+        source_pages:
+        - 9
+      ontology_hints.function_candidates:
+        source_pages:
+        - 9
+      function_category:
+        source_pages:
+        - 9
+      specs.labels_inside:
+        source_pages:
+        - 9
+      relations:
+        source_pages:
+        - 9
+      collection_sources.entity_synthesis:
+        source_pages:
+        - 9
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 기존 통신 TRAY
+    source_page: 9
+    reason: 라벨 문자열은 관찰되지만 별도 구조화 속성으로 확정할 근거가 부족함
+    preservation_note: raw label로 보존 후 0-9d에서 라벨/명칭 속성 승격 검토
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationEquipment
+    source_page: 9
+    reason: 후보 상위 클래스일 뿐 확정 분류 아님
+    preservation_note: class_hint 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Communication cable routing
+    source_page: 9
+    reason: 기능 후보 문구이며 정식 관계/속성으로 확정 불가
+    preservation_note: 기능 설명 텍스트로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 9
+    reason: 생성 메타정보이나 OWL 실체 속성으로 직접 해석하지 않음
+    preservation_note: 생성 출처 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 '구간'으로 공간/구역처럼 보이지만, function_category가 CABLE_TRAY이고 라벨도 TRAY로 관찰되어
+      물리적 트레이 구간인지 주석성 구간인지 경계가 불명확함.
+    recommended_handling: 0-9c/0-9d에서 CableTray 또는 관련 공간/구간 엔티티로 재검증하고, 관계가 없으므로 AnnotationOnly
+      우선 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 CABLE_TRAY 계열과 공간/구역 혼합 가능성을 고려
+    - source_pages와 labels_inside를 우선 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:14.438770'
+  confidence: 0.74

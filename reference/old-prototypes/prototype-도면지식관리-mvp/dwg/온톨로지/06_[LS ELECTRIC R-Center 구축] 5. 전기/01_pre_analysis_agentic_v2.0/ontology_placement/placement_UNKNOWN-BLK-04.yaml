@@ -1,0 +1,179 @@
+placement:
+  tag: UNKNOWN-BLK-04
+  name: 발행 날짜 블록
+  discipline: electrical
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DocumentMetadata
+    alternative_class_hints:
+    - InformationContentEntity
+    - IssueDate
+    - RevisionDate
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentMetadata
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      references:
+      - raw_text: '2024.05'
+        source_page: 1
+        note: 발행 날짜 블록의 표기값
+      free_notes:
+      - raw_text: 발행 날짜 블록
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: hasIssueDate
+          suggested_datatype: xsd:string
+          rationale: 문서 메타데이터로 보이는 날짜 표기이며, '2024.05' 형식의 발행/개정일 가능성이 있음
+      - raw_text: TEXT_BLOCK
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: hasDocumentBlockType
+          suggested_datatype: xsd:string
+          rationale: 도면 내 텍스트 블록 유형을 나타내는 분류 정보로 해석 가능
+      - raw_text: center-bottom
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치를 나타내는 공간 표기
+      - raw_text: IssueDate
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: hasDocumentDateRole
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 function_candidates 중 날짜 역할 후보
+      - raw_text: RevisionDate
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: hasDocumentDateRole
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 function_candidates 중 날짜 역할 후보
+  provenance:
+    tag:
+      source_pages:
+      - 1
+      method: direct
+    name:
+      source_pages:
+      - 1
+      method: direct
+    discipline:
+      source_pages:
+      - 1
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 1
+      method: inferred_from_type_and_function_category
+    ontology_core.class_hint:
+      source_pages:
+      - 1
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 1
+      method: inferred_from_ontology_hints
+    discipline_context.sub_kinds.references[0].raw_text:
+      source_pages:
+      - 1
+      method: direct
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 1
+      method: direct
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 1
+      method: direct
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 1
+      method: direct
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 1
+      method: direct
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 1
+      method: direct
+    source_attribution:
+      source_pages:
+      - 1
+      method: direct
+    position:
+      source_pages:
+      - 1
+      method: direct
+    confidence:
+      source_pages:
+      - 1
+      method: direct
+    specs.text:
+      source_pages:
+      - 1
+      method: direct
+    type:
+      source_pages:
+      - 1
+      method: direct
+    function_category:
+      source_pages:
+      - 1
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 1
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 1
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 1
+      method: direct
+    collection_sources.cross_validated:
+      source_pages:
+      - 1
+      method: direct
+  unresolved:
+  - field_candidate: specs.text
+    raw_text: '2024.05'
+    source_page: 1
+    reason: 날짜 형식으로 보이나 발행일/개정일 중 어느 것인지 도면만으로 확정 불가
+    preservation_note: 문서 메타데이터 블록의 핵심 값으로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: IssueDate, RevisionDate
+    source_page: 1
+    reason: 후보 기능이 2개로 제시되어 단일 의미로 확정 불가
+    preservation_note: 후속 단계에서 문서 주변 블록과 비교 필요
+  - field_candidate: position
+    raw_text: center-bottom
+    source_page: 1
+    reason: 도면 내 배치 위치는 확인되나 의미론적 분류 대상은 아님
+    preservation_note: 레이아웃 컨텍스트로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 텍스트 블록의 값 '2024.05'가 발행 날짜인지 개정 날짜인지 도면 단독으로 판별되지 않음
+    recommended_handling: 주변 표제란/개정란/다른 블록과 교차 확인하여 IssueDate 또는 RevisionDate로 승격
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    - 물리적 장비와 논리적 노드의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:13:55.174959'
+  confidence: 0.9

@@ -1,0 +1,97 @@
+tag: MANHOLE-01
+name: 정보통신용 맨홀
+type: structural_element
+discipline: COMMUNICATION
+function_category: MANHOLE
+source_pages:
+- 4
+- 12
+specs:
+  raw_labels:
+  - 정보통신용 맨홀
+  - 1,700 × 800 × 1,100mm
+  - 1,700 x 800 x 1,100mm
+  panel_id: MANHOLE-01
+  shape: rectangle
+  labels_inside:
+  - 정보통신용 맨홀
+  - 1,700 × 800 × 1,100mm
+  labels_above: []
+  labels_below:
+  - 터파기 신설 구역
+  equipment_symbols:
+  - type: manhole
+    count: 1
+  inferred_name: 정보통신용 맨홀 (신설)
+  position: center
+  manhole_spec: 1,700 x 800 x 1,100mm
+relations:
+- from: CCTV-CTL-01
+  to: MANHOLE-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: ELP 50Ø, 터파기 신설 구역
+- from: EXT-COMM-1F
+  to: MANHOLE-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: UTP 0.5mm/25Px1, CAT.5, ELP 50Ø
+- from: EXT-SERVER-2F
+  to: MANHOLE-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: FIBER OPTICAL S.M 12CORE, ELP 50Ø
+- from: EXT-BROAD-1F
+  to: MANHOLE-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: FR-3 2.5sq / 10C, ELP 50Ø
+- from: MANHOLE-01
+  to: TUNNEL-DUCT-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: EMPTY PIPE (ELP50), 기존 도로 및 터파기후 배관배선 토목공사분
+- from: UNDERGROUND-DUCT
+  to: MANHOLE-01
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: 지하공동구 경유
+- from: MANHOLE-01
+  to: PULL-BOX-01
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: F (ELP 500 FR-8 10C/2.5sq)
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center
+equipment_symbols:
+- type: manhole
+  count: 1
+ontology_hints:
+  suggested_parent_class: UndergroundStructure
+  observed_attributes:
+  - raw_labels
+  - panel_id
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  - manhole_spec
+  similar_equipment:
+  - PULL-BOX-01
+  function_candidates:
+  - Cable Routing
+  - Underground Access
+  - Cable Junction

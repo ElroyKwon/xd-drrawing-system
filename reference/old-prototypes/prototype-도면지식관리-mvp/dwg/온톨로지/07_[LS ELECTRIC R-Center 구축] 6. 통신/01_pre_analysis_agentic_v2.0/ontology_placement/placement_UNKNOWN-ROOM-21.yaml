@@ -1,0 +1,129 @@
+placement:
+  tag: UNKNOWN-ROOM-21
+  name: 전산방재실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-21
+    class_hint: Space
+    alternative_class_hints:
+    - ControlRoom
+    - CommunicationSpace
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-1F-8
+      note: specs.members에 포함된 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: CONTROL_ROOM'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 기능 분류값
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: Monitoring, DisasterPrevention'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록 보존
+      - raw_text: 'specs.group_id: ROOM-전산방재실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별자 문자열
+      - raw_text: 'specs.members: OUTLET-1F-8'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: members
+          suggested_datatype: xsd:string
+          rationale: 멤버 목록 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + type/name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + function_category
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: specs.members
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: preserve_unclassified_fields
+    unresolved:
+      source_pages:
+      - 5
+      method: none
+    ambiguous:
+      source_pages:
+      - 5
+      method: name/type/function_category mismatch
+    merge_info:
+      source_pages:
+      - 5
+      method: tag uniqueness check
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag/type/name/function_category가 완전히 일치하지 않음. tag는 UNKNOWN-ROOM 계열이지만
+      name은 전산방재실이며, type은 space, function_category는 CONTROL_ROOM으로 관찰됨.
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, ControlRoom 성격의 하위 class 후보를 함께
+      검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - locatedIn/hasMember 계열 관계 가능성 검토
+    deviations:
+    - supplement가 없어 sub_kinds를 확정 카테고리로 분류하지 않고 free_notes에 보존
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:40.373792'
+  confidence: 0.86

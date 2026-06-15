@@ -1,0 +1,170 @@
+placement:
+  tag: UNKNOWN-BOLT-SCREW-01
+  name: Screw Bolt
+  discipline: structural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-BOLT-SCREW-01
+    class_hint: Fastener
+    alternative_class_hints:
+    - ScrewBolt
+    - Bolt
+    - SetAnchor
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-CONDUCTOR-01
+      note: 수평도체 파라펫트 고정 (선택 사항 ⑧)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Fastener
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: structural
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: 나사 볼트'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasTypeLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 기재된 유형 표기
+      - raw_text: 'purpose: 수평도체 파라펫트 고정 (선택 사항)'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasPurpose
+          suggested_datatype: xsd:string
+          rationale: 부재의 용도 설명
+      - raw_text: 'note: 현장에 적합한 방법으로 선택하여 시공 (⑦ or ⑧)'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasInstallationNote
+          suggested_datatype: xsd:string
+          rationale: 시공 선택 조건에 대한 주석
+      - raw_text: 'equipment_symbols: Set Anchor / Screw Bolt x2'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasSymbolCount
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 표기와 수량 정보
+      - raw_text: 'position: BLK-001 top-left'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'function_candidates: Fixing, Securing'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 표현
+      - raw_text: 'source_attribution: sonnet, gemini, mini'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 추출 출처 표기
+      - raw_text: 'collection_sources: cross_validated=true, entity_synthesis=true'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasCollectionMethod
+          suggested_datatype: xsd:string
+          rationale: 엔티티 수집/합성 방식 기록
+  provenance:
+    name:
+      source_pages:
+      - 40
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 40
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 40
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 40
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 40
+      method: derived_from_name_and_symbols
+    ontology_core.related_assertions:
+      source_pages:
+      - 40
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 40
+      method: preserve_all_unclassified_fields
+    confidence:
+      source_pages:
+      - 40
+      method: entity_detail.confidence
+    plan_reference.guidance_applied:
+      source_pages:
+      - 40
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+    assigned_by:
+      source_pages:
+      - 40
+      method: fixed
+    model:
+      source_pages:
+      - 40
+      method: input_context
+    assigned_at:
+      source_pages:
+      - 40
+      method: system_timestamp_placeholder
+  unresolved:
+  - field_candidate: specs.note
+    raw_text: 현장에 적합한 방법으로 선택하여 시공 (⑦ or ⑧)
+    source_page: 40
+    reason: 선택 조건은 있으나 ⑦/⑧의 정확한 의미를 외부 기준 없이 확정할 수 없음
+    preservation_note: 원문 그대로 보존; 시공 선택 조건 주석으로 재해석 가능
+  - field_candidate: equipment_symbols
+    raw_text: Set Anchor / Screw Bolt
+    source_page: 40
+    reason: 심볼 표기와 실제 부재의 대응이 도면 내에서 완전히 분리되어 있지 않음
+    preservation_note: 심볼명과 수량을 함께 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Fixing, Securing
+    source_page: 40
+    reason: 기능 후보이므로 확정 기능으로 단정 불가
+    preservation_note: 후속 분류에서 기능 속성 후보로 활용
+  - field_candidate: position
+    raw_text: BLK-001 top-left
+    source_page: 40
+    reason: 도면 좌표 체계가 제공되지 않아 정규 위치값으로 변환 불가
+    preservation_note: 문자열 위치 표기 그대로 보존
+  - field_candidate: source_attribution
+    raw_text: sonnet, gemini, mini
+    source_page: 40
+    reason: 출처 메타데이터로서 의미는 있으나 온톨로지 속성으로 직접 해석하지 않음
+    preservation_note: 추출 출처 기록으로 보존
+  - field_candidate: collection_sources
+    raw_text: cross_validated=true, entity_synthesis=true
+    source_page: 40
+    reason: 수집 방식 메타데이터이며 개체 의미 정보는 아님
+    preservation_note: 생성/검증 이력으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:13:56.852967'
+  confidence: 0.95

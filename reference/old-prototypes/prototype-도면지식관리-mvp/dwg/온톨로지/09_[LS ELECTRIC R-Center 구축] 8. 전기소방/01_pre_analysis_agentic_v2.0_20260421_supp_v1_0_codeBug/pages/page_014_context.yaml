@@ -1,0 +1,431 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 유도등 범례/기호 설명 표
+  discipline: ELECTRICAL
+  classification: LIGHTING_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-303
+    title: 옥탑층 유도등설비 평면도
+    revision: '2024.01'
+  visible_tags:
+  - tag: EX
+    type: emergency_exit_sign
+    source: both
+  - tag: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    type: cable_spec
+    source: text
+  - tag: 1EA
+    type: quantity
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 4
+  next_step_hints:
+  - 좌하단에 유도등 범례 및 주기사항 표가 있음
+  - 도면 중앙에 옥탑층 평면 배치와 유도등 배선이 함께 표시됨
+  - 표제란 도면번호 EF-303, 제목 옥탑층 유도등설비 평면도 확인됨
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/electrical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/electrical/genre_floor_plan/supplement_p10.yaml
+    P-11: discipline/electrical/_general/supplement_p11.yaml
+  routing_confidence: 0.95
+  routing_reason: 도면번호 EF-303과 '옥탑층 유도등설비 평면도'로 전기 분야 평면도이며, 카탈로그에 electrical/genre_floor_plan
+    매칭이 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 옥탑층 평면도
+    position: center
+    labels_near:
+    - 옥탑층 유도등설비 평면도
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+  - panel_id: LEGEND_SECTION
+    shape: rectangle
+    primary_label: 유도등 범례 및 주기사항
+    position: bottom-left
+    labels_near:
+    - 심벌
+    - 명칭 및 규격
+    - 수량
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 옥탑층 유도등설비 평면도
+    - EF - 303
+  connections:
+  - from: LEGEND_SECTION
+    to: FLOOR_PLAN_AREA
+    line_style: dashed
+    annotation: 심볼 정의 참조
+  notable_shapes:
+  - shape: circle
+    label: EX
+    note: 유도등 심볼 (범례 및 평면도 내)
+  - shape: rectangle
+    label: 계단 유도등-60분용(LED)
+    note: 범례 내 사각형 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-left
+  confidence: 0.98
+  note: 좌하단에 '유도등 범례 및 주기사항' 표가 명확히 존재함
+supplement_routing:
+  discipline: ELECTRICAL
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: vision으로 옥탑층 평면 배치와 유도등 배선, 범례를 확인하여 floor_plan 유지. 도면번호 EF-303
+    및 제목 '유도등설비 평면도'로 ELECTRICAL 분야 확정.
+classification: LIGHTING_LAYOUT
+discipline: ELECTRICAL
+key_elements_from_text:
+- 옥탑층 유도등설비 평면도
+- 유도등 범례 및 주기사항
+- 계단 유도등-60분용(LED)
+- 복도 유도등-60분용(LED)
+- 피난구 유도등 (전체 중형)
+- 피난구 유도등 (전체 중형) 펜던트
+- 거실 유도등-60분용(LED)
+- 유도등 배선
+- HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+- LS Electric R-Center 구축
+title_block:
+  drawing_number: EF-303
+  title: 옥탑층 유도등설비 평면도
+  revision: '2024.01'
+confidence: 0.98
+note: '기존 분석의 discipline(ELECTRICAL), classification(LIGHTING_LAYOUT), drawing_genre(floor_plan)과
+  일치함. 다만 본 페이지는 일반 조명 배치가 아니라 유도등(비상/피난 유도등) 설비 평면도이므로 핵심 요소는 유도등 범례와 배선이다. 근거: 페이지
+  하단 좌측 범례 표, 중앙 평면 배치, 우측 표제란.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  diagram_meta:
+    title: 옥탑층 유도등설비 평면도
+    drawing_number: EF-303
+    revision: '2024.01'
+    project: LS Electric R-Center 구축
+    discipline: ELECTRICAL
+    classification: LIGHTING_LAYOUT
+    drawing_subtype: lighting
+    floor_label: 옥탑층
+    scale_a3: 1/300
+    scale_a1: 1/150
+    flow_direction: left-to-right
+    has_cable_schedule: false
+    has_equipment_list: false
+    has_legend_section: true
+    grid_axes_horizontal: A-D
+    grid_axes_vertical: 1-7
+    grid_dimensions:
+      total_width_mm: 71000
+      span_1_2: 12000
+      span_2_3: 12000
+      span_3_4: 12000
+      span_4_5: 14000
+      span_5_6: 11000
+      span_6_7: 10000
+      total_height_mm: 43000
+      span_A_B: 13000
+      span_B_C: 17000
+      span_C_D: 13000
+  spaces:
+  - space_id: ROOM-ROOFTOP
+    name: 옥탑층 평면
+    description: 옥탑층 전체 평면 영역 (그리드 1-7, A-D)
+    contains:
+    - EL-EXIT-01
+    - EL-EXIT-02
+    - EL-STAIR-01
+    - EL-PANEL-01
+    - CABLE-ROUTE-01
+  panels:
+  - panel_id: EL-EXIT-01
+    shape: rectangle
+    labels_inside:
+    - 피난구 유도등 (전체 중형)
+    labels_above: []
+    labels_below:
+    - 1EA
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형)
+      count: 1
+      symbol_ref: SYM-010
+    inferred_name: 피난구 유도등 (전체 중형) - 옥탑층 출입구
+    position: center-right
+    note: 그리드 5-6 / B-C 구간 우측 상단 부근 배치
+  - panel_id: EL-EXIT-02
+    shape: rectangle
+    labels_inside:
+    - 피난구 유도등 (전체 중형) 펜던트
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형) 펜던트
+      count: 1
+      symbol_ref: SYM-010
+    inferred_name: 피난구 유도등 펜던트형 - 옥탑층
+    position: center-right
+    note: EL-EXIT-01 하단 인근 배치, 펜던트 설치 방식
+  - panel_id: EL-STAIR-01
+    shape: rectangle
+    labels_inside:
+    - 계단 유도등-60분용(LED)
+    - 1EA
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 계단 유도등-60분용(LED)
+      count: 1
+      symbol_ref: SYM-012
+    inferred_name: 계단 유도등 60분용 LED
+    position: center-right
+    note: 옥탑층 계단 부근 배치
+  - panel_id: EL-PANEL-01
+    shape: rectangle
+    labels_inside:
+    - 유도등, 비상콘센트 전원 공급용 분전반
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 분전반
+      count: 1
+      symbol_ref: SYM-014
+    inferred_name: 유도등 전원 공급용 분전반 (옥탑층)
+    position: center-right
+    note: 그리드 5-6 / B-C 구간 우측 중앙 부근, 유도등 기기 군집 내 위치
+  - panel_id: LEGEND-BOX
+    shape: rectangle
+    labels_inside:
+    - 유도등 범례 및 주기사항
+    - 심볼 | 명칭 및 규격 | 수량
+    - 피난구 유도등 (전체 중형)
+    - 피난구 유도등 (전체 중형) 펜던트
+    - 계단 유도등-60분용(LED)
+    - 복도 유도등-60분용(LED)
+    - 거실 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C) | 유도등 배선
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 유도등 범례 및 주기사항 표
+    position: bottom-left
+    note: 범례 박스 - panels에 포함하되 legend_references로 처리
+  connections:
+  - from: EL-PANEL-01
+    to: EL-EXIT-01
+    line_type: cable
+    line_style: solid
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    note: 유도등용 배관배선, 실선+X형 표식 (SYM-016)
+  - from: EL-PANEL-01
+    to: EL-EXIT-02
+    line_type: cable
+    line_style: solid
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    note: 유도등용 배관배선
+  - from: EL-PANEL-01
+    to: EL-STAIR-01
+    line_type: cable
+    line_style: solid
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    note: 유도등용 배관배선
+  groups:
+  - group_id: GRP-ROOFTOP-GUIDE
+    label: 옥탑층 유도등 설비 그룹
+    members:
+    - EL-EXIT-01
+    - EL-EXIT-02
+    - EL-STAIR-01
+    - EL-PANEL-01
+  legend_references:
+  - symbol_id: SYM-010
+    text: 피난구 유도등 (전체 중형)
+    linked_to: EL-EXIT-01
+  - symbol_id: SYM-010
+    text: 피난구 유도등 (전체 중형) 펜던트
+    linked_to: EL-EXIT-02
+  - symbol_id: SYM-012
+    text: 계단 유도등-60분용(LED)
+    linked_to: EL-STAIR-01
+  - symbol_id: SYM-016
+    text: 유도등용 배관배선 - HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    linked_to: CABLE-ROUTE-01
+  - symbol_id: SYM-014
+    text: 유도등, 비상콘센트 전원 공급용 분전반
+    linked_to: EL-PANEL-01
+  notable_shapes:
+  - shape: rectangle_with_vertical_lines
+    label: 옥탑층 건물 외곽 및 내부 구획
+    note: 그리드 1-7, A-D 범위의 옥탑층 평면. 수직 선들은 지붕 패널 또는 구조 표현으로 추정. 좌측 2/3 영역(그리드 1-5)은
+      수직 선 해치로 채워짐.
+    position: center
+  - shape: equipment_cluster
+    label: 유도등 기기 군집
+    note: 그리드 5-6 / B-C 구간 우측에 피난구 유도등, 분전반 등 기기가 집중 배치됨
+    position: center-right
+  - shape: rectangle
+    label: 계단실 추정 구획
+    note: 그리드 4-5 / C-D 구간 하단에 별도 사각형 구획 존재 - 계단실 또는 기계실 추정
+    position: center-bottom
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  diagram_meta:
+    title: 옥탑층 유도등설비 평면도
+    drawing_number: EF-303
+    revision: '2024.01'
+    project: LS Electric R-Center 구축
+    discipline: ELECTRICAL
+    classification: LIGHTING_LAYOUT
+    drawing_subtype: lighting
+    floor_label: 옥탑층
+    scale_a3: 1/300
+    scale_a1: 1/150
+    flow_direction: UNKNOWN
+    has_cable_schedule: false
+    has_equipment_list: false
+    has_legend_section: true
+    grid_axes_horizontal: A-D
+    grid_axes_vertical: 1-7
+    grid_dimensions:
+      total_width_mm: 71000
+      span_1_2: 12000
+      span_2_3: 12000
+      span_3_4: 12000
+      span_4_5: 14000
+      span_5_6: 11000
+      span_6_7: 10000
+      total_height_mm: 43000
+      span_A_B: 13000
+      span_B_C: 17000
+      span_C_D: 13000
+  spaces:
+  - space_id: ROOM-ROOFTOP
+    name: 옥탑층 평면
+    description: 옥탑층 전체 평면 영역 (그리드 1-7, A-D)
+    contains:
+    - EL-EXIT-01
+    - EL-EXIT-02
+    - EL-STAIR-01
+    - EL-PANEL-01
+  - space_id: ROOM-STAIRCASE
+    name: 계단실
+    description: 그리드 5-6, B-C 구간의 계단실 구획
+    contains:
+    - EL-STAIR-01
+  panels:
+  - panel_id: EL-EXIT-01
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형)
+      count: 1
+      symbol_ref: LEGEND-SYM-01
+    inferred_name: 피난구 유도등 (전체 중형)
+    position: grid 5-6, C near staircase door
+  - panel_id: EL-EXIT-02
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 중형) 펜던트
+      count: 1
+      symbol_ref: LEGEND-SYM-02
+    inferred_name: 피난구 유도등 (전체 중형) 펜던트
+    position: grid 5-6, B-C near staircase
+  - panel_id: EL-STAIR-01
+    shape: rectangle
+    labels_inside:
+    - 계단
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 계단 유도등-60분용(LED)
+      count: 1
+      symbol_ref: LEGEND-SYM-03
+    inferred_name: 계단 유도등-60분용(LED)
+    position: grid 5-6, B-C inside staircase
+  - panel_id: EL-PANEL-01
+    shape: rectangle_with_x
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 분전반
+      count: 1
+    inferred_name: 유도등 전원 분전반
+    position: grid 5-6, B near staircase
+  - panel_id: LEGEND-SECTION
+    shape: rectangle
+    labels_inside:
+    - 유도등 범례 및 주기사항
+    - 심벌
+    - 명칭 및 규격
+    - 수량
+    - 피난구 유도등 (전체 중형)
+    - 피난구 유도등 (전체 중형) 펜던트
+    - 계단 유도등-60분용(LED)
+    - 1EA
+    - 복도 유도등-60분용(LED)
+    - 거실 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    - 유도등 배선
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 유도등 범례 및 주기사항 표
+    position: bottom-left
+  connections:
+  - from: EL-PANEL-01
+    to: EL-EXIT-02
+    line_type: cable
+    line_style: solid_with_mark
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C) (from legend)
+  - from: EL-EXIT-02
+    to: EL-EXIT-01
+    line_type: cable
+    line_style: solid_with_mark
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C) (from legend)
+  - from: EL-PANEL-01
+    to: EL-STAIR-01
+    line_type: cable
+    line_style: solid_with_mark
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C) (from legend)
+  legend_references:
+  - symbol_id: LEGEND-SYM-01
+    text: 피난구 유도등 (전체 중형)
+    linked_to: EL-EXIT-01
+  - symbol_id: LEGEND-SYM-02
+    text: 피난구 유도등 (전체 중형) 펜던트
+    linked_to: EL-EXIT-02
+  - symbol_id: LEGEND-SYM-03
+    text: 계단 유도등-60분용(LED)
+    linked_to: EL-STAIR-01
+  - symbol_id: LEGEND-SYM-WIRING
+    text: 유도등 배선 - HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    linked_to: connections
+  notable_shapes:
+  - shape: hatched_area
+    label: 옥탑층 지붕 영역
+    note: 그리드 1-5 구간의 수직 해치 영역
+    position: left side of plan
+  - shape: staircase_structure
+    label: 계단실 구조
+    note: 그리드 5-6, B-C 구간의 계단 및 벽체 구조
+    position: center-right of plan

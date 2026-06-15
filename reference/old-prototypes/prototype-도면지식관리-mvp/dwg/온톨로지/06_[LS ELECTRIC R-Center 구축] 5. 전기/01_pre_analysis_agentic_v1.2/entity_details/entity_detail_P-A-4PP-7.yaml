@@ -1,0 +1,136 @@
+entity_detail:
+  tag: P-A-4PP-7
+  type: equipment
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 22
+      confidence: 0.98
+    box_size:
+      value: —
+      unit: null
+      source: page 22
+      confidence: 0.98
+    voltage:
+      value: 3Ø 440V
+      unit: V
+      source: page 22
+      confidence: 0.98
+    breaker_spec:
+      value: MCB P 80/40T
+      unit: null
+      source: page 22
+      confidence: 0.95
+    spd_spec:
+      value: 30 SPD 40KA/mode
+      unit: null
+      source: page 22
+      confidence: 0.95
+    grounding:
+      value: E3
+      unit: null
+      source: page 22
+      confidence: 0.9
+    location:
+      value: 1층 Drive 시험실
+      unit: null
+      source: page 22
+      confidence: 0.98
+    drawing_number:
+      value: EE-01-018
+      unit: null
+      source: page 22
+      confidence: 0.98
+    title:
+      value: 생산동력(3Ø 440V) 분전반 결선도-2
+      unit: null
+      source: page 22
+      confidence: 0.98
+  drawing_texts:
+  - source: page 22
+    page_number: 22
+    text: 'P-A-4PP-7
+
+      분전반 P-A-4PP-7
+
+      COVER TYPE: 노출형(STEEL), BOX SIZE: —
+
+      MCB P 80/40T
+
+      30 SPD 40KA/mode
+
+      E3
+
+      1층 Drive 시험실'
+  - source: page 23
+    page_number: 23
+    text: '주요 태그로 LP-1F, IVR-2, LV-6, P-A-2PP-1, P-A-4PP-7 등 다수의 패널/설비가 확인된다.
+
+      전압 표기는 6.6kV, 380/220V, 440V, 220V가 보이며, FROM: UT동 전기실 및 지하공동구 사용 문구가 확인된다.'
+  requirements:
+  - text: 3Ø 440V
+    source: page 22
+    type: electrical_supply_condition
+  - text: 'COVER TYPE: 노출형(STEEL)'
+    source: page 22
+    type: installation_condition
+  - text: E3
+    source: page 22
+    type: grounding_condition
+  connection_specs:
+  - relation: 전원 공급
+    partner: 3상 전원 (440V)
+    details:
+      source: page 22
+  - relation: 보호장치 설치
+    partner: MCCB (P-A-4PP-7용)
+    details:
+      source: page 22
+  - relation: 보호장치 설치
+    partner: SPD (P-A-4PP-7용)
+    details:
+      source: page 22
+  - relation: 접지 연결
+    partner: 접지 (E3, P-A-4PP-7용)
+    details:
+      source: page 22
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PWR-3PH-440V
+      direction: incoming_to_entity
+      source: page 22
+    - relation_type: has_protection
+      partner_tag: MCCB-PA-4PP-7
+      direction: internal
+      source: page 22
+    - relation_type: has_protection
+      partner_tag: SPD-PA-4PP-7
+      direction: internal
+      source: page 22
+    - relation_type: grounded_by
+      partner_tag: GND-E3-PA-4PP-7
+      direction: incoming_to_entity
+      source: page 22
+    observed_attributes:
+    - cover_type
+    - box_size
+    - voltage
+    - breaker_spec
+    - spd_spec
+    - grounding
+    - location
+    - drawing_number
+    - title
+    similar_equipment:
+    - P-AC-4PP-1
+    - P-C-4PP
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: ElectricalPanelboard
+    cross_discipline: []
+  notes:
+  - page 23에는 P-A-4PP-7이 주요 태그로 재등장하지만, 상세 사양은 page 22에서 확인됨.
+tag: P-A-4PP-7

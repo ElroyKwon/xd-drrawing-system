@@ -1,0 +1,177 @@
+placement:
+  tag: ROOM-BROAD-B1
+  name: 사무동 1층 방송실 (룸 플레이스홀더)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ROOM-BROAD-B1
+    class_hint: Room
+    alternative_class_hints:
+    - BroadcastingRoom
+    - CommunicationSpace
+    - PlaceholderRoom
+    related_assertions:
+    - type: cable
+      target_hint: HUB-RACK-01
+      note: HUB-RACK-01에서 ROOM-BROAD-B1로 cable 관계가 관찰됨
+    applicable_axioms:
+    - AX002
+    - AX057
+    - AX058
+    applicable_constraints: []
+    confirmed_class: dks:Room
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 1층 방송실
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨 텍스트
+      - raw_text: 'labels_inside: 1층 방송실'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: labelInsideText
+          suggested_datatype: xsd:string
+          rationale: 내부 표기 텍스트로 보이는 값
+      - raw_text: 'labels_below: 사무동 지하1층 평면도 참조'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: referenceNoteText
+          suggested_datatype: xsd:string
+          rationale: 하단 참조 문구
+      - raw_text: 'position: bottom-left'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치 표기
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: rule_based_inference_from_name_and_type
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 4
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 4
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 4
+      method: relations.annotation
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 4
+      method: specs.raw_labels
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 4
+      method: specs.labels_inside
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 4
+      method: specs.labels_below
+    discipline_context.free_notes[3].raw_text:
+      source_pages:
+      - 4
+      method: position
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 4
+      method: entity_detail.type_and_name_review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 4
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.type
+    raw_text: placeholder
+    source_page: 4
+    reason: 물리 설비인지 주석/플레이스홀더인지 혼합적이며, 도면상 실체 여부를 단정할 수 없음
+    preservation_note: Room 계열 후보로 보존하되 placeholder 성격을 유지
+  - field_candidate: specs.raw_labels
+    raw_text: 1층 방송실
+    source_page: 4
+    reason: 정식 명칭인지 내부 라벨인지 구분 불가
+    preservation_note: 방송실 관련 공간명 후보로 유지
+  - field_candidate: specs.labels_inside
+    raw_text: 1층 방송실
+    source_page: 4
+    reason: 내부 표기인지 별도 속성인지 불명확
+    preservation_note: 원문 텍스트 그대로 보존
+  - field_candidate: specs.labels_below
+    raw_text: 사무동 지하1층 평면도 참조
+    source_page: 4
+    reason: 참조 문구로서 관계인지 주석인지 불명확
+    preservation_note: referencesDrawingOrSection 후보로 해석 가능
+  - field_candidate: relations[0].relation
+    raw_text: cable
+    source_page: 4
+    reason: 공간-설비 간 cable 관계가 일반적 의미인지 도면 표기인지 확정 불가
+    preservation_note: 관계 사실 원형으로만 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Broadcasting
+    source_page: 4
+    reason: 후보 기능일 뿐 확정 기능 아님
+    preservation_note: 방송 관련 공간 후보로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Communication Hub
+    source_page: 4
+    reason: 후보 기능일 뿐 확정 기능 아님
+    preservation_note: 허브성 공간 후보로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag와 name은 공간(Room)처럼 보이나 type이 placeholder이고, relations에는 cable 연결이 있어
+      물리 공간/주석/플레이스홀더 성격이 혼재함
+    recommended_handling: 0-9c에서 Room/PlaceholderRoom/CommunicationSpace 후보를 비교 검토하고,
+      0-9d에서 관계 property 정식화 전까지는 원형 관계만 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - placeholder 혼합성은 ambiguous로 보존
+    - relations의 cable 원형을 related_assertions에 유지
+    - labels_inside, labels_below, position 등 관찰 필드를 free_notes/provenance로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:14:49.523784'
+  confidence: 0.78

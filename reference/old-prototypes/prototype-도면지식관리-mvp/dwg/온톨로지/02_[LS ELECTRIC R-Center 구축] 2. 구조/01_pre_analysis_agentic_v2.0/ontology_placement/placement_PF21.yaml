@@ -1,0 +1,166 @@
+placement:
+  tag: PF21
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:PF21
+    class_hint: MemberMark
+    alternative_class_hints:
+    - FoundationMemberMark
+    - PlanOrView
+    related_assertions:
+    - type: located_in
+      target_hint: FOUNDATION-PLAN
+      note: PF21 -> FOUNDATION-PLAN
+      confirmed_property: dks:located_in
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-SCHEDULE-01
+      note: UNKNOWN-SCHEDULE-01 -> PF21
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-SCHEDULE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX007
+    - AX010
+    - AX012
+    - AX013
+    applicable_constraints:
+    - CN001
+    - CN012
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 도면 내 기초 심볼
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 보이는 서술 텍스트
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 부재 태그 → 일람표 치수 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: references 관계의 의미를 설명하는 주석
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: PF21 -> FOUNDATION-PLAN
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: located_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 플랜 내 위치 관계로 관찰됨
+      - raw_text: UNKNOWN-SCHEDULE-01 -> PF21
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: owl:ObjectProperty
+          rationale: 일람표가 부재 태그를 참조하는 관계로 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 32
+      - 33
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 32
+      - 33
+      method: derived
+    ontology_core.class_hint:
+      source_pages:
+      - 32
+      - 33
+      method: plan_guidance + relation_pattern
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 32
+      - 33
+      method: plan_guidance + relation_pattern
+    ontology_core.related_assertions:
+      source_pages:
+      - 32
+      - 33
+      method: relation_scan
+    discipline_context.free_notes:
+      source_pages:
+      - 32
+      - 33
+      method: verbatim_preservation
+    plan_reference.guidance_applied:
+      source_pages:
+      - 32
+      - 33
+      method: applied
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 32
+      - 33
+      method: assessment
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: FOUNDATION-PLAN
+    source_page: 32
+    reason: 관계 대상은 식별되나, supplement 부재로 sub_kind까지 확정 불가
+    preservation_note: 플랜/뷰 계열 후보로 보존
+  - field_candidate: relations[0].relation_type
+    raw_text: located_in
+    source_page: 32
+    reason: 관계명은 관찰되나 OWL 확정 property는 0-9d 단계에서 정규화
+    preservation_note: object property 원형으로 보존
+  - field_candidate: relations[1].from
+    raw_text: UNKNOWN-SCHEDULE-01
+    source_page: 33
+    reason: 상대 태그는 존재하나 상세 분류는 이 단계에서 확정하지 않음
+    preservation_note: 일람표/스케줄 계열 후보
+  - field_candidate: relations[1].relation
+    raw_text: references
+    source_page: 33
+    reason: 관계 사실은 관찰되나 확정 property IRI는 미정
+    preservation_note: 참조 관계 원형으로 보존
+  - field_candidate: relations[1].note
+    raw_text: 부재 태그 → 일람표 치수 참조
+    source_page: 33
+    reason: 주석성 설명으로 정규화 불가
+    preservation_note: references 관계의 의미 설명으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PF21은 FOUNDATION-PLAN에 located_in 되며 UNKNOWN-SCHEDULE-01이 references하므로
+      독립 부재 마크인지, 플랜 내 심볼/주석성 요소인지 경계가 다소 불명확함.
+    recommended_handling: 0-9c에서 MemberMark 우선 검토 후, 필요 시 FoundationMemberMark 하위
+      후보로 재분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - schedule/list -> references -> member mark
+    - PlanOrView / MemberMark 구분 우선
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:50.207302'
+  confidence: 0.86

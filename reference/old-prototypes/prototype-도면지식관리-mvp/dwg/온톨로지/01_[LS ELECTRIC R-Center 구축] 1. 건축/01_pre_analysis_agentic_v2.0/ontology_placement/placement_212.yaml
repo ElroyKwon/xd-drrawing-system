@@ -1,0 +1,90 @@
+placement:
+  tag: '212'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX035
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasAvailablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 메타 정보이며, 도면/문서 접근 가능 범위를 나타내는 문자열 값으로 보존 가능
+    - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내용 확인 안내 문구로, 주석/안내 텍스트 성격의 문자열 정보
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_is_note_like
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred_from_raw
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: verbatim
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: verbatim
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 실체 설비나 관계가 아니라 페이지 안내 문구로, 구조화된 설비 속성으로 직접 해석 불가
+    preservation_note: 문서 접근 안내/주석 텍스트로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 212는 설비 자체가 아니라 사용 가능한 페이지를 안내하는 문구만 포함하여, 물리 실체/관계/수치 속성 중 어느 것도 확정하기
+      어려움
+    recommended_handling: AnnotationOnly로 유지하고, 후속 단계에서 문서 주석 또는 페이지 참조 엔티티로 분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야의 raw-only 엔티티를 unresolved/free_notes로 보존
+    - AnnotationOrReferenceEntity 계열 가능성을 class_hint 후보로 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:09.553886'
+  confidence: 0.93

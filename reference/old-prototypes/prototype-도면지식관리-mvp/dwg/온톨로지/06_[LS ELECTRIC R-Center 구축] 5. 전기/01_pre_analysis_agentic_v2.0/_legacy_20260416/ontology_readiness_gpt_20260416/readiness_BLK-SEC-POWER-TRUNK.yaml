@@ -1,0 +1,153 @@
+ontology_readiness:
+  tag: BLK-SEC-POWER-TRUNK
+  verdict: demoted
+  confidence: 0.98
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: false
+    spec_count: 0
+    reason: type=PANEL이지만 내용은 설비 자체 사양이 아니라 도면 섹션/목차 표기이며, labels_inside/raw_labels에
+      도면 번호와 층별 도면명이 나열되어 있음. 독립 물리 설비로 보기 어렵고 document metadata 성격이 강함.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 0
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 0
+    convertible: 0
+    ambiguous_attributes: []
+    auxiliary_attributes:
+    - labels_inside
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes:
+    - 전 력 간 선 및 동 력 설 비
+    - 22 | EE-02-001 | R-Center 전력간선설비 계통도 | NONE | NONE
+    - 23 | EE-02-002 | PIT층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+    - 24 | EE-02-003 | 지상1층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+    - 25 | EE-02-004 | 지상2층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+    - 26 | EE-02-005 | 지붕층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: false
+      source: mini
+      conflict_with: null
+    - key: collection_sources.cross_validated
+      value: true
+      source: cross_validated
+      conflict_with: null
+    - key: collection_sources.visual_semantics
+      value: true
+      source: visual_semantics
+      conflict_with: null
+    - key: collection_sources.visual_semantics_gemini
+      value: true
+      source: visual_semantics_gemini
+      conflict_with: null
+    - key: confidence
+      value: 0.9
+      source: entity_detail
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: DrawingSection
+    alternative_parent_classes:
+    - DocumentMetadata
+    - SectionIdentifier
+  spatial_context:
+    position: center
+    source_pages:
+    - 2
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - 전 력 간 선 및 동 력 설 비
+      - 22 | EE-02-001 | R-Center 전력간선설비 계통도 | NONE | NONE
+      - 23 | EE-02-002 | PIT층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      - 24 | EE-02-003 | 지상1층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      - 25 | EE-02-004 | 지상2층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      - 26 | EE-02-005 | 지붕층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      raw_labels:
+      - 전 력 간 선 및 동 력 설 비
+      - 22 | EE-02-001 | R-Center 전력간선설비 계통도 | NONE | NONE
+      - 23 | EE-02-002 | PIT층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      - 24 | EE-02-003 | 지상1층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      - 25 | EE-02-004 | 지상2층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+      - 26 | EE-02-005 | 지붕층 전력간선 및 동력 설비 평면도 | 1/200 | 1/400
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.labels_inside
+  - specs.raw_labels
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - ontology_hints.observed_relations (없음)
+  - ontology_hints.cross_discipline (없음)
+  - ontology_hints.observed_attributes의 추가 항목 없음
+  - connection_specs (없음)
+  - source_pages 외 추가 페이지 없음
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :BLK-SEC-POWER-TRUNK rdf:type :Component ; :partOf :DocumentMetadataSection
+  owl_export_hints:
+    create_individual: true
+    individual_type: :DrawingSection
+    annotations_to_emit:
+    - labels_inside
+    - raw_labels
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    - collection_sources.cross_validated
+    - collection_sources.visual_semantics
+    - collection_sources.visual_semantics_gemini
+    - confidence
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: BLK-SEC-POWER-TRUNK
+discovered_relations: 0

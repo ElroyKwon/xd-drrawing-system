@@ -1,0 +1,206 @@
+placement:
+  tag: USER-PC-03
+  name: PC (본 공사 제외)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: USER-PC-03
+    class_hint: CommunicationDevice
+    alternative_class_hints:
+    - TerminalDevice
+    - DataTerminal
+    - NetworkEndpoint
+    related_assertions:
+    - type: connectedTo
+      target_hint: SYSBOX-DATA-03
+      note: relations.from=SYSBOX-DATA-03, to=USER-PC-03, relation=cable; annotation=CAT.6
+        UTP CABLE (1Gbps)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationDevice
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: PC (본 공사 제외)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 도면 주석성 문구이며 설치 제외 조건을 나타내는 표기
+      - raw_text: 사용자 PC 단말 (본 공사 제외) - 3번
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: specs.inferred_name로 관찰된 명칭이며 사용자 PC 단말의 번호 표기
+      - raw_text: bottom-center
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: dashed_box
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 시각적 도형 표현
+      - raw_text: PC
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: equipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols.type 값
+      - raw_text: CAT.6 UTP CABLE (1Gbps)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 포함된 케이블 규격 및 속도 표기
+  provenance:
+    name:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: inferred_from_device_and_relation
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 18
+      method: preservation_of_unclassified_observations
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: direct
+    specs.position:
+      source_pages:
+      - 18
+      method: direct
+    specs.shape:
+      source_pages:
+      - 18
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 18
+      method: direct
+    relations:
+      source_pages:
+      - 18
+      method: direct
+    equipment_symbols:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: direct
+    source_pages:
+      source_pages:
+      - 18
+      method: direct
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: PC (본 공사 제외)
+    source_page: 18
+    reason: 라벨은 관찰되지만 본 공사 제외의 의미를 구조화된 속성으로 확정하지 않음
+    preservation_note: 주석/제외 조건으로 재해석 가능
+  - field_candidate: specs.inferred_name
+    raw_text: 사용자 PC 단말 (본 공사 제외) - 3번
+    source_page: 18
+    reason: 명칭은 관찰되나 정식 클래스/속성으로 확정하지 않음
+    preservation_note: 사용자 단말 번호 포함
+  - field_candidate: specs.position
+    raw_text: bottom-center
+    source_page: 18
+    reason: 위치 정보는 있으나 별도 표준 속성으로 승격하지 않음
+    preservation_note: 도면 배치 위치
+  - field_candidate: specs.shape
+    raw_text: dashed_box
+    source_page: 18
+    reason: 도형 표현은 관찰되나 분류 기준 미확정
+    preservation_note: 점선 박스 심볼
+  - field_candidate: specs.labels_inside
+    raw_text: PC (본 공사 제외)
+    source_page: 18
+    reason: 내부 라벨이지만 별도 구조화 해석 불가
+    preservation_note: 외부 라벨과 동일
+  - field_candidate: equipment_symbols.type
+    raw_text: PC
+    source_page: 18
+    reason: 심볼 타입은 관찰되나 장비 표준명으로 단정하지 않음
+    preservation_note: 단말 PC 심볼
+  - field_candidate: relations.annotation
+    raw_text: CAT.6 UTP CABLE (1Gbps)
+    source_page: 18
+    reason: 케이블 규격 문자열이지만 이 단계에서 별도 데이터 속성으로 확정하지 않음
+    preservation_note: 연결 주석으로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Data Terminal; Network Endpoint
+    source_page: 18
+    reason: 후보 기능은 있으나 확정 불가
+    preservation_note: 후속 단계에서 class refinement 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationDevice
+    source_page: 18
+    reason: 상위 클래스 힌트로만 보존
+    preservation_note: 확정 클래스 아님
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 dominant_equipment_types 중 CommunicationEquipment/CommunicationDevice
+      계열을 우선 고려
+    - expected_object_properties 중 connectedTo 패턴을 관계 원형으로 보존
+    - expected_data_properties 중 tag/name/position/shape/rawLabel/inferredName 계열을
+      provenance와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:35.300855'
+  confidence: 0.93

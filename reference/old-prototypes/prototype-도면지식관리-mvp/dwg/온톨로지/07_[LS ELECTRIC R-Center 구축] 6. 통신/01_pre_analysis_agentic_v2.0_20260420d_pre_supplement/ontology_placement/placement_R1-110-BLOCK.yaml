@@ -1,0 +1,158 @@
+placement:
+  tag: R1-110-BLOCK
+  name: 110BLOCK - IN / OUT
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:R1-110-BLOCK
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - TerminationBlock
+    - CableTermination
+    - SignalDistribution
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 110BLOCK - IN / OUT
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 문자열이며 장비 식별에 직접 사용됨
+      - raw_text: 'inferred_name: 110 Block (Rack 1)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추정명으로 장비 명칭 후보
+      - raw_text: 'position: middle-right'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 상 배치 위치 정보
+      - raw_text: 'shape: rectangle'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 표현 정보
+      - raw_text: 'labels_inside: 110BLOCK - IN / OUT'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 라벨 텍스트
+      - raw_text: 'function_category: TERMINATION_BLOCK'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: ontologyHintSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints에 기록된 상위 클래스 후보
+      - raw_text: 'function_candidates: CableTermination, SignalDistribution'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'similar_equipment: []'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 목록이 비어 있음도 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: direct
+    name:
+      source_pages:
+      - 18
+      method: direct
+    discipline:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: inferred_from_equipment_and_self_contained_spec
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hint
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 18
+      method: preserved_raw
+    source_pages:
+      source_pages:
+      - 18
+      method: direct
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 110BLOCK - IN / OUT
+    source_page: 18
+    reason: 원문 라벨은 해석 가능하나 별도 구조화 필드가 없어 원문 보존 필요
+    preservation_note: labels_inside와 동일 문자열로 관찰됨
+  - field_candidate: specs.inferred_name
+    raw_text: 110 Block (Rack 1)
+    source_page: 18
+    reason: 추정명으로서 확정 명칭 아님
+    preservation_note: Rack 1 맥락의 110 Block 후보명
+  - field_candidate: specs.position
+    raw_text: middle-right
+    source_page: 18
+    reason: 좌표가 아닌 서술형 위치
+    preservation_note: 도면 배치 위치 정보
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 18
+    reason: 도형 정보는 해석 가능하나 별도 속성으로 승격 전 보존
+    preservation_note: 장비 심볼 외형
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CableTermination; SignalDistribution
+    source_page: 18
+    reason: 후보 기능이며 확정 아님
+    preservation_note: 0-9c 이후 기능/클래스 판정 보조
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 110BLOCK는 독립 장비로 보이지만 종단 블록/분배 기능 중 어느 클래스에 더 가까운지 도면 단독 정보만으로 확정 불가
+    recommended_handling: NamedIndividual로 유지하고 0-9c에서 CommunicationEquipment 하위의
+      세부 클래스 후보를 검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 CommunicationEquipment 계열로 수렴하는 패턴 반영
+    - termination block 성격의 장비를 독립 Individual로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:44:31.732051'
+  confidence: 0.86

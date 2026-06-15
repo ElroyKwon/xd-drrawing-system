@@ -1,0 +1,72 @@
+entity_detail:
+  tag: SC-002
+  type: Structural Connection (filled dot)
+  specs:
+  - key: name
+    value: 구조물 접속
+    source: page 37
+    confidence: 0.98
+  - key: count
+    value: 12개소
+    source: page 37
+    confidence: 0.98
+  - key: spec
+    value: 철근 및 철골 접속
+    source: page 37
+    confidence: 0.98
+  drawing_texts:
+  - source: page 37 executive_summary
+    page_number: 37
+    text: 지붕층 피뢰 및 접지 설비 평면도로, 피뢰침 1개소를 중심으로 수평도체(STS 환봉 8㎜)와 구조체 접속 12개소, 금속 사다리
+      접속 2개소가 연결된 구성이다.
+  - source: page 37 executive_summary
+    page_number: 37
+    text: 접속된 계통은 피뢰기초접지극(DN to)으로 이어지며, 주 인하도선은 기초철골, 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로
+      표기되어 있다.
+  - source: page 37 executive_summary
+    page_number: 37
+    text: 보호등급 IV등급, 회전구체반경 60 m, KEC 150 및 KS C IEC 62305 기준이 보이며, 별도 전기기기(VCB/TR/GEN
+      등)는 확인되지 않는다.
+  - source: page 37 equipment
+    page_number: 37
+    text: SC-001 구조체 접속 / 12개소 동일, 철근 및 철골 접속
+  requirements:
+  - text: 구조체 접속 12개소 동일
+    source: page 37
+    type: quantity_requirement
+  - text: 철근 및 철골 접속
+    source: page 37
+    type: connection_requirement
+  connection_specs:
+  - relation: connected_via
+    partner: HC-001
+    details:
+      source: page 37 relationships
+  - relation: connected_via
+    partner: GC-001
+    details:
+      source: page 37 relationships
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: HC-001
+      direction: bidirectional
+      source: page 37 relationships
+    - relation_type: connected_via
+      partner_tag: GC-001
+      direction: bidirectional
+      source: page 37 relationships
+    observed_attributes:
+    - name
+    - count
+    - spec
+    similar_equipment:
+    - SC-001
+    suggested_parent_class: StructuralConnection
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - page 37 relationships 항목에서 SC-001과 GC-001의 연결이 보이나, 제공된 텍스트가 중간에서 끊겨 있어 상세 문구는
+    확인 불가
+tag: SC-002

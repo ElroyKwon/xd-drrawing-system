@@ -1,0 +1,110 @@
+tag: FDC-01
+name: 쌍구형 연결송수구
+type: DISTRIBUTE
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+- 7
+- 10
+specs:
+  shape: other
+  labels_inside:
+  - 쌍구형연결송수구
+  - 100ø x 65ø x 65ø
+  labels_above:
+  - 연결송수구
+  labels_below:
+  - 기존 공동구 폐내소화전 배관에서 분기
+  - 공동구 내부 지미트_피(레블브 이상)
+  notes: '1층 레벨, RISER-07 하단 연결. 사양: 100ø x 65ø x 65ø'
+  raw_labels:
+  - 쌍구형연결송수구
+  - 100ø x 65ø x 65ø
+  - T-100
+  - 연결송수구
+  position: right-lower
+  equipment_symbols:
+  - type: 쌍구형연결송수구
+    count: 1
+  type: 쌍구형 연결송수구
+  count: 1
+  annotations:
+  - 100A x 65A x 65A
+  - 연결송수구(쌍구형)
+  pipe_system: SC (연결송수구배관)
+  diameter_label: '100'
+  floor: 1층
+relations:
+- from: RISER-07
+  to: FDC-01
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: T-100 연결송수구 연결
+- from: RISER-07
+  to: FDC-01
+  relation: pipe
+  source_page: 5
+  origin: visual_semantics
+  annotation: T-100 연결송수구 연결
+- from: RISER-H-01
+  to: FDC-01
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: SC 연결송수구배관 100A
+- from: FDC-01
+  to: RISER-H-03
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: SC 연결송수구배관 100A
+- from: RISER-H-01
+  to: FDC-01
+  relation: pipe
+  source_page: 10
+  origin: visual_semantics
+  annotation: SC 연결송수구배관 100A
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: bottom-right
+confidence: 0.95
+equipment_symbols:
+- type: fdc_siamese_connection
+  count: 1
+- type: check_valve
+  count: 1
+- type: gate_valve
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionEquipment
+  observed_attributes:
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - notes
+  - raw_labels
+  - position
+  - equipment_symbols
+  - type
+  - count
+  - annotations
+  - pipe_system
+  - diameter_label
+  - floor
+  similar_equipment: []
+  function_candidates:
+  - WaterSupply
+  - FireFightingInlet

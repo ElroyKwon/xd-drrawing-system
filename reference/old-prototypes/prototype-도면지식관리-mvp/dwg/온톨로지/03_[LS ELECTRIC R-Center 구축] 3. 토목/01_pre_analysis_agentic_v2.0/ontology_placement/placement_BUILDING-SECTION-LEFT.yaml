@@ -1,0 +1,187 @@
+placement:
+  tag: BUILDING-SECTION-LEFT
+  name: 건물 단면 (좌측 구간)
+  discipline: civil
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: SectionView
+    alternative_class_hints:
+    - StructuralBoundary
+    - BuildingStructure
+    related_assertions: []
+    applicable_axioms:
+    - AX022
+    applicable_constraints:
+    - CN005
+    confirmed_class: dks:SectionView
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T13:22:29.731739'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: BUILDING_OUTLINE'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasDrawingType
+          suggested_datatype: xsd:string
+          rationale: 도면 요소의 타입 표기
+      - raw_text: 'function_category: BUILDING_STRUCTURE'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'labels_inside: []'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasInsideLabels
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 목록 정보
+      - raw_text: 'labels_above: []'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasAboveLabels
+          suggested_datatype: xsd:string
+          rationale: 상부 라벨 목록 정보
+      - raw_text: 'labels_below: []'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBelowLabels
+          suggested_datatype: xsd:string
+          rationale: 하부 라벨 목록 정보
+      - raw_text: 'equipment_symbols: []'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbols
+          suggested_datatype: xsd:string
+          rationale: 기호 목록 정보
+      - raw_text: 'inferred_name: 건물 단면 (좌측 구간, 그리드 1~5 범위)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭 표기
+      - raw_text: 'position: center-left'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: 'shape: rectangle'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 형상 표기
+      - raw_text: 'ontology_hints.suggested_parent_class: BuildingStructure'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트의 상위 클래스 제안
+      - raw_text: 'ontology_hints.observed_attributes: labels_inside, labels_above,
+          labels_below, equipment_symbols, inferred_name, position, shape'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: StructuralBoundary, SectionView'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+  provenance:
+    name:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 22
+      method: inferred_from_annotation_like_drawing_element
+    ontology_core.class_hint:
+      source_pages:
+      - 22
+      method: from_ontology_hints_and_name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 22
+      method: from_ontology_hints
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 22
+      method: preserved_raw_fields
+    position:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.labels_above:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.labels_below:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.equipment_symbols:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.shape:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    type:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    function_category:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: BUILDING_OUTLINE이며 건물 단면/구조 경계/단면도 요소로 해석 가능하나, 물리적 설비 실체보다는 도면상의 구간 표기
+      성격이 강함.
+    recommended_handling: 0.9c에서 DrawingElement 또는 BuildingStructure 하위로 재검토하고, 필요
+      시 SectionView로 유지.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:40:28.992721'
+  confidence: 0.86

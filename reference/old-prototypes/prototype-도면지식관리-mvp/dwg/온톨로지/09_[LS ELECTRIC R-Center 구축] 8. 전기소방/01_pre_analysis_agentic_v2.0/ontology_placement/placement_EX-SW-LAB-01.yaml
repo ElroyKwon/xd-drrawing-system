@@ -1,0 +1,261 @@
+placement:
+  tag: EX-SW-LAB-01
+  name: 피난구 유도등 (Software Lab 좌)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EX-SW-LAB-01
+    class_hint: EmergencyLighting
+    alternative_class_hints:
+    - EmergencyExitIndicator
+    - SafetyLighting
+    - EmergencyLightingFixture
+    related_assertions:
+    - type: feeds
+      target_hint: PULLBOX-01
+      note: PULLBOX-01에서 본 태그로 공급/배선됨
+    - type: feeds
+      target_hint: EX-SW-LAB-02
+      note: 본 태그가 EX-SW-LAB-02로 feeds 관계를 가짐
+    - type: cable
+      target_hint: PULLBOX-01
+      note: 유도등용 배관배선(HFIX 2.5㎟ x 2 E-2.5㎟ (16C))
+    applicable_axioms:
+    - AX013
+    - AX024
+    - AX025
+    - AX027
+    - AX029
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN004
+    - CN005
+    - CN006
+    confirmed_class: dks:EmergencyLighting
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: Software Lab 좌
+        source_page: 13
+        note: name 및 inferred_name에 포함된 위치/공간 표기
+      free_notes:
+      - raw_text: 'shape: circle'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태를 나타내는 속성값
+      - raw_text: 'labels_inside: EX'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 라벨
+      - raw_text: 'position: grid 5-6, B-C 상단 좌측'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 격자 기준 위치와 상대 배치 정보
+      - raw_text: 'raw_labels: EX'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존
+      - raw_text: 'equipment_symbol_type: 피난구 유도등 (전체 소형)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: 장치 심벌 유형 표기
+      - raw_text: 'count: 1'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasCount
+          suggested_datatype: xsd:integer
+          rationale: 수량 표기
+      - raw_text: 'function_category: PROTECT'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'ontology_hints.suggested_parent_class: EmergencyLighting'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트의 상위 클래스 후보
+      - raw_text: 'ontology_hints.function_candidates: Emergency Exit Indication;
+          Safety Lighting'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'similar_equipment: EX-SW-LAB-02'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 참조
+      - raw_text: 'relations: PULLBOX-01 -> EX-SW-LAB-01 feeds'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: feeds
+          suggested_datatype: object_property
+          rationale: 공급/배선 관계
+      - raw_text: 'relations: EX-SW-LAB-01 -> EX-SW-LAB-02 feeds'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: feeds
+          suggested_datatype: object_property
+          rationale: 인접 태그 간 공급/연결 관계
+      - raw_text: 'relations: PULLBOX-01 -> EX-SW-LAB-01 cable'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: cable
+          suggested_datatype: object_property
+          rationale: 배관배선 관계
+      - raw_text: 'annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C) 유도등용 배관배선'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블/배선 규격 문자열
+      - raw_text: 'source_attribution: sonnet, gemini, mini'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 다중 출처 표기
+  provenance:
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class + name + equipment_symbol_type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates + name
+    ontology_core.related_assertions:
+      source_pages:
+      - 13
+      method: relations
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 13
+      method: name/inferred_name
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 13
+      method: specs + relations + equipment_symbols + ontology_hints + source_attribution
+    confidence:
+      source_pages:
+      - 13
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.shape
+    raw_text: circle
+    source_page: 13
+    reason: 원문은 명확하나 OWL core의 직접 속성으로 확정 배치하지 않음
+    preservation_note: 도형 정보로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: EX
+    source_page: 13
+    reason: 라벨 텍스트는 있으나 별도 분류 키로 승격하지 않음
+    preservation_note: 내부 표기 보존
+  - field_candidate: specs.position
+    raw_text: grid 5-6, B-C 상단 좌측
+    source_page: 13
+    reason: 위치 정보는 있으나 supplement의 정식 sub_kind 외 잔여 정보로 처리
+    preservation_note: 배치 위치 보존
+  - field_candidate: specs.raw_labels
+    raw_text: EX
+    source_page: 13
+    reason: 원문 라벨 보존 필요
+    preservation_note: OCR/표기 원형 유지
+  - field_candidate: specs.inferred_name
+    raw_text: 피난구 유도등 (Software Lab 좌)
+    source_page: 13
+    reason: name과 동일/유사하여 별도 확정값으로 분리하지 않음
+    preservation_note: 추론명 보존
+  - field_candidate: specs.equipment_symbol_type
+    raw_text: 피난구 유도등 (전체 소형)
+    source_page: 13
+    reason: 심벌 유형 설명이지만 표준 class로 확정하지 않음
+    preservation_note: 심벌 유형 원문 보존
+  - field_candidate: specs.count
+    raw_text: '1'
+    source_page: 13
+    reason: 수량이 있으나 데이터 속성으로 확정 승격하지 않음
+    preservation_note: 수량 정보 보존
+  - field_candidate: relations.note
+    raw_text: null
+    source_page: 13
+    reason: 관계 note 값이 없음
+    preservation_note: null 유지
+  - field_candidate: collection_sources
+    raw_text: cross_validated, visual_semantics, entity_synthesis
+    source_page: 13
+    reason: 출처 집합은 있으나 개별 속성으로 분해하지 않음
+    preservation_note: 출처 메타 보존
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: true, mini: true'
+    source_page: 13
+    reason: 다중 출처 플래그를 별도 확정 구조로 승격하지 않음
+    preservation_note: 출처 일치성 메타 보존
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: shape, labels_inside, position, raw_labels, inferred_name, equipment_symbol_type,
+      count
+    source_page: 13
+    reason: 관찰 속성 목록은 메타 힌트로만 보존
+    preservation_note: 관찰 항목 목록 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'expected_object_properties: feeds'
+    - 'expected_object_properties: cable'
+    - 'predicted_ontology_structure: EquipmentOrDevice'
+    - 'expected_data_properties: position'
+    - 'expected_data_properties: labels_inside'
+    - 'expected_data_properties: raw_labels'
+    - 'expected_data_properties: inferred_name'
+    - 'expected_data_properties: equipment_symbols'
+    - 'expected_data_properties: count'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:58:29.525244'
+  confidence: 0.95

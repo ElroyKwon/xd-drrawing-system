@@ -1,0 +1,1091 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-007
+    title: 2층 소화 배관 평면도
+    revision: null
+  visible_tags:
+  - tag: I-Center
+    type: named_space
+    source: image
+  - tag: Software Lab
+    type: named_space
+    source: image
+  - tag: 검증시스템 컨트롤실
+    type: named_space
+    source: image
+  - tag: 사무실
+    type: named_space
+    source: image
+  - tag: 네트워크실
+    type: named_space
+    source: image
+  - tag: 회의실
+    type: named_space
+    source: image
+  - tag: 연결통로
+    type: structural_element
+    source: image
+  - tag: A.O.C 급수소화기
+    type: equipment
+    source: image
+  - tag: 옥내소화전함(소화전함)
+    type: equipment
+    source: image
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 9
+  next_step_hints:
+  - 소화 배관이 평면도로 표시되어 있으며, 실명과 설비 기호가 혼재함
+  - 표제란 도면번호 MF-007, 제목 2층 소화 배관 평면도 확인됨
+  - 범례 전용 페이지는 아니며 우측 상단 주기 박스가 있으나 심볼-설명 범례로 보이진 않음
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_mechanical/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.93
+  routing_reason: 도면번호 MF-007의 MF 접두사와 제목 '소화 배관 평면도'로 fire_protection/floor_plan에
+    해당하며, 카탈로그에 fire_protection P-4.5/P-10 genre_mechanical 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 2층 소화 배관 평면도
+    position: bottom-right
+    labels_near:
+    - MF - 007
+    - LS Electric R-Center 구축
+  - panel_id: FLOOR_PLAN
+    shape: rectangle
+    primary_label: 2층 평면
+    position: center
+    labels_near:
+    - I-Center
+    - Software Lab
+    - 검증시스템 컨트롤실
+    - 사무실
+  - panel_id: NOTES_BOX
+    shape: rectangle
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 1. 도면에 설계된 제품...
+  - panel_id: EQUIP_LIST
+    shape: rectangle
+    primary_label: 소화기구 일람표
+    position: bottom-right
+    labels_near:
+    - A.B.C 분말 소화기
+    - 옥내소화전함(호스릴형)
+  connections:
+  - from: FLOOR_PLAN
+    to: EQUIP_LIST
+    line_style: dashed
+    annotation: 심볼 매칭
+  notable_shapes:
+  - shape: circle
+    label: DN H 50ø
+    note: '배관 구경 및 유체 표시 (H: 소화수)'
+  - shape: circle
+    label: UP 100ø H
+    note: 입상 배관 표시
+  - shape: dashed_box
+    label: OPEN
+    note: 바닥 개구부 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.9
+  note: 우측 하단에 소화기구(소화기, 소화전함) 심볼과 규격을 매칭한 간이 일람표(범례) 섹션이 존재함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 MF-007의 MF 접두사(Mechanical Fire)와 제목 '소화 배관 평면도'로 FIRE_PROTECTION
+    분야의 mechanical 서브시스템 평면도임이 확실함. 0-0의 판정이 타당하므로 유지하며, 카탈로그에서 해당 경로를 재확인하여 주입함.
+classification: FIRE_PROTECTION_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- MF 2층 소화 배관 평면도
+- LS Electric R-Center 구축
+- 주기
+- A.O.C 급수소화기
+- 옥내소화전함(소화전함)
+- I-Center
+- Software Lab
+- 검증시스템 컨트롤실
+- 사무실
+- 네트워크실
+- 회의실
+- 연결통로
+title_block:
+  drawing_number: MF-007
+  title: 2층 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=FIRE_PROTECTION, classification=FIRE_DETECTION_LAYOUT, drawing_genre=floor_plan은
+  이미지와 표제란 기준으로 대체로 일치하나, 본 페이지는 소화 배관 평면도이므로 classification은 FIRE_PROTECTION_DIAGRAM으로
+  보정함. 표제란에서 도면번호 MF-007, 제목 2층 소화 배관 평면도 확인됨. 우측 상단에 주기 박스가 있으나 범례 전용 페이지는 아님. 페이지
+  하단 우측의 장비/기호 일람은 A.O.C 급수소화기와 옥내소화전함(소화전함) 항목이 보임.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ROOM-ICENTER
+    shape: rectangle
+    labels_inside:
+    - I-Center
+    - 3층
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: DN 50ø 소화배관 입하관
+      count: 1
+    inferred_name: I-Center 공간 (3층 연결)
+    position: bottom-left
+  - panel_id: ROOM-OPEN-NW
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 북서측 개구부 공간
+    position: top-left
+  - panel_id: ROOM-OPEN-NE
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 북동측 개구부 공간
+    position: top-center
+  - panel_id: ROOM-OPEN-SW
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남서측 개구부 공간
+    position: center-left
+  - panel_id: ROOM-OPEN-SE
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남동측 개구부 공간
+    position: center-right
+  - panel_id: ROOM-SOFTWARE-LAB
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 3
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 소프트웨어 랩 실
+    position: center
+  - panel_id: ROOM-VERIFICATION-CTRL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 검증시스템 컨트롤실
+    position: center-right
+  - panel_id: ROOM-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 4
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 옥내소화전함
+      count: 1
+    inferred_name: 사무실
+    position: right
+  - panel_id: ROOM-NETWORK
+    shape: rectangle
+    labels_inside:
+    - 네트워크실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    inferred_name: 네트워크실
+    position: right-center
+  - panel_id: ROOM-MEETING
+    shape: rectangle
+    labels_inside:
+    - 회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 회의실
+    position: right-bottom
+  - panel_id: ROOM-CORRIDOR
+    shape: rectangle
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 연결통로
+    position: bottom-center
+  - panel_id: RISER-DN-B1-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 배관 입하관 DN 50ø (B1 구역)
+    position: top-left
+  - panel_id: RISER-DN-B2-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 배관 입하관 DN 50ø (B2 구역)
+    position: left-center
+  - panel_id: RISER-DN-C-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 배관 입하관 DN 50ø (C 구역)
+    position: bottom-left
+  - panel_id: RISER-UP-100
+    shape: circle
+    labels_inside:
+    - UP
+    - 100ø H
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입상관 심볼
+      count: 1
+    inferred_name: 옥내소화전 배관 입상관 UP 100ø
+    position: top-center
+  - panel_id: RISER-DN-TOP-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 배관 입하관 DN 50ø (상단 구역)
+    position: top-right
+  - panel_id: PIPE-MAIN-H
+    shape: other
+    labels_inside:
+    - H 50
+    - H 65
+    - H 100
+    - 100ø 배관(소화전배관)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 게이트밸브
+      count: 3
+    - type: 체크밸브
+      count: 1
+    inferred_name: 옥내소화전 주배관 (H계통)
+    position: center
+  - panel_id: EQUIP-LIST
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말 소화기
+    - 3단 봉
+    - 간막이 추가(A 설비로 추가설치)
+    - 올려야 하며 방청소화기로 소화기로 16개기능
+    - x 10EA
+    - 옥내소화전함(호스릴형)
+    - 25ø×10M호스 25ø관창 12
+    - 함(STS) 후면(STEEL)
+    - x 2EA
+    labels_above:
+    - 소화기구 일람표
+    labels_below: []
+    equipment_symbols:
+    - type: A.B.C 분말소화기 심볼
+      count: 1
+    - type: 옥내소화전함 심볼
+      count: 1
+    inferred_name: 소화기구 일람표 (장비 스펙 박스)
+    position: bottom-right
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - 1. 도면에 설계된 제품(시스템 포함)은 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 본 도면이 설치한 곳 중에는 현장여건에 맞게 시공하며 관련의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거 후 재설치 할 것.
+    - 4. 발주자의 요구에 의거하여 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을 수 있으므로 승인을 득한 후 시공할 것.
+    labels_above:
+    - ■ 주 기
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주기 (시공 주의사항)
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 기건용
+    - R-Center
+    - 2층 소화 배관 평면도
+    - MF - 007
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.04'
+    - (주)정연엔지니어링
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: RISER-UP-100
+    to: PIPE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: UP 100ø H → 주배관 분기
+  - from: PIPE-MAIN-H
+    to: RISER-DN-B1-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN
+  - from: PIPE-MAIN-H
+    to: RISER-DN-B2-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN
+  - from: PIPE-MAIN-H
+    to: RISER-DN-C-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN
+  - from: PIPE-MAIN-H
+    to: RISER-DN-TOP-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN
+  - from: PIPE-MAIN-H
+    to: ROOM-OFFICE
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전함 연결 H 배관
+  - from: PIPE-MAIN-H
+    to: ROOM-SOFTWARE-LAB
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관
+  - from: PIPE-MAIN-H
+    to: ROOM-VERIFICATION-CTRL
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관
+  - from: PIPE-MAIN-H
+    to: ROOM-NETWORK
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관
+  - from: PIPE-MAIN-H
+    to: ROOM-MEETING
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관
+  - from: EQUIP-LIST
+    to: ROOM-OFFICE
+    line_type: other
+    line_style: dashed
+    annotation: 옥내소화전함 심볼 매칭
+  groups:
+  - group_id: GRP-H-MAIN
+    label: 옥내소화전 배관 계통 (H계통)
+    members:
+    - RISER-UP-100
+    - RISER-DN-B1-50
+    - RISER-DN-B2-50
+    - RISER-DN-C-50
+    - RISER-DN-TOP-50
+    - PIPE-MAIN-H
+  - group_id: GRP-ROOMS
+    label: 2층 실 구획
+    members:
+    - ROOM-ICENTER
+    - ROOM-SOFTWARE-LAB
+    - ROOM-VERIFICATION-CTRL
+    - ROOM-OFFICE
+    - ROOM-NETWORK
+    - ROOM-MEETING
+    - ROOM-CORRIDOR
+    - ROOM-OPEN-NW
+    - ROOM-OPEN-NE
+    - ROOM-OPEN-SW
+    - ROOM-OPEN-SE
+  - group_id: GRP-FIRE-EQUIP
+    label: 소화기구 일람
+    members:
+    - EQUIP-LIST
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-MAIN-H
+  - text: A.B.C 분말소화기
+    linked_to: EQUIP-LIST
+  - text: 옥내소화전함 (호스릴형)
+    linked_to: ROOM-OFFICE
+  - text: 게이트밸브 (개폐표시형)
+    linked_to: PIPE-MAIN-H
+  - text: 체크밸브 (스프링식)
+    linked_to: PIPE-MAIN-H
+  diagram_meta:
+    title: MF 2층 소화 배관 평면도
+    drawing_number: MF-007
+    scale: A1:1/200, A3:1/400
+    date: '2024.04'
+    project: LS Electric R-Center 구축
+    design_firm: (주)정연엔지니어링
+    architect: 가운건축 (GAUN Architects & Engineers)
+    floor: 2층
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: fire_water_supply
+    has_seismic: false
+    has_sprinkler: true
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    has_equipment_list: true
+    coverage_circles_present: true
+    pump_count: 0
+    seismic_scope: null
+    flow_direction: top-to-bottom
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameters:
+      - 50ø
+      - 65ø
+      - 100ø
+      pipe_role_main: feed_main
+    sprinkler_heads_present: true
+    fire_extinguisher_abc_count: 10
+    fire_hose_reel_count: 2
+    notes:
+    - 도면에 설계된 제품(시스템 포함)은 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 본 도면이 설치한 곳 중에는 현장여건에 맞게 시공하며 관련의 승인을 득할 것.
+    - 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거 후 재설치 할 것.
+    - 발주자의 요구에 의거하여 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을 수 있으므로 승인을 득한 후 시공할 것.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: ROOM-ICENTER
+    shape: rectangle
+    labels_inside:
+    - I-Center
+    - 3층
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: I-Center (3층 연결부)
+    position: bottom-left
+  - panel_id: ROOM-OPEN-NW
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 북서측 개구부
+    position: top-left
+  - panel_id: ROOM-OPEN-NE
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 북동측 개구부
+    position: top-center
+  - panel_id: ROOM-OPEN-SW
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남서측 개구부
+    position: center-left
+  - panel_id: ROOM-OPEN-SE
+    shape: dashed_box
+    labels_inside:
+    - OPEN
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남동측 개구부
+    position: center-right
+  - panel_id: ROOM-SOFTWARE-LAB
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 3
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: Software Lab
+    position: center
+  - panel_id: ROOM-VERIFICATION-CTRL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 검증시스템 컨트롤실
+    position: center-right
+  - panel_id: ROOM-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 4
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 옥내소화전함
+      count: 1
+    inferred_name: 사무실
+    position: right
+  - panel_id: ROOM-NETWORK
+    shape: rectangle
+    labels_inside:
+    - 네트워크실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    inferred_name: 네트워크실
+    position: right-center
+  - panel_id: ROOM-MEETING
+    shape: rectangle
+    labels_inside:
+    - 회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 2
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 회의실
+    position: right-bottom
+  - panel_id: ROOM-CORRIDOR
+    shape: rectangle
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 옥내소화전함
+      count: 1
+    inferred_name: 연결통로
+    position: bottom-center
+  - panel_id: ROOM-REST-AREA
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 휴게공간
+    position: top-right
+  - panel_id: ROOM-OA-PANTRY
+    shape: rectangle
+    labels_inside:
+    - OA/탕비실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: OA/탕비실
+    position: right-top
+  - panel_id: ROOM-ARCHIVE
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 자료실
+    position: center
+  - panel_id: ROOM-ANTECHAMBER
+    shape: rectangle
+    labels_inside:
+    - 전실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 전실
+    position: center
+  - panel_id: ROOM-EPS-TPS
+    shape: rectangle
+    labels_inside:
+    - EPS/TPS
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: EPS/TPS
+    position: center-right
+  - panel_id: ROOM-PANTRY
+    shape: rectangle
+    labels_inside:
+    - 팬터리실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    inferred_name: 팬터리실
+    position: right
+  - panel_id: ROOM-RESTROOM-1
+    shape: rectangle
+    labels_inside:
+    - 화장실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 화장실 (상)
+    position: right
+  - panel_id: ROOM-RESTROOM-2
+    shape: rectangle
+    labels_inside:
+    - 화장실
+    - 장애인화장실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스프링클러 헤드
+      count: 1
+    inferred_name: 화장실 (하, 장애인 겸용)
+    position: right
+  - panel_id: RISER-DN-B1-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 입하관 DN 50ø (B1)
+    position: top-left
+  - panel_id: RISER-DN-B2-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 입하관 DN 50ø (B2)
+    position: left-center
+  - panel_id: RISER-DN-C-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 입하관 DN 50ø (C)
+    position: bottom-left
+  - panel_id: RISER-UP-100
+    shape: circle
+    labels_inside:
+    - UP
+    - 100ø H
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입상관 심볼
+      count: 1
+    inferred_name: 옥내소화전 입상관 UP 100ø
+    position: top-center
+  - panel_id: RISER-DN-TOP-50
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 옥내소화전 입하관 DN 50ø (Top)
+    position: top-right
+  - panel_id: RISER-DN-CENTER-100
+    shape: circle
+    labels_inside:
+    - DN
+    - 100ø 수격방지기
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 입하관 심볼
+      count: 1
+    inferred_name: 수격방지기 입하관 DN 100ø
+    position: center
+  - panel_id: PIPE-MAIN-H
+    shape: other
+    labels_inside:
+    - H 50
+    - H 65
+    - H 100
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 게이트밸브
+      count: 3
+    - type: 체크밸브
+      count: 1
+    inferred_name: 옥내소화전 주배관 (H계통)
+    position: center
+  - panel_id: EQUIP-LIST
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말 소화기
+    - 3단 봉
+    - 간막이 추가(A 설비로 추가설치)
+    - 올려야 하며 방청소화기로 소화기로 16개기능
+    - x 10EA
+    - 옥내소화전함(호스릴형)
+    - 25ø×10M호스 25ø관창 12
+    - 함(STS) 후면(STEEL)
+    - x 2EA
+    labels_above:
+    - 소화기구 일람표
+    labels_below: []
+    equipment_symbols:
+    - type: A.B.C 분말소화기 심볼
+      count: 1
+    - type: 옥내소화전함 심볼
+      count: 1
+    inferred_name: 소화기구 일람표
+    position: bottom-right
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - 1. 도면에 설계된 제품(시스템 포함)은 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 본 도면이 설치한 곳 중에는 현장여건에 맞게 시공하며 관련의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거 후 재설치 할 것.
+    - 4. 발주자의 요구에 의거하여 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을 수 있으므로 승인을 득한 후 시공할 것.
+    labels_above:
+    - ■ 주 기
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주기
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 기건용
+    - R-Center
+    - 2층 소화 배관 평면도
+    - MF - 007
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.04'
+    - (주)정연엔지니어링
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: RISER-UP-100
+    to: PIPE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: UP 100ø H → 주배관 공급
+  - from: PIPE-MAIN-H
+    to: RISER-DN-B1-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN 분기
+  - from: PIPE-MAIN-H
+    to: RISER-DN-B2-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN 분기
+  - from: PIPE-MAIN-H
+    to: RISER-DN-C-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN 분기
+  - from: PIPE-MAIN-H
+    to: RISER-DN-TOP-50
+    line_type: pipe
+    line_style: solid
+    annotation: H 50ø DN 분기
+  - from: PIPE-MAIN-H
+    to: RISER-DN-CENTER-100
+    line_type: pipe
+    line_style: solid
+    annotation: DN 100ø 수격방지기 분기
+  - from: PIPE-MAIN-H
+    to: ROOM-OFFICE
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전함 연결
+  - from: PIPE-MAIN-H
+    to: ROOM-CORRIDOR
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전함 연결
+  - from: PIPE-MAIN-H
+    to: ROOM-SOFTWARE-LAB
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-VERIFICATION-CTRL
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-NETWORK
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-MEETING
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-REST-AREA
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-OA-PANTRY
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-ARCHIVE
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-ANTECHAMBER
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-EPS-TPS
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-PANTRY
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-RESTROOM-1
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  - from: PIPE-MAIN-H
+    to: ROOM-RESTROOM-2
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 가지배관 (개념적)
+  groups:
+  - group_id: GRP-H-MAIN
+    label: 옥내소화전 배관 계통 (H계통)
+    members:
+    - RISER-UP-100
+    - RISER-DN-B1-50
+    - RISER-DN-B2-50
+    - RISER-DN-C-50
+    - RISER-DN-TOP-50
+    - RISER-DN-CENTER-100
+    - PIPE-MAIN-H
+  - group_id: GRP-ROOMS
+    label: 2층 실 구획
+    members:
+    - ROOM-ICENTER
+    - ROOM-SOFTWARE-LAB
+    - ROOM-VERIFICATION-CTRL
+    - ROOM-OFFICE
+    - ROOM-NETWORK
+    - ROOM-MEETING
+    - ROOM-CORRIDOR
+    - ROOM-REST-AREA
+    - ROOM-OA-PANTRY
+    - ROOM-ARCHIVE
+    - ROOM-ANTECHAMBER
+    - ROOM-EPS-TPS
+    - ROOM-PANTRY
+    - ROOM-RESTROOM-1
+    - ROOM-RESTROOM-2
+    - ROOM-OPEN-NW
+    - ROOM-OPEN-NE
+    - ROOM-OPEN-SW
+    - ROOM-OPEN-SE
+  - group_id: GRP-FIRE-EQUIP
+    label: 소화기구 일람
+    members:
+    - EQUIP-LIST
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-MAIN-H
+  - text: A.B.C 분말소화기
+    linked_to: EQUIP-LIST
+  - text: 옥내소화전함 (호스릴형)
+    linked_to: EQUIP-LIST
+  - text: 게이트밸브 (개폐표시형)
+    linked_to: PIPE-MAIN-H
+  - text: 체크밸브 (스프링식)
+    linked_to: PIPE-MAIN-H
+  diagram_meta:
+    title: MF 2층 소화 배관 평면도
+    drawing_number: MF-007
+    scale: A1:1/200, A3:1/400
+    date: '2024.04'
+    project: LS Electric R-Center 구축
+    design_firm: (주)정연엔지니어링
+    architect: 가운건축 (GAUN Architects & Engineers)
+    floor: 2층
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: fire_water_supply
+    has_seismic: false
+    has_sprinkler: true
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    has_equipment_list: true
+    coverage_circles_present: true
+    pump_count: 0
+    seismic_scope: null
+    flow_direction: top-to-bottom
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameters:
+      - 50ø
+      - 65ø
+      - 100ø
+      pipe_role_main: feed_main
+    sprinkler_heads_present: true
+    fire_extinguisher_abc_count: 10
+    fire_hose_reel_count: 2
+    notes:
+    - 도면에 설계된 제품(시스템 포함)은 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 본 도면이 설치한 곳 중에는 현장여건에 맞게 시공하며 관련의 승인을 득할 것.
+    - 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거 후 재설치 할 것.
+    - 발주자의 요구에 의거하여 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을 수 있으므로 승인을 득한 후 시공할 것.

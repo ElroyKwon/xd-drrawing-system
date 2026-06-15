@@ -1,0 +1,177 @@
+object_properties:
+- iri: dks:contains
+  label: contains
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:contained_in
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PLAN-1F
+    object: F_117
+    source_page: 60
+    note: outbound contains relation observed
+  - subject: PLAN-PIT
+    object: UNKNOWN-SUMP-01
+    source_page: 60
+    note: outbound contains relation observed
+  - subject: T01
+    object: UNKNOWN-LADDER-01
+    source_page: 63
+    note: T01 contains UNKNOWN-LADDER-01
+  - subject: TOC-A12
+    object: GRP-A12-FIRE
+    source_page: 3
+    note: 패널 내 그룹 포함
+  - subject: TOC-A11
+    object: GRP-A11
+    source_page: 3
+    note: outgoing contains 관계가 관찰됨
+  total_evidence: 27
+  derivation: related_assertions의 type=contains가 PLAN-1F, PLAN-PIT, T01, TOC-A11,
+    TOC-A12에서 반복 관찰되었다. subject 클래스가 dks:plan_container, dks:plan_or_panel_container,
+    dks:SpatialEntity, dks:toc_group로 다양하고 object도 공간/건축요소/그룹/미확정요소로 넓게 분포하므로 현 단계
+    domain/range는 owl:Thing으로 두고, 역관계 후보는 incoming 기록과 free_notes의 contained_in 승격
+    힌트에 따라 dks:contained_in으로 둔다.
+  confidence: 0.93
+- iri: dks:contained_in
+  label: contained_in
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:contains
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: AB_114
+    object: PLAN-1F
+    source_page: 60
+    note: PLAN-1F -> AB/114 contains 관계가 관찰됨
+  - subject: AC_115
+    object: PLAN-1F
+    source_page: 60
+    note: incoming relation recorded; AC/115 is contained by PLAN-1F
+  - subject: GRP-A11
+    object: TOC-A11
+    source_page: 3
+    note: cross_validated relation from TOC-A11 to GRP-A11 on source_page 3
+  - subject: UNKNOWN-SUMP-01
+    object: PLAN-PIT
+    source_page: 60
+    note: incoming relation recorded; PLAN-PIT contains UNKNOWN-SUMP-01
+  - subject: UNKNOWN-CANOPY-01
+    object: T01
+    source_page: 63
+    note: T01 contains UNKNOWN-CANOPY-01
+  total_evidence: 15
+  derivation: incoming contains 기록과 일부 related_assertions의 명시적 type=contained_in을
+    별도 관계로 귀납했다. subject와 object의 클래스 조합이 공간/요소/그룹/컨테이너 전반에 걸쳐 있어 owl:Thing 범위를 유지한다.
+    UNKNOWN-CANOPY-01, UNKNOWN-LADDER-01처럼 동일 subject가 둘 이상의 상위 컨테이너를 가지므로 functional
+    후보는 거짓이다.
+  confidence: 0.89
+- iri: dks:adjacent_to
+  label: adjacent_to
+  domain: dks:SpatialEntity
+  range: dks:SpatialEntity
+  inverse_of_candidate: dks:adjacent_to
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: T01
+    object: '102'
+    source_page: 63
+    note: T01 is adjacent_to 102
+  - subject: '102'
+    object: T01
+    source_page: 63
+    note: incoming relation observed; 102 is adjacent_to T01
+  - subject: '104'
+    object: T01
+    source_page: 63
+    note: incoming relation from T01 to 104
+  - subject: '201'
+    object: T01
+    source_page: 63
+    note: incoming relation from T01 to 201; adjacency observed
+  - subject: UNKNOWN-SPACE-001
+    object: T01
+    source_page: 63
+    note: incoming relation observed; cross_validated
+  total_evidence: 11
+  derivation: related_assertions의 type=adjacent_to가 T01과 102/104/201/213/UNKNOWN-SPACE-001
+    사이에서 반복된다. class_taxonomy에서 T01, 102, 104, 201, 213, UNKNOWN-SPACE-001은 모두 dks:SpatialEntity
+    evidence_tags에 포함되므로 domain/range를 SpatialEntity로 귀납했다. T01→102와 102→T01 양방향 관찰이
+    있어 symmetric_candidate와 self inverse 후보를 부여한다.
+  confidence: 0.95
+- iri: dks:connects_to
+  label: connects_to
+  domain: dks:ServiceNetworkElement
+  range: dks:ServiceNetworkElement
+  inverse_of_candidate: ''
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-RD-001
+    object: UNKNOWN-PIPE-001
+    source_page: 62
+    note: 'from UNKNOWN-RD-001 to UNKNOWN-PIPE-001; note: Ø100 R.D (2EA) -> Ø100 SST
+      횡주관'
+  - subject: UNKNOWN-PIPE-002
+    object: UNKNOWN-PIPE-001
+    source_page: 62
+    note: UNKNOWN-PIPE-002 -> UNKNOWN-PIPE-001 연결 관계 관찰됨
+  - subject: UNKNOWN-RD-002
+    object: UNKNOWN-TRENCH-001
+    source_page: 62
+    note: outgoing relation; Ø125 R.D -> 오픈트렌치 배수 연결 추정
+  - subject: UNKNOWN-RD-003
+    object: UNKNOWN-TRENCH-003
+    source_page: 62
+    note: outgoing relation observed; Ø125 R.D -> 오픈트렌치 배수 연결 추정
+  - subject: UNKNOWN-TRENCH-001
+    object: UNKNOWN-RD-002
+    source_page: 62
+    note: incoming relation observed; from UNKNOWN-RD-002 to UNKNOWN-TRENCH-001
+  total_evidence: 7
+  derivation: page 62의 배수/배관/트렌치 네트워크에서 type=connects_to가 반복 관찰된다. UNKNOWN-RD-001/002/003,
+    UNKNOWN-PIPE-002, UNKNOWN-TRENCH-001/003은 class_taxonomy상 dks:ServiceNetworkElement이고
+    UNKNOWN-PIPE-001은 dks:Pipe로서 dks:ServiceNetworkElement의 하위이므로 domain/range를 ServiceNetworkElement로
+    둘 수 있다. 일부 역방향 관찰은 있으나 일관된 별도 역관계 라벨은 부족하여 inverse_of_candidate는 공란으로 둔다.
+  confidence: 0.94
+- iri: dks:part_of
+  label: part_of
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-HATCH-01
+    object: PLAN-PIT
+    source_page: 60
+    note: inverse interpretation suggests this element is part of PLAN-PIT
+  - subject: DRAWING-SYMBOLS-01
+    object: SYM-001
+    source_page: 4
+    note: 도면 표기 부호 범례의 축열 버블 예시
+  - subject: DRAWING-SYMBOLS-01
+    object: SYM-002
+    source_page: 4
+    note: 도면 표기 부호 범례의 실명 BOX 예시
+  total_evidence: 8
+  derivation: related_assertions에 type=part_of가 직접 등장한다. 다만 DRAWING-SYMBOLS-01→SYM-*는
+    note상 범례 패널과 예시 항목의 부분관계로 읽히지만 방향이 일반적 기대와 반대로 기록되어 있어 현 단계에서는 관찰된 방향 그대로 보존한다.
+    UNKNOWN-HATCH-01의 경우 PLAN-PIT와의 부분/포함 해석이 note에 직접 제시된다. 동일 subject에 대해 part_of가
+    대체로 1개씩만 관찰되어 functional 후보를 부여하되 확정은 보류한다.
+  confidence: 0.62
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T09:30:45.621592'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.86

@@ -1,0 +1,192 @@
+placement:
+  tag: CCTV-GRP-2F
+  name: 2층 CCTV 감시 그룹
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: CCTV-GRP-2F
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - SurveillanceGroup
+    - TerminalGroup
+    - MonitoringGroup
+    related_assertions:
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: 'relation: cable / annotation: CCTV 연결 배선'
+    applicable_axioms: []
+    applicable_constraints:
+    - CN007
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: CCTV 그룹 (2층 전체)
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨로 보존 필요
+      - raw_text: 'equipment_symbols: CCTV_SURVEILLANCE x4'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: symbolTypeText
+          suggested_datatype: xsd:string
+          rationale: 감시 심볼 유형과 수량 정보가 함께 관찰됨
+      - raw_text: 'position: distributed'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 배치 상태를 나타내는 위치/분포 정보
+      - raw_text: 'quantity: 4'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: quantity
+          suggested_datatype: xsd:integer
+          rationale: 수량 값이 명시됨
+      - raw_text: 'function_category: SURVEILLANCE_SYSTEM'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 텍스트로 보존 가능
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationEquipment'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 상위 클래스 힌트로 보존 가치가 있음
+      - raw_text: 'ontology_hints.function_candidates: Surveillance, Monitoring'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록으로 보존 필요
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class + observed context
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: inferred from type/function_category/labels
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 8
+      method: relations.from
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 8
+      method: relations.relation
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 8
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 8
+      method: equipment_symbols
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 8
+      method: position
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 8
+      method: specs.quantity
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 8
+      method: function_category
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    discipline_context.sub_kinds.free_notes[6].raw_text:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates
+    unresolved:
+      source_pages:
+      - 8
+      method: full scan completed
+    ambiguous:
+      source_pages:
+      - 8
+      method: type/function/context mixed
+    plan_reference.guidance_applied:
+    - 'communication domain: terminal_group / equipment group placement'
+    - connectedTo relation pattern for cable-linked equipment
+    - hasEquipmentSymbol / quantity / position preservation
+    plan_reference.deviations:
+    - supplement has no defined sub_kinds; preserved all non-core details in free_notes
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: CCTV 그룹 (2층 전체)
+    source_page: 8
+    reason: Label text is preserved but not separately normalized beyond name/raw
+      label.
+    preservation_note: Keep as raw label evidence for later label-to-class mapping.
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 8
+    reason: Empty list
+    preservation_note: No observed content.
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 8
+    reason: Empty list
+    preservation_note: No observed content.
+  - field_candidate: collection_sources.visual_semantics
+    raw_text: 'true'
+    source_page: 8
+    reason: Boolean provenance flag not further interpreted.
+    preservation_note: Retain as source-method indicator.
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 8
+    reason: Boolean provenance flag not further interpreted.
+    preservation_note: Retain as source-method indicator.
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 8
+    reason: Empty list
+    preservation_note: No similar equipment provided.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: Entity is a terminal_group with surveillance function and multiple CCTV
+      symbols; it can be read as a grouped equipment instance rather than a single
+      physical device.
+    recommended_handling: Keep as NamedIndividual for now; downstream step may refine
+      to a group/class pattern or part-of structure if additional evidence appears.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - connectedTo relation fact preserved as raw assertion
+    - equipment_symbols and quantity preserved
+    - position distributed preserved
+    - group/terminal-group pattern recognized from communication ontology plan
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:00.516248'
+  confidence: 0.86

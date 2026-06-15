@@ -1,0 +1,168 @@
+placement:
+  tag: EXT-SOURCE-SERVER-B2
+  name: 외부 인입 출처 - 사무동 지상2층 전산실 (공동구 경유)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-SOURCE-SERVER-B2
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - External Signal Source
+    - Fiber Optic Connection
+    - External Source Placeholder
+    related_assertions:
+    - type: originatesFromExternalPoint
+      target_hint: 사무동 지상2층 전산실
+      note: specs.from_label의 FROM 출처 표현
+      confirmed_property: dks:originatesFromExternalPoint
+      confirmed_target: dks:CommunicationSpace
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    - type: routesThrough
+      target_hint: 공동구
+      note: name의 '(공동구 경유)' 표현
+      confirmed_property: dks:routesThrough
+      confirmed_target: TUNNEL-DUCT-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    - type: referencesDrawingOrSection
+      target_hint: 사무동 지하1층 평면도
+      note: specs.cross_page_ref
+      confirmed_property: dks:referencesDrawingOrSection
+      confirmed_target: dks:CommunicationDocumentEntity
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상2층 전산실'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: fromLabel
+          suggested_datatype: xsd:string
+          rationale: 출처를 나타내는 라벨 문자열
+      - raw_text: FIBER OPTICAL S.M 12CORE
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 광케이블 규격 문자열
+      - raw_text: 사무동 지하1층 평면도 참조
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: crossPageReference
+          suggested_datatype: xsd:string
+          rationale: 다른 도면/평면도 참조 문구
+      - raw_text: 공동구 경유
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: routeNote
+          suggested_datatype: xsd:string
+          rationale: 경유 경로를 나타내는 주석성 문구
+  provenance:
+    name:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: classification_by_entity_detail_and_plan
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 4
+      method: derived_from_specs.from_label
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 4
+      method: derived_from_name
+    ontology_core.related_assertions[2]:
+      source_pages:
+      - 4
+      method: derived_from_specs.cross_page_ref
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 4
+      method: preserved_raw_text
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 4
+      method: preserved_raw_text
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 4
+      method: preserved_raw_text
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 4
+      method: preserved_raw_text
+    unresolved: []
+    orphan_relations: []
+    ambiguous:
+      source_pages:
+      - 4
+      method: entity_detail_type_placeholder_with_external_source_semantics
+    plan_reference.guidance_applied:
+      source_pages:
+      - 4
+      method: applied_plan_focus_on_external_origin_and_routes
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM : 사무동 지상2층 전산실'
+    source_page: 4
+    reason: 원문은 보존 가능하나 정규화된 속성명으로 확정하지 않음
+    preservation_note: 출처 라벨 문자열로 재사용 가능
+  - field_candidate: specs.cable_spec
+    raw_text: FIBER OPTICAL S.M 12CORE
+    source_page: 4
+    reason: 규격 문자열이지만 이 단계에서 정식 데이터 속성으로 승격하지 않음
+    preservation_note: 케이블 규격 후보
+  - field_candidate: specs.cross_page_ref
+    raw_text: 사무동 지하1층 평면도 참조
+    source_page: 4
+    reason: 참조 문구이나 관계 IRI를 확정하지 않음
+    preservation_note: 도면 참조 관계 후보
+  - field_candidate: name
+    raw_text: 외부 인입 출처 - 사무동 지상2층 전산실 (공동구 경유)
+    source_page: 4
+    reason: 설명형 이름에 경유 정보가 포함되어 있어 구조화 분해를 보류
+    preservation_note: 출처 + 경로 + 대상 공간이 혼합된 라벨
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type이 placeholder이고 name은 외부 인입 출처를 나타내지만, 물리 설비 자체인지 관계 사실의 표기인지 경계가
+      다소 혼합됨.
+    recommended_handling: NamedIndividual로 존속시키되, 후속 단계에서 external source / connection
+      placeholder 여부를 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - external origin placeholder 패턴 반영
+    - routesThrough / referencesDrawingOrSection 후보 관계 반영
+    - communication domain의 외부 인입 출처로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:27.992063'
+  confidence: 0.86

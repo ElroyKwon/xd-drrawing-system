@@ -1,0 +1,648 @@
+executive_summary:
+  drawing_number: EE-01-015
+  title: 생산동력(3Ø 220V) 분전반 결선도-2
+  classification: SINGLE_LINE_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.98
+  summary: '생산동력(3Ø 220V) 분전반 결선도-2로, 전기실에서 4개 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)으로
+    전원이 공급되는 결선도이다.
+
+    각 분전반에는 MAIN, MCCB, SPD, 접지(E3) 및 분기 회로가 반복되며, 우측 주기사항 영역에 차단기 정격(30AF~600AF)과
+    차단용량(5KA 이상~50KA 이상) 표가 보인다.
+
+    도면은 2x2 패널 배치의 전기 계통이며, 노출형(STEEL) 커버 타입과 FROM: 전기실 표기가 확인된다.
+
+    '
+  equipment:
+  - tag: P-EA-2PP
+    name: 분전반 P-EA-2PP
+    spec: '위치: 1층 규격환경 시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode,
+      접지 E3, 분기 회로 MCCBs 포함'
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 1층 규격환경 시험실
+    confidence: 0.95
+  - tag: P-F-2PP
+    name: 분전반 P-F-2PP
+    spec: '위치: 1층 진동시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode,
+      접지 E3, 분기 회로 MCCBs 포함'
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 1층 진동시험실
+    confidence: 0.95
+  - tag: P-G-2PP
+    name: 분전반 P-G-2PP
+    spec: '커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode, 접지 E3,
+      분기 회로 MCCBs 포함'
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.92
+  - tag: P-I-2PP
+    name: 분전반 P-I-2PP
+    spec: '커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode, 접지 E3,
+      분기 회로 MCCBs 포함'
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.92
+  - tag: SPD-EA
+    name: 서지보호장치 (P-EA-2PP용)
+    spec: 3Ø SPD 40KA/mode, P-EA-2PP 분전반 내 설치
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: P-EA-2PP 분전반 내
+    confidence: 0.9
+  - tag: SPD-F
+    name: 서지보호장치 (P-F-2PP용)
+    spec: 3Ø SPD 40KA/mode, P-F-2PP 분전반 내 설치
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: P-F-2PP 분전반 내
+    confidence: 0.9
+  - tag: SPD-G
+    name: 서지보호장치 (P-G-2PP용)
+    spec: 3Ø SPD 40KA/mode, P-G-2PP 분전반 내 설치
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: P-G-2PP 분전반 내
+    confidence: 0.9
+  - tag: SPD-I
+    name: 서지보호장치 (P-I-2PP용)
+    spec: 3Ø SPD 40KA/mode, P-I-2PP 분전반 내 설치
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: P-I-2PP 분전반 내
+    confidence: 0.9
+  relationships:
+  - from: 전기실
+    to: P-EA-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+  - from: 전기실
+    to: P-F-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+  - from: 전기실
+    to: P-G-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+  - from: 전기실
+    to: P-I-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+  - from: P-EA-2PP
+    to: SPD-EA
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+  - from: P-F-2PP
+    to: SPD-F
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+  - from: P-G-2PP
+    to: SPD-G
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+  - from: P-I-2PP
+    to: SPD-I
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+  spaces:
+  - space_id: SPACE-1
+    type: room
+    name: 1층 규격환경 시험실
+    parent: null
+  - space_id: SPACE-2
+    type: room
+    name: 1층 진동시험실
+    parent: null
+  flow_paths:
+  - - 전기실
+    - P-EA-2PP
+    - SPD-EA
+    - 분기 회로
+  - - 전기실
+    - P-F-2PP
+    - SPD-F
+    - 분기 회로
+  - - 전기실
+    - P-G-2PP
+    - SPD-G
+    - 분기 회로
+  - - 전기실
+    - P-I-2PP
+    - SPD-I
+    - 분기 회로
+  top_equipment:
+  - 분전반 4대 (P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)
+  - SPD 4대 (각 분전반별 3Ø 40KA/mode)
+  - MCCB 다수 (분전반별 MAIN 및 분기 회로)
+  - 접지(E3) 4개
+  - '차단기 정격 표기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF'
+  - '차단용량 표기: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상'
+  stats:
+    equipment: 8
+    relationships: 8
+    spaces: 2
+    flow_paths: 4
+  uncertainties:
+  - P-G-2PP, P-I-2PP의 상세 위치는 도면에서 부분적으로만 가독
+  - 전기실에서 각 분전반으로의 케이블 구체 규격은 도면에 명시되지 않음
+  - 우측 주기사항 표의 모든 항목은 텍스트로 완전 판독되지 않음
+  - MCCB 수량은 전체적으로 8개로 집계되었으나, 개별 분전반별 세부 배치는 본문에서 반복 표기 수준으로만 확인됨
+  related_pages: []
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 차단기 정격/차단용량 표 및 분전반 결선도 내 표 형식 설명
+  discipline: ELECTRICAL
+  classification: WIRING_DIAGRAM
+  title_block:
+    drawing_number: EE-01-015
+    title: 생산동력(3Ø 220V) 분전반 결선도-2
+    revision: null
+  visible_tags:
+  - tag: P-EA-2PP
+    type: panel_board
+    source: both
+  - tag: P-F-2PP
+    type: panel_board
+    source: both
+  - tag: P-G-2PP
+    type: panel_board
+    source: both
+  - tag: P-I-2PP
+    type: panel_board
+    source: both
+  - tag: MCCB
+    type: circuit_breaker
+    source: both
+  - tag: SPD
+    type: surge_protective_device
+    source: both
+  - tag: E3
+    type: grounding_symbol
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 4
+  next_step_hints:
+  - 4개의 분전반 블록이 2x2로 배치되어 있음
+  - 각 블록에 MAIN, MCCB, SPD, 접지(E3) 표기가 반복됨
+  - 우측 표제란에 차단기 정격/차단용량 표가 포함되어 있어 범례성 정보가 일부 존재함
+  - 페이지 상단/중앙/하단에 동일 계통의 결선도 요소가 반복되어 다중 패널 도면으로 보임
+  confidence: 0.96
+  note: '페이지 정보의 텍스트와 이미지가 일치함: 도면번호 EE-01-015, 제목 생산동력(3Ø 220V) 분전반 결선도-2. 우측 표제란과
+    본문에 차단기 정격 표(30AF~600AF, 차단용량)가 보임.'
+classification: SINGLE_LINE_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- '도면 제목: 생산동력(3Ø 220V) 분전반 결선도-2'
+- '프로젝트 제목: LS Electric R-Center 구축'
+- '도면 번호: EE-01-015'
+- '축척: A1 NONE, A3 NONE'
+- '분전반 표기: P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP'
+- '커버 타입: 노출형(STEEL)'
+- '전원 표기: FROM: 전기실'
+- '차단기 표기: MCCB, SPD'
+- '접지 표기: E3'
+- '주기사항에 차단기 정격용량 표기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF'
+- '주기사항에 차단용량 표기: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상'
+title_block:
+  drawing_number: EE-01-015
+  title: 생산동력(3Ø 220V) 분전반 결선도-2
+  revision: UNKNOWN
+confidence: 0.98
+note: null
+classification_confirmed: true
+override_classification: null
+visual_pattern: 4개의 분전반 결선 블록이 2x2로 배치된 전기 단선/결선도 형태이며, 각 블록에 MAIN, MCCB, SPD, 접지(E3)와
+  분기 회로 표가 반복됨. 우측에는 표제란과 차단기 정격 표가 세로로 배치됨.
+symbol_density: MEDIUM
+detected_symbols:
+- type: MCCB
+  count: 8
+- type: SPD
+  count: 4
+- type: 접지(E3)
+  count: 4
+- type: MAIN
+  count: 4
+- type: panel board
+  count: 4
+line_types_observed:
+- 실선
+- 수직 배선/버스 형태 선
+- 접지 연결선
+- 분기 연결선
+additional_findings:
+- '도면 제목과 본문 배치가 기존 텍스트 분석의 ''생산동력(3Ø 220V) 분전반 결선도-2'' 및 ''WIRING_DIAGRAM'' 분류와 일치함.
+  근거: 하단 중앙 제목, 우측 표제란, 4개 패널 블록의 결선 구성.'
+- '우측 주기사항 영역에 차단기 정격/차단용량 표가 보이며, 범례성 정보가 일부 포함됨. 근거: 우측 표제란 중간의 표 형식 영역.'
+- 범례에 있는 심볼로 확인되는 것은 MCCB, SPD, 접지(E3)이며, 별도 범례에 없는 특수 심볼은 이 이미지에서 명확히 식별되지 않음.
+- '전력 흐름은 각 블록에서 FROM: 전기실 → MAIN → MCCB → 분기 회로 → 접지(E3)로 보임. 근거: 각 패널 블록의 상단 입력
+  표기와 중앙 수직 배선.'
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 패널별 반복되는 MCCB/SPD/접지 및 분기 회로 식별이 핵심임.
+- mode: power_flow_topology
+  priority: 2
+  reason: 상류 입력에서 하류 분기까지의 결선 경로가 명확히 보임.
+- mode: spatial_mapping
+  priority: 3
+  reason: 4개 패널의 2x2 배치와 우측 표제란 위치를 구조적으로 확인할 필요가 있음.
+pass1_설비식별:
+  entities:
+  - tag: P-EA-2PP
+    name: 분전반 P-EA-2PP
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: '위치: 1층 규격환경 시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD
+      3Ø 40KA/mode, 접지 E3, 분기 회로 MCCBs 포함'
+    confidence: 0.95
+    note: 도면 EE-01-015 좌상단 패널, 분전반 내부에 MAIN 차단기, SPD, 분기 회로 차단기 포함
+  - tag: P-F-2PP
+    name: 분전반 P-F-2PP
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: '위치: 1층 진동시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø
+      40KA/mode, 접지 E3, 분기 회로 MCCBs 포함'
+    confidence: 0.95
+    note: 도면 EE-01-015 우상단 패널, 분전반 내부에 MAIN 차단기, SPD, 분기 회로 차단기 포함
+  - tag: P-G-2PP
+    name: 분전반 P-G-2PP
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: '커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode, 접지
+      E3, 분기 회로 MCCBs 포함'
+    confidence: 0.92
+    note: 도면 EE-01-015 좌하단 패널, 분전반 내부에 MAIN 차단기, SPD, 분기 회로 차단기 포함, 위치 정보는 도면에서 부분적으로만
+      가독
+  - tag: P-I-2PP
+    name: 분전반 P-I-2PP
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: '커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode, 접지
+      E3, 분기 회로 MCCBs 포함'
+    confidence: 0.92
+    note: 도면 EE-01-015 우하단 패널, 분전반 내부에 MAIN 차단기, SPD, 분기 회로 차단기 포함, 위치 정보는 도면에서 부분적으로만
+      가독
+  - tag: SPD-EA
+    name: 서지보호장치 (P-EA-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 3Ø SPD 40KA/mode, P-EA-2PP 분전반 내 설치
+    confidence: 0.9
+    note: P-EA-2PP 분전반 내부 SPD, 도면에서 'SPD 3Ø 40KA/mode' 표기 확인
+  - tag: SPD-F
+    name: 서지보호장치 (P-F-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 3Ø SPD 40KA/mode, P-F-2PP 분전반 내 설치
+    confidence: 0.9
+    note: P-F-2PP 분전반 내부 SPD, 도면에서 'SPD 3Ø 40KA/mode' 표기 확인
+  - tag: SPD-G
+    name: 서지보호장치 (P-G-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 3Ø SPD 40KA/mode, P-G-2PP 분전반 내 설치
+    confidence: 0.9
+    note: P-G-2PP 분전반 내부 SPD, 도면에서 'SPD 3Ø 40KA/mode' 표기 확인
+  - tag: SPD-I
+    name: 서지보호장치 (P-I-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 3Ø SPD 40KA/mode, P-I-2PP 분전반 내 설치
+    confidence: 0.9
+    note: P-I-2PP 분전반 내부 SPD, 도면에서 'SPD 3Ø 40KA/mode' 표기 확인
+pass2_토폴로지:
+  relationships:
+  - from: 전기실
+    to: P-EA-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+    source: 'page 19 - P-EA-2PP 상단 ''FROM: 전기실'' 표기'
+  - from: 전기실
+    to: P-F-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+    source: 'page 19 - P-F-2PP 상단 ''FROM: 전기실'' 표기'
+  - from: 전기실
+    to: P-G-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+    source: 'page 19 - P-G-2PP 상단 ''FROM: 전기실'' 표기'
+  - from: 전기실
+    to: P-I-2PP
+    relation: feeds
+    medium: power
+    direction: downstream
+    confidence: 0.95
+    source: 'page 19 - P-I-2PP 상단 ''FROM: 전기실'' 표기'
+  - from: P-EA-2PP
+    to: SPD-EA
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+    source: page 19 - P-EA-2PP 내부 MAIN에서 SPD로의 수직 배선
+  - from: P-F-2PP
+    to: SPD-F
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+    source: page 19 - P-F-2PP 내부 MAIN에서 SPD로의 수직 배선
+  - from: P-G-2PP
+    to: SPD-G
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+    source: page 19 - P-G-2PP 내부 MAIN에서 SPD로의 수직 배선
+  - from: P-I-2PP
+    to: SPD-I
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.92
+    source: page 19 - P-I-2PP 내부 MAIN에서 SPD로의 수직 배선
+  - from: SPD-EA
+    to: P-EA-2PP
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.9
+    source: page 19 - P-EA-2PP 내부 SPD에서 분기 MCCBs로의 배선
+  - from: SPD-F
+    to: P-F-2PP
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.9
+    source: page 19 - P-F-2PP 내부 SPD에서 분기 MCCBs로의 배선
+  - from: SPD-G
+    to: P-G-2PP
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.9
+    source: page 19 - P-G-2PP 내부 SPD에서 분기 MCCBs로의 배선
+  - from: SPD-I
+    to: P-I-2PP
+    relation: connected_via
+    medium: power_cable
+    direction: downstream
+    confidence: 0.9
+    source: page 19 - P-I-2PP 내부 SPD에서 분기 MCCBs로의 배선
+  - from: P-EA-2PP
+    to: E3
+    relation: connected_via
+    medium: grounding_conductor
+    direction: bidirectional
+    confidence: 0.88
+    source: page 19 - P-EA-2PP 내부 E3 접지 표기
+  - from: P-F-2PP
+    to: E3
+    relation: connected_via
+    medium: grounding_conductor
+    direction: bidirectional
+    confidence: 0.88
+    source: page 19 - P-F-2PP 내부 E3 접지 표기
+  - from: P-G-2PP
+    to: E3
+    relation: connected_via
+    medium: grounding_conductor
+    direction: bidirectional
+    confidence: 0.88
+    source: page 19 - P-G-2PP 내부 E3 접지 표기
+  - from: P-I-2PP
+    to: E3
+    relation: connected_via
+    medium: grounding_conductor
+    direction: bidirectional
+    confidence: 0.88
+    source: page 19 - P-I-2PP 내부 E3 접지 표기
+  conduits:
+  - tag: UNKNOWN
+    type: power_cable
+    spec: 3Ø 220V 전원 케이블 (도면에 구체적 규격 표기 없음)
+    from: 전기실
+    to: P-EA-2PP
+    source: image
+    confidence: 0.85
+  - tag: UNKNOWN
+    type: power_cable
+    spec: 3Ø 220V 전원 케이블 (도면에 구체적 규격 표기 없음)
+    from: 전기실
+    to: P-F-2PP
+    source: image
+    confidence: 0.85
+  - tag: UNKNOWN
+    type: power_cable
+    spec: 3Ø 220V 전원 케이블 (도면에 구체적 규격 표기 없음)
+    from: 전기실
+    to: P-G-2PP
+    source: image
+    confidence: 0.85
+  - tag: UNKNOWN
+    type: power_cable
+    spec: 3Ø 220V 전원 케이블 (도면에 구체적 규격 표기 없음)
+    from: 전기실
+    to: P-I-2PP
+    source: image
+    confidence: 0.85
+  flow_sequence:
+  - - 전기실
+    - P-EA-2PP
+    - SPD-EA
+    - 분기 회로
+  - - 전기실
+    - P-F-2PP
+    - SPD-F
+    - 분기 회로
+  - - 전기실
+    - P-G-2PP
+    - SPD-G
+    - 분기 회로
+  - - 전기실
+    - P-I-2PP
+    - SPD-I
+    - 분기 회로
+  isolated_entities: []
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: R-Center
+    parent: SITE-001
+  - space_id: F1-001
+    type: floor
+    name: 1층
+    parent: BLDG-001
+  - space_id: F1-RM-001
+    type: room
+    name: 규격환경 시험실
+    parent: F1-001
+  - space_id: F1-RM-002
+    type: room
+    name: 진동시험실
+    parent: F1-001
+  - space_id: F1-RM-003
+    type: room
+    name: 전기실
+    parent: F1-001
+  - space_id: F1-RM-004
+    type: room
+    name: UNKNOWN
+    parent: F1-001
+  - space_id: F1-RM-005
+    type: room
+    name: UNKNOWN
+    parent: F1-001
+  equipment_placement:
+  - tag: P-EA-2PP
+    type: Power Panelboard
+    located_in: F1-RM-001
+    location_name: 1층 규격환경 시험실
+    confidence: 0.95
+    source: page 19 - PANEL LOCATION field
+  - tag: P-F-2PP
+    type: Power Panelboard
+    located_in: F1-RM-002
+    location_name: 1층 진동시험실
+    confidence: 0.95
+    source: page 19 - PANEL LOCATION field
+  - tag: P-G-2PP
+    type: Power Panelboard
+    located_in: F1-RM-004
+    location_name: UNKNOWN
+    confidence: 0.0
+    source: page 19 - PANEL LOCATION field (text not legible in image)
+  - tag: P-I-2PP
+    type: Power Panelboard
+    located_in: F1-RM-005
+    location_name: UNKNOWN
+    confidence: 0.0
+    source: page 19 - PANEL LOCATION field (text not legible in image)
+pass4_검증:
+  corrections:
+  - target: MCCB count in detected_symbols
+    resolution: MCCB 개수를 8개에서 22개로 수정 (MAIN 4개 + 분기 18개)
+    evidence: '각 패널의 분기 회로 테이블 행 수 계산: P-EA-2PP 3행, P-F-2PP 5행, P-G-2PP 3행, P-I-2PP
+      7행'
+    confidence: 0.92
+  - target: SPD-EA, SPD-F, SPD-G, SPD-I tags
+    resolution: 이 태그들은 도면에 명시되지 않았으므로 제거. SPD는 각 패널 내 명명되지 않은 컴포넌트로 표기
+    evidence: 도면에는 'SPD'로만 표기되어 있고, 개별 태그(SPD-EA 등)는 없음
+    confidence: 0.95
+  - target: SPD topology relationships
+    resolution: SPD는 MAIN MCCB와 분기 MCCBs 사이의 메인 버스에 병렬로 연결되어야 함. 현재 직렬 연결로 표기된 것은
+      물리적으로 부정확
+    evidence: '전기 설계 표준: SPD는 서지 보호를 위해 보호 대상 회로에 병렬로 연결됨'
+    confidence: 0.9
+  - target: P-EA-2PP spec_text
+    resolution: MAIN MCCB 정격을 구체적으로 명시 필요 (현재 '3P'만 표기, 실제 AF/AT 값 필요)
+    evidence: 도면 상단 P-EA-2PP 패널 헤더의 SOURCE/VOLT/MAIN C.B 박스에 구체적 정격 표기
+    confidence: 0.85
+  - target: P-F-2PP spec_text
+    resolution: MAIN MCCB 정격을 구체적으로 명시 필요
+    evidence: 도면 상단 P-F-2PP 패널 헤더의 SOURCE/VOLT/MAIN C.B 박스에 구체적 정격 표기
+    confidence: 0.85
+  - target: P-G-2PP spec_text
+    resolution: MAIN MCCB 정격을 구체적으로 명시 필요
+    evidence: 도면 상단 P-G-2PP 패널 헤더의 SOURCE/VOLT/MAIN C.B 박스에 구체적 정격 표기
+    confidence: 0.85
+  - target: P-I-2PP spec_text
+    resolution: MAIN MCCB 정격을 구체적으로 명시 필요
+    evidence: 도면 상단 P-I-2PP 패널 헤더의 SOURCE/VOLT/MAIN C.B 박스에 구체적 정격 표기
+    confidence: 0.85
+  missing_entities:
+  - tag: MCCB-EA-1, MCCB-EA-2, MCCB-EA-3
+    name: P-EA-2PP 분기 회로 차단기
+    evidence: P-EA-2PP 패널 내 분기 회로 테이블의 3개 행
+    confidence: 0.88
+  - tag: MCCB-F-1, MCCB-F-2, MCCB-F-3, MCCB-F-4, MCCB-F-5
+    name: P-F-2PP 분기 회로 차단기
+    evidence: P-F-2PP 패널 내 분기 회로 테이블의 5개 행
+    confidence: 0.88
+  - tag: MCCB-G-1, MCCB-G-2, MCCB-G-3
+    name: P-G-2PP 분기 회로 차단기
+    evidence: P-G-2PP 패널 내 분기 회로 테이블의 3개 행
+    confidence: 0.88
+  - tag: MCCB-I-1, MCCB-I-2, MCCB-I-3, MCCB-I-4, MCCB-I-5, MCCB-I-6, MCCB-I-7
+    name: P-I-2PP 분기 회로 차단기
+    evidence: P-I-2PP 패널 내 분기 회로 테이블의 7개 행
+    confidence: 0.88
+  - tag: MCCB-EA-MAIN
+    name: P-EA-2PP 메인 차단기
+    evidence: P-EA-2PP 패널 상단 MAIN 표기
+    confidence: 0.9
+  - tag: MCCB-F-MAIN
+    name: P-F-2PP 메인 차단기
+    evidence: P-F-2PP 패널 상단 MAIN 표기
+    confidence: 0.9
+  - tag: MCCB-G-MAIN
+    name: P-G-2PP 메인 차단기
+    evidence: P-G-2PP 패널 상단 MAIN 표기
+    confidence: 0.9
+  - tag: MCCB-I-MAIN
+    name: P-I-2PP 메인 차단기
+    evidence: P-I-2PP 패널 상단 MAIN 표기
+    confidence: 0.9
+  relationship_issues:
+  - issue: 'SPD 토폴로지 오류: SPD가 MAIN MCCB에서 분기 MCCBs로의 직렬 경로에 위치한 것으로 표기됨'
+    recommendation: SPD는 메인 버스에 병렬로 연결되어야 함. 관계를 '전기실 → MAIN MCCB → Bus → (SPD 병렬
+      연결) + 분기 MCCBs'로 수정
+    confidence: 0.9
+  - issue: 분기 회로 차단기들이 개별 엔티티로 추출되지 않음
+    recommendation: 각 패널의 분기 회로 테이블에서 모든 MCCB를 개별 엔티티로 추출하고 태그 부여
+    confidence: 0.88
+  - issue: 메인 차단기가 분전반 내 컴포넌트로만 표기되고 개별 엔티티로 추출되지 않음
+    recommendation: 각 패널의 MAIN MCCB를 개별 엔티티로 추출하고 태그 부여
+    confidence: 0.9
+  consistency_check:
+    entity_count_before: 12
+    entity_count_after: 26
+    relation_count_before: 12
+    relation_count_after: 30
+    note: MCCB 개수 오류로 인해 엔티티 수가 크게 증가. SPD 태그 제거로 4개 감소, 분기 MCCB 추가로 18개 증가, MAIN
+      MCCB 개별 추출로 4개 증가
+  overall_confidence: 0.87

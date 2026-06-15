@@ -1,0 +1,200 @@
+placement:
+  tag: UNKNOWN-SYSTEMBOX-01
+  name: SYSTEM BOX(FA) 2PORT
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SYSTEMBOX-01
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationConnection
+    - SignalDistribution
+    - SystemBox
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: 좌측 범례
+      note: 바닥매입형 시스템 박스 심볼로 표시됨
+    - type: locatedIn
+      target_hint: 바닥매입형 (Floor Mounted Type)
+      note: 설치 방식이 바닥매입형으로 명시됨
+    - type: referencesDrawingOrSection
+      target_hint: 통합배선설비 항목
+      note: source에 통합배선설비 항목이 명시됨
+    applicable_axioms: []
+    applicable_constraints:
+    - CN008
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'visual_description: 바닥매입형으로 표시된 시스템 박스 심볼, FA 구분 및 2PORT 표기'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼의 시각적 설명 텍스트
+      - raw_text: 'mounting_type: 바닥매입형 (Floor Mounted Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountingType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 표기
+      - raw_text: 'source: 좌측 범례, 통합배선설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceReference
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/범례 참조 정보
+      - raw_text: 'function_category: SYSTEM_BOX'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 텍스트
+      - raw_text: 'type: system_box'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문
+      - raw_text: 'name: SYSTEM BOX(FA) 2PORT'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 라벨 원문
+      - raw_text: FA 구분 및 2PORT 표기
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: portCountText
+          suggested_datatype: xsd:string
+          rationale: 포트 수 표기와 구분 정보
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스
+      - raw_text: 'function_candidates: CommunicationConnection, SignalDistribution'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+  provenance:
+    name:
+      source_pages:
+      - 3
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: ontology_hints.function_candidates + inferred
+    ontology_core.related_assertions:
+      source_pages:
+      - 3
+      method: relations empty; derived from specs/ontology_hints/source
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: preserve all non-core observed text
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: entity_detail.specs.visual_description
+    specs.mounting_type:
+      source_pages:
+      - 3
+      method: entity_detail.specs.mounting_type
+    specs.source:
+      source_pages:
+      - 3
+      method: entity_detail.specs.source
+    function_category:
+      source_pages:
+      - 3
+      method: entity_detail.function_category
+    type:
+      source_pages:
+      - 3
+      method: entity_detail.type
+    source_pages:
+      source_pages:
+      - 3
+      method: entity_detail.source_pages
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 3
+      method: entity_detail.collection_sources
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.visual_description
+    raw_text: 바닥매입형으로 표시된 시스템 박스 심볼, FA 구분 및 2PORT 표기
+    source_page: 3
+    reason: 시각 설명은 구조화된 속성으로 확정하지 않고 원문 보존 필요
+    preservation_note: 심볼/표기/구분 정보를 포함하므로 후속 단계에서 visualDescription 또는 symbol note로
+      승격 가능
+  - field_candidate: specs.mounting_type
+    raw_text: 바닥매입형 (Floor Mounted Type)
+    source_page: 3
+    reason: 설치 방식은 관찰값이지만 supplement 부재로 정식 sub_kind 분류 불가
+    preservation_note: mountingType 후보
+  - field_candidate: specs.source
+    raw_text: 좌측 범례, 통합배선설비 항목
+    source_page: 3
+    reason: 출처/참조 정보는 관계 또는 주석으로 해석 가능하나 확정 불가
+    preservation_note: legend/source reference로 복원 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CommunicationConnection, SignalDistribution
+    source_page: 3
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 분류에서 기능 후보 비교용으로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SYSTEM BOX가 장비 본체인지 연결/분배 기능 중심인지 도면 정보만으로 단정하기 어려움. FA 구분과 2PORT 표기가
+      있어 연결점 성격도 강함.
+    recommended_handling: NamedIndividual로 유지하되, 후속 단계에서 CommunicationEquipment vs
+      Connection/Distribution 계열을 비교 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 system box/단말군/연결점 패턴을 장비-연결 혼합 후보로 보존
+    - source, mounting_type, visual_description, function_candidates를 free_notes와
+      provenance로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:18:06.626054'
+  confidence: 0.84

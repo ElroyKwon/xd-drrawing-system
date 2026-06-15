@@ -1,0 +1,126 @@
+entity_detail:
+  tag: P-A-4PP-3
+  type: Power Panelboard
+  specs:
+    panel_board:
+      value: PANEL BOARD
+      source:
+      - 21
+      confidence: 0.98
+    cover_type:
+      value: 노출형(STEEL)
+      source:
+      - 21
+      confidence: 0.98
+    panel_location:
+      value: 1층 Drive 시험실
+      source:
+      - 21
+      confidence: 0.98
+    box_size:
+      value: —
+      source:
+      - 21
+      confidence: 0.98
+    from:
+      value: 전기실
+      source:
+      - 21
+      confidence: 0.98
+    voltage:
+      value: 3Ø 440V
+      source:
+      - 21
+      - 23
+      confidence: 0.98
+    main_cb:
+      value: SP 400AF/300AT 또는 630AF/500AT
+      source:
+      - 21
+      confidence: 0.98
+    mccb:
+      value: 3P 30/20AT
+      source:
+      - 21
+      confidence: 0.98
+    spd:
+      value: 3Ø S.P.D 40KA/mode
+      source:
+      - 21
+      confidence: 0.99
+    branch_mccb:
+      value: 4개 (125A, 50A, 125A)
+      source:
+      - 21
+      confidence: 0.98
+  drawing_texts:
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 'P-A-4PP-3 분전반
+
+      PANEL BOARD, COVER TYPE 노출형(STEEL), PANEL LOCATION 1층 Drive 시험실, BOX SIZE —,
+      FROM 전기실, 3Ø 440V, MAIN C.B SP 400AF/300AT 또는 630AF/500AT, MCCB 3P 30/20AT,
+      3Ø S.P.D 40KA/mode, 분기 MCCB 4개 (125A, 50A, 125A)'
+  - source: page_023_context.yaml
+    page_number: 23
+    text: P-A-4PP-3
+  requirements:
+  - text: COVER TYPE 노출형(STEEL)
+    source: page_021_context.yaml
+    type: installation_condition
+  - text: PANEL LOCATION 1층 Drive 시험실
+    source: page_021_context.yaml
+    type: location_requirement
+  - text: FROM 전기실
+    source: page_021_context.yaml
+    type: supply_source
+  - text: 3Ø 440V
+    source: page_021_context.yaml
+    type: electrical_requirement
+  - text: 3Ø S.P.D 40KA/mode
+    source: page_021_context.yaml
+    type: protection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page_021_context.yaml
+      text: FROM 전기실, 3Ø 440V
+  - relation: connected_to_ground
+    partner: E3
+    details:
+      source: page_021_context.yaml
+      text: E3 접지, 6개 분전반(P-A-4PP-1~6) 모두 연결
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: connected_to_ground
+      partner_tag: E3
+      direction: source_to_target
+      source: page_021_context.yaml
+    observed_attributes:
+    - PANEL BOARD
+    - COVER TYPE
+    - PANEL LOCATION
+    - BOX SIZE
+    - FROM
+    - 3Ø 440V
+    - MAIN C.B
+    - MCCB
+    - 3Ø S.P.D
+    - 분기 MCCB
+    similar_equipment:
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-4
+    - P-A-4PP-5
+    - P-A-4PP-6
+    suggested_parent_class: Panelboard
+    cross_discipline: []
+  notes:
+  - 페이지 21의 동일 계열 분전반 정보에서 P-A-4PP-3 사양을 수집함.
+  - 페이지 23에는 태그명만 확인되며 추가 사양은 확인되지 않음.
+tag: P-A-4PP-3

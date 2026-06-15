@@ -1,0 +1,156 @@
+placement:
+  tag: UNKNOWN-ROOM-007
+  name: 접견실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-007
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationSpace
+    - Reception
+    - PublicAddressZone
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: 스피커 천정형 (3W)
+      note: specs.equipment_symbols에 관찰됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 접견실
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문
+      - raw_text: 스피커 천정형 (3W)
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 기재된 설비 심볼/표기
+      - raw_text: Reception
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 제시된 기능 후보
+      - raw_text: PublicAddressZone
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 제시된 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 17
+      method: entity_detail
+    name:
+      source_pages:
+      - 17
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 17
+      method: entity_detail
+    specs.source_text:
+      source_pages:
+      - 17
+      method: entity_detail
+    specs.equipment_symbols:
+      source_pages:
+      - 17
+      method: entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이나 function_category가 COMMUNICATION_ZONE이고 ontology_hints에
+      Reception/PublicAddressZone 후보가 함께 있어 공간 성격은 명확하나 세부 클래스는 단정 불가함.
+    recommended_handling: 0-9c에서 Space 계열로 우선 분류하되, function_candidates와 equipment_symbols를
+      참고해 세부 class를 확정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 보이는 UNKNOWN-ROOM-* 계열을 Space 후보로 배치
+    - function_candidates를 class_hint 보조로 반영
+    - equipment_symbols를 관계 원형으로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:22.971282'
+  confidence: 0.86

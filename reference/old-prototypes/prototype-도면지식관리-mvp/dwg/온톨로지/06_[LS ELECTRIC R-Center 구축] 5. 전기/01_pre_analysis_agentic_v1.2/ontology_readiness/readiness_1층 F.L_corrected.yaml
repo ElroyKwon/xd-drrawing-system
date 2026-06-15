@@ -1,0 +1,12 @@
+verdict: demoted
+confidence: 0.99
+reason: "entity_detail 전체를 재검토한 결과, 이전 평가를 뒤집을 새로운 근거가 없다. 확인된 사실은 다음과 같다:\n1. **type\
+  \ 선언**: drawing_texts에서 type이 명시적으로 'floor_level'로\n   기재되어 있으며, spaces 블록 하위 항목으로만\
+  \ 등장한다.\n\n2. **설비 속성 부재**: specs에 page_number·drawing_number·title·discipline 등\n\
+  \   도면 메타데이터만 존재하고, 용량·전압·전류·모델명 등 설비 고유 사양이\n   전혀 없다.\n\n3. **연결 정보 부재**: connection_specs와\
+  \ requirements가 모두 비어 있어\n   다른 설비와의 물리적·전기적 연결 관계를 추론할 단서가 없다.\n\n4. **온톨로지 힌트**:\
+  \ suggested_parent_class가 IfcBuildingStorey로 제시되어\n   있으며, similar_equipment와 observed_relations도\
+  \ 모두 비어 있다.\n   이는 공간(Space)/층(Storey) 개념임을 추가 확인한다.\n\n5. **도면 맥락**: 전력간선설비 계통도(EE-02-001)에서\
+  \ 층 구분을 표기하는\n   기준선(F.L = Finish Level) 레이블로 사용되는 관례와 일치한다.\n\n결론적으로 '1층 F.L'은\
+  \ 물리적 설비가 아닌 공간/층 레벨 참조 요소이므로 설비 온톨로지 대상에서 강등(demoted)을 유지한다."
+tag: 1층 F.L

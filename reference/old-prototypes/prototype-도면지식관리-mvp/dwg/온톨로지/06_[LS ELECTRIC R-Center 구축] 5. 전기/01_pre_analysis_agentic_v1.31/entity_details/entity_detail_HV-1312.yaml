@@ -1,0 +1,79 @@
+entity_detail:
+  tag: HV-1312
+  type: breaker_bay
+  specs:
+    panel_id:
+      value: PNL-HV-1312
+      unit: null
+      source: page 5
+      confidence: 0.95
+    label:
+      value: '1312'
+      unit: null
+      source: page 5
+      confidence: 0.95
+    voltage_annotation:
+      value: 6.6kV Bus
+      unit: null
+      source: page 5
+      confidence: 0.95
+    inferred_name:
+      value: 1312 HV 6.6kV 피더 - 공장B2동 동력
+      unit: null
+      source: user-provided target
+      confidence: 0.9
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "panel_id: PNL-HV-1312\nshape: hexagon\nlabels_inside:\n- '1312'\n...\n\
+      annotation: 6.6kV Bus\n- from: PNL-HV-1311B\n  to: PNL-HV-1312\n  line_type:\
+      \ power_cable\n  line_style: solid\n  annotation: 6.6kV Bus\n...\n  line_style:\
+      \ solid\n  annotation: 6.6kV Bus\n- from: PNL-HV-1312\n  to: PNL-HV-1313A\n\
+      \  line_type: power_cable\n  line_style: solid"
+  requirements: []
+  connection_specs:
+  - relation: power_cable
+    partner: PNL-HV-1311B
+    details:
+      source: page 5
+      annotation: 6.6kV Bus
+      line_style: solid
+  - relation: power_cable
+    partner: PNL-HV-1313A
+    details:
+      source: page 5
+      annotation: 6.6kV Bus
+      line_style: solid
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1312
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1311B
+      direction: PNL-HV-1311B -> PNL-HV-1312
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1313A
+      direction: PNL-HV-1312 -> PNL-HV-1313A
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - annotation
+    - 6.6kV Bus
+    similar_equipment:
+    - 1311A
+    - 1311B
+    - 1313A
+    - 1313B
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag('HV-1312') 결과에서 page_005_context.yaml의 PNL-HV-1312 항목을 확인함.
+  - 도면 분석 결과에서 HV-1312는 '1312' 라벨의 패널로 보이며, 6.6kV Bus 표기가 있음.
+  - 사용자 제공 이름 '1312 HV 6.6kV 피더 - 공장B2동 동력'은 도면 원문에서 직접 확인되지 않아 specs의 inferred_name에만
+    참고로 기록함.
+tag: HV-1312

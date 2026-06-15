@@ -1,0 +1,141 @@
+placement:
+  tag: VBR1
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:VBR1
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - MemberMark
+    - PlanOrView
+    related_assertions:
+    - type: connects_to
+      target_hint: VBR2
+      note: VBR 외곽 가상보 연결 (상단→우측)
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:VBR2
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: VBR 외곽 가상보 연결 (상단→우측)
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 설명 주석이며 연결 방향과 의미를 보존할 수 있음
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+  provenance:
+    tag:
+      source_pages:
+      - 35
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 35
+      method: inferred from relation-bearing entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 35
+      method: normalized from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 35
+      method: plan-based candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 35
+      method: plan-based candidate
+    ontology_core.related_assertions:
+      source_pages:
+      - 35
+      method: from relations block
+    discipline_context.free_notes:
+      source_pages:
+      - 35
+      method: from relation note
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 35
+      method: plan-based uncertainty
+    plan_reference.guidance_applied:
+      source_pages:
+      - 35
+      method: applied ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: VBR2
+    source_page: 35
+    reason: 관계 대상 태그는 있으나 별도 entity_detail이 없어 정규화 불가
+    preservation_note: connects_to 관계의 대상 후보로 보존
+  - field_candidate: relations[0].relation_type
+    raw_text: connects_to
+    source_page: 35
+    reason: 관계 사실은 보존 가능하나 확정 property IRI는 다음 단계에서 정규화 필요
+    preservation_note: related_assertions에 원형 유지
+  - field_candidate: relations[0].direction
+    raw_text: outbound
+    source_page: 35
+    reason: 방향 정보는 있으나 역방향/양방향 해석은 확정 불가
+    preservation_note: 관계 방향 메타로 보존
+  - field_candidate: relations[0].from
+    raw_text: VBR1
+    source_page: 35
+    reason: 원문 관계의 출발점 메타
+    preservation_note: 태그 자기참조 메타로 보존
+  - field_candidate: relations[0].to
+    raw_text: VBR2
+    source_page: 35
+    reason: 원문 관계의 도착점 메타
+    preservation_note: 대상 후보와 동일
+  - field_candidate: relations[0].relation
+    raw_text: connects_to
+    source_page: 35
+    reason: 관계 라벨 원문
+    preservation_note: 정규화 전 원형 보존
+  - field_candidate: relations[0].origin
+    raw_text: cross_validated
+    source_page: 35
+    reason: 출처 검증 메타이며 의미론적 분류 대상 아님
+    preservation_note: provenance 보조 메타
+  - field_candidate: relations[0].line_style
+    raw_text: solid
+    source_page: 35
+    reason: 도면 선 스타일 메타이며 ontology core로 직접 승격 불가
+    preservation_note: 시각적 관계 표현 메타로 보존
+  - field_candidate: relations[0].note
+    raw_text: VBR 외곽 가상보 연결 (상단→우측)
+    source_page: 35
+    reason: 관계 설명이지만 별도 구조화 필드가 없음
+    preservation_note: free_notes 및 relationNote 승격 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: VBR1은 관계(connects_to)만 관찰되고 독립 설비인지, 상세/부재 마크인지, 주석성 표기인지 단정할 근거가 부족함
+    recommended_handling: 다음 단계에서 VBR2 및 인근 VBR 계열과 함께 연결 패턴을 비교해 class 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - expected_object_properties.connects_to
+    - predicted_ontology_structure.expected_depth
+    - discipline_context_plan.unknown.handling_plan
+    deviations:
+    - supplement가 없어 sub_kinds를 free_notes만 사용함
+    - class_hint는 확정하지 않고 후보만 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:12.203846'
+  confidence: 0.72

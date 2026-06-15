@@ -1,0 +1,72 @@
+page_37_entities:
+- tag: LIGHTNING_ROD_001
+  name: 피뢰침
+  type: Lightning Rod / Air Terminal
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: STRUCTURAL_CONNECTION_001
+  name: 구조체 접속
+  type: Structural Connection Point
+  discipline: STRUCTURAL
+  confidence: 0.97
+- tag: HORIZONTAL_CONDUCTOR_001
+  name: 수평도체
+  type: Horizontal Conductor
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: METAL_LADDER_CONNECTION_001
+  name: 금속 사다리 접속
+  type: Metal Ladder Connection
+  discipline: STRUCTURAL
+  confidence: 0.97
+- tag: GROUNDING_CONNECTION_001
+  name: 피뢰기초접지극 연결
+  type: Grounding Connection
+  discipline: ELECTRICAL
+  confidence: 0.96
+- tag: MAIN_DOWNCONDUCTOR
+  name: 주 인하도선
+  type: Main Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: AUXILIARY_DOWNCONDUCTOR
+  name: 보조 인하도선
+  type: Auxiliary Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.96
+- tag: CONDUCTOR_SUPPORT_001
+  name: 수평도체 지지금구
+  type: Conductor Support / Clamp
+  discipline: STRUCTURAL
+  confidence: 0.94
+page_37_relations:
+- from: LIGHTNING_ROD_001
+  to: HORIZONTAL_CONDUCTOR_001
+  relation: connected_via
+- from: HORIZONTAL_CONDUCTOR_001
+  to: STRUCTURAL_CONNECTION_001
+  relation: connected_via
+- from: HORIZONTAL_CONDUCTOR_001
+  to: METAL_LADDER_CONNECTION_001
+  relation: connected_via
+- from: STRUCTURAL_CONNECTION_001
+  to: GROUNDING_CONNECTION_001
+  relation: connected_via
+- from: METAL_LADDER_CONNECTION_001
+  to: GROUNDING_CONNECTION_001
+  relation: connected_via
+- from: LIGHTNING_ROD_001
+  to: MAIN_DOWNCONDUCTOR
+  relation: connected_via
+- from: LIGHTNING_ROD_001
+  to: AUXILIARY_DOWNCONDUCTOR
+  relation: connected_via
+- from: MAIN_DOWNCONDUCTOR
+  to: GROUNDING_CONNECTION_001
+  relation: connected_via
+- from: AUXILIARY_DOWNCONDUCTOR
+  to: GROUNDING_CONNECTION_001
+  relation: connected_via
+- from: HORIZONTAL_CONDUCTOR_001
+  to: CONDUCTOR_SUPPORT_001
+  relation: supported_by

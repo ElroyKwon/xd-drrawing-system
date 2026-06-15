@@ -1,0 +1,91 @@
+placement:
+  tag: SC1~SC21
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: SheetOrSeriesIdentifier
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms:
+    - AX005
+    applicable_constraints:
+    - CN007
+    confirmed_class: dks:SheetOrSeriesIdentifier
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/시트 참조 가능 범위를 나타내는 문자열 값임.
+      - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInteractionNote
+          suggested_datatype: xsd:string
+          rationale: 사용자 응답 안내 문구로, 도면 실체가 아닌 주석성 텍스트임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_from_raw_text
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_context_inference
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 도면 설비/부재의 물리적 실체나 관계를 직접 지시하지 않는 안내성 텍스트이며, 태그 SC1~SC21의 개별 엔티티 속성으로 분해
+      불가.
+    preservation_note: 페이지 목록과 안내 문구를 원문 그대로 보존. 후속 단계에서 문서 메타 또는 인터랙션 노트로 승격 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SC1~SC21은 시트/시리즈형 식별자처럼 보이나, 원문에는 실제 도면 객체인지 문서 메타인지 확정할 수 있는 관계나 spec이
+      없음.
+    recommended_handling: 문서 메타/시트 식별자 후보로 유지하되, 후속 단계에서 페이지별 원문 확인 결과가 있으면 DocumentEntity
+      또는 PlanOrView로 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타 또는 미해결 구조 엔티티로 보수적으로 재판정
+    - raw 텍스트의 페이지 목록과 안내 문구를 free_notes 및 unresolved에 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:55.304285'
+  confidence: 0.62

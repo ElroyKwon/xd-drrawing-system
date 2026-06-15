@@ -1,0 +1,107 @@
+placement:
+  tag: SC3
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:SC3
+    class_hint: ''
+    alternative_class_hints: []
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: analysisOffer
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아닌 안내/응답 문구
+      - raw_text: 'tag: SC3'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 식별 태그
+      - raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35,\
+          \ 61, 62, 63, 64, 65\n\n  원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'"
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: rawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체 보존용 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    name:
+      source_pages:
+      - 0
+      method: absent
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_by_observation
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim_preservation
+    raw:
+      source_pages:
+      - 0
+      method: verbatim_preservation
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail.name 미제공
+    preservation_note: 추후 동일 태그의 다른 페이지/레코드에서 이름 여부 확인
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: (분야 supplement 없음)
+    source_page: 0
+    reason: supplement가 없어 정의된 sub_kind 카테고리를 사용할 수 없음
+    preservation_note: unknown 분야의 추가 supplement 제공 시 재분류
+  - field_candidate: available_pages
+    raw_text: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64, 65
+    source_page: 0
+    reason: 도면 설비 속성으로 해석 불가한 안내성 메타 정보
+    preservation_note: 페이지 선택형 안내 문구로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 실체 설비/관계/수치가 아니라 페이지 안내 및 응답 문구만 존재하여 OWL Core 역할이 AnnotationOnly로 보이지만,
+      태그 자체는 엔티티 식별자이므로 물리 실체 여부가 불명확함.
+    recommended_handling: 후속 단계에서 동일 태그의 실제 도면 페이지 존재 여부를 확인하고, 실체가 확인되면 NamedIndividual로
+      재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - plan의 guidance_for_next_steps.for_0_9b_placement.focus를 반영하여 도면에서 관찰된 텍스트만 보존
+    - supplement 부재 시 free_notes에 raw_text와 promotion_hint로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:00.695422'
+  confidence: 0.93

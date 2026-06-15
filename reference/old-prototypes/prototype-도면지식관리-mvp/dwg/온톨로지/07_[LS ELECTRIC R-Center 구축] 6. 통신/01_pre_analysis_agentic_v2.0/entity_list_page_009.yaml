@@ -1,0 +1,84 @@
+page_9_entities:
+- tag: TRAY-EXISTING-DUCT
+  name: 기존 공동구 통신 CABLE TRAY
+  type: TRANSPORT
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: TRAY-EXISTING-COMM
+  name: 기존 통신 TRAY
+  type: TRANSPORT
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: ROUTE-EXISTING-CABLE
+  name: 기존 CABLE 포설
+  type: TRANSPORT
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: EXT-RCENTER-EPS
+  name: R-Center EPS/TPS 외부 연결점
+  type: EXTERNAL_CONNECTION
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: EXT-OFFICE-2F
+  name: 사무동 지상2층 전산실 연결점
+  type: EXTERNAL_CONNECTION
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: EXT-OFFICE-1F
+  name: 사무동 지상1층 통신실 연결점
+  type: EXTERNAL_CONNECTION
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: SPACE-B1-PARKING
+  name: 주차장
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: SPACE-B1-MECH
+  name: 기계실
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: SPACE-B1-ELEC
+  name: 전기실
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: SPACE-B1-FAN
+  name: FAN ROOM
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: TITLE-BLOCK
+  name: 표제란
+  type: TITLE_BLOCK
+  discipline: COMMUNICATION
+  confidence: 1.0
+page_9_relations:
+- from: TRAY-EXISTING-DUCT
+  to: EXT-RCENTER-EPS
+  relation: connects_to
+- from: TRAY-EXISTING-COMM
+  to: EXT-OFFICE-2F
+  relation: connects_to
+- from: TRAY-EXISTING-COMM
+  to: EXT-OFFICE-1F
+  relation: connects_to
+- from: TRAY-EXISTING-DUCT
+  to: TRAY-EXISTING-COMM
+  relation: connects_to
+- from: ROUTE-EXISTING-CABLE
+  to: TRAY-EXISTING-COMM
+  relation: connects_to
+- from: SPACE-B1-PARKING
+  to: TRAY-EXISTING-COMM
+  relation: contains
+- from: SPACE-B1-MECH
+  to: TRAY-EXISTING-COMM
+  relation: contains
+- from: SPACE-B1-ELEC
+  to: TRAY-EXISTING-COMM
+  relation: contains
+- from: SPACE-B1-FAN
+  to: TRAY-EXISTING-COMM
+  relation: contains

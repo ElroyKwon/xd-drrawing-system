@@ -1,0 +1,137 @@
+placement:
+  tag: S06.31-8
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: S06.31-8
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions:
+    - type: references
+      target_hint: S06.31-5
+      note: ontology_plan에서 S06.31-1/2→S06.31-5, S06.31-3→S06.31-4 등 상세 간 연속/참조 패턴이
+        관찰됨. 본 태그도 동일 시리즈 상세로 보이나 직접 관계 원문은 없음.
+      confirmed_property: dks:references
+      confirmed_target: dks:S06.31-5
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: connects_to
+      target_hint: S06.31-7
+      note: 시리즈형 상세 태그로 인접 상세 연결 가능성은 있으나 원문 관계 없음.
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:S06.31-7
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: availablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면 분석 가능 페이지 범위를 나타냄.
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: analysisOffer
+        suggested_datatype: xsd:string
+        rationale: 대화형 안내 문구로 물리 실체나 도면 속성은 아님.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based_placement
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    ontology_core.related_assertions:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+    ambiguous:
+      source_pages:
+      - 0
+      method: plan_and_raw_scan
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan_guidance
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 도면 설비/부재의 물리적 의미가 아니라 분석 가능 페이지 안내 문구임.
+    preservation_note: 메타 안내 문구로 보존; 후속 단계에서 문서 메타로 승격 가능.
+  - field_candidate: ontology_core.class_hint
+    raw_text: DetailEntity
+    source_page: 0
+    reason: 태그가 S06.31-8로 시리즈형 상세 태그이지만 직접 관찰된 관계/스펙이 없어 확정 불가.
+    preservation_note: ontology_plan의 detail_entities 신호를 근거로 한 후보.
+  - field_candidate: ontology_core.alternative_class_hints
+    raw_text: DocumentEntity, PlanOrView
+    source_page: 0
+    reason: 시트/문서 메타 가능성은 있으나 원문에 시트명/뷰명 직접 표시는 없음.
+    preservation_note: 시리즈형 태그의 문서 메타 가능성만 후보로 유지.
+  - field_candidate: ontology_core.related_assertions
+    raw_text: references/connects_to 후보
+    source_page: 0
+    reason: 인근 태그 정보와 직접 관계 원문이 제공되지 않음.
+    preservation_note: 시리즈형 상세의 일반적 연속성만 보존.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식상 상세 시리즈(S06.31-8)로 보이나, entity_detail 원문에는 관계/스펙이 없고 페이지 안내만 존재함.
+    recommended_handling: 다음 단계에서 동일 시리즈(S06.31-1~7)와의 관계 여부를 확인하고, 없으면 문서 메타/주석성
+      엔티티로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - detail_entities 시그널을 반영하여 DetailEntity 후보로 배치
+    - raw only placeholder responses를 unknown discipline의 document metadata/미해결 엔티티
+      가능성으로 보존
+    - free_notes에 분석 가능 페이지 안내 문구를 원문 그대로 보존
+    deviations:
+    - plan상 structural 문맥 가능성이 있으나, 원문에 구조적 관계가 없어 discipline은 unknown으로 유지
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:30.577179'
+  confidence: 0.62

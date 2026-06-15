@@ -1,0 +1,244 @@
+entity_detail:
+  tag: P-F
+  type: panel
+  specs:
+    page_19_related_tag:
+      value: P-F-2PP
+      unit: ''
+      source: page 19
+      confidence: 0.85
+    page_20_related_tag:
+      value: P-F-3PP
+      unit: ''
+      source: page 20
+      confidence: 0.95
+    page_22_related_tag:
+      value: P-F-4PP
+      unit: ''
+      source: page 22
+      confidence: 0.98
+    page_19_voltage:
+      value: 3Ø 220V
+      unit: V
+      source: page 19
+      confidence: 0.75
+    page_20_voltage:
+      value: 3Ø 380V
+      unit: V
+      source: page 20
+      confidence: 0.96
+    page_20_cover_type:
+      value: 노출형(STEEL) 또는 매입형(STS/STEEL)
+      unit: ''
+      source: page 20
+      confidence: 0.95
+    page_20_breaker_rating:
+      value: 30AF~600AF
+      unit: AF
+      source: page 20
+      confidence: 0.95
+    page_20_breaking_capacity:
+      value: 5KA~50KA 이상
+      unit: KA
+      source: page 20
+      confidence: 0.95
+    page_22_cover_type:
+      value: 노출형(STEEL)
+      unit: ''
+      source: page 22
+      confidence: 0.98
+    page_22_box_size:
+      value: —
+      unit: ''
+      source: page 22
+      confidence: 0.98
+    page_22_mccb_spec:
+      value: MCB P 80/40T
+      unit: ''
+      source: page 22
+      confidence: 0.95
+    page_22_spd_spec:
+      value: 30 SPD 40KA/mode
+      unit: ''
+      source: page 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: '1층 중앙실(F1-CENTRAL)에 Panel Board 4대(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)가
+      배치된 생산동력(3Ø 220V) 분전반 결선도이다.
+
+
+      각 패널보드 상단에 MCS 2P 600V가 표시되어 있으며, 도면 중앙의 MAIN 수직 배선으로 4개 패널이 연결되는 구조가 보인다.
+
+
+      패널 내부에는 M.C.C.B 및 UNIT/회로 번호/차단기 용량 표기가 있으나, 본 취합본에는 상세 회로값이 미포함되어 있다.'
+  - source: page 20
+    page_number: 20
+    text: '생산동력(3Ø 380V) 분전반 결선도로, 페이지 내에 7개의 분전반 태그(P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP,
+      P-F-3PP, P-G-3PP, P-I-3PP)가 병렬 배치되어 있다.
+
+
+      우측 표제란에는 LS Electric / R-Center 구축, 도면번호 EE-01-016이 보이며, 차단기 정격 30AF~600AF와
+      차단용량 5KA 이상~50KA 이상 표기가 확인된다.
+
+
+      도면은 각 분전반 내부 결선과 보호기기/접지 관련 심볼을 포함하나, 분전반 간 외부 연결이나 공간 계층 정보는 확인되지 않는다.'
+  - source: page 22
+    page_number: 22
+    text: '3Ø 440V 생산동력 분전반 결선도이며, 한 페이지에 6개의 분전반 단선/결선도가 배치되어 있다.
+
+
+      각 분전반은 MCCB, SPD, 접지(E3)와 함께 구성되며, 패널 위치는 1층 Drive 시험실, 1층 대용량 모터부하실(방음), 첨부품,
+      1층 환경시험실, 1층 진동시험실, 고객접견공간으로 읽힌다.
+
+
+      표제란에는 LS Electric, R-Center 구축, 프로젝트 번호 624001, 도면번호 EE-01-018이 보이며, 범례 외 신규
+      심볼은 확인되지 않는다.'
+  - source: page 23
+    page_number: 23
+    text: '상단 케이블 스케줄과 하단 단선/계통 연결도가 함께 있는 전기 도면이다.
+
+
+      주요 태그로 LP-1F, IVR-2, LV-6, P-A-2PP-1, P-A-4PP-7 등 다수의 패널/설비가 확인된다.
+
+
+      전압 표기는 6.6kV, 380/220V, 440V, 220V가 보이며, FROM: UT동 전기실 및 지하공동구 사용 문구가 확인된다.'
+  requirements:
+  - text: 3Ø 220V
+    source: page 19
+    type: voltage_requirement
+  - text: 3Ø 380V
+    source: page 20
+    type: voltage_requirement
+  - text: 노출형(STEEL) 또는 매입형(STS/STEEL)
+    source: page 20
+    type: installation_requirement
+  - text: 차단기 정격 30AF~600AF
+    source: page 20
+    type: breaker_rating_requirement
+  - text: 차단용량 5KA 이상~50KA 이상
+    source: page 20
+    type: breaking_capacity_requirement
+  - text: 'COVER TYPE: 노출형(STEEL)'
+    source: page 22
+    type: installation_requirement
+  - text: 'BOX SIZE: —'
+    source: page 22
+    type: information_as_shown
+  - text: MCB P 80/40T
+    source: page 22
+    type: protective_device_requirement
+  - text: 30 SPD 40KA/mode
+    source: page 22
+    type: surge_protection_requirement
+  connection_specs:
+  - relation: 상위/하위 관계
+    partner: MCS
+    details:
+      source: page 19
+  - relation: MAIN 배선 연결
+    partner: P-EA-2PP
+    details:
+      source: page 19
+  - relation: MAIN 배선 연결
+    partner: P-G-2PP
+    details:
+      source: page 19
+  - relation: MAIN 배선 연결
+    partner: P-I-2PP
+    details:
+      source: page 19
+  - relation: 병렬 배치
+    partner: P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP
+    details:
+      source: page 20
+  - relation: 패널 내부 보호기기
+    partner: MCCB
+    details:
+      source: page 20
+  - relation: 패널 내부 서지보호기기
+    partner: SPD
+    details:
+      source: page 22
+  - relation: 접지 연결
+    partner: E3
+    details:
+      source: page 22
+  ontology_hints:
+    observed_relations:
+    - relation_type: 상위/하위 관계
+      partner_tag: MCS
+      direction: 상위→하위
+      source: page 19
+    - relation_type: MAIN 배선 연결
+      partner_tag: P-EA-2PP
+      direction: 미상
+      source: page 19
+    - relation_type: MAIN 배선 연결
+      partner_tag: P-G-2PP
+      direction: 미상
+      source: page 19
+    - relation_type: MAIN 배선 연결
+      partner_tag: P-I-2PP
+      direction: 미상
+      source: page 19
+    - relation_type: 병렬 배치
+      partner_tag: P-A-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 병렬 배치
+      partner_tag: P-AC-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 병렬 배치
+      partner_tag: P-D-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 병렬 배치
+      partner_tag: P-E-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 병렬 배치
+      partner_tag: P-F-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 병렬 배치
+      partner_tag: P-G-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 병렬 배치
+      partner_tag: P-I-3PP
+      direction: 미상
+      source: page 20
+    - relation_type: 패널 내부 구성
+      partner_tag: MCCB-001
+      direction: 미상
+      source: page 20
+    - relation_type: 패널 내부 구성
+      partner_tag: SPD-001
+      direction: 미상
+      source: page 22
+    observed_attributes:
+    - tag
+    - voltage
+    - cover type
+    - box size
+    - breaker rating
+    - breaking capacity
+    - MCCB
+    - SPD
+    - 접지
+    - MAIN 배선
+    similar_equipment:
+    - P-F-2PP
+    - P-F-3PP
+    - P-F-4PP
+    suggested_parent_class: panelboard
+    cross_discipline:
+    - 전기
+  notes:
+  - 대상 tag P-F 자체는 페이지 분석 결과에서 직접 단독 태그로 확인되지 않았고, 관련 인스턴스 태그(P-F-2PP, P-F-3PP, P-F-4PP)로
+    확인됨.
+  - page 19, 20, 22, 23의 관련 텍스트만 반영함.
+tag: P-F

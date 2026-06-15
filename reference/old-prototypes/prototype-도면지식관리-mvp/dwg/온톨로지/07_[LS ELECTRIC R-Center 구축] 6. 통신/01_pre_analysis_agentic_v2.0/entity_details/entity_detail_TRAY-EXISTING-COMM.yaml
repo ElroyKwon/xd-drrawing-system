@@ -1,0 +1,54 @@
+tag: TRAY-EXISTING-COMM
+name: 기존 통신 TRAY
+type: TRANSPORT
+discipline: COMMUNICATION
+function_category: CABLE_TRAY
+source_pages:
+- 9
+specs:
+  raw_labels:
+  - 기존 통신 TRAY
+  label: 기존 통신 TRAY
+relations:
+- from: TRAY-EXISTING-COMM
+  to: EXT-OFFICE-2F
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+- from: TRAY-EXISTING-COMM
+  to: EXT-OFFICE-1F
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+- from: TRAY-EXISTING-DUCT
+  to: TRAY-EXISTING-COMM
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: 기존 통신 TRAY 연결
+- from: ROUTE-EXISTING-CABLE
+  to: TRAY-EXISTING-COMM
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: 기존 CABLE 포설 구간
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-right
+equipment_symbols:
+- type: cable_tray
+  count: 1
+ontology_hints:
+  suggested_parent_class: CableManagementSystem
+  observed_attributes:
+  - raw_labels
+  - label
+  similar_equipment:
+  - TRAY-EXISTING-DUCT
+  function_candidates:
+  - Support and route communication cables
+  - Cable containment

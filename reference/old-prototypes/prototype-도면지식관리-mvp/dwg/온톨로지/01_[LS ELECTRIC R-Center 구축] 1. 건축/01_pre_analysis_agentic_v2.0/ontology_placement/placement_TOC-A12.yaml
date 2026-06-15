@@ -1,0 +1,130 @@
+placement:
+  tag: TOC-A12
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: TOC-A12
+    class_hint: plan_or_panel_container
+    alternative_class_hints:
+    - toc_group
+    - document_entity
+    - annotation_or_reference_entity
+    related_assertions:
+    - type: contains
+      target_hint: GRP-A12-FIRE
+      note: 패널 내 그룹 포함
+      confirmed_property: dks:contains
+      confirmed_target: GRP-A12-FIRE
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: contains
+      target_hint: GRP-A12-HVAC
+      note: 패널 내 그룹 포함
+      confirmed_property: dks:contains
+      confirmed_target: GRP-A12-HVAC
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: contains
+      target_hint: GRP-A12-AREA
+      note: 패널 내 그룹 포함
+      confirmed_property: dks:contains
+      confirmed_target: GRP-A12-AREA
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: contains
+      target_hint: GRP-A12-PERF
+      note: 패널 내 그룹 포함
+      confirmed_property: dks:contains
+      confirmed_target: GRP-A12-PERF
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: contains
+      target_hint: GRP-A12-WINDOWLESS
+      note: 패널 내 그룹 포함
+      confirmed_property: dks:contains
+      confirmed_target: GRP-A12-WINDOWLESS
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN008
+    confirmed_class: dks:plan_or_panel_container
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: TOC-A12가 GRP-A12-FIRE, GRP-A12-HVAC, GRP-A12-AREA, GRP-A12-PERF,
+          GRP-A12-WINDOWLESS를 contains 함
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: ''
+          rationale: 목차/패널 성격의 태그가 그룹 태그들을 포함하는 관계가 반복 관찰됨
+      - raw_text: 패널 내 그룹 포함
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: ''
+          rationale: 관계 note가 구조적 포함 관계를 직접 설명함
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: entity_detail.tag
+    owl_role:
+      source_pages:
+      - 3
+      method: rule_based_classification
+    iri_hint:
+      source_pages:
+      - 3
+      method: entity_tag_as_hint
+    class_hint:
+      source_pages:
+      - 3
+      method: plan_guidance_alignment
+    alternative_class_hints:
+      source_pages:
+      - 3
+      method: plan_guidance_alignment
+    related_assertions:
+      source_pages:
+      - 3
+      method: relations.scan
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 3
+      method: relations.note_preservation
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: TOC-A12는 목차/패널/그룹 컨테이너 성격이 강하지만, supplement가 없어 sub_kind를 확정할 수 없고 document_entity와
+      annotation_or_reference_entity 가능성도 함께 존재함.
+    recommended_handling: 0-9c에서 상위 class를 확정하기 전까지 NamedIndividual로 유지하고, contains
+      관계를 재검증하며 TOC/패널 계열로 후속 분류.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_guidance_for_next_steps.for_0_9b_placement.focus: TOC-A11/TOC-A12와 GRP-*
+      관계를 목차-그룹 구조로 우선 반영'
+    - 'expected_object_properties: contains'
+    - 'discipline_context_plan.architectural.likely_sub_kinds: plan_container, toc_group,
+      schedule_or_note_section'
+    deviations:
+    - supplement가 없어 standard_sub_kinds를 직접 적용하지 못해 free_notes로 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:20.308774'
+  confidence: 0.86

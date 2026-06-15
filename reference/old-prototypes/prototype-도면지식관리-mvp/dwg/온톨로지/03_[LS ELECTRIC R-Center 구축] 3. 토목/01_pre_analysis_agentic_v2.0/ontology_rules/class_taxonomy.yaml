@@ -1,0 +1,1377 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=173)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T13:13:29.949069'
+  classes:
+  - iri: dks:CivilStructure
+    label: CivilStructure
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - BLDG-03
+    - BLDG-04
+    - FENCE-01
+    - UNKNOWN-ANNEX-CENTER-01
+    - UNKNOWN-BOUNDARY-02
+    - UNKNOWN-BUILDING-01
+    - UNKNOWN-OUTER-BLOCK-LEFT-01
+    - UNKNOWN-STRUCTURE-01
+    - UNKNOWN-STRUCTURE-02
+    - UNKNOWN-STRUCTURE-03
+    - UNKNOWN-TENT-01
+    derivation: class_hint가 CivilStructure로 반복 관찰됨. 건물 외 일반 구조물, 경계·부속 구조물, 미상 구조물이
+      이 묶음에 집중됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Building
+    label: Building
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - BLDG-01
+    - BLDG-14
+    - BLDG-21
+    - BLDG-23
+    - BLDG-24
+    - BLDG-25
+    - BLDG-ICENTER
+    derivation: class_hint가 Building으로 일관되며 name에 건물/동/센터가 반복됨.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:ExistingStructure
+    label: ExistingStructure
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - BLDG-02
+    - BLDG-05
+    derivation: class_hint가 ExistingStructure로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:TemporaryStructure
+    label: TemporaryStructure
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - BLDG-06
+    derivation: class_hint가 TemporaryStructure로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SportsFacility
+    label: SportsFacility
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - BLDG-07
+    derivation: class_hint가 SportsFacility로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:SupportStructure
+    label: SupportStructure
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - UNKNOWN-STRUCTURE-05
+    derivation: class_hint가 SupportStructure로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:StorageTank
+    label: StorageTank
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - UNKNOWN-STRUCTURE-06
+    derivation: class_hint가 StorageTank로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:BoundaryStone
+    label: BoundaryStone
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - UNKNOWN-BOUNDARY-01
+    - UNKNOWN-BOUNDARY-03
+    - UNKNOWN-BOUNDARY-04
+    derivation: class_hint가 BoundaryStone으로 반복 관찰되며 name에 경계석이 반복됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DrainageStructure
+    label: DrainageStructure
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - GUTTER-L-02
+    - GUTTER-U-01
+    - UNKNOWN-STRUCTURE-04
+    derivation: class_hint가 DrainageStructure로 반복 관찰됨. 측구 및 오수받이 계열이 포함됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:DrainageFacility
+    label: DrainageFacility
+    super_classes:
+    - dks:CivilStructure
+    evidence_tags:
+    - CB-01
+    - GUTTER-L-01
+    derivation: class_hint가 DrainageFacility로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:CATCH_BASIN
+    label: CATCH_BASIN
+    super_classes:
+    - dks:DrainageFacility
+    evidence_tags:
+    - CB-02
+    derivation: CB-02의 class_hint가 CATCH_BASIN이며, 동일 name 집수정의 CB-01은 DrainageFacility로
+      관찰되어 하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:Manhole
+    label: Manhole
+    super_classes:
+    - dks:DrainageFacility
+    evidence_tags:
+    - MH-01
+    - MH-02
+    - MH-03
+    - MH-04
+    - MH-05
+    - MH-06
+    - SM.1
+    - SM.2
+    - SM.4
+    - 기준맨홀
+    derivation: class_hint가 Manhole로 다수 반복되며 name에 맨홀이 반복됨.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:SewageManhole
+    label: SewageManhole
+    super_classes:
+    - dks:Manhole
+    evidence_tags:
+    - SM.3
+    - SM.5
+    derivation: class_hint가 SewageManhole로 직접 관찰됨. 동일 계열 SM.*의 다른 태그는 Manhole로 관찰되어
+      하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Pipe
+    label: Pipe
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - PIPE-OSU-01
+    - PIPE-OSU-03
+    derivation: class_hint가 Pipe로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SewagePipe
+    label: SewagePipe
+    super_classes:
+    - dks:Pipe
+    evidence_tags:
+    - LINE_101
+    - LINE_102
+    - LINE_103
+    - LINE_104
+    - LINE_105
+    - PIPE-01
+    - PIPE-02
+    - PIPE-03
+    - PIPE-04
+    - PIPE-05
+    - PIPE-OSU-02
+    - EXISTING-SEWER-EAST
+    - EXISTING-SEWER-SOUTH
+    derivation: class_hint가 SewagePipe로 다수 반복되며 name에 오수관/LINE 패턴이 결합됨.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:StormwaterPipe
+    label: StormwaterPipe
+    super_classes:
+    - dks:Pipe
+    evidence_tags:
+    - PIPE-USU-01
+    derivation: class_hint가 StormwaterPipe로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SewerLine
+    label: SewerLine
+    super_classes:
+    - dks:Pipe
+    evidence_tags:
+    - EXISTING-SEWER-NORTH
+    - EXISTING-SEWER-WEST
+    derivation: class_hint가 SewerLine으로 반복 관찰되며 기존 오수관 선형 요소를 지칭함.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:PavementArea
+    label: PavementArea
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - PAVE-ASCON-OVERLAY-NE
+    - PAVE-ASCON-RESTORE
+    - PAVE-BLOCK-EAST
+    - PAVE-BLOCK-WEST
+    - PAVE-CONCRETE-EAST
+    - PAVE-CONCRETE-NORTH
+    derivation: class_hint가 PavementArea로 반복 관찰되며 name에 포장 구역이 반복됨.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ExcavationArea
+    label: ExcavationArea
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-ANNEX-RIGHT-01
+    - UNKNOWN-FINAL-EXC-ZONE-01
+    derivation: class_hint가 ExcavationArea로 직접 관찰되며 name에 굴착 구역이 반복됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:ExcavationCell
+    label: ExcavationCell
+    super_classes:
+    - dks:ExcavationArea
+    evidence_tags:
+    - UNKNOWN-EXCAVATION-CELL-01
+    derivation: class_hint가 ExcavationCell이며 alternative_class_hints에 ExcavationArea가
+      제시되어 하위 셀 단위로 귀납.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:CivilZone
+    label: CivilZone
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-FINAL-EXC-ZONE-02
+    - UNKNOWN-FINAL-EXC-ZONE-03
+    derivation: class_hint가 CivilZone으로 반복 관찰됨. name은 최종 굴착 구역이지만 직접 hint는 CivilZone이므로
+      별도 유지.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:ControlPoint
+    label: ControlPoint
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - CP-1
+    - CP-2
+    - CP.1
+    derivation: class_hint가 ControlPoint로 반복 관찰되며 name에 도근점 CP가 반복됨.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:SurveyControlPoint
+    label: SurveyControlPoint
+    super_classes:
+    - dks:ControlPoint
+    evidence_tags:
+    - CP-4
+    - CP.2
+    - CP.3
+    derivation: class_hint가 SurveyControlPoint로 반복 관찰됨. name 패턴이 ControlPoint 계열과
+      동일하여 하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ReferencePoint
+    label: ReferencePoint
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - T.B.M
+    derivation: class_hint가 ReferencePoint로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:Benchmark
+    label: Benchmark
+    super_classes:
+    - dks:ReferencePoint
+    evidence_tags:
+    - TBM-01
+    derivation: TBM-01의 class_hint가 Benchmark이고 alternative_class_hints에 ReferencePoint가
+      있어 하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:SpatialReferenceElement
+    label: SpatialReferenceElement
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-GRID-H-01
+    - UNKNOWN-NORTH-ARROW-01
+    derivation: class_hint가 SpatialReferenceElement로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:SpatialReferenceSystem
+    label: SpatialReferenceSystem
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-GRID-V-01
+    derivation: class_hint가 SpatialReferenceSystem으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:CivilInfrastructure
+    label: CivilInfrastructure
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-OBJECT-01
+    derivation: class_hint가 CivilInfrastructure로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.7
+  - iri: dks:DemolitionTask
+    label: DemolitionTask
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - ASCON-DEMO-01
+    derivation: class_hint가 DemolitionTask로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:DemolitionWork
+    label: DemolitionWork
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - CONC-DEMO-01
+    derivation: class_hint가 DemolitionWork로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:CivilDrawingElement
+    label: CivilDrawingElement
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - DTL-RUNG
+    - UNKNOWN-CURB-01
+    - UNKNOWN-CURB-02
+    - UNKNOWN-CURB-03
+    - UNKNOWN-SLOPE-HATCH-01
+    - UNKNOWN-STAIR-01
+    derivation: class_hint가 CivilDrawingElement로 반복 관찰됨. 상세도/기호/미상 도면요소가 포함됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DrawingElement
+    label: DrawingElement
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - KEY-PLAN
+    derivation: class_hint가 DrawingElement로 직접 관찰되며 도면 요소 일반형으로 보임.
+    source_pages: []
+    confidence: 0.74
+  - iri: dks:CivilDrawing
+    label: CivilDrawing
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - PLAN-01
+    - UNKNOWN-EXCAVATION-PLAN-01
+    derivation: class_hint가 CivilDrawing으로 반복 관찰되며 평면도 성격의 도면 전체를 지칭함.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:CivilDrawingProfile
+    label: CivilDrawingProfile
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - PROF-01
+    derivation: class_hint가 CivilDrawingProfile로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:SectionView
+    label: SectionView
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - BUILDING-SECTION-LEFT
+    - SECTION-AA
+    derivation: class_hint가 SectionView로 반복 관찰되며 name에 단면이 반복됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:BuildingSection
+    label: BuildingSection
+    super_classes:
+    - dks:SectionView
+    evidence_tags:
+    - BUILDING-SECTION-RIGHT
+    derivation: class_hint가 BuildingSection으로 직접 관찰되며 Section 계열 name 패턴과 일치함.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:ManholeSection
+    label: ManholeSection
+    super_classes:
+    - dks:SectionView
+    evidence_tags:
+    - SEC-AA
+    - SEC-BB
+    derivation: class_hint가 ManholeSection으로 반복 관찰되며 name에 원형맨홀 단면도 반복.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:DrawingIndexSection
+    label: DrawingIndexSection
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - SEC-C00
+    - SEC-C01
+    - SEC-C02
+    - SEC-C03
+    - SEC-C04-EXCAVATION
+    - SEC-C04-PAVEMENT
+    derivation: class_hint가 DrawingIndexSection으로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:FoundationDetail
+    label: FoundationDetail
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - FOUNDATION-DTL-01
+    - FOUNDATION-DTL
+    derivation: class_hint가 FoundationDetail로 반복 관찰되며 name에 기초 상세/단면이 반복됨.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:StructuralDetail
+    label: StructuralDetail
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - SLAB-DTL
+    derivation: class_hint가 StructuralDetail로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:PipeDetail
+    label: PipeDetail
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - PIPE-DETAIL-A
+    derivation: class_hint가 PipeDetail로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:PipeDetailDrawing
+    label: PipeDetailDrawing
+    super_classes:
+    - dks:PipeDetail
+    evidence_tags:
+    - PIPE-DTL-02
+    derivation: class_hint가 PipeDetailDrawing이며 name도 상세/단면도. PipeDetail의 도면형 하위로
+      귀납.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:PIPE_DETAIL
+    label: PIPE_DETAIL
+    super_classes:
+    - dks:PipeDetail
+    evidence_tags:
+    - PIPE-MAIN-DTL
+    derivation: class_hint가 PIPE_DETAIL로 직접 관찰되며 name이 관 본체 및 소켓 연결부 상세로 PipeDetail
+      계열과 일치.
+    source_pages: []
+    confidence: 0.76
+  - iri: dks:PipeFitting
+    label: PipeFitting
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - SOCKET-DTL-01
+    - SOCKET-DTL-02
+    derivation: class_hint가 PipeFitting으로 반복 관찰되며 name에 연결소켓 상세가 반복됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:PipeFittingDetail
+    label: PipeFittingDetail
+    super_classes:
+    - dks:PipeFitting
+    evidence_tags:
+    - SOCKET-INJ-DTL
+    - SOCKET-MACH-DTL
+    derivation: class_hint가 PipeFittingDetail로 반복 관찰되며 PipeFitting의 상세도형 하위로 귀납.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:PavementElement
+    label: PavementElement
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - UNKNOWN-PAVEMENT-01
+    derivation: class_hint가 PavementElement로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:PavementSection
+    label: PavementSection
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - UNKNOWN-PAVEMENT-04
+    derivation: class_hint가 PavementSection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:PAVEMENT_SECTION
+    label: PAVEMENT_SECTION
+    super_classes:
+    - dks:PavementSection
+    evidence_tags:
+    - UNKNOWN-PAVEMENT-02
+    derivation: class_hint가 PAVEMENT_SECTION이며 name이 포장 단면 상세로 PavementSection 계열과
+      일치.
+    source_pages: []
+    confidence: 0.76
+  - iri: dks:PavementStructure
+    label: PavementStructure
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - UNKNOWN-PAVEMENT-03
+    derivation: class_hint가 PavementStructure로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:DrawingLegend
+    label: DrawingLegend
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - LEGEND-01
+    derivation: class_hint가 DrawingLegend로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:DrawingCover
+    label: DrawingCover
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - COVER-01
+    derivation: class_hint가 DrawingCover로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:DrawingMetadata
+    label: DrawingMetadata
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - STAMP-01
+    - TITLE-BLOCK
+    derivation: class_hint가 DrawingMetadata로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DrawingIndexTable
+    label: DrawingIndexTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - TOC-MAIN
+    derivation: class_hint가 DrawingIndexTable로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Dimension
+    label: Dimension
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - DIM-2810
+    - DIM-379
+    derivation: class_hint가 Dimension으로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:DrawingAnnotation
+    label: DrawingAnnotation
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - DIM-90
+    derivation: class_hint가 DrawingAnnotation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.76
+  - iri: dks:ElevationMarker
+    label: ElevationMarker
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - EXC-LEVEL-CENTER
+    - EXC-LEVEL-RIGHT
+    - GRADE-LEVEL-2
+    derivation: class_hint가 ElevationMarker로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:ExcavationLevel
+    label: ExcavationLevel
+    super_classes:
+    - dks:ElevationMarker
+    evidence_tags:
+    - EXC-LEVEL-LEFT
+    derivation: class_hint가 ExcavationLevel이며 alternative_class_hints에 ElevationMarker가
+      있어 하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:ElevationMark
+    label: ElevationMark
+    super_classes:
+    - dks:ElevationMarker
+    evidence_tags:
+    - GRADE-LEVEL-1
+    derivation: class_hint가 ElevationMark이며 name이 지반 레벨 표기. ElevationMarker 계열 하위로
+      귀납.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:LevelMark
+    label: LevelMark
+    super_classes:
+    - dks:ElevationMarker
+    evidence_tags:
+    - GRADE-LEVEL-3
+    derivation: class_hint가 LevelMark이며 name이 지반 레벨 표기. ElevationMarker 계열 하위로 귀납.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:GridMarker
+    label: GridMarker
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - GRID-COL-1
+    - GRID-COL-2
+    - GRID-COL-3
+    - GRID-COL-4
+    - GRID-COL-5
+    - GRID-COL-7
+    derivation: class_hint가 GridMarker로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:GridLine
+    label: GridLine
+    super_classes:
+    - dks:GridMarker
+    evidence_tags:
+    - GRID-COL-6
+    derivation: class_hint가 GridLine이며 name이 구조 그리드 열. GridMarker 계열의 선형 하위로 귀납.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:ReferencePhoto
+    label: ReferencePhoto
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - PHOTO-CP1
+    - PHOTO-CP2
+    - PHOTO-CP3
+    derivation: class_hint가 ReferencePhoto로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SurveyBenchmark
+    label: SurveyBenchmark
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - PHOTO-TBM
+    derivation: class_hint가 SurveyBenchmark로 직접 관찰되나 owl_role은 AnnotationOnly이고 name이
+      현황 사진이므로 도면/문서 요소로 유지.
+    source_pages: []
+    confidence: 0.62
+  - iri: dks:ConstructionNote
+    label: ConstructionNote
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - NOTES-01
+    derivation: class_hint가 ConstructionNote로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:ConstructionProcedure
+    label: ConstructionProcedure
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - PROC-NOTES
+    derivation: class_hint가 ConstructionProcedure로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:InstallationProcedure
+    label: InstallationProcedure
+    super_classes:
+    - dks:ConstructionProcedure
+    evidence_tags:
+    - PROC-SEQ-01
+    derivation: class_hint가 InstallationProcedure이며 alternative_class_hints에 ConstructionProcedure가
+      있어 하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:ProcedureStep
+    label: ProcedureStep
+    super_classes:
+    - dks:ConstructionProcedure
+    evidence_tags:
+    - PROC-STEP-1
+    derivation: class_hint가 ProcedureStep으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:ConstructionProcedureStep
+    label: ConstructionProcedureStep
+    super_classes:
+    - dks:ProcedureStep
+    evidence_tags:
+    - PROC-STEP-2-3
+    derivation: class_hint가 ConstructionProcedureStep이며 name이 시공순서 단계. ProcedureStep
+      하위로 귀납.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:ConstructionStep
+    label: ConstructionStep
+    super_classes:
+    - dks:ProcedureStep
+    evidence_tags:
+    - PROC-STEP-4
+    derivation: class_hint가 ConstructionStep이며 name이 시공순서 단계. ProcedureStep 하위로 귀납.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:ConstructionSequenceStep
+    label: ConstructionSequenceStep
+    super_classes:
+    - dks:ProcedureStep
+    evidence_tags:
+    - PROC-STEP-5-6
+    derivation: class_hint가 ConstructionSequenceStep이며 alternative_class_hints에 ProcedureStep이
+      있어 하위 유형으로 귀납.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:ProfileDataTable
+    label: ProfileDataTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - TABLE-01
+    derivation: class_hint가 ProfileDataTable로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SurveyTable
+    label: SurveyTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - TABLE-CP
+    derivation: class_hint가 SurveyTable로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:DimensionTable
+    label: DimensionTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - TABLE-FOUND-01
+    - TABLE-FOUND-DIM
+    - TABLE-PVC-01
+    derivation: class_hint가 DimensionTable로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:MaterialTable
+    label: MaterialTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - TABLE-MAT
+    derivation: class_hint가 MaterialTable로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SpecificationTable
+    label: SpecificationTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - TABLE-PVC-DIM
+    derivation: class_hint가 SpecificationTable로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:QuantityTable
+    label: QuantityTable
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - UNKNOWN-TABLE-01
+    - UNKNOWN-TABLE-02
+    - UNKNOWN-TABLE-03
+    - UNKNOWN-TABLE-04
+    - UNKNOWN-TABLE-05
+    - UNKNOWN-TABLE-06
+    derivation: class_hint가 QuantityTable로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:ReferenceSymbol
+    label: ReferenceSymbol
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - UNKNOWN-NORTH-01
+    derivation: class_hint가 ReferenceSymbol로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:CivilAnnotation
+    label: CivilAnnotation
+    super_classes:
+    - dks:CivilDrawingElement
+    evidence_tags:
+    - SLOPE-LEFT
+    derivation: class_hint가 CivilAnnotation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:SlopeRatio
+    label: SlopeRatio
+    super_classes:
+    - dks:CivilAnnotation
+    evidence_tags:
+    - SLOPE-RIGHT
+    derivation: class_hint가 SlopeRatio이며 name이 경사비 표기. CivilAnnotation 하위로 귀납.
+    source_pages: []
+    confidence: 0.82
+  subclass_relations:
+  - sub: dks:Building
+    super: dks:CivilStructure
+    derivation: Building은 구조물 계열이며 class_hint/이름 패턴상 건물 유형.
+    confidence: 0.92
+  - sub: dks:ExistingStructure
+    super: dks:CivilStructure
+    derivation: ExistingStructure는 구조물 상태형 class_hint.
+    confidence: 0.82
+  - sub: dks:TemporaryStructure
+    super: dks:CivilStructure
+    derivation: TemporaryStructure는 구조물 유형 class_hint.
+    confidence: 0.84
+  - sub: dks:SportsFacility
+    super: dks:CivilStructure
+    derivation: SportsFacility는 시설/구조물 유형.
+    confidence: 0.8
+  - sub: dks:SupportStructure
+    super: dks:CivilStructure
+    derivation: SupportStructure는 구조물 유형.
+    confidence: 0.8
+  - sub: dks:StorageTank
+    super: dks:CivilStructure
+    derivation: StorageTank는 구조물/저장시설 유형.
+    confidence: 0.82
+  - sub: dks:BoundaryStone
+    super: dks:CivilStructure
+    derivation: 경계석은 구조물 계열로 관찰됨.
+    confidence: 0.88
+  - sub: dks:DrainageStructure
+    super: dks:CivilStructure
+    derivation: 배수 구조물 class_hint.
+    confidence: 0.88
+  - sub: dks:DrainageFacility
+    super: dks:CivilStructure
+    derivation: 배수 시설 class_hint.
+    confidence: 0.86
+  - sub: dks:CATCH_BASIN
+    super: dks:DrainageFacility
+    derivation: 집수정 name 공유 및 alternative_class_hints에 DrainageFacility 존재.
+    confidence: 0.78
+  - sub: dks:Manhole
+    super: dks:DrainageFacility
+    derivation: 맨홀은 배수/오수 시설 계열로 관찰됨.
+    confidence: 0.86
+  - sub: dks:SewageManhole
+    super: dks:Manhole
+    derivation: class_hint가 SewageManhole이며 alternative_class_hints에 Manhole 존재.
+    confidence: 0.9
+  - sub: dks:SewagePipe
+    super: dks:Pipe
+    derivation: class_hint가 SewagePipe이며 alternative_class_hints에 Pipe 반복.
+    confidence: 0.96
+  - sub: dks:StormwaterPipe
+    super: dks:Pipe
+    derivation: class_hint가 StormwaterPipe이며 alternative_class_hints에 Pipe 존재.
+    confidence: 0.84
+  - sub: dks:SewerLine
+    super: dks:Pipe
+    derivation: SewerLine은 선형 관로 계열이며 alternative_class_hints에 Pipe 존재.
+    confidence: 0.84
+  - sub: dks:ExcavationCell
+    super: dks:ExcavationArea
+    derivation: alternative_class_hints에 ExcavationArea가 직접 제시됨.
+    confidence: 0.82
+  - sub: dks:SurveyControlPoint
+    super: dks:ControlPoint
+    derivation: name 패턴 CP와 alternative_class_hints의 Survey Reference/Coordinate Control이
+      ControlPoint 계열과 일치.
+    confidence: 0.9
+  - sub: dks:Benchmark
+    super: dks:ReferencePoint
+    derivation: alternative_class_hints에 ReferencePoint 존재.
+    confidence: 0.86
+  - sub: dks:DrawingElement
+    super: dks:CivilDrawingElement
+    derivation: DrawingElement는 CivilDrawingElement의 일반형으로 함께 관찰됨.
+    confidence: 0.74
+  - sub: dks:CivilDrawing
+    super: dks:CivilDrawingElement
+    derivation: 도면 전체를 지칭하는 class_hint.
+    confidence: 0.9
+  - sub: dks:CivilDrawingProfile
+    super: dks:CivilDrawingElement
+    derivation: 프로파일 패널은 도면 요소 하위.
+    confidence: 0.82
+  - sub: dks:SectionView
+    super: dks:CivilDrawingElement
+    derivation: 단면도 class_hint.
+    confidence: 0.88
+  - sub: dks:BuildingSection
+    super: dks:SectionView
+    derivation: BuildingSection은 Section 계열 name/class_hint.
+    confidence: 0.8
+  - sub: dks:ManholeSection
+    super: dks:SectionView
+    derivation: ManholeSection은 Section 계열 class_hint.
+    confidence: 0.92
+  - sub: dks:DrawingIndexSection
+    super: dks:CivilDrawingElement
+    derivation: 도면목록/섹션 구획 요소.
+    confidence: 0.94
+  - sub: dks:FoundationDetail
+    super: dks:CivilDrawingElement
+    derivation: 상세도 class_hint.
+    confidence: 0.92
+  - sub: dks:StructuralDetail
+    super: dks:CivilDrawingElement
+    derivation: 구조 상세도 class_hint.
+    confidence: 0.8
+  - sub: dks:PipeDetail
+    super: dks:CivilDrawingElement
+    derivation: 관 상세도 class_hint.
+    confidence: 0.8
+  - sub: dks:PipeDetailDrawing
+    super: dks:PipeDetail
+    derivation: PipeDetailDrawing은 PipeDetail의 도면형 하위.
+    confidence: 0.82
+  - sub: dks:PIPE_DETAIL
+    super: dks:PipeDetail
+    derivation: PIPE_DETAIL은 PipeDetail과 동일 계열 대문자 변형.
+    confidence: 0.76
+  - sub: dks:PipeFitting
+    super: dks:CivilDrawingElement
+    derivation: 소켓/이음 상세 요소.
+    confidence: 0.88
+  - sub: dks:PipeFittingDetail
+    super: dks:PipeFitting
+    derivation: PipeFittingDetail은 PipeFitting의 상세도형.
+    confidence: 0.9
+  - sub: dks:PavementElement
+    super: dks:CivilDrawingElement
+    derivation: 포장 요소 상세.
+    confidence: 0.78
+  - sub: dks:PavementSection
+    super: dks:CivilDrawingElement
+    derivation: 포장 단면 상세.
+    confidence: 0.8
+  - sub: dks:PAVEMENT_SECTION
+    super: dks:PavementSection
+    derivation: 대문자 변형이며 name이 포장 단면 상세로 동일 계열.
+    confidence: 0.76
+  - sub: dks:PavementStructure
+    super: dks:CivilDrawingElement
+    derivation: 포장 구조 상세 요소.
+    confidence: 0.78
+  - sub: dks:DrawingLegend
+    super: dks:CivilDrawingElement
+    derivation: 범례는 도면 요소.
+    confidence: 0.82
+  - sub: dks:DrawingCover
+    super: dks:CivilDrawingElement
+    derivation: 표지는 도면 요소.
+    confidence: 0.82
+  - sub: dks:DrawingMetadata
+    super: dks:CivilDrawingElement
+    derivation: 표제란/승인란은 메타데이터형 도면 요소.
+    confidence: 0.9
+  - sub: dks:DrawingIndexTable
+    super: dks:CivilDrawingElement
+    derivation: 도면목록표는 도면 요소.
+    confidence: 0.82
+  - sub: dks:Dimension
+    super: dks:CivilDrawingElement
+    derivation: 치수 표기는 도면 요소.
+    confidence: 0.88
+  - sub: dks:DrawingAnnotation
+    super: dks:CivilDrawingElement
+    derivation: 주석형 도면 요소.
+    confidence: 0.76
+  - sub: dks:ElevationMarker
+    super: dks:CivilDrawingElement
+    derivation: 레벨 표기는 도면 요소.
+    confidence: 0.88
+  - sub: dks:ExcavationLevel
+    super: dks:ElevationMarker
+    derivation: alternative_class_hints에 ElevationMarker 존재.
+    confidence: 0.82
+  - sub: dks:ElevationMark
+    super: dks:ElevationMarker
+    derivation: ElevationMark는 ElevationMarker의 표기 변형.
+    confidence: 0.8
+  - sub: dks:LevelMark
+    super: dks:ElevationMarker
+    derivation: LevelMark는 레벨 표기 계열.
+    confidence: 0.78
+  - sub: dks:GridMarker
+    super: dks:CivilDrawingElement
+    derivation: 그리드 표시는 도면 요소.
+    confidence: 0.93
+  - sub: dks:GridLine
+    super: dks:GridMarker
+    derivation: GridLine은 GridMarker의 선형 하위.
+    confidence: 0.8
+  - sub: dks:ReferencePhoto
+    super: dks:CivilDrawingElement
+    derivation: 현황 사진은 문서/도면 참조 요소.
+    confidence: 0.9
+  - sub: dks:SurveyBenchmark
+    super: dks:CivilDrawingElement
+    derivation: PHOTO-TBM은 AnnotationOnly이므로 실제 점이 아니라 문서 요소로 처리.
+    confidence: 0.62
+  - sub: dks:ConstructionNote
+    super: dks:CivilDrawingElement
+    derivation: 시공 주의사항 텍스트는 도면 요소.
+    confidence: 0.84
+  - sub: dks:ConstructionProcedure
+    super: dks:CivilDrawingElement
+    derivation: 시공순서 텍스트/도식은 정보성 도면 요소.
+    confidence: 0.82
+  - sub: dks:InstallationProcedure
+    super: dks:ConstructionProcedure
+    derivation: alternative_class_hints에 ConstructionProcedure 존재.
+    confidence: 0.88
+  - sub: dks:ProcedureStep
+    super: dks:ConstructionProcedure
+    derivation: 절차 단계는 절차의 하위.
+    confidence: 0.82
+  - sub: dks:ConstructionProcedureStep
+    super: dks:ProcedureStep
+    derivation: 시공 절차 단계 class_hint.
+    confidence: 0.86
+  - sub: dks:ConstructionStep
+    super: dks:ProcedureStep
+    derivation: 시공 단계 class_hint.
+    confidence: 0.82
+  - sub: dks:ConstructionSequenceStep
+    super: dks:ProcedureStep
+    derivation: 시공 순서 단계 class_hint.
+    confidence: 0.84
+  - sub: dks:ProfileDataTable
+    super: dks:CivilDrawingElement
+    derivation: 프로파일 데이터 테이블은 도면 요소.
+    confidence: 0.84
+  - sub: dks:SurveyTable
+    super: dks:CivilDrawingElement
+    derivation: 측량 성과표는 도면 요소.
+    confidence: 0.84
+  - sub: dks:DimensionTable
+    super: dks:CivilDrawingElement
+    derivation: 치수표는 도면 요소.
+    confidence: 0.9
+  - sub: dks:MaterialTable
+    super: dks:CivilDrawingElement
+    derivation: 재료표는 도면 요소.
+    confidence: 0.84
+  - sub: dks:SpecificationTable
+    super: dks:CivilDrawingElement
+    derivation: 규격표는 도면 요소.
+    confidence: 0.82
+  - sub: dks:QuantityTable
+    super: dks:CivilDrawingElement
+    derivation: 수량표는 도면 요소.
+    confidence: 0.94
+  - sub: dks:ReferenceSymbol
+    super: dks:CivilDrawingElement
+    derivation: 방위표는 참조 기호형 도면 요소.
+    confidence: 0.8
+  - sub: dks:CivilAnnotation
+    super: dks:CivilDrawingElement
+    derivation: 토목 주석형 요소.
+    confidence: 0.78
+  - sub: dks:SlopeRatio
+    super: dks:CivilAnnotation
+    derivation: 경사비 표기는 주석의 하위.
+    confidence: 0.82
+  disjoint_candidates:
+  - classes:
+    - dks:Building
+    - dks:SewagePipe
+    reason: evidence_tags 교집합 0건이며 건물과 오수관로로 관찰 범주가 분리됨.
+    confidence: 0.9
+  - classes:
+    - dks:Building
+    - dks:Manhole
+    reason: evidence_tags 교집합 0건이며 건물과 맨홀로 관찰 범주가 분리됨.
+    confidence: 0.9
+  - classes:
+    - dks:PavementArea
+    - dks:SewagePipe
+    reason: evidence_tags 교집합 0건이며 포장 구역과 관로로 분리됨.
+    confidence: 0.9
+  - classes:
+    - dks:PavementArea
+    - dks:Manhole
+    reason: evidence_tags 교집합 0건이며 포장 구역과 맨홀로 분리됨.
+    confidence: 0.88
+  - classes:
+    - dks:ControlPoint
+    - dks:SewagePipe
+    reason: evidence_tags 교집합 0건이며 측량 기준점과 관로로 분리됨.
+    confidence: 0.88
+  - classes:
+    - dks:ControlPoint
+    - dks:Building
+    reason: evidence_tags 교집합 0건이며 측량 기준점과 건물로 분리됨.
+    confidence: 0.88
+  - classes:
+    - dks:CivilDrawingElement
+    - dks:SewagePipe
+    reason: evidence_tags 교집합 0건이며 AnnotationOnly 중심 도면요소와 NamedIndividual 중심 관로가
+      분리됨.
+    confidence: 0.86
+  - classes:
+    - dks:CivilDrawingElement
+    - dks:Building
+    reason: evidence_tags 교집합 0건이며 도면요소와 물리 구조물이 분리됨.
+    confidence: 0.86
+  - classes:
+    - dks:QuantityTable
+    - dks:Manhole
+    reason: evidence_tags 교집합 0건이며 수량표와 맨홀 실체가 분리됨.
+    confidence: 0.9
+  - classes:
+    - dks:DemolitionTask
+    - dks:Building
+    reason: evidence_tags 교집합 0건이며 작업과 구조물이 분리됨.
+    confidence: 0.8
+  hierarchy_summary:
+    total_classes: 63
+    max_depth: 3
+    by_discipline:
+      civil: 63
+  unclassified_tags:
+  - tag: PIPE-DTL-01
+    reason: class_hint가 DrainagePipe이나 owl_role은 AnnotationOnly이며 동일 목록 내 DrainagePipe가
+      물리 관로 class로도 쓰이지 않아 도면상 상세도인지 실체 class인지 단정 곤란.
+    hint: PipeDetail 계열 또는 DrainagePipe 실체 계열 재검토
+  - tag: UNKNOWN-ANNEX-LEFT-01
+    reason: class_hint는 CivilStructure이나 owl_role은 AnnotationOnly로 물리 구조물/도면요소가 충돌.
+    hint: 실체 구조물인지 표시용 영역인지 재검토
+  - tag: UNKNOWN-STRUCTURE-01
+    reason: class_hint는 CivilStructure이나 name은 집수정이고 related_assertions는 상세도/부품 참조를
+      포함하여 DrainageFacility/CATCH_BASIN 가능성이 큼. 단 직접 hint와 충돌하여 상위 CivilStructure에만
+      배치.
+    hint: 집수정 계열 하위 재분류 후보
+  - tag: PHOTO-TBM
+    reason: class_hint는 SurveyBenchmark이나 owl_role은 AnnotationOnly, name은 현황 사진이라
+      실제 기준점과 사진 문서가 혼재.
+    hint: ReferencePhoto 하위의 BenchmarkPhoto 같은 재평가 필요
+  - tag: BLDG-ICENTER
+    reason: class_hint는 Building이나 name은 I-Center 1층으로 층/공간일 가능성이 남음.
+    hint: Building vs Floor/SpatialLocation 재검토
+  - tag: UNKNOWN-OBJECT-01
+    reason: class_hint가 CivilInfrastructure이나 name은 자전거로 시설물인지 단순 객체인지 불명확.
+    hint: Transportation object/facility 여부 재검토
+  plan_deviations:
+  - plan_item: predicted_ontology_structure.class_hierarchy_hint.top_level includes
+      CivilInfrastructure
+    actual_finding: 실제 evidence에서는 CivilInfrastructure class_hint가 거의 나타나지 않고 다수는
+      CivilStructure, Pipe, PavementArea, CivilDrawingElement로 분산됨.
+    action_taken: CivilInfrastructure를 최상위 핵심축으로 채택하지 않고 단일 관찰 class로만 유지.
+  - plan_item: predicted_ontology_structure.class_hierarchy_hint.top_level includes
+      SpatialReferencePoint
+    actual_finding: 실제 evidence에서는 ControlPoint, SurveyControlPoint, ReferencePoint,
+      Benchmark로 세분되어 관찰됨.
+    action_taken: 관찰된 class_hint 중심으로 세분 클래스들을 채택하고 상위 가설명 SpatialReferencePoint는
+      생성하지 않음.
+  - plan_item: predicted_ontology_structure.class_hierarchy_hint.top_level includes
+      ConstructionInformation
+    actual_finding: 실제 evidence에서는 ConstructionProcedure, ConstructionNote, ProcedureStep
+      등 구체 class_hint가 직접 관찰됨.
+    action_taken: 추상 가설명 대신 관찰된 절차/주석 계열 클래스를 직접 채택.
+  - plan_item: guidance_for_next_steps.seed_top_classes includes DrawingElement
+    actual_finding: 실제 evidence에서는 CivilDrawingElement가 더 빈번하고 포괄적으로 관찰됨.
+    action_taken: CivilDrawingElement를 도면요소 축의 대표 상위로 사용하고 DrawingElement는 하위 일반형으로
+      둠.
+  - plan_item: expected_axioms example SewagePipe SubClassOf Pipe
+    actual_finding: 이는 evidence와 일치함.
+    action_taken: 해당 관계만 채택하고 다른 plan상의 공리/제약은 참조하지 않음.
+  back_update_instructions:
+    per_tag_confirmed_class:
+      ASCON-DEMO-01: dks:DemolitionTask
+      BLDG-01: dks:Building
+      BLDG-02: dks:ExistingStructure
+      BLDG-03: dks:CivilStructure
+      BLDG-04: dks:CivilStructure
+      BLDG-05: dks:ExistingStructure
+      BLDG-06: dks:TemporaryStructure
+      BLDG-07: dks:SportsFacility
+      BLDG-14: dks:Building
+      BLDG-21: dks:Building
+      BLDG-23: dks:Building
+      BLDG-24: dks:Building
+      BLDG-25: dks:Building
+      BLDG-ICENTER: dks:Building
+      BUILDING-SECTION-LEFT: dks:SectionView
+      BUILDING-SECTION-RIGHT: dks:BuildingSection
+      CB-01: dks:DrainageFacility
+      CB-02: dks:CATCH_BASIN
+      CONC-DEMO-01: dks:DemolitionWork
+      COVER-01: dks:DrawingCover
+      CP-1: dks:ControlPoint
+      CP-2: dks:ControlPoint
+      CP-4: dks:SurveyControlPoint
+      CP.1: dks:ControlPoint
+      CP.2: dks:SurveyControlPoint
+      CP.3: dks:SurveyControlPoint
+      DIM-2810: dks:Dimension
+      DIM-379: dks:Dimension
+      DIM-90: dks:DrawingAnnotation
+      DTL-RUNG: dks:CivilDrawingElement
+      EXC-LEVEL-CENTER: dks:ElevationMarker
+      EXC-LEVEL-LEFT: dks:ExcavationLevel
+      EXC-LEVEL-RIGHT: dks:ElevationMarker
+      EXISTING-SEWER-EAST: dks:SewagePipe
+      EXISTING-SEWER-NORTH: dks:SewerLine
+      EXISTING-SEWER-SOUTH: dks:SewagePipe
+      EXISTING-SEWER-WEST: dks:SewerLine
+      FENCE-01: dks:CivilStructure
+      FOUNDATION-DTL-01: dks:FoundationDetail
+      FOUNDATION-DTL: dks:FoundationDetail
+      GRADE-LEVEL-1: dks:ElevationMark
+      GRADE-LEVEL-2: dks:ElevationMarker
+      GRADE-LEVEL-3: dks:LevelMark
+      GRID-COL-1: dks:GridMarker
+      GRID-COL-2: dks:GridMarker
+      GRID-COL-3: dks:GridMarker
+      GRID-COL-4: dks:GridMarker
+      GRID-COL-5: dks:GridMarker
+      GRID-COL-6: dks:GridLine
+      GRID-COL-7: dks:GridMarker
+      GUTTER-L-01: dks:DrainageFacility
+      GUTTER-L-02: dks:DrainageStructure
+      GUTTER-U-01: dks:DrainageStructure
+      KEY-PLAN: dks:DrawingElement
+      LEGEND-01: dks:DrawingLegend
+      LINE_101: dks:SewagePipe
+      LINE_102: dks:SewagePipe
+      LINE_103: dks:SewagePipe
+      LINE_104: dks:SewagePipe
+      LINE_105: dks:SewagePipe
+      MH-01: dks:Manhole
+      MH-02: dks:Manhole
+      MH-03: dks:Manhole
+      MH-04: dks:Manhole
+      MH-05: dks:Manhole
+      MH-06: dks:Manhole
+      NOTES-01: dks:ConstructionNote
+      PAVE-ASCON-OVERLAY-NE: dks:PavementArea
+      PAVE-ASCON-RESTORE: dks:PavementArea
+      PAVE-BLOCK-EAST: dks:PavementArea
+      PAVE-BLOCK-WEST: dks:PavementArea
+      PAVE-CONCRETE-EAST: dks:PavementArea
+      PAVE-CONCRETE-NORTH: dks:PavementArea
+      PHOTO-CP1: dks:ReferencePhoto
+      PHOTO-CP2: dks:ReferencePhoto
+      PHOTO-CP3: dks:ReferencePhoto
+      PHOTO-TBM: dks:SurveyBenchmark
+      PIPE-01: dks:SewagePipe
+      PIPE-02: dks:SewagePipe
+      PIPE-03: dks:SewagePipe
+      PIPE-04: dks:SewagePipe
+      PIPE-05: dks:SewagePipe
+      PIPE-DETAIL-A: dks:PipeDetail
+      PIPE-DTL-01: dks:UNCLASSIFIED
+      PIPE-DTL-02: dks:PipeDetailDrawing
+      PIPE-MAIN-DTL: dks:PIPE_DETAIL
+      PIPE-OSU-01: dks:Pipe
+      PIPE-OSU-02: dks:SewagePipe
+      PIPE-OSU-03: dks:Pipe
+      PIPE-USU-01: dks:StormwaterPipe
+      PLAN-01: dks:CivilDrawing
+      PROC-NOTES: dks:ConstructionProcedure
+      PROC-SEQ-01: dks:InstallationProcedure
+      PROC-STEP-1: dks:ProcedureStep
+      PROC-STEP-2-3: dks:ConstructionProcedureStep
+      PROC-STEP-4: dks:ConstructionStep
+      PROC-STEP-5-6: dks:ConstructionSequenceStep
+      PROF-01: dks:CivilDrawingProfile
+      SEC-AA: dks:ManholeSection
+      SEC-BB: dks:ManholeSection
+      SEC-C00: dks:DrawingIndexSection
+      SEC-C01: dks:DrawingIndexSection
+      SEC-C02: dks:DrawingIndexSection
+      SEC-C03: dks:DrawingIndexSection
+      SEC-C04-EXCAVATION: dks:DrawingIndexSection
+      SEC-C04-PAVEMENT: dks:DrawingIndexSection
+      SECTION-AA: dks:SectionView
+      SLAB-DTL: dks:StructuralDetail
+      SLOPE-LEFT: dks:CivilAnnotation
+      SLOPE-RIGHT: dks:SlopeRatio
+      SM.1: dks:Manhole
+      SM.2: dks:Manhole
+      SM.3: dks:SewageManhole
+      SM.4: dks:Manhole
+      SM.5: dks:SewageManhole
+      SOCKET-DTL-01: dks:PipeFitting
+      SOCKET-DTL-02: dks:PipeFitting
+      SOCKET-INJ-DTL: dks:PipeFittingDetail
+      SOCKET-MACH-DTL: dks:PipeFittingDetail
+      STAMP-01: dks:DrawingMetadata
+      T.B.M: dks:ReferencePoint
+      TABLE-01: dks:ProfileDataTable
+      TABLE-CP: dks:SurveyTable
+      TABLE-FOUND-01: dks:DimensionTable
+      TABLE-FOUND-DIM: dks:DimensionTable
+      TABLE-MAT: dks:MaterialTable
+      TABLE-PVC-01: dks:DimensionTable
+      TABLE-PVC-DIM: dks:SpecificationTable
+      TBM-01: dks:Benchmark
+      TITLE-BLOCK: dks:DrawingMetadata
+      TOC-MAIN: dks:DrawingIndexTable
+      UNKNOWN-ANNEX-CENTER-01: dks:CivilStructure
+      UNKNOWN-ANNEX-LEFT-01: dks:UNCLASSIFIED
+      UNKNOWN-ANNEX-RIGHT-01: dks:ExcavationArea
+      UNKNOWN-BOUNDARY-01: dks:BoundaryStone
+      UNKNOWN-BOUNDARY-02: dks:CivilStructure
+      UNKNOWN-BOUNDARY-03: dks:BoundaryStone
+      UNKNOWN-BOUNDARY-04: dks:BoundaryStone
+      UNKNOWN-BUILDING-01: dks:CivilStructure
+      UNKNOWN-CURB-01: dks:CivilDrawingElement
+      UNKNOWN-CURB-02: dks:CivilDrawingElement
+      UNKNOWN-CURB-03: dks:CivilDrawingElement
+      UNKNOWN-EXCAVATION-CELL-01: dks:ExcavationCell
+      UNKNOWN-EXCAVATION-PLAN-01: dks:CivilDrawing
+      UNKNOWN-FINAL-EXC-ZONE-01: dks:ExcavationArea
+      UNKNOWN-FINAL-EXC-ZONE-02: dks:CivilZone
+      UNKNOWN-FINAL-EXC-ZONE-03: dks:CivilZone
+      UNKNOWN-GRID-H-01: dks:SpatialReferenceElement
+      UNKNOWN-GRID-V-01: dks:SpatialReferenceSystem
+      UNKNOWN-NORTH-01: dks:ReferenceSymbol
+      UNKNOWN-NORTH-ARROW-01: dks:SpatialReferenceElement
+      UNKNOWN-OBJECT-01: dks:CivilInfrastructure
+      UNKNOWN-OUTER-BLOCK-LEFT-01: dks:CivilStructure
+      UNKNOWN-PAVEMENT-01: dks:PavementElement
+      UNKNOWN-PAVEMENT-02: dks:PAVEMENT_SECTION
+      UNKNOWN-PAVEMENT-03: dks:PavementStructure
+      UNKNOWN-PAVEMENT-04: dks:PavementSection
+      UNKNOWN-SLOPE-HATCH-01: dks:CivilDrawingElement
+      UNKNOWN-STAIR-01: dks:CivilDrawingElement
+      UNKNOWN-STRUCTURE-01: dks:CivilStructure
+      UNKNOWN-STRUCTURE-02: dks:CivilStructure
+      UNKNOWN-STRUCTURE-03: dks:CivilStructure
+      UNKNOWN-STRUCTURE-04: dks:DrainageStructure
+      UNKNOWN-STRUCTURE-05: dks:SupportStructure
+      UNKNOWN-STRUCTURE-06: dks:StorageTank
+      UNKNOWN-TABLE-01: dks:QuantityTable
+      UNKNOWN-TABLE-02: dks:QuantityTable
+      UNKNOWN-TABLE-03: dks:QuantityTable
+      UNKNOWN-TABLE-04: dks:QuantityTable
+      UNKNOWN-TABLE-05: dks:QuantityTable
+      UNKNOWN-TABLE-06: dks:QuantityTable
+      UNKNOWN-TENT-01: dks:CivilStructure
+      기준맨홀: dks:Manhole
+    confirmed_at: '2026-04-20T00:00:00Z'
+    by: step_0-9c
+  confidence_overall: 0.84
+  self_assessment: plan의 상위축은 참고만 하고 실제 class_hint 빈도와 name 패턴에 따라 귀납했다. 도면요소와 물리시설의
+    분리는 비교적 명확했으나, 일부 태그는 owl_role과 class_hint가 충돌했고 대문자/표기변형 class_hint(PIPE_DETAIL,
+    PAVEMENT_SECTION, CATCH_BASIN 등)는 정규화 대신 관찰형을 우선 유지했다.

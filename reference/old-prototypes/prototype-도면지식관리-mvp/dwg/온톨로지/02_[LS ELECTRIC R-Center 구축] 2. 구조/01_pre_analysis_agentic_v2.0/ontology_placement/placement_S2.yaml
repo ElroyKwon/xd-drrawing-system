@@ -1,0 +1,123 @@
+placement:
+  tag: S2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S2
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 참조 가능성 있음
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: analysisAvailabilityNote
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 문서 주석/메타 설명에 해당
+      - raw_text: 'tag: S2'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 식별 태그 원문
+      - raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35,\
+          \ 61, 62, 63, 64, 65\n\n  원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'"
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: rawText
+          suggested_datatype: xsd:string
+          rationale: entity_detail 원문 전체 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: direct_from_input
+    name:
+      source_pages:
+      - 0
+      method: absent_in_entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: direct_from_input
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: direct_from_entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 문서 주석/안내문으로 보이나 OWL 클래스나 관계로 확정할 수 없음
+    preservation_note: 페이지 목록과 안내 문구를 그대로 보존
+  - field_candidate: entity_detail.raw.pages
+    raw_text: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64, 65
+    source_page: 0
+    reason: 페이지 목록의 의미가 불명확하며 구조화된 속성으로 확정 불가
+    preservation_note: availablePages 후보로 승격 가능
+  - field_candidate: entity_detail.raw.offer
+    raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+    source_page: 0
+    reason: 사용자 안내 문구로 해석되며 설비/도면 객체 정보가 아님
+    preservation_note: annotation text로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 S2는 단독으로 제시되었고, 원문은 페이지 목록과 안내 문구만 포함하여 물리 설비/관계/수치 여부를 판정할 수 없음
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 페이지 메타 또는 문서 주석 엔티티로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 계열 및 문서 메타 계층 비중이 큼'
+    - 'predicted_ontology_structure: DocumentEntity / NoteOrLegend 후보를 우선 고려'
+    - 'discipline_context_plan.unknown: raw only placeholder responses 및 sheet identifiers는
+      unknown으로 유지'
+    deviations:
+    - plan상 문서 메타 계층 후보가 있으나, entity_detail에 시트명/시리즈명 자체가 아니라 페이지 안내문만 있어 class_hint를
+      확정하지 않음
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:43.693980'
+  confidence: 0.86

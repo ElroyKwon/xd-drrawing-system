@@ -1,0 +1,90 @@
+entity_detail:
+  tag: 피뢰침
+  type: lightning_rod
+  specs:
+    height:
+      value: 3000
+      unit: ㎜
+      source: page 37
+      confidence: 0.98
+    quantity:
+      value: 1
+      unit: 개소
+      source: page 37
+      confidence: 0.98
+    protection_class:
+      value: IV등급
+      unit: ''
+      source: page 37
+      confidence: 0.95
+    rolling_sphere_radius:
+      value: 60
+      unit: m
+      source: page 37
+      confidence: 0.95
+  drawing_texts:
+  - source: page 37
+    page_number: 37
+    text: 피뢰침 1개소
+  - source: page 37
+    page_number: 37
+    text: H:3,000㎜, 1개소
+  - source: page 37
+    page_number: 37
+    text: 보호등급은 IV등급, 회전구체반경은 60 m
+  - source: page 38
+    page_number: 38
+    text: 피뢰침 1개소
+  - source: page 38
+    page_number: 38
+    text: H:3,000㎜, 1개소
+  - source: page 38
+    page_number: 38
+    text: 보호등급 IV등급, 회전구체반경 60m
+  - source: page 40
+    page_number: 40
+    text: 피뢰침
+  requirements:
+  - text: 보호등급은 IV등급
+    source: page 37
+    type: performance
+  - text: 회전구체반경은 60 m
+    source: page 37
+    type: performance
+  - text: 보호등급 IV등급, 회전구체반경 60m
+    source: page 38
+    type: performance
+  connection_specs:
+  - relation: connected_via
+    partner: 수평도체
+    details:
+      source: page 38
+  - relation: connected_via
+    partner: 피뢰 시스템 (전체)
+    details:
+      source: page 38
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: 수평도체
+      direction: bidirectional
+      source: page 38
+    - relation_type: connected_via
+      partner_tag: ARCH-ROOFTOP-001
+      direction: downstream
+      source: page 38
+    observed_attributes:
+    - height
+    - quantity
+    - protection_class
+    - rolling_sphere_radius
+    similar_equipment:
+    - LIGHTNING_ROD_001
+    - LPS-ROD-001
+    - 피뢰침
+    suggested_parent_class: LightningRod
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - page 40에는 피뢰침이 상세도 항목으로 반복 표기됨.
+tag: 피뢰침

@@ -1,0 +1,475 @@
+executive_summary:
+  drawing_number: EE-05-004
+  title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.98
+  summary: '옥탑지붕층의 피뢰 및 접지 설비 평면도로, 중앙 우측(그리드 4-5/B 근처)에 피뢰침 1개소와 이를 둘러싼 수평도체가 배치되어
+    있다.
+
+    범례/개요에는 주 인하도선(기초철골), 보조 인하도선(F-GV 50㎟, HI-PVC 28C), 구조체 접속(철근 및 철골 접속)이 명시되어
+    있으며, 보호등급은 IV등급이다.
+
+    적용기준은 KEC 150 및 KS C IEC 62305이며, 수평도체는 STS 환봉 8㎜, 지지금구 1m마다 설치로 표기되어 있다.
+
+    '
+  equipment:
+  - tag: null
+    name: 피뢰침
+    spec: H:3,000㎜, 1개소
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 도면 중앙 우측, 그리드 4-5/B 근처
+    confidence: 0.98
+  - tag: null
+    name: 수평도체
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 도면 중앙 우측, 피뢰침을 둘러싼 점선 사각형 주변
+    confidence: 0.97
+  - tag: null
+    name: 주 인하도선
+    spec: 기초철골
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.85
+  - tag: null
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.85
+  - tag: null
+    name: 구조체 접속
+    spec: 철근 및 철골 접속
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.8
+  relationships:
+  - from: 피뢰침
+    to: 수평도체
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+  - from: 수평도체
+    to: 주 인하도선
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.6
+  - from: 수평도체
+    to: 보조 인하도선
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.6
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: R-Center
+    parent: SITE-001
+  - space_id: FLOOR-ROOF
+    type: floor
+    name: 옥탑지붕층
+    parent: BLDG-001
+  flow_paths:
+  - - 피뢰침
+    - 수평도체
+    - 주 인하도선
+  - - 피뢰침
+    - 수평도체
+    - 보조 인하도선
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000㎜)
+  - 수평도체 1식 (STS 환봉 8㎜, 지지금구 1m마다 설치)
+  - 주 인하도선 (기초철골)
+  - 보조 인하도선 (F-GV 50㎟, HI-PVC 28C)
+  - 구조체 접속 (철근 및 철골 접속)
+  stats:
+    equipment: 5
+    relationships: 3
+    spaces: 3
+    flow_paths: 2
+  uncertainties:
+  - 구조체 접속은 독립 설비인지 연결 방식인지 해석 차이가 있으나, 검증 결과 연결 방식으로 정리됨
+  - 주 인하도선 및 보조 인하도선은 도면상 별도 기호가 보이지 않고 개요/특기사항 텍스트에만 명시됨
+  - 그리드 A-D, 1-7 및 치수 표기는 보이나 설비 태그는 아님
+  related_pages:
+  - 37
+  - 39
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/개요 섹션
+  discipline: ELECTRICAL
+  classification: LIGHTNING_PROTECTION_LAYOUT
+  title_block:
+    drawing_number: EE-05-004
+    title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: null
+    type: lightning_rod
+    source: both
+  - tag: null
+    type: horizontal_conductor_STS_round_bar_8mm
+    source: both
+  - tag: null
+    type: down_conductor_natural_or_auxiliary
+    source: text
+  - tag: null
+    type: structural_connection
+    source: text
+  - tag: null
+    type: roof_element_or_protected_zone
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 5
+  next_step_hints:
+  - 우측 상단에 피뢰설비 개요 및 특기사항, 우측 중단에 피뢰설비 범례가 함께 배치되어 있음
+  - 도면 내 개별 설비 태그는 보이지 않음; 대신 피뢰침/수평도체/인하도선/구조체 접속 등의 범례 항목이 명시됨
+  - '그리드 A-D, 1-7 및 치수(예: 71,000, 43,000, 13,000 등)가 보이나 설비 태그는 아님'
+  confidence: 0.96
+  note: 페이지 38은 표제란과 범례/개요가 포함된 실제 평면도이며, 범례 전용 페이지는 아님. 페이지 상단/우측의 텍스트와 중앙 배치도에서
+    피뢰침 위치 및 수평도체 표기가 확인됨.
+classification: GROUNDING_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 옥탑지붕층 피뢰 및 접지 설비 평면도
+- 피뢰침 (H:3,000㎜) 1개소
+- 수평도체(STS 환봉 8㎜)
+- 지지금구 1m마다 설치
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+- '보호등급: IV등급'
+- 회전구체반경 60 m
+- '주 인하도선: 기초철골'
+- '보조 인하도선: F-GV 50㎟ (HI-PVC 28C)'
+- '도면번호: EE-05-004'
+- '프로젝트명: LS Electric R-Center 구축'
+- '건물명: 가운건축'
+title_block:
+  drawing_number: EE-05-004
+  title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+  revision: null
+confidence: 0.98
+note: null
+classification_confirmed: true
+override_classification: null
+visual_pattern: 옥탑지붕층 평면 위에 피뢰침 1개소와 수평도체(STS 환봉 8mm) 배치가 표시된 피뢰/접지 설비 평면도이며, 우측에
+  개요·특기사항과 범례, 하단/우측에 표제란이 배치된 도면 구성
+symbol_density: LOW
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 수평도체(STS 환봉 8mm)
+  count: 1
+- type: 주 인하도선(기초철골)
+  count: 1
+- type: 보조 인하도선(F-GV 50㎟)
+  count: 1
+- type: 구조체 접속
+  count: 1
+- type: 구조체 접속(철근 및 철골 접속)
+  count: 1
+line_types_observed:
+- 실선
+- 점선/짧은 대시 혼합
+- 화살표/지시선
+additional_findings:
+- 기존 텍스트 분류(LIGHTNING_PROTECTION_LAYOUT / GROUNDING_DIAGRAM)와 시각적으로 일치함
+- 우측 상단에 '피뢰설비 개요 및 특기사항', 우측 중단에 '피뢰설비 범례'가 함께 보임
+- 도면 중앙 우측의 점선 사각형 영역과 피뢰침 기호가 확인됨
+- 그리드 A-D, 1-7 및 치수 표기가 보이나 설비 태그는 아님
+- 범례에 없는 별도 전기 심볼은 뚜렷하게 확인되지 않음
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 피뢰침, 도체, 인하도선, 접속부 등 개별 설비/기호 식별이 핵심
+- mode: spatial_mapping
+  priority: 2
+  reason: 옥탑지붕층 평면 내 설비 배치와 보호구역 위치 확인 필요
+- mode: logic_extraction
+  priority: 3
+  reason: 범례와 실제 배치의 대응 관계 확인 필요
+pass1_설비식별:
+  entities:
+  - tag: null
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 높이 H:3,000㎜, 1개소
+    confidence: 0.98
+    note: 도면 중앙 우측(그리드 4-5/B 근처)에 ⊕ 기호로 표시됨. 페이지 38 도면에 실제 배치됨.
+  - tag: null
+    name: 수평도체
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: STS 환봉 8㎜, 지지금구 1m마다 설치
+    confidence: 0.97
+    note: 도면 중앙 우측의 점선 사각형 주변에 점선으로 표시됨. 피뢰침을 둘러싼 형태.
+  - tag: null
+    name: 옥탑지붕층
+    type: Rooftop Level / Roof Structure
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.95
+    note: '도면 제목: 옥탑지붕층 피뢰 및 접지 설비 평면도. 도면의 물리적 배치 공간.'
+  - tag: null
+    name: 주 인하도선
+    type: Main Down Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 기초철골
+    confidence: 0.85
+    note: 피뢰설비 개요 및 특기사항에 명시됨. 도면 상에 별도 기호로 표시되지 않음; 구조체 접속으로 구현됨.
+  - tag: null
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.85
+    note: 피뢰설비 개요 및 특기사항에 명시됨. 도면 상에 별도 기호로 표시되지 않음.
+  - tag: null
+    name: 구조체 접속
+    type: Structural Connection
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 철근 및 철골 접속
+    confidence: 0.8
+    note: 피뢰설비 범례에 명시됨. 도면 상에 별도 기호로 표시되지 않음; 피뢰침과 인하도선의 연결 방식.
+pass2_토폴로지:
+  relationships:
+  - from: 피뢰침
+    to: 수평도체
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    source: image
+    note: 도면 중앙 우측의 ⊕ 기호와 점선 사각형으로 직접 표시됨
+  - from: 수평도체
+    to: 주 인하도선
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.75
+    source: text
+    note: 피뢰설비 개요 및 특기사항에 명시된 시스템 경로; 도면상 별도 선으로 표시되지 않음
+  - from: 수평도체
+    to: 보조 인하도선
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.75
+    source: text
+    note: 피뢰설비 개요 및 특기사항에 명시된 시스템 경로; 도면상 별도 선으로 표시되지 않음
+  conduits:
+  - tag: null
+    name: 수평도체
+    type: conductor
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    from: 피뢰침
+    to: 인하도선
+    source: image
+    confidence: 0.98
+  - tag: null
+    name: 보조 인하도선
+    type: conductor
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    from: 수평도체
+    to: 기초
+    source: text
+    confidence: 0.85
+  flow_sequence:
+  - - 피뢰침
+    - 수평도체
+    - 주 인하도선
+  - - 피뢰침
+    - 수평도체
+    - 보조 인하도선
+  isolated_entities: []
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center
+    parent: null
+    source: project_title
+    confidence: 0.98
+  - space_id: BLDG-001
+    type: building
+    name: R-Center
+    parent: SITE-001
+    source: project_title
+    confidence: 0.98
+  - space_id: FLOOR-ROOF
+    type: floor
+    name: 옥탑지붕층
+    parent: BLDG-001
+    source: drawing_title
+    confidence: 0.98
+    note: '도면 제목: 옥탑지붕층 피뢰 및 접지 설비 평면도'
+  equipment_placement:
+  - tag: null
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    located_in: FLOOR-ROOF
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec: 높이 H:3,000㎜, 1개소
+    grid_location: 4-5/B
+    source: image
+    confidence: 0.98
+    note: 도면 중앙 우측에 ⊕ 기호로 표시됨
+  - tag: null
+    name: 수평도체
+    type: Horizontal Conductor
+    located_in: FLOOR-ROOF
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    grid_location: 4-5/B 근처
+    source: image
+    confidence: 0.97
+    note: 도면 중앙 우측의 점선 사각형으로 표시됨, 피뢰침을 둘러싼 형태
+  - tag: null
+    name: 주 인하도선
+    type: Main Down Conductor
+    located_in: FLOOR-ROOF
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec: 기초철골
+    source: text
+    confidence: 0.75
+    note: 피뢰설비 개요 및 특기사항에 명시됨, 도면상 별도 기호로 표시되지 않음
+  - tag: null
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    located_in: FLOOR-ROOF
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    source: text
+    confidence: 0.75
+    note: 피뢰설비 개요 및 특기사항에 명시됨, 도면상 별도 기호로 표시되지 않음
+  - tag: null
+    name: 구조체 접속
+    type: Structural Connection
+    located_in: FLOOR-ROOF
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec: 철근 및 철골 접속
+    source: text
+    confidence: 0.7
+    note: 피뢰설비 범례에 명시됨, 도면상 별도 기호로 표시되지 않음
+  spatial_relationships:
+  - from: 피뢰침
+    to: 수평도체
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    source: image
+  - from: 수평도체
+    to: 주 인하도선
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.75
+    source: text
+  - from: 수평도체
+    to: 보조 인하도선
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.75
+    source: text
+  drawing_metadata:
+    drawing_number: EE-05-004
+    title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_LAYOUT
+    scale: 'A1: 1/200, A3: 1/400'
+    date: '2024.04'
+    design_consultant: 가운건축
+    project_number: '624001'
+pass4_검증:
+  corrections:
+  - target: pass1_설비식별 - 옥탑지붕층
+    resolution: 옥탑지붕층은 설비가 아니라 공간(floor/location)이므로 설비 목록에서 제거. Pass 3의 공간 정의로 이동하는
+      것이 올바름.
+    evidence: 도면 제목에서 '옥탑지붕층'은 설비가 배치되는 위치를 나타내는 공간 개념. 설비 목록(피뢰침, 수평도체, 인하도선 등)과
+      구분되어야 함.
+    confidence: 0.98
+  - target: pass1_설비식별 - 구조체 접속 중복
+    resolution: detected_symbols에서 '구조체 접속'과 '구조체 접속(철근 및 철골 접속)'이 중복. 단일 항목으로 통합하고
+      spec_text에 '철근 및 철골 접속'으로 명시.
+    evidence: 범례 섹션에서 '구조체 접속 (철근 및 철골 접속)'으로 단일 항목으로 표기됨. OCR 텍스트에서도 '구조체'접속 (철근
+      및 철골 접속)'으로 단일 항목.
+    confidence: 0.96
+  - target: pass2_토폴로지 - 수평도체 → 주 인하도선 연결
+    resolution: confidence를 0.75에서 0.60으로 하향 조정. 도면상 명시적 시각적 연결이 없고, 텍스트 기반 시스템 설명만
+      있음. 주석에 '도면상 명시적 연결 없음, 텍스트 기반 시스템 경로만 확인'으로 명시.
+    evidence: 도면 중앙의 점선 사각형(수평도체)과 주 인하도선(기초철골)을 연결하는 선이 도면상 표시되지 않음. 텍스트 기반 설명만 있음.
+    confidence: 0.92
+  - target: pass2_토폴로지 - 수평도체 → 보조 인하도선 연결
+    resolution: confidence를 0.75에서 0.60으로 하향 조정. 도면상 명시적 시각적 연결이 없고, 텍스트 기반 시스템 설명만
+      있음. 주석에 '도면상 명시적 연결 없음, 텍스트 기반 시스템 경로만 확인'으로 명시.
+    evidence: 도면 중앙의 점선 사각형(수평도체)과 보조 인하도선(F-GV 50㎟)을 연결하는 선이 도면상 표시되지 않음. 텍스트 기반
+      설명만 있음.
+    confidence: 0.92
+  - target: pass3_공간 - equipment_placement에 옥탑지붕층 포함
+    resolution: 옥탑지붕층은 공간(space)이지 equipment이 아니므로 equipment_placement에서 제거. 이미 spaces
+      섹션에 'FLOOR-ROOF'로 정의되어 있음.
+    evidence: 옥탑지붕층은 도면의 물리적 배치 공간을 나타내는 floor/location 개념. 피뢰침, 수평도체 등의 설비가 배치되는
+      위치.
+    confidence: 0.98
+  missing_entities:
+  - tag: null
+    name: 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    type: Vertical Conductor / Inter-floor Connection
+    evidence: 우측 범례 섹션에 명시됨. 지그재그 선 기호로 표기. 도면상 시각적 표현은 확인되지 않음.
+    confidence: 0.85
+  - tag: null
+    name: 구조체 GTR 8㎜
+    type: Structural Conductor
+    evidence: 우측 범례 섹션에 점선으로 표기됨. 도면상 시각적 표현은 확인되지 않음.
+    confidence: 0.8
+  relationship_issues:
+  - issue: Pass 2에서 '수평도체 → 주 인하도선' 및 '수평도체 → 보조 인하도선' 연결이 도면상 명시적으로 표현되지 않음
+    recommendation: confidence를 0.75에서 0.60으로 하향 조정하고, source를 'text'로 명시. 도면상 명시적
+      연결이 없으므로 '텍스트 기반 시스템 설명'으로 분류.
+    evidence: 도면 중앙의 점선 사각형(수평도체)에서 인하도선으로 가는 선이 도면상 표시되지 않음. 우측 텍스트 섹션의 '피뢰설비 개요
+      및 특기사항'에만 명시됨.
+    confidence: 0.92
+  - issue: Pass 1에서 '옥탑지붕층'을 설비로 분류한 오류
+    recommendation: 옥탑지붕층을 설비 목록에서 제거하고, Pass 3의 공간 정의로만 유지.
+    evidence: 도면 제목 '옥탑지붕층 피뢰 및 접지 설비 평면도'에서 옥탑지붕층은 설비가 배치되는 위치를 나타내는 공간 개념.
+    confidence: 0.98
+  consistency_check:
+    entity_count_before: 6
+    entity_count_after: 4
+    note: 옥탑지붕층 제거 후 4개 설비 (피뢰침, 수평도체, 주 인하도선, 보조 인하도선). 구조체 접속은 연결 방식이지 독립적 설비가 아니므로
+      conduit으로 분류하는 것이 더 적절.
+    relation_count_before: 3
+    relation_count_after: 3
+    relation_confidence_adjustment: 2개 관계의 confidence 하향 조정 (0.75 → 0.60)
+  overall_confidence: 0.88

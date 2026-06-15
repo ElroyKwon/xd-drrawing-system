@@ -1,0 +1,104 @@
+summary:
+  total_placements: 252
+  expected_total_tags: 252
+  owl_role_distribution:
+    DataPropertyValue: 2
+    NamedIndividual: 213
+    AnnotationOnly: 37
+  discipline_distribution:
+    communication: 252
+  ambiguous_count: 177
+  merge_candidate_count: 9
+  unresolved_entries: 1048
+ambiguous_samples:
+- tag: 16C_(HFIX_4-1.5sq)
+  reason: tag/name/specs는 케이블 규격 엔티티로 보이나, ontology_hints의 suggested_parent_class가
+    CommunicationCable이고 function_candidates가 BroadcastingWiring로 제시되어 있어 class 후보가
+    복수임.
+- tag: AD-AREA
+  reason: A.D가 Air Duct인지 부속실인지, 그리고 SHAFT가 실제 공간/통로/실 중 무엇인지 도면 원문만으로 확정 불가
+- tag: AD-WC-1
+  reason: entity_detail.type는 space이지만 ontology_hints의 suggested_parent_class가 CommunicationSpace이고
+    function_candidates가 Wiring Closet / Access Duct로 혼재한다. 물리 공간으로 보이지만 세부 기능은 단일
+    확정이 어렵다.
+- tag: AD-WC-2
+  reason: A.D / W.C는 공간 엔티티로 보이지만, ontology_hints의 후보 기능이 Access Duct와 Wiring Closet로
+    동시에 제시되어 단일 의미로 확정하기 어렵다.
+- tag: AMP-RACK
+  reason: name과 function_category는 랙 장비를 강하게 시사하지만, 내부 표기 SPK-SP-3와 10P, 그리고 amplifier
+    심볼만으로 정확한 세부 class를 단정하기 어려움
+- tag: AMP
+  reason: 사각형 안의 AMP 표기는 물리 설비 심볼로 보이나, 도면 내에서는 범례/주석 성격이 강해 AnnotationOnly와 NamedIndividual
+    해석이 모두 가능함
+- tag: ANTEROOM
+  reason: 전실은 공간(space)으로 보이지만 communication 분야에서 설비 설치 공간인지 단순 구역인지 도면만으로 확정 불가
+- tag: BROADCAST-ROOM
+  reason: name과 ontology_hints는 방송실/통신실 공간으로 보이지만, equipment_symbols에 MAIN AMP와 단자함이
+    함께 있어 공간 단독인지 장비 포함 공간인지 혼합성이 있음.
+- tag: CABLE-TRAY-SUB
+  reason: entity_detail.type는 equipment이지만, ontology_hints.suggested_parent_class가
+    CableManagementSystem이고 function_candidates가 Cable Routing / Communication Cable
+    Support로 제시되어 CableTray 개별 설비인지 케이블 경로/관리 시스템의 일부인지 경계가 완전히 확정되지 않음.
+- tag: CCTV-CTL-01
+  reason: ControlPanel로 보이지만 communication_equipment 일반 장비성과 CCTV 제어반의 패널성, 그리고 관계
+    중심 정보가 함께 존재함
+- tag: COMM-ROOM-1F
+  reason: type이 equipment/space로 혼합되어 있고, name은 통신실(공간)이나 equipment_symbols에 IDF RACK과
+    110 BLOCK이 함께 존재함
+- tag: CONF-ROOM-ZONE-A
+  reason: 회의실 구역이라는 공간 엔티티이지만, 내부에 LAN_OUTLET 및 SYSTEM_BOX 심볼이 있어 순수 공간인지 장비 포함 구역인지
+    경계가 다소 혼합됨.
+- tag: COO-ROOM
+  reason: 공간(space)으로 보이지만 내부에 LAN OUTLET과 SYSTEM BOX 심볼이 있어 순수 공간인지, 장비가 내재된 공간/구역인지
+    경계가 모호함.
+- tag: CORE-EL
+  reason: 도면상 E/L은 공간(space)으로 표시되며 inferred_name은 엘리베이터 코어, function_candidates는
+    Elevator Core와 Vertical Shaft로 제시되어 공간/수직샤프트/코어 해석이 혼재한다.
+- tag: DRIVE-DEV-LAB
+  reason: space로 보이지만 LAN OUTLET, SYSTEM BOX 장비 심볼이 함께 있어 순수 공간인지 장비 내재 공간인지 혼합성이
+    있음
+- tag: DRIVE-LAB
+  reason: 공간 엔티티이지만 function_candidates에 Drive Development Testing과 Public Address
+    Area가 함께 제시되어 있고, equipment_symbols로 스피커가 포함되어 있어 Room/Laboratory/PA Area 성격이
+    혼재함.
+- tag: DUCT-01
+  reason: tag와 name은 지하공동구로 명확하지만, communication 도면 내에서 물리 설비인지 경로/구조물인지 혼합성이 있으며
+    ontology_hints가 CivilStructure를 제시함
+- tag: EL-AREA
+  reason: 도면상 SPACE로 표시된 엘리베이터 홀이며, ontology_hints는 SpatialRegion을 제시하지만 supplement
+    sub_kind가 없어 공간/구역 세부 분류를 확정할 수 없음.
+- tag: EXT-1F-COMM
+  reason: METADATA 타입이지만 외부 인입 경로/케이블 규격/출처 관계가 함께 나타나 AnnotationOnly와 관계 중심 엔티티 사이
+    경계가 모호함
+- tag: EXT-DUCT
+  reason: BOUNDARY 타입이면서 지하공동구라는 명칭과 CABLE_DUCT 기능이 함께 나타나 물리 설비, 경계, 경로 중 해석이 겹침
+merge_candidates:
+- tag: CCTV-CTL-01
+  other_tag: EXT-CCTV-CTRL
+  reason: similar_equipment로 제시되며 CCTV 제어 관련 명칭이 유사함. 다만 '기존 옥외 CCTV 제어반'과 외부 태그의
+    동일성은 미확정
+- tag: HUB-RACK-1
+  other_tag: HUB-RACK-2
+  reason: 태그 패턴과 장비 유형이 매우 유사하며, ontology_hints의 similar_equipment에도 포함됨
+- tag: HUB-RACK-2
+  other_tag: HUB-RACK-1
+  reason: 동일 계열 태그이며 relations에 HUB-RACK-1 ↔ HUB-RACK-2 연결이 직접 관찰됨. 명칭 패턴과 기능군이 유사함.
+- tag: HUB-RACK-2F
+  other_tag: RACK-MAIN
+  reason: source_panel_ids에 함께 등장하며 동일 계열 랙의 변형/대표 태그일 가능성이 있음
+- tag: Intermediate_Terminal_Board
+  other_tag: Main Terminal Board
+  reason: similar_equipment에 명시된 유사 장비이며, 명칭 구조상 변형/상위하위 관계 가능성이 있어 병합 후보로 보존
+- tag: MANHOLE-01
+  other_tag: MH-01
+  reason: 둘 다 맨홀 계열 태그로 보이며, 약어형(MH)과 풀형(MANHOLE) 스펠링 변형 가능성이 있음
+- tag: SHAFT-EPS
+  other_tag: SHAFT-TPS
+  reason: 동일한 SHAFT 접두와 유사한 샤프트 표기 패턴이 관찰되어 병합 후보로 보존 필요
+- tag: SPACE-ELEC
+  other_tag: SPACE-EPS, SPACE-TPS
+  reason: ontology_hints.similar_equipment에 함께 제시되어 유사 태그 후보로 보임
+- tag: TRAY-GONGDONG
+  other_tag: TRAY-EXISTING
+  reason: similar_equipment에 TRAY-EXISTING이 명시되고, 관계 주석에도 기존 통신 TRAY 연결이 관찰됨
+generated_at: '2026-04-20T14:48:12.018674'

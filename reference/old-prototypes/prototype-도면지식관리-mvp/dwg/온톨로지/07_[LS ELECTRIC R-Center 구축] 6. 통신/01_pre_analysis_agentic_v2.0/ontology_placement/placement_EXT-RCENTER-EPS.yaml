@@ -1,0 +1,199 @@
+placement:
+  tag: EXT-RCENTER-EPS
+  name: R-Center EPS/TPS 외부 연결점
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-RCENTER-EPS
+    class_hint: ExternalConnectionPoint
+    alternative_class_hints:
+    - ExternalCommunicationLink
+    - SignalInterface
+    - CommunicationEquipment
+    related_assertions:
+    - type: cable
+      target_hint: TRAY-EXISTING-DUCT
+      note: from TRAY-EXISTING-DUCT to this external connection point; cable route
+        annotated with ELP 50 /IN TRAY, UTP 0.5mm/25Px1,CAT.5, FIBER OPTICAL S.M 12CORE
+    applicable_axioms:
+    - AX040
+    applicable_constraints: []
+    confirmed_class: dks:ExternalConnectionPoint
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'TO : R-Center EPS/TPS'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destinationLabel
+          suggested_datatype: xsd:string
+          rationale: 'TO: 형태의 목적지 표기'
+      - raw_text: ELP 50 /IN TRAY
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블/배선 규격으로 보이는 문자열
+      - raw_text: UTP 0.5mm/25Px1,CAT.5
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열
+      - raw_text: FIBER OPTICAL S.M 12CORE
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 광케이블 규격 문자열
+      - raw_text: 지하공동구 사용
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: routeNote
+          suggested_datatype: xsd:string
+          rationale: 배선 경로/사용 공간에 대한 주석
+      - raw_text: (옥외 정보통신 인입 배치도 참조)
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: referenceNote
+          suggested_datatype: xsd:string
+          rationale: 도면 참조 주석
+      - raw_text: 'label_prefix: TO :'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: labelPrefix
+          suggested_datatype: xsd:string
+          rationale: 라벨 접두어 표기
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification_by_observed_entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 9
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 9
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 9
+      method: relations.annotation
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 9
+      method: specs.note
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 9
+      method: specs.reference_note
+    discipline_context.sub_kinds.free_notes[6].raw_text:
+      source_pages:
+      - 9
+      method: specs.label_prefix
+    provenance:
+      source_pages:
+      - 9
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO : R-Center EPS/TPS'
+    source_page: 9
+    reason: 원문 라벨이 목적지 표기인지 장비명인지 단독으로는 확정 불가
+    preservation_note: 'TO: 접두어와 함께 보존'
+  - field_candidate: specs.raw_labels
+    raw_text: ELP 50 /IN TRAY
+    source_page: 9
+    reason: 배선/케이블 규격으로 보이나 정확한 속성명 확정 불가
+    preservation_note: cable_specification 후보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: UTP 0.5mm/25Px1,CAT.5
+    source_page: 9
+    reason: 케이블 규격 문자열이지만 세부 분해 기준 불명
+    preservation_note: 원문 그대로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: FIBER OPTICAL S.M 12CORE
+    source_page: 9
+    reason: 광케이블 규격 문자열이지만 표준화 불가
+    preservation_note: 원문 그대로 보존
+  - field_candidate: specs.note
+    raw_text: 지하공동구 사용
+    source_page: 9
+    reason: 경로/설치 조건 주석으로 보이나 정식 관계로 승격 전
+    preservation_note: route note 후보
+  - field_candidate: specs.reference_note
+    raw_text: (옥외 정보통신 인입 배치도 참조)
+    source_page: 9
+    reason: 참조 문구이나 대상 도면의 정확한 식별자 없음
+    preservation_note: reference note로 보존
+  - field_candidate: relations.cable
+    raw_text: from TRAY-EXISTING-DUCT to EXT-RCENTER-EPS
+    source_page: 9
+    reason: 관계 유형은 cable로만 주어졌고 정식 property IRI 미확정
+    preservation_note: 원형 관계 사실로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 연결점이면서 목적지/인입점/장비성 요소가 혼재하고, raw_labels가 배선 규격과 참조 주석을 함께 포함함
+    recommended_handling: 0-9c에서 individual로 유지하되 class 후보를 ExternalConnectionPoint
+      중심으로 검토하고, 0-9d에서 cable/spec/reference 관련 data property 승격 여부를 판단
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부연결/인입/출처 지점(EXT-*) 패턴을 반영하여 ExternalConnectionPoint 계열로 배치
+    - relations의 cable 사실을 관계 원형으로 보존
+    - raw_labels, note, reference_note, label_prefix를 모두 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:20.081297'
+  confidence: 0.91

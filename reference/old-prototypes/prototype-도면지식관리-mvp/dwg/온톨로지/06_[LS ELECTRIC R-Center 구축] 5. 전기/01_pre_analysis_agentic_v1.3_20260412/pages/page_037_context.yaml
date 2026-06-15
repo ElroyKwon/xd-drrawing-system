@@ -1,0 +1,661 @@
+executive_summary:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_AND_LIGHTNING_PROTECTION_LAYOUT
+  discipline: ELECTRICAL
+  confidence: 0.98
+  summary: '지붕층 피뢰 및 접지 설비 평면도로, 수뢰부시스템(회전 구체법, IV등급, 회전구체반경 60m)이 적용된 피뢰/접지 계통이 표시됨.
+
+    주요 설비는 피뢰침 1개소(H:3,000㎜), 수평도체(STS 환봉 8㎜), 구조체 접속 12개소 동일, 주/보조 인하도선, 피뢰기초접지극
+    2개소임.
+
+    우측 상단에 피뢰설비 개요 및 특기사항/범례 박스가 별도 존재하며, 본문 우측 상부에 지붕 상세 영역과 접속점이 구획되어 있음.
+
+    '
+  equipment:
+  - tag: LP-ROD-001
+    name: 피뢰침
+    spec: H:3,000㎜
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 지붕층 평면도 1개소
+    confidence: 0.98
+  - tag: LP-CONDUCTOR-001
+    name: 수평도체
+    spec: STS 환봉 8㎜
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 지붕 외곽
+    confidence: 0.98
+  - tag: LP-STRUCT-CONN-001
+    name: 구조체 접속
+    spec: 철근 및 철골 접속, 12개소 동일
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 지붕층 평면
+    confidence: 0.98
+  - tag: LP-LADDER-CONN-001
+    name: 금속 사다리 접속
+    spec: null
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 지붕 상부 구조물 접속점
+    confidence: 0.95
+  - tag: LP-DOWN-CONDUCTOR-PRIMARY
+    name: 주 인하도선
+    spec: 기초철골
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.98
+  - tag: LP-DOWN-CONDUCTOR-SECONDARY
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.98
+  - tag: LP-GROUND-ELECTRODE
+    name: 피뢰기초접지극
+    spec: null
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    location: DN to 표기 2개소
+    confidence: 0.95
+  - tag: LP-SUPPORT-BRACKET
+    name: 지지금구
+    spec: 1m마다 설치
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 수평도체 고정 위치
+    confidence: 0.95
+  - tag: ROOF-STRUCTURE
+    name: 지붕층 구조
+    spec: null
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 좌표 A-D, 1-7로 표시된 지붕 영역
+    confidence: 0.9
+  - tag: ROOF-DETAIL-AREA
+    name: 지붕 상세 영역
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 도면 우측 상부
+    confidence: 0.85
+  - tag: PROTECTION-SYSTEM
+    name: 수뢰부시스템
+    spec: 회전 구체법, IV등급, 회전구체반경 60m
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.98
+  - tag: GROUNDING-TEST-TERMINAL
+    name: 접지 시험 단자
+    spec: null
+    discipline: ELECTRICAL
+    function_category: SENSE
+    location: 접지 측정 포인트
+    confidence: 0.85
+  relationships:
+  - from: LP-ROD-001
+    to: LP-CONDUCTOR-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+  - from: LP-CONDUCTOR-001
+    to: LP-STRUCT-CONN-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+  - from: LP-LADDER-CONN-001
+    to: LP-CONDUCTOR-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+  - from: LP-STRUCT-CONN-001
+    to: LP-DOWN-CONDUCTOR-PRIMARY
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+  - from: LP-DOWN-CONDUCTOR-PRIMARY
+    to: LP-GROUND-ELECTRODE
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+  - from: LP-DOWN-CONDUCTOR-SECONDARY
+    to: LP-GROUND-ELECTRODE
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.98
+  - from: LP-CONDUCTOR-001
+    to: LP-SUPPORT-BRACKET
+    relation: connected_via
+    medium: mechanical
+    direction: bidirectional
+    confidence: 0.95
+  spaces:
+  - space_id: ROOF-STRUCTURE
+    type: roof_area
+    name: 지붕층 구조
+    parent: null
+  - space_id: ROOF-DETAIL-AREA
+    type: detail_section
+    name: 지붕 상세 영역
+    parent: ROOF-STRUCTURE
+  flow_paths:
+  - - LP-ROD-001
+    - LP-CONDUCTOR-001
+    - LP-STRUCT-CONN-001
+    - LP-DOWN-CONDUCTOR-PRIMARY
+    - LP-GROUND-ELECTRODE
+  - - LP-LADDER-CONN-001
+    - LP-CONDUCTOR-001
+    - LP-STRUCT-CONN-001
+    - LP-DOWN-CONDUCTOR-SECONDARY
+    - LP-GROUND-ELECTRODE
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000㎜)
+  - 수평도체 (STS 환봉 8㎜)
+  - 구조체 접속 12개소 동일
+  - 주 인하도선 (기초철골)
+  - 보조 인하도선 (F-GV 50㎟, HI-PVC 28C)
+  - 피뢰기초접지극 2개소
+  - 수뢰부시스템 (회전 구체법, IV등급, 회전구체반경 60m)
+  stats:
+    equipment: 12
+    relationships: 7
+    spaces: 2
+    flow_paths: 2
+  uncertainties:
+  - 접지 시험 단자(GROUNDING-TEST-TERMINAL)는 pass1에만 존재하며, 본문 시각 근거는 제공된 텍스트 내에서만 확인됨.
+  - ROOF-STRUCTURE의 상세 경계는 좌표 A-D, 1-7 표기 외 추가 시각 정보 없음.
+  - 피뢰기초접지극의 정확한 위치는 'DN to' 2개소 표기만 확인됨.
+  - 관련 페이지는 제공된 정보상 page 37 외 추가 페이지 확인 불가.
+  related_pages:
+  - 36
+  - 38
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/개요 및 특기사항
+  discipline: ELECTRICAL
+  classification: LIGHTNING_PROTECTION_LAYOUT
+  title_block:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 피뢰침
+    type: lightning_rod
+    source: both
+  - tag: 구조체 접속
+    type: structural_connection
+    source: both
+  - tag: 구조체 접속 12개소 동일
+    type: structural_connection_note
+    source: both
+  - tag: 수평도체(STS 환봉 8㎜)
+    type: horizontal_conductor
+    source: both
+  - tag: 지지금구 1m마다 설치
+    type: support_bracket_note
+    source: both
+  - tag: 금속 사다리 접속
+    type: metal_ladder_connection
+    source: both
+  - tag: 'DN to : 피뢰기초접지극'
+    type: down_conductor_to_ground_electrode_note
+    source: both
+  - tag: 피뢰침 (H:3,000㎜)
+    type: lightning_rod_height_note
+    source: both
+  - tag: 피뢰침 (H:3,000㎜) 1개소
+    type: lightning_rod_location_note
+    source: both
+  - tag: '주 인하도선 : 기초철골'
+    type: main_down_conductor_note
+    source: both
+  - tag: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+    type: auxiliary_down_conductor_note
+    source: both
+  - tag: 수뢰부시스템
+    type: lightning_protection_system
+    source: both
+  - tag: 회전 구체법
+    type: method_note
+    source: both
+  - tag: IV등급
+    type: protection_class_note
+    source: both
+  - tag: 회전구체반경 60 m
+    type: method_parameter_note
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 범례/특기사항 표가 우측 상단에 별도 박스로 존재함
+  - 도면 본문은 지붕층 평면 위에 피뢰/접지 배치와 접속점이 표시됨
+  - 페이지 내에 치수선과 그리드(A-D, 1-7)가 함께 보이나 설비 태그는 거의 없음
+  - legend_data.yaml는 도구에서 찾지 못함(UNKNOWN)
+  confidence: 0.95
+  note: null
+classification: GROUNDING_AND_LIGHTNING_PROTECTION_LAYOUT
+discipline: ELECTRICAL
+key_elements_from_text:
+- 지붕층 피뢰 및 접지 설비 평면도
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- KS C IEC 62305
+- 한국전기설비규정(KEC) 150 피뢰시스템
+- 회전 구체법
+- IV등급
+- 회전구체반경 60 m
+- 피뢰침 (H:3,000㎜)
+- 수평도체(STS 환봉 8㎜)
+- '주 인하도선 : 기초철골'
+- '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+- 구조체 접속 (철근 및 철골 접속)
+- 금속 사다리 접속
+- 'DN to : 피뢰기초접지극'
+- 구조체 접속 12개소 동일
+- LS Electric
+- R-Center 구축
+title_block:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  revision: null
+confidence: 0.98
+note: null
+classification_confirmed: true
+override_classification: null
+visual_pattern: 지붕층 평면 위에 피뢰침, 수평도체, 구조체 접속점, 인하도선(DN to), 접지 관련 표기가 배치된 전기 설비 평면도.
+  우측 상단에 '피뢰설비 개요 및 특기사항'과 '피뢰설비 범례' 박스가 별도로 있으며, 본문은 지붕 외곽을 따라 점선/실선으로 피뢰 경로와 접속
+  위치를 표시함.
+symbol_density: MEDIUM
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 구조체 접속
+  count: 2
+- type: 수평도체(STS 환봉 8mm)
+  count: 1
+- type: 금속 사다리 접속
+  count: 1
+- type: 'DN to : 피뢰기초접지극'
+  count: 2
+- type: 피뢰침 (H:3,000mm)
+  count: 1
+- type: 주 인하도선/보조 인하도선 표기
+  count: 2
+- type: 그리드/축선 표기
+  count: 11
+line_types_observed:
+- 실선
+- 점선
+- 치수선
+- 그리드/축선
+- 화살표/리더선
+additional_findings:
+- 도면 제목 블록에 '지붕층 피뢰 및 접지 설비 평면도'가 보임.
+- 우측 범례 박스에 피뢰설비 관련 심볼과 설명이 함께 표시됨.
+- 본문 우측 상부에 지붕 일부 상세 영역과 접속점이 별도 구획으로 표현됨.
+- 범례에 없는 별도 설비 심볼은 뚜렷하게 확인되지 않음.
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 피뢰침, 접속점, 인하도선, 접지극 표기 등 개별 설비 요소 식별이 핵심임.
+- mode: power_flow_topology
+  priority: 2
+  reason: 피뢰/접지 경로와 접속 관계를 따라 배치가 구성되어 있어 연결 구조 확인이 필요함.
+- mode: spatial_mapping
+  priority: 3
+  reason: 지붕 평면 상의 위치 배치와 구역 분할이 도면 해석의 중심임.
+pass1_설비식별:
+  entities:
+  - tag: LP-ROD-001
+    name: 피뢰침
+    type: Lightning Rod
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: H:3,000㎜
+    confidence: 0.98
+    note: 지붕층 평면도에서 1개소 표시
+  - tag: LP-CONDUCTOR-001
+    name: 수평도체
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: STS 환봉 8㎜
+    confidence: 0.98
+    note: 지붕 외곽을 따라 배치, 지지금구 1m마다 설치
+  - tag: LP-STRUCT-CONN-001
+    name: 구조체 접속
+    type: Structural Connection
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 철근 및 철골 접속, 12개소 동일
+    confidence: 0.98
+    note: 도면에 12개소 표시됨
+  - tag: LP-LADDER-CONN-001
+    name: 금속 사다리 접속
+    type: Metal Ladder Connection
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.95
+    note: 지붕 상부 구조물과의 접속점
+  - tag: LP-DOWN-CONDUCTOR-PRIMARY
+    name: 주 인하도선
+    type: Main Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: 기초철골
+    confidence: 0.98
+    note: 피뢰침에서 접지극으로의 주요 경로
+  - tag: LP-DOWN-CONDUCTOR-SECONDARY
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.98
+    note: 주 인하도선을 보조하는 케이블
+  - tag: LP-GROUND-ELECTRODE
+    name: 피뢰기초접지극
+    type: Lightning Protection Ground Electrode
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.95
+    note: 'DN to: 피뢰기초접지극 표기, 2개소'
+  - tag: LP-SUPPORT-BRACKET
+    name: 지지금구
+    type: Support Bracket
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 1m마다 설치
+    confidence: 0.95
+    note: 수평도체 고정용
+  - tag: ROOF-STRUCTURE
+    name: 지붕층 구조
+    type: Roof Structure
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.9
+    note: 평면도 기준 좌표 A-D, 1-7로 표시된 지붕 영역
+  - tag: ROOF-DETAIL-AREA
+    name: 지붕 상세 영역
+    type: Roof Detail Section
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.85
+    note: 도면 우측 상부에 별도 구획으로 표현된 접속점 상세
+  - tag: PROTECTION-SYSTEM
+    name: 수뢰부시스템
+    type: Lightning Protection System
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 회전 구체법, IV등급, 회전구체반경 60m
+    confidence: 0.98
+    note: KS C IEC 62305 기준 적용
+  - tag: GROUNDING-TEST-TERMINAL
+    name: 접지 시험 단자
+    type: Grounding Test Terminal
+    discipline: ELECTRICAL
+    function_category: SENSE
+    spec_text: null
+    confidence: 0.85
+    note: 도면에 표시된 접지 측정 포인트
+pass2_토폴로지:
+  relationships:
+  - from: LP-ROD-001
+    to: LP-CONDUCTOR-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+    note: 피뢰침에서 수평도체로의 직접 연결
+  - from: LP-CONDUCTOR-001
+    to: LP-STRUCT-CONN-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+    note: 수평도체가 구조체 접속점 12개소와 연결
+  - from: LP-LADDER-CONN-001
+    to: LP-CONDUCTOR-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+    note: 금속 사다리가 수평도체와 접속
+  - from: LP-STRUCT-CONN-001
+    to: LP-DOWN-CONDUCTOR-PRIMARY
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    note: 구조체 접속에서 주 인하도선(기초철골)으로 연결
+  - from: LP-DOWN-CONDUCTOR-PRIMARY
+    to: LP-GROUND-ELECTRODE
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    note: 주 인하도선에서 피뢰기초접지극으로 연결
+  - from: LP-DOWN-CONDUCTOR-SECONDARY
+    to: LP-GROUND-ELECTRODE
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.98
+    note: 보조 인하도선(F-GV 50㎟ HI-PVC 28C)에서 피뢰기초접지극으로 연결
+  - from: LP-CONDUCTOR-001
+    to: LP-SUPPORT-BRACKET
+    relation: connected_via
+    medium: mechanical
+    direction: bidirectional
+    confidence: 0.95
+    note: 지지금구가 수평도체를 1m마다 지지
+  conduits:
+  - tag: LP-CONDUCTOR-001
+    type: horizontal_conductor
+    spec: STS 환봉 8㎜
+    from: LP-ROD-001
+    to: LP-STRUCT-CONN-001
+    source: text
+    confidence: 0.98
+  - tag: LP-DOWN-CONDUCTOR-PRIMARY
+    type: main_down_conductor
+    spec: 기초철골
+    from: LP-STRUCT-CONN-001
+    to: LP-GROUND-ELECTRODE
+    source: text
+    confidence: 0.98
+  - tag: LP-DOWN-CONDUCTOR-SECONDARY
+    type: auxiliary_down_conductor
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    from: LP-STRUCT-CONN-001
+    to: LP-GROUND-ELECTRODE
+    source: text
+    confidence: 0.98
+  flow_sequence:
+  - - LP-ROD-001
+    - LP-CONDUCTOR-001
+    - LP-STRUCT-CONN-001
+    - LP-DOWN-CONDUCTOR-PRIMARY
+    - LP-GROUND-ELECTRODE
+  - - LP-LADDER-CONN-001
+    - LP-CONDUCTOR-001
+    - LP-STRUCT-CONN-001
+    - LP-DOWN-CONDUCTOR-SECONDARY
+    - LP-GROUND-ELECTRODE
+  isolated_entities: []
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: LS Electric R-Center 천안
+    parent: SITE-001
+  - space_id: ROOF-001
+    type: floor
+    name: 지붕층(Roof Level)
+    parent: BLDG-001
+  - space_id: ROOF-PERIMETER
+    type: zone
+    name: 지붕 외곽 구역
+    parent: ROOF-001
+  - space_id: ROOF-STRUCTURE
+    type: zone
+    name: 지붕 상부 구조물 영역
+    parent: ROOF-001
+  equipment_placement:
+  - tag: LP-ROD-001
+    name: 피뢰침
+    located_in: ROOF-001
+    grid_reference: UNKNOWN
+    confidence: 0.95
+    note: H:3,000㎜, 1개소 표시
+  - tag: LP-CONDUCTOR-001
+    name: 수평도체(STS 환봉 8㎜)
+    located_in: ROOF-PERIMETER
+    grid_reference: A-D, 1-7 경계
+    confidence: 0.98
+    note: 지붕 외곽을 따라 배치, 지지금구 1m마다 설치
+  - tag: LP-STRUCT-CONN-001
+    name: 구조체 접속(철근 및 철골)
+    located_in: ROOF-001
+    grid_reference: 12개소 분산
+    confidence: 0.95
+    note: 12개소 동일 사양
+  - tag: LP-LADDER-CONN-001
+    name: 금속 사다리 접속
+    located_in: ROOF-STRUCTURE
+    grid_reference: UNKNOWN
+    confidence: 0.9
+    note: 지붕 상부 구조물과의 접속점
+  - tag: LP-DOWN-CONDUCTOR-PRIMARY
+    name: 주 인하도선
+    located_in: ROOF-001
+    grid_reference: UNKNOWN
+    confidence: 0.95
+    note: 기초철골을 통한 접지극 연결
+  - tag: LP-DOWN-CONDUCTOR-SECONDARY
+    name: 보조 인하도선
+    located_in: ROOF-001
+    grid_reference: UNKNOWN
+    confidence: 0.95
+    note: F-GV 50㎟ (HI-PVC 28C), 주 인하도선 보조
+  - tag: LP-GROUND-ELECTRODE
+    name: 피뢰기초접지극
+    located_in: ROOF-001
+    grid_reference: 2개소
+    confidence: 0.9
+    note: 'DN to: 피뢰기초접지극 표기'
+  - tag: LP-SUPPORT-BRACKET
+    name: 지지금구
+    located_in: ROOF-PERIMETER
+    grid_reference: 1m 간격
+    confidence: 0.95
+    note: 수평도체 지지용, 1m마다 설치
+pass4_검증:
+  corrections:
+  - target: detected_symbols - 금속 사다리 접속
+    resolution: count를 1에서 2로 수정. OCR 텍스트에서 '금속 사다리 접속 / 2개소 동일' 명시
+    evidence: 'page_037.txt: ''금속 사다리 접속 / 2개소 동일'''
+    confidence: 0.99
+  - target: pass1_설비식별 - LP-LADDER-CONN-001
+    resolution: spec_text에 '2개소' 추가. 현재 null로 표기되어 있음
+    evidence: 'page_037.txt 및 page_037_context.yaml의 detected_symbols에서 count: 2 확인'
+    confidence: 0.98
+  - target: pass1_설비식별 - GROUNDING-TEST-TERMINAL (LP-GROUNDING-TEST-TERMINAL)
+    resolution: 제거 필요. 도면 텍스트에 '접지 시험 단자' 또는 'GTB' 표기 없음. 범례에도 없음. 추측으로 추가된 설비
+    evidence: page_037.txt 전체 검색 결과 '접지 시험 단자' 또는 'GTB' 미포함. 범례 섹션에도 미포함
+    confidence: 0.99
+  - target: detected_symbols - 구조체 접속
+    resolution: 'count: 2는 시각적으로 확인된 심볼 개수이나, 도면 주석에서 ''12개소 동일''으로 명시. 불일치 보고'
+    evidence: 'page_037.txt: ''구조체 접속 / 12개소 동일'' vs. page_037_context.yaml detected_symbols
+      count: 2'
+    confidence: 0.95
+  - target: pass1_설비식별 - 구조물 접속 (●) 누락
+    resolution: 범례에서 '구조물 접속' (●)이 '구조체 접속' (■)과 별도로 표기되어 있으나 pass1에서 누락됨. 도면 본문에
+      해당 심볼 확인 필요
+    evidence: 'page_037.txt 범례 섹션: ''구조물 접속'' 별도 항목 표기. 현재 분석에서는 ''구조체 접속''만 추출됨'
+    confidence: 0.9
+  - target: pass1_설비식별 - ROOF-STRUCTURE, ROOF-DETAIL-AREA
+    resolution: 설비식별(pass1_설비식별) 범주에 포함되어 있으나, 이들은 건축/공간 요소이지 전기 설비가 아님. 카테고리 재분류
+      필요
+    evidence: 'page_037_context.yaml: ROOF-STRUCTURE (discipline: STRUCTURAL), ROOF-DETAIL-AREA
+      (discipline: ARCHITECTURAL). 설비(equipment)가 아님'
+    confidence: 0.95
+  - target: pass1_설비식별 - 입상/입하 심볼 누락
+    resolution: 범례에서 '입상, 입하' (↗) 및 '층간연결 입상, 입하' (↗/)가 별도 심볼로 정의되어 있으나 pass1에서 추출되지
+      않음
+    evidence: 'page_037.txt 범례: ''입상, 입하 (F-GV Wire 또는 구조체 접속)'' 및 ''층간연결 입상, 입하''
+      항목 존재'
+    confidence: 0.85
+  missing_entities:
+  - tag: LP-STRUCT-CONN-002 ~ LP-STRUCT-CONN-012
+    name: 구조체 접속 (추가 11개소)
+    evidence: 'page_037.txt: ''구조체 접속 / 12개소 동일''. detected_symbols에서는 count: 2만 시각적으로
+      확인됨. 도면 본문에 12개 위치 표시되어 있으나 개별 태그 미부여'
+    confidence: 0.92
+  - tag: LP-STRUCT-CONN-SYMBOL (●)
+    name: 구조물 접속 (범례 심볼)
+    evidence: 'page_037.txt 범례: ''구조물 접속'' 별도 항목. 현재 분석에서는 ''구조체 접속''만 추출됨. 도면 본문에
+      해당 심볼 확인 필요'
+    confidence: 0.8
+  - tag: LP-VERTICAL-CONDUCTOR
+    name: 입상/입하 도선
+    evidence: 'page_037.txt 범례: ''입상, 입하 (F-GV Wire 또는 구조체 접속)'' 항목 존재. 도면 본문에 표시
+      여부 확인 필요'
+    confidence: 0.75
+  relationship_issues:
+  - issue: '구조체 접속 개수 불일치: detected_symbols count: 2 vs. 도면 주석 ''12개소 동일'''
+    recommendation: 도면 본문에서 실제 구조체 접속 심볼 개수를 재확인하고, 각 위치에 개별 태그(LP-STRUCT-CONN-001
+      ~ LP-STRUCT-CONN-012) 부여
+  - issue: '금속 사다리 접속 개수 불일치: pass1 entity count: 1 vs. 도면 주석 ''2개소 동일'''
+    recommendation: LP-LADDER-CONN-001을 LP-LADDER-CONN-001, LP-LADDER-CONN-002로 분리하거나,
+      기존 entity의 spec_text에 '2개소' 명시
+  - issue: 범례 심볼 '구조물 접속' (●)과 '구조체 접속' (■)의 구분 미반영
+    recommendation: 도면 본문에서 두 심볼이 실제로 구분되어 사용되는지 확인. 구분된다면 별도 entity type으로 추출
+  consistency_check:
+    entity_count_before: 12
+    entity_count_after: 10
+    entity_count_note: GROUNDING-TEST-TERMINAL 제거 (-1), ROOF-STRUCTURE 및 ROOF-DETAIL-AREA를
+      설비 범주에서 제외 (-2) = 12 - 3 = 9. 단, 구조체 접속 12개소 개별 태그 미부여로 인한 누락 고려 시 실제 설비 개수는
+      더 많음
+    relation_count_before: 7
+    relation_count_after: 7
+    relation_count_note: 관계 구조는 일관성 있음. 추가 구조체 접속 개수 반영 시 관계 수 증가 필요
+    symbol_count_discrepancy: '구조체 접속 detected_symbols: 2 vs. 도면 주석: 12개소'
+  overall_confidence: 0.88
+  summary: '주요 오류:
+
+    1. GROUNDING-TEST-TERMINAL은 도면에 근거 없이 추가된 설비 (제거 필수)
+
+    2. 금속 사다리 접속 개수 미반영 (1 → 2)
+
+    3. 구조체 접속 12개소 중 2개소만 detected_symbols에 반영됨 (개별 태그 부여 필요)
+
+    4. 범례의 ''구조물 접속'' (●) 심볼이 pass1에서 누락됨
+
+    5. 입상/입하 도선 심볼이 범례에는 있으나 pass1에서 추출되지 않음
+
+    6. ROOF-STRUCTURE, ROOF-DETAIL-AREA는 건축 요소이지 전기 설비가 아님 (카테고리 재분류 필요)'

@@ -1,0 +1,727 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: PROFILE_DRAWING
+  drawing_genre: drainage
+  title_block:
+    drawing_number: C10-302
+    title: 오수종단면도
+    revision: null
+  visible_tags:
+  - tag: SM.1
+    type: line_marker
+    source: image
+  - tag: SM.2
+    type: line_marker
+    source: image
+  - tag: SM.3
+    type: line_marker
+    source: image
+  - tag: SM.4
+    type: line_marker
+    source: image
+  - tag: SM.5
+    type: line_marker
+    source: image
+  - tag: LINE 101
+    type: line_marker
+    source: image
+  - tag: LINE 102
+    type: line_marker
+    source: image
+  - tag: LINE 103
+    type: line_marker
+    source: image
+  - tag: LINE 104
+    type: line_marker
+    source: image
+  - tag: LINE 105
+    type: line_marker
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 10
+  next_step_hints:
+  - 오수종단면도이며 표제란 도면번호는 C10-302로 보임
+  - 범례 전용 페이지는 아님
+  - 하단 표에 SM.1~SM.5 및 LINE 101~105 표기가 보임
+  confidence: 0.98
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/civil/genre_drainage/supplement_p4_05.yaml
+  routing_confidence: 0.2
+  routing_reason: 도면번호 접두사 C와 제목 '오수종단면도'로 보아 civil 계열 도면이나, available_supplements_catalog에
+    civil의 P-10/P-4.5 매칭 항목이 없어 null로 기록함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: PROFILE-01
+    shape: rectangle
+    primary_label: 오수종단면도
+    position: center
+    labels_near:
+    - 101 ~ 105 호선
+    - 'V: 1:200, H: 1:1000'
+  - panel_id: DATA-TABLE-01
+    shape: rectangle
+    primary_label: 종단 데이터 테이블
+    position: bottom-center
+    labels_near:
+    - 맨홀번호
+    - 접지거리
+    - 누가거리
+    - 계획고
+    - 관저고
+    - 터파기고
+    - 토피고
+    - 기울기
+  connections:
+  - from: PROFILE-01
+    to: DATA-TABLE-01
+    line_style: solid
+    annotation: 수직 투영 관계
+  notable_shapes:
+  - shape: circle
+    label: SM.1
+    note: 맨홀 심볼 (평면도와 매핑)
+  - shape: circle
+    label: SM.2
+    note: 맨홀 심볼
+  - shape: circle
+    label: SM.3
+    note: 맨홀 심볼
+  - shape: circle
+    label: SM.4
+    note: 맨홀 심볼
+  - shape: circle
+    label: SM.5
+    note: 맨홀 심볼
+  - shape: other
+    label: 관로 라인
+    note: 맨홀 사이를 잇는 이중선 + 기울기/연장 표기
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.99
+  note: 페이지 전체가 오수 종단면도 및 관련 데이터 테이블로 구성되어 있으며, 범례 섹션은 없음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: drainage
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 C10-302 및 제목 '오수종단면도'와 vision으로 확인된 종단 프로파일, 맨홀(SM.1~5), 관로(LINE
+    101~105), 데이터 테이블(관저고, 기울기 등) 정보가 일치함. 토목 도면 특수 도형 식별 규약에 따라 종단면도는 drainage 장르로
+    분류되며, 카탈로그에서 civil/genre_drainage/P-4.5 경로를 추출하여 갱신함.
+classification: PROFILE_DRAWING
+discipline: CIVIL
+key_elements_from_text:
+- 오수종단면도
+- 101 ~ 105 호선
+- LINE 101
+- LINE 102
+- LINE 103
+- LINE 104
+- LINE 105
+- SM.1
+- SM.2
+- SM.3
+- SM.4
+- SM.5
+- D=150
+- S = 3.85 %
+- S = 4.00 %
+- S = 4.10 %
+- S = 4.17 %
+- L = 26.00 m
+- L = 39.00 m
+- L = 12.00 m
+- L = 13.00 m
+- 기준맨홀
+- 맨홀번호
+- 접지거리
+- 누가거리
+- 계획고
+- 관저고
+- 터파기고
+- 토피고
+- 기울기
+title_block:
+  drawing_number: C10-302
+  title: 오수종단면도
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 discipline=CIVIL, classification=PROFILE_DRAWING, drawing_genre=drainage,
+  title_block(C10-302/오수종단면도)와 일치함. 시각적으로 종단 프로파일과 하단 데이터 테이블이 보이며, 범례 전용 페이지는 아님.
+  표제란 하단에 리비전 표기는 확인되지 않아 UNKNOWN으로 둠.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PROF-01
+    shape: rectangle
+    labels_inside:
+    - 101 ~ 105 호선
+    - 기준맨홀 H=1.49
+    - SM.1 H=1.57
+    - SM.2 H=1.92
+    - SM.3 H=1.30
+    - SM.4 H=1.35
+    - SM.5 H=1.60
+    - EL 104.00
+    - EL 100.00
+    - EL 95.00
+    - LINE 101 D=150
+    - LINE 102 D=150
+    - LINE 103 D=150
+    - LINE 104 D=150
+    - LINE 105 D=150
+    - S = 3.85 % / L = 26.00 m
+    - S = 4.00 % / L = 15.00 m
+    - S = 4.10 % / L = 39.00 m
+    - S = 4.17 % / L = 12.00 m
+    - S = 3.85 % / L = 13.00 m
+    - 92.02 / 92.89
+    - 92.02 / 92.83 / 92.80
+    - 92.64 / 92.61
+    - 92.56 / 92.55
+    - '92.48'
+    - '93.02'
+    labels_above:
+    - 오수종단면도
+    labels_below:
+    - 'V : 1:200'
+    - 'H : 1:1000'
+    equipment_symbols:
+    - type: manhole_circle
+      count: 6
+      note: 기준맨홀(기존맨홀) + SM.1 ~ SM.5
+    - type: pipe_double_line
+      count: 5
+      note: LINE 101~105 관로 이중선 표현
+    inferred_name: 오수 종단 프로파일 (101~105호선)
+    position: top-center
+  - panel_id: TABLE-01
+    shape: rectangle
+    labels_inside:
+    - '맨홀번호: 기존맨홀, SM.1, SM.2, SM.3, SM.4, SM.5'
+    - '접지거리: 0.00, 26.00, 15.00, 39.00, 12.00, 13.00'
+    - '누가거리: 0.00, 26.00, 41.00, 80.00, 92.00, 105.00'
+    - '계획고: 94.50, 94.45, 94.71, 93.90, 93.90, 93.90'
+    - '관저고: 93.02, 92.89/92.92, 92.83/92.80, 92.64/92.61, 92.56/92.55, 92.48'
+    - '터파기고: 1.60, 1.55/1.65, 2.03/2.08, 1.38/1.48, 1.48, 1.54'
+    - '토피고: 1.31, 1.38/1.35, 1.74/1.71, 1.09/1.12, 1.15/1.16, 1.25'
+    - '기울기: S=3.85%, S=4.00%, S=4.10%, S=4.17%, S=3.85%'
+    labels_above:
+    - 종단 데이터 테이블
+    labels_below:
+    - '1 : 1000'
+    inferred_name: 오수 종단면 데이터 테이블
+    position: bottom-center
+  connections:
+  - from: PROF-01
+    to: TABLE-01
+    line_type: other
+    line_style: solid
+    annotation: 수직 투영 관계 — 프로파일 각 맨홀 위치가 테이블 열과 1:1 대응
+  - from: 기준맨홀(기존맨홀)
+    to: SM.1
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 101, D=150, S=3.85%, L=26.00m
+  - from: SM.1
+    to: SM.2
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 102, D=150, S=4.00%, L=15.00m
+  - from: SM.2
+    to: SM.3
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 103, D=150, S=4.10%, L=39.00m
+  - from: SM.3
+    to: SM.4
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 104, D=150, S=4.17%, L=12.00m
+  - from: SM.4
+    to: SM.5
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 105, D=150, S=3.85%, L=13.00m
+  groups:
+  - group_id: GRP-SEWER-LINE
+    label: 오수관로 101~105호선
+    members:
+    - 기준맨홀(기존맨홀)
+    - SM.1
+    - SM.2
+    - SM.3
+    - SM.4
+    - SM.5
+    note: '총연장 105.00m, 관경 D=150mm, 오수 흐름 방향: 기준맨홀 → SM.5'
+  legend_references: []
+  diagram_meta:
+    title: 오수종단면도
+    drawing_number: C10-302
+    discipline: CIVIL
+    drawing_genre: drainage
+    drawing_subtype: longitudinal_profile
+    flow_direction: left-to-right
+    scale_vertical: 1:200
+    scale_horizontal: 1:1000
+    coordinate_system: station
+    project: LS Electric R-Center 구축
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    revision: null
+    entities:
+    - entity_id: 기준맨홀
+      type: manhole
+      subsystem: sewage
+      status: existing
+      label: 기존맨홀
+      manhole_depth_m: 1.49
+      cumulative_distance_m: 0.0
+      plan_level_m: 94.5
+      invert_level_m: 93.02
+      excavation_depth_m: 1.6
+      soil_cover_m: 1.31
+    - entity_id: SM.1
+      type: manhole
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.57
+      segment_distance_m: 26.0
+      cumulative_distance_m: 26.0
+      plan_level_m: 94.45
+      invert_level_in_m: 92.92
+      invert_level_out_m: 92.89
+      excavation_depth_m_in: 1.55
+      excavation_depth_m_out: 1.65
+      soil_cover_m_in: 1.38
+      soil_cover_m_out: 1.35
+    - entity_id: SM.2
+      type: manhole
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.92
+      segment_distance_m: 15.0
+      cumulative_distance_m: 41.0
+      plan_level_m: 94.71
+      invert_level_in_m: 92.83
+      invert_level_out_m: 92.8
+      excavation_depth_m_in: 2.03
+      excavation_depth_m_out: 2.08
+      soil_cover_m_in: 1.74
+      soil_cover_m_out: 1.71
+    - entity_id: SM.3
+      type: manhole
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.3
+      segment_distance_m: 39.0
+      cumulative_distance_m: 80.0
+      plan_level_m: 93.9
+      invert_level_in_m: 92.64
+      invert_level_out_m: 92.61
+      excavation_depth_m_in: 1.38
+      excavation_depth_m_out: 1.48
+      soil_cover_m_in: 1.09
+      soil_cover_m_out: 1.12
+    - entity_id: SM.4
+      type: manhole
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.35
+      segment_distance_m: 12.0
+      cumulative_distance_m: 92.0
+      plan_level_m: 93.9
+      invert_level_in_m: 92.56
+      invert_level_out_m: 92.55
+      excavation_depth_m: 1.48
+      soil_cover_m_in: 1.15
+      soil_cover_m_out: 1.16
+    - entity_id: SM.5
+      type: manhole
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.6
+      segment_distance_m: 13.0
+      cumulative_distance_m: 105.0
+      plan_level_m: 93.9
+      invert_level_m: 92.48
+      excavation_depth_m: 1.54
+      soil_cover_m: 1.25
+    - entity_id: LINE 101
+      type: pipe
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 3.85
+      length_m: 26.0
+      from_node: 기준맨홀
+      to_node: SM.1
+    - entity_id: LINE 102
+      type: pipe
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 4.0
+      length_m: 15.0
+      from_node: SM.1
+      to_node: SM.2
+    - entity_id: LINE 103
+      type: pipe
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 4.1
+      length_m: 39.0
+      from_node: SM.2
+      to_node: SM.3
+    - entity_id: LINE 104
+      type: pipe
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 4.17
+      length_m: 12.0
+      from_node: SM.3
+      to_node: SM.4
+    - entity_id: LINE 105
+      type: pipe
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 3.85
+      length_m: 13.0
+      from_node: SM.4
+      to_node: SM.5
+    total_pipe_length_m: 105.0
+    elevation_reference:
+      el_104: 104.0
+      el_100: 100.0
+      el_95: 95.0
+    is_reference_only: false
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+entity_synthesis:
+  entities:
+  - tag: 기준맨홀
+    name: 기존맨홀
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      subsystem: sewage
+      status: existing
+      manhole_depth_m: 1.49
+      cumulative_distance_m: 0.0
+      plan_level_m: 94.5
+      invert_level_m: 93.02
+      excavation_depth_m: 1.6
+      soil_cover_m: 1.31
+    position: profile-start
+    source_block: both
+  - tag: SM.1
+    name: SM.1
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.57
+      segment_distance_m: 26.0
+      cumulative_distance_m: 26.0
+      plan_level_m: 94.45
+      invert_level_in_m: 92.92
+      invert_level_out_m: 92.89
+      excavation_depth_m_in: 1.55
+      excavation_depth_m_out: 1.65
+      soil_cover_m_in: 1.38
+      soil_cover_m_out: 1.35
+    position: profile
+    source_block: both
+  - tag: SM.2
+    name: SM.2
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.92
+      segment_distance_m: 15.0
+      cumulative_distance_m: 41.0
+      plan_level_m: 94.71
+      invert_level_in_m: 92.83
+      invert_level_out_m: 92.8
+      excavation_depth_m_in: 2.03
+      excavation_depth_m_out: 2.08
+      soil_cover_m_in: 1.74
+      soil_cover_m_out: 1.71
+    position: profile
+    source_block: both
+  - tag: SM.3
+    name: SM.3
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.3
+      segment_distance_m: 39.0
+      cumulative_distance_m: 80.0
+      plan_level_m: 93.9
+      invert_level_in_m: 92.64
+      invert_level_out_m: 92.61
+      excavation_depth_m_in: 1.38
+      excavation_depth_m_out: 1.48
+      soil_cover_m_in: 1.09
+      soil_cover_m_out: 1.12
+    position: profile
+    source_block: both
+  - tag: SM.4
+    name: SM.4
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.35
+      segment_distance_m: 12.0
+      cumulative_distance_m: 92.0
+      plan_level_m: 93.9
+      invert_level_in_m: 92.56
+      invert_level_out_m: 92.55
+      excavation_depth_m: 1.48
+      soil_cover_m_in: 1.15
+      soil_cover_m_out: 1.16
+    position: profile
+    source_block: both
+  - tag: SM.5
+    name: SM.5
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      subsystem: sewage
+      status: new
+      manhole_depth_m: 1.6
+      segment_distance_m: 13.0
+      cumulative_distance_m: 105.0
+      plan_level_m: 93.9
+      invert_level_m: 92.48
+      excavation_depth_m: 1.54
+      soil_cover_m: 1.25
+    position: profile-end
+    source_block: both
+  - tag: LINE 101
+    name: LINE 101
+    discipline: CIVIL
+    function_category: PIPE
+    specifications:
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 3.85
+      length_m: 26.0
+      from_node: 기준맨홀
+      to_node: SM.1
+    position: between 기준맨홀 and SM.1
+    source_block: both
+  - tag: LINE 102
+    name: LINE 102
+    discipline: CIVIL
+    function_category: PIPE
+    specifications:
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 4.0
+      length_m: 15.0
+      from_node: SM.1
+      to_node: SM.2
+    position: between SM.1 and SM.2
+    source_block: both
+  - tag: LINE 103
+    name: LINE 103
+    discipline: CIVIL
+    function_category: PIPE
+    specifications:
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 4.1
+      length_m: 39.0
+      from_node: SM.2
+      to_node: SM.3
+    position: between SM.2 and SM.3
+    source_block: both
+  - tag: LINE 104
+    name: LINE 104
+    discipline: CIVIL
+    function_category: PIPE
+    specifications:
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 4.17
+      length_m: 12.0
+      from_node: SM.3
+      to_node: SM.4
+    position: between SM.3 and SM.4
+    source_block: both
+  - tag: LINE 105
+    name: LINE 105
+    discipline: CIVIL
+    function_category: PIPE
+    specifications:
+      subsystem: sewage
+      status: new
+      nominal_diameter_mm: 150
+      slope_percent: 3.85
+      length_m: 13.0
+      from_node: SM.4
+      to_node: SM.5
+    position: between SM.4 and SM.5
+    source_block: both
+  - tag: PROF-01
+    name: 오수 종단 프로파일 (101~105호선)
+    discipline: CIVIL
+    function_category: PROFILE_PANEL
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 101 ~ 105 호선
+      - 기준맨홀 H=1.49
+      - SM.1 H=1.57
+      - SM.2 H=1.92
+      - SM.3 H=1.30
+      - SM.4 H=1.35
+      - SM.5 H=1.60
+      - EL 104.00
+      - EL 100.00
+      - EL 95.00
+      - LINE 101 D=150
+      - LINE 102 D=150
+      - LINE 103 D=150
+      - LINE 104 D=150
+      - LINE 105 D=150
+      - S = 3.85 % / L = 26.00 m
+      - S = 4.00 % / L = 15.00 m
+      - S = 4.10 % / L = 39.00 m
+      - S = 4.17 % / L = 12.00 m
+      - S = 3.85 % / L = 13.00 m
+      - 92.02 / 92.89
+      - 92.02 / 92.83 / 92.80
+      - 92.64 / 92.61
+      - 92.56 / 92.55
+      - '92.48'
+      - '93.02'
+      labels_above:
+      - 오수종단면도
+      labels_below:
+      - 'V : 1:200'
+      - 'H : 1:1000'
+      equipment_symbols:
+      - type: manhole_circle
+        count: 6
+        note: 기준맨홀(기존맨홀) + SM.1 ~ SM.5
+      - type: pipe_double_line
+        count: 5
+        note: LINE 101~105 관로 이중선 표현
+      inferred_name: 오수 종단 프로파일 (101~105호선)
+      position: top-center
+      scale_vertical: 1:200
+      scale_horizontal: 1:1000
+      coordinate_system: station
+      flow_direction: left-to-right
+      drawing_number: C10-302
+      title: 오수종단면도
+      project: LS Electric R-Center 구축
+      design_firm: 가운건축 (GAUN Architects & Engineers)
+      date: '2024.05'
+      elevation_reference:
+        el_104: 104.0
+        el_100: 100.0
+        el_95: 95.0
+      total_pipe_length_m: 105.0
+      is_reference_only: false
+    position: top-center
+    source_block: both
+  - tag: TABLE-01
+    name: 오수 종단면 데이터 테이블
+    discipline: CIVIL
+    function_category: DATA_TABLE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - '맨홀번호: 기존맨홀, SM.1, SM.2, SM.3, SM.4, SM.5'
+      - '접지거리: 0.00, 26.00, 15.00, 39.00, 12.00, 13.00'
+      - '누가거리: 0.00, 26.00, 41.00, 80.00, 92.00, 105.00'
+      - '계획고: 94.50, 94.45, 94.71, 93.90, 93.90, 93.90'
+      - '관저고: 93.02, 92.89/92.92, 92.83/92.80, 92.64/92.61, 92.56/92.55, 92.48'
+      - '터파기고: 1.60, 1.55/1.65, 2.03/2.08, 1.38/1.48, 1.48, 1.54'
+      - '토피고: 1.31, 1.38/1.35, 1.74/1.71, 1.09/1.12, 1.15/1.16, 1.25'
+      - '기울기: S=3.85%, S=4.00%, S=4.10%, S=4.17%, S=3.85%'
+      labels_above:
+      - 종단 데이터 테이블
+      labels_below:
+      - '1 : 1000'
+      inferred_name: 오수 종단면 데이터 테이블
+      position: bottom-center
+      drawing_number: C10-302
+      title: 오수종단면도
+      scale_horizontal: 1:1000
+    position: bottom-center
+    source_block: both
+  relationships:
+  - from_tag: PROF-01
+    to_tag: TABLE-01
+    relation_type: connects_to
+    note: 수직 투영 관계 — 프로파일 각 맨홀 위치가 테이블 열과 1:1 대응
+  - from_tag: 기준맨홀
+    to_tag: SM.1
+    relation_type: connects_to
+    note: LINE 101, D=150, S=3.85%, L=26.00m
+  - from_tag: SM.1
+    to_tag: SM.2
+    relation_type: connects_to
+    note: LINE 102, D=150, S=4.00%, L=15.00m
+  - from_tag: SM.2
+    to_tag: SM.3
+    relation_type: connects_to
+    note: LINE 103, D=150, S=4.10%, L=39.00m
+  - from_tag: SM.3
+    to_tag: SM.4
+    relation_type: connects_to
+    note: LINE 104, D=150, S=4.17%, L=12.00m
+  - from_tag: SM.4
+    to_tag: SM.5
+    relation_type: connects_to
+    note: LINE 105, D=150, S=3.85%, L=13.00m
+  spaces:
+  - space_id: PROF-SPACE-01
+    name: 오수종단면도 영역
+    contains:
+    - PROF-01
+    - TABLE-01
+    - 기준맨홀
+    - SM.1
+    - SM.2
+    - SM.3
+    - SM.4
+    - SM.5
+    - LINE 101
+    - LINE 102
+    - LINE 103
+    - LINE 104
+    - LINE 105
+  self_check:
+    entity_count: 8
+    relationship_count: 6
+    visual_spec_preserved: true
+    issues: []

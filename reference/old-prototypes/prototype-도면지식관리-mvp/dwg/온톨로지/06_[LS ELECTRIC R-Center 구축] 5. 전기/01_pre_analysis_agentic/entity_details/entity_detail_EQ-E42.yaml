@@ -1,0 +1,63 @@
+entity_detail:
+  tag: EQ-E42
+  type: Three Phase Motor
+  specs: {}
+  drawing_texts:
+  - source: page 3 legend_data.yaml
+    page_number: 3
+    text: Three Phase Motor
+  - source: page 3 page_003_context.yaml
+    page_number: 3
+    text: 'tag: EQ-E42
+
+      name: Three Phase Motor
+
+      type: Three Phase Motor
+
+      discipline: ELECTRICAL
+
+      confidence: 0.99'
+  - source: page 3 search_entity_by_tag
+    page_number: 3
+    text: 'tag: EQ-E42
+
+      name: Three Phase Motor
+
+      spec: null
+
+      discipline: ELECTRICAL
+
+      confidence: 0.99
+
+      note: ''출처: page 3 범례 표 전력 설비 섹션 / legend_data.yaml SYM-042'''
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations: []
+    observed_attributes:
+    - tag
+    - name
+    - type
+    - discipline
+    - confidence
+    - spec
+    similar_equipment:
+    - EQ-E41
+    suggested_parent_class: Motor
+    cross_discipline: []
+  notes:
+  - page 3는 전력용 범례 및 주기사항 페이지이며, EQ-E42는 범례 심볼로 확인됨.
+  - legend_data.yaml에서 EQ-E42는 SYM-042 Three Phase Motor로 확인되며 spec은 null이다.
+  - search_entity_by_tag 결과에서도 spec: null로 확인되어 자체 정격/수치 사양은 확인되지 않음.
+  - 독립 설비 엔티티가 아니라 문서 메타/범례 성격으로 demoted 판단을 유지한다.
+  evaluation:
+    status: demoted
+    reason: tag, type, discipline는 확인되지만 specs가 비어 있고 범례 심볼로만 확인됨.
+    missing_relations: []
+    verification:
+      tools_used:
+      - search_entity_by_tag
+      - read_page_context
+      - read_legend_data
+      unresolved: []
+tag: EQ-E42

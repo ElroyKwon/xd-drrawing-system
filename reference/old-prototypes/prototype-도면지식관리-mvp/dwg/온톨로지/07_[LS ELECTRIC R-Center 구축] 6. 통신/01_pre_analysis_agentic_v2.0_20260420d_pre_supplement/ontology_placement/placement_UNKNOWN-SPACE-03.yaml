@@ -1,0 +1,177 @@
+placement:
+  tag: UNKNOWN-SPACE-03
+  name: R-Center EPS/TPS 방향 인출 경로
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SPACE-03
+    class_hint: CommunicationPathway
+    alternative_class_hints:
+    - CableAndPathway
+    - SpatialEntity
+    related_assertions:
+    - type: connectedTo
+      target_hint: R-Center
+      note: 'labels_inside의 ''TO : R-Conter EPS/TPS''에서 목적지로 읽히는 대상'
+    - type: routesThrough
+      target_hint: 지하공동구
+      note: labels_inside의 '지하공동구 사용'에서 경유/사용 경로로 관찰됨
+    - type: referencesDocumentSection
+      target_hint: 옥외 정보통신 인입 배치도
+      note: labels_inside의 '(옥외 정보통신 인입 배치도 참조)'
+    applicable_axioms:
+    - AX025
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationPathway
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: ELP 50
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: hasRouteLabel
+          suggested_datatype: xsd:string
+          rationale: 경로 내부 표기 문자열로 보이며 경로 식별/주석 값 후보
+      - raw_text: /IN TRAY
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: hasRouteSegment
+          suggested_datatype: xsd:string
+          rationale: 경로 구간 또는 트레이 진입 표기 문자열
+      - raw_text: 'TO : R-Conter EPS/TPS'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: hasDestinationLabel
+          suggested_datatype: xsd:string
+          rationale: 목적지 표기 문자열이며 대상명 정규화 후보
+      - raw_text: UTP 0.5mm/25Px1,CAT.5
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: hasCableSpecText
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열로 보이나 별도 규격 엔티티 여부는 미확정
+      - raw_text: FIBER OPTICAL S.M 12CORE
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: hasCableSpecText
+          suggested_datatype: xsd:string
+          rationale: 광케이블 규격 문자열로 보임
+      - raw_text: 지하공동구 사용
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: usesPathwayType
+          suggested_datatype: xsd:string
+          rationale: 경로의 사용 방식/경유 시설을 나타내는 주석성 텍스트
+      - raw_text: (옥외 정보통신 인입 배치도 참조)
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: referencesDrawing
+          suggested_datatype: xsd:string
+          rationale: 참조 도면명 표기
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 9
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 9
+      method: entity_detail.function_category
+    source_pages:
+      source_pages:
+      - 9
+      method: entity_detail.source_pages
+    specs.labels_inside:
+      source_pages:
+      - 9
+      method: entity_detail.specs.labels_inside
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 9
+      method: entity_detail.collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: ELP 50
+    source_page: 9
+    reason: 도면 내 약어/코드로 보이나 의미를 외부 지식 없이 확정할 수 없음
+    preservation_note: 경로 라벨 또는 구간 코드 후보
+  - field_candidate: specs.labels_inside
+    raw_text: /IN TRAY
+    source_page: 9
+    reason: 경로 표기인지 설치 방식 표기인지 단정 불가
+    preservation_note: 트레이 진입/내부 구간 표기 후보
+  - field_candidate: specs.labels_inside
+    raw_text: 'TO : R-Conter EPS/TPS'
+    source_page: 9
+    reason: 목적지 표기이나 철자 변형(R-Conter) 포함
+    preservation_note: R-Center로 보이는 대상명 후보
+  - field_candidate: specs.labels_inside
+    raw_text: UTP 0.5mm/25Px1,CAT.5
+    source_page: 9
+    reason: 케이블 규격 문자열이지만 세부 구조를 분해하지 않음
+    preservation_note: 케이블 스펙 텍스트 원형 보존
+  - field_candidate: specs.labels_inside
+    raw_text: FIBER OPTICAL S.M 12CORE
+    source_page: 9
+    reason: 광케이블 규격 문자열이지만 세부 속성 분해 미실시
+    preservation_note: 광케이블 스펙 텍스트 원형 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 지하공동구 사용
+    source_page: 9
+    reason: 경로 사용 조건인지 실제 경유 시설인지 문맥상 단정 불가
+    preservation_note: 경로/시설 관계 후보
+  - field_candidate: specs.labels_inside
+    raw_text: (옥외 정보통신 인입 배치도 참조)
+    source_page: 9
+    reason: 참조 문서명은 확인되나 문서 엔티티 존재 여부 미확인
+    preservation_note: 참조 출처 텍스트 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 경로(pathway) 성격이 강하지만, 'SPACE' 접두와 labels_inside의 경로/주석 혼재로 인해 공간
+      엔티티인지 경로 엔티티인지 경계가 다소 불명확함.
+    recommended_handling: 0-9c에서 CommunicationPathway 우선 검토 후, 공간/구역으로의 승격 여부를 별도
+      확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 Cable/Route/Containment 축을 우선 고려
+    - labels_inside 및 참조 문구를 보존
+    - related_assertions는 관계 사실 원형만 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:17.558094'
+  confidence: 0.84

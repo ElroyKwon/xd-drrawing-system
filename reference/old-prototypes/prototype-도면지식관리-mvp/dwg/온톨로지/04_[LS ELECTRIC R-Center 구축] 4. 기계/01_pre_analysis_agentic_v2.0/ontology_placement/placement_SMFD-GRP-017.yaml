@@ -1,0 +1,173 @@
+placement:
+  tag: SMFD-GRP-017
+  name: Drive 기기시험실 SMFD 그룹
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SMFD-GRP-017
+    class_hint: FireDamperGroup
+    alternative_class_hints:
+    - LogicalGroup
+    - FireProtectionEquipment
+    related_assertions:
+    - type: connects_to
+      target_hint: CTRL-PANEL-1F
+      note: CTRL-PANEL-1F에서 SMFD-GRP-017로 connects_to 관계가 source_page 51에서 관찰됨
+    applicable_axioms:
+    - AX024
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:EquipmentGroup
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: group'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasGroupType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 group 타입이 명시됨
+      - raw_text: 'function_category: PROTECT'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 값이 원문에 직접 제시됨
+      - raw_text: 'specs.position: bottom-center / grid C-D / 4-5'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 위치 표기가 문자열 형태로 관찰됨
+      - raw_text: 'specs.equipment_symbols: type=SMFD_symbol, count=1'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 기호 종류와 수량이 함께 제시됨
+      - raw_text: 'ontology_hints.suggested_parent_class: FireDamperGroup'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스 후보
+      - raw_text: 'ontology_hints.observed_attributes: position, equipment_symbols,
+          inferred_name'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록이 원문에 존재함
+      - raw_text: 'ontology_hints.function_candidates: Smoke Control, Fire Protection'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 원문에 직접 제시됨
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: isCrossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 수집 출처 검증 여부가 명시됨
+      - raw_text: 'collection_sources.visual_semantics_gemini: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasVisualSemanticsGemini
+          suggested_datatype: xsd:boolean
+          rationale: 시각 의미 해석 사용 여부가 명시됨
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasEntitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 사용 여부가 명시됨
+  provenance:
+    name:
+      source_pages:
+      - 51
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 51
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 51
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 51
+      method: ontology_hints.suggested_parent_class + entity_detail interpretation
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 51
+      method: plan + entity_detail interpretation
+    ontology_core.related_assertions:
+      source_pages:
+      - 51
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 51
+      method: entity_detail full scan
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 51
+      method: assessment
+    confidence:
+      source_pages:
+      - 51
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.position
+    raw_text: bottom-center / grid C-D / 4-5
+    source_page: 51
+    reason: 도면 위치 표기이지만 OWL 핵심 속성으로 확정할 표준 라벨이 없음
+    preservation_note: 후속 단계에서 위치/배치 속성으로 승격 가능
+  - field_candidate: specs.equipment_symbols
+    raw_text: 'type: SMFD_symbol, count: 1'
+    source_page: 51
+    reason: 기호 정보는 관찰되나 현재 단계에서 정식 속성명 확정 불가
+    preservation_note: SMFD 그룹의 시각적 근거로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Smoke Control, Fire Protection
+    source_page: 51
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 기능 후보 목록으로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: FireDamperGroup
+    source_page: 51
+    reason: 힌트이므로 확정 클래스 아님
+    preservation_note: class_hint 후보로만 반영
+  - field_candidate: collection_sources
+    raw_text: 'cross_validated: true; visual_semantics_gemini: true; entity_synthesis:
+      true'
+    source_page: 51
+    reason: 출처 메타정보는 의미론적 속성으로 직접 승격하지 않음
+    preservation_note: provenance 보강용 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SMFD-GRP-017은 그룹(group)으로 명시되며, 물리적 장비인지 논리적 그룹인지 경계가 도면 텍스트만으로 완전히 확정되지
+      않음. 또한 FireDamperGroup / LogicalGroup / FireProtectionEquipment 후보가 공존함.
+    recommended_handling: NamedIndividual로 존속시키되, 후속 단계에서 FireDamperGroup 또는 LogicalGroup
+      계열로 세분화 검토. connects_to 관계는 유지하고, 그룹/장비 구분은 0-9c/0-9d에서 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - SMFD 그룹을 논리적 그룹으로 보존하되 물리적 실체 가능성도 함께 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:33.347063'
+  confidence: 0.85

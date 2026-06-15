@@ -1,0 +1,271 @@
+placement:
+  tag: PIPE-DTL-01
+  name: 이중벽 PVC 주름관 본체 상세
+  discipline: civil
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DrainagePipe
+    alternative_class_hints:
+    - PipeDetail
+    - CivilDrawingElement
+    related_assertions:
+    - type: referencesDetail
+      target_hint: PIPE-DTL-02
+      note: A 부위 상세 참조 화살표
+      confirmed_property: dks:referencesDetail
+      confirmed_target: dks:PIPE-DTL-02
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T13:19:01.516917'
+    - type: appliesDimension
+      target_hint: TABLE-PVC-01
+      note: 치수 적용 (규격 150~300)
+      confirmed_property: dks:appliesDimension
+      confirmed_target: dks:TABLE-PVC-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T13:19:01.516917'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UNCLASSIFIED
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: PIPE
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트
+      - raw_text: Lo (관 길이)
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasLengthLabel
+          suggested_datatype: xsd:string
+          rationale: 치수 항목 라벨
+      - raw_text: d (내경)
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasInnerDiameterLabel
+          suggested_datatype: xsd:string
+          rationale: 내경 표기 라벨
+      - raw_text: D (외경)
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasOuterDiameterLabel
+          suggested_datatype: xsd:string
+          rationale: 외경 표기 라벨
+      - raw_text: 소켓식 연결
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasConnectionType
+          suggested_datatype: xsd:string
+          rationale: 연결 방식 표기
+      - raw_text: 이중벽 주름관
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasPipeMaterialOrType
+          suggested_datatype: xsd:string
+          rationale: 관의 형식/종류 표기
+      - raw_text: 이중벽 PVC 주름관 단면 심볼
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 명칭
+      - raw_text: 소켓 연결부 단면
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 명칭
+      - raw_text: top-left
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: rectangle
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도면 형상 표기
+      - raw_text: visual_semantics
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasSourceModel
+          suggested_datatype: xsd:string
+          rationale: 추출 출처/모델 표기
+      - raw_text: detail
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasDrawingGenre
+          suggested_datatype: xsd:string
+          rationale: 도면 장르 표기
+      - raw_text: drainage_pipe_detail
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasSubGenre
+          suggested_datatype: xsd:string
+          rationale: 세부 장르 표기
+      - raw_text: Drainage
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보
+      - raw_text: Fluid Transport
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보
+  provenance:
+    name:
+      source_pages:
+      - 11
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: classification_by_drawing_content
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hints.suggested_parent_class + specs/raw_labels
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hints.function_candidates + drawing_genre
+    ontology_core.related_assertions:
+      source_pages:
+      - 11
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 11
+      method: all unpromoted raw labels and hints
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 11
+      method: role/class boundary assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 11
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: PIPE
+    source_page: 11
+    reason: 도면 내부 일반 표기라 개별 속성으로 확정하지 않음
+    preservation_note: 후속 단계에서 label text 또는 annotation으로 승격 가능
+  - field_candidate: specs.raw_labels
+    raw_text: Lo (관 길이)
+    source_page: 11
+    reason: 치수 항목 라벨로 보이나 실제 값이 없음
+    preservation_note: 길이 관련 데이터 속성 후보
+  - field_candidate: specs.raw_labels
+    raw_text: d (내경)
+    source_page: 11
+    reason: 치수 항목 라벨로 보이나 실제 값이 없음
+    preservation_note: 내경 관련 데이터 속성 후보
+  - field_candidate: specs.raw_labels
+    raw_text: D (외경)
+    source_page: 11
+    reason: 치수 항목 라벨로 보이나 실제 값이 없음
+    preservation_note: 외경 관련 데이터 속성 후보
+  - field_candidate: specs.raw_labels
+    raw_text: 소켓식 연결
+    source_page: 11
+    reason: 연결 방식 표기이나 관계/속성으로 단정 불가
+    preservation_note: connection type 후보
+  - field_candidate: specs.raw_labels
+    raw_text: 이중벽 주름관
+    source_page: 11
+    reason: 재질/형식/종류 중 어느 범주인지 단정 불가
+    preservation_note: pipe type/material 후보
+  - field_candidate: specs.equipment_symbols
+    raw_text: 이중벽 PVC 주름관 단면 심볼
+    source_page: 11
+    reason: 심볼 명칭이지만 표준 클래스 미확정
+    preservation_note: 도면 심볼 annotation 후보
+  - field_candidate: specs.equipment_symbols
+    raw_text: 소켓 연결부 단면
+    source_page: 11
+    reason: 심볼 명칭이지만 표준 클래스 미확정
+    preservation_note: 도면 심볼 annotation 후보
+  - field_candidate: specs.position
+    raw_text: top-left
+    source_page: 11
+    reason: 도면 내 위치 정보이나 의미론적 분류 불필요
+    preservation_note: layout metadata
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 11
+    reason: 도형 형상 정보이나 설비 속성으로 확정 불가
+    preservation_note: drawing geometry metadata
+  - field_candidate: specs.source_model
+    raw_text: visual_semantics
+    source_page: 11
+    reason: 추출 출처 표기
+    preservation_note: provenance metadata
+  - field_candidate: specs.drawing_genre
+    raw_text: detail
+    source_page: 11
+    reason: 도면 장르 표기
+    preservation_note: drawing metadata
+  - field_candidate: specs.sub_genre
+    raw_text: drainage_pipe_detail
+    source_page: 11
+    reason: 세부 장르 표기
+    preservation_note: drawing metadata
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Drainage
+    source_page: 11
+    reason: 기능 후보이지만 확정 기능 아님
+    preservation_note: class/function hint
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Fluid Transport
+    source_page: 11
+    reason: 기능 후보이지만 확정 기능 아님
+    preservation_note: class/function hint
+  - field_candidate: relations[0]
+    raw_text: from PIPE-DTL-01 to PIPE-DTL-02, relation other, annotation 'A' 부위 상세
+      참조 화살표
+    source_page: 11
+    reason: 정확한 object property IRI 미정
+    preservation_note: detail reference relation
+  - field_candidate: relations[1]
+    raw_text: from TABLE-PVC-01 to PIPE-DTL-01, relation other, annotation '치수 적용
+      (규격 150~300)'
+    source_page: 11
+    reason: 정확한 object property IRI 미정
+    preservation_note: table-to-detail dimension reference
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: DrainagePipe
+    source_page: 11
+    reason: 후보 클래스이며 확정 아님
+    preservation_note: class_hint candidate
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 이 태그는 물리적 관로 본체 상세를 나타내는 동시에 도면 상세도/주석 성격도 강해, NamedIndividual와 AnnotationOnly
+      경계가 모호함.
+    recommended_handling: 0.9b에서는 AnnotationOnly로 보존하되, 0.9c에서 DrainagePipeDetail
+      또는 CivilDrawingElement 계열로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:42:09.589535'
+  confidence: 0.86

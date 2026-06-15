@@ -1,0 +1,115 @@
+ontology_readiness:
+  tag: PANEL-BLK-L02
+  verdict: demoted
+  confidence: 0.96
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 2
+    reason: 고유 tag와 자체 specs(panel_id, shape)는 있으나, name이 '전력/전등 설비 범례 표'로 도면 메타/범례
+      성격이 강하고 equipment_symbols 및 located_in_panel 관계가 있어 물리 설비 독립 엔티티보다는 문서/범례 성격의
+      패널로 분류됨.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 2
+    convertible: 2
+    ambiguous_attributes: []
+    auxiliary_attributes:
+    - panel_id
+    - shape
+    - function_candidates
+    - suggested_parent_class
+    - observed_attributes
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: sonnet
+      value: true
+      source: source_attribution
+      conflict_with: null
+    - key: gemini
+      value: true
+      source: source_attribution
+      conflict_with: null
+    - key: mini
+      value: false
+      source: source_attribution
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - DocumentMetadata
+    - PanelLegend
+  spatial_context:
+    position: center
+    source_pages:
+    - 3
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      panel_id: BLK-L02
+      shape: rectangle
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :PANEL-BLK-L02 rdf:type :Component ; :references :DocumentMetadata
+  owl_export_hints:
+    create_individual: true
+    individual_type: :PanelLegend
+    annotations_to_emit:
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=false
+    - collection_sources.cross_validated=true
+    - equipment_symbols.type=전력/전등 설비 심볼 일람표
+    - equipment_symbols.count=30
+    - ontology_hints.function_candidates=PowerDistribution
+    - ontology_hints.function_candidates=LightingControl
+    relations_to_emit:
+    - located_in_panel(from LEGEND-LRPB-001 to PANEL-BLK-L02)
+    needs_human_review: false
+tag: PANEL-BLK-L02
+discovered_relations: 1

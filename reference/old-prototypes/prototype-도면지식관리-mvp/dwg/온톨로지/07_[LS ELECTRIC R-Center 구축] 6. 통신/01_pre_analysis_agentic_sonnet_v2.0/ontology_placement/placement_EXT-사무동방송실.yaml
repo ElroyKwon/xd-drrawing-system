@@ -1,0 +1,170 @@
+placement:
+  tag: EXT-사무동방송실
+  name: 외부 인입 소스 (사무동 지상1층 방송실)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-사무동방송실
+    class_hint: ExternalSource
+    alternative_class_hints:
+    - SignalSource
+    - CableEntry
+    related_assertions:
+    - type: cable
+      target_hint: UNDERGROUND-DUCT
+      note: 'FROM : 사무동 지상1층 방송실 / ELP 50 / IN TRAY / FR-3 2.5sq / 10C / 지하공동구 사용'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ExternalSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상1층 방송실'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: originatesFrom
+          suggested_datatype: xsd:string
+          rationale: 외부 인입의 출처를 나타내는 문구
+      - raw_text: ELP 50 / IN TRAY
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격/포설 방식으로 보이는 문자열
+      - raw_text: FR-3 2.5sq / 10C
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격으로 보이는 문자열
+      - raw_text: 지하공동구 사용
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: routesThrough
+          suggested_datatype: xsd:string
+          rationale: 경유/사용 경로를 나타내는 문구
+  provenance:
+    tag:
+      source_pages:
+      - 12
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 12
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 12
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 12
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 12
+      method: entity_detail.function_category
+    position:
+      source_pages:
+      - 12
+      method: entity_detail.position
+    ontology_core.owl_role:
+      source_pages:
+      - 12
+      method: classification_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 12
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 12
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 12
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 12
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 12
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 12
+      method: relations.annotation + specs.raw_labels
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: ELP 50 / IN TRAY
+    source_page: 12
+    reason: 케이블 규격/포설 방식으로 보이나 정확한 구조 분해 불가
+    preservation_note: 원문 그대로 보존; 후속 단계에서 cable spec 또는 route note로 검토
+  - field_candidate: specs.raw_labels
+    raw_text: FR-3 2.5sq / 10C
+    source_page: 12
+    reason: 케이블 규격 문자열로 보이나 세부 항목 분해 불가
+    preservation_note: 원문 그대로 보존; 후속 단계에서 cable spec 승격 후보
+  - field_candidate: specs.raw_labels
+    raw_text: 지하공동구 사용
+    source_page: 12
+    reason: 경로/사용 방식 표현으로 해석되나 정식 관계명 확정 불가
+    preservation_note: route note로 보존; 후속 단계에서 routesThrough 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ExternalSource
+    source_page: 12
+    reason: 제안 클래스이며 확정 아님
+    preservation_note: class_hint 후보로만 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SignalSource
+    source_page: 12
+    reason: 후보 기능명이며 확정 아님
+    preservation_note: alternative_class_hints로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CableEntry
+    source_page: 12
+    reason: 후보 기능명이며 확정 아님
+    preservation_note: alternative_class_hints로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 인입 소스라는 점은 명확하나, 물리 설비(Individual)인지 관계 사실 중심인지, 그리고 ExternalSource의
+      정확한 상위 분류는 도면 원문만으로 확정 불가
+    recommended_handling: NamedIndividual로 유지하되, 후속 단계에서 ExternalSource 계열 클래스와 cable/originatesFrom/routesThrough
+      관계를 검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - external source / cable entry / signal source 후보를 class_hint 및 alternative_class_hints에
+      반영
+    - relations의 cable 사실을 related_assertions 원형으로 보존
+    - raw_labels의 케이블 규격 및 경로 문구를 free_notes와 unresolved에 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:41.530180'
+  confidence: 0.86

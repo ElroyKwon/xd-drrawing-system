@@ -1,0 +1,629 @@
+axioms:
+- id: AX001
+  type: SubClassOf
+  body:
+    sub: dks:Space
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BLDG-A, ROOM-drive-시험실, SPACE-01
+    등 다수 태그가 Space로, BLDG-AB, DUCT-CORRIDOR, PIT-001 등이 SpatialEntity로 관찰되어 공간 상하위
+    구조가 직접 확인됨.
+  evidence_tags:
+  - BLDG-A
+  - ROOM-drive-시험실
+  - SPACE-01
+  - BLDG-AB
+  - DUCT-CORRIDOR
+  - PIT-001
+  confidence: 0.95
+- id: AX002
+  type: SubClassOf
+  body:
+    sub: dks:Building
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BLDG-B, BLDG-OFFICE, BLDG-UT가
+    Building으로 관찰되고 SpatialEntity 상위군과 분리되어 있음.
+  evidence_tags:
+  - BLDG-B
+  - BLDG-OFFICE
+  - BLDG-UT
+  confidence: 0.94
+- id: AX003
+  type: SubClassOf
+  body:
+    sub: dks:Room
+    super: dks:Space
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. SPACE-06이 Room으로 관찰되고 다수
+    ROOM-* 및 SPACE-* 태그가 Space로 관찰되어 Room이 Space의 세부형으로 귀납됨.
+  evidence_tags:
+  - SPACE-06
+  - ROOM-drive-기동시험실
+  - ROOM-전기실
+  - SPACE-01
+  confidence: 0.9
+- id: AX004
+  type: SubClassOf
+  body:
+    sub: dks:BuildingSpace
+    super: dks:Space
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. UNKNOWN-SPACE-13이 BuildingSpace로
+    관찰되며 '2층 전체 평면 영역' 성격으로 Space의 특수형으로 기록됨.
+  evidence_tags:
+  - UNKNOWN-SPACE-13
+  confidence: 0.86
+- id: AX005
+  type: SubClassOf
+  body:
+    sub: dks:TitleBlock
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. ENGINEER-BLOCK, MF-102, SPACE-TITLE-001,
+    UNKNOWN-PANEL-5가 TitleBlock으로 반복 관찰됨.
+  evidence_tags:
+  - ENGINEER-BLOCK
+  - MF-102
+  - SPACE-TITLE-001
+  - UNKNOWN-PANEL-5
+  confidence: 0.95
+- id: AX006
+  type: SubClassOf
+  body:
+    sub: dks:DrawingMetadata
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. TITLE-BLOCK-001, TITLE-BLOCK-002가
+    DrawingMetadata로 직접 관찰됨.
+  evidence_tags:
+  - TITLE-BLOCK-001
+  - TITLE-BLOCK-002
+  confidence: 0.94
+- id: AX007
+  type: SubClassOf
+  body:
+    sub: dks:Legend
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. LEGEND-TABLE-001, UNKNOWN-PANEL-4가
+    Legend로 관찰됨.
+  evidence_tags:
+  - LEGEND-TABLE-001
+  - UNKNOWN-PANEL-4
+  confidence: 0.94
+- id: AX008
+  type: SubClassOf
+  body:
+    sub: dks:LegendSection
+    super: dks:Legend
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. SPACE-NOTE-001이 LegendSection으로
+    관찰되어 범례 내부 섹션 구조가 직접 확인됨.
+  evidence_tags:
+  - SPACE-NOTE-001
+  - LEGEND-TABLE-001
+  confidence: 0.9
+- id: AX009
+  type: SubClassOf
+  body:
+    sub: dks:Schedule
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. SCHEDULE-BRACE, SCHEDULE_BOX,
+    UNKNOWN-PANEL-3가 Schedule로 반복 관찰됨.
+  evidence_tags:
+  - SCHEDULE-BRACE
+  - SCHEDULE_BOX
+  - UNKNOWN-PANEL-3
+  confidence: 0.94
+- id: AX010
+  type: SubClassOf
+  body:
+    sub: dks:QuantitySchedule
+    super: dks:Schedule
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BRACE-SCHED가 QuantitySchedule로
+    직접 관찰됨.
+  evidence_tags:
+  - BRACE-SCHED
+  confidence: 0.92
+- id: AX011
+  type: SubClassOf
+  body:
+    sub: dks:EquipmentSchedule
+    super: dks:Schedule
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. SEISMIC-BRACE-SCHEDULE가 EquipmentSchedule로
+    직접 관찰됨.
+  evidence_tags:
+  - SEISMIC-BRACE-SCHEDULE
+  confidence: 0.9
+- id: AX012
+  type: SubClassOf
+  body:
+    sub: dks:FireProtectionPlan
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. FLOOR-2F, UNKNOWN-PANEL-1이
+    FireProtectionPlan으로 반복 관찰됨.
+  evidence_tags:
+  - FLOOR-2F
+  - UNKNOWN-PANEL-1
+  confidence: 0.95
+- id: AX013
+  type: SubClassOf
+  body:
+    sub: dks:FireHydrantCabinetDetail
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. DET-01이 FireHydrantCabinetDetail로
+    직접 관찰됨.
+  evidence_tags:
+  - DET-01
+  confidence: 0.92
+- id: AX014
+  type: SubClassOf
+  body:
+    sub: dks:FireExtinguisherSymbol
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. ABC-EXTINGUISHER가 FireExtinguisherSymbol로
+    관찰되어 실제 소화기와 문서 심볼이 구분됨.
+  evidence_tags:
+  - ABC-EXTINGUISHER
+  confidence: 0.9
+- id: AX015
+  type: SubClassOf
+  body:
+    sub: dks:ValveSymbol
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. SYM-004, UNKNOWN-SHAPE-04,
+    UNKNOWN-SHAPE-06이 ValveSymbol로 반복 관찰됨.
+  evidence_tags:
+  - SYM-004
+  - UNKNOWN-SHAPE-04
+  - UNKNOWN-SHAPE-06
+  confidence: 0.92
+- id: AX016
+  type: SubClassOf
+  body:
+    sub: dks:FireFightingEquipment
+    super: dks:FireProtectionEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. FE-02, FE-18, FHC-01~04,
+    FHC-C, HOSE-REEL-FHC가 FireFightingEquipment로 관찰됨.
+  evidence_tags:
+  - FE-02
+  - FE-18
+  - FHC-01
+  - FHC-02
+  - FHC-03
+  - FHC-04
+  - FHC-C
+  - HOSE-REEL-FHC
+  confidence: 0.9
+- id: AX017
+  type: SubClassOf
+  body:
+    sub: dks:FireExtinguisher
+    super: dks:FireProtectionEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. FE-01, FE-03, FE-06~17 및
+    SYM-010이 FireExtinguisher로 반복 관찰됨.
+  evidence_tags:
+  - FE-01
+  - FE-03
+  - FE-06
+  - FE-07
+  - FE-10
+  - FE-11
+  - FE-12
+  - FE-13
+  - FE-14
+  - FE-15
+  - FE-17
+  - SYM-010
+  confidence: 0.96
+- id: AX018
+  type: SubClassOf
+  body:
+    sub: dks:FireHydrantCabinet
+    super: dks:FireProtectionEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. FHC-2F-02, FHC-2F-06이 FireHydrantCabinet으로
+    직접 관찰됨.
+  evidence_tags:
+  - FHC-2F-02
+  - FHC-2F-06
+  confidence: 0.95
+- id: AX019
+  type: SubClassOf
+  body:
+    sub: dks:FireHoseCabinet
+    super: dks:FireProtectionEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. FHC-LOBBY, UNKNOWN-EQUIP-01이
+    FireHoseCabinet으로 관찰됨.
+  evidence_tags:
+  - FHC-LOBBY
+  - UNKNOWN-EQUIP-01
+  confidence: 0.92
+- id: AX020
+  type: SubClassOf
+  body:
+    sub: dks:Valve
+    super: dks:FireProtectionEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. VALVE-AD-001, VALVE-CHECK-001,
+    VALVE-GATE-001, UNKNOWN-EQ-1/2/5/6, UNKNOWN-VALVE-01/02가 Valve로 반복 관찰됨.
+  evidence_tags:
+  - VALVE-AD-001
+  - VALVE-CHECK-001
+  - VALVE-GATE-001
+  - UNKNOWN-EQ-1
+  - UNKNOWN-EQ-2
+  - UNKNOWN-EQ-5
+  - UNKNOWN-EQ-6
+  - UNKNOWN-VALVE-01
+  - UNKNOWN-VALVE-02
+  confidence: 0.9
+- id: AX021
+  type: SubClassOf
+  body:
+    sub: dks:Strainer
+    super: dks:FireProtectionEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. SYM-006, SYM-007, UNKNOWN-VALVE-04가
+    Strainer로 반복 관찰됨.
+  evidence_tags:
+  - SYM-006
+  - SYM-007
+  - UNKNOWN-VALVE-04
+  confidence: 0.86
+- id: AX022
+  type: SubClassOf
+  body:
+    sub: dks:Pipe
+    super: dks:PipingEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. PIT층-H-동01, PIT층-H-동03, PIT층-SP-동01,
+    UNKNOWN-PIPE-02, UNKNOWN-PIPE-03이 Pipe로 관찰됨.
+  evidence_tags:
+  - PIT층-H-동01
+  - PIT층-H-동03
+  - PIT층-SP-동01
+  - UNKNOWN-PIPE-02
+  - UNKNOWN-PIPE-03
+  confidence: 0.94
+- id: AX023
+  type: SubClassOf
+  body:
+    sub: dks:FireProtectionPipe
+    super: dks:Pipe
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. PIPE-H-100-EX, PIPE-H-100-NEW,
+    PIPE-H-MAIN, PIPE-SC-100-NEW, PIPE-SP-150-NEW, UNKNOWN-PIPE-01/04~08, RISER-06이
+    FireProtectionPipe로 반복 관찰됨.
+  evidence_tags:
+  - PIPE-H-100-EX
+  - PIPE-H-100-NEW
+  - PIPE-H-MAIN
+  - PIPE-SC-100-NEW
+  - PIPE-SP-150-NEW
+  - UNKNOWN-PIPE-01
+  - UNKNOWN-PIPE-04
+  - UNKNOWN-PIPE-05
+  - UNKNOWN-PIPE-06
+  - UNKNOWN-PIPE-07
+  - UNKNOWN-PIPE-08
+  - RISER-06
+  confidence: 0.95
+- id: AX024
+  type: SubClassOf
+  body:
+    sub: dks:FireProtectionPiping
+    super: dks:PipingEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. PIPE-SC-MAIN, PIPE-SP-150-EX,
+    RISER-04, RISER-07, RISER-DN-50a-*, RISER-H-05~08, RISER-UP-100a-NE, UNKNOWN-RISER-01이
+    FireProtectionPiping으로 반복 관찰됨.
+  evidence_tags:
+  - PIPE-SC-MAIN
+  - PIPE-SP-150-EX
+  - RISER-04
+  - RISER-07
+  - RISER-DN-50a-N
+  - RISER-DN-50a-NE
+  - RISER-DN-50a-NW
+  - RISER-DN-50a-W
+  - RISER-H-05
+  - RISER-H-06
+  - RISER-H-07
+  - RISER-H-08
+  - RISER-UP-100a-NE
+  - UNKNOWN-RISER-01
+  confidence: 0.9
+- id: AX025
+  type: SubClassOf
+  body:
+    sub: dks:PipingComponent
+    super: dks:PipingEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. CONN-FLEX-001, RISER-BC-1,
+    RISER-CN-50a-CENTER, RISER-DN-50a-S, RISER-TL-1, RISER-TR-2, SYM-008, UNKNOWN-PIPE-RISER-01/02,
+    UNKNOWN-RISER-03, UNKNOWN-VALVE-03이 PipingComponent로 반복 관찰됨.
+  evidence_tags:
+  - CONN-FLEX-001
+  - RISER-BC-1
+  - RISER-CN-50a-CENTER
+  - RISER-DN-50a-S
+  - RISER-TL-1
+  - RISER-TR-2
+  - SYM-008
+  - UNKNOWN-PIPE-RISER-01
+  - UNKNOWN-PIPE-RISER-02
+  - UNKNOWN-RISER-03
+  - UNKNOWN-VALVE-03
+  confidence: 0.92
+- id: AX026
+  type: SubClassOf
+  body:
+    sub: dks:PipeFitting
+    super: dks:PipingComponent
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. CONN-PIPE-001이 PipeFitting으로
+    직접 관찰됨.
+  evidence_tags:
+  - CONN-PIPE-001
+  confidence: 0.92
+- id: AX027
+  type: SubClassOf
+  body:
+    sub: dks:PipeConnection
+    super: dks:PipingComponent
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. CONN-UP-100, EXISTING-FHC가
+    PipeConnection으로 직접 관찰됨.
+  evidence_tags:
+  - CONN-UP-100
+  - EXISTING-FHC
+  confidence: 0.92
+- id: AX028
+  type: SubClassOf
+  body:
+    sub: dks:PipeRiser
+    super: dks:PipingComponent
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. RISER-02, RISER-H-01, RISER-H-03,
+    RISER-UP-100a, UNKNOWN-PIPE-RISER-03/04, UNKNOWN-RISER-02가 PipeRiser로 반복 관찰됨.
+  evidence_tags:
+  - RISER-02
+  - RISER-H-01
+  - RISER-H-03
+  - RISER-UP-100a
+  - UNKNOWN-PIPE-RISER-03
+  - UNKNOWN-PIPE-RISER-04
+  - UNKNOWN-RISER-02
+  confidence: 0.94
+- id: AX029
+  type: SubClassOf
+  body:
+    sub: dks:PIPE_RISER
+    super: dks:PipeRiser
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. RISER-H-02, RISER-H-04, RISER-TC-1,
+    RISER-TR-1, UNKNOWN-RISER-04/05/06이 PIPE_RISER로 관찰되어 PipeRiser의 표기 변형 하위군으로 유지됨.
+  evidence_tags:
+  - RISER-H-02
+  - RISER-H-04
+  - RISER-TC-1
+  - RISER-TR-1
+  - UNKNOWN-RISER-04
+  - UNKNOWN-RISER-05
+  - UNKNOWN-RISER-06
+  confidence: 0.8
+- id: AX030
+  type: SubClassOf
+  body:
+    sub: dks:FireProtectionRiser
+    super: dks:PipeRiser
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. RISER-01, RISER-03, RISER-05가
+    FireProtectionRiser로 반복 관찰됨.
+  evidence_tags:
+  - RISER-01
+  - RISER-03
+  - RISER-05
+  confidence: 0.94
+- id: AX031
+  type: SubClassOf
+  body:
+    sub: dks:FlexibleJoint
+    super: dks:PipingComponent
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. UNKNOWN-EQ-3이 FlexibleJoint로
+    직접 관찰됨.
+  evidence_tags:
+  - UNKNOWN-EQ-3
+  confidence: 0.94
+- id: AX032
+  type: SubClassOf
+  body:
+    sub: dks:SeismicBrace
+    super: dks:SeismicProtectionEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BRACE-H-17, H-19, H-20, H-21,
+    BRACE-L-21이 SeismicBrace로 반복 관찰됨.
+  evidence_tags:
+  - BRACE-H-17
+  - BRACE-H-19
+  - BRACE-H-20
+  - BRACE-H-21
+  - BRACE-L-21
+  confidence: 0.95
+- id: AX033
+  type: SubClassOf
+  body:
+    sub: dks:SeismicRestraint
+    super: dks:SeismicProtectionEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BRACE-H-18, BRACE-L-20이 SeismicRestraint로
+    직접 관찰됨.
+  evidence_tags:
+  - BRACE-H-18
+  - BRACE-L-20
+  confidence: 0.86
+- id: AX034
+  type: SubClassOf
+  body:
+    sub: dks:SeismicBraceTag
+    super: dks:SeismicProtectionEntity
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BRACE-H-23/24/25/26/27/30/33/36,
+    BRACE-L-24/25/28이 SeismicBraceTag로 반복 관찰됨.
+  evidence_tags:
+  - BRACE-H-23
+  - BRACE-H-24
+  - BRACE-H-25
+  - BRACE-H-26
+  - BRACE-H-27
+  - BRACE-H-30
+  - BRACE-H-33
+  - BRACE-H-36
+  - BRACE-L-24
+  - BRACE-L-25
+  - BRACE-L-28
+  confidence: 0.94
+- id: AX035
+  type: SubClassOf
+  body:
+    sub: dks:IdentificationTag
+    super: dks:SeismicBraceTag
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. BRACE-H-22/28/29/31/32/34/35/37,
+    BRACE-H-H-01~05, BRACE-L-23/26/27, BRACE-LONG-01/02가 IdentificationTag로 반복 관찰됨.
+  evidence_tags:
+  - BRACE-H-22
+  - BRACE-H-28
+  - BRACE-H-29
+  - BRACE-H-31
+  - BRACE-H-32
+  - BRACE-H-34
+  - BRACE-H-35
+  - BRACE-H-37
+  - BRACE-H-H-01
+  - BRACE-H-H-02
+  - BRACE-H-H-03
+  - BRACE-H-H-04
+  - BRACE-H-H-05
+  - BRACE-L-23
+  - BRACE-L-26
+  - BRACE-L-27
+  - BRACE-LONG-01
+  - BRACE-LONG-02
+  confidence: 0.93
+- id: AX036
+  type: SubClassOf
+  body:
+    sub: dks:FireProtectionSystemGroup
+    super: dks:Group
+  derivation: class_taxonomy.subclass_relations에 직접 기재됨. GRP-소화설비가 FireProtectionSystemGroup으로
+    직접 관찰됨.
+  evidence_tags:
+  - GRP-소화설비
+  confidence: 0.9
+- id: AX037
+  type: DisjointWith
+  body:
+    classes:
+    - dks:DocumentEntity
+    - dks:SpatialEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0이며,
+    COVER-TITLE-001/INDEX-TABLE-001 같은 문서 태그와 BLDG-AB/DUCT-CORRIDOR/PIT-001 같은 공간
+    태그가 관찰상 분리됨.
+  evidence_tags:
+  - COVER-TITLE-001
+  - INDEX-TABLE-001
+  - BLDG-AB
+  - DUCT-CORRIDOR
+  - PIT-001
+  confidence: 0.93
+- id: AX038
+  type: DisjointWith
+  body:
+    classes:
+    - dks:DocumentEntity
+    - dks:FireProtectionEquipment
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. 문서 태그(DET-01, LEGEND-TABLE-001,
+    MF-001)와 물리 설비 태그(FDC-001, FE-01, FHC-2F-02, VALVE-AD-001)가 교집합 없이 분리됨.
+  evidence_tags:
+  - DET-01
+  - LEGEND-TABLE-001
+  - MF-001
+  - FDC-001
+  - FE-01
+  - FHC-2F-02
+  - VALVE-AD-001
+  confidence: 0.92
+- id: AX039
+  type: DisjointWith
+  body:
+    classes:
+    - dks:DocumentEntity
+    - dks:PipingEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. 문서 태그(FLOOR-2F, TITLE-BLOCK-002,
+    DET-03)와 배관 태그(PIPE-H-100-NEW, RISER-01, CONN-UP-100)가 교집합 없이 분리됨.
+  evidence_tags:
+  - FLOOR-2F
+  - TITLE-BLOCK-002
+  - DET-03
+  - PIPE-H-100-NEW
+  - RISER-01
+  - CONN-UP-100
+  confidence: 0.92
+- id: AX040
+  type: DisjointWith
+  body:
+    classes:
+    - dks:SpatialEntity
+    - dks:FireProtectionEquipment
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. 공간 태그(BLDG-B, ROOM-전기실,
+    UNKNOWN-SPACE-13)와 설비 태그(FDC-01, FHC-LOBBY, FE-10, VALVE-GATE-001)가 분리됨.
+  evidence_tags:
+  - BLDG-B
+  - ROOM-전기실
+  - UNKNOWN-SPACE-13
+  - FDC-01
+  - FHC-LOBBY
+  - FE-10
+  - VALVE-GATE-001
+  confidence: 0.9
+- id: AX041
+  type: DisjointWith
+  body:
+    classes:
+    - dks:SpatialEntity
+    - dks:PipingEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. 공간 태그(DUCT-CORRIDOR, ROOM-drive-시험실,
+    SPACE-21)와 배관 태그(PIPE-SC-100-NEW, RISER-UP-100a, UNKNOWN-PIPE-04)가 분리됨.
+  evidence_tags:
+  - DUCT-CORRIDOR
+  - ROOM-drive-시험실
+  - SPACE-21
+  - PIPE-SC-100-NEW
+  - RISER-UP-100a
+  - UNKNOWN-PIPE-04
+  confidence: 0.9
+- id: AX042
+  type: DisjointWith
+  body:
+    classes:
+    - dks:FireProtectionEquipment
+    - dks:PipingEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. 설비 태그(FDC-01, FHC-2F-06,
+    FE-01, VALVE-AD-001)와 배관 태그(PIPE-H-100-NEW, RISER-07, CONN-FLEX-001)가 분리됨.
+  evidence_tags:
+  - FDC-01
+  - FHC-2F-06
+  - FE-01
+  - VALVE-AD-001
+  - PIPE-H-100-NEW
+  - RISER-07
+  - CONN-FLEX-001
+  confidence: 0.88
+- id: AX043
+  type: InverseOf
+  body:
+    property1: dks:located_in
+    property2: dks:contains
+  derivation: object_properties에서 located_in의 inverse_of_candidate가 contains, contains의
+    inverse_of_candidate가 located_in으로 상호 제시됨. placement에서도 PIPE-H-100-NEW/VALVE-GATE-001/CONN-FLEX-001
+    located_in SPACE-PIT-001과 FLOOR-PLAN-PIT contains PIT층-H-동02/PIT층-SP-동01이 같은 포함-위치
+    문맥으로 반복 관찰됨.
+  evidence_tags:
+  - CONN-FLEX-001
+  - PIPE-H-100-NEW
+  - VALVE-GATE-001
+  - PIPE-UG-001
+  - PIT층-H-동02
+  - PIT층-SP-동01
+  - ROOM-전기발전기실
+  confidence: 0.9
+summary_by_type:
+  SubClassOf: 36
+  DisjointWith: 6
+  InverseOf: 1
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:20:29.407131'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.88

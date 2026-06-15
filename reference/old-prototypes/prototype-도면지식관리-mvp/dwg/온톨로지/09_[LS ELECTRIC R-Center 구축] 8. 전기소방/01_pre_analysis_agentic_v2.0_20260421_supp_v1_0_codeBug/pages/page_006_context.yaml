@@ -1,0 +1,592 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: symbol_and_abbreviation_legend
+  discipline: FIRE_PROTECTION
+  classification: FIRE_PROTECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-101
+    title: PIT 소방간선설비 평면도
+    revision: null
+  visible_tags:
+  - tag: PIT
+    type: structural_element_or_space
+    source: both
+  - tag: EPS/TPS
+    type: space_or_area_label
+    source: text
+  - tag: PS
+    type: space_or_area_label
+    source: text
+  complexity:
+    symbol_density: LOW
+    has_connections: true
+    estimated_entity_count: 1
+  next_step_hints:
+  - 우측 상단 NOTE/LEGEND 박스에 심볼-설명 쌍과 배관/배선 표기가 함께 있음
+  - 도면 중앙 PIT 평면과 우측 상단 범례가 함께 존재하는 혼합 페이지
+  - 도면번호 EF-101과 제목이 일치하며 소방간선설비 평면도임
+  confidence: 0.98
+  note: 표제란 도면번호 EF-101 확인. 시각적 내용도 PIT 소방간선설비 평면도와 일치.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_electrical_alarm/supplement_p10.yaml
+  routing_confidence: 0.86
+  routing_reason: 도면번호 EF-101과 제목상 소방 분야로 판단되며, 페이지 내 NOTE/LEGEND 박스가 있어 fire_protection의
+    legend/mechanical 계열 보조프롬프트가 가장 근접하다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_PIT
+    shape: rectangle
+    primary_label: PIT 소방간선설비 평면도
+    position: center
+    labels_near:
+    - PIT
+    - eps/tps
+    - ps
+    - 관로무방수장치
+    - 'FROM : UTIL동 지상1층 방재실'
+  - panel_id: LEGEND_NOTE_BOX
+    shape: rectangle
+    primary_label: NOTE / LEGEND
+    position: top-right
+    labels_near:
+    - 1. 배관 배선
+    - 2. 방송용 배관, 배선
+    - 3. LEGEND
+    - 4. 간선 규격 및 기타 사항은 계통도 참조
+  connections:
+  - from: FLOOR_PLAN_PIT
+    to: LEGEND_NOTE_BOX
+    line_style: dotted
+    annotation: 심볼 및 배선 규격 참조
+  notable_shapes:
+  - shape: circle
+    label: B, C, D, 5, 6
+    note: 그리드 버블
+  - shape: circle
+    label: SPEAKER 단자함
+    note: 범례 내 원형 심볼
+  - shape: rectangle
+    label: PULL BOX
+    note: 범례 내 사각형 심볼 (X 표시 포함)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.95
+  note: 우측 상단에 배관/배선 및 심볼(스피커, 풀박스)에 대한 범례(LEGEND) 섹션이 명확히 존재함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 EF-101(F=Fire) 및 제목 '소방간선설비 평면도'로 FIRE_PROTECTION 분야 확정. 시각적으로
+    PIT 평면도가 주 내용이므로 floor_plan 유지. 범례 섹션이 있으나 페이지 전체가 아니므로 legend 장르로 변경하지 않음. 소방전기(간선)
+    내용이므로 P-10은 genre_electrical_alarm으로 추천.
+classification: FLOOR_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- PIT 소방간선설비 평면도
+- 'FROM : UTIL동 지상1층 방재실'
+- FR-3 2.5㎟/5Cx1(22C)
+- 관로구방수장치
+- 1. 배관 배선
+- CABLE TRAY내 배선
+- 노출 배관 배선
+- 슬라브 매입 배관 배선
+- 바닥 은폐 및 지중 매설 배관 배선
+- 2. 방송용 배관 , 배선
+- 16C (HFIX 2-1.5sq)
+- 16C (HFIX 3-1.5sq)
+- 16C (HFIX 4-1.5sq)
+- 3. LEGEND
+- SPEAKER 단자함
+- 컬럼형 SPEAKER (3W)
+- 컬럼형 SPEAKER (10W)
+- SPEAKER 천정형 (3W)
+- PULL BOX SIZE 150 x 150 x 100mm
+- PULL BOX SIZE 200 x 200 x 150mm
+- PULL BOX SIZE 300 x 300 x 200mm
+- PULL BOX SIZE 400 x 400 x 300mm
+- 4. 간선 규격 및 기타 사항은 계통도 참조.
+title_block:
+  drawing_number: EF-101
+  title: PIT 소방간선설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline(FIRE_PROTECTION), drawing_number(EF-101), title는 이미지 표제란과
+  일치함. 다만 classification은 단선도/전기계통도가 아니라 PIT 공간의 배치와 설비 위치를 보여주는 평면도이므로 FLOOR_LAYOUT로
+  보정함. 우측 상단에 NOTE/LEGEND 박스가 함께 존재함.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PIT-PLAN
+    shape: rectangle
+    labels_inside:
+    - PIT
+    - 관로구방수장치
+    - 'FROM : UTIL동 지상1층 방재실'
+    - F/D SM 4C x1(22C)
+    - FR-3 2.5㎟/5Cx1(22C)
+    labels_above:
+    - 11,000
+    labels_below:
+    - PIT 소방간선설비 평면도
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    labels_near:
+    - B (그리드 버블, 좌측)
+    - C (그리드 버블, 좌측)
+    - D (그리드 버블, 좌측)
+    - 5 (그리드 버블, 상단)
+    - 6 (그리드 버블, 상단)
+    - 17,000 (세로 치수, 상부)
+    - 13,000 (세로 치수, 하부)
+    equipment_symbols:
+    - type: PULL BOX (X 표시 사각형)
+      count: 2
+      description: 도면 중앙 PIT 구역 내 배선 분기용 풀박스
+    - type: 관로구방수장치
+      count: 1
+      description: PIT 하단부 배관 관통부 방수 처리 장치
+    - type: 전선관 입상/입하 표시
+      count: 1
+      description: FROM UTIL동 지상1층 방재실 인입 경로
+    inferred_name: PIT 소방간선설비 평면도 (PIT 층 배치)
+    position: center-left
+  - panel_id: LEGEND-NOTE
+    shape: rectangle
+    labels_inside:
+    - NOTE
+    - 1. 배관 배선
+    - 슬라브 매입 배관 배선
+    - 노출 배관 배선
+    - 바닥 은폐 및 지중 매설 배관 배선
+    - CABLE TRAY내 배선
+    - 2. 방송용 배관, 배선
+    - — 5 —— 16C (HFIX 2-1.5sq)
+    - — 5 —— 16C (HFIX 3-1.5sq)
+    - — 5 —— 16C (HFIX 4-1.5sq)
+    - 3. LEGEND
+    - SPEAKER 단자함
+    - 컬럼형 SPEAKER (3W) (SPEAKER-CEILING TYPE)
+    - 컬럼형 SPEAKER (10W) (SPEAKER-WALL BRACKET TYPE)
+    - 방향형 SPEAKER (3W) (SPEAKER-WALL BRACKET TYPE)
+    - 방향형 SPEAKER (10W)
+    - PULL BOX SIZE 150 x 150 x 100mm
+    - PULL BOX SIZE 200 x 200 x 150mm
+    - PULL BOX SIZE 300 x 300 x 200mm
+    - PULL BOX SIZE 400 x 400 x 300mm
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SPEAKER 단자함 (원형 심볼)
+      count: 1
+      description: 범례 내 스피커 단자함 심볼
+    - type: 컬럼형 SPEAKER 3W (원형+기호)
+      count: 1
+      description: 천정형 스피커 심볼
+    - type: 컬럼형 SPEAKER 10W (원형+기호)
+      count: 1
+      description: 벽부 브래킷형 스피커 심볼
+    - type: 방향형 SPEAKER 3W (사각+기호)
+      count: 1
+      description: 벽부 브래킷형 방향 스피커 심볼
+    - type: PULL BOX (X 표시 사각형, 소)
+      count: 1
+      description: 150x150x100mm 풀박스 심볼
+    - type: PULL BOX (X 표시 사각형, 중소)
+      count: 1
+      description: 200x200x150mm 풀박스 심볼
+    - type: PULL BOX (X 표시 사각형, 중)
+      count: 1
+      description: 300x300x200mm 풀박스 심볼
+    - type: PULL BOX (X 표시 사각형, 대)
+      count: 1
+      description: 400x400x300mm 풀박스 심볼
+    inferred_name: NOTE 및 LEGEND 박스 (배선 종류 및 심볼 정의)
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 80% 10층 (논현동, 특스마빌)
+    - Tel:02-2-3443-7799 Fax:02-2-3443-2877
+    - www.gaun.co.kr
+    - PIT 소방간선설비 평면도
+    - 'DRAWN: 안동식'
+    - 'CHECKED: 이은전'
+    - 'APPROVED: 정용재'
+    - 'DATE: 2024.01'
+    - 'SCALE: A3:1/300'
+    - 'DRAWING NO: EF-101'
+    labels_above: []
+    labels_below:
+    - (주)정엄엔지니어링
+    - 소방설비사용사 종류 만
+    - 경기도 안양시 동안구 흥안대로 415, 1115호, 1116호 (관양동 두산벤처타워빌)
+    - '대표전화: (031) 456-9666'
+    inferred_name: 표제란 (Title Block)
+    position: right
+  connections:
+  - from: UTIL동-지상1층-방재실
+    to: PIT-PLAN
+    line_type: cable
+    line_style: solid
+    annotation: 'FROM : UTIL동 지상1층 방재실 / F/D SM 4C x1(22C) / FR-3 2.5㎟/5Cx1(22C)'
+    flow_direction: top-to-bottom
+    note: 방재실에서 PIT로 소방간선 인입
+  - from: PIT-PLAN
+    to: LEGEND-NOTE
+    line_type: signal
+    line_style: dotted
+    annotation: 심볼 및 배선 규격 참조
+    note: 도면 내 심볼은 LEGEND-NOTE 박스의 정의를 따름
+  groups:
+  - group_id: GRP-GRID
+    label: 도면 그리드 (Grid Bubbles)
+    members: []
+    note: B, C, D (수평 그리드), 5, 6 (수직 그리드) — 치수 11,000 / 17,000 / 13,000
+  - group_id: GRP-SPEAKER-LEGEND
+    label: 방송용 스피커 심볼 그룹 (LEGEND 섹션 3)
+    members:
+    - LEGEND-NOTE
+    note: SPEAKER 단자함, 컬럼형 3W/10W, 방향형 3W/10W 포함
+  - group_id: GRP-PULLBOX-LEGEND
+    label: PULL BOX 규격 그룹 (LEGEND 섹션 3)
+    members:
+    - LEGEND-NOTE
+    note: 150x150x100 / 200x200x150 / 300x300x200 / 400x400x300 4종
+  - group_id: GRP-CABLE-TYPE
+    label: 배관 배선 종류 그룹 (NOTE 섹션 1)
+    members:
+    - LEGEND-NOTE
+    note: 슬라브 매입 / 노출 / 바닥 은폐 및 지중 매설 / CABLE TRAY내 배선 4종
+  - group_id: GRP-BROADCAST-CABLE
+    label: 방송용 배관 배선 그룹 (NOTE 섹션 2)
+    members:
+    - LEGEND-NOTE
+    note: 16C HFIX 2-1.5sq / 3-1.5sq / 4-1.5sq 3종
+  legend_references:
+  - text: PULL BOX (X 표시 사각형)
+    linked_to: PIT-PLAN
+    symbol_id: SYM-013
+    note: PIT 평면도 내 풀박스 심볼은 범례 SYM-013과 동일
+  - text: 슬라브 매입 배관 배선
+    linked_to: PIT-PLAN
+    note: PIT 내 배선 경로 표기 방식
+  - text: CABLE TRAY내 배선
+    linked_to: PIT-PLAN
+    note: PIT 내 케이블 트레이 배선 경로
+  - text: 전선관 입상/입하 표시
+    linked_to: PIT-PLAN
+    symbol_id: SYM-022
+    note: 방재실에서 PIT로의 인입 경로 표시
+  diagram_meta:
+    title: PIT 소방간선설비 평면도
+    drawing_number: EF-101
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    drawing_genre: floor_plan
+    scale_a3: 1/300
+    scale_a1: 1/150
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정엄엔지니어링
+    drawn_by: 안동식
+    checked_by: 이은전
+    approved_by: 정용재
+    date: '2024.01'
+    flow_direction: top-to-bottom
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    space_label: PIT
+    grid_lines:
+      horizontal:
+      - B
+      - C
+      - D
+      vertical:
+      - '5'
+      - '6'
+    dimensions:
+      horizontal_span_mm: 11000
+      vertical_upper_mm: 17000
+      vertical_lower_mm: 13000
+    cable_schedule:
+    - label: F/D SM 4C x1(22C)
+      from: UTIL동 지상1층 방재실
+      to: PIT
+      note: 소방 간선 인입
+    - label: FR-3 2.5㎟/5Cx1(22C)
+      from: UTIL동 지상1층 방재실
+      to: PIT
+      note: 소방 간선 인입
+    broadcast_cable_types:
+    - 16C (HFIX 2-1.5sq)
+    - 16C (HFIX 3-1.5sq)
+    - 16C (HFIX 4-1.5sq)
+    pull_box_sizes:
+    - 150 x 150 x 100mm
+    - 200 x 200 x 150mm
+    - 300 x 300 x 200mm
+    - 400 x 400 x 300mm
+    speaker_types:
+    - SPEAKER 단자함
+    - 컬럼형 SPEAKER 3W (CEILING TYPE)
+    - 컬럼형 SPEAKER 10W (WALL BRACKET TYPE)
+    - 방향형 SPEAKER 3W (WALL BRACKET TYPE)
+    - 방향형 SPEAKER 10W
+    wiring_types:
+    - 슬라브 매입 배관 배선
+    - 노출 배관 배선
+    - 바닥 은폐 및 지중 매설 배관 배선
+    - CABLE TRAY내 배선
+    notes:
+    - 간선 규격 및 기타 사항은 계통도 참조
+    - 관로구방수장치 설치 (PIT 하단 배관 관통부)
+    legend_notes:
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+    confidence: 0.97
+    note: EF-101 PIT 소방간선설비 평면도. 도면 중앙에 PIT 공간 평면이 있고, 우측 상단에 NOTE/LEGEND 박스가 함께 존재하는
+      혼합 페이지. 방재실(UTIL동 지상1층)에서 PIT로 소방 간선(F/D SM 4C, FR-3 2.5㎟/5C)이 인입되며, 관로구방수장치와
+      풀박스가 PIT 내에 설치됨. 방송설비(스피커) 관련 배선 규격 및 심볼 범례가 NOTE 박스에 정의되어 있음. 소방전기 간선(backbone)
+      서브시스템으로 분류.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PIT-AREA-PLAN
+    shape: rectangle
+    labels_inside:
+    - PIT
+    - EPS/TPS
+    - PS
+    - 관로구방수장치
+    - 'FROM : UTIL동 지상1층 방재실'
+    - F/D SM 4C x1(22C)
+    - FR-3 2.5㎟/5Cx1(22C)
+    labels_above:
+    - 11,000
+    labels_below:
+    - PIT 소방간선설비 평면도
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    labels_near:
+    - B
+    - C
+    - D
+    - '5'
+    - '6'
+    - 17,000
+    - 13,000
+    equipment_symbols:
+    - type: PULL BOX
+      count: 2
+      description: Square with X inside, located along the wiring path in the PIT.
+    - type: CONDUIT_ENTRY_EXIT
+      count: 1
+      description: Arrowhead/triangle symbol at the end of the wiring line, indicating
+        the connection point from the Bangjaesil.
+    - type: WATERPROOF_DEVICE
+      count: 1
+      description: Rectangle labeled '관로구방수장치' at the bottom of the PIT area.
+    inferred_name: PIT Area Fire Backbone Layout
+    position: center
+  - panel_id: LEGEND-NOTE-BOX
+    shape: rectangle
+    labels_inside:
+    - NOTE
+    - 1. 배관 배선
+    - 슬라브 매입 배관 배선
+    - 노출 배관 배선
+    - 바닥 은폐 및 지중 매설 배관 배선
+    - CABLE TRAY내 배선
+    - 2. 방송용 배관, 배선
+    - — S —— 16C (HFIX 2-1.5sq)
+    - — S —— 16C (HFIX 3-1.5sq)
+    - — S —— 16C (HFIX 4-1.5sq)
+    - 3. LEGEND
+    - SPEAKER 단자함
+    - 컬럼형 SPEAKER (3W) (SPEAKER-CEILING TYPE)
+    - 컬럼형 SPEAKER (10W) (SPEAKER-WALL BRACKET TYPE)
+    - 방향형 SPEAKER (3W) (SPEAKER-WALL BRACKET TYPE)
+    - 방향형 SPEAKER (10W)
+    - PULL BOX SIZE 150 x 150 x 100mm
+    - PULL BOX SIZE 200 x 200 x 150mm
+    - PULL BOX SIZE 300 x 300 x 200mm
+    - PULL BOX SIZE 400 x 400 x 300mm
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+    equipment_symbols:
+    - type: SYMBOL_SPEAKER_TERMINAL
+      count: 1
+      description: Legend symbol for Speaker Terminal Box.
+    - type: SYMBOL_SPEAKER_CEILING_3W
+      count: 1
+      description: Legend symbol for Ceiling Type Speaker (3W).
+    - type: SYMBOL_SPEAKER_WALL_10W
+      count: 1
+      description: Legend symbol for Wall Bracket Type Speaker (10W).
+    - type: SYMBOL_SPEAKER_WALL_DIRECTIONAL_3W
+      count: 1
+      description: Legend symbol for Directional Wall Bracket Type Speaker (3W).
+    - type: SYMBOL_SPEAKER_DIRECTIONAL_10W
+      count: 1
+      description: Legend symbol for Directional Speaker (10W).
+    - type: SYMBOL_PULL_BOX_150
+      count: 1
+      description: Legend symbol for Pull Box 150x150x100mm.
+    - type: SYMBOL_PULL_BOX_200
+      count: 1
+      description: Legend symbol for Pull Box 200x200x150mm.
+    - type: SYMBOL_PULL_BOX_300
+      count: 1
+      description: Legend symbol for Pull Box 300x300x200mm.
+    - type: SYMBOL_PULL_BOX_400
+      count: 1
+      description: Legend symbol for Pull Box 400x400x300mm.
+    inferred_name: Notes and Legend
+    position: top-right
+  - panel_id: TITLE-BLOCK-MAIN
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 80% 10층 (논현동, 특스마빌)
+    - Tel:02-2-3443-7799 Fax:02-2-3443-2877
+    - www.gaun.co.kr
+    - KEY PLAN
+    - ISSUE & REVISIONS
+    - NO.
+    - DESCRIPTION
+    - DATE
+    - PIT 소방간선설비 평면도
+    - 'DRAWN: 안동식'
+    - 'CHECKED: 이은전'
+    - 'APPROVED: 정용재'
+    - 'DATE: 2024.01'
+    - 'SCALE: A3:1/300'
+    - 'DRAWING NO: EF-101'
+    labels_below:
+    - (주)정엄엔지니어링
+    - 소방설비기사 종류 만
+    - 경기도 안양시 동안구 흥안대로 415, 1115호, 1116호 (관양동 두산벤처타워빌)
+    - '대표전화: (031) 456-9666'
+    inferred_name: Title Block
+    position: right
+  connections:
+  - from: INCOMING-BACKBONE
+    to: PIT-AREA-PLAN
+    line_type: cable
+    line_style: solid
+    annotation: 'FROM : UTIL동 지상1층 방재실 / F/D SM 4C x1(22C) / FR-3 2.5㎟/5Cx1(22C)'
+    flow_direction: top-to-bottom
+    note: Incoming fire protection backbone wiring from the Bangjaesil to the PIT
+      area.
+  - from: PIT-AREA-PLAN
+    to: LEGEND-NOTE-BOX
+    line_type: signal
+    line_style: dotted
+    annotation: Reference for symbols and wiring types
+    note: Logical connection indicating that symbols and wiring in the plan are defined
+      in the legend/note box.
+  groups:
+  - group_id: GRP-GRID-BUBBLES
+    label: Grid Bubbles
+    members:
+    - PIT-AREA-PLAN
+    note: B, C, D (horizontal) and 5, 6 (vertical) grid lines.
+  - group_id: GRP-LEGEND-SYMBOLS
+    label: Legend Symbols
+    members:
+    - LEGEND-NOTE-BOX
+    note: Group of all speaker and pull box symbols defined in the legend.
+  - group_id: GRP-WIRING-TYPES
+    label: Wiring Types defined in Note
+    members:
+    - LEGEND-NOTE-BOX
+    note: Group of wiring types defined in Note section 1 and 2.
+  legend_references:
+  - text: PULL BOX
+    linked_to: PIT-AREA-PLAN
+    symbol_id: SYM-013
+    note: The pull boxes in the PIT plan correspond to the PULL BOX symbols in the
+      legend.
+  - text: 슬라브 매입 배관 배선
+    linked_to: PIT-AREA-PLAN
+    note: The solid line wiring in the PIT plan likely corresponds to this wiring
+      type.
+  - text: 전선관 입상, 입하, 등 표시
+    linked_to: PIT-AREA-PLAN
+    symbol_id: SYM-022
+    note: The arrow symbol at the incoming wiring point corresponds to this legend
+      entry.
+  diagram_meta:
+    title: PIT 소방간선설비 평면도
+    drawing_number: EF-101
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    drawing_genre: floor_plan
+    scale_a3: 1/300
+    scale_a1: 1/150
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정엄엔지니어링
+    drawn_by: 안동식
+    checked_by: 이은전
+    approved_by: 정용재
+    date: '2024.01'
+    flow_direction: top-to-bottom
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    space_label: PIT
+    grid_lines:
+      horizontal:
+      - B
+      - C
+      - D
+      vertical:
+      - '5'
+      - '6'
+    dimensions:
+      horizontal_span_mm: 11000
+      vertical_upper_mm: 17000
+      vertical_lower_mm: 13000
+    cable_schedule:
+    - label: F/D SM 4C x1(22C)
+      from: UTIL동 지상1층 방재실
+      to: PIT
+      note: Incoming fire protection backbone cable.
+    - label: FR-3 2.5㎟/5Cx1(22C)
+      from: UTIL동 지상1층 방재실
+      to: PIT
+      note: Incoming fire protection backbone cable.
+    notes:
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+    legend_notes:
+    - 1. 배관 배선 (슬라브 매입, 노출, 바닥 은폐/지중 매설, CABLE TRAY내)
+    - 2. 방송용 배관, 배선 (16C HFIX 2/3/4-1.5sq)
+    - 3. LEGEND (스피커류, PULL BOX류)
+    confidence: 0.98
+    note: Detailed analysis of the PIT fire protection backbone floor plan, including
+      the main plan area, legend/notes, and title block. The incoming wiring from
+      the Bangjaesil is clearly marked, and the symbols and wiring types are defined
+      in the legend.

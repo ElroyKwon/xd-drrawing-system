@@ -1,0 +1,426 @@
+placement:
+  tag: P-D-3PP
+  name: 1층 전기적 기능시험실 분전반
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:P-D-3PP
+    class_hint: ElectricalPanelBoard
+    alternative_class_hints:
+    - DistributionPanel
+    - PowerDistributionEquipment
+    - PanelBoard
+    related_assertions:
+    - type: feeds
+      target_hint: EXT-전기실
+      note: 'FROM: 전기실 / 3Ø 380V'
+    - type: grounds_to
+      target_hint: GND-E3-D
+      note: E3 (접지)
+    - type: contains
+      target_hint: MCCB 3P 30/250AT
+      note: MAIN C.B 및 분기 차단기 포함
+    - type: contains
+      target_hint: 3Ø S.P.D 40KA/mode
+      note: 서지보호기 포함
+    - type: contains
+      target_hint: MCCB 4P 125 SP
+      note: 분기 차단기 포함
+    - type: contains
+      target_hint: CBR 2P 50 30
+      note: 분기 차단기 포함
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DistributionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: P-D-3PP
+        source_page: 20
+        note: 3PP 계통 표기
+      spatial_markers:
+      - raw_text: 1층 전기적 기능시험실
+        source_page: 20
+        note: panel_location
+      free_notes:
+      - raw_text: PANEL BOARD  P-D-3PP  COVER TYPE 노출형(STEEL)
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasCoverType
+          suggested_datatype: xsd:string
+          rationale: 커버 타입 표기이며 재질/형식 정보로 보존 가치가 있음
+      - raw_text: BOX SIZE —
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBoxSize
+          suggested_datatype: xsd:string
+          rationale: 박스 크기 항목이 있으나 값이 대시로 비어 있음
+      - raw_text: 'SOURCE: VOLT 380V  TYPE MCCB'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSourceVoltage
+          suggested_datatype: xsd:string
+          rationale: 전원 전압과 타입 표기
+      - raw_text: 'MAIN C.B: CCM 125A AT  4P 250AT'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasMainCircuitBreakerRating
+          suggested_datatype: xsd:string
+          rationale: 메인 차단기 정격 표기
+      - raw_text: MCCB 3P 30/250AT
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerRating
+          suggested_datatype: xsd:string
+          rationale: 차단기 정격 표기
+      - raw_text: 3Ø S.P.D 40KA/mode
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakingCapacity
+          suggested_datatype: xsd:decimal
+          rationale: 40KA/mode의 차단/내량 관련 수치 표기
+      - raw_text: AT:100  AF:125  P:4  TYPE:MCCB  NO:—  CCM
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerScheduleEntry
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 스케줄 항목
+      - raw_text: AT:75  AF:125  P:4  TYPE:MCCB  NO:—  CCM
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerScheduleEntry
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 스케줄 항목
+      - raw_text: MCCB 4P 125 SP
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerScheduleEntry
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 표기
+      - raw_text: AT:30  AF:50  P:2  TYPE:CBR  NO:2  CCM (UPS/비상)
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerScheduleEntry
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 및 용도 표기
+      - raw_text: AT:30  AF:50  P:2  TYPE:CBR  NO:2  CCM (전동/비상)
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerScheduleEntry
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 및 용도 표기
+      - raw_text: CBR 2P 50 30
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBreakerScheduleEntry
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 표기
+      - raw_text: E3 (접지)
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasGroundTerminal
+          suggested_datatype: xsd:string
+          rationale: 접지단자 표기
+      - raw_text: 'main_cb_alt_rating: 4P 250AT (Sonnet) vs 4P 125AF/250AT (Gemini)
+          — conflict noted'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasMainCircuitBreakerAlternativeRating
+          suggested_datatype: xsd:string
+          rationale: 동일 항목에 대해 상이한 판독값이 존재함
+      - raw_text: labels_inside / raw_labels에 반복된 분기 차단기 항목들
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasBranchBreakerSchedule
+          suggested_datatype: xsd:string
+          rationale: 스케줄 반복 항목을 구조화 후보로 보존
+      - raw_text: 'panel_location: 1층 전기적 기능시험실'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasPanelLocation
+          suggested_datatype: xsd:string
+          rationale: 위치 표기
+      - raw_text: 'source_voltage_kV: 0.38'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 레벨 수치 표기
+      - raw_text: 'source_voltage_phase: 3Ø 380V'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasVoltagePhase
+          suggested_datatype: xsd:string
+          rationale: 상수 및 전압 표기
+      - raw_text: 'source_type: MCCB'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSourceType
+          suggested_datatype: xsd:string
+          rationale: 전원 타입 표기
+      - raw_text: 'main_cb_rating: MCCB 3P 30/250AT'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasMainCircuitBreakerRating
+          suggested_datatype: xsd:string
+          rationale: 메인 차단기 정격 표기
+      - raw_text: 'main_cb_poles: 3'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasPoleCount
+          suggested_datatype: xsd:integer
+          rationale: 극수 수치 표기
+      - raw_text: 'main_cb_af: 30'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasAmpereFrame
+          suggested_datatype: xsd:decimal
+          rationale: AF 수치 표기
+      - raw_text: 'main_cb_at: 250'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasTripCurrent
+          suggested_datatype: xsd:decimal
+          rationale: AT 수치 표기
+      - raw_text: 'spd_rating: 3Ø S.P.D 40KA/mode'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSurgeProtectionRating
+          suggested_datatype: xsd:string
+          rationale: SPD 정격 표기
+      - raw_text: 'ground_terminal: E3'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasGroundTerminal
+          suggested_datatype: xsd:string
+          rationale: 접지단자 식별자
+      - raw_text: 'equipment_symbols: MCCB (Main) 3P 30/250AT x1, SPD 3Ø 40KA/mode
+          x1, MCCB 4P (분기) x2, CBR 2P (분기) x13, 접지단자 E3 x1'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolsSummary
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 집계 정보
+      - raw_text: 'function_candidates: PowerDistribution, CircuitProtection'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 표기
+  provenance:
+    tag:
+      source_pages:
+      - 20
+      method: entity_detail
+    name:
+      source_pages:
+      - 20
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 20
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 20
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 20
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 20
+      method: ontology_hints + labels
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 20
+      method: ontology_hints + plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 20
+      method: relations + labels
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 20
+      method: tag pattern
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 20
+      method: panel_location
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 20
+      method: specs + ontology_hints + raw_labels + equipment_symbols
+    specs.labels_above:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.labels_below:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.raw_labels:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.panel_location:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.cover_type:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.box_size:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.source_voltage_kV:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.source_voltage_phase:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.source_type:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.main_cb_rating:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.main_cb_poles:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.main_cb_af:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.main_cb_at:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.main_cb_alt_rating:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.spd_rating:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.branch_breaker_schedule:
+      source_pages:
+      - 20
+      method: entity_detail
+    specs.ground_terminal:
+      source_pages:
+      - 20
+      method: entity_detail
+    relations:
+      source_pages:
+      - 20
+      method: entity_detail
+    collection_sources:
+      source_pages:
+      - 20
+      method: entity_detail
+    position:
+      source_pages:
+      - 20
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 20
+      method: entity_detail
+    equipment_symbols:
+      source_pages:
+      - 20
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 20
+      method: entity_detail
+    ontology_hints:
+      source_pages:
+      - 20
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.main_cb_alt_rating
+    raw_text: 4P 250AT (Sonnet) vs 4P 125AF/250AT (Gemini) — conflict noted
+    source_page: 20
+    reason: 동일 항목에 대해 상이한 판독값이 존재함
+    preservation_note: 양쪽 판독값 모두 보존; 후속 단계에서 비교 검증 필요
+  - field_candidate: specs.box_size
+    raw_text: —
+    source_page: 20
+    reason: 값이 비어 있음
+    preservation_note: 미기재 상태로 보존
+  - field_candidate: labels_inside
+    raw_text: AT AF P TYPE NO CKT# / CKT# NO TYPE P AF AT
+    source_page: 20
+    reason: 표 형식 헤더로서 개별 속성으로 확정 불가
+    preservation_note: 분기 스케줄 표의 컬럼 헤더로 보존
+  - field_candidate: specs.branch_breaker_schedule
+    raw_text: AT:100 AF:125 P:4 TYPE:MCCB NO:— CCM; AT:75 AF:125 P:4 TYPE:MCCB NO:—
+      CCM; AT:30 AF:50 P:2 TYPE:CBR NO:2 CCM (UPS/비상); AT:30 AF:50 P:2 TYPE:CBR NO:2
+      CCM (전동/비상)
+    source_page: 20
+    reason: 반복 항목이 많고 일부 필드명이 false/NO로 혼재되어 구조화 확정 전
+    preservation_note: 스케줄 원문을 그대로 유지
+  - field_candidate: specs.main_cb_rating
+    raw_text: MCCB 3P 30/250AT
+    source_page: 20
+    reason: labels_inside와 raw_labels에 유사하지만 표기 변형이 존재
+    preservation_note: 메인 차단기 정격의 원문 표기 보존
+  - field_candidate: specs.source_voltage_kV
+    raw_text: '0.38'
+    source_page: 20
+    reason: kV 단위 수치이나 도면에는 380V 병기
+    preservation_note: 전압 레벨과 상전압 표기를 함께 참조
+  - field_candidate: specs.source_voltage_phase
+    raw_text: 3Ø 380V
+    source_page: 20
+    reason: 상수/전압 표기 혼합
+    preservation_note: 전원 상전압 표기 보존
+  - field_candidate: relations
+    raw_text: from EXT-전기실 to P-D-3PP relation cable
+    source_page: 20
+    reason: cable는 관계 원형이지만 확정 property IRI 없음
+    preservation_note: 물리적 케이블 연결 사실로 보존
+  - field_candidate: relations
+    raw_text: from P-D-3PP to GND-E3-D relation cable
+    source_page: 20
+    reason: cable는 관계 원형이지만 확정 property IRI 없음
+    preservation_note: 접지 케이블 연결 사실로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 메인 차단기 정격(main_cb_alt_rating)에 대해 Sonnet과 Gemini 판독값이 상충하며, 분기 차단기 스케줄도
+      반복/혼재 표기가 존재함
+    recommended_handling: 원문 라벨과 스케줄을 유지한 채 후속 단계에서 동일 태그의 다른 페이지/출처와 대조하여 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:11:54.808506'
+  confidence: 0.95

@@ -1,0 +1,889 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_PROTECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-102
+    title: 1층 소방간선설비 평면도
+    revision: null
+  visible_tags:
+  - tag: FA-1A
+    type: fire_alarm_device_or_point
+    source: image
+  - tag: FA-1D
+    type: fire_alarm_device_or_point
+    source: image
+  - tag: FA-1C
+    type: fire_alarm_device_or_point
+    source: image
+  - tag: FA-1B
+    type: fire_alarm_device_or_point
+    source: image
+  - tag: FD-1A
+    type: fire_door_or_fire_device_point
+    source: image
+  - tag: FD-1B
+    type: fire_door_or_fire_device_point
+    source: image
+  - tag: PULL BOX SIZE 400 x 400 x 300mm
+    type: pull_box
+    source: text
+  - tag: 통신 CABLE TRAY(기존)
+    type: cable_tray_existing
+    source: text
+  - tag: 정보통신용 맨홀
+    type: manhole
+    source: text
+  - tag: F/O SM 4C x1
+    type: fiber_optic_cable
+    source: text
+  - tag: ELP 30Φ
+    type: conduit
+    source: text
+  - tag: 1층 소방간선설비 평면도
+    type: named_space_or_drawing_title
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 도면 하단 우측에 통신공사 관련 주석(관로구방수장치, 기존 공동구, 통신 CABLE TRAY, PULL BOX, 정보통신용 맨홀, F/O SM
+    4C x1, ELP 30Φ)이 함께 보임
+  - 소방 도면이지만 통신 관련 표기가 일부 혼재함
+  - 표제란 도면번호는 EF-102로 보임
+  confidence: 0.93
+  note: 표제란 도면번호 EF-102와 제목 '1층 소방간선설비 평면도'가 보이며, 본문에는 소방/통신 관련 표기가 혼재함.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_electrical_alarm/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 도면번호 EF-102와 소방간선설비 평면도라는 제목으로 FIRE_PROTECTION floor_plan으로 판단되며,
+    카탈로그에 해당 genre 매칭 supplement가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 1층 평면도
+    position: center
+    labels_near:
+    - 진동시험실
+    - 제어룸
+    - 전기차/반도체 AZS In-Line 검증시스템
+    - Drive 시험실
+    - 로비
+    - FA-1A
+    - FA-1B
+    - FA-1C
+    - FA-1D
+    - FA-1E
+    - FA-1F
+    - FD-1A
+    - FD-1B
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 1층 소방간선설비 평면도
+    - EF - 102
+  - panel_id: COMM_NOTES
+    shape: dashed_box
+    primary_label: 통신공사 주석
+    position: bottom-right
+    labels_near:
+    - PULL BOX SIZE 400 x 400 x 300mm
+    - 통신 CABLE TRAY(기존)
+    - 정보통신용 맨홀
+    - F/O SM 4C x1
+    - ELP 30Φ
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: COMM_NOTES
+    line_style: dashed
+    annotation: 통신 인입 경로 연관
+  notable_shapes:
+  - shape: circle
+    label: FA-1A
+    note: 소방 감지기 또는 발신기 심볼
+  - shape: circle
+    label: FD-1A
+    note: 방화문 또는 소방 관련 장치 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지는 1층 평면도이며, 범례 표나 섹션이 포함되어 있지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 EF-102(Electrical Fire)와 제목 '1층 소방간선설비 평면도'를 통해 FIRE_PROTECTION
+    분야의 floor_plan 장르임이 확실함. 카탈로그에서 해당 분야 및 장르에 맞는 supplement 경로를 추출함. P-10의 경우 전기소방(electrical_alarm)
+    서브시스템 전용 supplement가 존재하여 이를 매칭함.
+classification: FIRE_PROTECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 1층 소방간선설비 평면도
+- 도면번호 EF-102
+- '프로젝트명: LS Electric R-Center 구축'
+- '건물명: R-Center'
+- 'SCALE : 1/300(A3)'
+- 'SCALE : 1/150(A1)'
+- 기존공동구
+- 통신 CABLE TRAY(기존)
+- PULL BOX SIZE 400 x 400 x 300mm
+- 정보통신용 맨홀
+- F/O SM 4C x1
+- ELP 30Φ
+- 'FROM : UTIL동 방재실'
+- 터파기 및 되메우기
+- 관로구방수장치
+title_block:
+  drawing_number: EF-102
+  title: 1층 소방간선설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 FIRE_PROTECTION / FIRE_PROTECTION_LAYOUT / floor_plan 판정과 일치함. 페이지 하단
+  표제란과 본문 텍스트에 소방간선설비 평면도 및 통신공사 관련 주석이 함께 보임.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ROOM-진동시험실
+    shape: rectangle
+    labels_inside:
+    - 진동시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 진동시험실
+    position: top-left
+  - panel_id: ROOM-국환환경시험실
+    shape: rectangle
+    labels_inside:
+    - 국환환경시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 국환환경시험실
+    position: top-left
+  - panel_id: ROOM-환경시험실
+    shape: rectangle
+    labels_inside:
+    - 환경시험실
+    - 제어룸
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 환경시험실 (제어룸 포함)
+    position: top-center
+  - panel_id: ROOM-전기환경품질실
+    shape: rectangle
+    labels_inside:
+    - 전기환경품질실
+    - EMV/EMS Shield실
+    - AMP 실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 전기환경품질실 / EMV·EMS Shield실 / AMP실
+    position: top-center-right
+  - panel_id: ROOM-컨트롤실
+    shape: rectangle
+    labels_inside:
+    - 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 컨트롤실
+    position: top-right
+  - panel_id: ROOM-EMC방비실
+    shape: rectangle
+    labels_inside:
+    - EMC 방비실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: EMC 방비실
+    position: top-right
+  - panel_id: ROOM-전기차반도체AZS
+    shape: dashed_box
+    labels_inside:
+    - 전기차/반도체 AZS In-Line 검증시스템
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 전기차/반도체 AZS In-Line 검증시스템 구역
+    position: center-left
+  - panel_id: ROOM-부하제어기능시험실
+    shape: rectangle
+    labels_inside:
+    - 부하 제어 및 기능시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 부하 제어 및 기능시험실
+    position: center-left
+  - panel_id: ROOM-대응유지보수부품
+    shape: rectangle
+    labels_inside:
+    - 대응유지보수부품
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 대응유지보수부품 창고
+    position: center-left
+  - panel_id: ROOM-PLC-Drive
+    shape: rectangle
+    labels_inside:
+    - PLC/Drive 및 신사업 검증시스템
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: PLC/Drive 및 신사업 검증시스템 구역
+    position: center
+  - panel_id: ROOM-Drive시험실-상
+    shape: rectangle
+    labels_inside:
+    - Drive 시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: Drive 시험실 (상단)
+    position: center-right
+  - panel_id: ROOM-Drive시험실-하
+    shape: rectangle
+    labels_inside:
+    - Drive 시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: Drive 시험실 (하단)
+    position: center-right
+  - panel_id: ROOM-로비
+    shape: rectangle
+    labels_inside:
+    - 로비
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 로비
+    position: right-center
+  - panel_id: ROOM-설비보전실
+    shape: rectangle
+    labels_inside:
+    - 설비보전실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설비보전실
+    position: right-center
+  - panel_id: ROOM-고객접견실
+    shape: rectangle
+    labels_inside:
+    - 고객접견실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 고객접견실
+    position: right
+  - panel_id: ROOM-고객대기실
+    shape: rectangle
+    labels_inside:
+    - 고객 대기실 1~3
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 테이블/의자 배치 심볼
+      count: 3
+    inferred_name: 고객 대기실 1~3
+    position: right
+  - panel_id: ROOM-방풍실
+    shape: rectangle
+    labels_inside:
+    - 방풍실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 방풍실
+    position: right
+  - panel_id: FA-1A
+    shape: circle
+    labels_inside:
+    - FA-1A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 경보 장치 (발신기/수신기 연결점)
+      count: 1
+    inferred_name: 소방 경보 회로 접속점 FA-1A
+    position: center-right (설비보전실 인근)
+  - panel_id: FA-1B
+    shape: circle
+    labels_inside:
+    - FA-1B
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 경보 장치 접속점
+      count: 1
+    inferred_name: 소방 경보 회로 접속점 FA-1B
+    position: top-right (EMC방비실 인근)
+  - panel_id: FA-1C
+    shape: circle
+    labels_inside:
+    - FA-1C
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 경보 장치 접속점
+      count: 1
+    inferred_name: 소방 경보 회로 접속점 FA-1C
+    position: top-center (전기환경품질실 인근)
+  - panel_id: FA-1D
+    shape: circle
+    labels_inside:
+    - FA-1D
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 경보 장치 접속점
+      count: 1
+    inferred_name: 소방 경보 회로 접속점 FA-1D
+    position: top-left (환경시험실 인근)
+  - panel_id: FA-1E
+    shape: circle
+    labels_inside:
+    - FA-1E
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 경보 장치 접속점
+      count: 1
+    inferred_name: 소방 경보 회로 접속점 FA-1E
+    position: center-left (부하제어기능시험실 인근)
+  - panel_id: FA-1F
+    shape: circle
+    labels_inside:
+    - FA-1F
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 경보 장치 접속점
+      count: 1
+    inferred_name: 소방 경보 회로 접속점 FA-1F
+    position: bottom-center (하단 출입구 인근)
+  - panel_id: FD-1A
+    shape: circle
+    labels_inside:
+    - FD-1A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화문 연동 제어점
+      count: 1
+    inferred_name: 방화문 연동 제어점 FD-1A
+    position: top-left (진동시험실 인근)
+  - panel_id: FD-1B
+    shape: circle
+    labels_inside:
+    - FD-1B
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화문 연동 제어점
+      count: 1
+    inferred_name: 방화문 연동 제어점 FD-1B
+    position: bottom-center (하단 출입구 인근)
+  - panel_id: 중계기-전반반
+    shape: rectangle
+    labels_inside:
+    - 중계기, 전반반
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 중계기/전반반 패널
+      count: 1
+    inferred_name: 소방 중계기 및 전반반
+    position: center-right (설비보전실 하단)
+  - panel_id: PULL-BOX-외부
+    shape: rectangle
+    labels_inside:
+    - PULL BOX SIZE 400 x 400 x 300mm
+    labels_above: []
+    labels_below:
+    - 관로구방수장치
+    equipment_symbols:
+    - type: PULL BOX
+      count: 1
+    inferred_name: 외부 인입용 PULL BOX (400×400×300mm)
+    position: bottom-right (건물 외부 인입부)
+  - panel_id: COMM-MANHOLE
+    shape: rectangle
+    labels_inside:
+    - 정보통신용 맨홀
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 맨홀
+      count: 1
+    inferred_name: 정보통신용 맨홀
+    position: bottom-right (외부)
+  - panel_id: CABLE-TRAY-기존
+    shape: other
+    labels_inside:
+    - 통신 CABLE TRAY(기존)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 케이블 트레이 (기존)
+      count: 1
+    inferred_name: 기존 통신 케이블 트레이
+    position: bottom-right (외부 인입 경로)
+  - panel_id: UTIL-방재실-인입
+    shape: other
+    labels_inside:
+    - 'FROM : UTIL동 방재실'
+    - F/O SM 4C x1
+    - ELP 30Φ
+    - ID SM 4C V1
+    - IRON TRAY
+    labels_above: []
+    labels_below:
+    - 터파기 및 되메우기
+    - 기존공동구
+    equipment_symbols:
+    - type: 광케이블 인입 경로
+      count: 1
+    inferred_name: UTIL동 방재실로부터 소방 간선 인입 경로
+    position: bottom-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - R-Center
+    - 1층 소방간선설비 평면도
+    - EF - 102
+    - A3:1/300
+    - '2024.01'
+    - 안동식
+    - 이은진
+    - 정용재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right (도면 우측 하단)
+  connections:
+  - from: UTIL-방재실-인입
+    to: PULL-BOX-외부
+    line_type: cable
+    line_style: solid
+    annotation: F/O SM 4C x1, ELP 30Φ, 지중 매입
+  - from: PULL-BOX-외부
+    to: CABLE-TRAY-기존
+    line_type: cable
+    line_style: solid
+    annotation: 통신 CABLE TRAY(기존) 경유
+  - from: COMM-MANHOLE
+    to: PULL-BOX-외부
+    line_type: cable
+    line_style: solid
+    annotation: 정보통신용 맨홀 → PULL BOX 인입
+  - from: FA-1A
+    to: 중계기-전반반
+    line_type: cable
+    line_style: solid
+    annotation: 소방 경보 간선 (감지기용 배관배선 F)
+  - from: FA-1B
+    to: 중계기-전반반
+    line_type: cable
+    line_style: solid
+    annotation: 소방 경보 간선
+  - from: FA-1C
+    to: 중계기-전반반
+    line_type: cable
+    line_style: solid
+    annotation: 소방 경보 간선
+  - from: FA-1D
+    to: 중계기-전반반
+    line_type: cable
+    line_style: solid
+    annotation: 소방 경보 간선
+  - from: FA-1E
+    to: 중계기-전반반
+    line_type: cable
+    line_style: solid
+    annotation: 소방 경보 간선
+  - from: FA-1F
+    to: 중계기-전반반
+    line_type: cable
+    line_style: solid
+    annotation: 소방 경보 간선
+  - from: FD-1A
+    to: 중계기-전반반
+    line_type: signal
+    line_style: solid
+    annotation: 방화문 연동 신호선
+  - from: FD-1B
+    to: 중계기-전반반
+    line_type: signal
+    line_style: solid
+    annotation: 방화문 연동 신호선
+  groups:
+  - group_id: GRP-소방경보회로
+    label: 소방 경보 간선 회로 (FA 계통)
+    members:
+    - FA-1A
+    - FA-1B
+    - FA-1C
+    - FA-1D
+    - FA-1E
+    - FA-1F
+    - 중계기-전반반
+  - group_id: GRP-방화문연동
+    label: 방화문 연동 제어 계통 (FD 계통)
+    members:
+    - FD-1A
+    - FD-1B
+    - 중계기-전반반
+  - group_id: GRP-통신인입
+    label: 통신/소방 간선 외부 인입 경로
+    members:
+    - UTIL-방재실-인입
+    - COMM-MANHOLE
+    - PULL-BOX-외부
+    - CABLE-TRAY-기존
+  - group_id: GRP-시험실구역
+    label: 시험실 구역 (좌측)
+    members:
+    - ROOM-진동시험실
+    - ROOM-국환환경시험실
+    - ROOM-환경시험실
+    - ROOM-전기차반도체AZS
+    - ROOM-부하제어기능시험실
+    - ROOM-PLC-Drive
+    - ROOM-Drive시험실-상
+    - ROOM-Drive시험실-하
+  - group_id: GRP-고객공간
+    label: 고객 공간 구역 (우측)
+    members:
+    - ROOM-로비
+    - ROOM-방풍실
+    - ROOM-고객접견실
+    - ROOM-고객대기실
+  legend_references:
+  - text: FA (소방 경보 회로 접속점)
+    linked_to: FA-1A
+  - text: FA (소방 경보 회로 접속점)
+    linked_to: FA-1B
+  - text: FA (소방 경보 회로 접속점)
+    linked_to: FA-1C
+  - text: FA (소방 경보 회로 접속점)
+    linked_to: FA-1D
+  - text: FA (소방 경보 회로 접속점)
+    linked_to: FA-1E
+  - text: FA (소방 경보 회로 접속점)
+    linked_to: FA-1F
+  - text: FD (방화문 연동 제어점)
+    linked_to: FD-1A
+  - text: FD (방화문 연동 제어점)
+    linked_to: FD-1B
+  - text: PULL BOX (SYM-013)
+    linked_to: PULL-BOX-외부
+  - text: 감지기용 배관배선 F (SYM-015)
+    linked_to: GRP-소방경보회로
+  - text: 지중 매입 배관배선 (SYM-019)
+    linked_to: UTIL-방재실-인입
+  diagram_meta:
+    title: 1층 소방간선설비 평면도
+    drawing_number: EF-102
+    project: LS Electric R-Center 구축
+    building: R-Center
+    scale_a3: 1/300
+    scale_a1: 1/150
+    date: '2024.01'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    drawn_by: 안동식
+    checked_by: 이은진
+    approved_by: 정용재
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 EF-102 (EF 접두사 = Electrical Fire) + 제목 '1층
+      소방간선설비 평면도' 두 단서 근거
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: left-to-right
+    notes:
+    - UTIL동 방재실로부터 F/O SM 4C x1 광케이블 및 ELP 30Φ 전선관이 지중 매입으로 인입
+    - 기존 공동구 및 통신 CABLE TRAY(기존) 경유하여 건물 내 PULL BOX(400×400×300mm)로 연결
+    - 관로구방수장치 설치 명시
+    - 터파기 및 되메우기 공사 포함
+    - 소방 경보 간선 FA-1A~FA-1F 및 방화문 연동 FD-1A, FD-1B 총 8개 접속점 확인
+    - 중계기 및 전반반이 설비보전실 하단에 위치
+    - 도면 하단 우측에 통신공사 관련 주석이 소방 도면에 혼재 (소방간선 인입 경로와 연관)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: ROOM-01
+    shape: rectangle
+    labels_inside:
+    - 진동시험실
+    position: top-left
+  - panel_id: ROOM-02
+    shape: rectangle
+    labels_inside:
+    - 국환환경시험실
+    position: top-left
+  - panel_id: ROOM-03
+    shape: rectangle
+    labels_inside:
+    - 환경시험실
+    - 제어룸
+    position: top-center
+  - panel_id: ROOM-04
+    shape: rectangle
+    labels_inside:
+    - 전기환경품질실
+    - EMI/EMS Shield실
+    - AMP 실
+    position: top-center
+  - panel_id: ROOM-05
+    shape: rectangle
+    labels_inside:
+    - 컨트롤실
+    position: top-right
+  - panel_id: ROOM-06
+    shape: rectangle
+    labels_inside:
+    - EMC 챔버실
+    position: top-right
+  - panel_id: AREA-01
+    shape: dashed_box
+    labels_inside:
+    - 전기차/반도체 AZS In-Line 검증시스템
+    position: center-left
+  - panel_id: ROOM-07
+    shape: rectangle
+    labels_inside:
+    - 부하 제어 및 기능시험실
+    position: center-left
+  - panel_id: ROOM-08
+    shape: rectangle
+    labels_inside:
+    - 대응유지보수부품
+    position: center-left
+  - panel_id: AREA-02
+    shape: rectangle
+    labels_inside:
+    - PLC/Drive 및 신사업 검증시스템
+    position: center
+  - panel_id: ROOM-09
+    shape: rectangle
+    labels_inside:
+    - Drive 시험실
+    position: center-right
+  - panel_id: ROOM-10
+    shape: rectangle
+    labels_inside:
+    - Drive 시험실
+    position: center-right
+  - panel_id: ROOM-11
+    shape: rectangle
+    labels_inside:
+    - 설비보전실
+    position: center-right
+  - panel_id: ROOM-12
+    shape: rectangle
+    labels_inside:
+    - 로비
+    position: right
+  - panel_id: ROOM-13
+    shape: rectangle
+    labels_inside:
+    - 방풍실
+    position: right
+  - panel_id: ROOM-14
+    shape: rectangle
+    labels_inside:
+    - 고객접견실
+    position: right
+  - panel_id: ROOM-15
+    shape: rectangle
+    labels_inside:
+    - 고객 대기실 1~3
+    position: right
+  - panel_id: DEV-FA-1A
+    shape: circle
+    labels_above:
+    - FA-1A
+    position: center-right
+  - panel_id: DEV-FA-1B
+    shape: circle
+    labels_above:
+    - FA-1B
+    position: top-right
+  - panel_id: DEV-FA-1C
+    shape: circle
+    labels_above:
+    - FA-1C
+    position: top-center
+  - panel_id: DEV-FA-1D
+    shape: circle
+    labels_above:
+    - FA-1D
+    position: top-left
+  - panel_id: DEV-FA-1E
+    shape: circle
+    labels_above:
+    - FA-1E
+    position: center-left
+  - panel_id: DEV-FA-1F
+    shape: circle
+    labels_above:
+    - FA-1F
+    position: bottom-center
+  - panel_id: DEV-FD-1A
+    shape: circle
+    labels_above:
+    - FD-1A
+    position: top-left
+  - panel_id: DEV-FD-1B
+    shape: circle
+    labels_above:
+    - FD-1B
+    position: bottom-center
+  - panel_id: PNL-MAIN
+    shape: rectangle
+    labels_inside:
+    - 중계기, 전반반
+    position: center-right
+  - panel_id: INFRA-INCOME
+    shape: other
+    labels_inside:
+    - FROM: UTIL동 방재실
+    - F/O SM 4C x1
+    - ELP 30Φ
+    - ID SM 4C V1
+    - 지중매설
+    - (옥외 소방간선설비 배치도 참조)
+    position: bottom-right
+  - panel_id: INFRA-MANHOLE
+    shape: rectangle
+    labels_inside:
+    - 정보통신용 맨홀
+    position: bottom-right
+  - panel_id: INFRA-PULLBOX
+    shape: rectangle
+    labels_inside:
+    - PULL BOX SIZE 400 x 400 x 300mm
+    position: bottom-right
+  - panel_id: INFRA-TRAY
+    shape: other
+    labels_inside:
+    - 통신 CABLE TRAY(기존)
+    - 기존공동구
+    position: bottom-right
+  connections:
+  - from: PNL-MAIN
+    to: DEV-FA-1A
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FA-1B
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FA-1C
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FA-1D
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FA-1E
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FA-1F
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FD-1A
+    line_type: cable
+    line_style: solid
+  - from: PNL-MAIN
+    to: DEV-FD-1B
+    line_type: cable
+    line_style: solid
+  - from: INFRA-INCOME
+    to: INFRA-MANHOLE
+    line_type: cable
+    line_style: solid
+    annotation: 지중매설
+  - from: INFRA-MANHOLE
+    to: INFRA-PULLBOX
+    line_type: cable
+    line_style: solid
+  - from: INFRA-PULLBOX
+    to: INFRA-TRAY
+    line_type: cable
+    line_style: solid
+  groups:
+  - group_id: GRP-FA
+    label: 소방 경보 장치 (Fire Alarm Devices)
+    members:
+    - DEV-FA-1A
+    - DEV-FA-1B
+    - DEV-FA-1C
+    - DEV-FA-1D
+    - DEV-FA-1E
+    - DEV-FA-1F
+  - group_id: GRP-FD
+    label: 방화문/댐퍼 연동 장치 (Fire Door/Damper Devices)
+    members:
+    - DEV-FD-1A
+    - DEV-FD-1B
+  - group_id: GRP-INCOME
+    label: 외부 인입 간선 (Incoming Main Lines)
+    members:
+    - INFRA-INCOME
+    - INFRA-MANHOLE
+    - INFRA-PULLBOX
+    - INFRA-TRAY
+  diagram_meta:
+    title: 1층 소방간선설비 평면도
+    drawing_number: EF-102
+    project: LS Electric R-Center 구축
+    building: R-Center
+    scale_a3: 1/300
+    scale_a1: 1/150
+    date: '2024.01'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 EF-102 (EF=Electrical Fire) 및 제목 '소방간선설비 평면도'에
+      근거하여 소방 분야로 확정.
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    notes:
+    - UTIL동 방재실로부터 소방/통신 간선이 지중 매설되어 인입됨.
+    - 기존 공동구 및 통신 케이블 트레이를 경유함.
+    - 옥외 소방간선설비 배치도 참조 요망.
+    - 통신공사 관련 주석(맨홀, 풀박스, 트레이 등)이 소방 도면에 함께 표기됨.

@@ -1,0 +1,675 @@
+initial_scan:
+  page_type: legend
+  is_legend: true
+  has_legend_section: true
+  legend_type: 범례 + 장비일람표
+  discipline: FIRE_PROTECTION
+  classification: null
+  drawing_genre: legend
+  title_block:
+    drawing_number: MF-002
+    title: 범례,장비일람표
+    revision: null
+  visible_tags:
+  - tag: FF-1
+    type: pump
+    source: image
+  - tag: FF-2
+    type: pump
+    source: image
+  - tag: T-1
+    type: tank
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: false
+    estimated_entity_count: 3
+  next_step_hints:
+  - 상단 중앙에 범례 표가 있고 하단에 장비일람표/탱크 표가 함께 배치됨
+  - 표제란에 MF-002, 제목 '범례,장비일람표'가 보임
+  - legend 페이지이므로 이후 설비 추출은 범례/일람표 항목 중심으로 검토 필요
+  confidence: 0.98
+  note: null
+  recommended_supplements: &id001
+    P-0.5: discipline/fire_protection/_general/supplement_p0_05.yaml
+    P-4.5: discipline/fire_protection/genre_legend/supplement_p4_05.yaml
+  routing_confidence: 1.0
+  routing_reason: 페이지가 범례 전용 성격이며 표제란 제목도 '범례,장비일람표'로 확인되어 supplement 라우팅 대상이 아님.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND_TABLE
+    shape: rectangle
+    primary_label: 범례
+    position: top-center
+    labels_near:
+    - 기호
+    - 기호명
+    - 비고
+    - H (옥내소화전배관)
+    - SP (스프링클러배관)
+    - SC (연결송수구배관)
+    - 게이트밸브
+    - 체크밸브
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+  - panel_id: EQUIP_LIST_PUMP
+    shape: rectangle
+    primary_label: 장비일람표 (펌프)
+    position: middle-left
+    labels_near:
+    - 펌프
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - FP-1 (옥내소화전,스프링클러 주펌프)
+    - FP-2 (옥내소화전,스프링클러 충압펌프)
+    - '용도: 소화용'
+  - panel_id: EQUIP_LIST_TANK
+    shape: rectangle
+    primary_label: 장비일람표 (탱크)
+    position: bottom-left
+    labels_near:
+    - 탱크
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - FT-1 (압력 탱크)
+    - '용도: 소화용'
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 가운 건축
+    - 범례,장비일람표
+    - MF - 002
+    - (주)정연엔지니어링
+  connections: []
+  notable_shapes:
+  - shape: dashed_box
+    label: 배관 심볼
+    note: 범례 표 내 H, SP, SC 배관 기호
+  - shape: circle
+    label: 소화기 심볼
+    note: 범례 표 내 A.B.C 분말소화기, K급소화기 기호
+legend_candidate:
+  is_legend_page: true
+  has_legend_section: true
+  legend_region: top-center
+  confidence: 1.0
+  note: 페이지 상단에 '범례' 표가 명확히 배치되어 있으며, 하단에는 소화용 장비일람표가 함께 구성됨.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: legend
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 1.0
+  routing_reason: 0-0의 ELECTRICAL 판정은 오류임. 도면번호 MF-002 접두사 MF(Mechanical Fire)와 제목
+    '범례,장비일람표', 그리고 범례 내 '옥내소화전배관(H)', '스프링클러배관(SP)', '소화용' 펌프/탱크 일람표 등 소방(기계) 분야
+    키워드가 지배적이므로 FIRE_PROTECTION으로 확정. 장르는 legend 유지.
+classification: LEGEND
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 범례
+- 기호 / 기호명 / 비고
+- 'H: 옥내소화전배관'
+- 'SP: 스프링클러배관'
+- 'SC: 연결송수구배관'
+- 게이트밸브
+- 체크밸브
+- 스트레이너
+- 여과망
+- 후렉시블 조인트
+- A.B.C 분말소화기
+- K급소화기
+- 옥내소화전함
+- 쌍구형연결송수구
+- '배관부속 : 50ø이하(그루브조인트), 65ø이상(그루브조인트)'
+- '관보온 : 80ø이하(25t 가교발포폴리에틸렌+마직테이프), 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+- 장비일람표
+- 펌프
+- 탱크
+title_block:
+  drawing_number: MF-002
+  title: 범례,장비일람표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 판정과 일치함. 페이지 상단 중앙에 범례 표가 있고, 하단에 펌프/탱크 장비일람표가 함께 배치된 소방(기계) 분야의 범례 페이지로
+  보임. 표제란에서 도면번호 MF-002와 제목 '범례,장비일람표'가 확인됨.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 기 호
+    - 기호명
+    - 비 고
+    - H — 옥내소화전배관 — 백강관 KSD-3507
+    - SP — 스프링클러배관 — 백강관 KSD-3507
+    - SC — 연결송수구배관 — 백강관 KSD-3507
+    - 게이트밸브(개폐표시형) — 과류표시용
+    - 게이트밸브
+    - 체크밸브 — 스모렌스키
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+    labels_above:
+    - 범 례
+    labels_below:
+    - '* 배관부속 : 50ø이하(그루브조인트), 65ø이상(그루브조인트)'
+    - '* 관보온 : 80ø이하(25t 가교발포폴리에틸렌+마직테이프), 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+    equipment_symbols:
+    - type: pipe_line_H
+      count: 1
+    - type: pipe_line_SP
+      count: 1
+    - type: pipe_line_SC
+      count: 1
+    - type: gate_valve_indicator
+      count: 1
+    - type: gate_valve
+      count: 1
+    - type: check_valve_smolensky
+      count: 1
+    - type: strainer
+      count: 1
+    - type: filter_screen
+      count: 1
+    - type: flexible_joint
+      count: 1
+    - type: abc_extinguisher
+      count: 1
+    - type: k_class_extinguisher
+      count: 1
+    - type: fire_hose_cabinet
+      count: 1
+    - type: siamese_connection
+      count: 1
+    inferred_name: 소방 기계설비 범례표
+    position: top-center
+  - panel_id: TABLE-PUMP
+    shape: rectangle
+    labels_inside:
+    - 펌 프
+    - 기호 / 수량 / 명칭 / 용도 / 형식 / 설치위치 / 유량(LPM) / 양정(M) / 흡입구경(mm) / 토출구경(mm) / 단수 /
+      모터(KW) / 모터(HF) / 전원(PH×V×HZ) / 방진소음 / 내진 / 비고
+    - FP-1 / 1 / 옥내소화전,스프링클러 주펌프 / 소화용 / 다단볼류트 / 1F동 기계실 / 1500 / 60 / 150 / 150 /
+      6 / 37 / (50) / 3×380×60 / 방진소음 / 없음 / 횡형볼류트 열매구비,고효율모터
+    - FP-2 / 1 / 옥내소화전,스프링클러 충압펌프 / 소화용 / 횡스크롤 / 1F동 기계실 / 60 / 73 / 40 / 40 / — /
+      3.75 / (5) / 3×380×60 / 방진소음 / 없음 / 횡형볼류트 열매구비,고효율모터
+    labels_above:
+    - 장 비 일 람 표
+    - '"기존 변경 없음"'
+    labels_below: []
+    equipment_symbols:
+    - type: pump
+      count: 2
+    inferred_name: 소화펌프 장비일람표
+    position: middle-left
+    schedule_entries:
+    - tag: FP-1
+      category_path:
+      - 펌프
+      - 주펌프
+      specs:
+        명칭: 옥내소화전,스프링클러 주펌프
+        용도: 소화용
+        형식: 다단볼류트
+        설치위치: 1F동 기계실
+        유량_LPM: 1500
+        양정_M: 60
+        흡입구경_mm: 150
+        토출구경_mm: 150
+        단수: 6
+        모터_KW: 37
+        모터_HF: 50
+        전원: 3×380×60
+        방진소음: 방진소음
+        내진: 없음
+      notes: 횡형볼류트 열매구비,고효율모터
+      raw_row: FP-1 / 1 / 옥내소화전,스프링클러 주펌프 / 소화용 / 다단볼류트 / 1F동 기계실 / 1500 / 60 / 150
+        / 150 / 6 / 37 / (50) / 3×380×60 / 방진소음 / 없음
+    - tag: FP-2
+      category_path:
+      - 펌프
+      - 충압펌프
+      specs:
+        명칭: 옥내소화전,스프링클러 충압펌프
+        용도: 소화용
+        형식: 횡스크롤
+        설치위치: 1F동 기계실
+        유량_LPM: 60
+        양정_M: 73
+        흡입구경_mm: 40
+        토출구경_mm: 40
+        단수: null
+        모터_KW: 3.75
+        모터_HF: 5
+        전원: 3×380×60
+        방진소음: 방진소음
+        내진: 없음
+      notes: 횡형볼류트 열매구비,고효율모터
+      raw_row: FP-2 / 1 / 옥내소화전,스프링클러 충압펌프 / 소화용 / 횡스크롤 / 1F동 기계실 / 60 / 73 / 40 /
+        40 / — / 3.75 / (5) / 3×380×60 / 방진소음 / 없음
+  - panel_id: TABLE-TANK
+    shape: rectangle
+    labels_inside:
+    - 탱 크
+    - 기호 / 수량 / 명칭 / 용도 / 형수 / 설치위치 / 용량(LIT) / 규격(W) / 규격(L) / 규격(H) / 재질(상부) / 판두께(MM)(상부)
+      / 판두께(MM)(옆면) / 판두께(MM)(하부) / 도장 / 보온 / 비고
+    - FT-1 / 1 / 압력탱크 / 소화용 / 횡형운동 / 1F동 기계실 / 100 / 380ø / — / 920 / SS-41 / 3.2
+      / 3.2 / 3.2 / — / — / 10KG/CM형 압력스위치3개
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: pressure_tank
+      count: 1
+    inferred_name: 소화탱크 장비일람표
+    position: bottom-left
+    schedule_entries:
+    - tag: FT-1
+      category_path:
+      - 탱크
+      - 압력탱크
+      specs:
+        명칭: 압력탱크
+        용도: 소화용
+        형수: 횡형운동
+        설치위치: 1F동 기계실
+        용량_LIT: 100
+        규격_W_mm: 380
+        규격_L_mm: null
+        규격_H_mm: 920
+        재질: SS-41
+        판두께_상부_mm: 3.2
+        판두께_옆면_mm: 3.2
+        판두께_하부_mm: 3.2
+        도장: null
+        보온: null
+      notes: 10KG/CM형 압력스위치3개
+      raw_row: FT-1 / 1 / 압력탱크 / 소화용 / 횡형운동 / 1F동 기계실 / 100 / 380ø / — / 920 / SS-41
+        / 3.2 / 3.2 / 3.2 / — / —
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운 건축
+    - GAUN | Architects & Engineers
+    - R-Center
+    - 범례,장비일람표
+    - MF - 002
+    - (주)정연엔지니어링
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - '2024.04'
+    labels_above: []
+    labels_below: []
+    inferred_name: 표제란
+    position: bottom-right
+  connections: []
+  groups:
+  - group_id: GRP-LEGEND
+    label: 범례 구역
+    members:
+    - LEGEND-TABLE
+  - group_id: GRP-SCHEDULE
+    label: 장비일람표 구역
+    members:
+    - TABLE-PUMP
+    - TABLE-TANK
+  legend_references:
+  - symbol_id: SYM-001
+    abbreviation: H
+    text: 옥내소화전배관
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-002
+    abbreviation: SP
+    text: 스프링클러배관
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-003
+    abbreviation: SC
+    text: 연결송수구배관
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-004
+    abbreviation: null
+    text: 게이트밸브(개폐표시형)
+    note: 과류표시용
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-005
+    abbreviation: null
+    text: 게이트밸브
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-006
+    abbreviation: null
+    text: 체크밸브
+    note: 스모렌스키
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-007
+    abbreviation: null
+    text: 스트레이너
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-008
+    abbreviation: null
+    text: 여과망
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-009
+    abbreviation: null
+    text: 후렉시블 조인트
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-010
+    abbreviation: null
+    text: A.B.C 분말소화기
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-011
+    abbreviation: K
+    text: K급소화기
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-012
+    abbreviation: null
+    text: 옥내소화전함
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-013
+    abbreviation: null
+    text: 쌍구형연결송수구
+    note: null
+    linked_to: LEGEND-TABLE
+  diagram_meta:
+    title: 범례,장비일람표
+    drawing_number: MF-002
+    drawing_genre: legend
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: legend
+    has_seismic: false
+    has_equipment_list: true
+    has_design_notes: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    pipe_abbreviations:
+      H: 옥내소화전배관
+      SP: 스프링클러배관
+      SC: 연결송수구배관
+    symbol_count: 13
+    legend_groups:
+    - 배관 및 밸브류
+    - 소화설비
+    legend_notes:
+    - '배관부속 : 50ø이하(그루브조인트), 65ø이상(그루브조인트)'
+    - '관보온 : 80ø이하(25t 가교발포폴리에틸렌+마직테이프), 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+    schedule_summary:
+      tables:
+      - title: 펌프
+        total_quantity: 2
+        row_count: 2
+        group_counts:
+          주펌프: 1
+          충압펌프: 1
+      - title: 탱크
+        total_quantity: 1
+        row_count: 1
+        group_counts:
+          압력탱크: 1
+    project_name: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운 건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    scale_A1: 1/NONE
+    scale_A3: 1/NONE
+    date: '2024.04'
+    note: 기존 변경 없음 (장비일람표 상단 표기)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 기 호
+    - 기호명
+    - 비 고
+    - H — 옥내소화전배관 — 백강관 KSD-3507
+    - SP — 스프링클러배관 — 백강관 KSD-3507
+    - SC — 연결송수구배관 — 백강관 KSD-3507
+    - 게이트밸브 — 개폐표시형
+    - 게이트밸브
+    - 체크밸브 — 스모렌스키
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+    labels_above:
+    - 범 례
+    labels_below:
+    - '* 배관부속 : 50ø이하(그루브조인트) , 65ø이상(그루브조인트)'
+    - '* 관보온 : 80ø이하(25t 가교발포폴리에틸렌+마직테이프) , 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+    inferred_name: 소방설비 범례표
+    position: top-center
+  - panel_id: TABLE-PUMP
+    shape: rectangle
+    labels_inside:
+    - 펌 프
+    - 기호 / 수량 / 명칭 / 용도 / 형식 / 설치 위치 / 사 양 (유량(LPM) / 양정(M) / 흡입구경(mm) / 토출구경(mm)
+      / 단수) / 모 타 (KW / (HP) / 전원(PH×V×HZ)) / 방 진 / 내 진 / 비 고
+    - FP-1 / 1 / 옥내소화전,스프링클러 주펌프 / 소화용 / 다단볼류트 / UT동 기계실 / 1500 / 60 / 150 / 150 /
+      6 / 37 / (50) / 3×380×60 / 방진스프링 / 없음 / 횡형볼류트 열매구비 ,고효율모터
+    - FP-2 / 1 / 옥내소화전,스프링클러 충압펌프 / 소화용 / 횡스크롤 / UT동 기계실 / 60 / 70 / 40 / 40 / — /
+      3.75 / ( 5 ) / 3×380×60 / 방진스프링 / 없음 / 횡형볼류트 열매구비 ,고효율모터
+    labels_above:
+    - 장 비 일 람 표
+    - '"기존 변경 없음"'
+    inferred_name: 소화펌프 일람표
+    position: middle-left
+    schedule_entries:
+    - tag: FP-1
+      category_path:
+      - 펌프
+      - 주펌프
+      specs:
+        명칭: 옥내소화전,스프링클러 주펌프
+        용도: 소화용
+        형식: 다단볼류트
+        설치위치: UT동 기계실
+        유량_LPM: 1500
+        양정_M: 60
+        흡입구경_mm: 150
+        토출구경_mm: 150
+        단수: 6
+        모터_KW: 37
+        모터_HP: 50
+        전원: 3×380×60
+        방진: 방진스프링
+        내진: 없음
+      notes: 횡형볼류트 열매구비 ,고효율모터
+      raw_row: FP-1 / 1 / 옥내소화전,스프링클러 주펌프 / 소화용 / 다단볼류트 / UT동 기계실 / 1500 / 60 / 150
+        / 150 / 6 / 37 / (50) / 3×380×60 / 방진스프링 / 없음 / 횡형볼류트 열매구비 ,고효율모터
+    - tag: FP-2
+      category_path:
+      - 펌프
+      - 충압펌프
+      specs:
+        명칭: 옥내소화전,스프링클러 충압펌프
+        용도: 소화용
+        형식: 횡스크롤
+        설치위치: UT동 기계실
+        유량_LPM: 60
+        양정_M: 70
+        흡입구경_mm: 40
+        토출구경_mm: 40
+        단수: null
+        모터_KW: 3.75
+        모터_HP: 5
+        전원: 3×380×60
+        방진: 방진스프링
+        내진: 없음
+      notes: 횡형볼류트 열매구비 ,고효율모터
+      raw_row: FP-2 / 1 / 옥내소화전,스프링클러 충압펌프 / 소화용 / 횡스크롤 / UT동 기계실 / 60 / 70 / 40 /
+        40 / — / 3.75 / ( 5 ) / 3×380×60 / 방진스프링 / 없음 / 횡형볼류트 열매구비 ,고효율모터
+  - panel_id: TABLE-TANK
+    shape: rectangle
+    labels_inside:
+    - 탱 크
+    - 기호 / 수량 / 명칭 / 용도 / 형수 / 설치위치 / 용 량 (LIT) / 규 격 (W / L / H) / 재 질 / 철판두께(MM)
+      (상부 / 옆면 / 하부) / 도 장 / 보 온 / 비 고
+    - FT-1 / 1 / 압력탱크 / 소화용 / 횡형원통 / UT동 기계실 / 100 / 380ø / — / 920 / SS-41 / 3.2
+      / 3.2 / 3.2 / — / — / 10KG/CM²형 (압력스위치3개)
+    inferred_name: 소화탱크 일람표
+    position: bottom-left
+    schedule_entries:
+    - tag: FT-1
+      category_path:
+      - 탱크
+      - 압력탱크
+      specs:
+        명칭: 압력탱크
+        용도: 소화용
+        형수: 횡형원통
+        설치위치: UT동 기계실
+        용량_LIT: 100
+        규격_W_mm: 380ø
+        규격_L_mm: null
+        규격_H_mm: 920
+        재질: SS-41
+        철판두께_상부_mm: 3.2
+        철판두께_옆면_mm: 3.2
+        철판두께_하부_mm: 3.2
+        도장: null
+        보온: null
+      notes: 10KG/CM²형 (압력스위치3개)
+      raw_row: FT-1 / 1 / 압력탱크 / 소화용 / 횡형원통 / UT동 기계실 / 100 / 380ø / — / 920 / SS-41
+        / 3.2 / 3.2 / 3.2 / — / — / 10KG/CM²형 (압력스위치3개)
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운 건축
+    - GAUN | Architects & Engineers
+    - 범례,장비일람표
+    - MF - 002
+    - (주)정연엔지니어링
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - '2024.04'
+    inferred_name: 표제란
+    position: bottom-right
+  connections: []
+  groups:
+  - group_id: GRP-SCHEDULES
+    label: 장비일람표 그룹
+    members:
+    - TABLE-PUMP
+    - TABLE-TANK
+  legend_references:
+  - symbol_id: SYM-PIPE-H
+    abbreviation: H
+    text: 옥내소화전배관
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-PIPE-SP
+    abbreviation: SP
+    text: 스프링클러배관
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-PIPE-SC
+    abbreviation: SC
+    text: 연결송수구배관
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-VALVE-GATE-IND
+    text: 게이트밸브
+    note: 개폐표시형
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-VALVE-GATE
+    text: 게이트밸브
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-VALVE-CHECK
+    text: 체크밸브
+    note: 스모렌스키
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-STRAINER
+    text: 스트레이너
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-FILTER
+    text: 여과망
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-JOINT-FLEX
+    text: 후렉시블 조인트
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-EXT-ABC
+    text: A.B.C 분말소화기
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-EXT-K
+    text: K급소화기
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-FHC
+    text: 옥내소화전함
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-FDC
+    text: 쌍구형연결송수구
+    linked_to: LEGEND-TABLE
+  diagram_meta:
+    title: 범례,장비일람표
+    drawing_number: MF-002
+    drawing_genre: legend
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    has_equipment_list: true
+    pipe_abbreviations:
+      H: 옥내소화전배관
+      SP: 스프링클러배관
+      SC: 연결송수구배관
+    legend_notes:
+    - '* 배관부속 : 50ø이하(그루브조인트) , 65ø이상(그루브조인트)'
+    - '* 관보온 : 80ø이하(25t 가교발포폴리에틸렌+마직테이프) , 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+    schedule_summary:
+      tables:
+      - title: 펌프
+        total_quantity: 2
+        row_count: 2
+        group_counts:
+          주펌프: 1
+          충압펌프: 1
+      - title: 탱크
+        total_quantity: 1
+        row_count: 1
+        group_counts:
+          압력탱크: 1
+    project_name: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운 건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    scale_A1: 1/NONE
+    scale_A3: 1/NONE
+    date: '2024.04'
+    flow_direction: UNKNOWN

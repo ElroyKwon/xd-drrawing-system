@@ -1,0 +1,1199 @@
+data_properties:
+- iri: dks:drawing_number
+  label: drawing_number
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: EF-001
+    source_page: 2
+  - subject: EF-002
+    value: EF-002
+    source_page: 4
+  - subject: TB-001
+    value: EF-101
+    source_page: 6
+  total_evidence: 3
+  derivation: drawing_number가 도면 제목/표제란/메타 객체에서 반복 관찰됨.
+  confidence: 0.97
+- iri: dks:title
+  label: title
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: 도면 목록표(전기소방)
+    source_page: 2
+  - subject: EF-002
+    value: 옥외 소방간선설비 배치도
+    source_page: 4
+  - subject: UNKNOWN-SPACE-05
+    value: 옥탑층 자동화재탐지설비 평면도
+    source_page: 11
+  total_evidence: 3
+  derivation: 도면 메타 객체의 제목 문자열이 반복 관찰됨.
+  confidence: 0.96
+- iri: dks:discipline
+  label: discipline
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: FIRE_PROTECTION
+    source_page: 4
+  - subject: EX-OFFICE-02
+    value: ELECTRICAL
+    source_page: 13
+  - subject: SYM-020
+    value: UNKNOWN_DISCIPLINE
+    source_page: 3
+  total_evidence: 3
+  derivation: entity_detail 전반에 discipline 값이 반복되며 free_notes 승격 빈도도 높음.
+  confidence: 0.98
+- iri: dks:function_category
+  label: function_category
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AREA-CORRIDOR-CORE
+    value: FIRE_ALARM_ZONE
+    source_page: 8
+  - subject: EF-002
+    value: DRAWING_TITLE
+    source_page: 4
+  - subject: EX-OFFICE-02
+    value: PROTECT
+    source_page: 13
+  total_evidence: 3
+  derivation: function_category가 거의 모든 태그군에서 반복 관찰됨.
+  confidence: 0.99
+- iri: dks:shape
+  label: shape
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EX-CENTER-01
+    value: circle
+    source_page: 13
+  - subject: ROOM-AMP
+    value: rectangle
+    source_page: 7
+  - subject: FA-2A
+    value: dashed_box
+    source_page: 5
+  total_evidence: 3
+  derivation: shape/hasShape 계열 suggested_property_label이 매우 빈번하며 공간, 설비, 패널, 심벌 전반에
+    반복됨.
+  confidence: 0.97
+- iri: dks:position
+  label: position
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: center
+    source_page: 2
+  - subject: EX-COR-02
+    value: grid 4-5, B-C 계단 하단
+    source_page: 13
+  - subject: ROOM-OFFICE
+    value: grid 6-7, B-C
+    source_page: 8
+  total_evidence: 3
+  derivation: position/hasPosition 계열 suggested_property_label이 가장 넓게 반복됨.
+  confidence: 0.98
+- iri: dks:labels_inside
+  label: labels_inside
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EX-CENTER-01
+    value: EX
+    source_page: 13
+  - subject: ROOM-AMP
+    value: AMP 실
+    source_page: 7
+  - subject: PANEL-TITLE-BANNER
+    value: 소방범례 및 주기사항
+    source_page: 3
+  total_evidence: 3
+  derivation: labels_inside/hasLabelInside/hasLabelsInside 계열이 전 객체군에서 반복됨. 다중값 가능성이
+    높아 functional은 false.
+  confidence: 0.98
+- iri: dks:raw_labels
+  label: raw_labels
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EX-CENTER-01
+    value: EX
+    source_page: 13
+  - subject: ROOM-AMP
+    value: AMP 실
+    source_page: 7
+  - subject: PULL-BOX-외부
+    value: PULL BOX SIZE 400 x 400 x 300mm
+    source_page: 7
+  total_evidence: 3
+  derivation: raw_labels/hasRawLabel 계열이 OCR 원문 보존용으로 반복됨.
+  confidence: 0.95
+- iri: dks:inferred_name
+  label: inferred_name
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AREA-CORRIDOR-CORE
+    value: 코어 복도 구역
+    source_page: 8
+  - subject: EX-CTRL-01
+    value: 피난구 유도등 (검증시스템 컨트롤실)
+    source_page: 13
+  - subject: FA-1A
+    value: 소방 중계기/발신기 FA-1A
+    source_page: 5
+  total_evidence: 3
+  derivation: inferred_name/hasInferredName 계열이 공간, 설비, 메타 객체 전반에 반복됨.
+  confidence: 0.94
+- iri: dks:equipment_symbols
+  label: equipment_symbols
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: ROOM-LOUNGE
+    value: 피난구 유도등 x1
+    source_page: 8
+  - subject: FA-1A
+    value: 수동발신기 SET (소화전 상단형) count=1
+    source_page: 5
+  - subject: SYM-015
+    value: type=감지기용 배관배선 선종 (실선+짧은 표식), count=5, note=16C HFIX 2-1.5㎟ / 4-1.5㎟ /
+      8-1.5㎟ / 2-2.5㎟ / 2.5㎟x2 E-2.5㎟
+    source_page: 3
+  total_evidence: 3
+  derivation: equipment_symbols 계열이 공간 내부 설비 수량, 장치 구성, 심벌 정의를 모두 담아 반복됨. 구조화 필요성이
+    크지만 우선 문자열 보존 속성으로 승격.
+  confidence: 0.82
+- iri: dks:floor
+  label: floor
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: FA-1A
+    value: 1층
+    source_page: 5
+  - subject: FA-2A
+    value: 2층
+    source_page: 5
+  - subject: OUTDOOR-CONN
+    value: 1층 F.L
+    source_page: 5
+  total_evidence: 3
+  derivation: floor/hasFloor 계열이 분배망 요소와 연결 인프라에서 반복됨.
+  confidence: 0.9
+- iri: dks:scale_a1
+  label: scale_a1
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: NONE
+    source_page: 2
+  - subject: EF-002
+    value: 1/500
+    source_page: 4
+  - subject: UNKNOWN-PANEL-003
+    value: 1/150
+    source_page: 14
+  total_evidence: 3
+  derivation: scale_A1/scale_a1/hasScaleA1 계열이 도면 메타 객체에서 반복됨.
+  confidence: 0.95
+- iri: dks:scale_a3
+  label: scale_a3
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: NONE
+    source_page: 2
+  - subject: EF-002
+    value: 1/1000
+    source_page: 4
+  - subject: UNKNOWN-PANEL-003
+    value: 1/300
+    source_page: 14
+  total_evidence: 3
+  derivation: scale_A3/scale_a3/hasScaleA3 계열이 도면 메타 객체에서 반복됨.
+  confidence: 0.95
+- iri: dks:note
+  label: note
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: PANEL-DESIGN-NOTES
+    value: 1. 각 소방 설비 배선용 표기선은 매입 전선관은 HI-PVC 전선관 또는 난연성 CD전선관을 사용할 것
+    source_page: 3
+  - subject: FA-2A
+    value: 점선 박스
+    source_page: 5
+  - subject: UNKNOWN-LIGHT-004
+    value: 유도등 심볼 간 연결 배선
+    source_page: 14
+  total_evidence: 3
+  derivation: note/hasNote 계열이 주기사항, 형상 주석, 설치 메모, 관계 메모 등으로 매우 빈번함.
+  confidence: 0.96
+- iri: dks:line_style
+  label: line_style
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-015
+    value: solid_with_tick
+    source_page: 3
+  - subject: SYM-018
+    value: solid
+    source_page: 3
+  - subject: SYM-021
+    value: long_dashed
+    source_page: 3
+  total_evidence: 3
+  derivation: line_style/hasLineStyle 계열이 선종 심벌에서 반복됨.
+  confidence: 0.94
+- iri: dks:symbol_id
+  label: symbol_id
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-001
+    value: SYM-001
+    source_page: 3
+  - subject: SYM-010
+    value: SYM-010
+    source_page: 3
+  - subject: SYM-023
+    value: SYM-023
+    source_page: 3
+  total_evidence: 3
+  derivation: symbol_id/hasSymbolId 계열이 SYM 객체군 전반에 반복됨.
+  confidence: 0.98
+- iri: dks:group
+  label: group
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-001
+    value: 경보설비
+    source_page: 3
+  - subject: SYM-010
+    value: 피난설비
+    source_page: 3
+  - subject: SYM-013
+    value: 공통설비
+    source_page: 3
+  total_evidence: 3
+  derivation: group가 범례 심벌 분류값으로 반복됨.
+  confidence: 0.96
+- iri: dks:count
+  label: count
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EX-CENTER-01
+    value: '1'
+    source_page: 13
+  - subject: SYM-011
+    value: 22EA
+    source_page: 3
+  - subject: UNKNOWN-LIGHT-003
+    value: '1'
+    source_page: 14
+  total_evidence: 3
+  derivation: count/hasCount 계열이 정수와 문자열 혼합 형태로 반복됨. 범위를 xsd:string으로 완화.
+  confidence: 0.93
+- iri: dks:cable_spec
+  label: cable_spec
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EX-SW-LAB-01
+    value: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    source_page: 13
+  - subject: LEGEND-001
+    value: 16C (HFIX 2-1.5sq)
+    source_page: 6
+  - subject: UNKNOWN-LIGHT-004
+    value: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    source_page: 14
+  total_evidence: 3
+  derivation: hasCableSpec/cableSpec/cableSpecification 계열이 배선 규격 문자열로 반복됨.
+  confidence: 0.94
+- iri: dks:project_number
+  label: project_number
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: '224001'
+    source_page: 4
+  - subject: TB-001
+    value: '224001'
+    source_page: 6
+  - subject: UNKNOWN-SPACE-05
+    value: '224001'
+    source_page: 11
+  total_evidence: 3
+  derivation: project_number/projectNumber 계열이 표제란과 도면 메타에서 반복됨.
+  confidence: 0.93
+- iri: dks:date
+  label: date
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: '2024.01'
+    source_page: 4
+  - subject: TB-001
+    value: '2024.01'
+    source_page: 6
+  - subject: UNKNOWN-PANEL-004
+    value: '2024.01'
+    source_page: 14
+  total_evidence: 3
+  derivation: date가 도면 메타 객체에서 반복됨.
+  confidence: 0.95
+- iri: dks:confidence
+  label: confidence
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: '0.95'
+    source_page: 2
+  - subject: SOURCE_PANEL_1
+    value: '0.6'
+    source_page: 13
+  - subject: SPACE-PIT-001
+    value: '0.95'
+    source_page: 6
+  total_evidence: 3
+  derivation: confidence/hasConfidence 계열이 추출 신뢰도 메타로 반복됨.
+  confidence: 0.9
+- iri: dks:cross_validated
+  label: cross_validated
+  domain: owl:Thing
+  range: xsd:boolean
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: 'true'
+    source_page: 2
+  - subject: PANEL-LEGEND-TABLE
+    value: 'true'
+    source_page: 3
+  - subject: UNKNOWN-SPACE-11
+    value: 'true'
+    source_page: 11
+  total_evidence: 3
+  derivation: collection_sources.cross_validated 및 유사 표기가 반복됨.
+  confidence: 0.88
+- iri: dks:entity_synthesis
+  label: entity_synthesis
+  domain: owl:Thing
+  range: xsd:boolean
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: 'true'
+    source_page: 2
+  - subject: EF-004
+    value: 'true'
+    source_page: 2
+  - subject: UNKNOWN-PANEL-001
+    value: 'true'
+    source_page: 14
+  total_evidence: 3
+  derivation: collection_sources.entity_synthesis 및 유사 표기가 반복됨.
+  confidence: 0.88
+- iri: dks:suggested_parent_class
+  label: suggested_parent_class
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: DrawingIndex
+    source_page: 2
+  - subject: FA-1A
+    value: FireAlarmStation
+    source_page: 5
+  - subject: UNKNOWN-SPACE-11
+    value: SpatialReferenceSystem
+    source_page: 11
+  total_evidence: 3
+  derivation: ontology_hints.suggested_parent_class가 전반적으로 반복되므로 provenance 성격의 데이터속성으로
+    승격.
+  confidence: 0.86
+- iri: dks:observed_attributes
+  label: observed_attributes
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EF-001
+    value: drawing_number, title, scale_A1, scale_A3
+    source_page: 2
+  - subject: FA-1A
+    value: inferred_name, labels_inside, shape, floor, raw_labels, labels_above, labels_below,
+      position, equipment_symbols
+    source_page: 5
+  - subject: UNKNOWN-SPACE-11
+    value: shape, grid_x, grid_y, total_width_mm, total_height_mm, spans_x, spans_y
+    source_page: 11
+  total_evidence: 3
+  derivation: ontology_hints.observed_attributes가 provenance/trace 용도로 반복됨.
+  confidence: 0.82
+- iri: dks:function_candidates
+  label: function_candidates
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EF-002
+    value: SITE_PLAN_REPRESENTATION, FIRE_PROTECTION_BACKBONE_LAYOUT
+    source_page: 4
+  - subject: FA-1A
+    value: SIGNAL_RECEPTION, SIGNAL_TRANSMISSION, MANUAL_ALARM_TRIGGERING
+    source_page: 5
+  - subject: UNKNOWN-SPACE-11
+    value: SpatialReferencing, CoordinateSystem, StructuralAlignment
+    source_page: 11
+  total_evidence: 3
+  derivation: ontology_hints.function_candidates가 반복되므로 provenance 성격 데이터속성으로 승격.
+  confidence: 0.84
+- iri: dks:source_attribution
+  label: source_attribution
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-001
+    value: sonnet=true; source_attribution.gemini=true; source_attribution.mini=true
+    source_page: 2
+  - subject: EX-OFFICE-01
+    value: sonnet=true, gemini=true, mini=true
+    source_page: 13
+  - subject: WF-001
+    value: sonnet=true, gemini=true, mini=true
+    source_page: 6
+  total_evidence: 3
+  derivation: source_attribution 계열이 반복되므로 문자열 보존 속성으로 승격.
+  confidence: 0.83
+- iri: dks:type
+  label: type
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AREA-CORRIDOR-CORE
+    value: SPACE
+    source_page: 8
+  - subject: EF-002
+    value: DRAWING_TITLE
+    source_page: 4
+  - subject: UNKNOWN-LIGHT-001
+    value: 피난구 유도등
+    source_page: 14
+  total_evidence: 3
+  derivation: type/hasType 계열이 원문 객체 유형 보존용으로 반복됨.
+  confidence: 0.9
+- iri: dks:project
+  label: project
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: LS Electric R-Center 구축
+    source_page: 4
+  - subject: UNKNOWN-SPACE-05
+    value: LS Electric R-Center 구축
+    source_page: 11
+  total_evidence: 2
+  derivation: project/projectName 계열이 도면 메타에서 반복됨.
+  confidence: 0.86
+- iri: dks:design_firm
+  label: design_firm
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: 가운건축 (GAUN Architects & Engineers)
+    source_page: 4
+  - subject: UNKNOWN-SPACE-05
+    value: (주)정연엔지니어링
+    source_page: 11
+  - subject: UNKNOWN-PANEL-004
+    value: 가운 건축 (GAUN Architects & Engineers)
+    source_page: 14
+  total_evidence: 3
+  derivation: design_firm/designFirm 계열이 표제란/도면 메타에서 반복됨. 일부는 engineer_firm과 혼재되어
+    후속 정제 필요.
+  confidence: 0.74
+- iri: dks:engineer_firm
+  label: engineer_firm
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: (주)정연엔지니어링
+    source_page: 4
+  - subject: UNKNOWN-PANEL-004
+    value: (주)정연엔지니어링
+    source_page: 14
+  total_evidence: 2
+  derivation: engineer_firm/engineeringFirm 계열이 표제란 메타에서 반복됨.
+  confidence: 0.82
+- iri: dks:drawn_by
+  label: drawn_by
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: 안동식
+    source_page: 4
+  - subject: TB-001
+    value: 안동식
+    source_page: 6
+  - subject: UNKNOWN-PANEL-004
+    value: 안동식
+    source_page: 14
+  total_evidence: 3
+  derivation: drawn_by/drawnBy 계열이 표제란 메타에서 반복됨.
+  confidence: 0.94
+- iri: dks:checked_by
+  label: checked_by
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: 이은전
+    source_page: 4
+  - subject: TB-001
+    value: 이은진
+    source_page: 6
+  - subject: UNKNOWN-PANEL-004
+    value: 이은전
+    source_page: 14
+  total_evidence: 3
+  derivation: checked_by/checkedBy 계열이 표제란 메타에서 반복됨.
+  confidence: 0.9
+- iri: dks:approved_by
+  label: approved_by
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EF-002
+    value: 정용재
+    source_page: 4
+  - subject: TB-001
+    value: 정용재
+    source_page: 6
+  - subject: UNKNOWN-PANEL-004
+    value: 정용재
+    source_page: 14
+  total_evidence: 3
+  derivation: approved_by/approvedBy 계열이 표제란 메타에서 반복됨.
+  confidence: 0.95
+- iri: dks:equipment_symbol_type
+  label: equipment_symbol_type
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EX-CENTER-01
+    value: 피난구 유도등 (전체 소형)
+    source_page: 13
+  - subject: PB-01
+    value: PULL BOX
+    source_page: 13
+  - subject: UNKNOWN-PANEL-002
+    value: 피난구 유도등 (전체 중형)
+    source_page: 14
+  total_evidence: 3
+  derivation: hasEquipmentSymbolType/equipmentSymbolType 계열이 설비와 범례 항목에서 반복됨.
+  confidence: 0.9
+- iri: dks:labels_above
+  label: labels_above
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: PANEL-UNKNOWN-001
+    value: ① ② ③ ④ ⑤ ⑥ ⑦ (그리드 번호)
+    source_page: 14
+  - subject: SPACE-PIT-001
+    value: '5'
+    source_page: 6
+  - subject: SPACE-PIT-001
+    value: '6'
+    source_page: 6
+  total_evidence: 3
+  derivation: labels_above/hasLabelAbove 계열이 패널 및 공간 참조 객체에서 반복됨.
+  confidence: 0.72
+- iri: dks:labels_below
+  label: labels_below
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: WF-001
+    value: 관로구방수장치
+    source_page: 6
+  - subject: SPACE-PIT-001
+    value: PIT 소방간선설비 평면도
+    source_page: 6
+  - subject: SPACE-PIT-001
+    value: 'SCALE : 1/300(A3)'
+    source_page: 6
+  total_evidence: 3
+  derivation: labels_below/hasLabelBelow 계열이 일부 공간/참조 객체/설비에서 반복됨.
+  confidence: 0.7
+- iri: dks:panel_id
+  label: panel_id
+  domain: dks:DrawingInformationEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: UNKNOWN-PANEL-001
+    value: FLOOR-ROOFTOP
+    source_page: 14
+  - subject: UNKNOWN-PANEL-002
+    value: LEGEND-GUIDANCE
+    source_page: 14
+  - subject: UNKNOWN-PANEL-004
+    value: TITLE-BLOCK
+    source_page: 14
+  total_evidence: 3
+  derivation: panel_id/panelId 계열이 unknown panel 메타 객체에서 반복됨.
+  confidence: 0.9
+- iri: dks:visual_description
+  label: visual_description
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-001
+    value: 원형 심볼 내부에 반원/곡선 형태가 있는 작은 기호
+    source_page: 3
+  - subject: SYM-010
+    value: 좌측에 작은 원형 표식과 함께 S.M.L 텍스트가 있는 기호
+    source_page: 3
+  - subject: SYM-023
+    value: 사선 화살표가 포함된 선 기호
+    source_page: 3
+  total_evidence: 3
+  derivation: visual_description/hasVisualDescription 계열이 심벌 객체군에서 반복됨.
+  confidence: 0.93
+- iri: dks:visual_evidence
+  label: visual_evidence
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-001
+    value: 좌측 상단 경보설비 표의 첫 번째 행 SYMBOL 칸
+    source_page: 3
+  - subject: SYM-015
+    value: 우측 상단 배관 배선 및 주기사항 표의 첫 번째 행
+    source_page: 3
+  - subject: SYM-023
+    value: 좌측 하단 공통설비 표의 마지막 행
+    source_page: 3
+  total_evidence: 3
+  derivation: visual_evidence/hasVisualEvidence 계열이 심벌의 도면 내 근거 위치 설명으로 반복됨.
+  confidence: 0.91
+- iri: dks:abbreviation
+  label: abbreviation
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-006
+    value: SVP
+    source_page: 3
+  - subject: SYM-010
+    value: S.M.L
+    source_page: 3
+  - subject: SYM-011
+    value: S
+    source_page: 3
+  total_evidence: 3
+  derivation: abbreviation/hasAbbreviation 계열이 심벌 객체군에서 반복됨.
+  confidence: 0.88
+- iri: dks:size
+  label: size
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: PB-001
+    value: PULL BOX SIZE 150 x 150 x 100mm
+    source_page: 6
+  - subject: PB-001
+    value: PULL BOX SIZE 200 x 200 x 150mm
+    source_page: 6
+  - subject: PULL-BOX-외부
+    value: PULL BOX SIZE 400 x 400 x 300mm
+    source_page: 7
+  total_evidence: 3
+  derivation: size가 pull box 치수 표기로 반복됨.
+  confidence: 0.84
+- iri: dks:installation_height
+  label: installation_height
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-004
+    value: 바닥+1500mm(발신기중심)
+    source_page: 3
+  total_evidence: 1
+  derivation: 수동발신기 심벌에서 설치 높이 정보가 직접 관찰됨. 단일 evidence지만 보존.
+  confidence: 0.52
+- iri: dks:sound_level
+  label: sound_level
+  domain: dks:SymbolAndLegendEntity
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: SYM-008
+    value: 90dB 이상
+    source_page: 3
+  total_evidence: 1
+  derivation: 전자 사이렌 심벌에서 음압 수준이 직접 관찰됨.
+  confidence: 0.5
+- iri: dks:mount
+  label: mount
+  domain: dks:EquipmentOrDevice
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: UNKNOWN-LIGHT-002
+    value: pendant
+    source_page: 14
+  total_evidence: 1
+  derivation: 유도등 범례 항목에서 설치 방식이 직접 관찰됨.
+  confidence: 0.48
+- iri: dks:size_class
+  label: size_class
+  domain: dks:EquipmentOrDevice
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: UNKNOWN-LIGHT-001
+    value: 전체 중형
+    source_page: 14
+  - subject: UNKNOWN-LIGHT-002
+    value: 전체 중형
+    source_page: 14
+  total_evidence: 2
+  derivation: 유도등 범례 항목에서 크기 분류가 반복됨.
+  confidence: 0.72
+- iri: dks:duration_min
+  label: duration_min
+  domain: dks:EquipmentOrDevice
+  range: xsd:integer
+  functional_candidate: true
+  evidence:
+  - subject: UNKNOWN-LIGHT-003
+    value: '60'
+    source_page: 14
+  total_evidence: 1
+  derivation: 계단 유도등 범례 항목에서 지속시간 수치가 직접 관찰됨.
+  confidence: 0.5
+- iri: dks:lamp_type
+  label: lamp_type
+  domain: dks:EquipmentOrDevice
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: UNKNOWN-LIGHT-003
+    value: LED
+    source_page: 14
+  total_evidence: 1
+  derivation: 계단 유도등 범례 항목에서 광원 종류가 직접 관찰됨.
+  confidence: 0.5
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:function_category
+  datatype: xsd:string
+  label: function_category
+  evidence_tags:
+  - AREA-CORRIDOR-CORE
+  - EF-002
+  - EX-OFFICE-02
+  - FA-1A
+  - ROOM-AMP
+  - UNKNOWN-SPACE-11
+  threshold_applied: ≥ 8건
+  total_evidence: 6
+  sample_evidence:
+  - tag: AREA-CORRIDOR-CORE
+    raw_text: 'function_category: FIRE_ALARM_ZONE'
+    source_page: 8
+  - tag: EF-002
+    raw_text: 'function_category: DRAWING_TITLE'
+    source_page: 4
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:shape
+  datatype: xsd:string
+  label: shape
+  evidence_tags:
+  - AREA-CORRIDOR-CORE
+  - EX-CENTER-01
+  - ROOM-AMP
+  - FA-1A
+  - UNKNOWN-SHAPE-001
+  - UNKNOWN-PANEL-004
+  threshold_applied: ≥ 8건
+  total_evidence: 6
+  sample_evidence:
+  - tag: EX-CENTER-01
+    raw_text: 'shape: circle'
+    source_page: 13
+  - tag: ROOM-AMP
+    raw_text: 'shape: rectangle'
+    source_page: 7
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:position
+  datatype: xsd:string
+  label: position
+  evidence_tags:
+  - EF-001
+  - EX-COR-02
+  - ROOM-OFFICE
+  - FA-1A
+  - SPACE-PIT-001
+  - UNKNOWN-PANEL-003
+  threshold_applied: ≥ 8건
+  total_evidence: 6
+  sample_evidence:
+  - tag: EF-001
+    raw_text: 'position: center'
+    source_page: 2
+  - tag: EX-COR-02
+    raw_text: 'position: grid 4-5, B-C 계단 하단'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:labels_inside
+  datatype: xsd:string
+  label: labels_inside
+  evidence_tags:
+  - EX-CENTER-01
+  - ROOM-AMP
+  - PANEL-TITLE-BANNER
+  - UNKNOWN-SPACE-03
+  - TB-001
+  - SPACE-PIT-001
+  threshold_applied: ≥ 8건
+  total_evidence: 6
+  sample_evidence:
+  - tag: EX-CENTER-01
+    raw_text: 'labels_inside: EX'
+    source_page: 13
+  - tag: ROOM-AMP
+    raw_text: 'labels_inside: AMP 실'
+    source_page: 7
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:raw_labels
+  datatype: xsd:string
+  label: raw_labels
+  evidence_tags:
+  - EX-CENTER-01
+  - ROOM-AMP
+  - PULL-BOX-외부
+  - ROOM-고객접견실
+  - ZONE-전기차반도체
+  threshold_applied: ≥ 8건
+  total_evidence: 5
+  sample_evidence:
+  - tag: EX-CENTER-01
+    raw_text: 'raw_labels: EX'
+    source_page: 13
+  - tag: ROOM-AMP
+    raw_text: 'raw_labels: AMP 실'
+    source_page: 7
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:inferred_name
+  datatype: xsd:string
+  label: inferred_name
+  evidence_tags:
+  - AREA-CORRIDOR-CORE
+  - EX-CTRL-01
+  - FA-1A
+  - ROOM-Drive시험실-상
+  - UNKNOWN-PANEL-002
+  threshold_applied: ≥ 6건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AREA-CORRIDOR-CORE
+    raw_text: 'specs.inferred_name: 코어 복도 구역'
+    source_page: 8
+  - tag: EX-CTRL-01
+    raw_text: 'inferred_name: 피난구 유도등 (검증시스템 컨트롤실)'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:count
+  datatype: xsd:string
+  label: count
+  evidence_tags:
+  - EX-CENTER-01
+  - EX-COR-02
+  - SYM-011
+  - UNKNOWN-LIGHT-003
+  - PB-02
+  threshold_applied: ≥ 6건
+  total_evidence: 5
+  sample_evidence:
+  - tag: EX-CENTER-01
+    raw_text: 'count: 1'
+    source_page: 13
+  - tag: SYM-011
+    raw_text: 'count: 22EA'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:equipment_symbols
+  datatype: xsd:string
+  label: equipment_symbols
+  evidence_tags:
+  - ROOM-LOUNGE
+  - FA-1A
+  - SYM-015
+  - ZONE-전기차반도체
+  - TB-001
+  threshold_applied: ≥ 6건
+  total_evidence: 5
+  sample_evidence:
+  - tag: ROOM-LOUNGE
+    raw_text: 'equipment_symbols: 피난구 유도등 x1'
+    source_page: 8
+  - tag: FA-1A
+    raw_text: 'equipment_symbols: 수동발신기 SET (소화전 상단형) count=1'
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:cable_spec
+  datatype: xsd:string
+  label: cable_spec
+  evidence_tags:
+  - EX-SW-LAB-01
+  - LEGEND-001
+  - UNKNOWN-LIGHT-004
+  - OUTDOOR-CONN
+  - UNKNOWN-SPACE-04
+  threshold_applied: ≥ 4건
+  total_evidence: 5
+  sample_evidence:
+  - tag: EX-SW-LAB-01
+    raw_text: 'annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C) 유도등용 배관배선'
+    source_page: 13
+  - tag: LEGEND-001
+    raw_text: 16C (HFIX 2-1.5sq)
+    source_page: 6
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:symbol_id
+  datatype: xsd:string
+  label: symbol_id
+  evidence_tags:
+  - SYM-001
+  - SYM-010
+  - SYM-015
+  - SYM-023
+  threshold_applied: ≥ 4건
+  total_evidence: 4
+  sample_evidence:
+  - tag: SYM-001
+    raw_text: 'symbol_id: SYM-001'
+    source_page: 3
+  - tag: SYM-015
+    raw_text: 'symbol_id: SYM-015'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:group
+  datatype: xsd:string
+  label: group
+  evidence_tags:
+  - SYM-001
+  - SYM-010
+  - SYM-013
+  - SYM-020
+  threshold_applied: ≥ 4건
+  total_evidence: 4
+  sample_evidence:
+  - tag: SYM-001
+    raw_text: 'group: 경보설비'
+    source_page: 3
+  - tag: SYM-013
+    raw_text: 'group: 공통설비'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:line_style
+  datatype: xsd:string
+  label: line_style
+  evidence_tags:
+  - SYM-015
+  - SYM-018
+  - SYM-019
+  - SYM-020
+  - SYM-021
+  - SYM-022
+  - SYM-017
+  threshold_applied: ≥ 4건
+  total_evidence: 7
+  sample_evidence:
+  - tag: SYM-015
+    raw_text: 'line_style: solid_with_tick'
+    source_page: 3
+  - tag: SYM-021
+    raw_text: 'specs.line_style: long_dashed'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:project_number
+  datatype: xsd:string
+  label: project_number
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-SPACE-05
+  - UNKNOWN-PANEL-004
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: EF-002
+    raw_text: 'project_number: 224001'
+    source_page: 4
+  - tag: UNKNOWN-PANEL-004
+    raw_text: 'project_number: 224001'
+    source_page: 14
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:date
+  datatype: xsd:string
+  label: date
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-SPACE-05
+  - UNKNOWN-PANEL-004
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: EF-002
+    raw_text: 'date: 2024.01'
+    source_page: 4
+  - tag: TB-001
+    raw_text: 'labels_inside: DATE: 2024.01'
+    source_page: 6
+unused_hints:
+- suggested_property_label: relationNote
+  evidence_count: 3
+  sample_tags:
+  - FA-1A
+  - FA-1C
+  - FA-1D
+  reason_not_promoted: 관계 수준 메타로 보이며 개체 데이터속성보다 재ified assertion 모델이 적합함.
+- suggested_property_label: source_pages
+  evidence_count: 3
+  sample_tags:
+  - ROOM-AMP
+  - ROOM-SMALL-MTG-2
+  - UNKNOWN-SPACE-11
+  reason_not_promoted: 리스트/annotation 성격이 강하고 개체 의미 속성보다 provenance 메타에 가까움.
+- suggested_property_label: visualEvidence
+  evidence_count: 3
+  sample_tags:
+  - SYM-002
+  - SYM-008
+  - SYM-009
+  reason_not_promoted: 이번 출력에서는 visual_evidence로 통합 승격했고 camelCase 변형은 미승격 처리.
+- suggested_property_label: functionCandidates
+  evidence_count: 3
+  sample_tags:
+  - FA-1A
+  - SYM-001
+  - UNKNOWN-SPACE-11
+  reason_not_promoted: 이번 출력에서는 function_candidates로 통합 승격했고 camelCase 변형은 미승격 처리.
+- suggested_property_label: suggestedParentClass
+  evidence_count: 3
+  sample_tags:
+  - FA-1A
+  - SYM-001
+  - UNKNOWN-SPACE-11
+  reason_not_promoted: 이번 출력에서는 suggested_parent_class로 통합 승격했고 camelCase 변형은 미승격
+    처리.
+- suggested_property_label: hasEquipmentSymbolType
+  evidence_count: 3
+  sample_tags:
+  - EX-CENTER-01
+  - EX-DATA-01
+  - PB-01
+  reason_not_promoted: equipment_symbol_type로 통합 승격.
+- suggested_property_label: labelsInside
+  evidence_count: 3
+  sample_tags:
+  - UNKNOWN-PANEL-001
+  - UNKNOWN-PANEL-002
+  - UNKNOWN-PANEL-004
+  reason_not_promoted: labels_inside로 통합 승격.
+- suggested_property_label: rawLabel
+  evidence_count: 2
+  sample_tags:
+  - ROOM-DATA
+  - PB-02
+  reason_not_promoted: raw_labels로 통합 승격.
+- suggested_property_label: mountType
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-LIGHT-002
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasDurationMinutes
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-LIGHT-003
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasLampType
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-LIGHT-003
+  reason_not_promoted: threshold 미달.
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:08:25.596804'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.87

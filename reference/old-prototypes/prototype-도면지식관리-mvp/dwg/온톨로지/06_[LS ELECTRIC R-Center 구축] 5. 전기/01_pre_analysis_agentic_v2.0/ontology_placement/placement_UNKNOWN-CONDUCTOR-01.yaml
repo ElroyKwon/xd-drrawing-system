@@ -1,0 +1,192 @@
+placement:
+  tag: UNKNOWN-CONDUCTOR-01
+  name: 수평도체
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: ElectricalConductor
+    alternative_class_hints:
+    - GroundingConductor
+    - LightningProtectionConductor
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-BRACKET-01
+      note: 수평도체가 지지금구로 1m간격 지지
+    - type: connects_to
+      target_hint: UNKNOWN-PARAPET-01
+      note: 수평도체가 파라펫트 상부에 고정 (Set Anchor 또는 Screw Bolt)
+    - type: connects_to
+      target_hint: UNKNOWN-ANCHOR-SET-01
+      note: 수평도체 파라펫트 고정 (선택 사항 ⑦)
+    - type: connects_to
+      target_hint: UNKNOWN-BOLT-SCREW-01
+      note: 수평도체 파라펫트 고정 (선택 사항 ⑧)
+    - type: connects_to
+      target_hint: UNKNOWN-CONNECTOR-FLEXIBLE-01
+      note: Flexible Connector로 25m간격 신축 연결
+    - type: connects_to
+      target_hint: UNKNOWN-CONNECTOR-STRAIGHT-01
+      note: Straight Connector로 직선 연결
+    - type: connects_to
+      target_hint: UNKNOWN-CONNECTOR-TEE-01
+      note: Tee Connector로 T자 분기 연결
+    - type: connects_to
+      target_hint: UNKNOWN-CONNECTOR-TEE-DISSIMILAR-01
+      note: Tee Connector(이질커넥터)로 이종금속 T자 연결
+    - type: connects_to
+      target_hint: UNKNOWN-BEAM-H-01
+      note: 수평도체가 H-Beam 상부에 고정
+    - type: connects_to
+      target_hint: UNKNOWN-LADDER-METAL-01
+      note: 수평도체가 금속 사다리에 고정
+    - type: connects_to
+      target_hint: UNKNOWN-WIRE-01
+      note: F-GV Wire가 수평도체와 동관단자로 연결
+    - type: connects_to
+      target_hint: UNKNOWN-CONNECTOR-DISSIMILAR-STS-CU-01
+      note: 이질커넥터(STS+CU)로 지지대와 수평도체 연결
+    - type: references
+      target_hint: UNKNOWN-CONNECTOR-DISSIMILAR-01
+      note: 이질커넥터 확대 상세 참조선
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Conductor
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: 수평 접지 도체'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasConductorType
+          suggested_datatype: xsd:string
+          rationale: 도체의 종류를 나타내는 명시적 문자열 표기
+      - raw_text: 'installation_interval: 1m간격마다 지지금구 설치'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasInstallationInterval
+          suggested_datatype: xsd:string
+          rationale: 간격과 설치 조건이 함께 표현된 시공 정보
+      - raw_text: 'mounting_location: 파라펫트 상부, H-Beam 상부, 금속 사다리 등'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasMountingLocation
+          suggested_datatype: xsd:string
+          rationale: 설치 위치가 복수의 장소로 열거된 문자열 정보
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류값이 명시되어 있으나 supplement sub_kind에는 해당하지 않음
+      - raw_text: 'position: multiple (BLK-001, 002, 003, 005)'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 다중 위치 식별자와 함께 배치 위치가 표기됨
+  provenance:
+    name:
+      source_pages:
+      - 40
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 40
+      method: rule_based
+    ontology_core.class_hint:
+      source_pages:
+      - 40
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 40
+      method: plan_based_inference
+    ontology_core.related_assertions:
+      source_pages:
+      - 40
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 40
+      method: specs + function_category + position
+    position:
+      source_pages:
+      - 40
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 40
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 40
+      method: entity_detail.source_attribution
+    collection_sources:
+      source_pages:
+      - 40
+      method: entity_detail.collection_sources
+    equipment_symbols:
+      source_pages:
+      - 40
+      method: entity_detail.equipment_symbols
+    specs.type:
+      source_pages:
+      - 40
+      method: entity_detail.specs.type
+    specs.installation_interval:
+      source_pages:
+      - 40
+      method: entity_detail.specs.installation_interval
+    specs.mounting_location:
+      source_pages:
+      - 40
+      method: entity_detail.specs.mounting_location
+    relations:
+      source_pages:
+      - 40
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 40
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 40
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 40
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved: []
+  orphan_relations:
+  - raw_from: UNKNOWN-CONDUCTOR-01
+    raw_to: UNKNOWN-PARAPET-01
+    raw_relation: connects_to
+    source_page: 40
+    reason: 인근 태그 요약에 PARAPET 태그가 없어서 대상 태그를 확인할 수 없음
+  - raw_from: UNKNOWN-CONDUCTOR-01
+    raw_to: UNKNOWN-CONNECTOR-DISSIMILAR-01
+    raw_relation: references
+    source_page: 40
+    reason: 인근 태그 요약에 해당 태그가 없어 관계 대상 확인 불가
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름/접지/물리적 접속 관계의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:14:05.817962'
+  confidence: 0.95

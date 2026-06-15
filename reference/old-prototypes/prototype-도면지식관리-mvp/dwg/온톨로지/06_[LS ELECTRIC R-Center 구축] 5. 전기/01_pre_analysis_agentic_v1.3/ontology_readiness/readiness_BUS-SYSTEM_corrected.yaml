@@ -1,0 +1,17 @@
+verdict: promoted
+confidence: 0.78
+reason: "재평가 결과, 이전 demotion 판정을 번복한다.\n[승격 근거]\n1. **독립 엔티티 성립 요건 충족**:\n   BUS-SYSTEM은\
+  \ 고유 태그를 보유하며, 전기공학 온톨로지(IEC CIM 등)에서\n   BusbarSystem은 독립된 설비 클래스로 인정된다.\n   7개\
+  \ 하위 분전반(P-A-3PP ~ P-I-3PP)에 대한 feeds 관계가 모두\n   source_to_target 방향으로 명확히 문서화되어\
+  \ 있어,\n   전력 분배 계층의 실질적 소스 노드로 기능한다.\n\n2. **핵심 설비 속성 확인**:\n   - bus_name: R S\
+  \ T N Bus (3상+중성선 구성 확인)\n   - system_voltage: 3Ø 380V (운전 조건 명시)\n   - panel_count:\
+  \ 7 ea (공급 범위 정량화)\n   이 세 속성은 버스바 시스템 자체의 물리·운영 특성을 기술하는 유효한\n   설비 사양이며, 독립 식별\
+  \ 근거가 된다.\n\n3. **관계 구조의 완결성**:\n   connection_specs와 observed_relations가 일치하고,\n\
+  \   모든 7개 파트너 태그가 실재 설비로 추정되므로\n   온톨로지 관계망에서 중심 허브 역할이 입증된다.\n\n[잔존 데이터 품질 문제 —\
+  \ 엔티티 무효화 사유 아님]\n- specs에 drawing_number / title이 포함된 것은\n  설비 사양이 아닌 도면 메타데이터의\
+  \ 혼입으로,\n  온톨로지 모델링 시 DocumentMetadata 클래스로 분리 처리해야 한다.\n- 버스바 자체의 정격 전류, 도체 단면적,\
+  \ 재질 등 물리 사양 미기재는\n  도면 표현 한계로 인한 누락이며, 엔티티 존재 자체를 부정하지 않는다.\n\n[신뢰도 0.78 설정 이유]\
+  \ 완전한 물리 사양 부재와 메타데이터 혼입으로 인해 만점 신뢰도는 부여하지 않으나, 태그·전압·공급 관계의 삼중 증거가 독립 설비 승격을 지지한다.\n\
+  suggested_parent_class: ElectricalBusBarSystem  # 유지 recommended_action: drawing_number/title을\
+  \ DocumentMetadata로 분리"
+tag: BUS-SYSTEM

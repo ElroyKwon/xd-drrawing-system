@@ -1,0 +1,413 @@
+ontology_plan:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: entity_details/*.yaml (n=78)
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T15:58:18.928784'
+  project_overview:
+    discipline_mix:
+      electrical: 78
+    dominant_equipment_types:
+    - type: MCCB 기반 분전반/패널 계열
+      count: 31
+      reasoning: PANEL-* 태그가 대다수이며 모두 type=MCCB로 관찰됨. 220V/380V/440V 하위 분전반이 반복 패턴으로
+        출현.
+    - type: 저압 ACB 피더 계열
+      count: 9
+      reasoning: LV-1~LV-8, LV-R까지 연속 버스 구조를 이루는 ACB 피더가 반복됨.
+    - type: 고압 VCB 피더 계열
+      count: 7
+      reasoning: HV-1~HV-7이 동일한 속성 묶음(rated_voltage_kV, ct_ratio, zct_ratio, relay_model
+        등)으로 반복됨.
+    - type: 변압기 계열
+      count: 4
+      reasoning: TR-1, TR-2, TR-3, TR-3204가 동일한 변압기 패턴으로 관찰되며 6.6kV에서 440V/380V로 변환.
+    - type: 전력변환/보조전원 계열
+      count: 5
+      reasoning: RECTIFIER-01, BATTERY-01, MG-01, IVR-1, IVR-2가 변환/저장 기능으로 연결된 별도
+        서브네트워크를 형성.
+    - type: 특수 감시/보호/계측 계열
+      count: 3
+      reasoning: GPT-01, ELD-01, CAPACITOR-01/02 등 일반 피더와 다른 기능 중심 장치가 관찰됨.
+    complexity_estimate: high
+    estimated_class_count: 18
+    estimated_individual_count: 78
+    estimated_property_count:
+      object: 8
+      data: 28
+  predicted_ontology_structure:
+    class_hierarchy_hint:
+      top_level:
+      - ElectricalEquipment
+      - ElectricalSpace
+      - PowerSource
+      - CableContainmentOrRouteMarker
+      - ReserveOrSpareAsset
+      expected_depth: 3
+      likely_disjoint_pairs:
+      - - ElectricalSpace
+        - ElectricalEquipment
+      - - PowerSource
+        - ElectricalSpace
+      - - CableContainmentOrRouteMarker
+        - ElectricalEquipment
+      - - ReserveOrSpareAsset
+        - ElectricalSpace
+      reasoning: 관찰된 suggested_parent_class가 ElectricalEquipment, CircuitBreaker,
+        DistributionBoard/Panel, Switchgear, PowerConverter, PowerSource, InstrumentTransformer,
+        ProtectionDevice, ElectricalRoom/Space, CableContainmentSystem 등으로 분산됨. 다만
+        suggested_parent_class 표기가 일관되지 않아 상위는 넓게 두고, 그 아래에 CircuitBreaker/Transformer/Panel/Converter/Sensor
+        계열을 두는 3단 구조가 적절해 보임.
+    expected_object_properties:
+    - label: feeds
+      signal: 거의 모든 공급 관계가 feeds로 표기됨. 외부전원→인입, 피더→변압기, 피더→패널, 정류기→배터리 등 전 범위에 반복.
+      est_evidence: 58
+      inverse_hint: isFedBy
+    - label: supplies
+      signal: 주로 동일 전압 버스 상의 연속 피더 연결(HV-1→HV-2, LV-1→LV-2 등)에 반복.
+      est_evidence: 15
+      inverse_hint: isSuppliedBy
+    - label: cable
+      signal: visual_semantics 기반 연결에서 가장 반복적이며 feeds와 병행 출현.
+      est_evidence: 56
+      inverse_hint: connectedByCableTo
+    - label: bus_bar
+      signal: HV/LV 연속 버스 연결에서 supplies와 병행 출현.
+      est_evidence: 15
+      inverse_hint: connectedByBusBarTo
+    - label: hasSourcePage
+      signal: 모든 엔티티에 source_pages가 존재.
+      est_evidence: 78
+      inverse_hint: ''
+    - label: locatedInPageRegion
+      signal: 대부분 position(top-left, middle-right 등)이 존재.
+      est_evidence: 75
+      inverse_hint: ''
+    - label: hasEquipmentSymbol
+      signal: equipment_symbols 배열이 다수 엔티티에 존재하며 복수 심볼 count 포함.
+      est_evidence: 70
+      inverse_hint: ''
+    - label: associatedWithSpace
+      signal: SPACE 엔티티 3건이 있으나 직접 관계는 없음. 후속 단계에서 문맥 연결 후보로만 고려.
+      est_evidence: 3
+      inverse_hint: containsEquipment
+    expected_data_properties:
+    - label: rated_voltage_V
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.63
+      reasoning: LV/패널/스위치기어/콘덴서 일부에 반복.
+    - label: rated_voltage_kV
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.12
+      reasoning: HV 피더, 외부전원, 인입부에 반복.
+    - label: rated_current_A
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.54
+      reasoning: HV/LV 차단기 및 다수 패널에 반복.
+    - label: interrupting_capacity_kA
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.22
+      reasoning: HV/LV 차단기와 SWGR에 반복.
+    - label: breaking_capacity_MVA
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.09
+      reasoning: HV VCB 계열에 집중.
+    - label: poles
+      datatype_hint: xsd:integer
+      coverage_estimate: 0.67
+      reasoning: 차단기/패널 대부분에 존재.
+    - label: bus_section
+      datatype_hint: xsd:string
+      coverage_estimate: 0.21
+      reasoning: HV/LV 피더 계열에서 반복.
+    - label: ct_ratio
+      datatype_hint: xsd:string
+      coverage_estimate: 0.22
+      reasoning: HV/LV 차단기 및 SWGR에 반복.
+    - label: zct_ratio
+      datatype_hint: xsd:string
+      coverage_estimate: 0.09
+      reasoning: HV VCB 계열에 집중.
+    - label: sa_spec
+      datatype_hint: xsd:string
+      coverage_estimate: 0.09
+      reasoning: HV VCB 계열에 집중.
+    - label: relay_model
+      datatype_hint: xsd:string
+      coverage_estimate: 0.24
+      reasoning: HV/LV 차단기, GPT, SWGR에 반복.
+    - label: relay_number
+      datatype_hint: xsd:string
+      coverage_estimate: 0.24
+      reasoning: 배열형이지만 코드 문자열 집합으로 반복.
+    - label: primary_voltage_kV
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.06
+      reasoning: 변압기/GPT에 반복.
+    - label: secondary_voltage_kV
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.05
+      reasoning: 변압기 4건에 반복.
+    - label: secondary_voltage_V
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.01
+      reasoning: GPT에 명시.
+    - label: input_voltage_V
+      datatype_hint: xsd:string
+      coverage_estimate: 0.05
+      reasoning: IVR, RECTIFIER, MG에 반복. 일부 범위형/단일값 혼재 가능.
+    - label: output_voltage_V
+      datatype_hint: xsd:string
+      coverage_estimate: 0.06
+      reasoning: IVR, RECTIFIER, MG에 반복. 220~550 같은 범위 문자열 존재.
+    - label: capacity_kVA
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.08
+      reasoning: 변압기, IVR, MG에 반복.
+    - label: capacity_kVAR
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.03
+      reasoning: CAPACITOR 2건에만 존재.
+    - label: frame_A
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.28
+      reasoning: 패널 계열에서 반복.
+    - label: phase
+      datatype_hint: xsd:string
+      coverage_estimate: 0.13
+      reasoning: 외부전원, 인입, 변압기, IVR, 콘덴서에 반복.
+    - label: frequency_Hz
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.03
+      reasoning: 외부전원/인입에 명시.
+    - label: wire_system
+      datatype_hint: xsd:string
+      coverage_estimate: 0.01
+      reasoning: INCOMING-01에만 명시.
+    - label: cable_spec
+      datatype_hint: xsd:string
+      coverage_estimate: 0.01
+      reasoning: INCOMING-01에만 명시.
+    - label: type
+      datatype_hint: xsd:string
+      coverage_estimate: 0.08
+      reasoning: 변압기/IVR 등 specs 내부 type이 존재하나 엔티티 type과 이름 충돌 가능.
+    - label: raw_labels
+      datatype_hint: xsd:string
+      coverage_estimate: 0.92
+      reasoning: 대부분 엔티티에 관찰 텍스트 보존용으로 존재.
+    - label: position
+      datatype_hint: xsd:string
+      coverage_estimate: 0.96
+      reasoning: 대부분 엔티티에 top-left 등 위치 정보 존재.
+    - label: source_block
+      datatype_hint: xsd:string
+      coverage_estimate: 0.05
+      reasoning: INCOMING 및 SPACE 엔티티 등 일부에 존재.
+    expected_axioms:
+    - type: SubClassOf
+      example: VCB와 ACB는 CircuitBreaker의 하위로 정리될 가능성이 높다.
+      evidence_hint: HV-1~7, LV-1~8/LV-R, SWGR-380V-MAIN, SPARE-LV-01의 suggested_parent_class가
+        CircuitBreaker 또는 유사 역할.
+    - type: SubClassOf
+      example: MCCB 기반 PANEL-* 개체들은 DistributionBoard/DistributionPanel/ ElectricalPanel
+        계열 하위로 정리될 가능성이 높다.
+      evidence_hint: 패널류 suggested_parent_class가 DistributionBoard, DistributionPanel,
+        ElectricalPanel로 혼재.
+    - type: SubClassOf
+      example: RECTIFIER, IVR, MG, TRANSFORMER는 변환 기능 장비 상위 클래스 아래로 묶일 수 있다.
+      evidence_hint: function_category=CONVERT가 반복되고 input/output voltage 속성이 공통.
+    - type: DisjointWith
+      example: ElectricalSpace는 CircuitBreaker나 Transformer와 분리될 가능성이 높다.
+      evidence_hint: SPACE 3건은 관계 없이 공간명만 보유.
+    - type: InverseOf
+      example: feeds의 역관계로 isFedBy를 둘 수 있다.
+      evidence_hint: 공급 방향이 명확한 단방향 관계가 반복.
+    - type: AnnotationProperty-like preservation
+      example: raw_labels와 note/annotation은 정규 속성과 별도로 보존될 가능성이 높다.
+      evidence_hint: 원문 텍스트가 판단 근거로 중요하며 축약 시 정보 손실 위험 큼.
+    expected_constraints:
+    - type: DomainRange
+      target: feeds
+      expected: 주로 ElectricalEquipment 또는 PowerSource -> ElectricalEquipment/RouteMarker
+      reasoning: 외부전원, 피더, 변환기, 스위치기어가 다른 장비나 route marker를 공급.
+    - type: DomainRange
+      target: supplies
+      expected: 주로 CircuitBreaker/Bus-connected equipment -> CircuitBreaker
+      reasoning: HV/LV 연속 버스 구간에서 반복.
+    - type: DomainRange
+      target: bus_bar
+      expected: 주로 동일 계통 피더 간 연결
+      reasoning: HV/LV 버스 연결에만 관찰.
+    - type: FunctionalProperty
+      target: position
+      expected: 개체당 최대 1개
+      reasoning: 각 엔티티에 단일 위치 문자열만 관찰.
+    - type: FunctionalProperty
+      target: function_category
+      expected: 개체당 최대 1개
+      reasoning: 모든 엔티티가 단일 function_category를 가짐.
+    - type: Cardinality
+      target: source_pages
+      expected: 최소 1개
+      reasoning: 모든 엔티티가 source_pages 보유.
+    - type: Cardinality
+      target: raw_labels
+      expected: 0..n
+      reasoning: 대부분 복수 라벨, 일부 누락 가능.
+    - type: Cardinality
+      target: relay_number
+      expected: 0..n
+      reasoning: 보호계전 코드가 복수값 배열로 반복.
+  discipline_context_plan:
+    electrical:
+      observed_scope:
+      - 6.6kV 인입 및 HV VCB 버스
+      - 6.6kV/440V, 6.6kV/380V 변압기
+      - 440V LV ACB 버스 및 다수 440V 패널
+      - 380V SWGR 및 다수 380V 패널
+      - 220V 패널로 이어지는 IVR 계통
+      - 정류기-배터리 DC 110V 보조전원
+      - GPT/ELD/콘덴서 등 감시·보호·보상 장치
+      - 외부 케이블 트렌치 및 공간 엔티티
+      signal_points:
+        equipment_clusters:
+        - 'HV VCB cluster: HV-1~HV-7'
+        - 'LV ACB cluster: LV-1~LV-R'
+        - 'Panel cluster: PANEL-*'
+        - 'Transformer cluster: TR-*'
+        - 'Converter cluster: IVR/RECTIFIER/MG'
+        - 'Auxiliary sensing/protection cluster: GPT/ELD/CAPACITOR'
+        relation_patterns:
+        - source -> incoming -> HV bus -> transformer -> LV/SWGR -> panels
+        - LV-R -> RECTIFIER -> BATTERY
+        - LV-6 -> IVR -> 220V panels
+        - HV-6/HV-7 -> cable trench markers
+        operational_states_expected:
+        - reserve/spare presence only, no dynamic state values observed
+        annotation_signals:
+        - note/annotation에 케이블 경로, 전압, 피더 설명이 반복
+        - raw_labels가 명칭 정규화 핵심 근거
+      ontology_focus:
+      - 전압 레벨별 장비군 분리(6.6kV / 440V / 380V / 220V / DC110V)
+      - 차단기/패널/변환기/감시장치/공간/경로표시의 역할 분리
+      - feeds/supplies/cable/bus_bar의 의미 차이 유지
+      estimated_modeling_pressure:
+        class_pressure: medium-high
+        property_pressure: high
+        ambiguity_pressure: high
+  merge_candidates_hint:
+    likely_duplicates:
+    - pattern: suggested_parent_class 변형 (DistributionBoard vs DistributionPanel vs
+        ElectricalPanel)
+      estimate: 패널류 31건 전반
+      resolution_hint: 다음 단계에서 패널 상위 클래스를 하나 두고 관찰 기반 하위 동의어/후보로 정리.
+    - pattern: 기능 후보 표기 변형 (PowerDistribution vs POWER_DISTRIBUTION, CircuitProtection
+        vs CIRCUIT_PROTECTION 등)
+      estimate: 20건 이상
+      resolution_hint: 대소문자/언더스코어 차이는 우선 병합 후보로만 기록하고 의미 동일성은 후속 검증.
+    - pattern: EXT-CABLE-TRENCH-1 vs EXT-CABLE-TRENCH-2 동일 라벨 반복
+      estimate: 2건
+      resolution_hint: 동일 타입의 서로 다른 인스턴스로 유지하되 text 동일성은 duplicate-risk로 표시.
+    - pattern: LV-3U vs LV-3L, HV-6 상단 vs HV-7 하단처럼 번호/상하 변형
+      estimate: 4~6건
+      resolution_hint: 중복이 아니라 분할 인스턴스 가능성이 높으므로 태그와 관계 위치를 우선.
+    - pattern: SPARE 엔티티의 클래스 귀속 불안정 (CircuitBreaker로 볼지 ReserveAsset로 볼지)
+      estimate: 2건
+      resolution_hint: 장비 타입 심볼과 reserve 의미를 분리해 모델링 후보 유지.
+    - pattern: 'type 필드와 specs.type 필드 충돌 (예: TRANSFORMER + specs.type=MOLD, VOLTAGE_REGULATOR
+        + specs.type=OIL TYPE)'
+      estimate: 6~8건
+      resolution_hint: 엔티티 분류용 type과 사양용 construction/type 속성을 분리.
+  ambiguity_risk_areas:
+  - tag_pattern: PANEL-*
+    reason: 동일한 MCCB 기반 패널인데 suggested_parent_class가 DistributionBoard/DistributionPanel/ElectricalPanel로
+      혼재.
+    recommended_handling: 후속 taxonomy 단계에서 패널 공통 상위를 먼저 만들고, 현재는 원문 힌트를 annotation으로
+      보존.
+  - tag_pattern: HV-* / LV-* / SWGR-380V-MAIN / SPARE-LV-01
+    reason: 모두 차단기 계열로 보이나 일부는 피더, 일부는 메인 스위치기어, 일부는 spare라 역할과 클래스가 겹침.
+    recommended_handling: 장비 클래스와 역할 클래스(메인/피더/예비)를 분리 검토.
+  - tag_pattern: EXT-CABLE-TRENCH-*
+    reason: type=NOTABLE_SHAPE이며 suggested_parent_class는 CableContainmentSystem이지만
+      실제로는 경로 표식인지 설비인지 불명확.
+    recommended_handling: 실체 설비로 단정하지 말고 route marker/containment 후보 둘 다 열어둘 것.
+  - tag_pattern: UNKNOWN-SPACE-*
+    reason: 공간 엔티티가 존재하지만 다른 장비와 명시 관계가 없음.
+    recommended_handling: 독립 공간 인스턴스로 유지하고 임의 containment 관계 생성 금지.
+  - tag_pattern: feeds vs supplies vs cable vs bus_bar
+    reason: 동일 두 엔티티 사이에 의미가 다른 관계가 병행 출현하며 단순 병합 시 정보 손실.
+    recommended_handling: 전기적 공급관계와 도면 연결표현을 분리 유지.
+  - tag_pattern: raw_labels/note/annotation
+    reason: 케이블 규격, 경로, 전압 설명이 구조화 속성보다 note에 남아 있음.
+    recommended_handling: 정규화 전까지 annotation 보존, 구조화 속성으로 성급히 환원하지 말 것.
+  - tag_pattern: CAPACITOR-01 vs CAPACITOR-02
+    reason: 둘 다 CAPACITOR이나 하나는 440V 50kVAR, 다른 하나는 380V 30kVAR이며 명칭도 콘덴서/콘덴서반 차이.
+    recommended_handling: 동일 클래스 하위 인스턴스로 두되 bank/panel 여부는 후속 검토.
+  - tag_pattern: GPT-01
+    reason: type=PT, name은 GPT, raw_labels에 G.P.T/PTT 혼재.
+    recommended_handling: 계기용 변압기 계열로 넓게 두고 GPT/PT/PTT 표기는 merge 후보로 보존.
+  guidance_for_next_steps:
+    for_0_9b_placement:
+      focus:
+      - 모든 PANEL-*를 우선 NamedIndividual로 배치하고 패널 공통군 여부 확인
+      - HV/LV/SWGR를 차단기/스위치기어 개체로 배치하되 역할(메인/피더/예비) annotation 유지
+      - feeds/supplies/cable/bus_bar를 서로 다른 assertion으로 유지
+      - SPACE와 NOTABLE_SHAPE는 장비와 분리 배치
+      - raw_labels, note, annotation, source_block 등 비정형 근거를 AnnotationOnly 또는 DataPropertyValue로
+        최대 보존
+      expected_owl_role_distribution:
+        NamedIndividual: 78
+        PartOf: 0
+        ObjectPropertyAssertion: 144
+        DataPropertyValue: 520
+        AnnotationOnly: 220
+      watch_outs:
+      - 동일 쌍에 feeds와 cable이 함께 있어도 하나를 삭제하지 말 것
+      - suggested_parent_class를 정답으로 확정하지 말 것
+      - SPARE는 실제 장비 인스턴스인지 예비 슬롯인지 불명확하므로 reserve 의미를 남길 것
+      - equipment_symbols의 count는 별도 데이터로 보존
+    for_0_9c_taxonomy:
+      focus:
+      - 패널 계열 상위 클래스 통합
+      - 차단기 계열(VCB/ACB/MCCB)과 역할 계층 분리
+      - 변환기/저장장치/감시장치/공간/경로표식 분리
+      - 전압 레벨 기반 보조 분류 가능성 검토
+      seed_top_classes:
+      - ElectricalEquipment
+      - ElectricalSpace
+      - PowerSource
+      - RouteOrContainmentMarker
+      - ReserveAsset
+    for_0_9d_properties:
+      focus:
+      - 관계 속성 4종(feeds, supplies, cable, bus_bar)의 의미 경계 확정
+      - 전압/전류/용량/극수/계전기/비율 속성의 datatype 정리
+      - raw_labels, note, annotation의 보존 전략 수립
+      - specs.type와 entity type 충돌 해소
+      priority_properties:
+      - feeds
+      - supplies
+      - cable
+      - bus_bar
+      - rated_voltage_V
+      - rated_voltage_kV
+      - rated_current_A
+      - relay_model
+      - relay_number
+      - raw_labels
+    for_0_9e_axioms:
+      focus:
+      - 패널/차단기/변압기/변환기/공간의 상호 배타성 검토
+      - feeds inverse 및 domain/range 설정
+      - position/function_category/source_pages의 기능적 제약 검토
+      - 패널류와 차단기류의 subclass 정리
+      priority_axioms:
+      - SubClassOf
+      - DisjointWith
+      - InverseOf
+      - DomainRange
+      - FunctionalProperty
+  confidence: 0.86
+  self_assessment: 관찰된 엔티티 전수를 기준으로 구조적 패턴은 비교적 선명하지만, suggested_parent_class와 function_candidates의
+    표기 혼재가 커서 클래스 명칭 통합에는 불확실성이 남는다. 특히 PANEL 계열, SPARE 계열, EXT-CABLE-TRENCH 계열은 후속
+    단계에서 보수적으로 다뤄야 한다.

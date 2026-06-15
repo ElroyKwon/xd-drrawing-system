@@ -1,0 +1,81 @@
+tag: GND-TERM-BOX-002
+name: 피뢰접지 단자함
+type: GROUNDING
+discipline: ELECTRICAL
+function_category: GROUNDING
+source_pages:
+- 39
+specs:
+  circuit_count: 1CCT
+  wire_size: F-GV 50㎟ (HI-PVC 28C)
+  connection_note: 피뢰시스템과 연결, 기초접지극과 연결
+  design_note: 피뢰접지설비 구성에 따라 회로수정 및 검토
+  system_type: 피뢰접지 (Lightning Protection Grounding)
+  wire_size_mm2: 50
+  wire_type: F-GV
+  conduit_type: HI-PVC 28C
+  busbar_material: CU-Busbar
+  insulation_support: Bakelite
+relations:
+- from: GND-TERM-BOX-002
+  to: GND-ELEC-001
+  relation: grounds_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: F-GV 50㎟ (HI-PVC 28C) 기초접지극과 연결
+- from: PIPE-001
+  to: GND-TERM-BOX-002
+  relation: bonded_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 주접지 단자함과 연결 (F-GV Wire)
+- from: PIPE-002
+  to: GND-TERM-BOX-002
+  relation: bonded_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 주접지 단자함과 연결 (F-GV Wire)
+- from: PIPE-003
+  to: GND-TERM-BOX-002
+  relation: bonded_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 주접지 단자함과 연결 (F-GV Wire)
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-center-left
+confidence: 0.95
+equipment_symbols:
+- type: 단자함 내부 배선 상세도
+  count: 1
+- type: CU-Busbar 심볼
+  count: 1
+- type: Bakelite 절연 지지대 심볼
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingEquipment
+  observed_attributes:
+  - circuit_count
+  - wire_size
+  - connection_note
+  - design_note
+  - system_type
+  - wire_size_mm2
+  - wire_type
+  - conduit_type
+  - busbar_material
+  - insulation_support
+  similar_equipment: []
+  function_candidates:
+  - LightningProtection
+  - GroundingConnection
+  - CircuitTermination

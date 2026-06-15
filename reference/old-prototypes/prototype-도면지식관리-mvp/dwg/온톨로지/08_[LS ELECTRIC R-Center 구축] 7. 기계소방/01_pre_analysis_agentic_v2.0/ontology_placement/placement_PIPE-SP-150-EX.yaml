@@ -1,0 +1,174 @@
+placement:
+  tag: PIPE-SP-150-EX
+  name: 기존 배관 (스프링클러)
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PIPE-SP-150-EX
+    class_hint: FireProtectionPiping
+    alternative_class_hints:
+    - PipingEntity
+    - SprinklerPiping
+    - Distribute
+    related_assertions:
+    - type: connects_to
+      target_hint: CONN-FLEX-001
+      note: 기존 배관에 후렉시블 연결
+    - type: located_in
+      target_hint: SPACE-PIT-001
+      note: PIT 공간 내 위치
+    applicable_axioms:
+    - AX024
+    - AX039
+    - AX041
+    - AX042
+    - AX043
+    applicable_constraints:
+    - CN004
+    - CN016
+    confirmed_class: dks:FireProtectionPiping
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 배관 - 후렉시블 연결
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 배관 상태/연결 방식에 대한 서술형 주석
+      - raw_text: 'abbreviation: SP'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: abbreviation
+          suggested_datatype: xsd:string
+          rationale: 배관 약어 표기
+      - raw_text: 'system_type: 스프링클러배관'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: system_type
+          suggested_datatype: xsd:string
+          rationale: 배관 시스템 유형 표기
+      - raw_text: 'nominal_diameter_A: 150'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: nominal_diameter_A
+          suggested_datatype: xsd:decimal
+          rationale: 공칭 직경 수치
+      - raw_text: 'pipe_role: feed_main'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: pipe_role
+          suggested_datatype: xsd:string
+          rationale: 배관 역할 표기
+      - raw_text: 'line_style: dashed'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: line_style
+          suggested_datatype: xsd:string
+          rationale: 도면 선형식 표기
+  provenance:
+    name:
+      source_pages:
+      - 6
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 6
+      method: classification_by_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 6
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 6
+      method: ontology_hints.suggested_parent_class + specs/type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 6
+      method: ontology_hints.function_candidates + type
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 6
+      method: relations
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 6
+      method: relations
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 6
+      method: relations.note
+    ontology_core.related_assertions[1].type:
+      source_pages:
+      - 6
+      method: relations
+    ontology_core.related_assertions[1].target_hint:
+      source_pages:
+      - 6
+      method: relations
+    ontology_core.related_assertions[1].note:
+      source_pages:
+      - 6
+      method: relations.note
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 6
+      method: specs.note
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 6
+      method: specs.abbreviation
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 6
+      method: specs.system_type
+    discipline_context.free_notes[3].raw_text:
+      source_pages:
+      - 6
+      method: specs.nominal_diameter_A
+    discipline_context.free_notes[4].raw_text:
+      source_pages:
+      - 6
+      method: specs.pipe_role
+    discipline_context.free_notes[5].raw_text:
+      source_pages:
+      - 6
+      method: specs.line_style
+    provenance.source_pages:
+      source_pages:
+      - 6
+      method: entity_detail.source_pages
+    provenance.source_attribution:
+      source_pages:
+      - 6
+      method: entity_detail.source_attribution
+    provenance.confidence:
+      source_pages:
+      - 6
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관 계열을 독립 설비로 보고 NamedIndividual로 배치
+    - 배관-설비 연결(connects_to), 공간 내 위치(located_in) 관계를 원형으로 보존
+    - specs의 약어/시스템유형/직경/역할/선형식/주석을 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:04:19.660265'
+  confidence: 0.85

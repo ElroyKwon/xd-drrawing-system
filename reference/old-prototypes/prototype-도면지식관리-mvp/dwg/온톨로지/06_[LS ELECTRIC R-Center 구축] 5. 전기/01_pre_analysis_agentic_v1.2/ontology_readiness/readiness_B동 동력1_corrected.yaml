@@ -1,0 +1,17 @@
+verdict: promoted
+confidence: 0.74
+reason: "이전 평가의 강등 근거를 재검토한 결과, 다음 사유로 독립 엔티티로 복원(승격)이 타당하다.\n\n[강등 근거 반박]\n1. '피더\
+  \ 명칭 = document-level label' 논리의 과도한 적용:\n   22.9kV 수전설비 단선결선도에서 'B동 동력1'은 단순 텍스트\
+  \ 라벨이 아닌,\n   실제 차단기·보호계전기·계량장치 등 물리적 스위치기어를 수반하는\n   22.9kV 피더 회로(Feeder Circuit)를\
+  \ 지칭한다.\n   동일 시스템 내 'FEEDER-B동비상'이 독립 엔티티로 인정된 것과\n   일관성이 없다.\n\n2. connection_specs의\
+  \ 과잉 기재는 데이터 추출 오류이지 엔티티 무효 근거 아님:\n   10개 feeds 관계가 모두 동일 페이지 항목으로 기재된 것은\n   OCR/컨텍스트\
+  \ 추출 단계에서 '같은 도면 페이지 = 연결 대상'으로\n   혼동한 결과로 보인다.\n   이는 relation 데이터의 정제 필요성을 의미하며,\n\
+  \   엔티티 자체의 물리적 실재성을 부정하는 근거가 되지 않는다.\n\n[독립 엔티티 인정 근거]\n- 22.9kV 전압 레벨 명시 → 1차\
+  \ 배전 피더로서 물리적 회로 확정\n- feeder_name 자체 표기 OCR 확인 (confidence 0.9)\n- 전기 온톨로지상 Feeder/Circuit은\
+  \ 독립 클래스(Electrical Feeder)로\n  모델링하는 것이 표준 관행 (IEC CIM, IFC MEP 모두 포함)\n- similar_equipment(LSPS동력,\
+  \ 냉동기 4호기)와 동일 도면 계층에 병렬 배치\n\n[잔존 불확실성 — confidence 미달 요인]\n- 차단기 정격전류, 케이블 사양,\
+  \ 보호계전기 설정값 등\n  물리 설비 고유 속성 스펙 부재\n- 실제 feeds 관계 정합성 미검증 (10개 relation 모두 재확인 필요)\n\
+  - 도면이 '기존' 설비 기준이므로 현행 설비와의 일치 여부 불명확\n\n[조치 권고]\n- 클래스: Electrical Feeder (22.9kV\
+  \ Primary Feeder)\n- connection_specs 전면 재추출: 'B동 동력1' 분기 하류 부하만 필터링\n- 물리 사양(차단기\
+  \ 정격, CT/PT 비율) 보완 후 confidence 상향 가능"
+tag: B동 동력1

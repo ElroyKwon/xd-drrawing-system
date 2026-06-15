@@ -1,0 +1,115 @@
+placement:
+  tag: PIT-ZONE___UNKNOWN-SHAPE-01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:PIT-ZONE___UNKNOWN-SHAPE-01
+    class_hint: GroupingEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DocumentEntity
+    - UnresolvedStructuralEntity
+    related_assertions:
+    - type: contains
+      target_hint: UNKNOWN-SHAPE-01
+      note: tag 문자열상 PIT-ZONE과 UNKNOWN-SHAPE-01이 함께 표기되어 있으나, 실제 관계인지 복합 표기인지 불명확
+      confirmed_property: dks:contains
+      confirmed_target: dks:UNKNOWN-SHAPE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroupingEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: availablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 메타 정보이며, 도면 분석 가능 페이지 범위를 나타냄
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: analysisAvailabilityNote
+        suggested_datatype: xsd:string
+        rationale: 대화형 안내 문구로, 설비/도면 실체 정보가 아닌 주석성 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw tag
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: structural inference from single tagged entity with no explicit relation
+        record
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag string
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan guidance + tag pattern
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan guidance + tag pattern
+    ontology_core.related_assertions:
+      source_pages:
+      - 0
+      method: tag string interpretation
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: tag contains unresolved shape marker
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus applied
+  unresolved:
+  - field_candidate: tag
+    raw_text: PIT-ZONE / UNKNOWN-SHAPE-01
+    source_page: 0
+    reason: 슬래시로 결합된 복합 표기인지, 두 개의 태그인지, 또는 하나의 복합 식별자인지 판정 불가
+    preservation_note: 후속 단계에서 PIT-ZONE과 UNKNOWN-SHAPE-01 분리 여부 검토 필요
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 실체 정보가 아닌 안내 문구이며, 구조/형상/관계로 해석할 수 없음
+    preservation_note: 페이지 범위 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그가 PIT-ZONE과 UNKNOWN-SHAPE-01의 복합 표기처럼 보이나, 실제 개체 경계와 관계가 원문만으로 확정되지
+      않음
+    recommended_handling: 단일 NamedIndividual로 우선 보존하되, 후속 단계에서 복합 태그 분해 가능성 및 그룹/플랜
+      계층 귀속 여부를 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline로 남기되, 태그 패턴상 구조 문맥의 문서 메타 또는 미해결 구조 엔티티 가능성을 보수적으로 보존
+    - free_notes에 분류 불가 정보와 promotion_hint를 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:02.232607'
+  confidence: 0.56

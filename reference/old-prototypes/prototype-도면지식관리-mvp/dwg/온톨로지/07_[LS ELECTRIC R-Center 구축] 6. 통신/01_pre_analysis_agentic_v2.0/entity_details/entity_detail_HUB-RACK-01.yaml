@@ -1,0 +1,114 @@
+tag: HUB-RACK-01
+name: 정보통신 허브랙 (인입 집선점)
+type: equipment
+discipline: COMMUNICATION
+function_category: COMMUNICATION_RACK
+source_pages:
+- 4
+specs:
+  raw_labels:
+  - HUB RACK - 1 (RACK TYPE)
+  - 'VOICE: 2P'
+  - 'SPKSP-1: 1DP'
+  - 'IN: 12CORE'
+  - 'DATA OUT: 26PORT'
+  - FDF 용 FDF(SM) 12CORE
+  - IDF-1
+  - 정보통신용 맨홀
+  - 1,700 × 800 × 1,100mm
+  rack_type: RACK TYPE
+  voice_ports: 2P
+  spksp_ports: 1DP (SPKSP-1)
+  data_in: 12CORE
+  data_out: 26PORT
+  fdf: FDF(SM) 12CORE
+  idf: IDF-1
+  labels_inside:
+  - HUB RACK - 1 (RACK TYPE)
+  - 'VOICE: 2P'
+  - 'SPKSP-1: 1DP'
+  - 'IN: 12CORE'
+  - 'DATA OUT: 26PORT'
+  - FDF 용 FDF(SM) 12CORE
+  - IDF-1
+  labels_above:
+  - 정보통신용 맨홀
+  - 1,700 × 800 × 1,100mm
+  labels_below:
+  - 사무동 지하1층 평면도 참조
+  equipment_symbols:
+  - type: HUB RACK (RACK TYPE)
+    count: 1
+  - type: IDF
+    count: 1
+  - type: FDF
+    count: 1
+  - type: SPKSP-1
+    count: 1
+relations:
+- from: EXT-SOURCE-CCTV-CTRL
+  to: HUB-RACK-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 'FROM : 옥외 CCTV 제어반 / FIBER OPTICAL S.M 4CORE / ELP 50Ø / 터파기 신설 구역'
+- from: TUNNEL-DUCT-01
+  to: HUB-RACK-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 'IN TRAY / 기존 공동구 CABLE TRAY 사용 / FROM : 사무동 지하1층 통신실 UTP 0.5mm/25Px1,
+    CAT.5 / FROM : 사무동 지상2층 전산실 FIBER OPTICAL S.M 12CORE / FROM : 사무동 지상1층 방송실 FR-3
+    2.5sq / 10C'
+- from: HUB-RACK-01
+  to: ROOM-COMM-B1
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 사무동 지하1층 평면도 참조
+- from: HUB-RACK-01
+  to: ROOM-BROAD-B1
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 사무동 지하1층 평면도 참조
+- from: CCTV-CTL-01
+  to: HUB-RACK-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: FIBER OPTICAL S.M 4CORE / ELP 50Ø / 터파기 신설 구역
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-left
+equipment_symbols:
+- type: HUB RACK (RACK TYPE)
+  count: 1
+- type: IDF
+  count: 1
+- type: FDF
+  count: 1
+- type: SPKSP-1
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - rack_type
+  - voice_ports
+  - spksp_ports
+  - data_in
+  - data_out
+  - fdf
+  - idf
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - DATA_AGGREGATION
+  - SIGNAL_DISTRIBUTION
+  - FIBER_TERMINATION

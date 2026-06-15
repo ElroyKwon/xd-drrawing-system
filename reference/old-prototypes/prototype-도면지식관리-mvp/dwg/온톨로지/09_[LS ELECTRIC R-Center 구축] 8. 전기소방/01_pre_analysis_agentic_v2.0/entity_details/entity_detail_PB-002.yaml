@@ -1,0 +1,52 @@
+tag: PB-002
+name: PULL BOX (상부, 입상)
+type: DISTRIBUTE
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 6
+specs:
+  labels_near:
+  - 600x600x600
+  equipment_symbols:
+  - type: PULL BOX 심볼 (사각형+X)
+    count: 1
+  - type: 배선 입상/입하 화살표
+    count: 1
+  legend_sizes:
+  - PULL BOX SIZE 400 x 400 x 300mm
+relations:
+- from: PB-001
+  to: PB-002
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: 상하 PULL BOX 간 연결
+- from: LEGEND-001
+  to: PB-002
+  relation: legend_refers_to
+  source_page: 6
+  origin: cross_validated
+  line_style: null
+  note: PULL BOX SIZE 400
+collection_sources:
+  cross_validated: true
+position: center
+confidence: 0.85
+source_attribution:
+  sonnet: false
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: JunctionBox
+  observed_attributes:
+  - labels_near
+  - equipment_symbols
+  - legend_sizes
+  similar_equipment:
+  - PB-001
+  function_candidates:
+  - CablePulling
+  - WiringJunction
+  - VerticalTransition

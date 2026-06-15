@@ -1,0 +1,172 @@
+placement:
+  tag: UNKNOWN-CONDUIT-ROUTE-01
+  name: 전선관 Rise-up, Through and Down
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: ConduitRoute
+    alternative_class_hints:
+    - Conduit
+    - RoutingIndicator
+    - LegendSymbol
+    related_assertions: []
+    applicable_axioms:
+    - AX036
+    applicable_constraints: []
+    confirmed_class: dks:ConduitRoute
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: conduit_route'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 type 값 보존
+      - raw_text: 'function_category: CONDUIT_ROUTE'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'visual_description: 화살표 및 대각선 조합의 선형 심볼'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 범례 심볼의 시각적 설명 보존
+      - raw_text: 'source: 우측 범례, 공통사항 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처 설명 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Conduit'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.observed_attributes: visual_description, source'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: Vertical routing indication;
+          Conduit path transition'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+      - raw_text: 'name: 전선관 Rise-up, Through and Down'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 명칭 원문 보존
+      - raw_text: 'tag: UNKNOWN-CONDUIT-ROUTE-01'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 태그 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_visual_symbol_and_legend
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_name_and_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 3
+      method: direct_preservation
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: direct
+    specs.source:
+      source_pages:
+      - 3
+      method: direct
+    type:
+      source_pages:
+      - 3
+      method: direct
+    function_category:
+      source_pages:
+      - 3
+      method: direct
+  unresolved:
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Conduit
+    source_page: 3
+    reason: 상위 클래스 힌트이지만 확정 분류는 불가
+    preservation_note: 후속 단계에서 Conduit 계열 class 후보로 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Vertical routing indication; Conduit path transition
+    source_page: 3
+    reason: 기능 후보가 복수이며 정확한 단일 의미로 확정 불가
+    preservation_note: 범례/주석 성격의 라우팅 표시로 유지
+  - field_candidate: specs.visual_description
+    raw_text: 화살표 및 대각선 조합의 선형 심볼
+    source_page: 3
+    reason: 물리 설비가 아니라 심볼/표기인지 경계가 모호함
+    preservation_note: AnnotationOnly로 보존하되 심볼 설명 원문 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 전선관 경로 전환을 나타내는 범례 심볼로 보이며, 물리 실체인지 주석인지 경계가 모호함.
+    recommended_handling: 0-9c에서 AnnotationOnly 우선 검토 후, 필요 시 ConduitRoute 관련 개체로
+      재분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - conduit legend / routing indicator 패턴으로 분류
+    - visual_description, source, ontology_hints를 모두 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:54.002389'
+  confidence: 0.78

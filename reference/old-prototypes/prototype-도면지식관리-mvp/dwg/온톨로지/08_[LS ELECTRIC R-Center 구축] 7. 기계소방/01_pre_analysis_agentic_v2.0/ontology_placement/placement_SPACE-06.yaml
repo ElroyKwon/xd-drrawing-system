@@ -1,0 +1,202 @@
+placement:
+  tag: SPACE-06
+  name: AMP실
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-06
+    class_hint: Room
+    alternative_class_hints:
+    - SpatialEntity
+    - Space
+    related_assertions:
+    - type: located_in
+      target_hint: P05
+      note: position에 'right of P05'로 관찰됨
+    - type: adjacent_to
+      target_hint: P05
+      note: position에 의해 인접/상대 위치 관계가 암시됨
+    applicable_axioms:
+    - AX001
+    - AX003
+    - AX037
+    - AX040
+    - AX041
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:Room
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: AMP실'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트 보존
+      - raw_text: 'type: SPACE'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: entity_type
+          suggested_datatype: xsd:string
+          rationale: 엔티티 유형 원문 보존
+      - raw_text: 'function_category: SPACE'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Room'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.function_candidates: EmergencyBroadcasting, SignalAmplification'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+      - raw_text: 'position: top-center, right of P05'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면상 위치 정보 보존
+      - raw_text: 'confidence: 0.9'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 원문 신뢰도 값 보존
+  provenance:
+    name:
+      source_pages:
+      - 7
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 7
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 7
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 7
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 7
+      method: derived_from ontology_hints + observed attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 7
+      method: position
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 7
+      method: preservation
+    specs.shape:
+      source_pages:
+      - 7
+      method: entity_detail.specs.shape
+    specs.labels_inside:
+      source_pages:
+      - 7
+      method: entity_detail.specs.labels_inside
+    type:
+      source_pages:
+      - 7
+      method: entity_detail.type
+    discipline:
+      source_pages:
+      - 7
+      method: entity_detail.discipline
+    function_category:
+      source_pages:
+      - 7
+      method: entity_detail.function_category
+    source_pages:
+      source_pages:
+      - 7
+      method: entity_detail.source_pages
+    collection_sources.cross_validated:
+      source_pages:
+      - 7
+      method: entity_detail.collection_sources.cross_validated
+    position:
+      source_pages:
+      - 7
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 7
+      method: entity_detail.confidence
+    source_attribution.sonnet:
+      source_pages:
+      - 7
+      method: entity_detail.source_attribution.sonnet
+    source_attribution.gemini:
+      source_pages:
+      - 7
+      method: entity_detail.source_attribution.gemini
+    source_attribution.mini:
+      source_pages:
+      - 7
+      method: entity_detail.source_attribution.mini
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 7
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 7
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 7
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 7
+    reason: 원문 관계가 비어 있음
+    preservation_note: 관계 없음으로 보존
+  - field_candidate: specs
+    raw_text: 'shape: rectangle; labels_inside: AMP실'
+    source_page: 7
+    reason: 추가 세부 속성 없음
+    preservation_note: 관찰된 속성만 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 7
+    reason: 유사 설비 후보 없음
+    preservation_note: 빈 배열 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: AMP실은 공간 엔티티로 보이나, ontology_hints의 function_candidates가 EmergencyBroadcasting
+      및 SignalAmplification으로 제시되어 실제 용도와 공간명 사이에 해석 여지가 있음.
+    recommended_handling: 다음 단계에서 Room/Space 계열로 유지하되, 기능 후보는 별도 주석 또는 free_notes
+      승격 후보로 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/실 구획 계열로서 SpatialEntity/Room 후보를 우선 고려
+    - 도면상 위치(position)와 내부 라벨(labels_inside)을 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:05:58.539529'
+  confidence: 0.9

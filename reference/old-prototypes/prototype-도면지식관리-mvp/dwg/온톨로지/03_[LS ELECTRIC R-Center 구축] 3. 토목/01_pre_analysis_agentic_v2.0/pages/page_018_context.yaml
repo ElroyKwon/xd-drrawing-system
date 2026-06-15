@@ -1,0 +1,666 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: other
+  drawing_genre: other
+  title_block:
+    drawing_number: C10-307
+    title: CCTV 및 수밀검사 예시도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: true
+    estimated_entity_count: 0
+  next_step_hints:
+  - 상단에 CCTV 검사, 하단에 수밀검사 예시가 함께 있는 시공/검사 절차 설명 도면으로 보임
+  - 표제란에 도면번호 C10-307, 제목 CCTV 및 수밀검사 예시도 확인
+  - 페이지 내 명시적 설비 태그는 확인되지 않음
+  confidence: 0.93
+  note: 페이지 18의 표제란에서 도면번호 C10-307과 제목 'CCTV 및 수밀검사 예시도'를 확인했으나, 접두사 C만으로 discipline을
+    단정할 근거가 부족하여 UNKNOWN_DISCIPLINE으로 둠. 범례 전용 페이지는 아니며, 별도 심볼-설명/약어 테이블은 보이지 않음.
+  recommended_supplements: {}
+  routing_confidence: 1.0
+  routing_reason: 도면이 아니거나 범례/목차/일람표로 분류되지 않는 일반 예시도 페이지이므로 recommended_supplements는
+    빈 dict로 처리함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: AREA-01
+    shape: rectangle
+    primary_label: C.C.TV 검사
+    position: top-left
+    labels_near:
+    - TV 카메라차
+    - 관로조사작업원
+    - TV 카메라
+    - 지수 플러그
+  - panel_id: AREA-02
+    shape: rectangle
+    primary_label: 수밀 검사
+    position: bottom-left
+    labels_near:
+    - 물탱크
+    - 맨홀
+    - 지반
+    - 공기
+    - 물
+    - 받침대
+  connections:
+  - from: AREA-01
+    to: AREA-02
+    line_style: solid
+    annotation: 시공/검사 절차 예시
+  notable_shapes:
+  - shape: other
+    label: TV 카메라차
+    note: CCTV 검사 장비 차량 일러스트
+  - shape: other
+    label: TV 카메라
+    note: 관로 내부 조사용 카메라 일러스트
+  - shape: other
+    label: 맨홀
+    note: 수밀 검사 대상 구조물 단면
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지 전체가 CCTV 및 수밀검사 시공 예시도로 구성되어 있으며, 별도의 심볼-설명 테이블이나 약어 목록이 존재하지 않음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: other
+  changed_from_p00: true
+  recommended_supplements: {}
+  routing_confidence: 0.98
+  routing_reason: 도면번호 접두사 C와 제목 'CCTV 및 수밀검사 예시도', 그리고 내용상 토목 배수 관로(하수관) 검사 절차를 설명하는
+    예시도이므로 CIVIL/other로 판정. existing_yaml의 UNKNOWN_DISCIPLINE을 CIVIL로 갱신함. 엔티티 추출
+    대상이 아닌 참조용 도면이므로 recommended_supplements는 빈 dict 유지.
+classification: OTHER
+discipline: CIVIL
+key_elements_from_text:
+- C.C.TV 검사
+- 수밀 검사
+- TV 카메라차
+- 관로조사작업원
+- 관로조사주수
+- 관로조사기사
+- 지수 플러그
+- 맨홀
+- 물탱크
+- 공기
+- 물
+- 받침대
+- LS Electric
+- R-Center 구축
+- 가온건축
+- R-Center
+title_block:
+  drawing_number: C10-307
+  title: CCTV 및 수밀검사 예시도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 CIVIL/other 판정과 일치함. 페이지 상단에 'C.C.TV 검사', 하단에 '수밀 검사'가 함께 보이며, 표제란에 도면번호
+  C10-307과 제목 'CCTV 및 수밀검사 예시도'가 보인다. 별도 범례 섹션은 보이지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: CCTV-INSP
+    shape: rectangle
+    labels_inside:
+    - C.C.TV 검사
+    - TV 카메라차
+    - 관로조사작업원
+    - 관로조사작업원
+    - 밀압운전수
+    - 관로조사주수
+    - 관로조사기사
+    - 지수 플러그
+    - TV 카메라
+    - 지수 플러그
+    labels_above:
+    - C.C.TV 검사
+    labels_below: []
+    equipment_symbols:
+    - type: CCTV 조사 차량 (TV 카메라차)
+      count: 1
+    - type: 관로 내부 TV 카메라
+      count: 1
+    - type: 지수 플러그
+      count: 2
+    - type: 작업원 인물 심볼
+      count: 4
+    inferred_name: CCTV 관로 조사 예시 단면도
+    position: top
+    notes:
+    - 1. 1000mm 미만의 하수관에 대해 성거유량 전부실시 1000mm 이상의 하수관로는 육안검사.
+    - 2. 관로조사 보고서는 환경부 하수도 시공관리지침 양식에 의해 작성
+  - panel_id: WATER-TIGHT-INSP
+    shape: rectangle
+    labels_inside:
+    - 수밀 검사
+    - 물탱크
+    - 맨홀
+    - 맨홀
+    - 지반
+    - 지반
+    - 높은측
+    - 낮은측
+    - 공기
+    - 물
+    - 받침대
+    - 1,000
+    labels_above:
+    - 수밀 검사
+    labels_below: []
+    equipment_symbols:
+    - type: 물탱크
+      count: 1
+    - type: 맨홀 단면
+      count: 2
+    - type: 받침대
+      count: 1
+    - type: 공기/물 주입 배관
+      count: 1
+    inferred_name: 수밀 검사 예시 단면도
+    position: bottom
+  connections:
+  - from: 물탱크
+    to: WATER-TIGHT-INSP 관로
+    line_type: pipe
+    line_style: solid
+    annotation: 물 / 공기 주입선
+  - from: TV 카메라차
+    to: 관로 내부 TV 카메라
+    line_type: cable
+    line_style: solid
+    annotation: 카메라 케이블 (관로 내 삽입)
+  groups:
+  - group_id: GRP-INSPECTION
+    label: 관로 검사 예시도 (CCTV + 수밀)
+    members:
+    - CCTV-INSP
+    - WATER-TIGHT-INSP
+  legend_references: []
+  diagram_meta:
+    title: CCTV 및 수밀검사 예시도
+    drawing_number: C10-307
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: NONE
+    scale_secondary: 'A1: NONE / A3: NONE'
+    date: '2024.05'
+    discipline: CIVIL
+    drawing_genre: other
+    is_reference_only: true
+    flow_direction: top-to-bottom
+    notes:
+    - 1. 1000mm 미만의 하수관에 대해 성거유량 전부실시 1000mm 이상의 하수관로는 육안검사.
+    - 2. 관로조사 보고서는 환경부 하수도 시공관리지침 양식에 의해 작성
+    classification_rationale: 도면번호 C10-307, 제목 'CCTV 및 수밀검사 예시도'. 검사 대상이 토목 하수 관로이므로
+      CIVIL 귀속. CCTV 장비가 등장하나 통신(COMMUNICATION) 도면 아님 (원칙 F 적용). 실제 설비 엔티티 추출 대상이
+      아닌 시공 절차 참조 예시도이므로 is_reference_only=true.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: CCTV-INSP-DIAGRAM
+    shape: rectangle
+    labels_above:
+    - C.C.TV 검사
+    labels_inside:
+    - TV 카메라차
+    - 관로조사작업원
+    - 관로조사작업원
+    - 일반운전수
+    - 관로조사조수
+    - 관로조사기사
+    - TV 카메라
+    - 지수 플러그
+    - 지수 플러그
+    equipment_symbols:
+    - type: CCTV 조사 차량 (TV 카메라차)
+      count: 1
+    - type: 관로 내부 TV 카메라 (크롤러 타입)
+      count: 1
+    - type: 지수 플러그 (파이프 막음 장치)
+      count: 2
+    - type: 작업원 인물 심볼
+      count: 5
+    - type: 안전 콘
+      count: 2
+    inferred_name: CCTV 관로 조사 시공 예시도
+    position: top
+    note: 맨홀 간 관로 내부를 CCTV 카메라로 조사하는 절차를 도식화함.
+  - panel_id: WATER-TIGHT-INSP-DIAGRAM
+    shape: rectangle
+    labels_above:
+    - 수밀 검사
+    labels_inside:
+    - 물탱크
+    - 맨홀
+    - 맨홀
+    - 지반
+    - 지반
+    - 지반
+    - 높은측
+    - 낮은측
+    - 공기
+    - 물
+    - 받침대
+    - 1,000
+    equipment_symbols:
+    - type: 물탱크 (시험용수 공급)
+      count: 1
+    - type: 맨홀 단면
+      count: 2
+    - type: 관로 단면 (시험 대상)
+      count: 1
+    - type: 급수/수두 측정 배관 설비
+      count: 1
+    - type: 받침대/지지대
+      count: 1
+    inferred_name: 수밀 검사 시공 예시도
+    position: bottom
+    note: 관로에 물을 채워 누수 여부를 확인하는 수밀 시험 절차를 도식화함. 1,000mm 수두를 적용하는 것으로 보임.
+  connections:
+  - from: TV 카메라차
+    to: TV 카메라
+    line_type: cable
+    line_style: solid
+    annotation: 전원 및 데이터 케이블
+    panel_context: CCTV-INSP-DIAGRAM
+  - from: 물탱크
+    to: WATER-TIGHT-INSP-DIAGRAM 내 급수 배관
+    line_type: pipe
+    line_style: solid
+    annotation: 시험용수 공급관
+    panel_context: WATER-TIGHT-INSP-DIAGRAM
+  diagram_meta:
+    title: CCTV 및 수밀검사 예시도
+    drawing_number: C10-307
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    scale_primary: NONE
+    scale_secondary: 'A1: NONE / A3: NONE'
+    discipline: CIVIL
+    drawing_genre: other
+    is_reference_only: true
+    flow_direction: top-to-bottom
+    notes:
+    - 주 기
+    - 1. 1000mm 미만의 하수관에 대해 설계용량 전부실시 1000mm 이상의 하수관로는 육안검사.
+    - 2. 관로조사 보고서는 환경부 하수도 시공관리지침 양식에 의해 작성
+    classification_rationale: 도면 제목과 내용이 토목 분야의 하수 관로 검사 방법(CCTV, 수밀시험)을 설명하는 예시도이므로
+      CIVIL/other로 분류. 특정 현장의 시공 도면이 아닌 표준 절차 예시이므로 is_reference_only=true 적용.
+entity_synthesis:
+  entities:
+  - tag: UNKNOWN-INSPECTION-01
+    name: CCTV 관로 조사 예시도
+    discipline: CIVIL
+    function_category: REFERENCE_DIAGRAM
+    specifications:
+      panel_id: CCTV-INSP
+      shape: rectangle
+      labels_inside:
+      - C.C.TV 검사
+      - TV 카메라차
+      - 관로조사작업원
+      - 관로조사작업원
+      - 밀압운전수
+      - 관로조사주수
+      - 관로조사기사
+      - 지수 플러그
+      - TV 카메라
+      - 지수 플러그
+      labels_above:
+      - C.C.TV 검사
+      labels_below: []
+      equipment_symbols:
+      - type: CCTV 조사 차량 (TV 카메라차)
+        count: 1
+      - type: 관로 내부 TV 카메라
+        count: 1
+      - type: 지수 플러그
+        count: 2
+      - type: 작업원 인물 심볼
+        count: 4
+      inferred_name: CCTV 관로 조사 예시 단면도
+      position: top
+      notes:
+      - 1. 1000mm 미만의 하수관에 대해 성거유량 전부실시 1000mm 이상의 하수관로는 육안검사.
+      - 2. 관로조사 보고서는 환경부 하수도 시공관리지침 양식에 의해 작성
+      diagram_meta:
+        title: CCTV 및 수밀검사 예시도
+        drawing_number: C10-307
+        project: LS Electric R-Center 구축
+        architect: 가운건축 (GAUN Architects & Engineers)
+        scale_primary: NONE
+        scale_secondary: 'A1: NONE / A3: NONE'
+        date: '2024.05'
+        discipline: CIVIL
+        drawing_genre: other
+        is_reference_only: true
+        flow_direction: top-to-bottom
+        classification_rationale: 도면번호 C10-307, 제목 'CCTV 및 수밀검사 예시도'. 검사 대상이 토목 하수
+          관로이므로 CIVIL 귀속. CCTV 장비가 등장하나 통신(COMMUNICATION) 도면 아님 (원칙 F 적용). 실제 설비 엔티티
+          추출 대상이 아닌 시공 절차 참조 예시도이므로 is_reference_only=true.
+      source_block: both
+  - tag: UNKNOWN-INSPECTION-02
+    name: 수밀 검사 예시도
+    discipline: CIVIL
+    function_category: REFERENCE_DIAGRAM
+    specifications:
+      panel_id: WATER-TIGHT-INSP
+      shape: rectangle
+      labels_inside:
+      - 수밀 검사
+      - 물탱크
+      - 맨홀
+      - 맨홀
+      - 지반
+      - 지반
+      - 높은측
+      - 낮은측
+      - 공기
+      - 물
+      - 받침대
+      - 1,000
+      labels_above:
+      - 수밀 검사
+      labels_below: []
+      equipment_symbols:
+      - type: 물탱크
+        count: 1
+      - type: 맨홀 단면
+        count: 2
+      - type: 받침대
+        count: 1
+      - type: 공기/물 주입 배관
+        count: 1
+      inferred_name: 수밀 검사 예시 단면도
+      position: bottom
+      diagram_meta:
+        title: CCTV 및 수밀검사 예시도
+        drawing_number: C10-307
+        project: LS Electric R-Center 구축
+        architect: 가운건축 (GAUN Architects & Engineers)
+        scale_primary: NONE
+        scale_secondary: 'A1: NONE / A3: NONE'
+        date: '2024.05'
+        discipline: CIVIL
+        drawing_genre: other
+        is_reference_only: true
+        flow_direction: top-to-bottom
+        classification_rationale: 도면 제목과 내용이 토목 분야의 하수 관로 검사 방법(CCTV, 수밀시험)을 설명하는
+          예시도이므로 CIVIL/other로 분류. 특정 현장의 시공 도면이 아닌 표준 절차 예시이므로 is_reference_only=true
+          적용.
+      source_block: both
+  - tag: UNKNOWN-VEHICLE-01
+    name: TV 카메라차
+    discipline: CIVIL
+    function_category: INSPECTION_VEHICLE
+    specifications:
+      type: CCTV 조사 차량 (TV 카메라차)
+      count: 1
+      panel_context: CCTV-INSP
+      source_labels:
+      - TV 카메라차
+      source_notes:
+      - 관로 내부 TV 카메라를 탑재한 조사 차량
+    source_block: both
+  - tag: UNKNOWN-CAMERA-01
+    name: 관로 내부 TV 카메라
+    discipline: CIVIL
+    function_category: INSPECTION_CAMERA
+    specifications:
+      type: 관로 내부 TV 카메라
+      count: 1
+      panel_context: CCTV-INSP
+      source_labels:
+      - TV 카메라
+      source_notes:
+      - Gemini에서는 '관로 내부 TV 카메라 (크롤러 타입)'로 구체화
+    source_block: both
+  - tag: UNKNOWN-PLUG-01
+    name: 지수 플러그
+    discipline: CIVIL
+    function_category: PIPE_BLOCKING_DEVICE
+    specifications:
+      type: 지수 플러그
+      count: 2
+      panel_context: CCTV-INSP
+      source_labels:
+      - 지수 플러그
+      source_notes:
+      - 파이프 막음 장치
+    source_block: both
+  - tag: UNKNOWN-WORKER-01
+    name: 관로조사작업원
+    discipline: CIVIL
+    function_category: PERSONNEL
+    specifications:
+      role_label: 관로조사작업원
+      count: 2
+      panel_context: CCTV-INSP
+    source_block: both
+  - tag: UNKNOWN-WORKER-02
+    name: 밀압운전수
+    discipline: CIVIL
+    function_category: PERSONNEL
+    specifications:
+      role_label: 밀압운전수
+      count: 1
+      panel_context: CCTV-INSP
+    source_block: visual_semantics
+  - tag: UNKNOWN-WORKER-03
+    name: 관로조사주수
+    discipline: CIVIL
+    function_category: PERSONNEL
+    specifications:
+      role_label: 관로조사주수
+      count: 1
+      panel_context: CCTV-INSP
+    source_block: visual_semantics
+  - tag: UNKNOWN-WORKER-04
+    name: 관로조사기사
+    discipline: CIVIL
+    function_category: PERSONNEL
+    specifications:
+      role_label: 관로조사기사
+      count: 1
+      panel_context: CCTV-INSP
+    source_block: both
+  - tag: UNKNOWN-WORKER-05
+    name: 일반운전수
+    discipline: CIVIL
+    function_category: PERSONNEL
+    specifications:
+      role_label: 일반운전수
+      count: 1
+      panel_context: CCTV-INSP
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-WORKER-06
+    name: 관로조사조수
+    discipline: CIVIL
+    function_category: PERSONNEL
+    specifications:
+      role_label: 관로조사조수
+      count: 1
+      panel_context: CCTV-INSP
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-TANK-01
+    name: 물탱크
+    discipline: CIVIL
+    function_category: WATER_TANK
+    specifications:
+      type: 물탱크
+      count: 1
+      panel_context: WATER-TIGHT-INSP
+      source_labels:
+      - 물탱크
+    source_block: both
+  - tag: UNKNOWN-MH-01
+    name: 맨홀
+    discipline: CIVIL
+    function_category: MANHOLE
+    specifications:
+      type: 맨홀 단면
+      count: 2
+      panel_context: WATER-TIGHT-INSP
+      source_labels:
+      - 맨홀
+    source_block: both
+  - tag: UNKNOWN-BASE-01
+    name: 받침대
+    discipline: CIVIL
+    function_category: SUPPORT_BASE
+    specifications:
+      type: 받침대
+      count: 1
+      panel_context: WATER-TIGHT-INSP
+    source_block: both
+  - tag: UNKNOWN-PIPE-01
+    name: 공기/물 주입 배관
+    discipline: CIVIL
+    function_category: PIPEWORK
+    specifications:
+      type: 공기/물 주입 배관
+      count: 1
+      panel_context: WATER-TIGHT-INSP
+      source_labels:
+      - 공기
+      - 물
+    source_block: visual_semantics
+  - tag: UNKNOWN-PIPE-02
+    name: 급수/수두 측정 배관 설비
+    discipline: CIVIL
+    function_category: PIPEWORK
+    specifications:
+      type: 급수/수두 측정 배관 설비
+      count: 1
+      panel_context: WATER-TIGHT-INSP-DIAGRAM
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-CONDUIT-01
+    name: 관로 단면
+    discipline: CIVIL
+    function_category: PIPE_CONDUIT
+    specifications:
+      type: 관로 단면 (시험 대상)
+      count: 1
+      panel_context: WATER-TIGHT-INSP-DIAGRAM
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-SAFETY-01
+    name: 안전 콘
+    discipline: CIVIL
+    function_category: SAFETY_DEVICE
+    specifications:
+      type: 안전 콘
+      count: 2
+      panel_context: CCTV-INSP-DIAGRAM
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: UNKNOWN-VEHICLE-01
+    to_tag: UNKNOWN-CAMERA-01
+    relation_type: connects_to
+    note: 전원 및 데이터 케이블 / 카메라 케이블 (관로 내 삽입)
+  - from_tag: UNKNOWN-TANK-01
+    to_tag: UNKNOWN-PIPE-02
+    relation_type: supplies
+    note: 시험용수 공급관
+  - from_tag: UNKNOWN-TANK-01
+    to_tag: UNKNOWN-PIPE-01
+    relation_type: supplies
+    note: 물 / 공기 주입선
+  - from_tag: UNKNOWN-INSPECTION-01
+    to_tag: UNKNOWN-INSPECTION-02
+    relation_type: related_to
+    note: 관로 검사 예시도 (CCTV + 수밀)
+  - from_tag: UNKNOWN-VEHICLE-01
+    to_tag: UNKNOWN-WORKER-04
+    relation_type: associated_with
+    note: 관로조사기사가 CCTV 조사 차량에 탑승/운용
+  - from_tag: UNKNOWN-VEHICLE-01
+    to_tag: UNKNOWN-WORKER-02
+    relation_type: associated_with
+    note: visual_semantics에만 존재하는 운전수
+  - from_tag: UNKNOWN-VEHICLE-01
+    to_tag: UNKNOWN-WORKER-05
+    relation_type: associated_with
+    note: Gemini에만 존재하는 일반운전수
+  - from_tag: UNKNOWN-VEHICLE-01
+    to_tag: UNKNOWN-WORKER-06
+    relation_type: associated_with
+    note: Gemini에만 존재하는 관로조사조수
+  - from_tag: UNKNOWN-MH-01
+    to_tag: UNKNOWN-BASE-01
+    relation_type: supported_by
+    note: 수밀 검사 단면 내 받침대
+  - from_tag: UNKNOWN-MH-01
+    to_tag: UNKNOWN-CONDUIT-01
+    relation_type: contains
+    note: 수밀 검사 대상 관로 단면
+  - from_tag: UNKNOWN-CONDUIT-01
+    to_tag: UNKNOWN-PIPE-02
+    relation_type: connected_to
+    note: 시험용수 공급/수두 측정 배관과 연결
+  - from_tag: UNKNOWN-SAFETY-01
+    to_tag: UNKNOWN-VEHICLE-01
+    relation_type: adjacent_to
+    note: CCTV 검사 구간 주변 안전 표지
+  - from_tag: UNKNOWN-PLUG-01
+    to_tag: UNKNOWN-CAMERA-01
+    relation_type: blocks_with
+    note: 관로 내 삽입 전 지수 플러그 설치
+  - from_tag: UNKNOWN-PLUG-01
+    to_tag: UNKNOWN-CONDUIT-01
+    relation_type: blocks_with
+    note: 관로 양단 막음 장치
+  - from_tag: UNKNOWN-WORKER-01
+    to_tag: UNKNOWN-VEHICLE-01
+    relation_type: operates
+    note: 관로조사작업원과 CCTV 조사 차량
+  - from_tag: UNKNOWN-WORKER-03
+    to_tag: UNKNOWN-PIPE-01
+    relation_type: operates
+    note: 관로조사주수와 수밀 검사 주입 배관
+  - from_tag: UNKNOWN-WORKER-04
+    to_tag: UNKNOWN-PIPE-02
+    relation_type: operates
+    note: 관로조사기사와 수밀 검사 배관 설비
+  spaces:
+  - space_id: SITE-01
+    name: CCTV 검사 영역
+    contains:
+    - UNKNOWN-INSPECTION-01
+    - UNKNOWN-VEHICLE-01
+    - UNKNOWN-CAMERA-01
+    - UNKNOWN-PLUG-01
+    - UNKNOWN-WORKER-01
+    - UNKNOWN-WORKER-02
+    - UNKNOWN-WORKER-03
+    - UNKNOWN-WORKER-04
+    - UNKNOWN-WORKER-05
+    - UNKNOWN-WORKER-06
+    - UNKNOWN-SAFETY-01
+  - space_id: SEC-AA
+    name: 수밀 검사 영역
+    contains:
+    - UNKNOWN-INSPECTION-02
+    - UNKNOWN-TANK-01
+    - UNKNOWN-MH-01
+    - UNKNOWN-BASE-01
+    - UNKNOWN-PIPE-01
+    - UNKNOWN-PIPE-02
+    - UNKNOWN-CONDUIT-01
+  self_check:
+    entity_count: 17
+    relationship_count: 17
+    visual_spec_preserved: true
+    issues:
+    - 페이지는 reference_only 예시도이므로 실제 설비 엔티티로 보기 어려운 항목을 UNKNOWN 엔티티로 최소 추출함.
+    - visual_semantics와 Gemini 간 인물 역할명 일부 불일치(밀압운전수 vs 일반운전수, 관로조사주수 vs 관로조사조수)는
+      둘 다 보존함.

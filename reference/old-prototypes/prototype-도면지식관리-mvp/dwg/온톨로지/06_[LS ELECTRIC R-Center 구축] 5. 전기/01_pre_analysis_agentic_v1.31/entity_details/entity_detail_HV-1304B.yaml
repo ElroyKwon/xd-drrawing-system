@@ -1,0 +1,64 @@
+entity_detail:
+  tag: HV-1304B
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.95
+    feeder_name:
+      value: 1304B HV 6.6kV 피더 - 이오스솔라 동력
+      unit: null
+      source: page 5
+      confidence: 0.95
+    panel_tag:
+      value: PNL-HV-1304B
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 1304B HV 6.6kV 피더 - 이오스솔라 동력
+  - source: page 5
+    page_number: 5
+    text: PNL-HV-1304B
+  - source: page 5
+    page_number: 5
+    text: 6.6kV Bus
+  requirements:
+  - text: 6.6kV Bus
+    source: page 5
+    type: electrical_connection_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-BUS-TIE-1309
+    details:
+      source: page 5
+  - relation: feeds
+    partner: PNL-HV-1304A
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-BUS-TIE-1309
+      direction: HV-1304B -> PNL-BUS-TIE-1309
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1304A
+      direction: PNL-HV-1304A -> HV-1304B
+      source: page 5
+    observed_attributes:
+    - voltage
+    - feeder_name
+    - panel_tag
+    similar_equipment:
+    - HV-1304A
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과에서 HV-1304B는 PNL-HV-1304B로 표시됨.
+  - 도면상 연결 텍스트는 6.6kV Bus로 확인됨.
+tag: HV-1304B

@@ -1,0 +1,184 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: mechanical legend/abbreviation section embedded in a drawing page
+  discipline: MECHANICAL
+  classification: HVAC_FIRE_DAMPER_CONTROL_PLAN
+  drawing_genre: genre_fire_damper_control
+  title_block:
+    drawing_number: M92-103
+    title: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+    revision: null
+  visible_tags:
+  - tag: SMFD
+    type: fire damper control system reference
+    source: both
+  - tag: M.F.C
+    type: mechanical/fire damper control notation
+    source: image
+  - tag: F.D
+    type: fire damper abbreviation
+    source: both
+  - tag: PS
+    type: pressure switch
+    source: both
+  - tag: FS
+    type: flow switch
+    source: both
+  - tag: GATE WAY
+    type: named space/connection passage
+    source: both
+  - tag: Software Lab
+    type: named room
+    source: both
+  - tag: 휴게공간
+    type: named room
+    source: both
+  - tag: 중회의실
+    type: named room
+    source: both
+  - tag: 사무실
+    type: named room
+    source: both
+  - tag: 복도
+    type: named space
+    source: both
+  - tag: 연결통로
+    type: named passage
+    source: both
+  - tag: 냉장고
+    type: named appliance/fixture
+    source: both
+  - tag: SINK
+    type: named fixture
+    source: both
+  - tag: 세단기
+    type: named appliance
+    source: both
+  - tag: PS
+    type: named equipment/sensor abbreviation
+    source: both
+  - tag: FC
+    type: named equipment/sensor abbreviation
+    source: both
+  - tag: K
+    type: single-letter label
+    source: image
+  - tag: E
+    type: single-letter label
+    source: image
+  - tag: Y
+    type: single-letter label
+    source: image
+  - tag: M
+    type: single-letter label
+    source: image
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 도면 중앙과 우측 하단에 방화댐퍼 제어 관련 표기와 연결선이 다수 보임
+  - 우측 하단에 '전선 및 전선관' 표가 있으며 A/B/C 항목과 규격 표기가 함께 보임
+  - 페이지 3 범례의 SMFD 관련 심볼/약어와 연계해 재확인 필요
+  confidence: 0.88
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_fire_damper_control/supplement_p4_05.yaml
+    P-10: null
+  routing_confidence: 0.93
+  routing_reason: 페이지 제목이 '지상2층 스마트 방화댐퍼(SMFD) 제어 평면도'로 보여 mechanical/fire damper
+    control genre에 직접 대응하며, 카탈로그에 P-4.5 genre_fire_damper_control 매칭이 있다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+    position: center
+    labels_near:
+    - 휴게공간
+    - 중회의실
+    - 사무실
+    - Software Lab
+    - 복도
+    - 연결통로
+    - A/B/C/D 그리드
+    - 1~7 그리드
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 전선 및 전선관
+    position: bottom-right
+    labels_near:
+    - K, E, Y, A, B, C
+    - CV, CVVS, UTP
+    - 2.5 x 3C, 0.6 x 4P
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: TITLE BLOCK
+    position: right
+    labels_near:
+    - LS Electric
+    - 가운 건축
+    - R-Center 구축
+    - M92-103
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: dotted
+    annotation: 도면 내 기호(A, B, C)가 범례 표를 참조함
+  notable_shapes:
+  - shape: circle
+    label: A, B, C
+    note: 도면 내 전선관 규격을 나타내는 원형 심볼
+  - shape: rectangle
+    label: M.F.D
+    note: 방화댐퍼 위치 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.98
+  note: 우측 하단에 '전선 및 전선관' 표기가 명확한 범례 표가 존재함.
+classification: FLOOR_PLAN
+discipline: ELECTRICAL
+key_elements_from_text:
+- 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+- LS Electric
+- R-Center 구축
+- R-Center
+- '프로젝트 번호: 224001'
+- '도면 번호: M92-103'
+- '축척: A1 1/200, A3 1/400'
+- 가운건축 / GAUN
+- 휴게공간
+- 중회의실
+- 사무실
+- Software Lab
+- 복도
+- 연결통로
+- 냉장고
+- SINK
+- 세단기
+- PS
+- 전선 및 전선관
+title_block:
+  drawing_number: M92-103
+  title: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+  revision: UNKNOWN
+confidence: 0.96
+note: 기존 분석의 MECHANICAL/FIRE_DAMPER_CONTROL_PLAN보다, 페이지 하단 표제란과 본문에 보이는 공간 배치/그리드/실명
+  표기 및 우측 하단 '전선 및 전선관' 표를 근거로 FLOOR_PLAN 성격이 더 직접적으로 보인다. 다만 SMFD, FD, PS 표기는 기계/방화
+  관련 요소도 함께 포함한다. 페이지 52에서 확인 가능한 표제란 정보는 도면번호 M92-103, 제목 '지상2층 스마트 방화댐퍼(SMFD) 제어
+  평면도', 리비전은 보이지 않아 UNKNOWN이다.
+supplement_routing:
+  discipline: mechanical
+  drawing_genre: genre_fire_damper_control
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 페이지 제목 '지상2층 스마트 방화댐퍼(SMFD) 제어 평면도'와 도면 내 SMFD, FD, PS 표기가 mechanical/fire
+    damper control genre에 직접 대응하며, 카탈로그에 P-4.5 genre_fire_damper_control 매칭이 있다.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview

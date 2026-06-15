@@ -1,0 +1,226 @@
+object_properties:
+- iri: dks:references
+  label: references
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:isReferencedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-SCHEDULE-01
+    object: PF1
+    source_page: 33
+    note: 부재 태그 → 일람표 치수 참조
+  - subject: UNKNOWN-NOTE-01
+    object: MF3
+    source_page: 33
+    note: MF3 위 이중기초 시공 참조
+  - subject: UNKNOWN-REINFORCEMENT-01
+    object: PF1A
+    source_page: 33
+    note: PF1A 상부 보강근 상세 참조
+  - subject: MF3
+    object: DOUBLE-FOUNDATION-NOTE
+    source_page: 35
+    note: MF3 위 이중기초 시공 (T+600)
+  - subject: MEMBER-LIST
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: MARK 태그(PF1, PF2 등)로 도면 내 기초 심볼과 매칭
+  total_evidence: 24
+  derivation: related_assertions.type=references가 ScheduleOrList, NoteOrLegend, ReinforcementDetail,
+    MemberMark에서 반복 관찰되었다. target은 MemberMark, PlanOrView, 미분류 노트/상세 후보까지 넓게 분포하므로
+    보수적으로 owl:Thing 범위를 둔다.
+  confidence: 0.93
+- iri: dks:located_in
+  label: located_in
+  domain: dks:MemberMark
+  range: dks:PlanOrView
+  inverse_of_candidate: dks:hosts
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PF1
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: 도면 내 기초 심볼
+  - subject: PF1A
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: 도면 내 기초 심볼
+  - subject: MF1
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: 도면 내 매트기초 심볼
+  - subject: WF1
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: WF1 -> FOUNDATION-PLAN
+  total_evidence: 10
+  derivation: PF/WF/MF 계열 MemberMark에서 FOUNDATION-PLAN으로 향하는 위치 관계가 집중적으로 관찰되었다. evidence
+    subject 태그는 class_taxonomy상 MemberMark/PitWallMark 하위이며 target은 PlanOrView이다.
+  confidence: 0.96
+- iri: dks:contains
+  label: contains
+  domain: dks:GroupingEntity
+  range: owl:Thing
+  inverse_of_candidate: dks:isContainedIn
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: GRP-PIT-WALL
+    object: PW1
+    source_page: 34
+    note: GRP-PIT-WALL contains PW1
+  - subject: GRP-PIT-WALL
+    object: PW2
+    source_page: 34
+    note: GRP-PIT-WALL contains PW2
+  - subject: GRP-GENERAL-WALL
+    object: W1
+    source_page: 34
+    note: GRP-GENERAL-WALL contains W1
+  - subject: GRP-GRID-Y
+    object: GRID-SYSTEM
+    source_page: 34
+    note: from GRP-GRID-Y to GRID-SYSTEM relation contains origin cross_validated
+  - subject: PIT-ZONE
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: PIT 구획이 기초평면도 내 점선 박스로 표현됨
+  total_evidence: 8
+  derivation: contains는 GroupingEntity에서 MemberMark 또는 PlanOrView로 향하는 포함/구획 관계로 반복
+    관찰되었다. GRID-SYSTEM 사례는 방향 표기가 혼재하므로 inverse 후보를 함께 둔다. range는 MemberMark와 PlanOrView가
+    모두 관찰되어 owl:Thing으로 보수화한다.
+  confidence: 0.84
+- iri: dks:linked_to
+  label: linked_to
+  domain: dks:MemberMark
+  range: dks:PlanOrView
+  inverse_of_candidate: dks:hasLinkedMember
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PW1
+    object: PLAN-PIT
+    source_page: 34
+    note: PW1 linked_to PLAN-PIT
+  - subject: PW2
+    object: PLAN-PIT
+    source_page: 34
+    note: PW2 linked to PLAN-PIT
+  - subject: PW3
+    object: PLAN-PIT
+    source_page: 34
+    note: PW3 linked_to PLAN-PIT
+  - subject: W1
+    object: PLAN-PIT
+    source_page: 34
+    note: W1 linked_to PLAN-PIT
+  total_evidence: 4
+  derivation: PW/W 계열 부재 마크에서 PLAN-PIT으로 향하는 linked_to 패턴이 반복된다. 모든 관찰 subject는 MemberMark
+    또는 PitWallMark이고 target은 PlanOrView이다.
+  confidence: 0.94
+- iri: dks:connects_to
+  label: connects_to
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connects_to
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: VBR1
+    object: VBR2
+    source_page: 35
+    note: VBR 외곽 가상보 연결 (상단→우측)
+  - subject: VBR2
+    object: VBR1
+    source_page: 35
+    note: VBR 외곽 가상보 연결 (상단→우측)
+  - subject: VBR2
+    object: VBR3
+    source_page: 35
+    note: VBR 외곽 가상보 연결 (우측→하단)
+  - subject: S06.31-3
+    object: S06.31-4
+    source_page: 64
+    note: 동일 크레인 시스템 연속 상세
+  - subject: S06.31-4
+    object: S06.31-3
+    source_page: 64
+    note: 동일 크레인 시스템 연속 상세
+  - subject: S06.31-1
+    object: S06.31-5
+    source_page: 64
+    note: WC1 기둥 상부 접합 연관
+  total_evidence: 8
+  derivation: connects_to는 DetailEntity↔DetailEntity 및 DetailEntity↔Beam에서 반복 관찰된다.
+    VBR2가 Beam으로 분류되어 단일 좁은 domain/range를 강제하기 어려워 owl:Thing으로 둔다. S06.31-3↔S06.31-4,
+    VBR1↔VBR2가 양방향 관찰되어 대칭 후보가 강하다.
+  confidence: 0.9
+- iri: dks:other
+  label: other
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PIT-ZONE
+    object: FOUNDATION-PLAN
+    source_page: 32
+    note: visual_semantics 상 PIT-ZONE ↔ FOUNDATION-PLAN 관계
+  - subject: PLAN-PIT
+    object: MEMBER-LIST
+    source_page: 34
+    note: visual_semantics에서 other로 기록된 동일 관계
+  - subject: S06.31-1
+    object: S06.31-5
+    source_page: 64
+    note: visual_semantics 상의 관계 원형
+  - subject: S06.31-3
+    object: S06.31-4
+    source_page: 64
+    note: visual_semantics에서 관찰된 동일 연속 상세 관계
+  total_evidence: 8
+  derivation: visual_semantics provenance에서 정규화 전 임시 관계 타입 other가 반복 관찰된다. references/connects_to/contains로
+    재매핑 가능한 경우가 많지만 원 provenance 보존을 위해 별도 속성 후보로 유지한다.
+  confidence: 0.58
+- iri: dks:isContainedIn
+  label: isContainedIn
+  domain: dks:MemberMark
+  range: dks:GroupingEntity
+  inverse_of_candidate: dks:contains
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PW1
+    object: GRP-PIT-WALL
+    source_page: 34
+    note: GRP-PIT-WALL contains PW1
+  - subject: PW2
+    object: GRP-PIT-WALL
+    source_page: 34
+    note: group contains PW2
+  - subject: W1
+    object: GRP-GENERAL-WALL
+    source_page: 34
+    note: GRP-GENERAL-WALL contains W1
+  total_evidence: 3
+  derivation: free_notes의 suggested_property_label=isContainedIn이 반복되며, contains의
+    역방향 질의 필요가 명확하다. evidence subject는 MemberMark/PitWallMark, object는 GroupingEntity이다.
+  confidence: 0.81
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T10:20:19.200561'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.88

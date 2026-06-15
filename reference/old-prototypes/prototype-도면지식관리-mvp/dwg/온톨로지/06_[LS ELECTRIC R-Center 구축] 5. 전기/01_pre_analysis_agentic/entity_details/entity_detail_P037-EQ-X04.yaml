@@ -1,0 +1,62 @@
+entity_detail:
+  tag: P037-EQ-X04
+  type: Connection / Routing Note
+  specs:
+    note_text:
+      value: 입상, 입하
+      source: page_038_context.yaml
+      confidence: 0.96
+  drawing_texts:
+  - source: page_038_context.yaml
+    page_number: 38
+    text: 입상, 입하
+  - source: page_038_context.yaml
+    page_number: 38
+    text: 층간연결 입상, 입하
+  requirements:
+  - text: 입상, 입하
+    source: page_038_context.yaml
+    type: routing_note
+  - text: 층간연결 입상, 입하
+    source: page_038_context.yaml
+    type: routing_note
+  connection_specs:
+  - relation: routing_note
+    partner: UNKNOWN
+    details:
+      source: page_038_context.yaml
+      text: 입상, 입하
+  - relation: routing_note
+    partner: UNKNOWN
+    details:
+      source: page_038_context.yaml
+      text: 층간연결 입상, 입하
+  ontology_hints:
+    observed_relations:
+    - relation_type: routing_note
+      partner_tag: UNKNOWN
+      direction: UNKNOWN
+      source: page_038_context.yaml
+    - relation_type: routing_note
+      partner_tag: UNKNOWN
+      direction: UNKNOWN
+      source: page_038_context.yaml
+    observed_attributes:
+    - 입상, 입하
+    - 층간연결 입상, 입하
+    similar_equipment:
+    - EQ-E06
+    - EQ-E07
+    suggested_parent_class: ConnectionNote
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 도구 검색 결과 P037-EQ-X04의 별도 태그는 검색되지 않았음(search_entity_by_tag).
+  - page_038_context.yaml에서 해당 항목은 EQ-E06(입상, 입하), EQ-E07(층간연결 입상, 입하)로 확인됨.
+  - 범례 데이터(read_legend_data)에는 피뢰침/접지 관련 심볼은 있으나, 본 태그의 연결 대상이나 독립 설비 사양은 확인되지 않음.
+  - 따라서 독립 물리 설비가 아닌 routing note 성격으로 유지하며, 연결 대상은 UNKNOWN으로 둠.
+  evaluation:
+    result: demoted
+    reason: type이 Connection / Routing Note인 표기성 엔티티이며, 자체 물리 설비로서의 독립 사양은 확인되지 않음.
+    missing_relations: []
+tag: P037-EQ-X04

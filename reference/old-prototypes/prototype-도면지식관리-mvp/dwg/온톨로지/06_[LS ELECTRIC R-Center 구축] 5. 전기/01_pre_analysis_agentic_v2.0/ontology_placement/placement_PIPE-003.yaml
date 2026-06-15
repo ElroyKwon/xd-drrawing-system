@@ -1,0 +1,152 @@
+placement:
+  tag: PIPE-003
+  name: 기계 배관
+  discipline: mechanical
+  ontology_core:
+    owl_role: PartOf
+    iri_hint: ''
+    class_hint: MechanicalEquipment
+    alternative_class_hints:
+    - FluidTransport
+    - EquipotentialBondingTarget
+    related_assertions:
+    - type: bonded_to
+      target_hint: GND-TERM-BOX-002
+      note: 주접지 단자함과 연결 (F-GV Wire)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:MechanicalEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'connection_method: 접속클램프(가게 시공분)'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: connectionMethod
+          suggested_datatype: xsd:string
+          rationale: 접속 방식에 대한 문자열 속성으로 승격 가능
+      - raw_text: 'purpose: 등전위 접속 대상'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: purpose
+          suggested_datatype: xsd:string
+          rationale: 용도/기능 설명 문자열로 승격 가능
+      - raw_text: 'note: 주접지 단자함과 연결 (F-GV Wire)'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: bondedToNote
+          suggested_datatype: xsd:string
+          rationale: 관계 보조 설명으로 보존 가능
+      - raw_text: 'position: bottom-center'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기로 승격 가능
+      - raw_text: 'function_candidates: FluidTransport, EquipotentialBondingTarget'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록으로 보존 가능
+  provenance:
+    name:
+      source_pages:
+      - 39
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 39
+      method: entity_detail
+    specs.connection_method:
+      source_pages:
+      - 39
+      method: entity_detail
+    specs.purpose:
+      source_pages:
+      - 39
+      method: entity_detail
+    relations:
+      source_pages:
+      - 39
+      method: cross_validated
+    relations.bonded_to:
+      source_pages:
+      - 39
+      method: cross_validated
+    position:
+      source_pages:
+      - 39
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 39
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 39
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 39
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 39
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 39
+      method: entity_detail
+    collection_sources.cross_validated:
+      source_pages:
+      - 39
+      method: entity_detail
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 39
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.connection_method
+    raw_text: 접속클램프(가게 시공분)
+    source_page: 39
+    reason: 표준화된 장비/부품명으로 단정하기 어려움
+    preservation_note: 원문 그대로 보존 후 0-9d에서 데이터 속성 후보로 검토
+  - field_candidate: specs.purpose
+    raw_text: 등전위 접속 대상
+    source_page: 39
+    reason: 기능 설명이지만 클래스/속성으로 확정하지 않음
+    preservation_note: equipotential bonding 관련 기능 설명으로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: FluidTransport; EquipotentialBondingTarget
+    source_page: 39
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 기능 후보 목록으로 보존
+  - field_candidate: relations.note
+    raw_text: 주접지 단자함과 연결 (F-GV Wire)
+    source_page: 39
+    reason: 관계 보조 설명이며 별도 구조화 기준 없음
+    preservation_note: bonded_to 관계의 설명으로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 기계 배관이지만, 도면상 핵심 정보는 등전위 접속 대상 및 주접지 단자함과의 bonded_to 관계에 있음. 물리적
+      배관인지 접지 대상 금속 배관인지 단정하기 어려움.
+    recommended_handling: PartOf로 보존하되, 0-9c/0-9d에서 MechanicalEquipment 하위의 배관/접지대상
+      후보로 재검토하고 bonded_to 관계를 우선 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:12:43.715974'
+  confidence: 0.95

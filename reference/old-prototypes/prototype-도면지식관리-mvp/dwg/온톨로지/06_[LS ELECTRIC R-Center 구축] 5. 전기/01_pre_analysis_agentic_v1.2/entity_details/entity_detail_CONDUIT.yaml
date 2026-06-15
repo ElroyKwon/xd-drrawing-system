@@ -1,0 +1,201 @@
+entity_detail:
+  tag: CONDUIT
+  type: Conduit/Duct
+  specs:
+    line_type_1:
+      value: Slab Embed or Ceiling Concealed Conduit & Wiring
+      unit: ''
+      source: page 3
+      confidence: 0.99
+    line_type_2:
+      value: Exposed Conduit & Wiring
+      unit: ''
+      source: page 3
+      confidence: 0.99
+    line_type_3:
+      value: Floor Embed Conduit & Wiring or Undergrounding Conduit & Wiring
+      unit: ''
+      source: page 3
+      confidence: 0.99
+    line_type_4:
+      value: Duct, Tray길 배선
+      unit: ''
+      source: page 3
+      confidence: 0.99
+    line_type_5:
+      value: Homerun to Panelboard
+      unit: ''
+      source: page 3
+      confidence: 0.99
+    line_type_6:
+      value: Empty Conduit
+      unit: ''
+      source: page 3
+      confidence: 0.99
+    cable_spec_1:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+      unit: ''
+      source: page 4
+      confidence: 0.95
+    cable_spec_2:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+      unit: ''
+      source: page 4
+      confidence: 0.95
+    empty_pipe_spec:
+      value: ELP100
+      unit: ''
+      source: page 4
+      confidence: 0.95
+    manhole_spec:
+      value: 2,000 x 2,000 x 2,000mm
+      unit: mm
+      source: page 4
+      confidence: 0.95
+    pull_box_spec:
+      value: 400 x 400 x 300mm
+      unit: mm
+      source: page 4
+      confidence: 0.95
+  drawing_texts:
+  - source: page 3
+    page_number: 3
+    text: '배선 선종 범례: Slab Embed or Ceiling Concealed Conduit & Wiring, Exposed Conduit
+      & Wiring, Floor Embed Conduit & Wiring or Undergrounding Conduit & Wiring, Duct/Tray
+      배선, Homerun to Panelboard, Empty Conduit'
+  - source: page 4
+    page_number: 4
+    text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  - source: page 4
+    page_number: 4
+    text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+  - source: page 4
+    page_number: 4
+    text: EMPTY PIPE (ELP100)
+  - source: page 4
+    page_number: 4
+    text: 전력용 맨홀 2개 (2,000 x 2,000 x 2,000mm)
+  - source: page 4
+    page_number: 4
+    text: PULL BOX 2개 (400 x 400 x 300mm)
+  - source: page 4
+    page_number: 4
+    text: CONCRETE DUCT BANK
+  - source: page 4
+    page_number: 4
+    text: SPACER
+  - source: page 4
+    page_number: 4
+    text: 지중선표시기(전기공사분)
+  requirements:
+  - text: 배선 선종 범례에 따라 Slab Embed or Ceiling Concealed Conduit & Wiring, Exposed Conduit
+      & Wiring, Floor Embed Conduit & Wiring or Undergrounding Conduit & Wiring, Duct/Tray
+      배선, Homerun to Panelboard, Empty Conduit를 구분하여 사용
+    source: page 3
+    type: legend_note
+  - text: 옥외 전력간선설비 인입 배치도에서 전력 인입 경로가 CONCRETE DUCT BANK / ELP100 / 공동구 내 기존 TRAY를
+      따라 구성됨
+    source: page 4
+    type: routing_note
+  - text: 전력용 맨홀 2개와 PULL BOX 2개가 배치됨
+    source: page 4
+    type: layout_note
+  connection_specs:
+  - relation: 배선 선종
+    partner: Conduit & Wiring
+    details:
+      source: page 3
+      text: Slab Embed or Ceiling Concealed Conduit & Wiring
+  - relation: 배선 선종
+    partner: Conduit & Wiring
+    details:
+      source: page 3
+      text: Exposed Conduit & Wiring
+  - relation: 배선 선종
+    partner: Conduit & Wiring
+    details:
+      source: page 3
+      text: Floor Embed Conduit & Wiring or Undergrounding Conduit & Wiring
+  - relation: 배선 선종
+    partner: Duct/Tray
+    details:
+      source: page 3
+      text: Duct/Tray 배선
+  - relation: 배선 선종
+    partner: Panelboard
+    details:
+      source: page 3
+      text: Homerun to Panelboard
+  - relation: 배선 선종
+    partner: Empty Conduit
+    details:
+      source: page 3
+      text: Empty Conduit
+  - relation: 전력 인입 연결
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+      text: R-Center 변전실 → UT동 1층 변전실
+  - relation: 전력 인입 연결
+    partner: R-Center 변전실
+    details:
+      source: page 4
+      text: R-Center 변전실 → UT동 1층 변전실
+  - relation: 전력 인입 경로
+    partner: CONCRETE DUCT BANK
+    details:
+      source: page 4
+      text: R-Center 변전실 - CONCRETE DUCT BANK - UT동 1층 변전실
+  - relation: 전력 인입 경로
+    partner: EMPTY PIPE (ELP100)
+    details:
+      source: page 4
+      text: R-Center 변전실 - EMPTY PIPE (ELP100) - UT동 1층 변전실
+  ontology_hints:
+    observed_relations:
+    - relation_type: routing_medium
+      partner_tag: CONCRETE DUCT BANK
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: routing_medium
+      partner_tag: EMPTY PIPE (ELP100)
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: routing_medium
+      partner_tag: 공동구
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: connected_space
+      partner_tag: R-Center 변전실
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: connected_space
+      partner_tag: UT동 1층 변전실
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - line_type
+    - cable_spec
+    - empty_pipe_spec
+    - manhole_spec
+    - pull_box_spec
+    - routing_medium
+    - conduit
+    - duct
+    - tray
+    similar_equipment:
+    - EMPTY PIPE (ELP100)
+    - CONCRETE DUCT BANK
+    - 'PULL BOX #1'
+    - 'PULL BOX #2'
+    - '전력용 맨홀 #1'
+    - '전력용 맨홀 #2'
+    suggested_parent_class: ElectricalConduitOrDuct
+    cross_discipline:
+    - ELECTRICAL
+    - STRUCTURAL
+  notes:
+  - page 3은 범례 페이지로, conduit 관련 선종 정의만 원문 그대로 반영함.
+  - page 4는 옥외 전력간선설비 인입 배치도이며 conduit/duct/empty pipe 관련 표기를 반영함.
+  - 방향이 도면 텍스트만으로 확정되지 않는 관계는 UNKNOWN으로 기록함.
+tag: CONDUIT

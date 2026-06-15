@@ -1,0 +1,120 @@
+placement:
+  tag: MAIN-PLAN
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:MAIN-PLAN
+    class_hint: PlanOrView
+    alternative_class_hints:
+    - DocumentEntity
+    - NoteOrLegend
+    related_assertions:
+    - type: references
+      target_hint: MEMBER-LIST
+      note: 부재 태그 → 일람표 참조
+      confirmed_property: dks:references
+      confirmed_target: dks:MEMBER-LIST
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: DOUBLE-FOUNDATION-NOTE
+      note: 이중기초 시공 주기 참조
+      confirmed_property: dks:references
+      confirmed_target: dks:DOUBLE-FOUNDATION-NOTE
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX007
+    - AX008
+    - AX012
+    applicable_constraints:
+    - CN004
+    confirmed_class: dks:PlanOrView
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 부재 태그 → 일람표 참조
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: ''
+          rationale: 도면 주석 형태의 참조 관계 문구
+      - raw_text: 이중기초 시공 주기 참조
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: ''
+          rationale: 도면 주석 형태의 참조 관계 문구
+  provenance:
+    tag:
+      source_pages:
+      - 35
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 35
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 35
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 35
+      method: plan_guidance_alignment
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 35
+      method: plan_guidance_alignment
+    ontology_core.related_assertions:
+      source_pages:
+      - 35
+      method: cross_validated_and_visual_semantics
+    discipline_context.free_notes:
+      source_pages:
+      - 35
+      method: preserved_raw_text
+    plan_reference.guidance_applied:
+      source_pages:
+      - 35
+      method: applied
+    plan_reference.deviations:
+      source_pages:
+      - 35
+      method: none
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: MAIN-PLAN
+    source_page: 35
+    reason: 태그는 플랜/뷰 계열로 보이나 확정 class는 이 단계에서 금지됨
+    preservation_note: PlanOrView 후보로 보존
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: supplement 없음
+    source_page: 35
+    reason: 분야 supplement가 제공되지 않아 standard_sub_kinds로 세분화 불가
+    preservation_note: free_notes에 원문 관계 문구 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: MAIN-PLAN은 독립 플랜/시트로 보이지만, 관계 문구가 주 정보라 AnnotationOnly 가능성도 일부 존재함
+    recommended_handling: 0-9c에서 PlanOrView 계열로 우선 검토하되, 주석성 여부를 함께 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: plan/view 컨테이너 태그를 DocumentEntity/PlanOrView
+      후보로 우선 배치'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: references 관계를 원형으로 보존'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:25.805999'
+  confidence: 0.86

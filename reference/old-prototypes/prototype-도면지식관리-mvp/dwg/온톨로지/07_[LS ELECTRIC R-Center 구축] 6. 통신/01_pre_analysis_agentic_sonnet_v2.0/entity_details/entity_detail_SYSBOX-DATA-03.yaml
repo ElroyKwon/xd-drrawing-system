@@ -1,0 +1,62 @@
+tag: SYSBOX-DATA-03
+name: SYSTEM BOX
+type: equipment
+discipline: COMMUNICATION
+function_category: TERMINAL_BOX
+source_pages:
+- 18
+specs:
+  raw_labels:
+  - SYSTEM BOX
+  - OUTLET BOX
+  - CAT.6 UTP CABLE (1Gbps)
+  inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (3번)
+  position: bottom-center
+  labels_inside:
+  - SYSTEM BOX
+  - OUTLET BOX
+  labels_above:
+  - CAT.6 UTP CABLE (1Gbps)
+  labels_below:
+  - CAT.6 UTP CABLE (1Gbps)
+  equipment_symbols:
+  - type: SYSTEM BOX
+    count: 1
+  - type: OUTLET BOX
+    count: 1
+relations:
+- from: HUB-RACK-1
+  to: SYSBOX-DATA-03
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: CAT.6 UTP CABLE (1Gbps)
+- from: SYSBOX-DATA-03
+  to: USER-PC-03
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: CAT.6 UTP CABLE (1Gbps)
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-center
+equipment_symbols:
+- type: SYSTEM BOX
+  count: 1
+- type: OUTLET BOX
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - inferred_name
+  - position
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - DataConnection
+  - SignalDistribution

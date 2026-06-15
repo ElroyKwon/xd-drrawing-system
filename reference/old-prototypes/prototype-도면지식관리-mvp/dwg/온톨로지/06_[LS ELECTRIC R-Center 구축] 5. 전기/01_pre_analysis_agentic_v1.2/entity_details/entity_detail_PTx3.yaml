@@ -1,0 +1,61 @@
+entity_detail:
+  tag: PTx3
+  type: potential_transformer
+  specs:
+    quantity:
+      value: 3
+      unit: ea
+      source: page 5
+      confidence: 0.98
+    voltage_level:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.98
+    nameplate_text:
+      value: 계기용 변압기 x3
+      unit: ''
+      source: page 5
+      confidence: 0.98
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 'PT
+
+      Potential Transformer
+
+      계기용 변압기 x3'
+  - source: page 5
+    page_number: 5
+    text: '전압 레벨: 22.9kV, 6.6kV, 440V [도면 본문]'
+  - source: page 5
+    page_number: 5
+    text: '주요 설비: GEN, TR #1, TR #2, VCB, MOF, GIPAM, GIPAM-2000FI, SA, LAx3, PFx3,
+      PTx3, CTx3, ZCT [도면 본문]'
+  requirements:
+  - text: 계기용 변압기 x3
+    source: page 5
+    type: specification
+  connection_specs:
+  - relation: monitors
+    partner: SHV_1107
+    details:
+      source: page 5
+      note: 'from: SHV_1107 -> to: PTx3, medium: signal, direction: upstream'
+  ontology_hints:
+    observed_relations:
+    - relation_type: monitors
+      partner_tag: SHV_1107
+      direction: upstream
+      source: page 5
+    observed_attributes:
+    - quantity
+    - voltage_level
+    - nameplate_text
+    similar_equipment:
+    - CTx3
+    suggested_parent_class: PotentialTransformer
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 확인 가능한 정보만 기록함.
+tag: PTx3

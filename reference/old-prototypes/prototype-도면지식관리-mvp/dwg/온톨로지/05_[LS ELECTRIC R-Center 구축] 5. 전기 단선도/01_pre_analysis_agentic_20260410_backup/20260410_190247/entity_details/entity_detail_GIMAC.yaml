@@ -1,0 +1,52 @@
+entity_detail:
+  tag: GIMAC
+  type: meter
+  specs:
+    source_page_2:
+      value: UNKNOWN
+      unit: UNKNOWN
+      source: page_002_context.yaml
+      confidence: 0.95
+  drawing_texts:
+  - source: page_002_context.yaml
+    page_number: 2
+    text: GIMAC
+  requirements: []
+  connection_specs:
+  - source: page_002_context.yaml
+    page_number: 2
+    text: GIMAC
+  ontology_hints:
+    observed_relations:
+    - relation_type: appears_in
+      partner_tag: R-Center 변전실
+      direction: within
+      source: page_002_context.yaml
+    - relation_type: appears_with
+      partner_tag: GIPAM
+      direction: same_page
+      source: page_002_context.yaml
+    observed_attributes:
+    - tag
+    - name
+    - discipline
+    - function_category
+    similar_equipment:
+    - GIPAM
+    suggested_parent_class: Meter
+    cross_discipline: []
+  notes:
+  - page_002_context.yaml에서 GIMAC의 spec은 제공되지 않음.
+  - 도구 사용 실패로 인해 추가 정보를 확인할 수 없음.
+  - read_page_image(page 2)에서 GIMAC 표기와 함께 연결선/패널 블록이 보이나, 개별 spec 값은 판독 불가하여 UNKNOWN
+    유지.
+  - read_entity_detail(GIPAM) 확인 결과, GIPAM과 GIMAC은 동일 도면 내 함께 나타남.
+  - read_page_context(page 2) 확인 결과, GIMAC은 6.6kV 변전설비 단선결선도(R-Center 변전실) 내에 있으며
+    GIPAM과 함께 표기됨.
+  - read_entity_detail(GIPAM) 확인 결과, GIPAM의 개별 spec도 UNKNOWN이며 GIMAC과 동일하게 보호/계측 릴레이
+    계열로 분류됨.
+  - read_page_context(page 2) 확인 결과, GIMAC은 6.6kV 변전설비 단선결선도(R-Center 변전실) 내에서 GIPAM/GIMAC으로
+    함께 표기되며, 별도 독립 사양은 확인되지 않음.
+  - read_page_image(page 2) 확인 결과, GIMAC은 도면 내 여러 위치에서 패널/차단기/변압기 계통과 인접 표기되나, 개별
+    spec/치수/마감 정보는 판독 불가하여 추가하지 않음.
+  - read_entity_detail(GIPAM) 확인 결과, GIPAM과 GIMAC은 동일 페이지의 계측/보호 릴레이 표기 성격으로 함께 나타남.

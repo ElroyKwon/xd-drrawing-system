@@ -1,0 +1,1236 @@
+data_properties:
+- iri: dks:raw_labels
+  label: raw_labels
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: LV-6
+    value: 6 LV
+    source_page: 2
+  - subject: PANEL-4PP-A4
+    value: P-A-4PP-4
+    source_page: 2
+  - subject: SWGR-380V-MAIN
+    value: 380V SWGR
+    source_page: 2
+  total_evidence: 40
+  derivation: free_notes의 suggested_property_label=raw_labels/rawLabels/rawLabel/hasRawLabel가
+    광범위하게 반복됨. 도면 원문 라벨 보존용 문자열 속성으로 승격.
+  confidence: 0.98
+- iri: dks:rated_voltage_V
+  label: rated_voltage_V
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-02
+    value: '380'
+    source_page: 2
+  - subject: LV-6
+    value: '440'
+    source_page: 2
+  - subject: PANEL-4PP-A3
+    value: '440'
+    source_page: 2
+  total_evidence: 18
+  derivation: rated_voltage_V 또는 hasRatedVoltage로 220/380/440V 장비에서 반복 관찰됨. 동일 장비당
+    단일 정격전압만 관찰되어 functional 후보.
+  confidence: 0.96
+- iri: dks:rated_voltage_kV
+  label: rated_voltage_kV
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: '7.2'
+    source_page: 2
+  - subject: HV-6
+    value: '7.2'
+    source_page: 2
+  total_evidence: 2
+  derivation: HV VCB 계열 free_notes에서 rated_voltage_kV가 직접 관찰됨.
+  confidence: 0.83
+- iri: dks:rated_current_A
+  label: rated_current_A
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: '600'
+    source_page: 2
+  - subject: LV-6
+    value: '1600'
+    source_page: 2
+  - subject: PANEL-4PP-A3
+    value: '400'
+    source_page: 2
+  total_evidence: 17
+  derivation: 차단기/패널 계열에서 rated_current_A 또는 hasRatedCurrent가 반복 관찰됨.
+  confidence: 0.95
+- iri: dks:interrupting_capacity_kA
+  label: interrupting_capacity_kA
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: '12.5'
+    source_page: 2
+  - subject: LV-1
+    value: '65'
+    source_page: 2
+  - subject: LV-3L
+    value: '65'
+    source_page: 2
+  total_evidence: 5
+  derivation: VCB/ACB 계열에서 차단전류 수치가 반복 관찰됨.
+  confidence: 0.9
+- iri: dks:breaking_capacity_MVA
+  label: breaking_capacity_MVA
+  domain: dks:CircuitBreaker
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: '750'
+    source_page: 2
+  - subject: HV-6
+    value: '750'
+    source_page: 2
+  total_evidence: 2
+  derivation: HV VCB 계열에서 breaking_capacity_MVA 또는 hasBreakingCapacity가 관찰됨.
+  confidence: 0.84
+- iri: dks:poles
+  label: poles
+  domain: dks:ElectricalEquipment
+  range: xsd:integer
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: '3'
+    source_page: 2
+  - subject: LV-6
+    value: '3'
+    source_page: 2
+  - subject: PANEL-F-4PP
+    value: '3'
+    source_page: 2
+  total_evidence: 19
+  derivation: poles/hasPoles/hasPoleCount가 차단기와 패널 전반에서 반복됨.
+  confidence: 0.96
+- iri: dks:bus_section
+  label: bus_section
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: HV-6
+    value: HV
+    source_page: 2
+  - subject: LV-1
+    value: LV
+    source_page: 2
+  - subject: LV-6
+    value: LV
+    source_page: 2
+  total_evidence: 7
+  derivation: bus_section/hasBusSection이 HV/LV 피더 계열에서 반복 관찰됨.
+  confidence: 0.9
+- iri: dks:ct_ratio
+  label: ct_ratio
+  domain: dks:CircuitBreaker
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: 200/5A
+    source_page: 2
+  - subject: HV-6
+    value: 200/5A
+    source_page: 2
+  - subject: LV-1
+    value: 1600/5A
+    source_page: 2
+  total_evidence: 5
+  derivation: ct_ratio/hasCTRatio가 차단기 계열에서 반복 관찰됨.
+  confidence: 0.91
+- iri: dks:zct_ratio
+  label: zct_ratio
+  domain: dks:VCB
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: 200/1.5mA
+    source_page: 2
+  - subject: HV-6
+    value: 200/1.5mA
+    source_page: 2
+  total_evidence: 2
+  derivation: HV VCB 계열에서 zct_ratio/hasZCTRatio가 반복 관찰됨.
+  confidence: 0.84
+- iri: dks:sa_spec
+  label: sa_spec
+  domain: dks:VCB
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: 7.5kV 5kA
+    source_page: 2
+  - subject: HV-6
+    value: 7.5kV 5kA
+    source_page: 2
+  total_evidence: 2
+  derivation: HV VCB 계열에서 sa_spec/hasSASpec이 반복 관찰됨.
+  confidence: 0.82
+- iri: dks:relay_model
+  label: relay_model
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: GPT-01
+    value: GIPAM 2000
+    source_page: 2
+  - subject: HV-5
+    value: GIPAM 2000
+    source_page: 2
+  - subject: LV-6
+    value: GIMAC 1000
+    source_page: 2
+  total_evidence: 12
+  derivation: relay_model/hasRelayModel이 HV/LV 차단기, GPT, SWGR에서 반복 관찰됨.
+  confidence: 0.95
+- iri: dks:relay_number
+  label: relay_number
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: GPT-01
+    value: 64, 59, 27
+    source_page: 2
+  - subject: HV-5
+    value: 50/51
+    source_page: 2
+  - subject: LV-1
+    value: 50/51N
+    source_page: 2
+  total_evidence: 18
+  derivation: relay_number/hasRelayNumber/hasRelayFunctionCode가 복수 코드 문자열로 반복 관찰됨.
+    동일 subject에 다중값이 흔해 비기능적.
+  confidence: 0.95
+- iri: dks:primary_voltage_kV
+  label: primary_voltage_kV
+  domain: dks:Transformer
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: GPT-01
+    value: '6.6'
+    source_page: 2
+  total_evidence: 1
+  derivation: GPT-01 free_notes에서 specs.primary_voltage_kV가 직접 관찰됨.
+  confidence: 0.72
+- iri: dks:secondary_voltage_V
+  label: secondary_voltage_V
+  domain: dks:Transformer
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: GPT-01
+    value: '110'
+    source_page: 2
+  total_evidence: 1
+  derivation: GPT-01 free_notes에서 specs.secondary_voltage_V가 직접 관찰됨.
+  confidence: 0.72
+- iri: dks:input_voltage_V
+  label: input_voltage_V
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: IVR-1
+    value: '440'
+    source_page: 2
+  - subject: MG-01
+    value: '440'
+    source_page: 2
+  - subject: PANEL-EA-2PP
+    value: 220V~550V 피더
+    source_page: 2
+  total_evidence: 3
+  derivation: input_voltage_V/hasInputVoltage/inputVoltage가 변환기 계열과 일부 패널 주석에서 관찰됨.
+    단일값과 범위 문자열이 혼재하여 range는 string으로 둠.
+  confidence: 0.78
+- iri: dks:output_voltage_V
+  label: output_voltage_V
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: IVR-1
+    value: 220~550
+    source_page: 2
+  - subject: MG-01
+    value: '220'
+    source_page: 2
+  total_evidence: 2
+  derivation: output_voltage_V/hasOutputVoltage/outputVoltage가 변환기 계열에서 관찰됨. 범위 문자열
+    존재로 string 채택.
+  confidence: 0.8
+- iri: dks:capacity_kVA
+  label: capacity_kVA
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: IVR-1
+    value: '1500'
+    source_page: 2
+  - subject: MG-01
+    value: '10'
+    source_page: 2
+  - subject: TR-1
+    value: '2000'
+    source_page: 2
+  total_evidence: 6
+  derivation: hasCapacity/capacity가 kVA 단위 장비에서 반복 관찰됨.
+  confidence: 0.9
+- iri: dks:capacity_kVAR
+  label: capacity_kVAR
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-02
+    value: '30'
+    source_page: 2
+  total_evidence: 1
+  derivation: 콘덴서 계열에서 capacity_kVAR가 직접 관찰됨.
+  confidence: 0.68
+- iri: dks:frame_A
+  label: frame_A
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: PANEL-4PP-A3
+    value: '350'
+    source_page: 2
+  - subject: PANEL-AC-3PP
+    value: '100'
+    source_page: 2
+  - subject: PANEL-F-4PP
+    value: '300'
+    source_page: 2
+  total_evidence: 11
+  derivation: 패널 계열에서 frame_A/hasFrameCurrent/hasFrameRating가 반복 관찰됨.
+  confidence: 0.92
+- iri: dks:phase
+  label: phase
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-02
+    value: 3Φ
+    source_page: 2
+  - subject: EXT-HV-SOURCE
+    value: 3Φ
+    source_page: 2
+  - subject: TR-1
+    value: 3Φ
+    source_page: 2
+  total_evidence: 8
+  derivation: hasPhase/phase가 전원, 변압기, 콘덴서, IVR 등에서 반복 관찰됨.
+  confidence: 0.9
+- iri: dks:frequency_Hz
+  label: frequency_Hz
+  domain: dks:ElectricalEquipment
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: EXT-HV-SOURCE
+    value: '60'
+    source_page: 2
+  total_evidence: 1
+  derivation: EXT-HV-SOURCE free_notes에서 hasRatedFrequency=60Hz가 직접 관찰됨.
+  confidence: 0.66
+- iri: dks:cable_spec
+  label: cable_spec
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: HV-3
+    value: F-CV 70SQ/1C x 3 (CABLE TRENCH)
+    source_page: 2
+  - subject: LV-2
+    value: F-CV 300SQ/1C x 6 (CABLE TRAY)
+    source_page: 2
+  - subject: SWGR-380V-MAIN
+    value: 380V 2차측 / F-CV 300SQ/1C x 4 (CABLE TRAY)
+    source_page: 2
+  total_evidence: 3
+  derivation: hasCableSpec/cable_spec가 관계 주석 및 free_notes에서 반복 관찰됨.
+  confidence: 0.82
+- iri: dks:source_block
+  label: source_block
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: INCOMING-01
+    value: visual_semantics
+    source_page: 2
+  - subject: UNKNOWN-SPACE-01
+    value: both
+    source_page: 2
+  - subject: UNKNOWN-SPACE-02
+    value: text
+    source_page: 2
+  total_evidence: 3
+  derivation: hasSourceBlock/sourceBlock/specs.source_block가 장비와 공간 모두에서 관찰되어 domain을
+    owlThing 수준으로 둠.
+  confidence: 0.8
+- iri: dks:position
+  label: position
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: GPT-01
+    value: top-left
+    source_page: 2
+  - subject: IVR-2
+    value: middle-left
+    source_page: 2
+  - subject: PANEL-4PP-A1
+    value: bottom-right
+    source_page: 2
+  total_evidence: 20
+  derivation: position/locatedInPageRegion/hasPosition이 장비와 일부 공간 메타에서 반복 관찰됨. 개체당
+    단일 위치 문자열만 관찰.
+  confidence: 0.96
+- iri: dks:hasEquipmentType
+  label: hasEquipmentType
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: HV-5
+    value: VCB
+    source_page: 2
+  - subject: LV-1
+    value: ACB
+    source_page: 2
+  - subject: PANEL-4PP-A1
+    value: MCCB
+    source_page: 2
+  total_evidence: 28
+  derivation: free_notes의 suggested_property_label이 hasEquipmentType/type/hasBreakerType/hasEquipmentTypeLabel
+    등으로 반복되며 VCB/ACB/MCCB/VOLTAGE_REGULATOR/CAPACITOR 등의 원문 장비형식을 보존.
+  confidence: 0.95
+- iri: dks:hasFunctionCategory
+  label: hasFunctionCategory
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: CAPACITOR-01
+    value: CORRECT
+    source_page: 2
+  - subject: HV-6
+    value: DISTRIBUTE
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: SUBSTATION_ROOM
+    source_page: 2
+  total_evidence: 34
+  derivation: hasFunctionCategory/function_category가 장비와 공간 모두에서 반복 관찰됨. 일부는 후보 기능
+    문자열(PowerDistribution 등)도 같은 라벨로 제안되어 비기능적.
+  confidence: 0.94
+- iri: dks:hasEquipmentSymbolText
+  label: hasEquipmentSymbolText
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: CAPACITOR-01
+    value: 'equipment_symbols.type: capacitor, count: 1'
+    source_page: 2
+  - subject: HV-6
+    value: 'equipment_symbols: VCB x1, CT x2, ZCT x1, SA x3, protection_relay x1'
+    source_page: 2
+  - subject: PANEL-4PP-A1
+    value: 'equipment_symbols: MCCB x1'
+    source_page: 2
+  total_evidence: 24
+  derivation: free_notes의 suggested_property_label=hasEquipmentSymbol이 매우 빈번하나 값이
+    구조화 객체가 아닌 문자열이므로 DataProperty로 승격.
+  confidence: 0.93
+- iri: dks:hasSourceAttribution
+  label: hasSourceAttribution
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-01
+    value: 'source_attribution: sonnet=true, gemini=true, mini=true'
+    source_page: 2
+  - subject: EXT-CABLE-TRENCH-2
+    value: 'source_attribution: sonnet=true, gemini=false, mini=true'
+    source_page: 2
+  - subject: PANEL-4PP-A1
+    value: 'source_attribution: sonnet=true, gemini=true, mini=true'
+    source_page: 2
+  total_evidence: 22
+  derivation: 출처 귀속 메타 문자열이 장비와 공간 전반에서 반복 관찰됨.
+  confidence: 0.9
+- iri: dks:hasConfidence
+  label: hasConfidence
+  domain: dks:owlThing
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-01
+    value: '0.95'
+    source_page: 2
+  - subject: EXT-CABLE-TRENCH-2
+    value: '0.85'
+    source_page: 2
+  - subject: PANEL-4PP-A6
+    value: '0.85'
+    source_page: 2
+  total_evidence: 18
+  derivation: confidence/hasConfidence가 메타 수치로 반복 관찰됨.
+  confidence: 0.9
+- iri: dks:hasSuggestedParentClass
+  label: hasSuggestedParentClass
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-02
+    value: ElectricalEquipment
+    source_page: 2
+  - subject: GPT-01
+    value: InstrumentTransformer
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: ElectricalRoom
+    source_page: 2
+  total_evidence: 19
+  derivation: suggestedParentClass/hasSuggestedParentClass/suggested_parent_class가
+    메타 힌트로 반복 관찰됨.
+  confidence: 0.88
+- iri: dks:hasObservedAttributes
+  label: hasObservedAttributes
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: CAPACITOR-01
+    value: rated_voltage_V, capacity_kVAR, phase, raw_labels
+    source_page: 2
+  - subject: IVR-2
+    value: input_voltage_V, output_voltage_V, capacity_kVA, phase, type, raw_labels
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: source_block
+    source_page: 2
+  total_evidence: 17
+  derivation: observedAttributes/hasObservedAttribute/observed_attributes가 메타 목록 문자열로
+    반복 관찰됨.
+  confidence: 0.84
+- iri: dks:hasFunctionCandidate
+  label: hasFunctionCandidate
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: CAPACITOR-02
+    value: PowerFactorCorrection, ReactivePowerCompensation
+    source_page: 2
+  - subject: IVR-2
+    value: VoltageRegulation, VoltageAdjustment
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: PowerDistribution, EquipmentHousing
+    source_page: 2
+  total_evidence: 21
+  derivation: functionCandidates/hasFunctionCandidate/function_candidates가 후보 기능 문자열
+    목록으로 반복 관찰됨.
+  confidence: 0.87
+- iri: dks:hasDisplayName
+  label: hasDisplayName
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-01
+    value: 역률개선 콘덴서
+    source_page: 2
+  - subject: IVR-2
+    value: '유도전압조정기 IVR #2'
+    source_page: 2
+  - subject: PANEL-C-2PP
+    value: 220V 분전반 P-C-2PP
+    source_page: 2
+  total_evidence: 8
+  derivation: hasDisplayName/name/hasLabel 제안이 반복 관찰됨. 개체당 단일 표시명.
+  confidence: 0.86
+- iri: dks:hasTag
+  label: hasTag
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-01
+    value: CAPACITOR-01
+    source_page: 2
+  - subject: PANEL-4PP-A1
+    value: PANEL-4PP-A1
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: UNKNOWN-SPACE-03
+    source_page: 2
+  total_evidence: 3
+  derivation: hasTag 제안이 여러 태그에서 직접 관찰됨.
+  confidence: 0.8
+- iri: dks:hasDiscipline
+  label: hasDiscipline
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CAPACITOR-01
+    value: ELECTRICAL
+    source_page: 2
+  - subject: PANEL-4PP-A1
+    value: ELECTRICAL
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: ELECTRICAL
+    source_page: 2
+  total_evidence: 4
+  derivation: hasDiscipline/disciplineLabel가 메타 문자열로 반복 관찰됨.
+  confidence: 0.82
+- iri: dks:hasOperationalState
+  label: hasOperationalState
+  domain: dks:owlThing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: LV-R
+    value: 예비
+    source_page: 2
+  - subject: SPARE-LV-01
+    value: SPARE
+    source_page: 2
+  - subject: UNKNOWN-SPACE-03
+    value: 이설분
+    source_page: 2
+  total_evidence: 4
+  derivation: 예비/SPARE/이설분 등 상태성 표기가 free_notes 및 operational_states에서 반복 관찰됨.
+  confidence: 0.83
+- iri: dks:hasVoltageText
+  label: hasVoltageText
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BATTERY-01
+    value: DC 110V
+    source_page: 2
+  - subject: TR-1
+    value: 6.6kV/440V
+    source_page: 2
+  - subject: RECTIFIER-01
+    value: AC 440V → DC 110V
+    source_page: 2
+  total_evidence: 19
+  derivation: hasVoltage/hasRatedVoltage가 수치형 정격과 혼합되어 자유 텍스트 전압표기로도 반복됨. 정규 수치 속성과
+    별도로 원문 전압 문자열 보존용 속성으로 귀납.
+  confidence: 0.79
+- iri: dks:hasCapacityText
+  label: hasCapacityText
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BATTERY-01
+    value: F/W 80AH
+    source_page: 2
+  - subject: TR-1
+    value: 2,000kVA
+    source_page: 2
+  total_evidence: 2
+  derivation: hasCapacity가 수치형 kVA/kVAR와 혼재하여 Ah 등 문자열 용량표기도 존재함. 원문 보존용 문자열 속성으로
+    분리.
+  confidence: 0.63
+- iri: dks:hasRouteNote
+  label: hasRouteNote
+  domain: dks:CableContainmentSystem
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: EXT-CABLE-TRENCH-1
+    value: TO P-4 TO P-3(CABLE TRENCH)
+    source_page: 2
+  - subject: EXT-CABLE-TRENCH-1
+    value: 케이블 트렌치 경유 (P-4, P-3)
+    source_page: 2
+  total_evidence: 2
+  derivation: 케이블 트렌치 경유 객체에서 경로 설명 문자열이 반복 관찰됨.
+  confidence: 0.8
+- iri: dks:hasConnectionNote
+  label: hasConnectionNote
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: HV-1
+    value: 6.6kV GPT 접속
+    source_page: 2
+  - subject: LV-2
+    value: 440V 2차측 → LV-2
+    source_page: 2
+  - subject: TR-3
+    value: 440V 2차측 → LV-3(상) / F-CV 300SQ/1C x 8 (CABLE TRAY)
+    source_page: 2
+  total_evidence: 4
+  derivation: 관계 주석 원문을 보존하는 hasConnectionNote가 여러 장비에서 반복 관찰됨.
+  confidence: 0.78
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:raw_labels
+  datatype: xsd:string
+  label: raw_labels
+  evidence_tags:
+  - ELD-01
+  - HV-2
+  - HV-5
+  - HV-6
+  - LV-1
+  - LV-6
+  - PANEL-4PP-A4
+  - SWGR-380V-MAIN
+  - TR-3204
+  threshold_applied: ≥ 3건
+  total_evidence: 40
+  sample_evidence:
+  - tag: HV-5
+    raw_text: 'raw_labels: VCB 3P 7.2kV 600A 750MVA'
+    source_page: 2
+  - tag: LV-6
+    raw_text: 'raw_labels: LV 6'
+    source_page: 2
+  - tag: PANEL-4PP-A4
+    raw_text: 'specs.raw_labels: P-A-4PP-4'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasEquipmentType
+  datatype: xsd:string
+  label: hasEquipmentType
+  evidence_tags:
+  - HV-5
+  - LV-1
+  - PANEL-4PP-A1
+  - PANEL-A-2PP-2
+  - PANEL-F-4PP
+  - SPARE-MCCB-01
+  threshold_applied: ≥ 3건
+  total_evidence: 28
+  sample_evidence:
+  - tag: HV-5
+    raw_text: 'type: VCB'
+    source_page: 2
+  - tag: LV-1
+    raw_text: 'type: ACB'
+    source_page: 2
+  - tag: PANEL-4PP-A1
+    raw_text: 'type: MCCB'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasFunctionCategory
+  datatype: xsd:string
+  label: hasFunctionCategory
+  evidence_tags:
+  - CAPACITOR-01
+  - HV-6
+  - IVR-1
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-01
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 34
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'function_category: CORRECT'
+    source_page: 2
+  - tag: HV-6
+    raw_text: 'function_category: DISTRIBUTE'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'function_category: SUBSTATION_ROOM'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasEquipmentSymbolText
+  datatype: xsd:string
+  label: hasEquipmentSymbolText
+  evidence_tags:
+  - CAPACITOR-01
+  - HV-6
+  - INCOMING-01
+  - PANEL-4PP-A1
+  - PANEL-OAC-3
+  threshold_applied: ≥ 3건
+  total_evidence: 24
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'equipment_symbols.type: capacitor, count: 1'
+    source_page: 2
+  - tag: HV-6
+    raw_text: 'equipment_symbols: VCB x1, CT x2, ZCT x1, SA x3, protection_relay x1'
+    source_page: 2
+  - tag: PANEL-4PP-A1
+    raw_text: 'equipment_symbols: MCCB x1'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:position
+  datatype: xsd:string
+  label: position
+  evidence_tags:
+  - GPT-01
+  - IVR-2
+  - PANEL-4PP-A1
+  - PANEL-4PP-A6
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 20
+  sample_evidence:
+  - tag: GPT-01
+    raw_text: 'position: top-left'
+    source_page: 2
+  - tag: IVR-2
+    raw_text: 'position: middle-left'
+    source_page: 2
+  - tag: PANEL-4PP-A1
+    raw_text: 'position: bottom-right'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSourceAttribution
+  datatype: xsd:string
+  label: hasSourceAttribution
+  evidence_tags:
+  - CAPACITOR-01
+  - EXT-CABLE-TRENCH-2
+  - GPT-01
+  - PANEL-4PP-A1
+  - PANEL-F-3PP
+  threshold_applied: ≥ 3건
+  total_evidence: 22
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+    source_page: 2
+  - tag: EXT-CABLE-TRENCH-2
+    raw_text: 'source_attribution: sonnet=true, gemini=false, mini=true'
+    source_page: 2
+  - tag: PANEL-4PP-A1
+    raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasConfidence
+  datatype: xsd:decimal
+  label: hasConfidence
+  evidence_tags:
+  - CAPACITOR-01
+  - EXT-CABLE-TRENCH-2
+  - GPT-01
+  - IVR-2
+  - PANEL-4PP-A6
+  threshold_applied: ≥ 3건
+  total_evidence: 18
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'confidence: 0.95'
+    source_page: 2
+  - tag: EXT-CABLE-TRENCH-2
+    raw_text: 'confidence: 0.85'
+    source_page: 2
+  - tag: PANEL-4PP-A6
+    raw_text: 'confidence: 0.85'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSuggestedParentClass
+  datatype: xsd:string
+  label: hasSuggestedParentClass
+  evidence_tags:
+  - CAPACITOR-02
+  - GPT-01
+  - IVR-2
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 19
+  sample_evidence:
+  - tag: CAPACITOR-02
+    raw_text: 'ontology_hints.suggested_parent_class: ElectricalEquipment'
+    source_page: 2
+  - tag: GPT-01
+    raw_text: 'ontology_hints.suggested_parent_class: InstrumentTransformer'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'ontology_hints.suggested_parent_class: ElectricalRoom'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasObservedAttributes
+  datatype: xsd:string
+  label: hasObservedAttributes
+  evidence_tags:
+  - CAPACITOR-01
+  - IVR-2
+  - PANEL-4PP-A1
+  - PANEL-OAC-1
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 17
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'ontology_hints.observed_attributes: rated_voltage_V, capacity_kVAR,
+      phase, raw_labels'
+    source_page: 2
+  - tag: IVR-2
+    raw_text: 'ontology_hints.observed_attributes: input_voltage_V, output_voltage_V,
+      capacity_kVA, phase, type, raw_labels'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'ontology_hints.observed_attributes: source_block'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasFunctionCandidate
+  datatype: xsd:string
+  label: hasFunctionCandidate
+  evidence_tags:
+  - CAPACITOR-02
+  - EXT-CABLE-TRENCH-2
+  - IVR-2
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 21
+  sample_evidence:
+  - tag: CAPACITOR-02
+    raw_text: 'ontology_hints.function_candidates: PowerFactorCorrection, ReactivePowerCompensation'
+    source_page: 2
+  - tag: IVR-2
+    raw_text: 'ontology_hints.function_candidates: VoltageRegulation, VoltageAdjustment'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'ontology_hints.function_candidates: PowerDistribution, EquipmentHousing'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDisplayName
+  datatype: xsd:string
+  label: hasDisplayName
+  evidence_tags:
+  - CAPACITOR-01
+  - IVR-2
+  - MG-01
+  - PANEL-C-2PP
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 8
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'name: 역률개선 콘덴서'
+    source_page: 2
+  - tag: IVR-2
+    raw_text: 'name: 유도전압조정기 IVR #2'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'name: A동 인버터 시설변전반 변전실 이설분'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasTag
+  datatype: xsd:string
+  label: hasTag
+  evidence_tags:
+  - CAPACITOR-01
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 3
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'tag: CAPACITOR-01'
+    source_page: 2
+  - tag: PANEL-4PP-A1
+    raw_text: 'tag: PANEL-4PP-A1'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'tag: UNKNOWN-SPACE-03'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDiscipline
+  datatype: xsd:string
+  label: hasDiscipline
+  evidence_tags:
+  - CAPACITOR-01
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: CAPACITOR-01
+    raw_text: 'discipline: ELECTRICAL'
+    source_page: 2
+  - tag: PANEL-4PP-A1
+    raw_text: 'discipline: ELECTRICAL'
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 'discipline: ELECTRICAL'
+    source_page: 2
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasOperationalState
+  datatype: xsd:string
+  label: hasOperationalState
+  evidence_tags:
+  - LV-R
+  - SPARE-LV-01
+  - SPARE-MCCB-01
+  - UNKNOWN-SPACE-03
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: LV-R
+    raw_text: 예비
+    source_page: 2
+  - tag: SPARE-LV-01
+    raw_text: SPARE
+    source_page: 2
+  - tag: UNKNOWN-SPACE-03
+    raw_text: 이설분
+    source_page: 2
+unused_hints:
+- suggested_property_label: hasVoltage
+  evidence_count: 19
+  sample_tags:
+  - BATTERY-01
+  - TR-1
+  - PANEL-A-2PP-1
+  reason_not_promoted: 수치형 rated_voltage_V/rated_voltage_kV 및 문자열형 전압표기가 혼재하여 단일 속성으로
+    승격 시 datatype 충돌 위험. 대신 hasVoltageText와 정규 정격전압 속성으로 분리.
+- suggested_property_label: hasRatedVoltage
+  evidence_count: 12
+  sample_tags:
+  - EXT-HV-SOURCE
+  - HV-1
+  - PANEL-A-3PP
+  reason_not_promoted: kV/V 및 문자열 결합표기 혼재. rated_voltage_V, rated_voltage_kV, hasVoltageText로
+    분해.
+- suggested_property_label: hasRatedCurrent
+  evidence_count: 9
+  sample_tags:
+  - HV-3
+  - PANEL-A-3PP
+  - PANEL-OAC-2
+  reason_not_promoted: decimal과 slash-string(400/350A) 혼재. 정규 속성 rated_current_A와
+    문자열 보존으로 분리.
+- suggested_property_label: hasCapacity
+  evidence_count: 8
+  sample_tags:
+  - BATTERY-01
+  - IVR-1
+  - TR-1
+  reason_not_promoted: kVA/kVAR/Ah 문자열이 혼재하여 capacity_kVA, capacity_kVAR, hasCapacityText로
+    분리.
+- suggested_property_label: hasPhase
+  evidence_count: 8
+  sample_tags:
+  - CAPACITOR-02
+  - EXT-HV-SOURCE
+  - TR-1
+  reason_not_promoted: phase로 정규화 가능하나 hasPhase와 phase가 혼재하여 canonical label을 phase로
+    채택.
+- suggested_property_label: hasRelayModel
+  evidence_count: 10
+  sample_tags:
+  - GPT-01
+  - HV-5
+  - LV-1
+  reason_not_promoted: relay_model과 동일 의미. canonical label을 relay_model로 채택.
+- suggested_property_label: hasRelayNumber
+  evidence_count: 16
+  sample_tags:
+  - GPT-01
+  - HV-5
+  - LV-1
+  reason_not_promoted: relay_number와 동일 의미. canonical label을 relay_number로 채택.
+- suggested_property_label: hasBusSection
+  evidence_count: 7
+  sample_tags:
+  - HV-2
+  - HV-6
+  - LV-6
+  reason_not_promoted: bus_section과 동일 의미. canonical label을 bus_section으로 채택.
+- suggested_property_label: hasCableSpec
+  evidence_count: 3
+  sample_tags:
+  - HV-3
+  - HV-4
+  - LV-2
+  reason_not_promoted: cable_spec과 동일 의미. canonical label을 cable_spec으로 채택.
+- suggested_property_label: hasSourceBlock
+  evidence_count: 3
+  sample_tags:
+  - INCOMING-01
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  reason_not_promoted: source_block과 동일 의미. canonical label을 source_block으로 채택.
+- suggested_property_label: hasRouteText
+  evidence_count: 1
+  sample_tags:
+  - EXT-CABLE-TRENCH-2
+  reason_not_promoted: threshold 미달이며 hasRouteNote와 의미 중복.
+- suggested_property_label: hasRoomName
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-SPACE-03
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasSystemScope
+  evidence_count: 1
+  sample_tags:
+  - SPARE-LV-01
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasVoltageRatio
+  evidence_count: 1
+  sample_tags:
+  - GPT-01
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasCollectionSource
+  evidence_count: 10
+  sample_tags:
+  - INCOMING-01
+  - MG-01
+  - PANEL-4PP-A1
+  reason_not_promoted: 메타 문자열이지만 표기 변형이 매우 많고 구조가 불안정함(cross_validated/visual_semantics/entity_synthesis
+    조합). 후속 provenance 정규화 필요.
+- suggested_property_label: hasCollectionSourceFlag
+  evidence_count: 2
+  sample_tags:
+  - PANEL-4PP-A7
+  - UNKNOWN-SPACE-03
+  reason_not_promoted: threshold 미달 및 hasCollectionSource와 중복.
+- suggested_property_label: hasValidationFlag
+  evidence_count: 1
+  sample_tags:
+  - IVR-2
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasVisualSemanticsFlag
+  evidence_count: 1
+  sample_tags:
+  - IVR-2
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasEntitySynthesisFlag
+  evidence_count: 2
+  sample_tags:
+  - IVR-2
+  - PANEL-4PP-A7
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasCTCount
+  evidence_count: 7
+  sample_tags:
+  - HV-1
+  - HV-5
+  - HV-7
+  reason_not_promoted: 정수형 count와 존재표기(2×CT) 혼재, 일부는 raw label 보존 성격이 강함.
+- suggested_property_label: hasZCTCount
+  evidence_count: 6
+  sample_tags:
+  - HV-1
+  - HV-3
+  - HV-7
+  reason_not_promoted: 정수형 count와 존재표기(ZCT) 혼재.
+- suggested_property_label: hasCTLabel
+  evidence_count: 2
+  sample_tags:
+  - LV-2
+  - LV-3U
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasInputOutputVoltage
+  evidence_count: 1
+  sample_tags:
+  - RECTIFIER-01
+  reason_not_promoted: threshold 미달, hasVoltageText로 흡수 가능.
+- suggested_property_label: hasTransformerType
+  evidence_count: 3
+  sample_tags:
+  - TR-1
+  - TR-3
+  - TR-3204
+  reason_not_promoted: threshold는 충족하나 TR-2는 hasType로 변형되어 표기 불안정. 후속 construction/type
+    정규화 필요.
+- suggested_property_label: hasInputVoltageRange
+  evidence_count: 1
+  sample_tags:
+  - PANEL-E-2PP-2
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasFeedNote
+  evidence_count: 1
+  sample_tags:
+  - PANEL-D-2PP
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: feedsLoadDescription
+  evidence_count: 1
+  sample_tags:
+  - PANEL-LP-C-3PP
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasSourceText
+  evidence_count: 2
+  sample_tags:
+  - EXT-HV-SOURCE
+  - INCOMING-01
+  reason_not_promoted: threshold 미달.
+- suggested_property_label: hasConnectionNote
+  evidence_count: 4
+  sample_tags:
+  - HV-1
+  - LV-2
+  - TR-3
+  reason_not_promoted: 정식 DataProperty로 이미 승격됨; free_notes suggested label 자체는 threshold
+    충족이나 canonical property로 채택 완료.
+- suggested_property_label: hasRouteNote
+  evidence_count: 2
+  sample_tags:
+  - EXT-CABLE-TRENCH-1
+  reason_not_promoted: 정식 DataProperty로 이미 승격됨; threshold는 2건으로 낮지만 evidence 보존 위해
+    채택.
+- suggested_property_label: hasTag
+  evidence_count: 3
+  sample_tags:
+  - CAPACITOR-01
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  reason_not_promoted: 정식 DataProperty로 이미 승격됨.
+- suggested_property_label: hasDisplayName
+  evidence_count: 8
+  sample_tags:
+  - CAPACITOR-01
+  - IVR-2
+  - MG-01
+  reason_not_promoted: 정식 DataProperty로 이미 승격됨.
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T16:10:28.124684'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.88

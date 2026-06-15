@@ -1,0 +1,196 @@
+placement:
+  tag: S06.31-3
+  name: 크레인 접합-1 (1톤, 5톤 크레인)
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: S06.31-3
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - DetailConnection
+    - CraneJointDetail
+    related_assertions:
+    - type: connects_to
+      target_hint: S06.31-4
+      note: 크레인 접합 상세-1과 상세-2는 동일 크레인 시스템(CBR1,CBR2/CRG1,CRG2) 연속 상세
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:S06.31-4
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: other
+      target_hint: S06.31-4
+      note: visual_semantics에서 관찰된 동일 연속 상세 관계
+      confirmed_property: dks:other
+      confirmed_target: dks:S06.31-4
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms: []
+    applicable_constraints:
+    - CN009
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 크레인 접합-1 (1톤, 5톤 크레인)
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: hasName
+          suggested_datatype: xsd:string
+          rationale: 도면명/상세명으로 보이는 문자열
+        promoted_to: dks:hasName
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 크레인 접합 상세-1과 상세-2는 동일 크레인 시스템(CBR1,CBR2/CRG1,CRG2) 연속 상세
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 상세 간 연속성과 시스템 구성요소 식별자가 함께 나타나는 관계 설명
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 동일 크레인 시스템(CBR1,CBR2/CRG1,CRG2) 연속 상세
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 시스템명과 연속 상세 설명이 결합된 주석성 텍스트
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: S06.31-3 -> S06.31-4
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 상세 간 연결 관계가 명시됨
+      - raw_text: 'line_style: solid'
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationStyle
+          suggested_datatype: xsd:string
+          rationale: 관계 표현의 선 스타일 속성
+      - raw_text: 'origin: visual_semantics'
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출 출처 메타정보
+      - raw_text: 'origin: cross_validated'
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출 출처 메타정보
+      - raw_text: 'relation_type: other'
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationType
+          suggested_datatype: xsd:string
+          rationale: 정규화되지 않은 관계 유형 표기
+      - raw_text: 'relation: connects_to'
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실의 원형
+      - raw_text: 'partner: S06.31-4'
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: partnerTag
+          suggested_datatype: xsd:string
+          rationale: 관계 상대 태그 식별자
+  provenance:
+    tag:
+      source_pages:
+      - 64
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 64
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 64
+      method: inferred_from_detail_with_relation
+    ontology_core.iri_hint:
+      source_pages:
+      - 64
+      method: entity_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 64
+      method: inferred_from_name_and_plan_context
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 64
+      method: inferred_from_name_and_plan_context
+    ontology_core.related_assertions:
+      source_pages:
+      - 64
+      method: relations_scan
+    discipline_context.free_notes:
+      source_pages:
+      - 64
+      method: full_text_preservation
+    plan_reference.guidance_applied:
+      source_pages:
+      - 64
+      method: ontology_plan_guidance_applied
+  unresolved:
+  - field_candidate: relations[0].relation_type
+    raw_text: other
+    source_page: 64
+    reason: 정규화된 관계 의미를 단독으로 확정할 수 없음
+    preservation_note: partner S06.31-4와 함께 연속 상세 관계로 보이나 원문 표기를 유지
+  - field_candidate: relations[1].origin
+    raw_text: visual_semantics
+    source_page: 64
+    reason: 관계 추출 경로 메타정보로 해석 대상이 아님
+    preservation_note: 추출 출처 메타로 보존
+  - field_candidate: relations[2].origin
+    raw_text: cross_validated
+    source_page: 64
+    reason: 관계 추출 경로 메타정보로 해석 대상이 아님
+    preservation_note: 추출 출처 메타로 보존
+  - field_candidate: relations[1].line_style
+    raw_text: solid
+    source_page: 64
+    reason: 관계 표현 속성이나 OWL 핵심 관계로 직접 승격 불가
+    preservation_note: 관계 시각 표현 메타로 보존
+  - field_candidate: relations[1].annotation
+    raw_text: 크레인 접합 상세-1과 상세-2는 동일 크레인 시스템(CBR1,CBR2/CRG1,CRG2) 연속 상세
+    source_page: 64
+    reason: 관계 설명이지만 정규 속성으로 단정 불가
+    preservation_note: 연속 상세 및 시스템 식별자 정보를 원문 그대로 보존
+  - field_candidate: relations[2].note
+    raw_text: 크레인 접합 상세-1과 상세-2는 동일 크레인 시스템 연속 상세
+    source_page: 64
+    reason: 관계 설명이지만 정규 속성으로 단정 불가
+    preservation_note: 연속 상세 설명을 원문 그대로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: S06.31-3은 상세 도면으로 보이지만, 물리 실체인지 주석성 상세인지 단독으로 확정하기 어렵고 relation_type other와
+      connects_to가 함께 존재함
+    recommended_handling: 다음 단계에서 DetailEntity 또는 Annotation-like detail 후보로 검토하되,
+      connects_to 관계는 유지하고 class 확정은 보류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - detail/beam -> connects_to -> detail/beam
+    - other relation from visual semantics awaiting normalization
+    deviations:
+    - supplement가 없어 sub_kinds를 free_notes 중심으로만 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:25.215399'
+  confidence: 0.86

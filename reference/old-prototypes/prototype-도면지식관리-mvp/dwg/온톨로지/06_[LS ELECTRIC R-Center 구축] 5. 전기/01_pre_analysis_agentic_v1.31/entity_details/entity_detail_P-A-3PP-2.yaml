@@ -1,0 +1,78 @@
+entity_detail:
+  tag: P-A-3PP-2
+  type: Power Panelboard
+  specs:
+    voltage:
+      value: 380/220V
+      unit: V
+      source: page 23
+      confidence: 0.98
+    cable:
+      value: F-CV 150㎟ -1C x 3, E-95㎟ (104C)
+      unit: cable specification
+      source: page 23
+      confidence: 0.98
+    breaker:
+      value: MCCB 1개
+      unit: ea
+      source: page 23
+      confidence: 0.98
+    phase_wire:
+      value: 3Ф 3W
+      unit: configuration
+      source: page 23
+      confidence: 0.98
+  drawing_texts:
+  - source: page 23 / cable schedule table
+    page_number: 23
+    text: A2  P-A-3PP-2  3Ø 3W 380V  F-CV 150㎟ -1C x 3, E-95㎟ (28C)
+  - source: page 23 / lower riser diagram
+    page_number: 23
+    text: P-A-3PP-2
+  requirements:
+  - text: 3Ø 3W 380V
+    source: page 23
+    type: electrical_supply_condition
+  - text: MCCB 1개
+    source: page 23
+    type: protection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: P-A-3PP-2
+    details:
+      source: page 23
+  - relation: connected_from
+    partner: S/S R-Center
+    details:
+      source: page 23 / cable schedule table
+  - relation: cable_connection
+    partner: S/S R-Center
+    details:
+      source: page 23 / cable schedule table
+      text: F-CV 150㎟ -1C x 3, E-95㎟ (28C)
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_from
+      partner_tag: S/S R-Center
+      direction: from source to target
+      source: page 23
+    observed_attributes:
+    - voltage
+    - phase_wire
+    - cable
+    - breaker
+    similar_equipment:
+    - P-A-3PP-1
+    - P-A-3PP-3
+    - P-C-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    suggested_parent_class: Electrical Panelboard
+    cross_discipline: []
+  notes:
+  - 도면 페이지 23의 케이블 스케줄 표에서 P-A-3PP-2 항목을 확인함.
+  - 제공된 context와 이미지에서 위치 정보는 확인되지 않음.
+tag: P-A-3PP-2

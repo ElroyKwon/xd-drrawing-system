@@ -1,0 +1,202 @@
+placement:
+  tag: ZONE-로비방풍실
+  name: 로비 / 방풍실
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ZONE-로비방풍실
+    class_hint: FireProtectionZone
+    alternative_class_hints:
+    - SpatialEntity
+    - Space
+    - Zone
+    related_assertions:
+    - type: contains
+      target_hint: 연기식 감지기(1,2종 광전식)-LED 부착형
+      note: specs.equipment_symbols에 2EA 관찰
+    - type: contains
+      target_hint: 피난구 유도등
+      note: specs.equipment_symbols에 2EA 관찰
+    - type: connects_to
+      target_hint: FA-1A
+      note: 'relations에 cross_validated 연결 사실 존재; note: 16C (HFIX 2-1.5㎟)'
+    applicable_axioms:
+    - AX002
+    - AX022
+    - AX023
+    - AX024
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN004
+    - CN005
+    - CN006
+    confirmed_class: dks:Zone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: 로비, 방풍실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string list
+          rationale: 공간 내부 표기 라벨 목록
+      - raw_text: 'raw_labels: 로비, 방풍실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: raw_labels
+          suggested_datatype: xsd:string list
+          rationale: OCR/원문 라벨 보존
+      - raw_text: 'equipment_symbols: 연기식 감지기(1,2종 광전식)-LED 부착형 x2'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: equipment_symbols
+          suggested_datatype: structured literal / reified node
+          rationale: 공간 내 설비 심벌과 수량 정보
+      - raw_text: 'equipment_symbols: 피난구 유도등 x2'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: equipment_symbols
+          suggested_datatype: structured literal / reified node
+          rationale: 공간 내 설비 심벌과 수량 정보
+      - raw_text: 'relation: connects_to from FA-1A to ZONE-로비방풍실, origin cross_validated,
+          line_style solid, note 16C (HFIX 2-1.5㎟)'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: object property
+          rationale: 도면상 연결 관계와 선종/비고가 함께 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 9
+    name:
+      source_pages:
+      - 9
+    discipline:
+      source_pages:
+      - 9
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+    ontology_core.related_assertions:
+      source_pages:
+      - 9
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 9
+    specs.labels_inside:
+      source_pages:
+      - 9
+    specs.raw_labels:
+      source_pages:
+      - 9
+    specs.equipment_symbols:
+      source_pages:
+      - 9
+    equipment_symbols:
+      source_pages:
+      - 9
+    relations:
+      source_pages:
+      - 9
+    relations[0].from:
+      source_pages:
+      - 9
+    relations[0].to:
+      source_pages:
+      - 9
+    relations[0].relation:
+      source_pages:
+      - 9
+    relations[0].origin:
+      source_pages:
+      - 9
+    relations[0].line_style:
+      source_pages:
+      - 9
+    relations[0].note:
+      source_pages:
+      - 9
+    collection_sources:
+      source_pages:
+      - 9
+    position:
+      source_pages:
+      - 9
+    confidence:
+      source_pages:
+      - 9
+    source_attribution:
+      source_pages:
+      - 9
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 9
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+  unresolved:
+  - field_candidate: collection_sources
+    raw_text: 'cross_validated: true; visual_semantics: true; visual_semantics_gemini:
+      true; entity_synthesis: true'
+    source_page: 9
+    reason: 분류 대상이 아니라 출처/생성 방식 메타로 보존 필요
+    preservation_note: 후속 단계에서 provenance 또는 confidence 보강에 활용 가능
+  - field_candidate: position
+    raw_text: bottom-right
+    source_page: 9
+    reason: 정확한 좌표가 아닌 상대 위치 표현
+    preservation_note: 도면 내 배치 힌트로만 보존
+  - field_candidate: relations[0].note
+    raw_text: 16C (HFIX 2-1.5㎟)
+    source_page: 9
+    reason: 선종/규격 표기로 보이나 이 단계에서 정식 속성으로 확정 불가
+    preservation_note: 배선/케이블 관련 승격 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SmokeDetection; EmergencyEgressGuidance
+    source_page: 9
+    reason: 기능 후보이지만 확정 클래스/기능으로 단정 불가
+    preservation_note: 후속 분류에서 class_hint 보조 근거로 사용
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: FireProtectionZone
+    source_page: 9
+    reason: 제안값이며 확정 아님
+    preservation_note: class_hint 후보로만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 공간/존 개체로 보이며 내부 라벨, 설비 심벌, FA-1A와의 연결 관계가 함께 관찰됨
+    recommended_handling: NamedIndividual로 유지하고, 공간성은 class_hint 후보로 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone/Room 계열을 우선적으로 공간 개체로 배치
+    - FA/FD/ZONE 간 connects_to 관계를 related_assertions 원형으로 보존
+    - labels_inside, raw_labels, equipment_symbols, position, relation note를 모두 provenance와
+      free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:01:44.281366'
+  confidence: 0.95

@@ -1,0 +1,84 @@
+entity_detail:
+  tag: LP-1F
+  type: Lighting Panelboard
+  specs:
+    voltage:
+      value: 380/220V
+      unit: V
+      source: 23
+      confidence: 0.98
+    phase_wire:
+      value: 3Ф 4W
+      unit: ''
+      source: 23
+      confidence: 0.98
+    feeder_cable:
+      value: F-CV 50㎟ -1C x4
+      unit: ''
+      source: 23
+      confidence: 0.98
+    earth_cable:
+      value: E-25㎟ (70C)
+      unit: ''
+      source: 23
+      confidence: 0.98
+    breaker:
+      value: MCCB 1개
+      unit: ea
+      source: 23
+      confidence: 0.98
+  drawing_texts:
+  - source: page_023_context.yaml
+    page_number: 23
+    text: LP-1F 조명분전반
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 3Ф 4W 380/220V, F-CV 50㎟ -1C x4, E-25㎟ (70C), MCCB 1개
+  - source: page_023_context.yaml
+    page_number: 23
+    text: S/S R-Center 수전반에서 LP-1F, LP-2F, P-C-3PP, P-OAC-1/2/3, P-F, IVR-2, LV-6
+      및 다수의 2PP/3PP/4PP 패널로 연결된다.
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 표기 전압은 6.6kV, 380/220V, 440V, 220V가 보이며, 인입은 UT동 전기실에서 오는 것으로 표시된다.
+  requirements:
+  - text: 380/220V
+    source: page 23
+    type: electrical_supply_requirement
+  - text: 3Ф 4W
+    source: page 23
+    type: electrical_configuration_requirement
+  - text: MCCB 1개
+    source: page 23
+    type: protection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: S/S R-Center 수전반
+    details:
+      source: page 23
+  - relation: connected_with
+    partner: LP-1F 조명분전반
+    details:
+      source: page 23
+  - relation: electrical_feeder
+    partner: LP-1F 조명분전반
+    details:
+      source: page 23
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: S/S R-Center
+      direction: source_to_target
+      source: page 23
+    observed_attributes:
+    - voltage
+    - phase_wire
+    - feeder_cable
+    - earth_cable
+    - breaker
+    similar_equipment:
+    - LP-2F
+    suggested_parent_class: LightingPanelboard
+    cross_discipline: []
+  notes: []
+tag: LP-1F

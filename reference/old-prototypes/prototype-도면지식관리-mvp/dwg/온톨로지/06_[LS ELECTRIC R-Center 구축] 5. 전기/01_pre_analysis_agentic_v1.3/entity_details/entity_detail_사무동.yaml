@@ -1,0 +1,48 @@
+entity_detail:
+  tag: 사무동
+  type: room_or_space
+  specs:
+    building_name:
+      value: 사무동
+      unit: null
+      source: page 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page 4
+    page_number: 4
+    text: 사무동
+  - source: page 5
+    page_number: 5
+    text: '부하/계통 표기: 공장B2동 동력, 사무동력, 오폐수처리장동력, UT동 부속동력, 비상 계통'
+  requirements:
+  - text: 사무동력
+    source: page 5
+    type: load/feeder reference
+  connection_specs:
+  - relation: power feeder reference
+    partner: 사무동력
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in_or_named_as
+      partner_tag: SP-BLDG-ADMIN
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: power_load_reference
+      partner_tag: HV-사무동력
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - name
+    - building/space tag
+    - power load reference
+    similar_equipment: []
+    suggested_parent_class: room_or_space
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - page 4에서 사무동은 공간/건물 태그로 확인됨
+  - page 5에서 '사무동력' 표기가 확인되나, 사무동 자체의 상세 사양은 확인되지 않음
+tag: 사무동

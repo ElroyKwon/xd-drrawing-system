@@ -1,0 +1,200 @@
+placement:
+  tag: BRACE-LONG-02
+  name: '내진 버팀대 식별 태그 — 종방향 #21'
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: IdentificationTag
+    alternative_class_hints:
+    - SeismicBraceTag
+    - LongitudinalSupportTag
+    related_assertions:
+    - type: annotates
+      target_hint: FLOOR-2F
+      note: from FLOOR-2F to BRACE-LONG-02; visual tag annotation on 2F plan
+    - type: references
+      target_hint: BRACE-LONG-01
+      note: similar_equipment listed in ontology_hints
+    applicable_axioms:
+    - AX034
+    - AX035
+    applicable_constraints:
+    - CN017
+    confirmed_class: dks:IdentificationTag
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 2층 H-H-종21
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: raw_label
+          suggested_datatype: xsd:string
+          rationale: 도면 내 식별 문자열로 보존 필요
+      - raw_text: 'shape: dashed_box'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 시각 형상 정보
+      - raw_text: 'position: center'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면상 배치 위치
+      - raw_text: 'inferred_name: 내진 버팀대 식별 태그 — 종방향 #21'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: inferred_name
+          suggested_datatype: xsd:string
+          rationale: 추론명 보존
+      - raw_text: 'function_candidates: Seismic Brace Identification; Longitudinal
+          Support Tagging'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: 'suggested_parent_class: IdentificationTag'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 13
+      method: entity_detail
+    name:
+      source_pages:
+      - 13
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 13
+      method: relations + ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 13
+      method: preservation
+    specs.shape:
+      source_pages:
+      - 13
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 13
+      method: entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 13
+      method: entity_detail
+    specs.position:
+      source_pages:
+      - 13
+      method: entity_detail
+    specs.raw_labels:
+      source_pages:
+      - 13
+      method: entity_detail
+    relations:
+      source_pages:
+      - 13
+      method: entity_detail
+    collection_sources:
+      source_pages:
+      - 13
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 13
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 13
+      method: entity_detail
+    position:
+      source_pages:
+      - 13
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 13
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 13
+      method: entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 13
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 13
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 2층 H-H-종21
+    source_page: 13
+    reason: 문자열 자체는 읽히나, 표준화된 의미/클래스 확정은 다음 단계에서 수행
+    preservation_note: 도면 표기 원문 그대로 유지
+  - field_candidate: relations[0].relation
+    raw_text: connects_to
+    source_page: 13
+    reason: 관계 원형은 보존하되 확정 property IRI는 미지정
+    preservation_note: 0-9d에서 정식 object property로 매핑 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Seismic Brace Identification; Longitudinal Support Tagging
+    source_page: 13
+    reason: 후보 기능 표현이며 확정 아님
+    preservation_note: 기능 후보 문자열 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: IdentificationTag
+    source_page: 13
+    reason: 상위 클래스 힌트일 뿐 확정 클래스 아님
+    preservation_note: class_hint 후보로만 사용
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 자체는 식별용 주석으로 보이나, relations에 FLOOR-2F와의 connects_to가 있어 공간/설비 연결 해석이
+      혼재함.
+    recommended_handling: AnnotationOnly로 유지하되, 0-9d에서 annotates/references 계열 관계로
+      재검토
+  merge_info:
+    is_merge_candidate: true
+    other_tag: BRACE-LONG-01
+    reason: ontology_hints.similar_equipment에 명시된 유사 태그이며, 명명 패턴이 거의 동일함
+  plan_reference:
+    guidance_applied:
+    - 내진 버팀대/내진 태그 계열로 분류
+    - 도면 주석/식별 태그로 보존
+    - 유사 태그 BRACE-LONG-01과의 merge 후보 검토
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:01:53.357699'
+  confidence: 0.95

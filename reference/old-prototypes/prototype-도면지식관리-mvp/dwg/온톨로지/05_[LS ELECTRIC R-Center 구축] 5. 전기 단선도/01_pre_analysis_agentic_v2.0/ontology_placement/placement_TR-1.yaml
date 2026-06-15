@@ -1,0 +1,289 @@
+placement:
+  tag: TR-1
+  name: 6.6kV/440V 몰드 변압기 TR#1
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: TR-1
+    class_hint: Transformer
+    alternative_class_hints:
+    - ElectricalEquipment
+    - PowerConverter
+    related_assertions:
+    - type: feeds
+      target_hint: HV-3
+      note: HV-3 → TR-1, 6.6kV 1차측 인입
+      confirmed_property: dks:feeds
+      confirmed_target: dks:HV-3
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: feeds
+      target_hint: LV-1
+      note: TR-1 → LV-1, 440V 2차측 공급
+      confirmed_property: dks:feeds
+      confirmed_target: dks:LV-1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: HV-3
+      note: 'visual_semantics: 6.6kV 피더 → TR#1'
+      confirmed_property: dks:cable
+      confirmed_target: dks:HV-3
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: LV-1
+      note: 'visual_semantics: 440V 2차측 → LV-1'
+      confirmed_property: dks:cable
+      confirmed_target: dks:LV-1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX013
+    - AX023
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN006
+    - CN020
+    - CN021
+    - CN009
+    - CN011
+    - CN012
+    confirmed_class: dks:Transformer
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 6.6kV/440V
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 레벨 표기이며 1차/2차 전압이 함께 제시됨
+        promoted_to: dks:hasVoltageText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 2,000kVA
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasCapacity
+          suggested_datatype: xsd:decimal
+          rationale: 용량 값과 단위 kVA가 명시됨
+        promoted_to: dks:capacity_kVA
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: MOLD TYPE
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasTransformerType
+          suggested_datatype: xsd:string
+          rationale: 변압기 형식 표기
+      - raw_text: PSV 8500
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 문자열이나 의미를 단정할 수 없음
+        promoted_to: dks:raw_labels
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 'TR #1'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 장비 식별 라벨
+        promoted_to: dks:raw_labels
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 3Φ
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasPhase
+          suggested_datatype: xsd:string
+          rationale: 상수 표기
+        promoted_to: dks:phase
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: VoltageConversion
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 제시된 기능 후보
+      - raw_text: PowerDistribution
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 제시된 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail
+    name:
+      source_pages:
+      - 2
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class + observed_specs
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints.function_candidates + observed_specs
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: relations
+    specs.primary_voltage_kV:
+      source_pages:
+      - 2
+      method: specs
+    specs.secondary_voltage_kV:
+      source_pages:
+      - 2
+      method: specs
+    specs.capacity_kVA:
+      source_pages:
+      - 2
+      method: specs
+    specs.type:
+      source_pages:
+      - 2
+      method: specs
+    specs.phase:
+      source_pages:
+      - 2
+      method: specs
+    specs.raw_labels:
+      source_pages:
+      - 2
+      method: specs
+    relations:
+      source_pages:
+      - 2
+      method: entity_detail.relations
+    collection_sources.cross_validated:
+      source_pages:
+      - 2
+      method: entity_detail
+    collection_sources.visual_semantics:
+      source_pages:
+      - 2
+      method: entity_detail
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 2
+      method: entity_detail
+    position:
+      source_pages:
+      - 2
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 2
+      method: entity_detail
+    equipment_symbols:
+      source_pages:
+      - 2
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 2
+      method: ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 2
+      method: ontology_hints
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 2
+      method: ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 2
+      method: ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 2
+      method: preservation
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'TR #1'
+    source_page: 2
+    reason: 원문 라벨이지만 정규 속성으로 승격하지 않고 보존 필요
+    preservation_note: 장비 식별 문자열로 재사용 가능
+  - field_candidate: specs.raw_labels
+    raw_text: 6.6kV / 440V
+    source_page: 2
+    reason: 전압 표기이지만 이미 specs로 일부 구조화되어 있어 원문도 보존
+    preservation_note: 슬래시 구분 전압 표기
+  - field_candidate: specs.raw_labels
+    raw_text: 2,000kVA
+    source_page: 2
+    reason: 용량 표기 원문 보존
+    preservation_note: 숫자+단위 문자열
+  - field_candidate: specs.raw_labels
+    raw_text: MOLD TYPE
+    source_page: 2
+    reason: 형식 표기 원문 보존
+    preservation_note: 변압기 타입 라벨
+  - field_candidate: specs.raw_labels
+    raw_text: PSV 8500
+    source_page: 2
+    reason: 의미 불명 문자열
+    preservation_note: 추후 도면 범례 또는 제조사 표기와 대조 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: VoltageConversion
+    source_page: 2
+    reason: 후보 기능명이며 확정 불가
+    preservation_note: 기능 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: PowerDistribution
+    source_page: 2
+    reason: 후보 기능명이며 확정 불가
+    preservation_note: 기능 후보로만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - transformer 계열을 NamedIndividual로 배치
+    - feeds/cable 관계 사실을 related_assertions로 보존
+    - raw_labels 및 기능 후보를 free_notes/unresolved로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T16:00:26.548081'
+  confidence: 0.95

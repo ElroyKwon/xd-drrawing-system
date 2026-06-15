@@ -1,0 +1,171 @@
+placement:
+  tag: SPACE-COMM-CORRIDOR
+  name: 통화통로 L2 / 레이저장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-COMM-CORRIDOR
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationRoom
+    - SpatialEntity
+    - LaserEquipmentStorage
+    - CommunicationCorridor
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 통화통로 L2, 레이저장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨 보존 필요
+      - raw_text: 'labels_inside: 통화통로 L2, 레이저장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 내부 표기 텍스트 보존 필요
+      - raw_text: 'inferred_name: 통화통로 L2 및 레이저장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 합성명 보존 필요
+      - raw_text: 'function_category: COMMUNICATION_ROOM'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 분야 내 기능 분류값 보존 필요
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationSpace'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존 필요
+      - raw_text: 'ontology_hints.function_candidates: Communication Corridor; Laser
+          Equipment Storage'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 후보 기능명 보존 필요
+      - raw_text: 'specs.position: right-center'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치 정보 보존 필요
+      - raw_text: 'specs.shape: rectangle'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보 보존 필요
+      - raw_text: 'specs.equipment_symbols: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbols
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 부재 정보도 보존 필요
+      - raw_text: 'relations: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasRelations
+          suggested_datatype: xsd:string
+          rationale: 관계 부재 상태 보존 필요
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: inferred_from_space_entity_with_self_contained_spec
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: direct_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: inferred_from_ontology_hints_and_function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: inferred_from_ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: direct_preservation
+    specs.raw_labels:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.position:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.shape:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    function_category:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    type:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name과 raw_labels가 '통화통로 L2 / 레이저장실'로 함께 제시되어 단일 공간인지, 통로와 저장실의 복합 구역인지
+      도면만으로 확정하기 어렵다.
+    recommended_handling: 0-9c에서 공간 엔티티로 우선 유지하되, 필요 시 CommunicationSpace와 Storage
+      성격의 복합 해석을 검토한다.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 엔티티를 SpatialEntity 축으로 우선 배치
+    - function_category와 ontology_hints의 후보 기능명을 보존
+    - position, shape, labels_inside, raw_labels를 provenance와 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:39.148869'
+  confidence: 0.86

@@ -1,0 +1,407 @@
+axioms:
+- id: AX001
+  type: SubClassOf
+  body:
+    sub: dks:ElectricalRoom
+    super: dks:ElectricalSpace
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. UNKNOWN-SPACE-02, UNKNOWN-SPACE-03의
+    class_hint가 ElectricalRoom이며 공간 계열로만 배치됨.
+  evidence_tags:
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  confidence: 0.96
+- id: AX002
+  type: SubClassOf
+  body:
+    sub: dks:PowerSource
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. EXT-HV-SOURCE가 PowerSource로
+    확인되며 feeds/cable 관계를 갖는 전기 계통 객체로 배치됨.
+  evidence_tags:
+  - EXT-HV-SOURCE
+  confidence: 0.78
+- id: AX003
+  type: SubClassOf
+  body:
+    sub: dks:CableContainmentSystem
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. EXT-CABLE-TRENCH-1/2가 CableContainmentSystem으로
+    확인되고 HV-6/HV-7과 feeds/cable 관계를 가짐.
+  evidence_tags:
+  - EXT-CABLE-TRENCH-1
+  - EXT-CABLE-TRENCH-2
+  - HV-6
+  - HV-7
+  confidence: 0.74
+- id: AX004
+  type: SubClassOf
+  body:
+    sub: dks:CableTermination
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. INCOMING-01이 CableTermination으로
+    확인되고 EXT-HV-SOURCE, HV-1과 feeds/supplies/bus_bar 관계를 가짐.
+  evidence_tags:
+  - INCOMING-01
+  - EXT-HV-SOURCE
+  - HV-1
+  confidence: 0.9
+- id: AX005
+  type: SubClassOf
+  body:
+    sub: dks:CircuitBreaker
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. HV/LV/SPARE 계열이 모두 CircuitBreaker
+    계열로 분류되어 전기설비 상위 아래에 놓임.
+  evidence_tags:
+  - HV-1
+  - HV-2
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-6
+  - HV-7
+  - LV-1
+  - LV-2
+  - LV-3L
+  - LV-3U
+  - LV-4
+  - LV-5
+  - LV-6
+  - LV-7
+  - LV-8
+  - LV-R
+  - SPARE-LV-01
+  - SPARE-MCCB-01
+  confidence: 0.97
+- id: AX006
+  type: SubClassOf
+  body:
+    sub: dks:VCB
+    super: dks:CircuitBreaker
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. HV-1~HV-7이 모두 VCB로 확인되며 class_hint는
+    CircuitBreaker, alternative/equipment type은 VCB로 반복됨.
+  evidence_tags:
+  - HV-1
+  - HV-2
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-6
+  - HV-7
+  confidence: 0.96
+- id: AX007
+  type: SubClassOf
+  body:
+    sub: dks:ACB
+    super: dks:CircuitBreaker
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. LV-1~LV-8, LV-R, SPARE-LV-01이
+    ACB로 확인됨.
+  evidence_tags:
+  - LV-1
+  - LV-2
+  - LV-3L
+  - LV-3U
+  - LV-4
+  - LV-5
+  - LV-6
+  - LV-7
+  - LV-8
+  - LV-R
+  - SPARE-LV-01
+  confidence: 0.95
+- id: AX008
+  type: SubClassOf
+  body:
+    sub: dks:MCCB
+    super: dks:CircuitBreaker
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. SPARE-MCCB-01이 MCCB로 확인되며
+    class_hint는 CircuitBreaker임.
+  evidence_tags:
+  - SPARE-MCCB-01
+  confidence: 0.97
+- id: AX009
+  type: SubClassOf
+  body:
+    sub: dks:Switchgear
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. SWGR-380V-MAIN의 class_hint가
+    Switchgear로 직접 확인됨.
+  evidence_tags:
+  - SWGR-380V-MAIN
+  confidence: 0.98
+- id: AX010
+  type: SubClassOf
+  body:
+    sub: dks:DistributionPanel
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. 일부 PANEL-* 태그가 DistributionPanel로
+    직접 확인됨.
+  evidence_tags:
+  - PANEL-4PP-A1
+  - PANEL-4PP-A3
+  - PANEL-4PP-A6
+  - PANEL-A-3PP
+  - PANEL-AC-3PP
+  confidence: 0.88
+- id: AX011
+  type: SubClassOf
+  body:
+    sub: dks:DistributionBoard
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. 다수 PANEL-* 태그가 DistributionBoard로
+    직접 확인됨.
+  evidence_tags:
+  - PANEL-4PP-A2
+  - PANEL-4PP-A4
+  - PANEL-4PP-A5
+  - PANEL-4PP-A7
+  - PANEL-4PP-AC1
+  - PANEL-4PP-AC2
+  - PANEL-4PP-AC3
+  - PANEL-4PP-AC4
+  - PANEL-4PP-AC5
+  - PANEL-4PP-AC6
+  - PANEL-4PP-AC7
+  - PANEL-A-2PP-1
+  - PANEL-A-2PP-2
+  - PANEL-C-2PP
+  - PANEL-C-4PP
+  - PANEL-D-2PP
+  - PANEL-D-3PP
+  - PANEL-E-2PP-1
+  - PANEL-E-2PP-2
+  - PANEL-E-3PP
+  - PANEL-E-4PP
+  - PANEL-EA-2PP
+  - PANEL-F-3PP
+  - PANEL-F
+  - PANEL-G-3PP
+  - PANEL-I-3PP
+  - PANEL-LP-1F
+  - PANEL-LP-C-3PP
+  - PANEL-OAC-1
+  - PANEL-OAC-2
+  - PANEL-OAC-3
+  - PANEL-P-4PP
+  confidence: 0.93
+- id: AX012
+  type: SubClassOf
+  body:
+    sub: dks:ElectricalPanel
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. PANEL-F-4PP의 class_hint가
+    ElectricalPanel로 직접 확인됨.
+  evidence_tags:
+  - PANEL-F-4PP
+  confidence: 0.9
+- id: AX013
+  type: SubClassOf
+  body:
+    sub: dks:Transformer
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. TR-1, TR-2, TR-3, TR-3204가
+    Transformer로 직접 확인됨.
+  evidence_tags:
+  - TR-1
+  - TR-2
+  - TR-3
+  - TR-3204
+  confidence: 0.98
+- id: AX014
+  type: SubClassOf
+  body:
+    sub: dks:InstrumentTransformer
+    super: dks:Transformer
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. GPT-01이 InstrumentTransformer로
+    확인되고 변압기 계열 하위로 배치됨.
+  evidence_tags:
+  - GPT-01
+  confidence: 0.94
+- id: AX015
+  type: SubClassOf
+  body:
+    sub: dks:VoltageRegulator
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. IVR-1, IVR-2가 VoltageRegulator로
+    직접 확인됨.
+  evidence_tags:
+  - IVR-1
+  - IVR-2
+  confidence: 0.97
+- id: AX016
+  type: SubClassOf
+  body:
+    sub: dks:PowerConverter
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. RECTIFIER-01이 PowerConverter로
+    직접 확인됨.
+  evidence_tags:
+  - RECTIFIER-01
+  confidence: 0.95
+- id: AX017
+  type: SubClassOf
+  body:
+    sub: dks:MotorGeneratorSet
+    super: dks:PowerConverter
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. MG-01이 MotorGeneratorSet으로
+    확인되고 alternative_class_hints에 PowerConverter가 포함된 것으로 정리됨.
+  evidence_tags:
+  - MG-01
+  confidence: 0.93
+- id: AX018
+  type: SubClassOf
+  body:
+    sub: dks:Battery
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. BATTERY-01의 class_hint가 Battery로
+    직접 확인됨.
+  evidence_tags:
+  - BATTERY-01
+  confidence: 0.98
+- id: AX019
+  type: SubClassOf
+  body:
+    sub: dks:Capacitor
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. CAPACITOR-01의 class_hint가
+    Capacitor로 직접 확인됨.
+  evidence_tags:
+  - CAPACITOR-01
+  confidence: 0.97
+- id: AX020
+  type: SubClassOf
+  body:
+    sub: dks:ProtectionDevice
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 관찰됨. ELD-01의 class_hint가 ProtectionDevice로
+    직접 확인됨.
+  evidence_tags:
+  - ELD-01
+  confidence: 0.97
+- id: AX021
+  type: DisjointWith
+  body:
+    classes:
+    - dks:ElectricalSpace
+    - dks:ElectricalEquipment
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. 공간 태그(UNKNOWN-SPACE-01/02/03)는
+    장비 관계가 없고, 장비 태그들과 evidence_tags 교집합이 0으로 관찰됨.
+  evidence_tags:
+  - UNKNOWN-SPACE-01
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  - HV-1
+  - TR-1
+  - SWGR-380V-MAIN
+  - PANEL-4PP-A1
+  - EXT-HV-SOURCE
+  confidence: 0.96
+- id: AX022
+  type: DisjointWith
+  body:
+    classes:
+    - dks:ElectricalRoom
+    - dks:CircuitBreaker
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. ElectricalRoom evidence_tags(UNKNOWN-SPACE-02/03)와
+    CircuitBreaker evidence_tags(HV/LV/SPARE 계열)가 완전히 분리되어 관찰됨.
+  evidence_tags:
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  - HV-1
+  - LV-1
+  - SPARE-LV-01
+  - SPARE-MCCB-01
+  confidence: 0.9
+- id: AX023
+  type: DisjointWith
+  body:
+    classes:
+    - dks:ElectricalRoom
+    - dks:Transformer
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. ElectricalRoom 태그와 Transformer
+    태그(TR-1/2/3/3204)가 교집합 없이 분리됨.
+  evidence_tags:
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  - TR-1
+  - TR-2
+  - TR-3
+  - TR-3204
+  confidence: 0.9
+- id: AX024
+  type: DisjointWith
+  body:
+    classes:
+    - dks:ElectricalRoom
+    - dks:DistributionBoard
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. ElectricalRoom 태그와 DistributionBoard
+    태그들이 완전히 분리되어 관찰됨.
+  evidence_tags:
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  - PANEL-4PP-A2
+  - PANEL-4PP-AC1
+  - PANEL-A-2PP-1
+  - PANEL-F
+  confidence: 0.9
+- id: AX025
+  type: InverseOf
+  body:
+    property1: dks:feeds
+    property2: dks:isFedBy
+  derivation: 'object_properties.feeds에 inverse_of_candidate가 제시되어 있고, placement에서
+    동일 연결쌍이 양방향 feeds로 반복 관찰됨. 예: EXT-HV-SOURCE→INCOMING-01 및 INCOMING-01→EXT-HV-SOURCE,
+    HV-3→TR-1 및 TR-1→HV-3, LV-6→IVR-1 및 IVR-1→LV-6, RECTIFIER-01→BATTERY-01 및 BATTERY-01→RECTIFIER-01.'
+  evidence_tags:
+  - EXT-HV-SOURCE
+  - INCOMING-01
+  - HV-3
+  - TR-1
+  - LV-6
+  - IVR-1
+  - RECTIFIER-01
+  - BATTERY-01
+  - HV-6
+  - EXT-CABLE-TRENCH-1
+  - HV-7
+  - EXT-CABLE-TRENCH-2
+  confidence: 0.97
+- id: AX026
+  type: InverseOf
+  body:
+    property1: dks:supplies
+    property2: dks:isSuppliedBy
+  derivation: 'object_properties.supplies에 inverse_of_candidate가 제시되어 있고, placement에서
+    동일 연결쌍의 양방향 supplies가 반복 관찰됨. 예: HV-1↔HV-2, HV-2↔HV-3, HV-3↔HV-4, HV-4↔HV-5, HV-5↔HV-6,
+    HV-6↔HV-7, LV-1↔LV-2, LV-2↔LV-3U, LV-3L↔LV-3U, LV-3L↔LV-4, LV-4↔LV-5, LV-5↔LV-6,
+    LV-6↔LV-7, LV-7↔LV-8, LV-8↔LV-R.'
+  evidence_tags:
+  - HV-1
+  - HV-2
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-6
+  - HV-7
+  - LV-1
+  - LV-2
+  - LV-3L
+  - LV-3U
+  - LV-4
+  - LV-5
+  - LV-6
+  - LV-7
+  - LV-8
+  - LV-R
+  confidence: 0.9
+summary_by_type:
+  SubClassOf: 20
+  DisjointWith: 4
+  InverseOf: 2
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T16:13:49.115847'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.91

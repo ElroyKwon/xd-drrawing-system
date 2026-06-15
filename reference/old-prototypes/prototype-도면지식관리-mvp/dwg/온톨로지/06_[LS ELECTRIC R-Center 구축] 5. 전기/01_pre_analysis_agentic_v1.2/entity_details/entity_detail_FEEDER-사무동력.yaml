@@ -1,0 +1,64 @@
+entity_detail:
+  tag: FEEDER-사무동력
+  type: Named Load Feeder
+  specs:
+    source_page:
+      value: 5
+      unit: page
+      source: page_005_context.yaml
+      confidence: 0.95
+    related_load_name:
+      value: 사무동력
+      unit: text
+      source: page_005_context.yaml
+      confidence: 0.9
+    drawing_number:
+      value: EE-01-001
+      unit: text
+      source: page_005_context.yaml
+      confidence: 0.97
+    drawing_title:
+      value: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+      unit: text
+      source: page_005_context.yaml
+      confidence: 0.97
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 부하/피더 명칭으로 공장B2동 동력, 사무동력, 오폐수처리장동력, UT동 부속동력, 오폐수동 비상, 사무동 비상, B동 비상, 공장
+      A 동, U/T 비상, 이오스솔라 동력이 보인다.
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+    source: page_005_context.yaml
+    type: drawing_title
+  connection_specs:
+  - relation: load feeder
+    partner: 사무동력
+    details:
+      source: page_005_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: load_feeder_to_load_name
+      partner_tag: 사무동력
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    observed_attributes:
+    - related_load_name
+    - drawing_number
+    - drawing_title
+    similar_equipment:
+    - 공장B2동 동력
+    - 오폐수처리장동력
+    - UT동 부속동력
+    - 오폐수동 비상
+    - 사무동 비상
+    - B동 비상
+    - 공장 A 동
+    - U/T 비상
+    - 이오스솔라 동력
+    suggested_parent_class: Electrical Feeder
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag('FEEDER-사무동력') 결과 없음
+  - 도면 분석 결과에서 확인 가능한 정보는 page_005_context.yaml의 부하/피더 명칭 표기뿐임
+tag: FEEDER-사무동력

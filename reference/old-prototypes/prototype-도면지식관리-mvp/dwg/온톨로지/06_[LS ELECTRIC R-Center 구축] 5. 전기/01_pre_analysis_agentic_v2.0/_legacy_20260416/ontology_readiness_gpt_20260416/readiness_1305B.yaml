@@ -1,0 +1,226 @@
+ontology_readiness:
+  tag: 1305B
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 21
+    reason: 고유 tag 1305B가 있고, VCB/CT/ZCT/SA/GIPAM 및 정격·보호기능 등 자체 사양이 충분히 존재하며, 다른
+      설비의 부품으로만 보이지 않음.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 21
+    convertible: 15
+    ambiguous_attributes:
+    - key: ct_ratio_gemini
+      value: 200/5A
+      reason: ct_ratio와 값 충돌. 동일 개념의 이중 출처 값으로 원문 보존 필요.
+    - key: zct_rating_secondary_mini
+      value: null
+      reason: 해당 필드는 entity_detail에 없음. 도구로 확인된 값만 사용해야 하므로 미기록.
+    - key: load_name_gemini
+      value: SPARE
+      reason: load_name과 충돌하는 이중 출처 값. 원문 보존 필요.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - zct_rating
+    - sa_rating
+    - protection_functions
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - zct_count
+    - zct_rating_mA
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    - protection_relay_indicators_gemini
+    - load_name
+    - grounding_mark
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: ct_ratio
+      value: 75/5A
+      source: sonnet
+      conflict_with: ct_ratio_gemini=200/5A
+    - key: ct_ratio
+      value: 200/5A
+      source: gemini
+      conflict_with: ct_ratio_sonnet=75/5A
+    - key: zct_rating_mA
+      value: '200'
+      source: entity_detail
+      conflict_with: zct_rating_secondary_mini=1.5
+    - key: zct_rating_secondary_mini
+      value: '1.5'
+      source: gemini
+      conflict_with: zct_rating_mA=200
+    - key: load_name
+      value: 냉동기 1호기
+      source: entity_detail
+      conflict_with: load_name_gemini=SPARE
+    - key: load_name
+      value: SPARE
+      source: gemini
+      conflict_with: load_name=냉동기 1호기
+    - key: protection_relay_indicators_gemini
+      value: A
+      source: gemini
+      conflict_with: null
+    conflicts:
+    - key: ct_ratio
+      values:
+      - 75/5A
+      - 200/5A
+      sources:
+      - ct_ratio_sonnet
+      - ct_ratio_gemini
+    - key: load_name
+      values:
+      - 냉동기 1호기
+      - SPARE
+      sources:
+      - load_name
+      - load_name_gemini
+    - key: zct_rating_secondary
+      values:
+      - 200mA
+      - '1.5'
+      sources:
+      - zct_rating
+      - zct_rating_secondary_mini
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - HVFeeder
+    - CircuitBreakerPanel
+    - ProtectionPanel
+  spatial_context:
+    position: bottom-center
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1305B
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      bus_section: HV
+      vcb_rating: 3P 24kV 600A 750MVA
+      ct_ratio: 75/5A
+      zct_rating: 200mA
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      - '67'
+      panel_id: 1305B
+      voltage_kV: 3.3
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      ct_ratio_sonnet: 75/5A
+      ct_ratio_gemini: 200/5A
+      zct_count: 1
+      zct_rating_mA: 200
+      zct_rating_secondary_mini: null
+      zct_rating_secondary_mA_gemini: 1.5
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      load_name: 냉동기 1호기
+      load_name_gemini: SPARE
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - ontology_hints.observed_relations (없음)
+  - ontology_hints.cross_discipline (없음)
+  - read_page_context/read_page_image not used because entity_detail already contained
+    sufficient relation and attribute evidence
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: ElectricalEquipment
+    annotations_to_emit:
+    - ct_ratio_sonnet=75/5A
+    - ct_ratio_gemini=200/5A
+    - load_name=냉동기 1호기
+    - load_name_gemini=SPARE
+    - protection_relay_indicators_gemini=A
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=true
+    - collection_sources.cross_validated=true
+    - collection_sources.entity_synthesis=true
+    relations_to_emit:
+    - connects_to(1305A)
+    - connects_to(1306)
+    needs_human_review: false
+tag: 1305B
+discovered_relations: 2

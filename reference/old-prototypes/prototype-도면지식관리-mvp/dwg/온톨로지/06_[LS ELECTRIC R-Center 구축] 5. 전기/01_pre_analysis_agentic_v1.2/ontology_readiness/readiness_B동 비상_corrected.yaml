@@ -1,0 +1,17 @@
+verdict: demoted
+confidence: 0.91
+reason: "재평가 결과, 이전 강등 판정을 유지한다.\n신규 entity_detail에서 추가된 정보를 검토하였으나, 판정을 번복할 근거가 확인되지\
+  \ 않는다.\n[유지 근거] 1. specs 항목이 여전히 비어 있음({}) — 정격 전압·전류·용량 등 독립 설비로서\n   필요한 물리적 속성값이\
+  \ 단 하나도 기재되지 않았다.\n2. connection_specs 및 observed_relations 모두 빈 리스트 — 상위 수배전반,\n\
+  \   차단기, 피더 케이블 등과의 연결 구조가 전혀 확인되지 않는다.\n3. drawing_texts의 출처가 page_005_context.yaml\
+  \ 단일 소스이며,\n   해당 텍스트는 \"부하/피더 명칭으로 ... B동 비상 ...\"처럼\n   명칭 나열 목록에 불과하다 — 도면상 개별\
+  \ 심볼·번호로 독립 표기된\n   설비임을 증명하지 못한다.\n4. ontology_hints의 observed_attributes(tag,\
+  \ name, function_category 등)는\n   '잠재 속성 목록'으로 실제 값이 바인딩된 것이 아니므로\n   엔티티 독립성 판단\
+  \ 근거로 채택할 수 없다.\n5. similar_equipment 목록(오폐수동 비상, 사무동 비상, U/T 비상 등)과\n   동일한 패턴으로\
+  \ 일괄 나열되어 있어, 해당 항목들이 모두\n   동일 수준의 부하/피더 명칭임을 재확인한다.\n\n[번복 불가 사유] - suggested_parent_class:\
+  \ Electrical Load 및 function_category: LOAD 힌트는\n  온톨로지 상위 클래스 배치 제안일 뿐, 자체 사양이\
+  \ 없는 상태에서\n  독립 인스턴스 생성 근거가 되지 않는다.\n- \"비상(Emergency)\" 기능 분류는 식별 속성으로 유효하나,\n\
+  \  이 속성만으로 독립 엔티티 승격 기준을 충족하기에 불충분하다.\n\n[권고] B동 비상은 상위 수배전반 또는 비상 분전반 엔티티의 hasFeedPoint\
+  \ / hasLoad 관계 값(value-level)으로 표현하거나, 추후 단선도·부하집계표에서 정격 사양·회로 번호가 확인될 경우 재신청을 통해\
+  \ 승격을 재검토할 것을 권고한다."
+tag: B동 비상

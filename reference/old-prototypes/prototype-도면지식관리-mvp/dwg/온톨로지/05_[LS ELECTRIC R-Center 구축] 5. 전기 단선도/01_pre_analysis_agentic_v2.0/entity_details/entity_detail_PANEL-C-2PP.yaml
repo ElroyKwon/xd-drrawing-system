@@ -1,0 +1,55 @@
+tag: PANEL-C-2PP
+name: 220V 분전반 P-C-2PP
+type: MCCB
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  rated_voltage_V: 220
+  rated_current_A: 100
+  frame_A: 50
+  poles: 3
+  raw_labels:
+  - P-C-2PP
+  - MCCB 3P
+  - 220V
+relations:
+- from: IVR-2
+  to: PANEL-C-2PP
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 220V~550V 피더
+- from: IVR-2
+  to: PANEL-C-2PP
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 220V~550V 피더
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-center
+confidence: 0.95
+equipment_symbols:
+- type: MCCB
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: DistributionBoard
+  observed_attributes:
+  - rated_voltage_V
+  - rated_current_A
+  - frame_A
+  - poles
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection

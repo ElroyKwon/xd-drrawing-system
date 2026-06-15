@@ -1,0 +1,192 @@
+placement:
+  tag: RISER-TR-1
+  name: LP/옥내소화전 입상관 (우상단)
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: fire_protection:RISER-TR-1
+    class_hint: PIPE_RISER
+    alternative_class_hints:
+    - FireProtectionEquipment
+    - PipingEntity
+    - IndoorHydrantRiser
+    related_assertions:
+    - type: located_in
+      target_hint: top-right
+      note: specs.position = top-right
+    - type: has_label
+      target_hint: LP 130ø
+      note: specs.raw_labels / labels_inside
+    - type: has_label
+      target_hint: DN H
+      note: specs.raw_labels / labels_inside
+    - type: has_label
+      target_hint: ①
+      note: specs.raw_labels / labels_above
+    applicable_axioms:
+    - AX025
+    - AX028
+    - AX029
+    - AX039
+    - AX041
+    - AX042
+    applicable_constraints:
+    - CN016
+    confirmed_class: dks:PIPE_RISER
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: LP 130ø
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: diameter_label
+          suggested_datatype: xsd:string
+          rationale: 배관 입상관에 대한 직경/규격 표기처럼 보이는 문자열
+      - raw_text: DN H
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: abbreviation
+          suggested_datatype: xsd:string
+          rationale: 배관 관련 약어 표기이지만 의미 확정 불가
+      - raw_text: ①
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: label_index
+          suggested_datatype: xsd:string
+          rationale: 도면 내 순번/식별 마커로 보이나 확정 불가
+      - raw_text: LP/옥내소화전 입상관 (우상단)
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: inferred_name
+          suggested_datatype: xsd:string
+          rationale: 도면에서 추론된 명칭으로 보이는 텍스트
+      - raw_text: 'shape: circle'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 시각 형상 정보
+      - raw_text: 'position: top-right'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 13
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 13
+      method: entity_detail.function_category
+    source_pages:
+      source_pages:
+      - 13
+      method: entity_detail.source_pages
+    specs.raw_labels:
+      source_pages:
+      - 13
+      method: entity_detail.specs.raw_labels
+    specs.shape:
+      source_pages:
+      - 13
+      method: entity_detail.specs.shape
+    specs.labels_inside:
+      source_pages:
+      - 13
+      method: entity_detail.specs.labels_inside
+    specs.labels_above:
+      source_pages:
+      - 13
+      method: entity_detail.specs.labels_above
+    specs.inferred_name:
+      source_pages:
+      - 13
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 13
+      method: entity_detail.specs.position
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 13
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 13
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 13
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 13
+      method: entity_detail.collection_sources.visual_semantics_gemini
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 13
+      method: entity_detail.collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: LP 130ø
+    source_page: 13
+    reason: 정확한 규격/의미를 외부 표준 없이 확정할 수 없음
+    preservation_note: 배관 직경 또는 라벨 값으로 재검토 가능
+  - field_candidate: specs.raw_labels
+    raw_text: DN H
+    source_page: 13
+    reason: 약어 의미를 도면만으로 확정 불가
+    preservation_note: 다른 RISER/PIPE 태그와 비교 시 재해석 가능
+  - field_candidate: specs.raw_labels
+    raw_text: ①
+    source_page: 13
+    reason: 순번/기호 여부 불명
+    preservation_note: 도면 범례 또는 인접 태그와 대조 필요
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Indoor hydrant water supply
+    source_page: 13
+    reason: 후보 기능이지만 확정 불가
+    preservation_note: 옥내소화전 계열 가능성 참고
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Vertical water distribution
+    source_page: 13
+    reason: 후보 기능이지만 확정 불가
+    preservation_note: 입상관 기능 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 입상관(PIPE_RISER)로 보이지만, 라벨의 LP/DN H/① 의미가 도면 내부 정보만으로 완전히 확정되지 않음
+    recommended_handling: 0-9c에서 PIPE_RISER 계열로 우선 검토하되, 라벨 문자열은 별도 데이터 속성 후보로 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관 계열을 우선적으로 NamedIndividual로 배치
+    - 도면 텍스트와 위치 정보를 provenance 및 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:05:19.480124'
+  confidence: 0.86

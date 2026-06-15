@@ -1,0 +1,123 @@
+entity_detail:
+  tag: HV-오폐수처리장동력
+  type: high_voltage_feeder
+  specs:
+    drawing_number:
+      value: EE-01-001
+      unit: null
+      source: page 5
+      confidence: 0.96
+    title:
+      value: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+      unit: null
+      source: page 5
+      confidence: 0.96
+    system_voltage:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    related_voltage_levels:
+      value:
+      - 22.9kV
+      - 6.6kV
+      - 440V
+      unit: null
+      source: page 5
+      confidence: 0.96
+    generator_emergency_output:
+      value: 1,250kVA / 1,000KW
+      unit: null
+      source: page 5
+      confidence: 0.98
+    generator_continuous_output:
+      value: 1,125kVA / 900KW
+      unit: null
+      source: page 5
+      confidence: 0.98
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: '22.9kV 수전설비 단선결선도로, 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI),
+      계량(MOF) 및 개폐기(VCB, G/S)를 거쳐 하단 다수 피더로 분기되는 구조가 보인다.
+
+
+      주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.
+
+
+      도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.'
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도
+    source: page 5 title
+    type: design_condition
+  - text: 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI), 계량(MOF) 및 개폐기(VCB,
+      G/S)를 거쳐 하단 다수 피더로 분기되는 구조
+    source: page 5 executive_summary
+    type: system_configuration
+  - text: 도면 내 전압 표기는 22.9kV, 6.6kV, 440V
+    source: page 5 executive_summary
+    type: voltage_condition
+  connection_specs:
+  - relation: feeds
+    partner: 다수 피더
+    details:
+      source: page 5 executive_summary
+  - relation: connected_through
+    partner: G/S
+    details:
+      source: page 5 executive_summary
+  - relation: connected_through
+    partner: MOF
+    details:
+      source: page 5 executive_summary
+  - relation: connected_through
+    partner: VCB
+    details:
+      source: page 5 executive_summary
+  - relation: connected_through
+    partner: TR
+    details:
+      source: page 5 executive_summary
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 다수 피더
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: connected_through
+      partner_tag: G/S
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: connected_through
+      partner_tag: MOF
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: connected_through
+      partner_tag: VCB
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    - relation_type: connected_through
+      partner_tag: TR
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    observed_attributes:
+    - 22.9kV
+    - 6.6kV
+    - 440V
+    - TR
+    - GIPAM
+    - GIPAM-2000FI
+    - MOF
+    - VCB
+    - G/S
+    - generator_emergency_output
+    - generator_continuous_output
+    similar_equipment: []
+    suggested_parent_class: ElectricalFeeder
+    cross_discipline: []
+  notes:
+  - 대상 tag 'HV-오폐수처리장동력' 자체의 개별 사양은 페이지 분석 결과에 직접 표기되지 않아, 관련 도면 텍스트에서 확인 가능한 정보만
+    수집함.
+tag: HV-오폐수처리장동력

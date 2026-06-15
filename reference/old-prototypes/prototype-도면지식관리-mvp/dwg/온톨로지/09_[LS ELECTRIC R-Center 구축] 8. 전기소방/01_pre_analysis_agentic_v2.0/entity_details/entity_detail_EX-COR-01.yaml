@@ -1,0 +1,74 @@
+tag: EX-COR-01
+name: 복도 유도등 (계단실 상부)
+type: entity
+discipline: ELECTRICAL
+function_category: PROTECT
+source_pages:
+- 13
+specs:
+  shape: rectangle
+  labels_inside:
+  - EX
+  position: grid 4-5, B-C 계단 상단
+  raw_labels:
+  - EX
+  inferred_name: 복도 유도등 (계단실 상부)
+  equipment_symbol_type: 복도 유도등-60분용(LED)
+  count: 1
+relations:
+- from: EX1-STAIR-01
+  to: EX-COR-01
+  relation: feeds
+  source_page: 13
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: PULLBOX-01
+  to: EX-COR-01
+  relation: feeds
+  source_page: 13
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: EX-COR-01
+  to: EX1-STAIR-01
+  relation: feeds
+  source_page: 13
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: EX1-STAIR-01
+  to: EX-COR-01
+  relation: cable
+  source_page: 13
+  origin: visual_semantics
+  annotation: 계단/복도 유도등 연결
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: grid 4-5, B-C 계단 상단
+confidence: 0.95
+equipment_symbols:
+- type: 복도 유도등-60분용(LED)
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: EmergencyLighting
+  observed_attributes:
+  - shape
+  - labels_inside
+  - position
+  - raw_labels
+  - inferred_name
+  - equipment_symbol_type
+  - count
+  similar_equipment:
+  - EX1-STAIR-01
+  function_candidates:
+  - EmergencyGuidance
+  - SafetyIndication

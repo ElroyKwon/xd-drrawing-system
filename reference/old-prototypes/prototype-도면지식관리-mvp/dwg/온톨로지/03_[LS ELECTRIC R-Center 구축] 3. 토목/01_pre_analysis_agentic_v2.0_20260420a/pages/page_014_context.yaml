@@ -1,0 +1,665 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: DETAIL
+  drawing_genre: detail
+  title_block:
+    drawing_number: C10-303
+    title: 원형맨홀(φ900)상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - SLAB 상세도, A-A 단면도, B-B 단면도, 수지코팅 디딤쇠 등 상세 구성 요소가 함께 보임
+  - 우측 표제란에 도면번호 C10-303, 제목 원형맨홀(φ900)상세도 표기
+  - 재료표(제료표)와 단면 상세가 포함되어 있으나 범례/약어 전용 섹션은 보이지 않음
+  confidence: 0.96
+  note: 표제란 도면번호가 C10-303으로 보이며, 접두사 C는 COMMUNICATION이지만 페이지 내용은 원형맨홀 상세 및 구조 상세로
+    보임. 접두사 우선 규칙을 적용하려 했으나, 현재 카탈로그 라우팅은 structural/detail에만 명확히 대응되어 STRUCTURAL로
+    판정함.
+  recommended_supplements: &id001
+    P-4.5: null
+  routing_confidence: 0.62
+  routing_reason: 페이지는 상세도(detail)로 보이며, available_supplements_catalog에서 structural/P-4.5의
+    genre_detail이 존재하므로 해당 경로를 우선 추천함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: circle
+    primary_label: 평면도
+    position: top-left
+    labels_near:
+    - φ900
+    - A-A 단면도
+    - B-B 단면도
+  - panel_id: BLK-002
+    shape: circle
+    primary_label: SLAB 상세도
+    position: top-center
+    labels_near:
+    - D13
+    - D16
+    - 12@100=1,200
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: 재료표
+    position: top-right
+    labels_near:
+    - 구분
+    - 규격
+    - 단위
+    - 수량
+  - panel_id: BLK-004
+    shape: rectangle
+    primary_label: A-A 단면도
+    position: bottom-left
+    labels_near:
+    - 높이조절용 con'c
+    - 1,300
+    - 1,800
+  - panel_id: BLK-005
+    shape: rectangle
+    primary_label: B-B 단면도
+    position: bottom-center
+    labels_near:
+    - 높이조절용 con'c
+    - 모르타르(1:2)
+    - 변화치수(h)
+  - panel_id: BLK-006
+    shape: other
+    primary_label: 수지코팅 디딤쇠
+    position: bottom-right
+    labels_near:
+    - 원형봉강 D16mm
+    - 미끄럼방지용 양각 돌기
+    - 매입부 PE피복
+  connections:
+  - from: BLK-001
+    to: BLK-004
+    line_style: dashed
+    annotation: A-A 단면선
+  - from: BLK-001
+    to: BLK-005
+    line_style: dashed
+    annotation: B-B 단면선
+  notable_shapes:
+  - shape: circle
+    label: φ900
+    note: 맨홀의 원형 평면 및 상세 구조 표현
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 페이지는 원형맨홀 상세도이며, 재료표(Bill of Materials)는 포함되어 있으나 범례(Legend) 섹션은 없음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: detail
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 접두사 'C'에 따라 discipline을 COMMUNICATION으로 변경함. 그러나 카탈로그에 communication/genre_detail
+    경로가 존재하지 않아 추천 supplement를 null로 설정함.
+classification: DETAIL_DRAWING
+discipline: COMMUNICATION
+key_elements_from_text:
+- 평면도
+- SLAB 상세도
+- 재료표
+- A-A 단면도
+- B-B 단면도
+- 수지코팅 디딤쇠
+- 원형맨홀(φ900)상세도
+title_block:
+  drawing_number: C10-303
+  title: 원형맨홀(φ900)상세도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline=COMMUNICATION, title_block(drawing_number=C10-303, title=원형맨홀(φ900)상세도)와
+  일치함. 페이지에는 범례 전용 섹션은 보이지 않으며, 재료표와 단면 상세가 포함됨. 근거: 우측 표제란의 C10-303 및 원형맨홀(φ900)상세도
+  표기, 본문 상단의 SLAB 상세도/재료표/A-A 단면도/B-B 단면도/수지코팅 디딤쇠 표기.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PLAN-01
+    shape: circle
+    labels_inside:
+    - φ900
+    - A→
+    - B→
+    labels_above:
+    - 평 면 도
+    labels_below: []
+    labels_beside:
+    - A-A 단면선
+    - B-B 단면선
+    equipment_symbols:
+    - type: 원형맨홀 평면 심볼
+      count: 1
+    - type: 단면절단선 (A-A, B-B)
+      count: 2
+    inferred_name: 원형맨홀(φ900) 평면도
+    position: top-left
+    notes:
+    - 동심원 3개로 구성된 원형 평면
+    - A-A, B-B 단면 절단선 표기
+    - 외경 약 1,300mm 추정
+  - panel_id: SLAB-01
+    shape: circle
+    labels_inside:
+    - D13
+    - D16
+    - D13
+    - '660'
+    - 12@100=1,200
+    labels_above:
+    - SLAB 상세도
+    labels_below:
+    - 350  600  350
+    - 1,300
+    labels_beside:
+    - '250'
+    - '200'
+    - '500'
+    - 1,300
+    equipment_symbols:
+    - type: 철근 배근 심볼 (D13, D16)
+      count: 3
+    - type: 해치 (콘크리트)
+      count: 1
+    inferred_name: 맨홀 슬래브 배근 상세도
+    position: top-center
+    notes:
+    - 원형 슬래브 단면 상세
+    - D13, D16 철근 배근 표기
+    - 12@100=1,200 간격 배근
+    - 슬래브 두께 250mm 추정
+  - panel_id: BOM-01
+    shape: rectangle
+    labels_inside:
+    - 재 료 표
+    - (H=1.0m일)
+    - 구 분 | 규 격 | 단위 | 수 량 | 비 고
+    - 슬래브 | 25-210-120 | ㎥ | 0.157
+    - 콘크리트 | 벽 체 | 25-210-120 | ㎥ | 0.691 | h=1.0m
+    - 기 초 | 25-210-120 | ㎥ | 0.402
+    - 높이조절용 | 25-210-80 | ㎥ | 0.038 | 안쪽, 개소당(평균 높이 7.5cm 적용)
+    - 슬래브인버트 | 한판1매 | ㎥ | 0.353 | 개소당
+    - 슬래브인버트 | PE 10 회 | ㎥ | 0.895 | 개소당 1개
+    - 가 루 징 | 벽 체 | PE 10 회 | ㎥ | 6.912 | h=1.0m
+    - 기 초 | PE 10 회 | ㎥ | 1.005 | 개소당 1개
+    - 높이조절용 | 합판 4 회 | ㎥ | 0.377 | 안쪽, 개소당(평균 높이 7.5cm 적용)
+    - 연 결 관 팅 | PE 10 회 | EA | 별도산출
+    - '오트라트 | 1 : 2 | ㎡ | 0.018 | Φ450 기준'
+    - 철 근 | 슬래브 | D13 | kg | 14.587 | 할증전개소당
+    - 철 근 | 슬래브 | D16 | ㎥ | 16.720 | 할증전개소당
+    - 뚜껑 및 받침대 | 주철제(한세품) | 조 | 1 | 개소당
+    - 발 디 딤 쇠 | 재 품 | EA | 별도산출 | (H=0.6)/0.3
+    - 잡 석 | Φ50-150 | ㎥ | 0.509 | 줄마기밑보호시반제외
+    - 실 근 알 원 대 | T=60mm | EA | 9 | 8개/㎡
+    labels_above:
+    - 재 료 표
+    labels_below: []
+    inferred_name: 원형맨홀(φ900) 재료표 (Bill of Materials)
+    position: top-right
+    notes:
+    - H=1.0m 기준 수량 산출
+    - '콘크리트 규격: 25-210-120'
+    - '철근: D13, D16'
+  - panel_id: SEC-AA
+    shape: rectangle
+    labels_inside:
+    - 높이조절용 con'c (0~15 cm) (7.5cm적용)
+    - 1,300
+    - 1,000
+    - 150 | 150
+    - 307 | 686 | 307
+    - 240 | 820 | 240
+    - 150 101 91 | 600 | 350
+    - 200 | 900 | 200
+    - 100 | 1,600 | 100
+    - 1,800
+    - '300'
+    - 200 | 1,200 | 200
+    labels_above:
+    - A-A 단 면 도
+    labels_below: []
+    labels_beside:
+    - 높이조절용 con'c (0~15 cm)
+    equipment_symbols:
+    - type: 해치 (콘크리트)
+      count: 1
+    - type: 화살표 (흐름방향)
+      count: 2
+    inferred_name: 원형맨홀 A-A 단면도
+    position: bottom-left
+    notes:
+    - 맨홀 종단면 상세
+    - 내경 900mm, 외경 1,300mm
+    - 기초 폭 1,800mm
+    - 높이조절용 콘크리트 0~15cm (평균 7.5cm 적용)
+    - 관 연결부 화살표 표기
+  - panel_id: SEC-BB
+    shape: rectangle
+    labels_inside:
+    - 높이조절용 con'c (0~15 cm)
+    - 200 | 600 | 500
+    - 200 | 900 | 200
+    - 100 | 1,600 | 100
+    - 1,800
+    - '400'
+    - '225'
+    - '105'
+    - '35'
+    - '150'
+    - '275'
+    - 모르타르(1:2) 20mm 도포
+    - 변화치수(h)
+    - 합계높이(H)
+    labels_above:
+    - B-B 단 면 도
+    labels_below: []
+    labels_beside:
+    - 변화치수(h)
+    - 합계높이(H)
+    equipment_symbols:
+    - type: 해치 (콘크리트)
+      count: 1
+    - type: 해치 (모르타르)
+      count: 1
+    inferred_name: 원형맨홀 B-B 단면도
+    position: bottom-center
+    notes:
+    - 맨홀 횡단면 상세
+    - 모르타르(1:2) 20mm 도포 표기
+    - 변화치수(h) 및 합계높이(H) 표기
+    - 기초 폭 1,800mm
+  - panel_id: STEP-01
+    shape: rectangle
+    labels_inside:
+    - 210 ± 5
+    - 사다리 안전방지 홈
+    - 원형봉강 D16mm
+    - 미끄럼방지용 양각 돌기
+    - 매입부 PE피복 0.5mm이상
+    - 노출부 PE피복 2.5mm이상
+    - 갈이상
+    - 175 ± 5
+    - 200 ± 5
+    - 35 ± 5
+    labels_above:
+    - 수지코팅 디딤쇠
+    labels_below: []
+    equipment_symbols:
+    - type: 디딤쇠 상세 심볼
+      count: 1
+    inferred_name: 수지코팅 디딤쇠 상세도
+    position: bottom-right
+    notes:
+    - 원형봉강 D16mm 사용
+    - 'PE피복: 매입부 0.5mm이상, 노출부 2.5mm이상'
+    - 미끄럼방지용 양각 돌기 적용
+    - 사다리 안전방지 홈 표기
+    - 전체 폭 210±5mm
+    - 높이 175±5mm, 200±5mm
+  connections:
+  - from: PLAN-01
+    to: SEC-AA
+    line_type: other
+    line_style: dashed
+    annotation: A-A 단면 절단선
+  - from: PLAN-01
+    to: SEC-BB
+    line_type: other
+    line_style: dashed
+    annotation: B-B 단면 절단선
+  - from: SLAB-01
+    to: SEC-AA
+    line_type: other
+    line_style: solid
+    annotation: 슬래브 배근 상세 참조
+  - from: STEP-01
+    to: SEC-AA
+    line_type: other
+    line_style: solid
+    annotation: 디딤쇠 설치 위치 참조
+  groups:
+  - group_id: GRP-SECTION
+    label: 단면도 그룹 (A-A, B-B)
+    members:
+    - SEC-AA
+    - SEC-BB
+  - group_id: GRP-DETAIL
+    label: 상세도 그룹
+    members:
+    - SLAB-01
+    - STEP-01
+  legend_references:
+  - text: 콘크리트 해치 패턴
+    linked_to: SEC-AA
+  - text: 콘크리트 해치 패턴
+    linked_to: SEC-BB
+  - text: 콘크리트 해치 패턴
+    linked_to: SLAB-01
+  diagram_meta:
+    title: 원형맨홀(φ900)상세도
+    drawing_number: C10-303
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale: NONE
+    date: '2024.05'
+    flow_direction: top-to-bottom
+    discipline: COMMUNICATION
+    classification: DETAIL_DRAWING
+    view_type: detail
+    material_system: rc
+    has_reinforcement_detail: true
+    has_schedule_table: true
+    detail_count: 6
+    detail_categories:
+    - '평면도: 1'
+    - '슬래브 배근 상세: 1'
+    - '단면도: 2'
+    - '부품 상세: 1'
+    - '재료표: 1'
+    is_standard_notes: false
+    manhole_spec:
+      type: 원형맨홀
+      inner_diameter_mm: 900
+      design_height_m: 1.0
+      concrete_grade: 25-210-120
+      slab_reinforcement:
+      - D13
+      - D16
+      step_iron:
+        material: 원형봉강 D16mm
+        coating: 수지코팅 PE피복
+        spacing_mm: 300
+      cover: 주철제 뚜껑 및 받침대
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PLAN-01
+    shape: circle
+    labels_inside:
+    - φ900
+    - A
+    - A
+    - B
+    - B
+    labels_above:
+    - 평 면 도
+    labels_below: []
+    labels_beside:
+    - '150'
+    - '100'
+    - '1600'
+    - '1800'
+    - '150'
+    - '100'
+    equipment_symbols:
+    - type: section_cut_line
+      count: 2
+    - type: center_line
+      count: 2
+    inferred_name: 원형맨홀(φ900) 평면도
+    position: top-left
+  - panel_id: SLAB-01
+    shape: circle
+    labels_inside:
+    - D 13
+    - D 16
+    - D 13
+    - D 16
+    - D 13
+    - '600'
+    - '60'
+    labels_above:
+    - SLAB 상세도
+    labels_below:
+    - '350'
+    - '600'
+    - '350'
+    - '1300'
+    - '50'
+    - 12@100=1200
+    - '50'
+    labels_beside:
+    - '200'
+    - 12@100=1200
+    - '1300'
+    - '50'
+    - '50'
+    - '150'
+    - '60'
+    - '90'
+    equipment_symbols:
+    - type: reinforcement_bar
+      count: 10
+    inferred_name: 맨홀 슬래브 배근 상세도
+    position: top-center
+  - panel_id: BOM-01
+    shape: rectangle
+    labels_inside:
+    - 구 분 | 규 격 | 단위 | 수 량 | 비 고
+    - 콘크리트 | 슬래브 | 25-210-120 | ㎥ | 0.157
+    - 콘크리트 | 벽 체 | 25-210-120 | ㎥ | 0.691 | h=1.0m
+    - 콘크리트 | 기 초 | 25-210-120 | ㎥ | 0.402
+    - 콘크리트 | 높이조절용 | 25-210-80 | ㎥ | 0.038 | 인력, 개소당(평균 높이 7.5 cm 적용)
+    - 거 푸 집 | 슬래브하부 | 합판1회 | ㎡ | 0.353 | 개소당
+    - 거 푸 집 | 슬래브벽체 | PE 10 회 | ㎡ | 0.895 | 개소당 1 개
+    - 거 푸 집 | 벽 체 | PE 10 회 | ㎡ | 6.912 | h=1.0m
+    - 거 푸 집 | 기 초 | PE 10 회 | ㎡ | 1.005 | 개소당 1 개
+    - 거 푸 집 | 높이조절용 | 합판 4 회 | ㎡ | 0.377 | 인력, 개소당(평균 높이 7.5 cm 적용)
+    - 연 결 관 팅 | PE 10 회 | EA | 별도산출
+    - 모르타르 | 1: 2 | ㎥ | 0.018 | Φ450 기준
+    - 철 근 | 슬래브 | D13 | kg | 14.587 | 할증전개소당
+    - 철 근 | 슬래브 | D16 | ㎥ | 16.720 | 할증전개소당
+    - 뚜껑 및 받침대 | 주철제(한세품) | 조 | 1 | 개소당
+    - 발 디 딤 쇠 | 재 품 | EA | 별도산출 | (H-0.6)/0.3
+    - 잡 석 | D50-150 | ㎥ | 0.509 | 줄마기밑보호시반제외
+    - 철 근 받 침 대 | T=60mm | EA | 9 | 8개/㎡
+    labels_above:
+    - 재 료 표
+    labels_below: []
+    labels_beside:
+    - (H=1.0m당)
+    equipment_symbols: []
+    inferred_name: 원형맨홀(φ900) 재료표
+    position: top-right
+  - panel_id: SEC-AA
+    shape: rectangle
+    labels_inside:
+    - '1300'
+    - '1000'
+    - '150'
+    - '307'
+    - '686'
+    - '307'
+    - '240'
+    - '820'
+    - '240'
+    - '150'
+    - '103'
+    - '97'
+    - '600'
+    - '350'
+    - '300'
+    - '200'
+    - '900'
+    - '200'
+    - '100'
+    - '1600'
+    - '100'
+    - '1800'
+    - '200'
+    - '1200'
+    - '200'
+    - 높이조절용 con'c
+    - (0~15 cm)
+    - (7.5cm적용)
+    labels_above:
+    - A-A 단 면 도
+    labels_below:
+    - '100'
+    - '1600'
+    - '100'
+    - '1800'
+    labels_beside:
+    - '150'
+    - '110'
+    - '150'
+    - '200'
+    - '200'
+    equipment_symbols:
+    - type: concrete_hatch
+      count: 1
+    - type: flow_arrow
+      count: 2
+    - type: ground_line
+      count: 1
+    inferred_name: 원형맨홀 A-A 단면도
+    position: bottom-left
+  - panel_id: SEC-BB
+    shape: rectangle
+    labels_inside:
+    - '200'
+    - '600'
+    - '500'
+    - '200'
+    - '900'
+    - '200'
+    - '225'
+    - '150'
+    - '275'
+    - '34'
+    - '150'
+    - '200'
+    - '200'
+    - 높이조절용 con'c
+    - (0~15 cm)
+    - 모르타르(1:2)
+    - 20mm 도포
+    labels_above:
+    - B-B 단 면 도
+    labels_below:
+    - '100'
+    - '1600'
+    - '100'
+    - '1800'
+    labels_beside:
+    - '150'
+    - '150'
+    - 변화치수(h)
+    - 합계높이(H)
+    equipment_symbols:
+    - type: concrete_hatch
+      count: 1
+    - type: mortar_hatch
+      count: 1
+    - type: step_iron
+      count: 3
+    - type: ground_line
+      count: 1
+    inferred_name: 원형맨홀 B-B 단면도
+    position: bottom-center
+  - panel_id: STEP-01
+    shape: rectangle
+    labels_inside:
+    - 210 ± 5
+    - 175 ± 5
+    - 200 ± 5
+    - 35 ± 5
+    - 220이상
+    - 사다리 인출방지 홈
+    - 원형봉강 D16mm
+    - 미끄럼방지용 양각 돌기
+    - 매입부 PE피복
+    - 0.5mm이상
+    - 노출부 PE피복
+    - 2.5mm이상
+    - 갈이상
+    labels_above:
+    - 수지코팅 디딤쇠
+    labels_below: []
+    labels_beside: []
+    equipment_symbols:
+    - type: break_line
+      count: 2
+    inferred_name: 수지코팅 디딤쇠 상세도
+    position: bottom-right
+  connections:
+  - from: PLAN-01
+    to: SEC-AA
+    line_type: other
+    line_style: dashed
+    annotation: A-A 단면 절단선
+  - from: PLAN-01
+    to: SEC-BB
+    line_type: other
+    line_style: dashed
+    annotation: B-B 단면 절단선
+  - from: SLAB-01
+    to: SEC-AA
+    line_type: other
+    line_style: solid
+    annotation: 슬래브 배근 상세 참조
+  - from: STEP-01
+    to: SEC-BB
+    line_type: other
+    line_style: solid
+    annotation: 디딤쇠 설치 위치 참조
+  groups:
+  - group_id: GRP-SECTION
+    label: 단면도 그룹 (A-A, B-B)
+    members:
+    - SEC-AA
+    - SEC-BB
+  - group_id: GRP-DETAIL
+    label: 상세도 그룹
+    members:
+    - SLAB-01
+    - STEP-01
+  legend_references: []
+  diagram_meta:
+    title: 원형맨홀(φ900)상세도
+    drawing_number: C10 - 303
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale: NONE
+    date: '2024.05'
+    flow_direction: top-to-bottom
+    discipline: COMMUNICATION
+    classification: DETAIL_DRAWING
+    view_type: detail
+    material_system: rc
+    has_reinforcement_detail: true
+    has_schedule_table: true
+    detail_count: 6
+    detail_categories:
+    - '평면도: 1'
+    - '슬래브 배근 상세: 1'
+    - '단면도: 2'
+    - '부품 상세: 1'
+    - '재료표: 1'
+    is_standard_notes: false
+    manhole_spec:
+      type: 원형맨홀
+      inner_diameter_mm: 900
+      design_height_m: 1.0
+      concrete_grade: 25-210-120
+      slab_reinforcement:
+      - D13
+      - D16
+      step_iron:
+        material: 원형봉강 D16mm
+        coating: 수지코팅 PE피복
+        spacing_mm: 300
+      cover: 주철제 뚜껑 및 받침대

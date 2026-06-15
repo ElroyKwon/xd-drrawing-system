@@ -1,0 +1,422 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-003
+    title: 옥외 소화 배관 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 3
+  next_step_hints:
+  - 도면명과 표제란의 도면번호 접두사 MF가 일치하며, 옥외 소화 배관 평면도라는 제목이 보임
+  - 검은 굵은 점선/실선으로 배관 경로가 표시되어 있음
+  - 페이지 내 설비 태그는 식별 가능한 형태로 보이지 않음
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_mechanical/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 표제란 도면번호가 MF-003이고 제목이 옥외 소화 배관 평면도이므로 FIRE_PROTECTION / FIRE_DETECTION_LAYOUT로
+    판단했으며, 카탈로그에 fire_protection P-4.5 및 P-10의 genre_mechanical 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: SITE_LAYOUT
+    shape: rectangle
+    primary_label: R-Center 구축
+    position: center
+    labels_near:
+    - A동
+    - B동
+    - U.T.동
+    - 사무동
+    - 공동구
+  - panel_id: PIPING_ROUTE
+    shape: other
+    primary_label: 소화 배관
+    position: center
+    labels_near:
+    - H 100
+    - H-100
+    - 연결송수구(쌍구형)
+  connections:
+  - from: SITE_LAYOUT
+    to: PIPING_ROUTE
+    line_style: dashed
+    annotation: 배관 경로
+  notable_shapes:
+  - shape: dashed_box
+    label: H 100
+    note: 굵은 점선으로 표시된 소화 배관 경로
+  - shape: other
+    label: 연결송수구
+    note: 배관 끝단에 위치한 송수구 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.0
+  note: 페이지 전체가 옥외 소화 배관 평면도로 구성되어 있으며, 범례 섹션은 포함되어 있지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 MF-003 및 제목 '옥외 소화 배관 평면도'를 통해 FIRE_PROTECTION 분야의 mechanical
+    서브시스템 평면도로 확정. 0-0 분석 결과와 일치하므로 유지.
+classification: FIRE_PROTECTION_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '표제란 도면번호: MF-003'
+- '표제란 도면명: 옥외 소화 배관 평면도'
+- '축척: A1 1/500, A3 1/1000'
+- '프로젝트명: R-Center'
+- '도면 내 표기: 연결송수구(쌍구형)'
+- '도면 내 표기: H 100'
+- '도면 내 표기: H-100'
+- '도면 내 표기: 공동구'
+- '도면 내 표기: A동'
+- '도면 내 표기: B동'
+- '도면 내 표기: U.T.동'
+- '도면 내 표기: 사무동'
+title_block:
+  drawing_number: MF-003
+  title: 옥외 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 FIRE_PROTECTION / FIRE_DETECTION_LAYOUT 판정은 도면명과 시각적 배관 평면 구성과 일치함. 다만
+  범례 참고값에는 H=옥내소화전배관, SC=연결송수구배관으로 보이나, 본 페이지에서는 H 100, H-100 및 연결송수구(쌍구형) 표기가 확인되어
+  약어 해석은 범례와 일부 불일치 가능성이 있어 그대로 단정하지 않음. 페이지 4에는 범례 섹션은 보이지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: A동 건물
+    position: top-left
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: B동 건물
+    position: left
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: U.T.동 건물
+    position: center
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사무동 건물
+    position: bottom-left
+  - panel_id: UTILITY-DUCT
+    shape: dashed_box
+    labels_inside:
+    - 공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 공동구 (지하 배관 공동구)
+    position: center
+  - panel_id: FDC-001
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 연결송수구(쌍구형)
+    - 100ø × 65ø × 65ø
+    - (압력표시 감실부착)
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구 (SYM-013)
+      count: 1
+    inferred_name: 쌍구형 연결송수구 (FDC)
+    position: top-center
+  - panel_id: PIPE-H100-MAIN
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - H-100
+    - H 100
+    equipment_symbols:
+    - type: 옥내소화전배관 (H계통)
+      count: 1
+    inferred_name: 옥내소화전 주배관 100A
+    position: center-bottom
+  - panel_id: PIPE-RISER
+    shape: other
+    labels_inside:
+    - T-100
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 입상배관 100A
+    position: center
+  - panel_id: DISABLED-PARKING
+    shape: rectangle
+    labels_inside:
+    - 장애인전용 주차구역 금지선
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 장애인전용 주차구역
+    position: bottom-center
+  connections:
+  - from: FDC-001
+    to: PIPE-H100-MAIN
+    line_type: pipe
+    line_style: dashed
+    annotation: 100ø 연결송수구 → 옥내소화전 주배관
+  - from: PIPE-H100-MAIN
+    to: UTILITY-DUCT
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100 공동구 경유
+  - from: UTILITY-DUCT
+    to: BLDG-A
+    line_type: pipe
+    line_style: dashed
+    annotation: 옥내소화전 배관 인입
+  - from: PIPE-RISER
+    to: PIPE-H100-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: T-100 입상 연결
+  groups:
+  - group_id: GRP-SITE
+    label: 옥외 소화 배관 평면 전체 부지
+    members:
+    - BLDG-A
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-OFFICE
+    - UTILITY-DUCT
+    - FDC-001
+    - PIPE-H100-MAIN
+    - PIPE-RISER
+  - group_id: GRP-FIRE-OUTDOOR
+    label: 옥외 소화 배관 계통 (H계통)
+    members:
+    - FDC-001
+    - PIPE-H100-MAIN
+    - PIPE-RISER
+    - UTILITY-DUCT
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-H100-MAIN
+  - text: SC / 쌍구형연결송수구
+    linked_to: FDC-001
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    scale: A1:1/500, A3:1/1000
+    date: '2024.04'
+    design_firm: (주)정연엔지니어링
+    design_consultant: 가운건축 (GAUN Architects & Engineers)
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    has_equipment_list: false
+    coverage_circles_present: false
+    pump_count: 0
+    seismic_scope: null
+    flow_direction: top-to-bottom
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      line_style: dashed
+      note: 옥외 매설 주배관, 공동구 경유 각 동 인입
+    - abbreviation: SC
+      system_type: 연결송수구배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      line_style: dashed
+      note: 쌍구형 연결송수구 100ø×65ø×65ø 접속
+    key_equipment:
+    - tag: FDC-001
+      type: 쌍구형연결송수구
+      spec: 100ø × 65ø × 65ø, 압력표시 감실부착
+      symbol_ref: SYM-013
+      position_note: 도면 상단 중앙부, 건물 외벽 인근
+    notes:
+    - 옥외 소화 배관은 굵은 점선으로 표시되어 있으며 공동구를 경유하여 각 동에 인입됨
+    - 연결송수구(쌍구형)는 100ø×65ø×65ø 사양이며 압력표시 감실이 부착됨
+    - H-100 표기는 옥내소화전배관 100A를 의미 (범례 H=옥내소화전배관 적용)
+    - T-100 표기는 입상배관 100A로 추정
+    - 도면 하단 장애인전용 주차구역 금지선 표기는 소화 배관과 무관한 부지 정보
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FDC-001
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 감실부착)
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구
+      count: 1
+    inferred_name: 쌍구형 연결송수구
+    position: top-center
+  - panel_id: PIPE-MAIN-H100
+    shape: other
+    labels_inside: []
+    labels_above:
+    - H 100
+    labels_below:
+    - H-100
+    equipment_symbols: []
+    inferred_name: 옥외 소화 주배관 (H계통)
+    position: center
+  - panel_id: UTILITY-DUCT
+    shape: dashed_box
+    labels_inside:
+    - 공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 공동구
+    position: center
+  - panel_id: RISER-T100
+    shape: other
+    labels_inside: []
+    labels_above:
+    - T-100
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 입상배관
+    position: center
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: A동
+    position: bottom-right
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: B동
+    position: left
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: U.T.동
+    position: center-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사무동
+    position: bottom-left
+  connections:
+  - from: FDC-001
+    to: PIPE-MAIN-H100
+    line_type: pipe
+    line_style: dashed
+    annotation: 연결송수구에서 주배관으로 연결
+  - from: PIPE-MAIN-H100
+    to: UTILITY-DUCT
+    line_type: pipe
+    line_style: dashed
+    annotation: 주배관이 공동구로 인입
+  - from: UTILITY-DUCT
+    to: RISER-T100
+    line_type: pipe
+    line_style: solid
+    annotation: 공동구 내에서 입상배관으로 연결
+  groups: []
+  legend_references: []
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    scale: A1:1/500, A3:1/1000
+    date: 2024.04
+    design_firm: (주)정연엔지니어링
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    has_equipment_list: false
+    coverage_circles_present: false
+    pump_count: 0
+    seismic_scope: null
+    flow_direction: top-to-bottom
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      line_style: dashed
+    - abbreviation: SC
+      system_type: 연결송수구배관
+      nominal_diameter_A: null
+      pipe_role: feed_main
+      line_style: dashed
+    key_equipment:
+    - tag: FDC-001
+      type: 쌍구형연결송수구
+      spec: 100ø x 65ø x 65ø, 압력표시 감실부착
+      symbol_ref: null
+      position_note: 도면 상단, 건물 외부
+    notes:
+    - 옥외 소화 배관은 점선으로 표기됨.
+    - 연결송수구로부터 H-100 배관이 공동구로 인입됨.
+    - T-100은 공동구 내의 입상배관으로 추정됨.

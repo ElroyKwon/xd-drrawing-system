@@ -1,0 +1,95 @@
+placement:
+  tag: GRID-Y
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - GroupingEntity
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 참조 가능성이 있음.
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 주석/설명 텍스트 성격이 강함.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: input_metadata
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_by_observation
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: verbatim_capture
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: verbatim_capture
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 태그 자체의 물리적 설비/관계 정보가 아니라 페이지 안내 문구만 존재함.
+    preservation_note: 문서 메타 또는 주석 텍스트로 보존. 페이지 목록과 안내 문구를 분리해 후속 승격 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명 GRID-Y는 plan guidance상 그룹/그리드 계열 가능성이 있으나, entity_detail 원문에는 관계나
+      실체 정보가 없고 페이지 안내 문구만 존재함.
+    recommended_handling: AnnotationOnly로 유지하되, 후속 페이지 원문에서 GRID-Y 관련 도면 표기/그룹 관계가
+      확인되면 재분류.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 및 그룹/묶음 계열이 다수 관찰됨'
+    - 'predicted_ontology_structure: DocumentEntity / PlanOrView / GroupingEntity
+      / NoteOrLegend 후보 반영'
+    - 'discipline_context_plan.unknown: unknown discipline로 남되 문서 메타 또는 미해결 구조 엔티티
+      가능성 보존'
+    deviations:
+    - 원문에 GRID-Y의 관계/위치/구성 정보가 없어 group entity로 확정하지 않고 AnnotationOnly로 보수 분류함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:20.721617'
+  confidence: 0.78

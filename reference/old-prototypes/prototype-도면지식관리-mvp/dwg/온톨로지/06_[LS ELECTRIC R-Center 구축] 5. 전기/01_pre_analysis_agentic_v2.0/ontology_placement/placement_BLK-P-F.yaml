@@ -1,0 +1,234 @@
+placement:
+  tag: BLK-P-F
+  name: P-F (1층 F구역 분전반)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: BLK-P-F
+    class_hint: DistributionPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - PowerDistributionEquipment
+    related_assertions:
+    - type: feeds
+      target_hint: BLK-SS-RCENTER
+      note: BLK-SS-RCENTER에서 BLK-P-F로 전원 공급
+    - type: cable
+      target_hint: BLK-SS-RCENTER
+      note: ⑦ 3Ø 4W 380/220V / F-CV 35㎟ -4C x1, E-16㎟ (54C) 케이블 표기
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DistributionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: ⑦
+        source_page: 23
+        note: schedule_no / 그룹 표기
+      spatial_markers:
+      - raw_text: 1층 F구역
+        source_page: 23
+        note: name 내 위치/구역 정보
+      free_notes:
+      - raw_text: 3Ø 4W 380/220V
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 표기이며 3상 4선식과 380/220V 값이 함께 제시됨
+      - raw_text: F-CV 35㎟ -4C x1, E-16㎟
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격/심수/접지선 규격이 문자열 패턴으로 표기됨
+      - raw_text: 54C
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasConduitSize
+          suggested_datatype: xsd:string
+          rationale: conduit 항목에 대한 관경/규격 표기로 보이는 값
+      - raw_text: 'labels_inside: P-F'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 라벨 표기
+      - raw_text: 'labels_above: ⑦'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasLabelAbove
+          suggested_datatype: xsd:string
+          rationale: 도면 상부 라벨 표기
+      - raw_text: 'equipment_symbols: MCCB x1'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: containsProtectionDevice
+          suggested_datatype: xsd:string
+          rationale: 분전반 내부에 MCCB 1개가 관찰됨
+      - raw_text: 'function_category: DISTRIBUTION_PANEL'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'ontology_hints.suggested_parent_class: ElectricalEquipment'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: PowerDistribution, CircuitProtection'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 23
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 23
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 23
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 23
+      method: placement_inference
+    ontology_core.iri_hint:
+      source_pages:
+      - 23
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 23
+      method: ontology_hints.suggested_parent_class + type/function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 23
+      method: ontology_hints + observed_specs
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 23
+      method: relations[0]
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 23
+      method: relations[1]
+    discipline_context.sub_kinds.groups[0]:
+      source_pages:
+      - 23
+      method: specs.schedule_no
+    discipline_context.sub_kinds.spatial_markers[0]:
+      source_pages:
+      - 23
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 23
+      method: specs.voltage
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 23
+      method: specs.cable
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 23
+      method: specs.conduit
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 23
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 23
+      method: specs.labels_above
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 23
+      method: equipment_symbols
+    discipline_context.sub_kinds.free_notes[6]:
+      source_pages:
+      - 23
+      method: function_category
+    discipline_context.sub_kinds.free_notes[7]:
+      source_pages:
+      - 23
+      method: ontology_hints.suggested_parent_class
+    discipline_context.sub_kinds.free_notes[8]:
+      source_pages:
+      - 23
+      method: ontology_hints.function_candidates
+    position:
+      source_pages:
+      - 23
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 23
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 23
+      method: entity_detail.source_attribution
+    collection_sources:
+      source_pages:
+      - 23
+      method: entity_detail.collection_sources
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: P-F
+    source_page: 23
+    reason: 원문 라벨이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: labels_inside와 동일 계열의 표기일 수 있음
+  - field_candidate: specs.raw_labels
+    raw_text: ⑦
+    source_page: 23
+    reason: 원문 라벨이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: schedule_no와 동일 계열의 표기일 수 있음
+  - field_candidate: relations[1].annotation
+    raw_text: ⑦ 3Ø 4W 380/220V / F-CV 35㎟ -4C x1, E-16㎟ (54C)
+    source_page: 23
+    reason: 관계 주석이지만 정확한 property로 단정하지 않음
+    preservation_note: 전압/케이블/관로 정보가 함께 포함된 복합 표기
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: true, mini: true'
+    source_page: 23
+    reason: 출처 속성은 참/거짓 플래그 형태로만 제공됨
+    preservation_note: 다중 모델 합의 흔적 보존
+  - field_candidate: collection_sources
+    raw_text: 'cross_validated: true, visual_semantics: true, visual_semantics_gemini:
+      true'
+    source_page: 23
+    reason: 수집 방식 플래그 원문 보존 필요
+    preservation_note: 관찰/검증 출처 메타데이터
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(cable)의 구분
+    - 분전반 내부의 보호소자(MCCB) 포함 관계 인식
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:08:25.481452'
+  confidence: 0.98

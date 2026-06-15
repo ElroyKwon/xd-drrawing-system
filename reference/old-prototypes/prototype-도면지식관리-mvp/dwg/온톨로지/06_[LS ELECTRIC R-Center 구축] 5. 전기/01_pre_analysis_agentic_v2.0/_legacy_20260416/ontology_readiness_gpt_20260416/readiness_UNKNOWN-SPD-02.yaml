@@ -1,0 +1,142 @@
+ontology_readiness:
+  tag: UNKNOWN-SPD-02
+  verdict: demoted
+  confidence: 0.95
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 7
+    reason: 독립 tag와 자체 specs는 있으나, relations에서 P-A-4PP-2가 contains로 상위 패널이 명시되어 있어
+      패널의 부품(component)으로 분류됨.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 7
+    convertible: 6
+    ambiguous_attributes:
+    - key: mode
+      value: mode
+      reason: 값이 키와 동일하여 의미가 불명확함. 온톨로지 속성으로 직접 전환 불가.
+    auxiliary_attributes:
+    - type
+    - capacity_kA
+    - spd_type
+    - rated_capacity_kA
+    - protection_mccb
+    - associated_panel
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: type
+      value: 3Ø S.P.D
+      source: specs
+      conflict_with: null
+    - key: capacity_kA
+      value: 40
+      source: specs
+      conflict_with: null
+    - key: mode
+      value: mode
+      source: specs
+      conflict_with: null
+    - key: spd_type
+      value: 3Ø Surge Protective Device
+      source: specs
+      conflict_with: null
+    - key: rated_capacity_kA
+      value: 40
+      source: specs
+      conflict_with: null
+    - key: protection_mccb
+      value: MCCB 3P 30/20AT
+      source: specs
+      conflict_with: null
+    - key: associated_panel
+      value: P-A-4PP-2
+      source: specs
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: SurgeProtectiveDevice
+    alternative_parent_classes:
+    - ProtectionDevice
+    - ElectricalProtectionDevice
+  spatial_context:
+    position: top-center
+    source_pages:
+    - 21
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      type: 3Ø S.P.D
+      capacity_kA: 40
+      mode: mode
+      spd_type: 3Ø Surge Protective Device
+      rated_capacity_kA: 40
+      protection_mccb: MCCB 3P 30/20AT
+      associated_panel: P-A-4PP-2
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - ontology_hints.observed_relations (제공되지 않음)
+  - ontology_hints.cross_discipline (제공되지 않음)
+  - connection_specs (제공되지 않음)
+  demoted_to:
+    role: component
+    parent_tag: P-A-4PP-2
+    relation_type: part_of
+    owl_pattern: :UNKNOWN-SPD-02 rdf:type :Component ; :partOf :P-A-4PP-2
+  owl_export_hints:
+    create_individual: true
+    individual_type: Component
+    annotations_to_emit:
+    - source_attribution
+    - collection_sources
+    - ambiguous_attributes
+    - provenance_attributes
+    - conflicts
+    - specs_full
+    - spatial_context
+    relations_to_emit:
+    - part_of:P-A-4PP-2
+    - contains(from P-A-4PP-2 to UNKNOWN-SPD-02)
+    needs_human_review: false
+tag: UNKNOWN-SPD-02
+discovered_relations: 1

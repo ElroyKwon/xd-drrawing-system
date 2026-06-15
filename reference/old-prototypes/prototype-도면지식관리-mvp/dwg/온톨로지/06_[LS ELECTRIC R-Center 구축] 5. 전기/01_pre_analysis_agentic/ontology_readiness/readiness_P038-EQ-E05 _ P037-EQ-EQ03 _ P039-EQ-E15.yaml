@@ -1,0 +1,25 @@
+tag: P038-EQ-E05 _ P037-EQ-EQ03 _ P039-EQ-E15
+verdict: demoted
+confidence: 0.97
+missing_fields:
+- name
+- discipline
+missing_relations:
+- relation: connected_via
+  partner: 수평도체
+- relation: connected_via
+  partner: 주 인하도선
+- relation: connected_via
+  partner: 보조 인하도선
+- relation: connected_via
+  partner: 기초철골
+- relation: connected_via
+  partner: 철근 및 철골
+reason: 도구로 확인한 결과, 이 tag는 여러 페이지의 서로 다른 엔티티를 함께 지칭하는 복합 표기이며, page 38의 EQ-E05는 구조체
+  접속으로 확인되었다. entity_detail에는 type=equipment로 들어왔지만, 실제로는 구조체 접속(STRUCTURAL) 성격의 접속/주석
+  엔티티에 가깝고, 독립 설비로 보기 어렵다. 또한 tag 자체가 단일 물리 설비를 가리키지 않고 page 37의 EQ-EQ03, page 39의
+  EQ-E15까지 함께 묶고 있어 독립 엔티티 기준을 충족하지 않는다. specs는 존재하지만 대부분 접속/범례/기준 성격이며, 일부는 도면 메타데이터나
+  요구사항에 가까워 독립 설비 사양으로 강하게 보기 어렵다. 관계는 page 38 context에서 수평도체, 주 인하도선, 보조 인하도선, 기초철골,
+  철근 및 철골과의 connected_via가 확인되므로 relation_completeness 측면에서 연결은 존재한다. 다만 최종적으로는 독립
+  엔티티가 아니므로 demoted 처리하며, 도면 메타데이터는 아니지만 복합 참조/접속 표기 성격이 강해 온톨로지 진입 대상이 아니다.
+demoted_to: 'component_of: EQ-E05'

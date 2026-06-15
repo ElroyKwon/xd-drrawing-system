@@ -1,0 +1,161 @@
+placement:
+  tag: UNKNOWN-WIRE-01
+  name: F-GV Wire
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: GroundingConductor
+    alternative_class_hints:
+    - LightningProtectionConductor
+    - Wire
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-LIGHTNING-ROD-01
+      note: F-GV Wire가 피뢰침과 연결 (피뢰시스템)
+    - type: connects_to
+      target_hint: UNKNOWN-CONDUCTOR-01
+      note: F-GV Wire가 수평도체와 동관단자로 연결
+    - type: connects_to
+      target_hint: UNKNOWN-TERMINAL-01
+      note: F-GV Wire가 동관단자로 수평도체 연결
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroundingConductor
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: 피뢰 접지 도체'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasConductorType
+          suggested_datatype: xsd:string
+          rationale: 도체의 종류를 나타내는 문자열 표기
+      - raw_text: 'application: 피뢰시스템 연결'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasApplication
+          suggested_datatype: xsd:string
+          rationale: 적용 대상/용도를 나타내는 문자열 표기
+      - raw_text: 'connection_note: 피뢰침 → 동관단자 → 수평도체 연결'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasConnectionNote
+          suggested_datatype: xsd:string
+          rationale: 연결 경로를 설명하는 서술형 문자열
+      - raw_text: 'position: multiple (BLK-001, 002, 003, 004, 005)'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasPositionNote
+          suggested_datatype: xsd:string
+          rationale: 복수 블록에 걸친 배치 위치 표기
+      - raw_text: 'equipment_symbols: type=F-GV Wire, count=1'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 도면 내 심볼 개수 표기
+  provenance:
+    name:
+      source_pages:
+      - 40
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 40
+      method: rule_based
+    ontology_core.class_hint:
+      source_pages:
+      - 40
+      method: ontology_hints + specs + relations
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 40
+      method: ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 40
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 40
+      - 0
+      method: direct_capture
+    position:
+      source_pages:
+      - 0
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 40
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 40
+      method: entity_detail.source_attribution
+    equipment_symbols:
+      source_pages:
+      - 40
+      method: entity_detail.equipment_symbols
+    collection_sources.cross_validated:
+      source_pages:
+      - 40
+      method: entity_detail.collection_sources
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 40
+      method: entity_detail.collection_sources
+  unresolved:
+  - field_candidate: specs.type
+    raw_text: 피뢰 접지 도체
+    source_page: 40
+    reason: 상위 분류는 가능하나 세부 표준 클래스 확정은 보류
+    preservation_note: 도체/접지/피뢰의 복합 의미를 유지
+  - field_candidate: specs.application
+    raw_text: 피뢰시스템 연결
+    source_page: 40
+    reason: 용도 정보로는 해석 가능하나 정식 속성명 미확정
+    preservation_note: 연결 대상 시스템 맥락 보존
+  - field_candidate: specs.connection_note
+    raw_text: 피뢰침 → 동관단자 → 수평도체 연결
+    source_page: 40
+    reason: 관계 서술이지만 개별 관계로 완전 분해하지 않음
+    preservation_note: 연결 경로 원문 보존
+  - field_candidate: position
+    raw_text: multiple (BLK-001, 002, 003, 004, 005)
+    source_page: 0
+    reason: 복수 위치 표기이며 단일 좌표/단일 위치로 환원 불가
+    preservation_note: 다중 블록 배치 정보 유지
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: GroundingConductor
+    source_page: 40
+    reason: 힌트이므로 확정 클래스가 아님
+    preservation_note: 후속 taxonomy 단계에서 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: LightningProtection, Grounding
+    source_page: 40
+    reason: 복수 기능 후보가 제시됨
+    preservation_note: 기능 이중성 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: F-GV Wire가 피뢰시스템 연결용 접지 도체로 보이지만, 도면상 '도체', '접지', '피뢰' 기능이 함께 나타나 단일 세부
+      클래스 확정이 어렵다.
+    recommended_handling: NamedIndividual로 유지하고, 후속 단계에서 GroundingConductor 또는 LightningProtectionConductor
+      계열 후보를 비교 검토한다.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:15:25.049318'
+  confidence: 0.95

@@ -1,0 +1,143 @@
+placement:
+  tag: BUILDING-B-001
+  name: B동
+  discipline: structural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:BUILDING-B-001
+    class_hint: Building
+    alternative_class_hints:
+    - SpatialReference
+    - StructuralElement
+    related_assertions:
+    - type: annotation
+      target_hint: 배치 참조용 건물 윤곽
+      note: 도면상 물리 설비가 아니라 건물 윤곽/위치 참조용 객체로 관찰됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Building
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: structural
+    sub_kinds:
+      free_notes:
+      - raw_text: building_outline
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasOutlineType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기이며 건물 윤곽임을 나타내는 분류 정보
+      - raw_text: 배치 참조용 건물 윤곽
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 배치 참조 목적의 설명 문구로 주석성 정보
+      - raw_text: B동
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: building_name
+          suggested_datatype: xsd:string
+          rationale: 건물 식별명으로 보이는 문자열
+      - raw_text: BUILDING
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 표기값으로 보이는 문자열
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: direct
+    name:
+      source_pages:
+      - 4
+      method: direct
+    discipline:
+      source_pages:
+      - 4
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: inferred_from_suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 4
+      method: direct_and_inferred
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+      method: preserved_raw
+    specs.building_name:
+      source_pages:
+      - 4
+      method: direct
+    specs.type:
+      source_pages:
+      - 4
+      method: direct
+    specs.note:
+      source_pages:
+      - 4
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 4
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 4
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 4
+      method: direct
+  unresolved:
+  - field_candidate: specs.type
+    raw_text: building_outline
+    source_page: 4
+    reason: 도면 표기상 타입 문자열이지만 OWL 클래스/속성으로 확정하지 않음
+    preservation_note: 건물 윤곽 객체의 타입 라벨로 보존
+  - field_candidate: specs.note
+    raw_text: 배치 참조용 건물 윤곽
+    source_page: 4
+    reason: 설명 문구로서 구조화된 관계나 속성으로 단정 불가
+    preservation_note: 주석성 텍스트로 원문 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SpatialReference
+    source_page: 4
+    reason: 후보 기능명이나 확정 분류 아님
+    preservation_note: 후속 분류 단계에서 참고 가능한 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 건물 윤곽이라는 점에서 물리 설비가 아닌 공간/참조 객체로 보이나, 태그와 이름이 명확하여 보존 가능
+    recommended_handling: NamedIndividual로 유지하고 건물/공간 참조 객체로 후속 분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:10.594027'
+  confidence: 0.92

@@ -1,0 +1,178 @@
+placement:
+  tag: PANEL-D-2PP
+  name: 220V 분전반 P-D-2PP
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PANEL-D-2PP
+    class_hint: DistributionBoard
+    alternative_class_hints:
+    - DistributionPanel
+    - ElectricalPanel
+    - MCCBPanel
+    related_assertions:
+    - type: feeds
+      target_hint: IVR-2
+      note: IVR-2에서 PANEL-D-2PP로 공급됨
+      confirmed_property: dks:feeds
+      confirmed_target: dks:IVR-2
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: IVR-2
+      note: IVR-2와 케이블 연결로 관찰됨
+      confirmed_property: dks:cable
+      confirmed_target: dks:IVR-2
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX011
+    - AX024
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN024
+    - CN025
+    - CN011
+    - CN012
+    confirmed_class: dks:DistributionBoard
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 220V 분전반 P-D-2PP
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 표기 '220V'가 이름에 직접 포함됨
+      - raw_text: MCCB 3P
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 장비 형식(MCCB)과 극수(3P) 표기가 raw_labels에 존재
+      - raw_text: P-D-2PP
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 라벨로 보이는 문자열이 raw_labels에 존재
+      - raw_text: 220V
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 정격 전압 표기
+      - raw_text: MCCB
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 MCCB 심볼 1개가 관찰됨
+      - raw_text: 220V~550V 피더
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFeedNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 공급 전압 범위 설명이 포함됨
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail
+    name:
+      source_pages:
+      - 2
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: placement_inference
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_plan + ontology_hints.function_candidates
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 2
+      method: relations
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 2
+      method: relations
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 2
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 2
+      method: entity_detail.specs + raw_labels
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 2
+      method: entity_detail.specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 2
+      method: entity_detail.specs.raw_labels
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 2
+      method: entity_detail.equipment_symbols
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 2
+      method: relations.note
+    provenance.source_attribution:
+      source_pages:
+      - 2
+      method: entity_detail
+    provenance.position:
+      source_pages:
+      - 2
+      method: entity_detail
+    provenance.confidence:
+      source_pages:
+      - 2
+      method: entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - MCCB 기반 PANEL-* 개체를 DistributionBoard/DistributionPanel/ElectricalPanel 계열로
+      보는 분류
+    - feeds 관계를 주요 공급 관계로 반영
+    - cable 관계를 병행 보존
+    - raw_labels와 note/annotation을 별도 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T15:59:48.906644'
+  confidence: 0.95

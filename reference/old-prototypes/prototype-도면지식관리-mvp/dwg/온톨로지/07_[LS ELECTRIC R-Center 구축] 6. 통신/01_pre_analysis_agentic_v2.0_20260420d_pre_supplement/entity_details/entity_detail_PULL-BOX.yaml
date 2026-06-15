@@ -1,0 +1,54 @@
+tag: PULL-BOX
+name: PULL BOX
+type: BOUNDARY
+discipline: COMMUNICATION
+function_category: JUNCTION_BOX
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - PULL BOX
+  - 400 x400 x300mm
+  labels_inside:
+  - PULL BOX
+  - 400 x400 x300mm
+  labels_above:
+  - PULL BOX
+  inferred_name: 풀박스 (케이블 인입 분기점)
+  position: right
+  equipment_symbols:
+  - type: pull_box
+    count: 1
+relations:
+- from: EXT-UNDERGROUND
+  to: PULL-BOX
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 지하공동구 → PULL BOX 인입
+- from: PULL-BOX
+  to: ITB-CABINET
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 정보통신용 맨홀 연결
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: right
+equipment_symbols:
+- type: pull_box
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_above
+  - inferred_name
+  - position
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - Cable Pulling
+  - Cable Branching

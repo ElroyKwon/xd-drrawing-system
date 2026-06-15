@@ -1,0 +1,99 @@
+tag: '1102'
+name: SHV 계량 패널 1102 (MOF)
+type: METERING_PANEL
+discipline: ELECTRICAL
+function_category: METERING_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - '1102'
+  - SHV
+  - MOF
+  - CT×3
+  - 18kV 2.5kA
+  - W/DISCON
+  - M.O.F(T)
+  - M.O
+  - CONTROLLER
+  bus_section: SHV
+  panel_id: '1102'
+  voltage_kV: 22.9
+  equipment_type: MOF
+  mof_type: OIL TYPE
+  ct_count: 3
+  ct_ratio_sonnet: 18kV 2.5kA
+  ct_ratio_gemini: 400/5A
+  pt_ratio_gemini: 13.2kV/110V
+  has_disconnect: true
+  has_demand_controller: true
+  demand_controller_type: PEAK CUT 제어기능
+  demand_controller_name: 최대수요전력제어기
+  metering_indicators_gemini:
+  - DM
+  - VARH
+  - TM
+  communication: RS-485 통신 케이블
+  communication_destination: 중앙감시실
+  la_count_gemini: 3
+  la_voltage_kV_gemini: 18
+  la_discharge_current_kA_gemini: 2.5
+  grounding_mark: E1
+relations:
+- from: '1101'
+  to: '1102'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+- from: '1102'
+  to: '1103'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: top-right
+confidence: 0.95
+equipment_symbols:
+- type: MOF
+  count: 1
+- type: CT
+  count: 3
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: MeteringPanel
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - panel_id
+  - voltage_kV
+  - equipment_type
+  - mof_type
+  - ct_count
+  - ct_ratio_sonnet
+  - ct_ratio_gemini
+  - pt_ratio_gemini
+  - has_disconnect
+  - has_demand_controller
+  - demand_controller_type
+  - demand_controller_name
+  - metering_indicators_gemini
+  - communication
+  - communication_destination
+  - la_count_gemini
+  - la_voltage_kV_gemini
+  - la_discharge_current_kA_gemini
+  - grounding_mark
+  similar_equipment: []
+  function_candidates:
+  - METERING
+  - DEMAND_CONTROL
+  - COMMUNICATION

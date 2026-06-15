@@ -1,0 +1,742 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: FIRE_DAMPER_CONTROL_PLAN
+  drawing_genre: fire_damper_control
+  title_block:
+    drawing_number: M92-103
+    title: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+    revision: null
+  visible_tags:
+  - tag: SMFD
+    type: fire_damper
+    source: both
+  - tag: M.F.C
+    type: control_device_or_panel_label
+    source: image
+  - tag: F.C
+    type: control_device_or_panel_label
+    source: image
+  - tag: PS
+    type: room_or_space_label
+    source: text
+  - tag: Software Lab
+    type: room_name
+    source: both
+  - tag: 중회의실
+    type: room_name
+    source: both
+  - tag: 사무실
+    type: room_name
+    source: both
+  - tag: 휴게공간
+    type: room_name
+    source: both
+  - tag: 복도
+    type: room_name
+    source: both
+  - tag: 연결통로
+    type: room_name
+    source: both
+  - tag: 냉장고
+    type: room_name_or_fixture_label
+    source: text
+  - tag: 세단기
+    type: room_name_or_fixture_label
+    source: text
+  - tag: SINK
+    type: fixture_label
+    source: text
+  - tag: GATE WAY
+    type: room_or_zone_label
+    source: text
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 12
+  next_step_hints:
+  - '도면번호 접두사 M과 제목/내용이 일치하지 않음: 제목은 방화댐퍼 제어 평면도이나 접두사는 M.'
+  - 우측 하단에 전선 및 전선관 표와 회로/선종 표기가 보임.
+  - 범례 전용 페이지는 아니며, 우측 하단에 작은 표 형식의 기호/선종 정보가 일부 존재함.
+  confidence: 0.93
+  note: 표제란 도면번호 M92-103(접두사 M)과 시각적 내용(스마트 방화댐퍼 제어 평면도)이 충돌하므로 discipline은 FIRE_PROTECTION으로
+    두되, 접두사 우선 규칙과 충돌 사실을 함께 기록함.
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_fire_damper_control/supplement_p4_05.yaml
+    P-10: discipline/mechanical/genre_schedule/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 페이지는 방화댐퍼 제어 평면도로 보이며 fire_protection의 fire_damper_control 장르에 해당하지만,
+    카탈로그에는 해당 장르가 없어 가장 가까운 fire_protection 보조프롬프트(genre_electrical_alarm)로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+    position: center
+    labels_near:
+    - Software Lab
+    - 중회의실
+    - 사무실
+    - 휴게공간
+    - 복도
+    - 연결통로
+    - M.F.C
+    - F.C
+    - SMFD
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 전선 및 전선관
+    position: bottom-right
+    labels_near:
+    - K
+    - E
+    - Y
+    - CV
+    - C3052
+    - UTP
+    - 2.5 x 3C
+    - 0.6 x 4P
+    - A
+    - B
+    - C
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: dashed
+    annotation: 도면 내 회로 표기(A, B, C)와 범례 표 연결
+  notable_shapes:
+  - shape: circle
+    label: A
+    note: 도면 내 회로 구분 기호
+  - shape: circle
+    label: B
+    note: 도면 내 회로 구분 기호
+  - shape: circle
+    label: C
+    note: 도면 내 회로 구분 기호
+  - shape: rectangle
+    label: M.F.C
+    note: 제어반 위치 표시
+  - shape: rectangle
+    label: F.C
+    note: 제어반 위치 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.95
+  note: 우측 하단에 '전선 및 전선관' 표와 회로 기호(A, B, C)에 대한 설명이 포함된 범례 섹션이 존재함.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: fire_damper_control
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 접두사 M(MECHANICAL)과 제목(방화댐퍼 제어)이 일치하며, 카탈로그에 mechanical/genre_fire_damper_control
+    장르가 존재하므로 이를 적용함. 기존 FIRE_PROTECTION 분류를 MECHANICAL로 수정함.
+classification: FIRE_DAMPER_CONTROL_PLAN
+discipline: MECHANICAL
+key_elements_from_text:
+- 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+- SMFD
+- M.F.C
+- F.C
+- 전선 및 전선관
+- A / B / C 회로 표기
+- Software Lab
+- 중회의실
+- 사무실
+- 휴게공간
+- 복도
+- 연결통로
+- LS Electric
+- R-Center 구축
+- R-Center
+title_block:
+  drawing_number: M92-103
+  title: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 표제란의 도면번호 M92-103과 제목 '지상2층 스마트 방화댐퍼(SMFD) 제어 평면도'가 보이며, 우측 하단에 '전선 및 전선관' 표와
+  A/B/C 회로 표기가 함께 보인다. 기존 분석의 MECHANICAL 분류와 일치하며, 페이지 3 범례에서 FD=방화댐퍼, M.D=전동풍량조절댐퍼,
+  PS=압력스위치 등의 약어가 확인된다. 다만 이 페이지는 범례 전용 페이지가 아니므로 classification은 제어 평면도로 유지한다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 4
+    - type: circle_A (회로 구분 기호)
+      count: 2
+    inferred_name: 소프트웨어 랩 구역 (Software Lab)
+    position: center-right
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 2
+    inferred_name: 중회의실 구역
+    position: center-right
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 6
+    - type: circle_A (회로 구분 기호)
+      count: 1
+    inferred_name: 사무실 구역
+    position: right
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 2
+    inferred_name: 휴게공간 구역
+    position: center-right
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - 복도
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 2
+    inferred_name: 복도 구역
+    position: center
+  - panel_id: BLK-M06
+    shape: rectangle
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 연결통로 구역
+    position: bottom-center
+  - panel_id: BLK-M07
+    shape: rectangle
+    labels_inside:
+    - 실용시스템 전트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 2
+    - type: M.F.C (제어반)
+      count: 1
+    inferred_name: 실용시스템 컨트롤실
+    position: center
+  - panel_id: BLK-M08
+    shape: rectangle
+    labels_inside:
+    - M.F.C
+    - 220x250(EA)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 제어반 심볼
+      count: 1
+    inferred_name: M.F.C (스마트 방화댐퍼 제어반)
+    position: center
+  - panel_id: BLK-M09
+    shape: rectangle
+    labels_inside:
+    - F.C
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 제어반 심볼
+      count: 1
+    inferred_name: F.C (방화댐퍼 제어기)
+    position: center-right
+  - panel_id: BLK-M10
+    shape: rectangle
+    labels_inside:
+    - PS
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: PS (파이프 샤프트 또는 압력스위치 구역)
+    position: center-right
+  - panel_id: BLK-M11
+    shape: rectangle
+    labels_inside:
+    - 전선 및 전선관
+    - K
+    - E
+    - Y
+    - CV
+    - C3052
+    - UTP
+    - 2.5 x 3C
+    - 0.6 x 4P
+    - A
+    - B
+    - C
+    - V-P
+    labels_above:
+    - 전선 및 전선관
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 전선 및 전선관 범례 표
+    position: bottom-right
+  - panel_id: BLK-M12
+    shape: rectangle
+    labels_inside:
+    - 냉장고
+    - 세단기
+    - SINK
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 탕비실/부속실 (냉장고, 세단기, 싱크대 포함)
+    position: center-right
+  - panel_id: BLK-M13
+    shape: rectangle
+    labels_inside:
+    - GATE WAY
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 게이트웨이 구역
+    position: center-right
+  - panel_id: BLK-M14
+    shape: dashed_box
+    labels_inside:
+    - 550x150(2a)
+    - 550x150(2)
+    - 660x400(PL)
+    - 660x400(PL)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 4
+    - type: circle_A (회로 구분 기호)
+      count: 2
+    inferred_name: 덕트 사이즈 표기 구역 (중앙 하부)
+    position: center-left
+  - panel_id: BLK-M15
+    shape: rectangle
+    labels_inside:
+    - 220x250(1a)
+    - 220x250(1)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SMFD (스마트 방화댐퍼)
+      count: 2
+    - type: circle_A (회로 구분 기호)
+      count: 1
+    inferred_name: 덕트 사이즈 표기 구역 (상부 좌측)
+    position: top-left
+  connections:
+  - from: BLK-M08
+    to: BLK-M01
+    line_type: cable
+    line_style: solid
+    annotation: SMFD 제어 신호선 (A 회로)
+  - from: BLK-M08
+    to: BLK-M03
+    line_type: cable
+    line_style: solid
+    annotation: SMFD 제어 신호선 (A 회로)
+  - from: BLK-M08
+    to: BLK-M07
+    line_type: cable
+    line_style: solid
+    annotation: SMFD 제어 신호선
+  - from: BLK-M08
+    to: BLK-M14
+    line_type: cable
+    line_style: solid
+    annotation: SMFD 제어 신호선 (A 회로)
+  - from: BLK-M09
+    to: BLK-M03
+    line_type: cable
+    line_style: solid
+    annotation: F.C 제어 신호선
+  - from: BLK-M11
+    to: BLK-M01
+    line_type: signal
+    line_style: dashed
+    annotation: 회로 기호 A/B/C 범례 참조
+  - from: BLK-M14
+    to: BLK-M05
+    line_type: duct
+    line_style: solid
+    annotation: 550x150 덕트 연결
+  - from: BLK-M15
+    to: BLK-M01
+    line_type: duct
+    line_style: solid
+    annotation: 220x250 덕트 연결
+  groups:
+  - group_id: GRP-001
+    label: 지상 2층 주요 실 구획
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+    - BLK-M06
+    - BLK-M07
+    - BLK-M12
+    - BLK-M13
+  - group_id: GRP-002
+    label: SMFD 제어 계통 (M.F.C / F.C)
+    members:
+    - BLK-M08
+    - BLK-M09
+  - group_id: GRP-003
+    label: 전선 및 전선관 범례
+    members:
+    - BLK-M11
+  - group_id: GRP-004
+    label: 덕트 사이즈 표기 구역
+    members:
+    - BLK-M14
+    - BLK-M15
+  legend_references:
+  - text: K / CV / 2.5 x 3C
+    linked_to: BLK-M11
+  - text: E / C3052 / UTP / 0.6 x 4P
+    linked_to: BLK-M11
+  - text: Y / V-P
+    linked_to: BLK-M11
+  - text: A 회로 (원형 기호)
+    linked_to: BLK-M01
+  - text: B 회로 (원형 기호)
+    linked_to: BLK-M03
+  - text: C 회로 (원형 기호)
+    linked_to: BLK-M14
+  - text: SMFD (스마트 방화댐퍼)
+    linked_to: BLK-M01
+  - text: M.F.C (제어반)
+    linked_to: BLK-M08
+  - text: F.C (방화댐퍼 제어기)
+    linked_to: BLK-M09
+  - text: 220x250(EA) — 덕트 사이즈 표기
+    linked_to: BLK-M08
+  - text: 550x150 / 660x400 — 덕트 사이즈 표기
+    linked_to: BLK-M14
+  diagram_meta:
+    title: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+    drawing_number: M92-103
+    project: LS Electric R-Center 구축
+    client_firm: 가운건축 (GAUN Architects & Engineers)
+    scale: 1/400
+    date: '2024.05'
+    discipline: MECHANICAL
+    classification: FIRE_DAMPER_CONTROL_PLAN
+    fire_subsystem: null
+    layer_floor: 지상 2층
+    flow_direction: left-to-right
+    grid_columns:
+    - id: '1'
+      spacing_mm: 12000
+    - id: '2'
+      spacing_mm: 12000
+    - id: '3'
+      spacing_mm: 12000
+    - id: '4'
+      spacing_mm: 14000
+    - id: '5'
+      spacing_mm: 11000
+    - id: '6'
+      spacing_mm: 10000
+    - id: '7'
+      spacing_mm: null
+    grid_rows:
+    - id: A
+      spacing_mm: 13000
+    - id: B
+      spacing_mm: 17900
+    - id: C
+      spacing_mm: 13000
+    - id: D
+      spacing_mm: null
+    total_width_mm: 71000
+    total_height_mm: 43900
+    cable_legend:
+    - key: K
+      type: CV
+      spec: 2.5 x 3C
+      note: 전력 케이블
+    - key: E
+      type: C3052 / UTP
+      spec: 0.6 x 4P
+      note: 통신/신호 케이블
+    - key: Y
+      type: V-P
+      spec: null
+      note: 기타 전선
+    circuit_symbols:
+    - symbol: A (원형)
+      meaning: 회로 구분 기호 A
+    - symbol: B (원형)
+      meaning: 회로 구분 기호 B
+    - symbol: C (원형)
+      meaning: 회로 구분 기호 C
+    smfd_total_count_estimated: 20
+    control_panels:
+    - tag: M.F.C
+      full_name: 스마트 방화댐퍼 제어반 (Main Fire Control)
+      duct_size_annotation: 220x250(EA)
+      location: 실용시스템 컨트롤실 인근
+    - tag: F.C
+      full_name: 방화댐퍼 제어기 (Fire Controller)
+      location: 사무실 인근
+    notes:
+    - 도면번호 접두사 M은 MECHANICAL을 의미하며, 내용은 스마트 방화댐퍼(SMFD) 제어 평면도임.
+    - 우측 하단 전선 및 전선관 표는 K/E/Y 3계통으로 구분되며 각각 CV, UTP, V-P 전선 사양을 포함함.
+    - A/B/C 원형 기호는 회로 구분 기호로 각 SMFD 그룹의 제어 회로를 식별함.
+    - '덕트 사이즈 표기: 220x250, 550x150, 660x400 등이 평면도 내 각 위치에 표기됨.'
+    - 빗금(X) 처리된 대형 공간(좌측 상단/하단)은 SMFD 미설치 구역으로 추정됨.
+    - PS는 파이프 샤프트(Pipe Shaft) 또는 압력스위치(Pressure Switch) 구역으로 추정되며 범례와 교차 확인 필요.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-R01
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    equipment_symbols:
+    - type: SMFD
+      count: 4
+    - type: circuit_symbol_A
+      count: 2
+    inferred_name: Software Lab
+    position: top-right
+  - panel_id: BLK-R02
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    equipment_symbols:
+    - type: SMFD
+      count: 2
+    inferred_name: 중회의실 (Medium Conference Room)
+    position: center-right
+  - panel_id: BLK-R03
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    equipment_symbols:
+    - type: SMFD
+      count: 6
+    - type: circuit_symbol_B
+      count: 1
+    inferred_name: 사무실 (Office)
+    position: center-right
+  - panel_id: BLK-R04
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    equipment_symbols:
+    - type: SMFD
+      count: 2
+    inferred_name: 휴게공간 (Rest Area)
+    position: center-right
+  - panel_id: BLK-R05
+    shape: rectangle
+    labels_inside:
+    - 복도
+    equipment_symbols:
+    - type: SMFD
+      count: 2
+    - type: circuit_symbol_A
+      count: 1
+    inferred_name: 복도 (Corridor)
+    position: center
+  - panel_id: BLK-R06
+    shape: rectangle
+    labels_inside:
+    - 연결통로
+    inferred_name: 연결통로 (Connecting Passage)
+    position: bottom-center
+  - panel_id: BLK-R07
+    shape: rectangle
+    labels_inside:
+    - 실용시스템 컨트롤실
+    equipment_symbols:
+    - type: M.F.C
+      count: 1
+    inferred_name: 실용시스템 컨트롤실 (Practical System Control Room)
+    position: center
+  - panel_id: BLK-R08
+    shape: rectangle
+    labels_inside:
+    - 냉장고
+    - 세단기
+    - SINK
+    inferred_name: 탕비실/부속실 (Pantry/Annex)
+    position: center-right
+  - panel_id: BLK-R09
+    shape: rectangle
+    labels_inside:
+    - GATE WAY
+    inferred_name: GATE WAY Area
+    position: center-right
+  - panel_id: BLK-R10
+    shape: rectangle
+    labels_inside:
+    - PS
+    equipment_symbols:
+    - type: M.F.C
+      count: 1
+    inferred_name: PS (Pipe Shaft) Area
+    position: center-left
+  - panel_id: BLK-R11
+    shape: rectangle
+    labels_inside:
+    - EPS/TPS
+    inferred_name: EPS/TPS Area
+    position: center
+  - panel_id: BLK-Z01
+    shape: rectangle
+    labels_inside:
+    - 220x250(1a)
+    - 220x250(1)
+    - 550x150(2a)
+    - 550x150(2)
+    - 660x400(PL)
+    - 350x350(EA)
+    equipment_symbols:
+    - type: SMFD
+      count: 8
+    - type: circuit_symbol_A
+      count: 3
+    inferred_name: Left Wing Zone (Open Area)
+    position: left
+  - panel_id: BLK-CP01
+    shape: rectangle
+    labels_inside:
+    - M.F.C
+    inferred_name: M.F.C (Main Fire Control Panel 1)
+    position: center
+    location_note: Inside BLK-R07
+  - panel_id: BLK-CP02
+    shape: rectangle
+    labels_inside:
+    - M.F.C
+    inferred_name: M.F.C (Main Fire Control Panel 2)
+    position: center-left
+    location_note: Near BLK-R10
+  - panel_id: BLK-CP03
+    shape: rectangle
+    labels_inside:
+    - F.C
+    inferred_name: F.C (Fire Controller)
+    position: center-right
+    location_note: Near BLK-R03
+  - panel_id: BLK-LEG01
+    shape: rectangle
+    labels_inside:
+    - 전선 및 전선관
+    - K
+    - E
+    - Y
+    - CV
+    - C3052
+    - UTP
+    - 2.5 x 3C
+    - 0.6 x 4P
+    - A
+    - B
+    - C
+    - (20C)
+    - (16C)
+    inferred_name: 전선 및 전선관 범례 (Wire & Conduit Legend)
+    position: bottom-right
+  connections:
+  - from: BLK-CP01
+    to: BLK-R05
+    line_type: signal
+    line_style: solid
+    annotation: Circuit A control loop
+  - from: BLK-CP01
+    to: BLK-R01
+    line_type: signal
+    line_style: solid
+    annotation: Circuit A control loop
+  - from: BLK-CP02
+    to: BLK-Z01
+    line_type: signal
+    line_style: solid
+    annotation: Circuit A control loop
+  - from: BLK-CP03
+    to: BLK-R03
+    line_type: signal
+    line_style: solid
+    annotation: Circuit B control loop
+  groups:
+  - group_id: GRP-CIRA
+    label: Circuit A (SMFD Control)
+    members:
+    - BLK-R01
+    - BLK-R05
+    - BLK-Z01
+  - group_id: GRP-CIRB
+    label: Circuit B (SMFD Control)
+    members:
+    - BLK-R03
+  - group_id: GRP-LEGEND
+    label: Legend Entries
+    members:
+    - BLK-LEG01
+  legend_references:
+  - text: SMFD
+    linked_to: BLK-R01
+  - text: M.F.C
+    linked_to: BLK-CP01
+  - text: F.C
+    linked_to: BLK-CP03
+  - text: A (Circuit Symbol)
+    linked_to: BLK-R01
+  - text: B (Circuit Symbol)
+    linked_to: BLK-R03
+  - text: K (CV 2.5x3C)
+    linked_to: BLK-LEG01
+  - text: E (C3052 UTP 0.6x4P)
+    linked_to: BLK-LEG01
+  - text: Y
+    linked_to: BLK-LEG01
+  diagram_meta:
+    title: 지상2층 스마트 방화댐퍼(SMFD) 제어 평면도
+    drawing_number: M92-103
+    project: LS Electric R-Center 구축
+    client_firm: 가운건축 (GAUN Architects & Engineers)
+    scale: 1/400
+    date: '2024.05'
+    discipline: MECHANICAL
+    classification: FIRE_DAMPER_CONTROL_PLAN
+    flow_direction: UNKNOWN
+    notes:
+    - This drawing shows the control wiring for Smart Fire Dampers (SMFD).
+    - Control circuits are designated by A, B, and C in circles.
+    - M.F.C (Main Fire Control) and F.C (Fire Controller) panels are the control sources.
+    - Wiring is shown as single lines representing control loops.
+    - Duct sizes are annotated near the dampers (e.g., 550x150).

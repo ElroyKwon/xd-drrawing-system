@@ -1,0 +1,150 @@
+placement:
+  tag: RESTROOM-2
+  name: 화장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: RESTROOM-2
+    class_hint: Space
+    alternative_class_hints:
+    - Restroom
+    - SanitarySpace
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 화장실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 문자열
+      - raw_text: 'labels_inside: 화장실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부에 기입된 라벨
+      - raw_text: 'inferred_name: 화장실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추론명
+      - raw_text: 'position: bottom-center'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'shape: rectangle'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'panel_id: RESTROOM-2'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasPanelId
+          suggested_datatype: xsd:string
+          rationale: 패널/영역 식별자
+      - raw_text: 'source_models: visual_semantics_gemini'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasSourceModel
+          suggested_datatype: xsd:string
+          rationale: 생성/추출에 사용된 모델 출처
+      - raw_text: 'suggested_parent_class: Space'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'function_candidates: Restroom, SanitarySpace'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 라벨
+      - raw_text: 'type: space'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 표기
+      - raw_text: 'function_category: SPACE'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+  provenance:
+    tag:
+      source_pages:
+      - 10
+      method: direct
+    name:
+      source_pages:
+      - 10
+      method: direct
+    discipline:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      method: inferred_from_type_and_hints
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 10
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 10
+      method: preserved_all_unclassified_fields
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 10
+      method: inferred_from_single_space_entity
+    plan_reference.guidance_applied:
+      source_pages:
+      - 10
+      method: plan_reviewed
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 단일 공간 엔티티이며 suggested_parent_class는 Space이나, supplement의 standard_sub_kinds가
+      제공되지 않아 discipline_context의 정식 하위 분류로 승격할 수 없음.
+    recommended_handling: 0-9d에서 공간/구역 계열 클래스 체계가 확정되면 Restroom 또는 SanitarySpace 후보로
+      재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 축으로 관찰되는 엔티티로서 공간 엔티티 후보로 배치
+    - documented position/shape/raw label/inferred name/source model을 보존
+    deviations:
+    - supplement가 정의한 standard_sub_kinds가 없어 sub_kind 키를 생성하지 않고 free_notes로만 보존
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:04.382079'
+  confidence: 0.86

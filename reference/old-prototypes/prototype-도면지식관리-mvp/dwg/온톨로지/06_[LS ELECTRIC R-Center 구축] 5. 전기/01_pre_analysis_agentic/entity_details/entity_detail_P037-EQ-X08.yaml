@@ -1,0 +1,58 @@
+entity_detail:
+  tag: P037-EQ-X08
+  type: document_metadata
+  name: 회전구체법
+  specs:
+    회전구체반경:
+      value: 60
+      unit: m
+      source: page_037_context.yaml
+      confidence: 0.95
+    보호등급:
+      value: IV등급
+      source: page_037_context.yaml
+      confidence: 0.95
+  drawing_texts:
+  - source: page_037_context.yaml
+    page_number: 37
+    text: 회전구체반경 60 m
+  - source: page_037_context.yaml
+    page_number: 37
+    text: IV등급
+  - source: page_037_context.yaml
+    page_number: 37
+    text: 피뢰설비 개요 및 특기사항
+  - source: page_037_context.yaml
+    page_number: 37
+    text: 피뢰설비 범례
+  requirements:
+  - text: 보호등급 IV등급
+    source: page_037_context.yaml
+    type: design_condition
+  - text: 회전구체반경 60 m
+    source: page_037_context.yaml
+    type: design_parameter
+  connection_specs: []
+  ontology_hints:
+    observed_relations: []
+    observed_attributes:
+    - 회전구체반경
+    - 보호등급
+    similar_equipment: []
+    suggested_parent_class: document_metadata
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 확인된 텍스트만 수집함.
+  - 대상 태그 P037-EQ-X08은 search_entity_by_tag 결과에서 직접 확인되지 않음.
+  - page_037_context.yaml 및 legend_data.yaml 확인 결과, 회전구체반경 60 m와 IV등급은 피뢰설비의 설계 파라미터/특기사항으로
+    보이며 독립 설비 엔티티로 성립하지 않음.
+  - connection_specs와 observed_relations가 없어 관계 엔티티로도 분류하지 않음.
+  - 따라서 본 항목은 도면 메타/설계조건 성격의 document_metadata로 강등함.
+  provenance:
+    tools_used:
+    - list_available_pages
+    - search_entity_by_tag
+    - read_page_context
+    - read_legend_data
+    unresolved: []
+tag: P037-EQ-X08

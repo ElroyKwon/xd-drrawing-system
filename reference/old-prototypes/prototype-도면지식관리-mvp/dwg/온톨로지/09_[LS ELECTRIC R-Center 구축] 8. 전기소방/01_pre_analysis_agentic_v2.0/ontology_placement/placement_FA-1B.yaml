@@ -1,0 +1,307 @@
+placement:
+  tag: FA-1B
+  name: 자동화재탐지 발신기/중계기 세트 FA-1B
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: FA-1B
+    class_hint: FireAlarmSystemComponent
+    alternative_class_hints:
+    - FireAlarmSignalRelay
+    - ManualAlarmInitiation
+    - SignalDistribution
+    - Control
+    related_assertions:
+    - type: feeds
+      target_hint: RISER-MAIN
+      note: 1층 FA-1B 분기
+    - type: feeds
+      target_hint: FACP-MAIN
+      note: ①
+    - type: cable
+      target_hint: RISER-MAIN
+      note: 1층 FA-1B 분기
+    - type: connects_to
+      target_hint: FD-1A
+      note: 소방간선 배선 (Sonnet Star Topology)
+    - type: connects_to
+      target_hint: FA-1C
+      note: 소방간선 배선 (Gemini Loop Topology)
+    - type: connects_to
+      target_hint: FA-1A
+      note: 소방간선 배선 (Gemini Loop Topology)
+    - type: cable
+      target_hint: FD-1A
+      note: 소방간선 배선
+    - type: connects_to
+      target_hint: ZONE-EMC챔버실
+      note: 감지기 배관배선
+    - type: connects_to
+      target_hint: ZONE-컨트롤실
+      note: 감지기 배관배선 / 16C (HFIX 4-1.5㎟)
+    - type: connects_to
+      target_hint: ZONE-CORRIDOR
+      note: 16C (HFIX 2-1.5㎟)
+    - type: cable
+      target_hint: ZONE-EMC챔버실
+      note: 감지기 배관배선
+    - type: cable
+      target_hint: ZONE-컨트롤실
+      note: 감지기 배관배선
+    applicable_axioms:
+    - AX017
+    - AX026
+    - AX028
+    applicable_constraints:
+    - CN003
+    - CN004
+    - CN005
+    - CN007
+    confirmed_class: dks:FireAlarmControlOrRelay
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 자동화재탐지 발신기/중계기 세트 FA-1B
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDisplayName
+          suggested_datatype: xsd:string
+          rationale: entity_detail.name 원문 보존
+      - raw_text: 소방 중계기/발신기 FA-1B
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: specs.inferred_name 원문 보존
+      - raw_text: 수동발신기 SET (소화전 상단형)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols.type 원문 보존
+      - raw_text: 전원반(중계기)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols.type 원문 보존
+      - raw_text: 1층
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFloor
+          suggested_datatype: xsd:string
+          rationale: specs.floor 원문 보존
+      - raw_text: top-right (컨트롤실 인근)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: specs.position 원문 보존
+      - raw_text: FA-1B
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: labels_inside/raw_labels 원문 보존
+      - raw_text: FA-1B
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: labels_inside/raw_labels 원문 보존
+      - raw_text: FA-1B
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: labels_inside/raw_labels 원문 보존
+      - raw_text: circle
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: specs.shape 원문 보존
+      - raw_text: fire_alarm_panel_or_relay
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolKind
+          suggested_datatype: xsd:string
+          rationale: specs.equipment_symbols.type 원문 보존
+      - raw_text: feeds from RISER-MAIN / FACP-MAIN
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: feeds
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실 원형 보존
+      - raw_text: connects_to FD-1A / FA-1C / FA-1A / ZONE-EMC챔버실 / ZONE-컨트롤실 / ZONE-CORRIDOR
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실 원형 보존
+      - raw_text: cable to RISER-MAIN / FD-1A / ZONE-EMC챔버실 / ZONE-컨트롤실
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cable
+          suggested_datatype: owl:ObjectProperty
+          rationale: visual_semantics 관계 원형 보존
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.function_category
+    specs.inferred_name:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.labels_inside:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.shape:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.floor:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.labels_above:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.labels_below:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.position:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    specs.equipment_symbols:
+      source_pages:
+      - 5
+      method: entity_detail.specs
+    relations:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.relations
+    equipment_symbols:
+      source_pages:
+      - 5
+      method: entity_detail.equipment_symbols
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.ontology_hints
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.ontology_hints
+    source_attribution:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.source_attribution
+    collection_sources:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.collection_sources
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 5
+      - 7
+      - 9
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 5
+    reason: 값은 존재하나 의미 있는 라벨이 없음
+    preservation_note: 빈 배열 상태 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 5
+    reason: 값은 존재하나 의미 있는 라벨이 없음
+    preservation_note: 빈 배열 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 태그와 관계, 심벌, 위치, 층 정보가 함께 존재하여 독립 설비 개체로 보존 가능
+    recommended_handling: NamedIndividual로 유지하고 0-9d에서 관계 property 정식화
+  merge_info:
+    is_merge_candidate: true
+    other_tag: FA-1A
+    reason: ontology_hints.similar_equipment에 포함되고, FA-1A/FA-1B/FA-1C가 동일 계열 표기 패턴을
+      공유함
+  plan_reference:
+    guidance_applied:
+    - FireAlarmSystemComponent 계열로의 배치
+    - feeds/connects_to/cable 관계 원형 보존
+    - 공간(ZONE-*) 및 간선(RISER-MAIN, FACP-MAIN, FD-1A) 연결 패턴 반영
+    - similar_equipment 기반 merge 후보 검토
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:58:34.722010'
+  confidence: 0.95

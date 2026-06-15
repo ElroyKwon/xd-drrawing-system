@@ -1,0 +1,173 @@
+placement:
+  tag: S06.31-2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: S06.31-2
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DocumentEntity
+    related_assertions:
+    - type: connects_to
+      target_hint: S06.31-5
+      note: WC2 기둥 상부 접합 연관 (DETAIL-02 → DETAIL-05); 상부 접합은 WC1 접합 참조
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:S06.31-5
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: other
+      target_hint: S06.31-5
+      note: WC2 기둥 상부 접합 연관 (DETAIL-02 → DETAIL-05); visual_semantics 원문
+      confirmed_property: dks:other
+      confirmed_target: dks:S06.31-5
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: WC2 기둥 상부 접합 연관 (DETAIL-02 → DETAIL-05), *상부 접합은 WC1 접합 참조
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 상세 접합 설명과 참조 문구가 포함된 관계 주석
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: WC2 기둥 상부 접합 연관; 상부 접합은 WC1 접합 참조
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: cross_validated 관계의 설명 문구
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: dashed
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: lineStyle
+          suggested_datatype: xsd:string
+          rationale: 관계 표현의 선 스타일 속성 후보
+      - raw_text: DETAIL-02 → DETAIL-05
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: connectsToDetail
+          suggested_datatype: xsd:string
+          rationale: 상세 간 연결 방향을 나타내는 표기
+      - raw_text: WC1 접합 참조
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: xsd:string
+          rationale: 다른 접합을 참조하는 문구
+      - raw_text: visual_semantics
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출의 출처 메타정보
+      - raw_text: cross_validated
+        source_page: 64
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출의 검증 출처 메타정보
+  provenance:
+    tag:
+      source_pages:
+      - 64
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 64
+      method: classification_by_relation_and_individuality
+    ontology_core.iri_hint:
+      source_pages:
+      - 64
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 64
+      method: detail_entity_hint_from_plan
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 64
+      method: plan_based_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 64
+      method: relations_scan
+    discipline_context.free_notes:
+      source_pages:
+      - 64
+      method: full_relation_text_preservation
+    ambiguous:
+      source_pages:
+      - 64
+      method: relation_type_mixed_other_and_connects_to
+    plan_reference.guidance_applied:
+      source_pages:
+      - 64
+      method: applied_0_9b_focus_detail_connections
+  unresolved:
+  - field_candidate: relations[0].relation_type
+    raw_text: other
+    source_page: 64
+    reason: 정규화된 관계 의미를 단정할 수 없음
+    preservation_note: partner S06.31-5와 함께 원문 보존
+  - field_candidate: relations[1].relation
+    raw_text: other
+    source_page: 64
+    reason: visual_semantics 원문의 관계 의미가 불명확함
+    preservation_note: annotation과 note를 함께 보존
+  - field_candidate: relations[1].annotation
+    raw_text: WC2 기둥 상부 접합 연관 (DETAIL-02 → DETAIL-05), *상부 접합은 WC1 접합 참조
+    source_page: 64
+    reason: 관계 설명이 길고 복합적이라 단일 속성으로 확정 불가
+    preservation_note: 상세 접합 설명 및 참조 문구로 재사용 가능
+  - field_candidate: relations[2].line_style
+    raw_text: dashed
+    source_page: 64
+    reason: 도면 표현 속성이나 표준 속성명 확정 불가
+    preservation_note: 선 스타일 메타로 보존
+  - field_candidate: relations[2].note
+    raw_text: WC2 기둥 상부 접합 연관; 상부 접합은 WC1 접합 참조
+    source_page: 64
+    reason: 관계 주석이지만 정규화된 관계명으로 확정 불가
+    preservation_note: 참조 문구 포함
+  - field_candidate: relations[0].direction
+    raw_text: outgoing
+    source_page: 64
+    reason: 관계 방향 메타이나 OWL 정규 속성으로 승격 전
+    preservation_note: 방향성 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: S06.31-2는 상세 엔티티로 보이지만 relation_type이 other와 connects_to가 혼재하고, visual_semantics와
+      cross_validated가 동시에 존재함
+    recommended_handling: 0-9d에서 connects_to 중심으로 정규화하되 other 원문은 보존하고, 상세 간 연결 관계로
+      우선 처리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - detail/beam -> connects_to -> detail/beam
+    - other relation from visual semantics awaiting normalization
+    deviations:
+    - plan상 detail_entities는 S06.31-*로 묶이지만, 본 항목은 단일 상세 Individual로 보존하고 관계 원문을 우선
+      유지함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:24.007873'
+  confidence: 0.86

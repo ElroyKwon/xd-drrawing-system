@@ -1,0 +1,47 @@
+tag: UNKNOWN-STRUCTURE-CONTACT-001
+name: 구조물 접속
+type: entity
+discipline: ELECTRICAL
+function_category: GROUNDING_CONNECTION
+source_pages:
+- 38
+specs:
+  legend_symbol: ●
+  note: 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+  connection_type: 구조물 접속
+  symbol: ●
+  applicable_standards:
+  - 한국전기설비규정(KEC) 150 피뢰시스템
+  - KS C IEC 62305
+relations:
+- from: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  to: UNKNOWN-STRUCTURE-CONTACT-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: solid
+  note: 수평도체에서 구조물 접속으로 연결
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: center-left
+confidence: 0.95
+equipment_symbols:
+- type: structure_contact_symbol
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingConnection
+  observed_attributes:
+  - legend_symbol
+  - note
+  - connection_type
+  - symbol
+  - applicable_standards
+  similar_equipment: []
+  function_candidates:
+  - Bonding
+  - LightningProtectionConnection

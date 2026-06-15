@@ -1,0 +1,70 @@
+tag: PIPE-CONNECT-ANNOTATION
+name: 연결송수구(쌍구형) 및 PIT 소화배관 연결 주석
+type: CONNECTION_NOTE
+discipline: FIRE_PROTECTION
+function_category: CONNECTION_NOTE
+source_pages:
+- 12
+specs:
+  inferred_name: 연결송수구(쌍구형) 및 PIT 소화배관 연결 주석
+  shape: other
+  labels_inside:
+  - 연결송수구(쌍구형)
+  - 100a × 65a × 65a
+  - (반드시 시 면상 방향)
+  - ○ PIT 소화 배관 평면도에 연결
+  equipment_symbols:
+  - type: 쌍구형연결송수구
+    count: 1
+  position: bottom-center
+  nominal_diameter_A:
+  - 100
+  - 65
+  - 65
+  raw_labels:
+  - 연결송수구(쌍구형)
+  - 100a × 65a × 65a
+  - (반드시 시 면상 방향)
+  - ○ PIT 소화 배관 평면도에 연결
+relations:
+- from: PIPE-CONNECT-ANNOTATION
+  to: RISER-UP-100a
+  relation: connects_to
+  source_page: 12
+  origin: cross_validated
+  line_style: dashed
+  note: PIT 소화 배관 평면도에 연결 (100a × 65a × 65a)
+- from: PIPE-CONNECT-ANNOTATION
+  to: RISER-UP-100a
+  relation: pipe
+  source_page: 12
+  origin: visual_semantics
+  annotation: PIT 소화 배관 평면도에 연결 (100a × 65a × 65a)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-center
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+equipment_symbols:
+- type: 쌍구형연결송수구
+  count: 1
+ontology_hints:
+  suggested_parent_class: FireProtectionEquipment
+  observed_attributes:
+  - inferred_name
+  - shape
+  - labels_inside
+  - equipment_symbols
+  - position
+  - nominal_diameter_A
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - FireDepartmentConnection
+  - WaterSupplyInterface
+  - PipingAnnotation

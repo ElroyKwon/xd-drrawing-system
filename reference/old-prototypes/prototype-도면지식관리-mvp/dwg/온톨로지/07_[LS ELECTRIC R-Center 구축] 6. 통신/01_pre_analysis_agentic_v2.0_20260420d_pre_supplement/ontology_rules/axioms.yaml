@@ -1,0 +1,692 @@
+axioms:
+- id: AX001
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationSpace
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. AD-WC-1, BROADCAST-ROOM,
+    SPACE-COMM, ZONE-IDF 등 다수 태그가 CommunicationSpace로 분류되고 공간/실/구역 패턴을 보인다.
+  evidence_tags:
+  - AD-WC-1
+  - BROADCAST-ROOM
+  - SPACE-COMM
+  - ZONE-IDF
+  confidence: 0.94
+- id: AX002
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationRoom
+    super: dks:CommunicationSpace
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. COMM-ROOM-1F, ROOM-COMM-1F가
+    CommunicationRoom으로 확인되며 CommunicationSpace의 구체형으로 반복 관찰된다.
+  evidence_tags:
+  - COMM-ROOM-1F
+  - ROOM-COMM-1F
+  confidence: 0.93
+- id: AX003
+  type: SubClassOf
+  body:
+    sub: dks:TelecommunicationsRoom
+    super: dks:CommunicationRoom
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. JEONSAN-ROOM이 TelecommunicationsRoom으로
+    확인되어 CommunicationRoom의 특수화로 관찰된다.
+  evidence_tags:
+  - JEONSAN-ROOM
+  confidence: 0.88
+- id: AX004
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationZone
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. FLOOR-1F, OFFICE-AREA, ZONE-USER,
+    ROOM-2F-ZONES 등 층/구역 단위 태그가 CommunicationZone으로 반복 확인된다.
+  evidence_tags:
+  - FLOOR-1F
+  - OFFICE-AREA
+  - ZONE-USER
+  - ROOM-2F-ZONES
+  confidence: 0.94
+- id: AX005
+  type: SubClassOf
+  body:
+    sub: dks:BroadcastZone
+    super: dks:CommunicationZone
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. FLOOR-ROOF가 BroadcastZone으로
+    확인되어 방송용 구역이 CommunicationZone의 특수형으로 관찰된다.
+  evidence_tags:
+  - FLOOR-ROOF
+  confidence: 0.83
+- id: AX006
+  type: SubClassOf
+  body:
+    sub: dks:SupportArea
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SUPPORT-AREA-LEFT가 SupportArea로
+    확인되어 공간 계열 하위로 관찰된다.
+  evidence_tags:
+  - SUPPORT-AREA-LEFT
+  confidence: 0.86
+- id: AX007
+  type: SubClassOf
+  body:
+    sub: dks:ReservedSpace
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. RESERVE, RESERVED-AREA가 ReservedSpace로
+    반복 확인된다.
+  evidence_tags:
+  - RESERVE
+  - RESERVED-AREA
+  confidence: 0.92
+- id: AX008
+  type: SubClassOf
+  body:
+    sub: dks:Shaft
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SHAFT-EPS, SHAFT-PS가 Shaft로
+    반복 확인된다.
+  evidence_tags:
+  - SHAFT-EPS
+  - SHAFT-PS
+  confidence: 0.9
+- id: AX009
+  type: SubClassOf
+  body:
+    sub: dks:ElectricalSpace
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SPACE-ELEC가 ElectricalSpace로
+    직접 관찰된다.
+  evidence_tags:
+  - SPACE-ELEC
+  confidence: 0.87
+- id: AX010
+  type: SubClassOf
+  body:
+    sub: dks:FireProtectionArea
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SPACE-중층소방공간이 FireProtectionArea로
+    직접 관찰된다.
+  evidence_tags:
+  - SPACE-중층소방공간
+  confidence: 0.86
+- id: AX011
+  type: SubClassOf
+  body:
+    sub: dks:Laboratory
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. DRIVE-DEV-LAB가 Laboratory로
+    직접 관찰된다.
+  evidence_tags:
+  - DRIVE-DEV-LAB
+  confidence: 0.9
+- id: AX012
+  type: SubClassOf
+  body:
+    sub: dks:MeetingRoom
+    super: dks:SpatialEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. MEETING-ROOM-MAIN이 MeetingRoom으로
+    직접 관찰된다.
+  evidence_tags:
+  - MEETING-ROOM-MAIN
+  confidence: 0.9
+- id: AX013
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationRack
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. HUB-RACK-2F가 CommunicationRack으로
+    확인되고 HUB-RACK 계열이 장비로 반복 관찰된다.
+  evidence_tags:
+  - HUB-RACK-2F
+  - HUB-RACK-1
+  - HUB-RACK-2
+  confidence: 0.94
+- id: AX014
+  type: SubClassOf
+  body:
+    sub: dks:FiberDistributionFrame
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. BB-FDF-DATA, R1-FDF-IN, R1-FDF-OUT-1/2,
+    R2-FDF-IN/OUT가 반복적으로 FiberDistributionFrame으로 확인된다.
+  evidence_tags:
+  - BB-FDF-DATA
+  - R1-FDF-IN
+  - R1-FDF-OUT-1
+  - R2-FDF-IN
+  - R2-FDF-OUT
+  confidence: 0.97
+- id: AX015
+  type: SubClassOf
+  body:
+    sub: dks:ControlPanel
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. CCTV-CTL-01이 ControlPanel로
+    직접 관찰된다.
+  evidence_tags:
+  - CCTV-CTL-01
+  confidence: 0.9
+- id: AX016
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationOutlet
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. HOR-UNIT-06, SYSTEM_BOX(OA)_2PORT가
+    CommunicationOutlet으로 직접 관찰된다.
+  evidence_tags:
+  - HOR-UNIT-06
+  - SYSTEM_BOX(OA)_2PORT
+  confidence: 0.9
+- id: AX017
+  type: SubClassOf
+  body:
+    sub: dks:SpeakerTerminalBox
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. STB-S1이 SpeakerTerminalBox로
+    직접 관찰된다.
+  evidence_tags:
+  - STB-S1
+  confidence: 0.92
+- id: AX018
+  type: SubClassOf
+  body:
+    sub: dks:TerminalBox
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. STB-S2가 TerminalBox로 직접 관찰된다.
+  evidence_tags:
+  - STB-S2
+  confidence: 0.84
+- id: AX019
+  type: SubClassOf
+  body:
+    sub: dks:WirelessAccessPoint
+    super: dks:CommunicationEquipment
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. USER-AP-02가 WirelessAccessPoint로
+    직접 관찰된다.
+  evidence_tags:
+  - USER-AP-02
+  confidence: 0.9
+- id: AX020
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationTerminal
+    super: dks:CommunicationDevice
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. USER-TEL-RIGHT가 CommunicationTerminal로
+    직접 관찰된다.
+  evidence_tags:
+  - USER-TEL-RIGHT
+  confidence: 0.88
+- id: AX021
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationCable
+    super: dks:Cable
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. 16C_(UTP...), 22C_(UTP...),
+    28C_(UTP...) 계열이 CommunicationCable로 반복 확인된다.
+  evidence_tags:
+  - 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+  - 22C_(UTP_0.5mm___4Px3,_CAT.5e)
+  - 28C_(UTP_0.5mm___4Px8,_CAT.5e)
+  confidence: 0.94
+- id: AX022
+  type: SubClassOf
+  body:
+    sub: dks:CableTray
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. CABLE-TRAY-MAIN, CABLE-TRAY-SUB,
+    TRAY-EXISTING, TRAY-GONGDONG가 CableTray로 반복 확인된다.
+  evidence_tags:
+  - CABLE-TRAY-MAIN
+  - CABLE-TRAY-SUB
+  - TRAY-EXISTING
+  - TRAY-GONGDONG
+  confidence: 0.96
+- id: AX023
+  type: SubClassOf
+  body:
+    sub: dks:CableManagementSystem
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SECTION-T2, TUNNEL-DUCT-01이
+    CableManagementSystem으로 관찰된다.
+  evidence_tags:
+  - SECTION-T2
+  - TUNNEL-DUCT-01
+  confidence: 0.84
+- id: AX024
+  type: SubClassOf
+  body:
+    sub: dks:CableContainment
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. UNDERGROUND-DUCT가 CableContainment로
+    직접 관찰된다.
+  evidence_tags:
+  - UNDERGROUND-DUCT
+  confidence: 0.88
+- id: AX025
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationPathway
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. UNKNOWN-SPACE-03이 CommunicationPathway로
+    직접 관찰된다.
+  evidence_tags:
+  - UNKNOWN-SPACE-03
+  confidence: 0.86
+- id: AX026
+  type: SubClassOf
+  body:
+    sub: dks:CablePath
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. UNKNOWN-SPACE-05가 CablePath로
+    직접 관찰된다.
+  evidence_tags:
+  - UNKNOWN-SPACE-05
+  confidence: 0.86
+- id: AX027
+  type: SubClassOf
+  body:
+    sub: dks:CableRoute
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. ROUTE-TO-2F-SERVER, ROUTE-TO-RCENTER,
+    UNKNOWN-SPACE-04가 CableRoute로 반복 관찰된다.
+  evidence_tags:
+  - ROUTE-TO-2F-SERVER
+  - ROUTE-TO-RCENTER
+  - UNKNOWN-SPACE-04
+  confidence: 0.93
+- id: AX028
+  type: SubClassOf
+  body:
+    sub: dks:JunctionBox
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. PB-01, PULL-BOX-01, PULL-BOX-MAIN,
+    PULLBOX-ZONE, 조인트_박스_(J.B), 풀_박스_(P.B)가 반복적으로 JunctionBox로 확인된다.
+  evidence_tags:
+  - PB-01
+  - PULL-BOX-01
+  - PULL-BOX-MAIN
+  - PULLBOX-ZONE
+  - 조인트_박스_(J.B)
+  - 풀_박스_(P.B)
+  confidence: 0.95
+- id: AX029
+  type: SubClassOf
+  body:
+    sub: dks:Manhole
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. ITB-CABINET, MANHOLE-IC,
+    MH-01이 Manhole로 반복 관찰된다.
+  evidence_tags:
+  - ITB-CABINET
+  - MANHOLE-IC
+  - MH-01
+  confidence: 0.93
+- id: AX030
+  type: SubClassOf
+  body:
+    sub: dks:UndergroundStructure
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. MANHOLE-01이 UndergroundStructure로
+    직접 관찰되며 지중 경로 구조물로 사용된다.
+  evidence_tags:
+  - MANHOLE-01
+  confidence: 0.8
+- id: AX031
+  type: SubClassOf
+  body:
+    sub: dks:CivilStructure
+    super: dks:CableAndPathway
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. DUCT-01이 CivilStructure로
+    직접 관찰된다.
+  evidence_tags:
+  - DUCT-01
+  confidence: 0.78
+- id: AX032
+  type: SubClassOf
+  body:
+    sub: dks:SignalSource
+    super: dks:ExternalSource
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. EXT-SOURCE-01이 SignalSource로
+    직접 관찰된다.
+  evidence_tags:
+  - EXT-SOURCE-01
+  confidence: 0.82
+- id: AX033
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationSource
+    super: dks:ExternalSource
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. EXT-SOURCE-BROAD-1F가 CommunicationSource로
+    직접 관찰된다.
+  evidence_tags:
+  - EXT-SOURCE-BROAD-1F
+  confidence: 0.84
+- id: AX034
+  type: SubClassOf
+  body:
+    sub: dks:ExternalInlet
+    super: dks:ExternalSource
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. EXT-SOURCE-COMM-1F가 ExternalInlet으로
+    직접 관찰된다.
+  evidence_tags:
+  - EXT-SOURCE-COMM-1F
+  confidence: 0.84
+- id: AX035
+  type: SubClassOf
+  body:
+    sub: dks:ExternalInterface
+    super: dks:ExternalConnection
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. EXT-MDF-DATA가 ExternalInterface로
+    직접 관찰된다.
+  evidence_tags:
+  - EXT-MDF-DATA
+  confidence: 0.84
+- id: AX036
+  type: SubClassOf
+  body:
+    sub: dks:Legend
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. LEGEND-BOX가 Legend로 직접 관찰된다.
+  evidence_tags:
+  - LEGEND-BOX
+  confidence: 0.9
+- id: AX037
+  type: SubClassOf
+  body:
+    sub: dks:InformationElement
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. LEGEND-NOTE가 InformationElement로
+    직접 관찰된다.
+  evidence_tags:
+  - LEGEND-NOTE
+  confidence: 0.82
+- id: AX038
+  type: SubClassOf
+  body:
+    sub: dks:TechnicalSchedule
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. META-CABLE-SCH가 TechnicalSchedule로
+    직접 관찰된다.
+  evidence_tags:
+  - META-CABLE-SCH
+  confidence: 0.84
+- id: AX039
+  type: SubClassOf
+  body:
+    sub: dks:DrawingMetadata
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. META-NOTES, NOTES-SECTION이
+    DrawingMetadata로 반복 관찰된다.
+  evidence_tags:
+  - META-NOTES
+  - NOTES-SECTION
+  confidence: 0.9
+- id: AX040
+  type: SubClassOf
+  body:
+    sub: dks:LegendSection
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. NOTE-LEGEND가 LegendSection으로
+    직접 관찰된다.
+  evidence_tags:
+  - NOTE-LEGEND
+  confidence: 0.86
+- id: AX041
+  type: SubClassOf
+  body:
+    sub: dks:DrawingLegend
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. NOTE-SECTION이 DrawingLegend로
+    직접 관찰된다.
+  evidence_tags:
+  - NOTE-SECTION
+  confidence: 0.84
+- id: AX042
+  type: SubClassOf
+  body:
+    sub: dks:Annotation
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. NOTES-BOX가 Annotation으로 직접
+    관찰된다.
+  evidence_tags:
+  - NOTES-BOX
+  confidence: 0.86
+- id: AX043
+  type: SubClassOf
+  body:
+    sub: dks:ReferenceInformation
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. TOC-MAIN이 ReferenceInformation으로
+    직접 관찰된다.
+  evidence_tags:
+  - TOC-MAIN
+  confidence: 0.84
+- id: AX044
+  type: SubClassOf
+  body:
+    sub: dks:LegendItem
+    super: dks:InformationEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. 노출배관,_배선이 LegendItem으로 직접
+    관찰된다.
+  evidence_tags:
+  - 노출배관,_배선
+  confidence: 0.82
+- id: AX045
+  type: SubClassOf
+  body:
+    sub: dks:DrawingSection
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SEC-BLOCKDIAG가 DrawingSection으로
+    직접 관찰된다.
+  evidence_tags:
+  - SEC-BLOCKDIAG
+  confidence: 0.86
+- id: AX046
+  type: SubClassOf
+  body:
+    sub: dks:CommunicationSystemSection
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SEC-COMM이 CommunicationSystemSection으로
+    직접 관찰된다.
+  evidence_tags:
+  - SEC-COMM
+  confidence: 0.88
+- id: AX047
+  type: SubClassOf
+  body:
+    sub: dks:DrawingReference
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SEC-GENERAL이 DrawingReference로
+    직접 관찰된다.
+  evidence_tags:
+  - SEC-GENERAL
+  confidence: 0.84
+- id: AX048
+  type: SubClassOf
+  body:
+    sub: dks:SitePhoto
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. PHOTO-TUNNEL이 SitePhoto로
+    직접 관찰된다.
+  evidence_tags:
+  - PHOTO-TUNNEL
+  confidence: 0.84
+- id: AX049
+  type: SubClassOf
+  body:
+    sub: dks:DrawingStamp
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. STAMP가 DrawingStamp로 직접 관찰된다.
+  evidence_tags:
+  - STAMP
+  confidence: 0.86
+- id: AX050
+  type: SubClassOf
+  body:
+    sub: dks:DocumentInformation
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. UNKNOWN-PANEL-001이 DocumentInformation으로
+    직접 관찰된다.
+  evidence_tags:
+  - UNKNOWN-PANEL-001
+  confidence: 0.84
+- id: AX051
+  type: SubClassOf
+  body:
+    sub: dks:DocumentComponent
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. UNKNOWN-PANEL-002가 DocumentComponent로
+    직접 관찰된다.
+  evidence_tags:
+  - UNKNOWN-PANEL-002
+  confidence: 0.84
+- id: AX052
+  type: SubClassOf
+  body:
+    sub: dks:SectionDetail
+    super: dks:DocumentEntity
+  derivation: class_taxonomy.subclass_relations에 직접 제시됨. SECTION-T1이 SectionDetail로
+    직접 관찰된다.
+  evidence_tags:
+  - SECTION-T1
+  confidence: 0.82
+- id: AX053
+  type: DisjointWith
+  body:
+    classes:
+    - dks:SpatialEntity
+    - dks:DocumentEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    SpatialEntity 예시(COMM-ROOM-1F, DRIVE-DEV-LAB)와 DocumentEntity 예시(TITLE-BLOCK,
+    SEC-BROADCAST)가 속성/역할상 분리되어 관찰된다.
+  evidence_tags:
+  - COMM-ROOM-1F
+  - DRIVE-DEV-LAB
+  - TITLE-BLOCK
+  - SEC-BROADCAST
+  confidence: 0.88
+- id: AX054
+  type: DisjointWith
+  body:
+    classes:
+    - dks:SpatialEntity
+    - dks:InformationEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    공간 태그와 범례/주석/스케줄 태그가 분리되어 관찰된다.
+  evidence_tags:
+  - COMM-ROOM-1F
+  - SPACE-SERVER
+  - LEGEND-BOX
+  - NOTES-BOX
+  - CABLE-SCHEDULE
+  confidence: 0.86
+- id: AX055
+  type: DisjointWith
+  body:
+    classes:
+    - dks:CommunicationEquipment
+    - dks:DocumentEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    장비 태그(HUB-RACK-1, PA-HEAD-END)와 문서 태그(TITLE-BLOCK, SEC-COMM)가 역할상 분리되어 관찰된다.
+  evidence_tags:
+  - HUB-RACK-1
+  - PA-HEAD-END
+  - TITLE-BLOCK
+  - SEC-COMM
+  confidence: 0.9
+- id: AX056
+  type: DisjointWith
+  body:
+    classes:
+    - dks:CommunicationEquipment
+    - dks:InformationEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    장비 태그와 범례/주석/스케줄 태그가 분리되어 관찰된다.
+  evidence_tags:
+  - HUB-RACK-2
+  - STB-S1
+  - LEGEND-BOX
+  - NOTE-LEGEND
+  - META-CABLE-SCH
+  confidence: 0.88
+- id: AX057
+  type: DisjointWith
+  body:
+    classes:
+    - dks:CommunicationDevice
+    - dks:DocumentEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    사용자 단말(USER-PC-01, USER-TEL-RIGHT)과 문서 엔티티(TITLE-BLOCK, SEC-GENERAL)가 분리되어 관찰된다.
+  evidence_tags:
+  - USER-PC-01
+  - USER-TEL-RIGHT
+  - TITLE-BLOCK
+  - SEC-GENERAL
+  confidence: 0.9
+- id: AX058
+  type: DisjointWith
+  body:
+    classes:
+    - dks:CommunicationCable
+    - dks:CommunicationEquipment
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    케이블 규격 개체(16C/22C/28C UTP 계열)와 장비 개체(HUB-RACK, FDF, STB)가 분리되어 관찰된다.
+  evidence_tags:
+  - 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+  - 22C_(UTP_0.5mm___4Px3,_CAT.5e)
+  - HUB-RACK-1
+  - R1-FDF-IN
+  - STB-S1
+  confidence: 0.86
+- id: AX059
+  type: DisjointWith
+  body:
+    classes:
+    - dks:CableSpec
+    - dks:SpatialEntity
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    16C_(HFIX_2-1.5sq) 같은 CableSpec과 COMM-ROOM-1F, DRIVE-DEV-LAB 같은 공간 태그가 분리되어 관찰된다.
+  evidence_tags:
+  - 16C_(HFIX_2-1.5sq)
+  - COMM-ROOM-1F
+  - DRIVE-DEV-LAB
+  confidence: 0.9
+- id: AX060
+  type: DisjointWith
+  body:
+    classes:
+    - dks:CableSpec
+    - dks:CommunicationEquipment
+  derivation: class_taxonomy.disjoint_candidates에 직접 제시됨. evidence_tags 교집합이 0건이며,
+    CableSpec과 장비 태그가 분리되어 관찰된다.
+  evidence_tags:
+  - 16C_(HFIX_2-1.5sq)
+  - HUB-RACK-1
+  - PA-HEAD-END
+  - STB-S1
+  confidence: 0.88
+- id: AX061
+  type: InverseOf
+  body:
+    property1: dks:connectedTo
+    property2: dks:connectedTo
+  derivation: 'object_properties.connectedTo의 inverse_of_candidate가 자기 자신으로 제시되며,
+    placement에서 양방향 evidence가 직접 확인된다: AMP-RACK→STB-S1 및 STB-S1→AMP-RACK, CABLE-TRAY-MAIN→CABLE-TRAY-SUB
+    및 CABLE-TRAY-SUB→CABLE-TRAY-MAIN, HUB-RACK-1→HUB-RACK-2 및 HUB-RACK-2→HUB-RACK-1.'
+  evidence_tags:
+  - AMP-RACK
+  - STB-S1
+  - CABLE-TRAY-MAIN
+  - CABLE-TRAY-SUB
+  - HUB-RACK-1
+  - HUB-RACK-2
+  confidence: 0.95
+summary_by_type:
+  SubClassOf: 52
+  DisjointWith: 8
+  InverseOf: 1
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T14:57:28.654853'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.89

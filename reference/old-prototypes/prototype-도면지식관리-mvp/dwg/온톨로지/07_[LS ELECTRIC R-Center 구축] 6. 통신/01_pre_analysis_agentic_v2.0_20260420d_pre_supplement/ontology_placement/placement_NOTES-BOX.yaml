@@ -1,0 +1,210 @@
+placement:
+  tag: NOTES-BOX
+  name: 통신실 관련 주석 박스
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:NOTES-BOX
+    class_hint: Annotation
+    alternative_class_hints:
+    - InstallationInstruction
+    - CableSpecification
+    - TerminationDetail
+    related_assertions:
+    - type: references
+      target_hint: COMM-ROOM-1F
+      note: 'TO : 사무동 지상1층 통신실'
+    - type: mentions
+      target_hint: UTP 0.5mm/25Px1, CAT.5 (28C)
+      note: 주석 박스 내부 케이블 사양 표기
+    - type: mentions
+      target_hint: 바닥 악세스플로어속 노출배관배선
+      note: 배선/배관 방식 주석
+    - type: mentions
+      target_hint: 기존 통신실 IDF RACK
+      note: 기존 설비 언급
+    - type: mentions
+      target_hint: 110 BLOCK 25Px1EA 신설
+      note: 신설 종단/단자 관련 주석
+    applicable_axioms:
+    - AX042
+    - AX054
+    applicable_constraints: []
+    confirmed_class: dks:Annotation
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'TO : 사무동 지상1층 통신실'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: referencesZone
+          suggested_datatype: xsd:string
+          rationale: TO 표기와 통신실 대상 지시가 함께 있는 주석 문구
+      - raw_text: UTP 0.5mm/25Px1, CAT.5 (28C)
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열이 직접 표기됨
+      - raw_text: 바닥 악세스플로어속 노출배관배선
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasInstallationNote
+          suggested_datatype: xsd:string
+          rationale: 배선/배관 설치 방식에 대한 주석
+      - raw_text: 기존 통신실 IDF RACK
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: referencesEquipment
+          suggested_datatype: xsd:string
+          rationale: 기존 장비(IDF RACK) 언급
+      - raw_text: 110 BLOCK 25Px1EA 신설
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasTerminationDetail
+          suggested_datatype: xsd:string
+          rationale: 신설 단자/블록 관련 상세 표기
+  provenance:
+    tag:
+      source_pages:
+      - 10
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 10
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 10
+      method: entity_detail.discipline
+    function_category:
+      source_pages:
+      - 10
+      method: entity_detail.function_category
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      method: inferred from type=note and annotation semantics
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 10
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 10
+      method: relations + specs.raw_labels + specs.labels_inside
+    specs.raw_labels:
+      source_pages:
+      - 10
+      method: entity_detail.specs.raw_labels
+    specs.labels_inside:
+      source_pages:
+      - 10
+      method: entity_detail.specs.labels_inside
+    specs.inferred_name:
+      source_pages:
+      - 10
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 10
+      method: entity_detail.specs.position
+    specs.shape:
+      source_pages:
+      - 10
+      method: entity_detail.specs.shape
+    specs.panel_id:
+      source_pages:
+      - 10
+      method: entity_detail.specs.panel_id
+    specs.source_models:
+      source_pages:
+      - 10
+      method: entity_detail.specs.source_models
+    relations:
+      source_pages:
+      - 10
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 10
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 10
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 10
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources:
+      source_pages:
+      - 10
+      method: entity_detail.collection_sources
+    position:
+      source_pages:
+      - 10
+      method: entity_detail.position
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO : 사무동 지상1층 통신실'
+    source_page: 10
+    reason: 주석 문구로는 해석 가능하나 정식 관계/속성으로 확정하지 않음
+    preservation_note: 대상 공간 참조 문구로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: UTP 0.5mm/25Px1, CAT.5 (28C)
+    source_page: 10
+    reason: 케이블 규격 문자열이지만 이 단계에서 정식 데이터 속성으로 승격하지 않음
+    preservation_note: 규격 문자열 원형 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 바닥 악세스플로어속 노출배관배선
+    source_page: 10
+    reason: 설치 방식 설명이지만 표준화된 속성명 미확정
+    preservation_note: 설치 주석 원문 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 기존 통신실 IDF RACK
+    source_page: 10
+    reason: 기존 설비 언급이나 대상 태그 미지정
+    preservation_note: 장비 참조 문구 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 110 BLOCK 25Px1EA 신설
+    source_page: 10
+    reason: 신설 항목이지만 관계/속성 확정 전
+    preservation_note: 종단/단자 관련 주석 보존
+  - field_candidate: relations.annotation
+    raw_text: 통신실 위치 지시 및 케이블 사양 표기
+    source_page: 10
+    reason: 관계 설명이 복합적이며 정식 property 미확정
+    preservation_note: signal 관계의 원문 의미 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 주석 박스 자체는 AnnotationOnly로 보이나 내부에 공간 참조, 케이블 규격, 기존 장비, 신설 단자 정보가 혼재함
+    recommended_handling: 0-9d에서 주석 본체와 내부 텍스트를 분리해 관계/데이터 속성 후보로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Annotation/Note 계열은 InformationEntity/AnnotationOnly로 우선 배치
+    - relations의 signal 원형을 보존하고 확정 property는 다음 단계로 이관
+    - raw_labels, labels_inside, position, shape, panel_id를 모두 provenance와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:44:06.934760'
+  confidence: 0.93

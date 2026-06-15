@@ -1,0 +1,83 @@
+tag: AREA-CORRIDOR-CORE
+name: 코어 복도 구역
+type: SPACE
+discipline: FIRE_PROTECTION
+function_category: FIRE_ALARM_ZONE
+source_pages:
+- 8
+specs:
+  shape: other
+  inferred_name: 코어 복도 구역
+  equipment_symbols:
+  - type: 차동식 감지기(2종 스포트형)-LED 부착형
+    count: 3
+relations:
+- from: FA-2B
+  to: AREA-CORRIDOR-CORE
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기/유도등 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-REST
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기/유도등 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-LOUNGE
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기/유도등 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-OFFICE
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기/유도등 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-SMALL-MTG-1
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-CENTER-DIRECTOR
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-MID-MTG
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기 배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-SMALL-MTG-2
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기 배선
+collection_sources:
+  visual_semantics_gemini: true
+  entity_synthesis: true
+ontology_hints:
+  suggested_parent_class: FireAlarmZone
+  observed_attributes:
+  - shape
+  - inferred_name
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - FireDetection
+  - SignalDistribution

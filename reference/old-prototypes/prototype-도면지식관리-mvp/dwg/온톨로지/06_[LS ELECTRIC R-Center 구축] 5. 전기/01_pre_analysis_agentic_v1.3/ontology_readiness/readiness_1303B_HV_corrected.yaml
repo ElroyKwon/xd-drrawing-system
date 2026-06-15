@@ -1,0 +1,13 @@
+verdict: demoted
+confidence: 0.97
+reason: "이전 평가와 일치하며, 재검토 후에도 동일한 결론을 유지한다.\n근거: 1. [타입 근거] 소스 데이터에서 type이 명시적으로 'source_reference'로\
+  \ 분류되어 있으며,\n   suggested_parent_class도 'ElectricalReference'로 제안됨. 독립 설비 온톨로지 클래스가\
+  \ 아님.\n\n2. [관계 근거] observed_relations가 'source_reference → 1303B(feeder_id)' 1개뿐이며,\n\
+  \   1303B/HV는 feeder 1303B의 HV측(High Voltage side)을 도면 간 교차 참조(cross-reference)하기\n\
+  \   위한 표기로 해석된다. 파트너 1303B가 실제 feeder_id이고, 본 엔티티는 그 참조 주석에 해당.\n\n3. [스펙 부재] requirements,\
+  \ connection_specs가 모두 비어 있고,\n   specs에도 source_reference 값 1개만 존재. 전압 등급, 정격,\
+  \ 결선 정보 등\n   독립 설비가 가져야 할 물리적 속성이 전무함.\n\n4. ['/HV' 해석] 접미사 '/HV'는 해당 feeder의 고압측(High\
+  \ Voltage side) 식별을 위한\n   도면 내 참조 표기로, 별도의 물리적 장치를 의미하지 않음.\n\n5. [반론 기각] similar_equipment\
+  \ 목록(1303A, 1304A 등)이 feeder류이나,\n   이는 동일 도면 컨텍스트에서 함께 언급된 관련 태그일 뿐,\n   1303B/HV\
+  \ 자체가 feeder 설비임을 입증하지 않음.\n\n결론: 독립 온톨로지 엔티티로 승격할 근거 없음. demoted 유지."
+tag: 1303B_HV

@@ -1,0 +1,147 @@
+placement:
+  tag: SPACE-ENTRANCE
+  name: 주출입구
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-ENTRANCE
+    class_hint: Space
+    alternative_class_hints:
+    - EntryPoint
+    - AccessControl
+    - SpatialEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints:
+    - CN003
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: ENTRANCE'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 기능 범주가 명시됨
+      - raw_text: 'raw_labels: 주출입구'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 라벨 원문 보존
+      - raw_text: 'labels_inside: 주출입구'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 라벨 원문 보존
+      - raw_text: 'equipment_symbols: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: equipmentSymbols
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 부재 상태를 보존
+      - raw_text: 'inferred_name: 주출입구'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추정명 보존
+      - raw_text: 'position: bottom-center'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보 보존
+      - raw_text: 'shape: other'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 분류 원문 보존
+      - raw_text: 'suggested_parent_class: Space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보 보존
+      - raw_text: 'function_candidates: Entry Point, Access Control'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존
+      - raw_text: 'type: space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: direct
+    name:
+      source_pages:
+      - 8
+      method: direct
+    discipline:
+      source_pages:
+      - 8
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: inferred_from_type_and_content
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: inferred_from_ontology_hints
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 8
+      method: preserved_raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 8
+      method: evaluated
+    plan_reference.guidance_applied:
+      source_pages:
+      - 8
+      method: evaluated
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 space이지만 function_category가 ENTRANCE이고 ontology_hints에 Entry Point,
+      Access Control이 함께 제시되어 공간/출입 기능 해석이 혼재함.
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, Entry Point 또는 Access Control
+      관련 클래스 후보를 병행 검증.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 계열이 다수라는 guidance에 따라 Space 후보로 배치
+    - function_candidates를 보존하여 후속 분류 검증에 활용
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:50.346476'
+  confidence: 0.86

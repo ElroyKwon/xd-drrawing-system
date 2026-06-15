@@ -1,0 +1,134 @@
+placement:
+  tag: CC_122
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: cc:CC_122
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 출처 정보이며, 엔티티 자체의 의미보다 참조 가능한 페이지 범위를 보존하는 메타 정보임
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아닌 안내 문구/주석 성격의 텍스트
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'tag: CC/122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 원문 태그 표기 보존
+        promoted_to: dks:hasTag
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'raw: ''확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64,
+          118, 119, 120, 121, 122
+
+
+          원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'''
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체를 손실 없이 보존하기 위한 텍스트 메타데이터
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    name:
+      source_pages:
+      - 0
+      method: not_present_in_entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred_from_annotation/reference-like raw text
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim_preservation
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: applied
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 실체 설비나 관계가 아니라 안내/주석 문구로 보이며, 구체적 ontology class로 확정할 근거가 없음
+    preservation_note: AnnotationOnly로 보존하되 원문은 free_notes와 unresolved에 중복 보존
+  - field_candidate: entity_detail.tag
+    raw_text: CC/122
+    source_page: 0
+    reason: 슬래시 포함 태그의 의미가 도면 내에서 추가 설명 없이 주어짐
+    preservation_note: IRI hint는 정규화하여 cc:CC_122로 두되 원형 태그는 tag provenance로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식은 문서/참조형으로 보이지만, 원문만으로는 시트 참조인지 주석인지 단정할 수 없음
+    recommended_handling: 후속 단계에서 페이지 0의 문맥 또는 인근 태그와 함께 AnnotationOrReferenceEntity
+      계열로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 raw-only, reference/note 성격 정보를 free_notes로 보존
+    - 페이지 목록과 안내 문구를 손실 없이 provenance/unresolved에 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:35.651150'
+  confidence: 0.86

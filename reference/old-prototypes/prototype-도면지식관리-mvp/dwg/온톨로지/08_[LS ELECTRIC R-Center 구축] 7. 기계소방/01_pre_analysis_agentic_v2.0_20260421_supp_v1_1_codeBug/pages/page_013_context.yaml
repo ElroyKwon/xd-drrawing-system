@@ -1,0 +1,989 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FLOOR_PLAN
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-104
+    title: 2층 소화 내진 평면도
+    revision: null
+  visible_tags:
+  - tag: I-Center 3층
+    type: named_space
+    source: image
+  - tag: 검증시스템 컨트롤실
+    type: named_space
+    source: image
+  - tag: 자료실
+    type: named_space
+    source: image
+  - tag: 사무실
+    type: named_space
+    source: image
+  - tag: 네트워크실
+    type: named_space
+    source: image
+  - tag: 전산실
+    type: named_space
+    source: image
+  - tag: MF 2층 소화 내진 평면도
+    type: named_space
+    source: image
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 30
+  next_step_hints:
+  - 소화 배관/내진 지지 상세가 평면 위에 중첩되어 있음
+  - 우측 상단 주기(Notes)와 우측 하단 버팀대 수량표가 함께 존재함
+  - 도면번호 접두사 MF와 제목의 소화 내진 평면도 내용이 일치함
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_mechanical/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.93
+  routing_reason: 도면번호 MF-104와 제목 '2층 소화 내진 평면도' 및 배관/지지 배치가 보여 fire_protection의 floor_plan으로
+    판단되며, 카탈로그에 fire_protection P-4.5/P-10의 genre_mechanical 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN
+    shape: rectangle
+    primary_label: 2층 소화 내진 평면도
+    position: center
+    labels_near:
+    - MF 2층 소화 내진 평면도
+    - 'SCALE : 1:200'
+  - panel_id: NOTES
+    shape: dashed_box
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 1. 도면에 설계된 제품...
+  - panel_id: SCHEDULE
+    shape: rectangle
+    primary_label: 버팀대 수량표
+    position: bottom-right
+    labels_near:
+    - 관경 50(2") 65(2-1/2") 100(4") 계
+  connections:
+  - from: FLOOR_PLAN
+    to: SCHEDULE
+    line_style: dotted
+    annotation: 평면 내 버팀대 수량 집계
+  notable_shapes:
+  - shape: circle
+    label: 1 DN H 50ø
+    note: 입상/입하 배관 심볼
+  - shape: shaded_box
+    label: 2층-H-횡-17
+    note: 내진 버팀대 식별 번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.0
+  note: 페이지 전체가 평면도이며, 우측 하단은 범례가 아닌 버팀대 수량표(Schedule)임.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 MF-104 접두사 MF와 제목 '소화 내진 평면도' 키워드가 일치하며, vision으로 배관 및 내진 버팀대
+    배치가 확인되어 fire_protection의 floor_plan으로 유지함. 카탈로그에서 mechanical 서브시스템 보조프롬프트를 매칭함.
+classification: FLOOR_PLAN
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- MF 2층 소화 내진 평면도
+- 'SCALE : 1:200'
+- 주 기
+- 버팀대 수량표
+- 관경 50(2") 65(2-1/2") 100(4") 계
+- LS Electric
+- R-Center 구축
+- '224001'
+- 가온건축
+- 2층 소화 내진 평면도
+- MF - 104
+title_block:
+  drawing_number: MF-104
+  title: 2층 소화 내진 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=FIRE_PROTECTION, classification=FLOOR_PLAN, drawing_genre=floor_plan은
+  이미지와 일치함. 우측 하단 표는 범례가 아니라 버팀대 수량표로 보이며, 우측 상단은 주기(Notes)이다. 페이지 13의 시각적 근거로 확인됨.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: FLOOR-2F
+    shape: rectangle
+    labels_inside:
+    - 2층 소화 내진 평면도
+    - 'SCALE : 1:200'
+    - 71,000 (전체 폭)
+    - 14,200 / 4,720 / 3,200 / 12,000 / 14,000 / 2,200 / 6,125 / 4,875 / 13,000 (그리드
+      간격)
+    labels_above:
+    - ① ② ②A ③ ④ ⑤ ⑤A ⑤B ⑥ ⑦ (열 그리드)
+    - A / B / B1 / B2 / C / D (행 그리드)
+    labels_below:
+    - MF 2층 소화 내진 평면도
+    equipment_symbols:
+    - type: 입상/입하 배관 심볼 (원형+DN 표기)
+      count: 5
+    - type: 내진 버팀대 (횡방향/종방향)
+      count: 30
+    - type: 옥내소화전함 (FHC)
+      count: 2
+    - type: 게이트밸브
+      count: 8
+    - type: 후렉시블 조인트
+      count: 6
+    - type: 배관 교차/분기점
+      count: 12
+    inferred_name: 2층 소화 내진 배관 평면도
+    position: center
+  - panel_id: RISER-NW
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    labels_above:
+    - ①
+    labels_below:
+    - DN H 50ø
+    inferred_name: 옥내소화전 입상관 (북서측, 50A)
+    position: top-left
+  - panel_id: RISER-N1
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    labels_above:
+    - ①
+    labels_below:
+    - DN H 50ø
+    inferred_name: 옥내소화전 입상관 (북측 중앙1, 50A)
+    position: top-center-left
+  - panel_id: RISER-N2
+    shape: circle
+    labels_inside:
+    - UP
+    - H 130ø
+    labels_above:
+    - UP
+    labels_below:
+    - H 130ø
+    inferred_name: 옥내소화전 입상관 (북측 중앙2, 130A)
+    position: top-center
+  - panel_id: RISER-N3
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    labels_above:
+    - ①
+    labels_below:
+    - DN H 50ø
+    inferred_name: 옥내소화전 입상관 (북측 우, 50A)
+    position: top-center-right
+  - panel_id: RISER-SW
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    labels_above:
+    - ①
+    labels_below:
+    - DN H 50ø
+    inferred_name: 옥내소화전 입상관 (서측, 50A)
+    position: left-center
+  - panel_id: RISER-S
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    labels_above:
+    - ①
+    labels_below:
+    - DN H 50ø
+    inferred_name: 옥내소화전 입상관 (남측, 50A)
+    position: bottom-center
+  - panel_id: SPACE-CONTROL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    inferred_name: 검증시스템 컨트롤실
+    position: center-right
+  - panel_id: SPACE-DATA
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    inferred_name: 자료실
+    position: center-right
+  - panel_id: SPACE-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    inferred_name: 사무실
+    position: right
+  - panel_id: SPACE-NETWORK
+    shape: rectangle
+    labels_inside:
+    - 네트워크실
+    inferred_name: 네트워크실
+    position: center-right
+  - panel_id: SPACE-SERVER
+    shape: rectangle
+    labels_inside:
+    - 전산실
+    inferred_name: 전산실
+    position: right-center
+  - panel_id: SPACE-OPEN-NW
+    shape: rectangle
+    labels_inside:
+    - OPEN
+    inferred_name: 개방 공간 (북서)
+    position: top-left
+  - panel_id: SPACE-OPEN-NC
+    shape: rectangle
+    labels_inside:
+    - OPEN
+    inferred_name: 개방 공간 (북중앙)
+    position: top-center
+  - panel_id: SPACE-OPEN-SW
+    shape: rectangle
+    labels_inside:
+    - OPEN
+    inferred_name: 개방 공간 (남서)
+    position: bottom-left
+  - panel_id: SPACE-OPEN-SC
+    shape: rectangle
+    labels_inside:
+    - OPEN
+    inferred_name: 개방 공간 (남중앙)
+    position: bottom-center
+  - panel_id: BRACE-MAIN-H
+    shape: other
+    labels_inside:
+    - 100ø 주배관
+    - 2층-H-횡-17 (대표 태그)
+    - 2층-H-횡-18
+    - 2층-H-횡-19
+    - 2층-H-횡-20
+    - 2층-H-종-21
+    - 2층-H-종-22
+    labels_above:
+    - H 100A 주배관 (동서 방향)
+    inferred_name: 옥내소화전 주배관 내진 버팀대 구간 (100A)
+    position: center
+  - panel_id: BRACE-BRANCH-H
+    shape: other
+    labels_inside:
+    - 2층-H-횡-1 ~ 2층-H-횡-16 (가지배관 버팀대)
+    - 2층-H-종-1 ~ 2층-H-종-6 (가지배관 종방향 버팀대)
+    inferred_name: 옥내소화전 가지배관 내진 버팀대 구간
+    position: center
+  - panel_id: FHC-01
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함
+    labels_above:
+    - FHC
+    inferred_name: 옥내소화전함 1호 (중앙부)
+    position: center
+  - panel_id: FHC-02
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함
+    labels_above:
+    - FHC
+    inferred_name: 옥내소화전함 2호 (우측)
+    position: right
+  - panel_id: NOTES
+    shape: dashed_box
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설계된 제품[시스템 파이프]본 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 본 도면이 상이한 곳 무에는 현장여건에 맞게 시공관리의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 표시의 위치 맞게 주석있게 철거후 재설치 할 것.
+    - 4. 발주자의 요구에 의거 설계한 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을수 있으므로 승인을 득한 후 시공할 것.
+    inferred_name: 시공 주기 (Notes)
+    position: top-right
+  - panel_id: SCHEDULE-BRACE
+    shape: rectangle
+    labels_inside:
+    - 버팀대 수량표
+    - 관경 | 50(2") | 65(2-1/2") | 100(4") | 계
+    - 충방향 | 6 | 1 | 2 | 9
+    - 횡방향 | 14 | 3 | 4 | 21
+    - 계 | 20 | 4 | 6 | 30
+    inferred_name: 내진 버팀대 수량표
+    position: bottom-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가온건축 GAUN | Architects & Engineers
+    - 기존용
+    - R-Center
+    - 2층 소화 내진 평면도
+    - MF - 104
+    - 'A1 : 1/200 / A3 : 1/400'
+    - '2024.01'
+    - (주)정연엔지니어링
+    inferred_name: 표제란
+    position: right
+  - panel_id: ICENTER-REF
+    shape: rectangle
+    labels_inside:
+    - I-Center 3층
+    inferred_name: 인접 건물 참조 (I-Center 3층)
+    position: bottom-left
+  connections:
+  - from: RISER-NW
+    to: BRACE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A 옥내소화전 입상관 → 주배관 연결
+  - from: RISER-N1
+    to: BRACE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A 입상관 → 주배관 연결
+  - from: RISER-N2
+    to: BRACE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: H 130A 입상관 → 주배관 연결 (주공급)
+  - from: RISER-N3
+    to: BRACE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A 입상관 → 주배관 연결
+  - from: RISER-SW
+    to: BRACE-BRANCH-H
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A 서측 입상관 → 가지배관 연결
+  - from: RISER-S
+    to: BRACE-BRANCH-H
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A 남측 입상관 → 가지배관 연결
+  - from: BRACE-MAIN-H
+    to: FHC-01
+    line_type: pipe
+    line_style: solid
+    annotation: 주배관 → 옥내소화전함 1호 분기
+  - from: BRACE-MAIN-H
+    to: FHC-02
+    line_type: pipe
+    line_style: solid
+    annotation: 주배관 → 옥내소화전함 2호 분기
+  - from: BRACE-MAIN-H
+    to: BRACE-BRANCH-H
+    line_type: pipe
+    line_style: solid
+    annotation: 주배관 → 가지배관 분기 (100A → 65A/50A)
+  - from: FLOOR-2F
+    to: SCHEDULE-BRACE
+    line_type: other
+    line_style: dotted
+    annotation: 평면 내 버팀대 수량 집계 참조
+  groups:
+  - group_id: GRP-RISER
+    label: 옥내소화전 입상관 그룹 (H계통)
+    members:
+    - RISER-NW
+    - RISER-N1
+    - RISER-N2
+    - RISER-N3
+    - RISER-SW
+    - RISER-S
+  - group_id: GRP-BRACE-H
+    label: 옥내소화전 내진 버팀대 구간 (H계통)
+    members:
+    - BRACE-MAIN-H
+    - BRACE-BRANCH-H
+  - group_id: GRP-FHC
+    label: 옥내소화전함 그룹
+    members:
+    - FHC-01
+    - FHC-02
+  - group_id: GRP-OPEN-SPACE
+    label: 개방 공간 (OPEN)
+    members:
+    - SPACE-OPEN-NW
+    - SPACE-OPEN-NC
+    - SPACE-OPEN-SW
+    - SPACE-OPEN-SC
+  - group_id: GRP-OCCUPIED-SPACE
+    label: 점유 공간 (실)
+    members:
+    - SPACE-CONTROL
+    - SPACE-DATA
+    - SPACE-OFFICE
+    - SPACE-NETWORK
+    - SPACE-SERVER
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: BRACE-MAIN-H
+  - text: H (옥내소화전배관)
+    linked_to: BRACE-BRANCH-H
+  - text: 게이트밸브
+    linked_to: BRACE-MAIN-H
+  - text: 후렉시블 조인트
+    linked_to: BRACE-MAIN-H
+  - text: 옥내소화전함
+    linked_to: FHC-01
+  - text: 옥내소화전함
+    linked_to: FHC-02
+  diagram_meta:
+    title: 2층 소화 내진 평면도
+    drawing_number: MF-104
+    project: R-Center 구축
+    client: LS Electric
+    project_number: '224001'
+    design_firm: 가운건축 GAUN | Architects & Engineers
+    engineering_firm: (주)정연엔지니어링
+    scale_a1: 1:200
+    scale_a3: 1:400
+    date: '2024.01'
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: seismic_bracing
+    has_seismic: true
+    has_sprinkler: false
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    pump_count: 0
+    seismic_scope: whole_building
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: radial
+    floor: 2F
+    grid_columns:
+    - ①
+    - ②
+    - ②A
+    - ③
+    - ④
+    - ⑤
+    - ⑤A
+    - ⑤B
+    - ⑥
+    - ⑦
+    grid_rows:
+    - A
+    - B
+    - B1
+    - B2
+    - C
+    - D
+    brace_schedule:
+      pipe_sizes:
+      - 50(2")
+      - 65(2-1/2")
+      - 100(4")
+      longitudinal_count:
+        '50': 6
+        '65': 1
+        '100': 2
+        total: 9
+      lateral_count:
+        '50': 14
+        '65': 3
+        '100': 4
+        total: 21
+      grand_total:
+        '50': 20
+        '65': 4
+        '100': 6
+        total: 30
+    pipe_systems:
+    - abbreviation: H
+      name: 옥내소화전배관
+      nominal_diameters_A:
+      - 50
+      - 65
+      - 100
+      - 130
+      pipe_role_present:
+      - feed_main
+      - branch
+    notes:
+    - 도면에 설계된 제품[시스템 파이프]본 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 본 도면이 상이한 곳 무에는 현장여건에 맞게 시공관리의 승인을 득할 것.
+    - 기존 장비 및 기구류는 표시의 위치 맞게 주석있게 철거후 재설치 할 것.
+    - 발주자의 요구에 의거 설계한 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을수 있으므로 승인을 득한 후 시공할 것.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P-FLOOR-2F
+    shape: rectangle
+    labels_inside:
+    - 2층 소화 내진 평면도
+    - 'SCALE : 1:200'
+    labels_above:
+    - ① ② ②A ③ ④ ⑤ ⑤A ⑤B ⑥ ⑦ (Grid Columns)
+    labels_below:
+    - MF 2층 소화 내진 평면도
+    - A B B1 B2 C D (Grid Rows)
+    inferred_name: 2nd Floor Seismic Fire Protection Plan Area
+    position: center
+  - panel_id: P-RISER-01
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    inferred_name: Indoor Hydrant Riser (DN 50A, Grid 1/B)
+    position: top-left
+  - panel_id: P-RISER-02
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    inferred_name: Indoor Hydrant Riser (DN 50A, Grid 4/B)
+    position: top-center-left
+  - panel_id: P-RISER-03
+    shape: circle
+    labels_inside:
+    - UP
+    - H 100ø
+    inferred_name: Indoor Hydrant Main Riser (UP 100A, Grid 5/B)
+    position: top-center
+  - panel_id: P-RISER-04
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    inferred_name: Indoor Hydrant Riser (DN 50A, Grid 6/B)
+    position: top-center-right
+  - panel_id: P-RISER-05
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    inferred_name: Indoor Hydrant Riser (DN 50A, Grid 1/C)
+    position: left-center
+  - panel_id: P-RISER-06
+    shape: circle
+    labels_inside:
+    - ①
+    - DN
+    - H 50ø
+    inferred_name: Indoor Hydrant Riser (DN 50A, Grid 4/D)
+    position: bottom-center
+  - panel_id: P-RISER-07
+    shape: circle
+    labels_inside:
+    - DN
+    - H 50ø
+    inferred_name: Indoor Hydrant Riser (DN 50A, Grid 6/C-D)
+    position: bottom-right-center
+  - panel_id: P-PIPE-MAIN-EW
+    shape: other
+    labels_inside:
+    - 100ø 주배관
+    - 2층-H-횡-17
+    - 2층-H-횡-18
+    - 2층-H-횡-19
+    - 2층-H-횡-20
+    - 2층-H-종-21
+    - 2층-H-종-22
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 4
+    - type: seismic_brace_longitudinal
+      count: 2
+    inferred_name: Main E-W Hydrant Pipe Run (100A) with Braces
+    position: center
+  - panel_id: P-PIPE-BRANCH-G2
+    shape: other
+    labels_inside:
+    - H-65
+    - H-50
+    - 2층-H-횡-1
+    - 2층-H-횡-2
+    - 2층-H-종-1
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 2
+    - type: seismic_brace_longitudinal
+      count: 1
+    - type: gate_valve
+      count: 1
+    inferred_name: Branch Hydrant Pipe Run (Grid 2) with Braces
+    position: left-center
+  - panel_id: P-PIPE-BRANCH-G3
+    shape: other
+    labels_inside:
+    - H-65
+    - 2층-H-횡-3
+    - 2층-H-횡-4
+    - 2층-H-종-2
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 2
+    - type: seismic_brace_longitudinal
+      count: 1
+    - type: gate_valve
+      count: 1
+    inferred_name: Branch Hydrant Pipe Run (Grid 3) with Braces
+    position: center-left
+  - panel_id: P-PIPE-BRANCH-G4
+    shape: other
+    labels_inside:
+    - H-65
+    - H-50
+    - 2층-H-횡-5
+    - 2층-H-횡-6
+    - 2층-H-횡-7
+    - 2층-H-횡-8
+    - 2층-H-종-3
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 4
+    - type: seismic_brace_longitudinal
+      count: 1
+    - type: gate_valve
+      count: 1
+    inferred_name: Branch Hydrant Pipe Run (Grid 4) with Braces
+    position: center
+  - panel_id: P-PIPE-BRANCH-G5
+    shape: other
+    labels_inside:
+    - H-65
+    - H-50
+    - 2층-H-횡-9
+    - 2층-H-횡-10
+    - 2층-H-횡-11
+    - 2층-H-횡-12
+    - 2층-H-종-4
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 4
+    - type: seismic_brace_longitudinal
+      count: 1
+    - type: gate_valve
+      count: 1
+    inferred_name: Branch Hydrant Pipe Run (Grid 5) with Braces
+    position: center-right
+  - panel_id: P-PIPE-BRANCH-G6
+    shape: other
+    labels_inside:
+    - H-65
+    - H-50
+    - 2층-H-횡-13
+    - 2층-H-횡-14
+    - 2층-H-종-5
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 2
+    - type: seismic_brace_longitudinal
+      count: 1
+    - type: gate_valve
+      count: 1
+    inferred_name: Branch Hydrant Pipe Run (Grid 6) with Braces
+    position: right-center
+  - panel_id: P-PIPE-BRANCH-G7
+    shape: other
+    labels_inside:
+    - H-65
+    - 2층-H-횡-15
+    - 2층-H-횡-16
+    - 2층-H-종-6
+    equipment_symbols:
+    - type: seismic_brace_lateral
+      count: 2
+    - type: seismic_brace_longitudinal
+      count: 1
+    - type: gate_valve
+      count: 1
+    inferred_name: Branch Hydrant Pipe Run (Grid 7) with Braces
+    position: right
+  - panel_id: P-FHC-01
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함
+    labels_above:
+    - FHC
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: Fire Hose Cabinet 01
+    position: center
+  - panel_id: P-FHC-02
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함
+    labels_above:
+    - FHC
+    equipment_symbols:
+    - type: fire_hose_cabinet
+      count: 1
+    inferred_name: Fire Hose Cabinet 02
+    position: right-center
+  - panel_id: P-SPACE-CONTROL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    inferred_name: Verification System Control Room
+    position: center-right
+  - panel_id: P-SPACE-DATA
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    inferred_name: Data Room
+    position: center-right
+  - panel_id: P-SPACE-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    inferred_name: Office
+    position: right
+  - panel_id: P-SPACE-NETWORK
+    shape: rectangle
+    labels_inside:
+    - 네트워크실
+    inferred_name: Network Room
+    position: center-right
+  - panel_id: P-SPACE-SERVER
+    shape: rectangle
+    labels_inside:
+    - 전산실
+    inferred_name: Server Room
+    position: right-center
+  - panel_id: P-NOTES
+    shape: dashed_box
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설계된 제품[시스템 파이프]본 설계 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 본 도면이 상이한 곳 무에는 현장여건에 맞게 시공관리의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 표시의 위치 맞게 주석있게 철거후 재설치 할 것.
+    - 4. 발주자의 요구에 의거 설계한 변경이 있을 수 있으며, 그에 따른 물량과 연관이 있을수 있으므로 승인을 득한 후 시공할 것.
+    inferred_name: Notes
+    position: top-right
+  - panel_id: P-SCHEDULE-BRACE
+    shape: rectangle
+    labels_inside:
+    - 버팀대 수량표
+    - 관경 | 50(2") | 65(2-1/2") | 100(4") | 계
+    - 종방향 | 6 | 1 | 2 | 9
+    - 횡방향 | 14 | 3 | 4 | 21
+    - 계 | 20 | 4 | 6 | 30
+    inferred_name: Seismic Brace Schedule
+    position: bottom-right
+  - panel_id: P-TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가온건축 GAUN | Architects & Engineers
+    - (주)정연엔지니어링
+    - 2층 소화 내진 평면도
+    - MF - 104
+    - 'A1 : 1/200 / A3 : 1/400'
+    - '2024.01'
+    inferred_name: Title Block
+    position: right
+  - panel_id: P-REF-ICENTER
+    shape: rectangle
+    labels_inside:
+    - I-Center 3층
+    inferred_name: Reference to I-Center 3F
+    position: bottom-left
+  connections:
+  - from: P-RISER-03
+    to: P-PIPE-MAIN-EW
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A Main Supply
+  - from: P-PIPE-MAIN-EW
+    to: P-PIPE-BRANCH-G2
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A to H 65A Branch via Valve
+  - from: P-PIPE-MAIN-EW
+    to: P-PIPE-BRANCH-G3
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A to H 65A Branch via Valve
+  - from: P-PIPE-MAIN-EW
+    to: P-PIPE-BRANCH-G4
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A to H 65A Branch via Valve
+  - from: P-PIPE-MAIN-EW
+    to: P-PIPE-BRANCH-G5
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A to H 65A Branch via Valve
+  - from: P-PIPE-MAIN-EW
+    to: P-PIPE-BRANCH-G6
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A to H 65A Branch via Valve
+  - from: P-PIPE-MAIN-EW
+    to: P-PIPE-BRANCH-G7
+    line_type: pipe
+    line_style: solid
+    annotation: H 100A to H 65A Branch via Valve
+  - from: P-RISER-01
+    to: P-PIPE-BRANCH-G2
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A Connection
+  - from: P-RISER-05
+    to: P-PIPE-BRANCH-G2
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A Connection
+  - from: P-RISER-02
+    to: P-PIPE-BRANCH-G4
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A Connection
+  - from: P-RISER-06
+    to: P-PIPE-BRANCH-G4
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A Connection
+  - from: P-RISER-04
+    to: P-PIPE-BRANCH-G6
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A Connection
+  - from: P-RISER-07
+    to: P-PIPE-BRANCH-G6
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A Connection
+  - from: P-PIPE-BRANCH-G4
+    to: P-FHC-01
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A to FHC
+  - from: P-PIPE-BRANCH-G6
+    to: P-FHC-02
+    line_type: pipe
+    line_style: solid
+    annotation: H 50A to FHC
+  groups:
+  - group_id: GRP-RISERS
+    label: Indoor Hydrant Risers
+    members:
+    - P-RISER-01
+    - P-RISER-02
+    - P-RISER-03
+    - P-RISER-04
+    - P-RISER-05
+    - P-RISER-06
+    - P-RISER-07
+  - group_id: GRP-PIPING-BRACING
+    label: Hydrant Piping and Seismic Bracing
+    members:
+    - P-PIPE-MAIN-EW
+    - P-PIPE-BRANCH-G2
+    - P-PIPE-BRANCH-G3
+    - P-PIPE-BRANCH-G4
+    - P-PIPE-BRANCH-G5
+    - P-PIPE-BRANCH-G6
+    - P-PIPE-BRANCH-G7
+  - group_id: GRP-FHCS
+    label: Fire Hose Cabinets
+    members:
+    - P-FHC-01
+    - P-FHC-02
+  - group_id: GRP-SPACES
+    label: Named Spaces
+    members:
+    - P-SPACE-CONTROL
+    - P-SPACE-DATA
+    - P-SPACE-OFFICE
+    - P-SPACE-NETWORK
+    - P-SPACE-SERVER
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: P-PIPE-MAIN-EW
+  - text: H (옥내소화전배관)
+    linked_to: P-PIPE-BRANCH-G2
+  - text: 게이트밸브
+    linked_to: P-PIPE-BRANCH-G2
+  - text: 후렉시블 조인트
+    linked_to: P-RISER-03
+  - text: 옥내소화전함
+    linked_to: P-FHC-01
+  diagram_meta:
+    title: 2층 소화 내진 평면도
+    drawing_number: MF-104
+    project: R-Center 구축
+    client: LS Electric
+    design_firm: 가온건축 GAUN | Architects & Engineers
+    engineering_firm: (주)정연엔지니어링
+    scale_a1: 1:200
+    scale_a3: 1:400
+    date: '2024.01'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: seismic_bracing
+    has_seismic: true
+    has_sprinkler: false
+    has_hydrant_indoor: true
+    has_hydrant_outdoor: false
+    pump_count: 0
+    seismic_scope: whole_building
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    floor: 2F
+    brace_schedule:
+      pipe_sizes:
+      - 50(2")
+      - 65(2-1/2")
+      - 100(4")
+      longitudinal_count:
+        '50': 6
+        '65': 1
+        '100': 2
+        total: 9
+      lateral_count:
+        '50': 14
+        '65': 3
+        '100': 4
+        total: 21
+      grand_total:
+        '50': 20
+        '65': 4
+        '100': 6
+        total: 30
+    pipe_systems:
+    - abbreviation: H
+      name: 옥내소화전배관
+      nominal_diameters_A:
+      - 50
+      - 65
+      - 100
+      pipe_role_present:
+      - feed_main
+      - branch

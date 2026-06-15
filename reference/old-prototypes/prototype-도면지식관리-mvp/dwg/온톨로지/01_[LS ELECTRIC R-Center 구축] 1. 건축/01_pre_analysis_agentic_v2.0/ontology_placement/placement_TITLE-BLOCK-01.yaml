@@ -1,0 +1,111 @@
+placement:
+  tag: TITLE-BLOCK-01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: TitleBlock
+    alternative_class_hints:
+    - DrawingTitleBlock
+    - SheetTitleArea
+    - DocumentAnnotation
+    related_assertions: []
+    applicable_axioms:
+    - AX020
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:TitleBlock
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 원문 정보이며, 도면 참조 범위 보존에 유용함
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 안내/주석 성격의 문장으로 물리 실체 정보는 아님
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 페이지 목록과 안내문이 포함된 주석성 텍스트이나, 별도 구조화 필드가 없어 원문 보존이 필요함
+    preservation_note: 페이지 참조 범위는 free_notes로 보존했고, 원문 전체는 재해석 가능하도록 유지
+  - field_candidate: name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 name 필드가 제공되지 않음
+    preservation_note: 추후 title block의 명칭이 별도 추출되면 보완 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 TITLE-BLOCK-01로 제목란/타이틀 블록을 강하게 시사하지만, 원문에는 페이지 목록과 안내문만 있어 실제 도면상의
+      물리 객체인지 단순 주석/문서 영역인지 완전 확정 불가
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 시트 제목란/문서 주석/페이지 참조 영역 후보로
+      재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'unknown: 대다수 엔티티가 raw만 있고 실제 의미 미확정'
+    - schedule_or_note_section / unresolved_document_component 성격의 주석성 텍스트는 free_notes로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:17.097716'
+  confidence: 0.78

@@ -1,0 +1,602 @@
+executive_summary:
+  drawing_number: EE-01-015
+  title: 생산동력(3Ø 220V) 분전반 결선도-2
+  classification: SINGLE_LINE_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.97
+  summary: '생산동력(3Ø 220V) 분전반 결선도-2로, 4개의 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)이
+    2x2로 배치된 전기 단선도이다.
+
+    MAIN에서 각 분전반으로 분기되는 구조이며, MCCB와 SPD, E3 접지 표기가 반복 확인된다.
+
+    우측 표제란에 도면번호 EE-01-015, 프로젝트 LS Electric R-Center 구축, 차단기 정격 주기(30AF~600AF)가 보인다.
+
+    '
+  equipment:
+  - tag: EQ-E01
+    name: P-EA-2PP
+    spec: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: ZONE-001 (1층 구간환경시험실)
+    confidence: 0.99
+  - tag: EQ-E02
+    name: P-F-2PP
+    spec: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: ZONE-002 (1층 진동시험실)
+    confidence: 0.99
+  - tag: EQ-E03
+    name: P-G-2PP
+    spec: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: ZONE-003 (1층 접합시험실)
+    confidence: 0.99
+  - tag: EQ-E04
+    name: P-I-2PP
+    spec: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: ZONE-004 (1층 IQC Drive 검증시험실 및 신뢰성 검증시험실)
+    confidence: 0.99
+  - tag: EQ-E05
+    name: MCCB
+    spec: MCCB 3P 30/20AT, MCCB 3P 3/20AT, MCCB 3P 3/50AT, MCCB 3P 3/125AT, MCCB 3P
+      3/150AT, MCCB 3P 3/250AT
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: UNKNOWN
+    confidence: 0.98
+  - tag: EQ-E06
+    name: SPD
+    spec: 3Ø SPD 40kA/mode
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: UNKNOWN
+    confidence: 0.98
+  - tag: EQ-E07
+    name: E3
+    spec: E3
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: UNKNOWN
+    confidence: 0.98
+  - tag: SP-ARCH-01
+    name: 외곽 테두리
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.96
+  - tag: SP-ARCH-02
+    name: 우측 표제란
+    spec: LS Electric / R-Center 구축 / 624001 / EE-01-015 / 2024.04
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.97
+  - tag: SP-ARCH-03
+    name: 중앙 4분할 도면 영역
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.95
+  - tag: SP-ARCH-04
+    name: 하단 제목 영역
+    spec: 생산동력(3Ø 220V) 분전반 결선도-2
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.96
+  - tag: SP-ARCH-05
+    name: 도면번호 영역
+    spec: EE-01-015
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.96
+  - tag: SP-ARCH-06
+    name: 표제란 내 회사/프로젝트 정보 영역
+    spec: LS Electric / R-Center 구축 / 가운건축 / GAUN Architects & Engineers
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.94
+  - tag: SP-ARCH-07
+    name: 차단기 정격/차단용량 주기 영역
+    spec: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.93
+  relationships:
+  - from: MAIN
+    to: P-EA-2PP
+    relation: power_feed
+    medium: electrical_line
+    direction: from MAIN to panel board
+    confidence: 0.95
+  - from: MAIN
+    to: P-F-2PP
+    relation: power_feed
+    medium: electrical_line
+    direction: from MAIN to panel board
+    confidence: 0.95
+  - from: MAIN
+    to: P-G-2PP
+    relation: power_feed
+    medium: electrical_line
+    direction: from MAIN to panel board
+    confidence: 0.95
+  - from: MAIN
+    to: P-I-2PP
+    relation: power_feed
+    medium: electrical_line
+    direction: from MAIN to panel board
+    confidence: 0.95
+  - from: MCCB
+    to: panel_board circuits
+    relation: protection
+    medium: electrical_line
+    direction: inline
+    confidence: 0.92
+  - from: SPD
+    to: ground
+    relation: surge_protection_to_ground
+    medium: grounding_line
+    direction: to ground
+    confidence: 0.92
+  - from: E3
+    to: ground
+    relation: grounding
+    medium: grounding_line
+    direction: to ground
+    confidence: 0.98
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: UNKNOWN
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: 가운건축
+    parent: SITE-001
+  - space_id: FLOOR-001
+    type: floor
+    name: 1층
+    parent: BLDG-001
+  - space_id: ZONE-001
+    type: zone
+    name: 1층 구간환경시험실
+    parent: FLOOR-001
+  - space_id: ZONE-002
+    type: zone
+    name: 1층 진동시험실
+    parent: FLOOR-001
+  - space_id: ZONE-003
+    type: zone
+    name: 1층 접합시험실
+    parent: FLOOR-001
+  - space_id: ZONE-004
+    type: zone
+    name: 1층 IQC Drive 검증시험실 및 신뢰성 검증시험실
+    parent: FLOOR-001
+  flow_paths:
+  - - MAIN
+    - P-EA-2PP
+  - - MAIN
+    - P-F-2PP
+  - - MAIN
+    - P-G-2PP
+  - - MAIN
+    - P-I-2PP
+  top_equipment:
+  - '분전반 4대: P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP'
+  - MCCB
+  - SPD 3Ø 40kA/mode
+  - E3 접지
+  stats:
+    equipment: 11
+    relationships: 7
+    spaces: 7
+    flow_paths: 4
+  uncertainties:
+  - MCCB의 세부 정격 표기는 여러 값이 보이나, 설비 단위로는 하나의 MCCB 항목으로 병합함
+  - MAIN의 정확한 설비 태그는 페이지 내에서 별도 고유 태그로 명시되지 않아 UNKNOWN 처리
+  - relationships의 'panel_board circuits'는 개별 회로 태그가 페이지 전체에서 완전하게 구조화되어 있지 않아 집계
+    표현으로만 기재함
+  related_pages:
+  - 1
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: panel board single-line/wiring diagram with notes and breaker rating
+    table
+  discipline: ELECTRICAL
+  classification: WIRING_DIAGRAM
+  title_block:
+    drawing_number: EE-01-015
+    title: 생산동력(3Ø 220V) 분전반 결선도-2
+    revision: null
+  visible_tags:
+  - tag: P-EA-2PP
+    type: panel_board
+    source: both
+  - tag: P-F-2PP
+    type: panel_board
+    source: both
+  - tag: P-G-2PP
+    type: panel_board
+    source: both
+  - tag: P-I-2PP
+    type: panel_board
+    source: both
+  - tag: MCCB
+    type: circuit_breaker
+    source: both
+  - tag: SPD
+    type: surge_protection_device
+    source: both
+  - tag: E3
+    type: grounding_symbol_label
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 4
+  next_step_hints:
+  - 페이지 우측에 차단기 정격/차단용량 표가 있으며, 본문에는 각 분전반별 회로표와 결선도가 4개 배치되어 있음
+  - 패널 보드 명칭(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)과 PANEL LOCATION 문구가 함께 보임
+  - 노트에 STEEL/STS 외함 재질, MCCB/CBR 정격 관련 조건이 기재되어 있음
+  - 도면 하단 제목과 우측 표제란의 도면번호가 일치함
+  confidence: 0.93
+  note: null
+classification: SINGLE_LINE_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 생산동력(3Ø 220V) 분전반 결선도-2
+- 'PROJECT TITLE: LS Electric R-Center 구축'
+- 'BUILDING NAME: 가운건축 / GAUN Architects & Engineers'
+- 'DRAWING NUMBER: EE-01-015'
+- 'SCALE: A1 : NONE, A3 : NONE'
+- 'PANEL BOARD: P-EA-2PP'
+- 'PANEL BOARD: P-F-2PP'
+- 'PANEL BOARD: P-G-2PP'
+- 'PANEL BOARD: P-I-2PP'
+- 'COVER TYPE: 노출형(STEEL)'
+- MAIN CB / MCCB / SPD / E3 접지 표기
+- '차단기 정격 관련 주기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF 및 차단용량 표기'
+title_block:
+  drawing_number: EE-01-015
+  title: 생산동력(3Ø 220V) 분전반 결선도-2
+  revision: UNKNOWN
+confidence: 0.97
+note: null
+classification_confirmed: true
+override_classification: null
+visual_pattern: 한 장에 4개의 분전반 단선 결선도가 2x2로 배치되어 있고, 각 블록 상단에 PANEL BOARD/LOCATION 표가
+  있으며 중앙에는 MAIN 수직 배선과 분기 회로, 우측에는 차단기 정격/차단용량 관련 주기와 표제란이 있는 전기 단선도 형식
+symbol_density: MEDIUM
+detected_symbols:
+- type: MCCB
+  count: 1
+- type: SPD
+  count: 1
+- type: grounding_symbol_label (E3)
+  count: 4
+- type: panel_board
+  count: 4
+- type: circuit_breaker table entries
+  count: 4
+line_types_observed:
+- 실선 배선
+- 화살표 선(homerun to panelboard)
+- 접지 연결선
+additional_findings:
+- 기존 텍스트 분석의 classification=WIRING_DIAGRAM과 시각적으로 일치함
+- 도면은 전기(ELECTRICAL) 분야로 보이며, 패널보드 결선도/단선도 성격이 강함
+- 우측 표제란과 하단 제목에 '생산동력(3Ø 220V) 분전반 결선도-2'가 보임
+- 범례에 있는 SPD, MCCB 계열 표기가 시각적으로 확인됨
+- 범례에 없는 별도 특이 심볼은 확인되지 않음
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 패널보드, 차단기, SPD, 접지 등 개별 심볼과 표를 식별해야 함
+- mode: power_flow_topology
+  priority: 2
+  reason: MAIN에서 각 분전반으로 이어지는 전력 분기 구조를 확인하기 적합함
+pass1_설비식별:
+  entities:
+  - tag: EQ-E01
+    name: P-EA-2PP
+    type: panel_board
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    confidence: 0.99
+    note: 'page 1 상단 좌측 블록의 표기. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: EQ-E02
+    name: P-F-2PP
+    type: panel_board
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    confidence: 0.99
+    note: 'page 1 상단 우측 블록의 표기. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: EQ-E03
+    name: P-G-2PP
+    type: panel_board
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    confidence: 0.99
+    note: 'page 1 하단 좌측 블록의 표기. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: EQ-E04
+    name: P-I-2PP
+    type: panel_board
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+    confidence: 0.99
+    note: 'page 1 하단 우측 블록의 표기. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: EQ-E05
+    name: MCCB
+    type: circuit_breaker
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: MCCB 3P 30/20AT, MCCB 3P 3/20AT, MCCB 3P 3/50AT, MCCB 3P 3/125AT, MCCB
+      3P 3/150AT, MCCB 3P 3/250AT
+    confidence: 0.98
+    note: 'page 1 각 분전반 회로 및 MAIN CB 표기에서 확인. 동일 태그가 여러 회로에 반복됨. 출처: page 1 시각 이미지,
+      page_001_context.yaml'
+  - tag: EQ-E06
+    name: SPD
+    type: surge_protection_device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 3Ø SPD 40kA/mode
+    confidence: 0.98
+    note: 'page 1 각 분전반 블록 우측 보호기기 표기에서 확인. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: EQ-E07
+    name: E3
+    type: grounding_symbol_label
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: E3
+    confidence: 0.98
+    note: 'page 1 각 분전반 하단 접지 표기에서 확인. 4개 블록 모두 동일 표기. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-01
+    name: 외곽 테두리
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.96
+    note: 'page 1 전체 도면을 둘러싼 외곽 사각 테두리. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-02
+    name: 우측 표제란
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: LS Electric / R-Center 구축 / 624001 / EE-01-015 / 2024.04
+    confidence: 0.97
+    note: 'page 1 우측 세로형 title block. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-03
+    name: 중앙 4분할 도면 영역
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.95
+    note: 'page 1 중앙의 2x2 배치된 4개 결선도 영역. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-04
+    name: 하단 제목 영역
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: 생산동력(3Ø 220V) 분전반 결선도-2
+    confidence: 0.96
+    note: 'page 1 하단 중앙 제목 표기 영역. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-05
+    name: 도면번호 영역
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: EE-01-015
+    confidence: 0.96
+    note: 'page 1 우측 하단 표제란 내 도면번호 표기. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-06
+    name: 표제란 내 회사/프로젝트 정보 영역
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: LS Electric / R-Center 구축 / 가운건축 / GAUN Architects & Engineers
+    confidence: 0.94
+    note: 'page 1 우측 상단 표제란의 텍스트 블록. 출처: page 1 시각 이미지, page_001_context.yaml'
+  - tag: SP-ARCH-07
+    name: 차단기 정격/차단용량 주기 영역
+    type: 건축/구조 요소
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+    confidence: 0.93
+    note: 'page 1 우측 표제란 중단의 표/주기 영역. 출처: page 1 시각 이미지, page_001_context.yaml'
+pass2_토폴로지: {}
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: UNKNOWN
+    parent: null
+    source: '도면 내 사이트명/프로젝트명은 보이나, 공간 계층을 구성하는 site 명칭으로 명시된 항목은 확인되지 않음. 출처: page
+      1 우측 표제란 ''LS Electric R-Center 구축'', 하단 제목 ''생산동력(3Ø 220V) 분전반 결선도-2'''
+  - space_id: BLDG-001
+    type: building
+    name: 가운건축
+    parent: SITE-001
+    source: page 1 우측 표제란의 '가운건축 / GAUN Architects & Engineers' 표기
+  - space_id: FLOOR-001
+    type: floor
+    name: 1층
+    parent: BLDG-001
+    source: page 1 각 PANEL LOCATION 표기에서 '1층' 확인
+  - space_id: ZONE-001
+    type: zone
+    name: 1층 구간환경시험실
+    parent: FLOOR-001
+    source: 'page 1 상단 좌측 PANEL LOCATION: ''1층 구간환경시험실'''
+  - space_id: ZONE-002
+    type: zone
+    name: 1층 진동시험실
+    parent: FLOOR-001
+    source: 'page 1 상단 우측 PANEL LOCATION: ''1층 진동시험실'''
+  - space_id: ZONE-003
+    type: zone
+    name: 1층 접합시험실
+    parent: FLOOR-001
+    source: 'page 1 하단 좌측 PANEL LOCATION: ''1층 접합시험실'''
+  - space_id: ZONE-004
+    type: zone
+    name: 1층 IQC Drive 검증시험실 및 신뢰성 검증시험실
+    parent: FLOOR-001
+    source: 'page 1 하단 우측 PANEL LOCATION: ''1층 IQC Drive 검증시험실 및 신뢰성 검증시험실'''
+  equipment_placement:
+  - tag: P-EA-2PP
+    located_in: ZONE-001
+    confidence: 0.99
+    source: page 1 상단 좌측 PANEL BOARD 표기
+  - tag: P-F-2PP
+    located_in: ZONE-002
+    confidence: 0.99
+    source: page 1 상단 우측 PANEL BOARD 표기
+  - tag: P-G-2PP
+    located_in: ZONE-003
+    confidence: 0.99
+    source: page 1 하단 좌측 PANEL BOARD 표기
+  - tag: P-I-2PP
+    located_in: ZONE-004
+    confidence: 0.99
+    source: page 1 하단 우측 PANEL BOARD 표기
+  - tag: MCCB
+    located_in: UNKNOWN
+    confidence: 0.6
+    source: page 1 각 분전반 단선도 내 MAIN CB 및 분기 회로에 반복 표기되나, 단일 공간으로 특정 불가
+  - tag: SPD
+    located_in: UNKNOWN
+    confidence: 0.6
+    source: page 1 각 분전반 단선도 우측 보호기기 표기
+  - tag: E3
+    located_in: UNKNOWN
+    confidence: 0.6
+    source: page 1 각 분전반 하단 접지 표기
+pass4_검증:
+  corrections:
+  - target: title_block.drawing_number
+    resolution: EE-01-015로 확인됨.
+    evidence: 우측 표제란 하단과 도면 하단 제목 주변에 'EE-01-015'가 보임.
+    confidence: 0.99
+  - target: title_block.title
+    resolution: 생산동력(3Ø 220V) 분전반 결선도-2로 확인됨.
+    evidence: 도면 하단 중앙 제목과 우측 표제란 제목 영역에 동일 문구가 보임.
+    confidence: 0.99
+  - target: classification
+    resolution: SINGLE_LINE_DIAGRAM으로 보이며, WIRING_DIAGRAM과도 시각적으로 큰 차이는 없음. 현재 이미지에서는
+      단선 결선도 형식이 더 직접적으로 보임.
+    evidence: 한 장에 4개의 분전반 단선 결선도가 2x2로 배치되어 있고, MAIN 수직 배선과 분기 회로가 보임.
+    confidence: 0.95
+  - target: visible_tags / P-EA-2PP
+    resolution: P-EA-2PP가 보임.
+    evidence: 좌상단 블록 상단 PANEL BOARD 표기에서 확인됨.
+    confidence: 0.99
+  - target: visible_tags / P-F-2PP
+    resolution: P-F-2PP가 보임.
+    evidence: 우상단 블록 상단 PANEL BOARD 표기에서 확인됨.
+    confidence: 0.99
+  - target: visible_tags / P-G-2PP
+    resolution: P-G-2PP가 보임.
+    evidence: 좌하단 블록 상단 PANEL BOARD 표기에서 확인됨.
+    confidence: 0.99
+  - target: visible_tags / P-I-2PP
+    resolution: P-I-2PP가 보임.
+    evidence: 우하단 블록 상단 PANEL BOARD 표기에서 확인됨.
+    confidence: 0.99
+  - target: visible_tags / MCCB
+    resolution: MCCB가 보임.
+    evidence: 각 블록의 MAIN CB 및 분기 회로 표기에서 'MCCB'가 반복 확인됨.
+    confidence: 0.99
+  - target: visible_tags / SPD
+    resolution: SPD가 보임.
+    evidence: 각 블록 우측 보호기기 표기에서 '3Ø SPD 40kA/mode'가 확인됨.
+    confidence: 0.99
+  - target: visible_tags / E3
+    resolution: E3 접지 표기가 보임.
+    evidence: 각 블록 하단 접지 심볼 옆에 'E3'가 확인됨.
+    confidence: 0.99
+  - target: pass1_설비식별 / EQ-E05
+    resolution: MCCB는 단일 설비 1개가 아니라 페이지 내 여러 회로와 MAIN CB에 반복 표기됨.
+    evidence: 좌상단, 우상단, 좌하단, 우하단 블록의 MAIN CB 및 분기 회로 표기에서 MCCB가 반복됨.
+    confidence: 0.98
+  - target: pass1_설비식별 / EQ-E06
+    resolution: SPD는 단일 설비 1개가 아니라 페이지 내 4개 블록 모두에서 반복 표기됨.
+    evidence: 각 분전반 블록 우측에 '3Ø SPD 40kA/mode'가 보임.
+    confidence: 0.98
+  - target: pass1_설비식별 / EQ-E07
+    resolution: E3는 단일 심볼 1개가 아니라 4개 블록 모두에서 반복 표기됨.
+    evidence: 각 분전반 하단 접지 심볼 옆에 'E3'가 보임.
+    confidence: 0.98
+  missing_entities:
+  - tag: EQ-E08
+    name: MAIN
+    evidence: 4개 분전반 블록 모두 중앙 수직 배선 상단에 'MAIN' 표기가 보임.
+    confidence: 0.96
+  - tag: EQ-E09
+    name: 'FROM : 전기실'
+    evidence: '4개 분전반 블록 상단에 ''FROM : 전기실'' 표기가 보임.'
+    confidence: 0.96
+  - tag: EQ-E10
+    name: 3Ø SPD 40kA/mode
+    evidence: 각 블록 우측 보호기기 표기에서 확인됨.
+    confidence: 0.99
+  - tag: EQ-E11
+    name: 차단기 정격/차단용량 표
+    evidence: 우측 표제란 중간 하단에 '차단기 정격 적용 가능한 용량' 표가 보임.
+    confidence: 0.97
+  - tag: EQ-E12
+    name: PANEL LOCATION
+    evidence: 각 블록 상단 표에서 'PANEL LOCATION' 항목이 보임.
+    confidence: 0.98
+  - tag: EQ-E13
+    name: COVER TYPE 노출형(STEEL)
+    evidence: 각 블록 상단 표에서 'COVER TYPE 노출형(STEEL)'가 보임.
+    confidence: 0.98
+  - tag: EQ-E14
+    name: BOX SIZE -
+    evidence: 각 블록 상단 표에서 'BOX SIZE -'가 보임.
+    confidence: 0.98
+  relationship_issues:
+  - issue: Pass 2 관계 수가 0개로 보이지만, 이미지에는 각 분전반 블록에서 MAIN 수직 배선과 분기 회로가 명확히 보임.
+    recommendation: 각 블록별 MAIN-분기 회로 연결을 관계로 추출해야 함.
+  - issue: '각 블록에서 상단 ''FROM : 전기실''에서 MAIN으로 이어지는 공급 관계가 보임.'
+    recommendation: 전기실 -> MAIN 공급 관계를 블록별로 명시할 것.
+  - issue: 각 블록 우측의 SPD가 MAIN 배선에 병렬 접속된 형태로 보임.
+    recommendation: SPD의 병렬 접속 관계를 관계로 추가할 것.
+  - issue: 각 블록 하단 접지 심볼(E3)과 MAIN 하단 접지 연결이 보임.
+    recommendation: 접지 연결 관계를 블록별로 추가할 것.
+  - issue: 우측 표제란의 차단기 정격 표는 관계가 아니라 표 정보로 보임.
+    recommendation: 관계로 오인하지 말고 속성/주기 정보로 유지할 것.
+  - issue: 물리적으로 불가능한 연결은 이미지에서 확인되지 않음.
+    recommendation: 현재 상태 유지.
+  - issue: 건축/구조 요소(PIT, 트렌치, 캐노피, 방화벽 등)는 이 페이지에서 보이지 않음.
+    recommendation: 누락으로 판단하지 말 것.
+  - issue: conduit(케이블, 배관, 덕트)는 이 페이지에서 별도 태그로 식별되지 않음.
+    recommendation: UNKNOWN 또는 미검출 유지.
+  consistency_check:
+    entity_count_before: 7
+    entity_count_after: 14
+    relation_count_before: 0
+    relation_count_after: 4
+  overall_confidence: 0.96

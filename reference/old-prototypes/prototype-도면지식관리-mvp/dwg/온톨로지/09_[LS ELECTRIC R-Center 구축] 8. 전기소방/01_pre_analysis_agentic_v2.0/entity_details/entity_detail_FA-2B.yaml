@@ -1,0 +1,144 @@
+tag: FA-2B
+name: 소방간선 분기 샤프트 FA-2B
+type: 소방간선 분기 샤프트
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+- 8
+- 10
+specs:
+  inferred_name: 소방간선 분기 샤프트 FA-2B
+  labels_inside:
+  - FA-2B
+  shape: dashed_box
+  floor: 2층
+  raw_labels:
+  - FA-2B
+  labels_above: []
+  labels_below: []
+  position: center-left
+  equipment_symbols:
+  - type: 화재 수신반 / 전원반(중계기)
+    count: 1
+  inferred_type: 소방간선 분기 샤프트
+  note: 점선 박스
+  label_inside: FA-2B
+relations:
+- from: RISER-MAIN
+  to: FA-2B
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 2층 FA-2B 분기
+- from: FACP-MAIN
+  to: FA-2B
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: ①
+- from: RISER-MAIN
+  to: FA-2B
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 2층 FA-2B 분기
+- from: FD-2A
+  to: FA-2B
+  relation: connects_to
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 소방간선 배관배선 (천정 은폐) / 간선 연결
+- from: FA-2B
+  to: ROOM-VERIFICATION-CTRL
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용 배관배선
+- from: FA-2B
+  to: ROOM-DATA
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용 배관배선
+- from: FA-2B
+  to: ROOM-LOUNGE
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용/유도등용 배관배선
+- from: FA-2B
+  to: ROOM-OFFICE
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용/유도등용 배관배선
+- from: FA-2B
+  to: ROOM-REST
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용/유도등용 배관배선
+- from: FA-2B
+  to: ROOM-SOFTWARE-LAB
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기 배선
+- from: FA-2B
+  to: AREA-CORRIDOR-CORE
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기/유도등 배선
+- from: FA-2B
+  to: ZONE-SEMINAR
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선 (하단 구역)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-center
+confidence: 0.95
+equipment_symbols:
+- type: 소방 경보 회로 분기반
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionEquipment
+  observed_attributes:
+  - inferred_name
+  - labels_inside
+  - shape
+  - floor
+  - raw_labels
+  - labels_above
+  - labels_below
+  - position
+  - equipment_symbols
+  - inferred_type
+  - note
+  - label_inside
+  similar_equipment:
+  - FD-2A
+  function_candidates:
+  - SIGNAL_DISTRIBUTION
+  - POWER_DISTRIBUTION
+  - BRANCHING

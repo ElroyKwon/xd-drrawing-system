@@ -1,0 +1,129 @@
+placement:
+  tag: EXISTING-SEWER-WEST
+  name: 기존 오수관 (서측)
+  discipline: civil
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXISTING-SEWER-WEST
+    class_hint: SewerLine
+    alternative_class_hints:
+    - ExternalUtility
+    - Pipe
+    related_assertions:
+    - type: pipe
+      target_hint: SM-02
+      note: SM-02에서 EXISTING-SEWER-WEST로 연결되는 관로 관계
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:SM-02
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T13:19:01.516917'
+    applicable_axioms:
+    - AX015
+    applicable_constraints:
+    - CN003
+    confirmed_class: dks:SewerLine
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T13:22:29.731739'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 오수관 연결
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: ''
+          rationale: 관로 연결 관계를 나타내는 문구
+      - raw_text: D150 오수관로(H:1,700) L:24M
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: hasDiameter / hasElevation / hasLength
+          suggested_datatype: xsd:string / xsd:decimal
+          rationale: 관경, 높이, 연장으로 해석 가능한 수치성 표기
+      - raw_text: 외부 오수관
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류를 나타내는 명칭
+  provenance:
+    name:
+      source_pages:
+      - 12
+    discipline:
+      source_pages:
+      - 12
+    ontology_core.owl_role:
+      source_pages:
+      - 12
+    ontology_core.iri_hint:
+      source_pages:
+      - 12
+    ontology_core.class_hint:
+      source_pages:
+      - 12
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 12
+    ontology_core.related_assertions:
+      source_pages:
+      - 12
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 12
+    plan_reference.guidance_applied:
+      source_pages:
+      - 12
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: SewerLine
+    source_page: 12
+    reason: ontology_hints의 suggested_parent_class이지만 확정 클래스는 아님
+    preservation_note: 0-9c에서 taxonomy 후보로 재검토
+  - field_candidate: ontology_core.alternative_class_hints[0]
+    raw_text: ExternalUtility
+    source_page: 12
+    reason: type 값(EXTERNAL_UTILITY)에서 유도된 후보이나 확정 불가
+    preservation_note: 외부 설비/유틸리티 상위 분류 후보
+  - field_candidate: ontology_core.alternative_class_hints[1]
+    raw_text: Pipe
+    source_page: 12
+    reason: 관로 성격이 있으나 태그 자체의 확정 클래스는 아님
+    preservation_note: 관계 및 기능과 함께 재판단 필요
+  - field_candidate: discipline_context.sub_kinds.free_notes
+    raw_text: D150 오수관로(H:1,700) L:24M
+    source_page: 12
+    reason: 복합 표기라 단일 속성으로 확정 분해하지 않음
+    preservation_note: 관경/높이/연장 분리 가능성 보존
+  - field_candidate: discipline_context.sub_kinds.free_notes
+    raw_text: 기존 오수관 연결
+    source_page: 12
+    reason: 연결 대상과 관계 방향은 있으나 정식 property 미확정
+    preservation_note: connectedTo 후보로 승격 가능
+  - field_candidate: discipline_context.sub_kinds.free_notes
+    raw_text: 외부 오수관
+    source_page: 12
+    reason: 기능 설명이지만 supplement sub_kind 부재
+    preservation_note: 기능/용도 메모로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 독립 관로처럼 보이지만, relation이 SM-02와의 연결 사실을 강하게 포함하고 있어 NamedIndividual와
+      ObjectPropertyAssertion 경계가 다소 모호함
+    recommended_handling: 0-9c에서 SewerLine 계열 개체로 유지하되, 0-9d에서 연결 관계를 정식 object property로
+      분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:41:00.704889'
+  confidence: 0.95

@@ -1,0 +1,138 @@
+entity_detail:
+  tag: P-AC-3PP
+  type: equipment
+  specs:
+    voltage:
+      value: 3Ø 380V
+      unit: V
+      source: page 20
+      confidence: 0.95
+    enclosure_type:
+      value: 노출형(STEEL) 또는 매입형(STS/STEEL)
+      unit: null
+      source: page 20
+      confidence: 0.95
+    breaker_rating:
+      value: 30AF~600AF
+      unit: AF
+      source: page 20
+      confidence: 0.95
+    breaking_capacity:
+      value: 5KA~50KA 이상
+      unit: KA
+      source: page 20
+      confidence: 0.95
+    cable_spec:
+      value: F-CV 120㎟ -1C x 4, E-70㎟ (82C)
+      unit: null
+      source: page 23
+      confidence: 0.95
+    cable_voltage:
+      value: 380V 3Ф 4W
+      unit: V
+      source: page 23
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: 생산동력(3Ø 380V) 분전반 결선도
+  - source: page 20
+    page_number: 20
+    text: P-AC-3PP
+  - source: page 20
+    page_number: 20
+    text: 3Ø 380V, 노출형(STEEL) 또는 매입형(STS/STEEL), 차단기 정격 30AF~600AF, 차단용량 5KA~50KA
+      이상
+  - source: page 20
+    page_number: 20
+    text: 차단기 정격 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+  - source: page 20
+    page_number: 20
+    text: 차단용량 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상
+  - source: page 20
+    page_number: 20
+    text: 'M.C.C.B: Molded Cased Circuit Breaker'
+  - source: page 20
+    page_number: 20
+    text: 'S.P.D: Surge Protective Device'
+  - source: page 20
+    page_number: 20
+    text: GND
+  - source: page 23
+    page_number: 23
+    text: S/S R-Center
+  - source: page 23
+    page_number: 23
+    text: P-AC-3PP
+  - source: page 23
+    page_number: 23
+    text: F-CV 120㎟ -1C x 4, E-70㎟ (82C)
+  - source: page 23
+    page_number: 23
+    text: 380V 3Ф 4W
+  requirements:
+  - text: 3Ø 380V
+    source: page 20
+    type: electrical_rating
+  - text: 노출형(STEEL) 또는 매입형(STS/STEEL)
+    source: page 20
+    type: enclosure_condition
+  - text: 차단기 정격 30AF~600AF
+    source: page 20
+    type: breaker_rating
+  - text: 차단용량 5KA~50KA 이상
+    source: page 20
+    type: breaking_capacity
+  - text: '주기사항: 정격전압, MCCB/CBR 설치 조건, 내판 사용 관련 설명'
+    source: page 20
+    type: note
+  - text: 380V 3Ф 4W
+    source: page 23
+    type: cable_voltage
+  connection_specs:
+  - relation: feeds
+    partner: MCCB-001
+    details:
+      source: page 20
+      text: P-AC-3PP -> MCCB-001
+      direction: downstream
+      medium: power
+  - relation: feeds
+    partner: S/S R-Center
+    details:
+      source: page 23
+      text: 'from: S/S R-Center to: P-AC-3PP'
+      medium: power_cable
+      spec: F-CV 120㎟ -1C x 4, E-70㎟ (82C)
+      voltage: 380V 3Ф 4W
+      direction: downstream
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: MCCB-001
+      direction: downstream
+      source: page 20
+    - relation_type: feeds
+      partner_tag: S/S R-Center
+      direction: downstream
+      source: page 23
+    observed_attributes:
+    - voltage
+    - enclosure_type
+    - breaker_rating
+    - breaking_capacity
+    - cable_spec
+    - cable_voltage
+    similar_equipment:
+    - P-A-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    suggested_parent_class: PanelBoard
+    cross_discipline: []
+  notes:
+  - page 20과 page 23에서 P-AC-3PP가 확인됨.
+  - page 20의 분전반 결선도와 page 23의 전력간선설비 계통도에서 동일 태그가 등장함.
+tag: P-AC-3PP

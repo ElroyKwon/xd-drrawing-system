@@ -1,0 +1,161 @@
+placement:
+  tag: GRID-001
+  name: 도면 그리드 버블
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:GRID-001
+    class_hint: SpatialReference
+    alternative_class_hints:
+    - CoordinateIndication
+    - SpatialReferencing
+    related_assertions:
+    - type: adjacent_to
+      target_hint: SPACE-PIT-001
+      note: 그리드 축 B/C/D 및 5/6 표기
+    applicable_axioms:
+    - AX029
+    applicable_constraints:
+    - CN003
+    - CN004
+    confirmed_class: dks:SpatialReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: B, C, D, 5, 6'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string list
+          rationale: 그리드 축 문자/숫자 표기가 내부 라벨로 관찰됨
+      - raw_text: 'position: perimeter'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보로 보존 가치가 있음
+  provenance:
+    tag:
+      source_pages:
+      - 6
+      method: entity_detail
+    name:
+      source_pages:
+      - 6
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 6
+      method: entity_detail
+    type:
+      source_pages:
+      - 6
+      method: entity_detail
+    function_category:
+      source_pages:
+      - 6
+      method: entity_detail
+    source_pages:
+      source_pages:
+      - 6
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations[0].from:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations[0].to:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations[0].relation:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations[0].source_page:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations[0].origin:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations[0].note:
+      source_pages:
+      - 6
+      method: entity_detail
+    collection_sources.cross_validated:
+      source_pages:
+      - 6
+      method: entity_detail
+    position:
+      source_pages:
+      - 6
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 6
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 6
+      method: entity_detail
+  unresolved:
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: SpatialReference
+    source_page: 6
+    reason: 후보 클래스 라벨이지만 확정 불가
+    preservation_note: 0-9c에서 class hierarchy 후보로 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SpatialReferencing
+    source_page: 6
+    reason: 기능 후보 표현이므로 정식 클래스/속성으로 단정 불가
+    preservation_note: 기능 의미 보존용
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CoordinateIndication
+    source_page: 6
+    reason: 기능 후보 표현이므로 정식 클래스/속성으로 단정 불가
+    preservation_note: 기능 의미 보존용
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 그리드 버블은 물리 설비가 아니라 도면상의 공간 참조/주석 객체로 관찰됨
+    recommended_handling: AnnotationOnly로 유지하고 adjacent_to 관계만 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - SpatialEntity / DrawingInformationEntity 축을 우선 고려
+    - adjacent_to 관계 사실 원형 보존
+    - labels_inside 및 position 관련 관찰값 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:59:00.679598'
+  confidence: 0.95

@@ -1,0 +1,155 @@
+placement:
+  tag: SPACE-SITROK
+  name: 시트록스
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-SITROK
+    class_hint: Space
+    alternative_class_hints:
+    - PartitioningSpace
+    - CommunicationSpace
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'inferred_name: 시트록스 (Sheetrock 구획)'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 도면 내 추론명이며 괄호로 구획 성격이 함께 표기됨
+      - raw_text: 'function_candidates: Partitioning'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 명시되어 있으나 supplement sub_kind가 없어 원문 보존
+      - raw_text: 'raw_labels: 시트록스'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 원표기 보존 필요
+      - raw_text: 'labels_inside: 시트록스'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelInsideText
+          suggested_datatype: xsd:string
+          rationale: 내부 표기 위치 정보 보존 필요
+      - raw_text: 'labels_above: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelsAbove
+          suggested_datatype: xsd:string
+          rationale: 빈 배열이지만 관찰 필드 존재를 보존
+      - raw_text: 'labels_below: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelsBelow
+          suggested_datatype: xsd:string
+          rationale: 빈 배열이지만 관찰 필드 존재를 보존
+      - raw_text: 'equipment_symbols: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: equipmentSymbols
+          suggested_datatype: xsd:string
+          rationale: 기호 없음 상태를 보존
+      - raw_text: 'position: center'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'suggested_parent_class: Space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보 보존
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: direct
+    name:
+      source_pages:
+      - 8
+      method: direct
+    discipline:
+      source_pages:
+      - 8
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: inferred_from_space_entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: derived
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 8
+      method: assessment
+  unresolved:
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 8
+    reason: 빈 배열로 의미 해석 불가
+    preservation_note: 필드 존재 자체를 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 8
+    reason: 빈 배열로 의미 해석 불가
+    preservation_note: 필드 존재 자체를 보존
+  - field_candidate: specs.equipment_symbols
+    raw_text: '[]'
+    source_page: 8
+    reason: 기호 없음 상태만 확인됨
+    preservation_note: 추후 동일 태그의 다른 페이지와 비교 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 8
+    reason: 후보 클래스이며 확정 아님
+    preservation_note: class_hint 후보로만 반영
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 공간으로 보이나 'Sheetrock 구획'이라는 추론명과 Partitioning 기능 후보가 함께 있어 일반 공간인지
+      구획/분할 영역인지 단정하기 어려움
+    recommended_handling: 다음 단계에서 Space 계열 하위 클래스 후보로 유지하고, 동일 도면 내 인접 공간 태그와의 관계를
+      통해 세분화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 보고 Space 계열 class_hint를 부여
+    - inferred_name과 function_candidates를 보존
+    - 관찰된 원문 필드(raw_labels, labels_inside, position, ontology_hints)를 free_notes/unresolved로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:05.405284'
+  confidence: 0.86

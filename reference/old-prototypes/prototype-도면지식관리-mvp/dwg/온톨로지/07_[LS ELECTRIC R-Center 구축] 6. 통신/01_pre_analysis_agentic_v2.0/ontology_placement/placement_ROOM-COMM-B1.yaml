@@ -1,0 +1,145 @@
+placement:
+  tag: ROOM-COMM-B1
+  name: 사무동 1층 통신실 (룸 플레이스홀더)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:ROOM-COMM-B1
+    class_hint: CommunicationSpaceEntity
+    alternative_class_hints:
+    - CommunicationSpace
+    - Room
+    - CommunicationRoomPlaceholder
+    related_assertions:
+    - type: cable
+      target_hint: HUB-RACK-01
+      note: 'from HUB-RACK-01 to ROOM-COMM-B1; annotation: 사무동 지하1층 평면도 참조'
+      confirmed_property: dks:connectedTo
+      confirmed_target: HUB-RACK-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 1층 통신실
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨
+      - raw_text: 사무동 지하1층 평면도 참조
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: referencesDrawingOrSection
+          suggested_datatype: xsd:string
+          rationale: 다른 도면/섹션 참조 문구
+      - raw_text: 사무동 1층 통신실 (룸 플레이스홀더)
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: drawingTitle
+          suggested_datatype: xsd:string
+          rationale: 엔티티 명칭 자체가 공간 플레이스홀더를 나타냄
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates + tag semantics
+    ontology_core.related_assertions:
+      source_pages:
+      - 4
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+      method: specs.raw_labels + specs.labels_below + name
+    position:
+      source_pages:
+      - 4
+      method: entity_detail.position
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 1층 통신실
+    source_page: 4
+    reason: 원문 라벨은 해석 가능하지만, 별도 구조화 필드로 승격하지 않고 보존 필요
+    preservation_note: 공간명/라벨 후보로 재사용 가능
+  - field_candidate: specs.labels_inside
+    raw_text: 1층 통신실
+    source_page: 4
+    reason: labels_inside와 raw_labels가 동일 텍스트로 중복 관찰됨
+    preservation_note: 중복 여부는 후속 병합 판단에서 검토
+  - field_candidate: specs.labels_below
+    raw_text: 사무동 지하1층 평면도 참조
+    source_page: 4
+    reason: 참조 문구로서 관계 사실이지만 확정 property IRI는 아직 미정
+    preservation_note: referencesDrawingOrSection 후보
+  - field_candidate: relations[0].relation
+    raw_text: cable
+    source_page: 4
+    reason: 관계 원형은 확인되나 정식 object property로 확정하지 않음
+    preservation_note: connectedTo/feeds/locatedIn 계열 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Room
+    source_page: 4
+    reason: 후보 클래스일 뿐 확정 불가
+    preservation_note: class_hint 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates[0]
+    raw_text: Communication Hub
+    source_page: 4
+    reason: 기능 후보이며 실제 분류 확정 아님
+    preservation_note: alternative_class_hints 후보
+  - field_candidate: ontology_hints.function_candidates[1]
+    raw_text: Equipment Housing
+    source_page: 4
+    reason: 기능 후보이며 실제 분류 확정 아님
+    preservation_note: alternative_class_hints 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 ROOM- 계열 공간 플레이스홀더이지만, name에 '룸 플레이스홀더'가 명시되어 있고 relations에는 HUB-RACK-01과의
+      cable 관계가 있어 공간/참조/연결점 성격이 혼재함.
+    recommended_handling: 0-9c에서 공간 엔티티로 우선 검토하되, 0-9d에서 관계 property와 공간 클래스의 분리를
+      재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - relations의 cable 원형을 보존
+    - labels_below의 도면 참조 문구를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:14:48.927691'
+  confidence: 0.84

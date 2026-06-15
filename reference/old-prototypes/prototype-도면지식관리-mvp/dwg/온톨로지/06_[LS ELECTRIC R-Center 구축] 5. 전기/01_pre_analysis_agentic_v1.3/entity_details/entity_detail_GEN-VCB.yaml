@@ -1,0 +1,51 @@
+entity_detail:
+  tag: GEN-VCB
+  type: vacuum_circuit_breaker
+  specs:
+    voltage:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    equipment_type:
+      value: VCB
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: '22.9kV 수전설비 단선결선도로, 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI),
+      계량(MOF) 및 개폐기(VCB, G/S)를 거쳐 하단 다수 피더로 분기되는 구조가 보인다.
+
+
+      주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.
+
+
+      도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.'
+  requirements:
+  - text: 22.9kV 계통에서 사용되는 진공차단기(VCB)로 보임
+    source: page 5
+    type: operating_condition
+  connection_specs:
+  - relation: part_of_single_line_diagram
+    partner: 22.9kV 수전설비 단선결선도
+    details:
+      source: page 5 executive_summary
+  ontology_hints:
+    observed_relations:
+    - relation_type: appears_in
+      partner_tag: page_5
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    observed_attributes:
+    - voltage
+    - equipment_type
+    similar_equipment: []
+    suggested_parent_class: CircuitBreaker
+    cross_discipline: []
+  notes:
+  - 도면 요약에서 VCB는 개폐기/차단기 계열로 언급되며, 상세 사양은 추가로 확인되지 않음.
+tag: GEN-VCB

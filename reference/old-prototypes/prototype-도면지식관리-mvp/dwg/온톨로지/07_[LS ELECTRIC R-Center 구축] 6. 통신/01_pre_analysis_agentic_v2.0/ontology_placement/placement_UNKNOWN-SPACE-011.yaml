@@ -1,0 +1,141 @@
+placement:
+  tag: UNKNOWN-SPACE-011
+  name: W.C
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SPACE-011
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - Wiring Closet
+    - Telecommunications Room
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: W.C
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문이며 공간 라벨로 보존 필요
+      - raw_text: WIRING_CLOSET
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: function_category 값으로 관찰됨
+      - raw_text: Wiring Closet
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 포함된 후보 표현
+      - raw_text: Telecommunications Room
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 포함된 후보 표현
+  provenance:
+    tag:
+      source_pages:
+      - 17
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 17
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: tag_as_identifier
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 17
+      method: specs.source_text
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 17
+      method: entity_detail.function_category
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    unresolved:
+      source_pages:
+      - 17
+      method: scan_all_fields
+    ambiguous:
+      source_pages:
+      - 17
+      method: classification_review
+    merge_info:
+      source_pages:
+      - 17
+      method: merge_review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 17
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 17
+    reason: 관계 항목이 비어 있어 추출할 관계 사실이 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 17
+    reason: 메타 플래그로 해석 대상은 아니지만 원문 보존 필요
+    preservation_note: 생성 경로 메타데이터
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: source_text
+    source_page: 17
+    reason: 관찰 속성 목록이지만 별도 구조화 값은 아님
+    preservation_note: 관찰 근거 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이지만 function_category가 WIRING_CLOSET이고 ontology_hints에 Telecommunications
+      Room 후보가 함께 있어 공간 용도 해석이 단일하지 않음
+    recommended_handling: 0-9c에서 공간 클래스 후보를 유지한 채, 이후 관계/문맥이 추가되면 세부 class 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 계열로 보이는 엔티티를 CommunicationSpace 후보로 배치
+    - function_category와 function_candidates를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:53.156956'
+  confidence: 0.86

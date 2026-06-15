@@ -1,0 +1,82 @@
+entity_detail:
+  tag: CB-001
+  type: power_cable
+  specs:
+    cable_spec:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+      unit: null
+      source: page 4
+      confidence: 0.98
+    route_context:
+      value: IN TRAY
+      unit: null
+      source: page 4
+      confidence: 0.98
+    route_context_2:
+      value: ELP100 X 2
+      unit: null
+      source: page 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page 4 / page_004_context.yaml
+    page_number: 4
+    text: 'tag: CB-001 type: power_cable spec: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L from:
+      SP-UT-PS'
+  - source: page 4 / page_004_context.yaml
+    page_number: 4
+    text: 'tag: CABLE-001 name: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L spec: 3Ф 3W 6.6kV F-CV
+      150㎟ -1C x6L (IN TRAY) discipline: ELECTRICAL function_category: TRANSPORT location:
+      공동구 내 기존 TRAY confidence: 0.98'
+  - source: page 4 / page_004_context.yaml
+    page_number: 4
+    text: 'tag: CABLE-002 name: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L spec: 3Ф 3W 6.6kV F-CV
+      150㎟ -1C x6L (ELP100 X 2) discipline: ELECTRICAL function_category: TRANSPORT
+      location: 터파기 신설 구역 (DUCT BANK) confidence: 0.98'
+  - source: page 4 / page_004_context.yaml
+    page_number: 4
+    text: 'relationships: - from: SP-UT-PS to: SP-RCENTER-PS relation: 전력케이블 인입 연결
+      medium: power direction: UT동 1층 변전실 -> R-Center 변전실 confidence: 0.98'
+  requirements:
+  - text: UT동 1층 변전실에서 R-Center 변전실로 전력케이블 인입 연결
+    source: page 4
+    type: connection_requirement
+  - text: 6.6kV 전력케이블
+    source: page 4
+    type: electrical_requirement
+  connection_specs:
+  - relation: feeds
+    partner: SP-RCENTER-PS
+    details:
+      source: page 4
+      direction: SP-UT-PS -> SP-RCENTER-PS
+      medium: power
+      confidence: 0.98
+  - relation: from
+    partner: SP-UT-PS
+    details:
+      source: page 4
+      text: 'from: SP-UT-PS'
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: SP-RCENTER-PS
+      direction: SP-UT-PS -> SP-RCENTER-PS
+      source: page 4
+    - relation_type: originates_from
+      partner_tag: SP-UT-PS
+      direction: SP-UT-PS -> CB-001
+      source: page 4
+    observed_attributes:
+    - spec
+    - from
+    - cable_spec
+    - route_context
+    - route_context_2
+    similar_equipment:
+    - CABLE-001
+    - CABLE-002
+    suggested_parent_class: ElectricalCable
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과와 page 4 context를 근거로 수집함
+tag: CB-001

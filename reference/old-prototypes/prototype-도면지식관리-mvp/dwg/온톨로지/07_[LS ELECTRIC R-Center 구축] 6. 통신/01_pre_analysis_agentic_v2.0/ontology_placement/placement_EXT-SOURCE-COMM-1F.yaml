@@ -1,0 +1,200 @@
+placement:
+  tag: EXT-SOURCE-COMM-1F
+  name: 외부 인입 출처 - 사무동 지상1층 통신실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-SOURCE-COMM-1F
+    class_hint: ExternalSource
+    alternative_class_hints:
+    - CommunicationSource
+    - IncomingSource
+    - Placeholder
+    related_assertions:
+    - type: cable
+      target_hint: MANHOLE-01
+      note: 'FROM : 사무동 지상1층 통신실 / UTP 0.5mm/25Px1, CAT.5 / ELP 50Ø'
+    - type: referencesDrawingOrSection
+      target_hint: 사무동 지하1층 평면도
+      note: cross_page_ref
+    applicable_axioms:
+    - AX044
+    applicable_constraints: []
+    confirmed_class: dks:ExternalSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상1층 통신실'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: fromLabel
+          suggested_datatype: xsd:string
+          rationale: FROM 표기와 출처 공간명이 함께 나타나는 라벨 텍스트
+        promoted_to: dks:rawLabelText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T17:33:09.591389'
+      - raw_text: UTP 0.5mm/25Px1, CAT.5
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격으로 보이는 문자열
+        promoted_to: dks:cableSpecification
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T17:33:09.591389'
+      - raw_text: 사무동 지하1층 평면도 참조
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: crossPageReference
+          suggested_datatype: xsd:string
+          rationale: 다른 도면/평면도 참조 문구
+        promoted_to: dks:crossPageReference
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T17:33:09.591389'
+      - raw_text: ELP 50Ø
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: conduitSpecification
+          suggested_datatype: xsd:string
+          rationale: 관로/배관 규격으로 보이는 표기
+      - raw_text: external source placeholder
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: type=placeholder 자체가 물리 실체보다 표기/출처 지점을 나타냄
+  provenance:
+    name:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: classification_by_entity_type_and_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class + observed text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates + type
+    ontology_core.related_assertions:
+      source_pages:
+      - 4
+      method: relations + annotation
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+      method: preserve_unclassified_text
+    position:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    specs.raw_labels:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    specs.from_label:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    specs.cable_spec:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    specs.cross_page_ref:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    relations:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    type:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    discipline:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+    function_category:
+      source_pages:
+      - 4
+      method: direct_from_entity_detail
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM : 사무동 지상1층 통신실'
+    source_page: 4
+    reason: 라벨 텍스트는 해석 가능하지만 정식 속성으로 확정하지 않음
+    preservation_note: 출처 공간명과 FROM 표기를 함께 보존
+  - field_candidate: specs.raw_labels
+    raw_text: UTP 0.5mm/25Px1, CAT.5
+    source_page: 4
+    reason: 케이블 규격 문자열의 세부 의미를 외부 표준 없이 확정하지 않음
+    preservation_note: 원문 규격 문자열 그대로 보존
+  - field_candidate: specs.cable_spec
+    raw_text: UTP 0.5mm/25Px1, CAT.5
+    source_page: 4
+    reason: 정식 데이터 속성으로 승격하지 않음
+    preservation_note: 케이블 사양 후보로 유지
+  - field_candidate: specs.cross_page_ref
+    raw_text: 사무동 지하1층 평면도 참조
+    source_page: 4
+    reason: 참조 대상은 보이지만 관계 타입 확정은 0-9d 이후
+    preservation_note: 도면 참조 문구 보존
+  - field_candidate: relations[0].relation
+    raw_text: cable
+    source_page: 4
+    reason: 관계 사실은 있으나 확정 property IRI는 미지정
+    preservation_note: 연결 관계 원형만 보존
+  - field_candidate: annotation
+    raw_text: ELP 50Ø
+    source_page: 4
+    reason: 관로/배관 표기로 보이나 의미 확정 불가
+    preservation_note: 치수/규격 표기 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type=placeholder이면서 외부 인입 출처와 케이블 연결 사실을 동시에 가지므로, 물리 설비인지 표기용 출처점인지 경계가
+      모호함
+    recommended_handling: 0-9c에서 ExternalSource 계열 후보와 Annotation/Placeholder 성격을
+      함께 검토하고, 0-9d에서 cable 및 referencesDrawingOrSection 관계를 분리 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부연결/인입/출처 지점 패턴으로 해석
+    - FROM/TO 계열 관계 사실을 related_assertions 원형으로 보존
+    - cross_page_ref를 참조 관계 후보로 보존
+    - 분류 불가 문자열을 free_notes + promotion_hint로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:28.400570'
+  confidence: 0.86

@@ -1,0 +1,428 @@
+placement:
+  tag: P-E-4PP
+  name: P-E-4PP 동력분전반
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:P-E-4PP
+    class_hint: DistributionPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - PowerDistributionEquipment
+    - Panel
+    related_assertions:
+    - type: feeds
+      target_hint: POWER-SOURCE-EE
+      note: 'FROM/SOURCE: 전기실, 도면상 전원 공급 관계'
+    - type: grounds_to
+      target_hint: E3
+      note: labels_below 및 grounding 표기
+    - type: protects
+      target_hint: SPD-P-E-4PP
+      note: 패널 내 SPD 존재 및 보호 관계 표기
+    - type: feeds
+      target_hint: BRANCH-P-E-4PP
+      note: 분기회로/브랜치로의 공급 관계
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DistributionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: P-E-4PP
+        source_page: 22
+        note: 패널 그룹/계통 식별자
+      spatial_markers:
+      - raw_text: 1층 환경시험실
+        source_page: 22
+        note: 패널 위치
+      operational_states:
+      - raw_text: 사용/예비
+        source_page: 22
+        note: branch_circuits_parsed.status
+      references:
+      - raw_text: 'PANEL BOARD: P-E-4PP'
+        source_page: 22
+      - raw_text: 'COVER TYPE: 노출형(STEEL)'
+        source_page: 22
+      - raw_text: 'BOX SIZE: —'
+        source_page: 22
+      - raw_text: 'FROM: 전기실'
+        source_page: 22
+      - raw_text: 'SOURCE: 전기실'
+        source_page: 22
+      - raw_text: 'VOLT: 440V'
+        source_page: 22
+      - raw_text: 'MAIN C.B TYPE: MCCB'
+        source_page: 22
+      - raw_text: 'MAIN C.B: 3P 250AF 150AT'
+        source_page: 22
+      - raw_text: MCCB 3P 30/20AT
+        source_page: 22
+      - raw_text: 3Ø S.P.D 40KA/mode
+        source_page: 22
+      - raw_text: E3
+        source_page: 22
+      free_notes:
+      - raw_text: 'labels_above: PANEL BOARD  P-E-4PP  COVER TYPE  노출형(STEEL)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasCoverType
+          suggested_datatype: xsd:string
+          rationale: 도면 상부 라벨에 커버 타입이 명시됨
+      - raw_text: 'labels_above: PANEL LOCATION  1층 환경시험실  BOX SIZE  —'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasLocation
+          suggested_datatype: xsd:string
+          rationale: 패널 위치가 문자열로 명시됨
+      - raw_text: 'labels_inside: R S T'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasPhaseLabel
+          suggested_datatype: xsd:string
+          rationale: 상(phase) 표기 문자열
+      - raw_text: 'labels_inside: TYPE: MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasMainBreakerType
+          suggested_datatype: xsd:string
+          rationale: 메인 차단기 타입 표기
+      - raw_text: 'labels_inside: MAIN C.B: 3P 30/20AT'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasMainBreakerRating
+          suggested_datatype: xsd:string
+          rationale: AT/AF가 함께 있는 메인 차단기 정격 표기
+      - raw_text: 'labels_inside: 3Ø S.P.D 40KA/mode'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSurgeProtectionRating
+          suggested_datatype: xsd:string
+          rationale: SPD 정격이 문자열로 표기됨
+      - raw_text: 'labels_inside: AT: 50  AF: 250  P: 4  TYPE: MCCB  NO: M1  (사용/예비
+          표기)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 분기회로 사양(AT/AF/P/NO/status) 복합 표기
+      - raw_text: 'labels_inside: AT: 75  AF: 125  P: 4  TYPE: MCCB  SP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 분기회로 사양 복합 표기
+      - raw_text: 'labels_inside: CCM NO TYPE P AF AT (회로 그리드 헤더)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasCircuitTableHeader
+          suggested_datatype: xsd:string
+          rationale: 회로 표의 헤더 문자열
+      - raw_text: 'branch_circuits_parsed: circuit_id=M1, at=50, af=250, poles=4,
+          type=MCCB, status=사용/예비'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuit
+          suggested_datatype: xsd:string
+          rationale: 분기회로 구조화 정보
+      - raw_text: 'branch_circuits_parsed: circuit_id=SP, at=75, af=125, poles=4,
+          type=MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuit
+          suggested_datatype: xsd:string
+          rationale: 분기회로 구조화 정보
+      - raw_text: 'raw_labels: AT: 100, AF: 125, P: 3, TYPE: MCCB, NO: 시험용(계획)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 계획/시험용으로 보이는 분기회로 사양 문자열
+      - raw_text: 'raw_labels: AT: 75, AF: 125, P: 3, TYPE: MCCB, NO: SP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 분기회로 사양 문자열
+      - raw_text: 'raw_labels: AT: 50, AF: 50, P: 3, TYPE: MCCB, NO: 시험용(계획)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 분기회로 사양 문자열
+      - raw_text: 'equipment_symbols: MCCB (Molded Case Circuit Breaker) x3'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasEquipmentCount
+          suggested_datatype: xsd:string
+          rationale: 장비 수량 요약
+      - raw_text: 'equipment_symbols: SPD (Surge Protective Device) 3Ø 40KA/mode x1'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasEquipmentCount
+          suggested_datatype: xsd:string
+          rationale: 장비 수량 요약
+      - raw_text: 'equipment_symbols: CT (Current Transformer) x1'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasEquipmentCount
+          suggested_datatype: xsd:string
+          rationale: 장비 수량 요약
+      - raw_text: 'equipment_symbols: Earth/Ground (E3) x1'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasEquipmentCount
+          suggested_datatype: xsd:string
+          rationale: 장비 수량 요약
+  provenance:
+    name:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    discipline:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 22
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 22
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 22
+      method: ontology_hints.suggested_parent_class + entity_detail.type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 22
+      method: ontology_hints + plan_overview
+    ontology_core.related_assertions:
+      source_pages:
+      - 22
+      method: relations
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 22
+      method: tag_and_panel_board_label
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 22
+      method: entity_detail.specs.location
+    discipline_context.sub_kinds.operational_states:
+      source_pages:
+      - 22
+      method: branch_circuits_parsed.status
+    discipline_context.sub_kinds.references:
+      source_pages:
+      - 22
+      method: labels_and_raw_labels
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 22
+      method: residual_text_preservation
+    specs.labels_above:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.labels_below:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.branch_circuits_parsed:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.raw_labels:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.panel_board:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.location:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.cover_type:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.box_size:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.source:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.rated_voltage:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.phase:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.main_cb_type:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.main_cb_spec:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.main_cb_poles:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.main_cb_at_rating:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.main_cb_af_rating:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.spd_spec:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.grounding:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.branch_circuits:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    specs.equipment_count:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    relations:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    equipment_symbols:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    source_attribution:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    position:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    confidence:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+  unresolved:
+  - field_candidate: specs.box_size
+    raw_text: —
+    source_page: 22
+    reason: 도면에 값이 비어 있거나 대시로만 표기됨
+    preservation_note: 추후 다른 페이지/연결 도면에서 박스 크기 확인 가능
+  - field_candidate: specs.labels_inside
+    raw_text: R S T
+    source_page: 22
+    reason: 상 표기이지만 별도 구조화 필드가 없어 원문 보존
+    preservation_note: phase 관련 표기 후보
+  - field_candidate: specs.labels_inside
+    raw_text: CCM NO TYPE P AF AT (회로 그리드 헤더)
+    source_page: 22
+    reason: 표 헤더로 보이나 정확한 속성 매핑은 미확정
+    preservation_note: 회로 테이블 구조 복원용
+  - field_candidate: specs.raw_labels
+    raw_text: 'AT: 100, AF: 125, P: 3, TYPE: MCCB, NO: 시험용(계획)'
+    source_page: 22
+    reason: 계획/시험용 표기와 함께 있어 실제 설치 여부 불명
+    preservation_note: 분기회로 후보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 'AT: 75, AF: 125, P: 3, TYPE: MCCB, NO: SP'
+    source_page: 22
+    reason: SP가 분기명인지 예비표기인지 단독으로는 불명확
+    preservation_note: branch circuit candidate
+  - field_candidate: specs.raw_labels
+    raw_text: 'AT: 50, AF: 50, P: 3, TYPE: MCCB, NO: 시험용(계획)'
+    source_page: 22
+    reason: 계획/시험용 표기와 함께 있어 실제 설치 여부 불명
+    preservation_note: 분기회로 후보로 보존
+  - field_candidate: specs.main_cb_spec
+    raw_text: 3P 30/20AT
+    source_page: 22
+    reason: AT/AF 표기 순서와 의미가 혼재되어 있어 원문 그대로 보존
+    preservation_note: main breaker rating string
+  - field_candidate: specs.spd_spec
+    raw_text: 3Ø S.P.D 40KA/mode
+    source_page: 22
+    reason: mode 표기가 정확한 단위/의미인지 불명확
+    preservation_note: SPD rating string
+  - field_candidate: relations.relation
+    raw_text: protects
+    source_page: 22
+    reason: 도면 관계는 확인되나 0-9d에서 확정 property IRI 미지정
+    preservation_note: ObjectPropertyAssertion 후보
+  - field_candidate: equipment_count.ct
+    raw_text: '1'
+    source_page: 22
+    reason: CT가 패널 내부 구성인지 별도 장치인지 도면상 세부 연결 미확정
+    preservation_note: count only
+  - field_candidate: equipment_count.mccb
+    raw_text: '3'
+    source_page: 22
+    reason: MCCB 수량은 보이나 개별 태그와 1:1 대응이 완전하지 않음
+    preservation_note: count only
+  - field_candidate: equipment_count.spd
+    raw_text: '1'
+    source_page: 22
+    reason: SPD 수량은 보이나 개별 태그와 1:1 대응이 완전하지 않음
+    preservation_note: count only
+  - field_candidate: equipment_count.earth_ground
+    raw_text: '1'
+    source_page: 22
+    reason: 접지 표기 수량은 있으나 E3와의 구조적 관계만 확인됨
+    preservation_note: count only
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 패널 자체는 분전반으로 명확하지만, 내부의 일부 raw_labels(시험용/계획, SP)와 branch_circuits_parsed가
+      실제 설치/예비/계획 상태를 혼합 표기하고 있어 일부 사양의 확정 해석이 어렵다.
+    recommended_handling: NamedIndividual로 유지하되, 분기회로 및 시험용 표기는 free_notes/unresolved에
+      보존하고 0-9d에서 데이터 속성 승격 여부를 재검토한다.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:12:02.688579'
+  confidence: 0.98

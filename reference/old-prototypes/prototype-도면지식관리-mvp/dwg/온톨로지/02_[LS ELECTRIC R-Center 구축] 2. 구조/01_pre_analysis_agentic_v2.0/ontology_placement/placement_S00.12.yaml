@@ -1,0 +1,98 @@
+placement:
+  tag: S00.12
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S00.12
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 접근 가능 범위를 나타내는 문자열 값으로 보존 가능
+      - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserAssistanceNote
+          suggested_datatype: xsd:string
+          rationale: 도면 실체 정보가 아닌 응답 안내 문구로, 주석성 텍스트로 보존 가능
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guidance + raw_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guidance
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 도면 설비 실체나 관계가 아니라 페이지 안내 문구로만 구성됨
+    preservation_note: 문서 접근 메타/안내 문구로 보존; 후속 단계에서 AnnotationOnly 또는 NoteOrLegend로
+      재검토 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 S00.12는 시트/문서 식별자 계열로 보이나, 원문에는 실제 도면 객체 정보가 없고 페이지 안내 문구만 존재함
+    recommended_handling: 문서 메타 또는 주석성 엔티티로 유지하고, 후속 단계에서 동일 시리즈 태그와의 문맥 비교를 통해 DocumentEntity/NoteOrLegend
+      여부를 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 도면/시트 식별자 계열은 DocumentEntity 또는 PlanOrView 후보로 우선 배치
+    - raw only placeholder responses는 unresolved/annotation성 정보로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:02.403017'
+  confidence: 0.86

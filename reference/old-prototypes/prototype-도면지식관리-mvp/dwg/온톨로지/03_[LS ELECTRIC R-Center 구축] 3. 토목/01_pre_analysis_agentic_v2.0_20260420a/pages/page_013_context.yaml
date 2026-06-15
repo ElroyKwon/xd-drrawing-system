@@ -1,0 +1,591 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: PROFILE_DRAWING
+  drawing_genre: drainage
+  title_block:
+    drawing_number: C10-302
+    title: 오수종단면도
+    revision: null
+  visible_tags:
+  - tag: SM.1
+    type: manhole_or_structure_label
+    source: image
+  - tag: SM.2
+    type: manhole_or_structure_label
+    source: image
+  - tag: SM.3
+    type: manhole_or_structure_label
+    source: image
+  - tag: SM.4
+    type: manhole_or_structure_label
+    source: image
+  - tag: SM.5
+    type: manhole_or_structure_label
+    source: image
+  - tag: LINE 101
+    type: pipeline_segment_label
+    source: image
+  - tag: LINE 102
+    type: pipeline_segment_label
+    source: image
+  - tag: LINE 103
+    type: pipeline_segment_label
+    source: image
+  - tag: LINE 104
+    type: pipeline_segment_label
+    source: image
+  - tag: LINE 105
+    type: pipeline_segment_label
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 10
+  next_step_hints:
+  - 오수종단면도(하수/배수 계통)로 보이며, 종단 프로파일과 표가 함께 있음
+  - 표제란에 도면번호 C10-302, 제목 오수종단면도 확인
+  - SM.1~SM.5 및 LINE 101~105 표기가 반복됨
+  confidence: 0.98
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/civil/genre_drainage/supplement_p4_05.yaml
+  routing_confidence: 0.0
+  routing_reason: 도면은 CIVIL 계열의 종단면도처럼 보이나, 제공된 supplement 카탈로그에 civil 항목은 P-4.5만
+    있고 P-10/P-11 등 현재 페이지용 매칭 경로가 없어 recommended_supplements를 비움.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: PROFILE-001
+    shape: other
+    primary_label: 오수종단면도 (Profile)
+    position: center
+    labels_near:
+    - 101 ~ 105 호선
+    - SM.1
+    - SM.5
+    - LINE 101
+    - LINE 105
+  - panel_id: TABLE-001
+    shape: rectangle
+    primary_label: 종단면 데이터 표
+    position: bottom-center
+    labels_near:
+    - 맨홀번호
+    - 지반고
+    - 관저고
+    - 기울기
+    - 토피고
+  - panel_id: TITLE-001
+    shape: rectangle
+    primary_label: Title Block
+    position: bottom-right
+    labels_near:
+    - 오수종단면도
+    - C10-302
+    - LS Electric
+  connections:
+  - from: PROFILE-001
+    to: TABLE-001
+    line_style: solid
+    annotation: 데이터 연동
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 번호 식별자
+  - shape: circle
+    label: SM.1
+    note: 맨홀 심볼 (원형)
+  - shape: circle
+    label: SM.5
+    note: 맨홀 심볼 (원형)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지 전체가 오수종단면도(프로파일 및 데이터 표)로 구성되어 있으며, 별도의 범례 섹션은 식별되지 않음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: drainage
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '오수종단면도' 및 내용(맨홀, 관로 프로파일)을 통해 CIVIL 분야의 drainage 장르로 확정.
+    기존 'other'에서 구체화하여 라우팅 갱신.
+classification: PROFILE_DRAWING
+discipline: CIVIL
+key_elements_from_text:
+- 오수종단면도
+- C10-302
+- LS Electric
+- R-Center 구축
+- 가온건축
+- 101 ~ 105 호선
+- LINE 101
+- LINE 102
+- LINE 103
+- LINE 104
+- LINE 105
+- SM.1
+- SM.2
+- SM.3
+- SM.4
+- SM.5
+- D=150
+- S = 3.85 %
+- S = 4.00 %
+- S = 4.10 %
+- S = 4.17 %
+- L = 26.00 m
+- L = 39.00 m
+- L = 13.00 m
+- 기준레벨
+- 토피고
+- 관저고
+- 계획고
+- 지반고
+- 누가거리
+- 접지거리
+title_block:
+  drawing_number: C10-302
+  title: 오수종단면도
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 판정의 discipline=CIVIL, classification=PROFILE_DRAWING, drawing_genre=drainage와
+  일치함. 페이지 하단 표제란에서 도면번호 C10-302와 제목 오수종단면도 확인됨. 별도 범례 섹션은 보이지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PROFILE-MAIN
+    shape: other
+    labels_inside:
+    - 101 ~ 105 호선
+    - 기준레벨 H=1.49
+    - SM.1 H=1.57
+    - SM.2 H=1.92
+    - SM.3 H=1.30
+    - SM.4 H=1.35
+    - SM.5 H=1.60
+    - LINE 101 D=150
+    - LINE 102 D=150
+    - LINE 103 D=150
+    - LINE 104 D=150
+    - LINE 105 D=150
+    - S = 3.85 % L = 26.00 m
+    - S = 4.00 % L = 15.00 m
+    - S = 4.10 % L = 39.00 m
+    - S = 4.17 % L = 12.00 m
+    - S = 3.85 % L = 13.00 m
+    - EL 104.00
+    - EL 100.00
+    - EL 95.00
+    labels_above:
+    - 101 ~ 105 호선
+    labels_below: []
+    equipment_symbols:
+    - type: manhole_circle
+      count: 5
+    - type: 기준맨홀(기존단말)
+      count: 1
+    inferred_name: 오수관 종단 프로파일 (101~105호선)
+    position: top-center
+    notes:
+    - 종단 프로파일 상단에 맨홀 심볼(원형)이 SM.1~SM.5 및 기준맨홀로 표시됨
+    - 각 맨홀 심볼 위에 H= 수치(맨홀 깊이 또는 높이) 표기
+    - 관로 구간별 기울기(S=%) 및 연장(L=m) 표기
+    - 관경 D=150mm 공통 적용
+    - '수직 스케일 기준선: EL 95.00, 100.00, 104.00'
+  - panel_id: TABLE-MAIN
+    shape: rectangle
+    labels_inside:
+    - '맨홀번호: 기존단말, SM.1, SM.2, SM.3, SM.4, SM.5'
+    - '접지거리: 0.00, 26.00, 15.00, 39.00, 12.00, 13.00'
+    - '누가거리: 0.00, 26.00, 41.00, 80.00, 92.00, 105.00'
+    - '계획고: 94.50, 94.45, 94.71, 93.90, 93.90, 93.90'
+    - '관저고(상류): 93.02, 92.92, 92.83, 92.64, 92.56, 92.48'
+    - '관저고(하류): 93.02, 92.89, 92.80, 92.61, 92.55, 92.48'
+    - '토피고: 1.31, (1.38)(1.39), (1.74)(1.65), (1.02)(1.12), (1.15)(1.46), 1.25'
+    - '피복깊이: 1.60, (1.55)(1.56), (2.08)(2.03), (1.38)(1.48), (1.48), 1.54'
+    - '지반고: 93.02, 92.92(92.89), 92.83(92.88), 92.64(92.61), 92.56(92.55), 92.48'
+    labels_above: []
+    labels_below:
+    - '1 : 1000'
+    equipment_symbols: []
+    inferred_name: 오수종단면 데이터 표 (맨홀별 표고 및 거리 정보)
+    position: bottom-center
+    notes:
+    - '표 좌측 행 헤더: 기울기, 토피고, 피복깊이, 관저고, 계획고, 누가거리, 접지거리, 맨홀번호'
+    - 각 맨홀 위치에서 상류/하류 관저고가 쌍으로 표기됨 (괄호 내 두 수치)
+    - 스케일 1:1000 표기 (수평)
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 서울시 강남구 언주로 608, 10층 (논현동, 락스타워)
+    - Tel:82-2-3443-7799 Fax:82-2-3443-3607
+    - www.gaun.co.kr
+    - R-Center
+    - 오수종단면도
+    - 'A1 : 1/500'
+    - 'A3 : 1/1000'
+    - '2024.05'
+    - C10-302
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 표제란
+    position: right
+  - panel_id: DRAWING-NO-BUBBLE
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_above: []
+    labels_below:
+    - 오수종단면도
+    - 축척 1/500
+    equipment_symbols: []
+    inferred_name: 도면 번호 식별 버블
+    position: bottom-center
+  connections:
+  - from: 기존단말(기준맨홀)
+    to: SM.1
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 101, D=150, S=3.85%, L=26.00m
+  - from: SM.1
+    to: SM.2
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 102, D=150, S=4.00%, L=15.00m
+  - from: SM.2
+    to: SM.3
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 103, D=150, S=4.10%, L=39.00m
+  - from: SM.3
+    to: SM.4
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 104, D=150, S=4.17%, L=12.00m
+  - from: SM.4
+    to: SM.5
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 105, D=150, S=3.85%, L=13.00m
+  - from: PROFILE-MAIN
+    to: TABLE-MAIN
+    line_type: other
+    line_style: solid
+    annotation: 종단 프로파일과 데이터 표 수직 대응
+  groups:
+  - group_id: GRP-SEWER-LINE
+    label: 오수관 101~105호선 (기존단말→SM.5)
+    members:
+    - 기존단말
+    - SM.1
+    - SM.2
+    - SM.3
+    - SM.4
+    - SM.5
+    notes:
+    - '총 연장: 105.00m (누가거리 기준)'
+    - '관경: D=150mm 전 구간 공통'
+    - '흐름 방향: 기존단말(상류) → SM.5(하류) 추정 (관저고 하강 확인)'
+  legend_references:
+  - text: 오수맨홀 (원형 '오' 심볼)
+    linked_to: SM.1
+  - text: 오수맨홀 (원형 '오' 심볼)
+    linked_to: SM.2
+  - text: 오수맨홀 (원형 '오' 심볼)
+    linked_to: SM.3
+  - text: 오수맨홀 (원형 '오' 심볼)
+    linked_to: SM.4
+  - text: 오수맨홀 (원형 '오' 심볼)
+    linked_to: SM.5
+  diagram_meta:
+    title: 오수종단면도 (C10-302)
+    drawing_number: C10-302
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    discipline: CIVIL
+    drawing_genre: drainage
+    classification: PROFILE_DRAWING
+    flow_direction: left-to-right
+    scale_primary: 'A1 : 1/500'
+    scale_secondary: 'A3 : 1/1000'
+    profile_scale_note: 수평 1:1000, 수직 1:200 (종단면 수직과장 적용)
+    coordinate_system: elevation_based
+    elevation_datum_m: 95.0
+    elevation_reference_lines:
+    - 95.0
+    - 100.0
+    - 104.0
+    pipeline_summary:
+      total_length_m: 105.0
+      nominal_diameter_mm: 150
+      material: null
+      subsystem: 오수 (sewage)
+    manholes:
+    - id: 기존단말
+      type: 기준맨홀(기존)
+      status: existing
+      invert_level_m: 93.02
+      ground_level_m: 94.5
+      cumulative_distance_m: 0.0
+      depth_H_m: 1.49
+    - id: SM.1
+      type: 오수맨홀
+      status: new
+      invert_level_upstream_m: 92.92
+      invert_level_downstream_m: 92.89
+      ground_level_m: 94.45
+      cumulative_distance_m: 26.0
+      depth_H_m: 1.57
+    - id: SM.2
+      type: 오수맨홀
+      status: new
+      invert_level_upstream_m: 92.83
+      invert_level_downstream_m: 92.8
+      ground_level_m: 94.71
+      cumulative_distance_m: 41.0
+      depth_H_m: 1.92
+    - id: SM.3
+      type: 오수맨홀
+      status: new
+      invert_level_upstream_m: 92.64
+      invert_level_downstream_m: 92.61
+      ground_level_m: 93.9
+      cumulative_distance_m: 80.0
+      depth_H_m: 1.3
+    - id: SM.4
+      type: 오수맨홀
+      status: new
+      invert_level_upstream_m: 92.56
+      invert_level_downstream_m: 92.55
+      ground_level_m: 93.9
+      cumulative_distance_m: 92.0
+      depth_H_m: 1.35
+    - id: SM.5
+      type: 오수맨홀
+      status: new
+      invert_level_m: 92.48
+      ground_level_m: 93.9
+      cumulative_distance_m: 105.0
+      depth_H_m: 1.6
+    pipeline_segments:
+    - id: LINE 101
+      from: 기존단말
+      to: SM.1
+      nominal_diameter_mm: 150
+      slope_pct: 3.85
+      length_m: 26.0
+    - id: LINE 102
+      from: SM.1
+      to: SM.2
+      nominal_diameter_mm: 150
+      slope_pct: 4.0
+      length_m: 15.0
+    - id: LINE 103
+      from: SM.2
+      to: SM.3
+      nominal_diameter_mm: 150
+      slope_pct: 4.1
+      length_m: 39.0
+    - id: LINE 104
+      from: SM.3
+      to: SM.4
+      nominal_diameter_mm: 150
+      slope_pct: 4.17
+      length_m: 12.0
+    - id: LINE 105
+      from: SM.4
+      to: SM.5
+      nominal_diameter_mm: 150
+      slope_pct: 3.85
+      length_m: 13.0
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PROFILE_VIEW_MAIN
+    shape: other
+    labels_inside:
+    - '104.00'
+    - '100.00'
+    - '95.00'
+    - LINE 101 D=150
+    - LINE 102 D=150
+    - LINE 103 D=150
+    - LINE 104 D=150
+    - LINE 105 D=150
+    - S = 3.85 % L = 26.00 m
+    - S = 4.00 % L = 15.00 m
+    - S = 4.10 % L = 39.00 m
+    - S = 4.17 % L = 12.00 m
+    - S = 3.85 % L = 13.00 m
+    labels_above:
+    - 101 ~ 105 호선
+    - 기존맨홀 H=1.49
+    - SM.1 H=1.57
+    - SM.2 H=1.92
+    - SM.3 H=1.30
+    - SM.4 H=1.35
+    - SM.5 H=1.60
+    equipment_symbols:
+    - type: manhole_symbol_circle
+      count: 6
+    inferred_name: 오수관로 종단면도 (Profile View)
+    position: top-center
+  - panel_id: DATA_TABLE_MAIN
+    shape: rectangle
+    labels_inside:
+    - 맨홀번호
+    - 점간거리
+    - 누가거리
+    - 계획고
+    - 관저고
+    - 터파기고
+    - 토피고
+    - 기울기
+    - 기존맨홀
+    - SM.1
+    - SM.2
+    - SM.3
+    - SM.4
+    - SM.5
+    - '0.00'
+    - '26.00'
+    - '15.00'
+    - '39.00'
+    - '12.00'
+    - '13.00'
+    - '41.00'
+    - '80.00'
+    - '92.00'
+    - '105.00'
+    - '94.50'
+    - '94.45'
+    - '94.71'
+    - '93.90'
+    - '93.02'
+    - (92.92) (92.89)
+    - (92.83) (92.80)
+    - (92.64) (92.61)
+    - (92.56) (92.55)
+    - '92.48'
+    - '1.60'
+    - (1.65) (1.68)
+    - (2.00) (2.03)
+    - (1.38) (1.41)
+    - (1.46) (1.47)
+    - '1.54'
+    - '1.31'
+    - (1.36) (1.39)
+    - (1.71) (1.74)
+    - (1.09) (1.12)
+    - (1.17) (1.18)
+    - '1.25'
+    - S = 3.85 %
+    - S = 4.00 %
+    - S = 4.10 %
+    - S = 4.17 %
+    labels_below:
+    - '1 : 1000'
+    - '1 : 200'
+    inferred_name: 종단면 데이터 표 (Data Table)
+    position: bottom-center
+  - panel_id: TITLE_BLOCK_MAIN
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 서울시 강남구 언주로 608, 10층 (논현동, 락스타워)
+    - Tel:02-3443-7799 Fax:02-3443-3607
+    - www.gaun.co.kr
+    - R-Center
+    - 오수종단면도
+    - 'A1 : 1/500'
+    - 'A3 : 1/1000'
+    - '2024.05'
+    - C10 - 302
+    inferred_name: 표제란 (Title Block)
+    position: right
+  - panel_id: DRAWING_TITLE_BUBBLE
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_near:
+    - 오수종단면도
+    - 축척 1/500
+    inferred_name: 도면 제목 식별자
+    position: bottom-center
+  connections:
+  - from: PROFILE_VIEW_MAIN
+    to: DATA_TABLE_MAIN
+    line_type: other
+    line_style: dashed
+    annotation: Vertical Alignment (Station/Data)
+  - from: 기존맨홀_SYMBOL
+    to: SM.1_SYMBOL
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 101, D=150, S=3.85%, L=26.00m
+  - from: SM.1_SYMBOL
+    to: SM.2_SYMBOL
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 102, D=150, S=4.00%, L=15.00m
+  - from: SM.2_SYMBOL
+    to: SM.3_SYMBOL
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 103, D=150, S=4.10%, L=39.00m
+  - from: SM.3_SYMBOL
+    to: SM.4_SYMBOL
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 104, D=150, S=4.17%, L=12.00m
+  - from: SM.4_SYMBOL
+    to: SM.5_SYMBOL
+    line_type: pipe
+    line_style: solid
+    annotation: LINE 105, D=150, S=3.85%, L=13.00m
+  groups:
+  - group_id: GRP-SEWER-LINE-101-105
+    label: 오수관로 101~105호선
+    members:
+    - 기존맨홀_SYMBOL
+    - SM.1_SYMBOL
+    - SM.2_SYMBOL
+    - SM.3_SYMBOL
+    - SM.4_SYMBOL
+    - SM.5_SYMBOL
+    - LINE 101
+    - LINE 102
+    - LINE 103
+    - LINE 104
+    - LINE 105
+  legend_references: []
+  diagram_meta:
+    title: 오수종단면도
+    drawing_number: C10-302
+    project_name: LS Electric R-Center 구축
+    discipline: CIVIL
+    classification: PROFILE_DRAWING
+    drawing_genre: drainage
+    flow_direction: left-to-right
+    scale_horizontal: 1:1000
+    scale_vertical: 1:200
+    coordinate_system: elevation_based
+    elevation_unit: m

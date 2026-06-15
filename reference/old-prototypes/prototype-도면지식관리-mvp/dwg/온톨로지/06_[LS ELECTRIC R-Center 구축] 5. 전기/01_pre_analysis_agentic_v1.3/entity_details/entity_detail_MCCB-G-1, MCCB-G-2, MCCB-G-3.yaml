@@ -1,0 +1,102 @@
+entity_detail:
+  tag: MCCB-G-1, MCCB-G-2, MCCB-G-3
+  type: equipment
+  specs:
+    breaker_type:
+      value: MCCB
+      unit: null
+      source: page 19
+      confidence: 0.98
+    associated_panel:
+      value: P-G-2PP
+      unit: null
+      source: page 19
+      confidence: 0.98
+    panel_name:
+      value: P-G-2PP 분전반
+      unit: null
+      source: page 19
+      confidence: 0.98
+    circuit_group:
+      value: 분기 회로
+      unit: null
+      source: page 19
+      confidence: 0.95
+    quantity:
+      value: 3
+      unit: ea
+      source: page 19
+      confidence: 0.88
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: '도면 제목: 생산동력(3Ø 220V) 분전반 결선도-2'
+  - source: page 19
+    page_number: 19
+    text: '도면 번호: EE-01-015'
+  - source: page 19
+    page_number: 19
+    text: '분전반 표기: P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP'
+  - source: page 19
+    page_number: 19
+    text: '차단기 표기: MCCB, SPD'
+  - source: page 19
+    page_number: 19
+    text: '주기사항에 차단기 정격용량 표기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF'
+  - source: page 19
+    page_number: 19
+    text: '주기사항에 차단용량 표기: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상'
+  - source: page 19
+    page_number: 19
+    text: P-G-2PP
+  - source: page 19
+    page_number: 19
+    text: MCCB
+  requirements:
+  - text: 분전반 P-G-2PP 내 분기 회로에 MCCB가 포함됨
+    source: page 19
+    type: functional
+  - text: '전원 표기: FROM 전기실'
+    source: page 19
+    type: power_supply
+  - text: '커버타입: 노출형(STEEL)'
+    source: page 19
+    type: installation
+  - text: '접지 표기: E3'
+    source: page 19
+    type: grounding
+  connection_specs:
+  - relation: connected_via
+    partner: P-G-2PP
+    details:
+      source: page 19
+  - relation: feeds
+    partner: 전기실 → P-G-2PP
+    details:
+      source: page 19
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: P-G-2PP
+      direction: downstream
+      source: page 19
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: downstream
+      source: page 19
+    observed_attributes:
+    - breaker_type
+    - associated_panel
+    - panel_name
+    - circuit_group
+    - quantity
+    similar_equipment:
+    - MCCB-G-1
+    - MCCB-G-2
+    - MCCB-G-3
+    suggested_parent_class: CircuitBreaker
+    cross_discipline: []
+  notes:
+  - 도면에서 P-G-2PP의 분기 회로 MCCB로 확인되는 항목만 수집함.
+  - 개별 MCCB-G-1/2/3의 정격값은 페이지 분석 결과에 명시되지 않아 생략함.
+tag: MCCB-G-1, MCCB-G-2, MCCB-G-3

@@ -1,0 +1,154 @@
+placement:
+  tag: UNKNOWN-ROOM-005
+  name: 지원부문
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-005
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationZone
+    - PublicAddressSpace
+    - AudioBroadcastingSpace
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: 스피커 천정형 (3W)
+      note: source_text의 equipment_symbols에 포함
+    - type: hasEquipmentSymbol
+      target_hint: SPEAKER 단자함
+      note: source_text의 equipment_symbols에 포함
+    - type: hasEquipmentSymbol
+      target_hint: PULL BOX
+      note: source_text의 equipment_symbols에 포함
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'source_text: 지원부문'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 문자열
+      - raw_text: 'equipment_symbols: 스피커 천정형 (3W)'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간에 관찰된 설비 심볼/기기 표기
+      - raw_text: 'equipment_symbols: SPEAKER 단자함'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간에 관찰된 설비 심볼/기기 표기
+      - raw_text: 'equipment_symbols: PULL BOX'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간에 관찰된 설비 심볼/기기 표기
+      - raw_text: 'function_candidates: Public Address'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: 'function_candidates: Audio Broadcasting'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+  provenance:
+    tag:
+      source_pages:
+      - 17
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 17
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: space entity classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates + observed_attributes
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_core.related_assertions[2]:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 17
+      method: specs.source_text
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 공간(SPACE)으로 보이지만, source_text가 '지원부문'이고 equipment_symbols에 스피커 천정형, SPEAKER
+      단자함, PULL BOX가 함께 있어 단순 공간인지 방송/음향 관련 구역인지 혼합적으로 관찰됨.
+    recommended_handling: 0-9c에서 CommunicationSpace 우선으로 두되, Public Address / Audio
+      Broadcasting 관련 공간 후보로 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - equipment_symbols를 관계 원형으로 보존
+    - function_candidates를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:21.039751'
+  confidence: 0.86

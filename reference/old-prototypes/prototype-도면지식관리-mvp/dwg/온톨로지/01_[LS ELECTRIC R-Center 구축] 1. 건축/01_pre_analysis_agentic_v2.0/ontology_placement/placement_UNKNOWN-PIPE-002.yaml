@@ -1,0 +1,124 @@
+placement:
+  tag: UNKNOWN-PIPE-002
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-PIPE-002
+    class_hint: ServiceNetworkElement
+    alternative_class_hints:
+    - Pipe
+    - DrainageElement
+    - BuildingServiceElement
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-PIPE-001
+      note: UNKNOWN-PIPE-002 -> UNKNOWN-PIPE-001 연결 관계 관찰됨
+      confirmed_property: dks:connects_to
+      confirmed_target: UNKNOWN-PIPE-001
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX032
+    - AX035
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN010
+    confirmed_class: dks:ServiceNetworkElement
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: Ø150 SST 선홈통 -> Ø100 SST 횡주관
+        source_page: 62
+        promotion_hint:
+          suggested_property_label: hasRelationNote
+          suggested_datatype: xsd:string
+          rationale: 배관 연결 방향과 규격/재질 정보가 관계 주석 형태로 관찰됨
+      - raw_text: line_style=solid
+        source_page: 62
+        promotion_hint:
+          suggested_property_label: hasLineStyle
+          suggested_datatype: xsd:string
+          rationale: 관계 기록의 선 스타일 속성으로 보이나 supplement sub_kind가 없어 자유 노트로 보존
+      - raw_text: 'relation_type: connects_to'
+        source_page: 62
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실 자체가 핵심이며 연결형 네트워크 요소로 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 62
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 62
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 62
+      method: direct_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 62
+      method: plan_guidance + observed_relation
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 62
+      method: plan_guidance + observed_relation
+    ontology_core.related_assertions:
+      source_pages:
+      - 62
+      method: relation_scan
+    discipline_context.free_notes:
+      source_pages:
+      - 62
+      method: raw_preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 62
+      method: rule_based
+    plan_reference.guidance_applied:
+      source_pages:
+      - 62
+      method: plan_alignment
+  unresolved:
+  - field_candidate: relations[0]
+    raw_text: 'partner: UNKNOWN-PIPE-001; relation_type: connects_to; direction: outgoing'
+    source_page: 62
+    reason: 관계는 해석 가능하나, 확정 property IRI 및 역방향 정규화는 다음 단계에서 결정해야 함
+    preservation_note: UNKNOWN-PIPE-001과의 연결 사실을 원형 그대로 보존
+  - field_candidate: relations[1]
+    raw_text: 'from: UNKNOWN-PIPE-002; to: UNKNOWN-PIPE-001; relation: connects_to;
+      source_page: 62; origin: cross_validated; line_style: solid; note: Ø150 SST
+      선홈통 -> Ø100 SST 횡주관'
+    source_page: 62
+    reason: 관계 메타데이터가 포함된 원문을 모두 보존해야 하며, 정규화 전 원형 유지 필요
+    preservation_note: 연결 방향, 선 스타일, 주석을 함께 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - drainage_or_service_network_entities
+    - expected_object_properties.connects_to
+    - mechanical.likely_sub_kinds.pipe
+    - mechanical.expected_focus_properties
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:12.444903'
+  confidence: 0.86

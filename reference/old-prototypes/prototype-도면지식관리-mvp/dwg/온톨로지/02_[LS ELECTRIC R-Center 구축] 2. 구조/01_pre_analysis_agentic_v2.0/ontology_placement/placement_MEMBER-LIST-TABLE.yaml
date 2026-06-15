@@ -1,0 +1,92 @@
+placement:
+  tag: MEMBER-LIST-TABLE
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: ScheduleOrList
+    alternative_class_hints:
+    - NoteOrLegend
+    - DocumentEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX010
+    applicable_constraints: []
+    confirmed_class: dks:ScheduleOrList
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 일람표/목록의 참조 가능 범위를 나타내는 값으로 보임.
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUsageNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아니라 사용 안내 문구로, 주석/설명 성격의 텍스트임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: input header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification from raw text
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: classification from raw text
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim preservation from entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 도면 설비 실체나 관계로 직접 해석되지 않고, 페이지 안내 문구만 존재함.
+    preservation_note: MEMBER-LIST-TABLE은 목록/안내성 텍스트로 보존; 페이지 번호 목록은 free_notes로 승격
+      후보 기록.
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 name 필드가 제공되지 않음.
+    preservation_note: 빈 값 유지.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 TABLE 형태의 목록/안내 문구이지만, 실제로는 도면 내 물리 실체인지 단순 주석인지 경계가 다소 모호함.
+    recommended_handling: AnnotationOnly로 우선 배치하고, 후속 단계에서 ScheduleOrList 또는 NoteOrLegend
+      후보로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - '0-9b placement: plan의 guidance_for_next_steps에서 문서 메타/일람표 성격을 우선 고려'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:35.566736'
+  confidence: 0.84

@@ -1,0 +1,131 @@
+placement:
+  tag: GENERAL-NOTES-01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:GENERAL-NOTES-01
+    class_hint: NoteOrReferenceSection
+    alternative_class_hints:
+    - DocumentNote
+    - AnnotationSection
+    - GeneralNotes
+    related_assertions: []
+    applicable_axioms:
+    - AX012
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN004
+    confirmed_class: dks:NoteOrReferenceSection
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 도면 주석/참조 정보
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 주석 성격의 텍스트
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: GENERAL-NOTES-01
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 문서 내 일반 नोट/주석 섹션 식별자
+        promoted_to: dks:hasTag
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'Discipline: unknown'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasDiscipline
+          suggested_datatype: xsd:string
+          rationale: 분야 미상 표기
+        promoted_to: dks:hasDiscipline
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: textual classification from raw
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: candidate labeling from raw note content
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: direct extraction from raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: checked
+    merge_info.is_merge_candidate:
+      source_pages:
+      - 0
+      method: checked
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 주석 텍스트이며 구조화된 속성으로 확정할 근거가 부족함
+    preservation_note: 페이지 목록과 안내 문구를 원문 그대로 보존
+  - field_candidate: discipline
+    raw_text: unknown
+    source_page: 0
+    reason: 분야가 명시적으로 미상
+    preservation_note: 후속 단계에서 문맥 기반 보강 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 일반 노트/안내 문구와 페이지 참조가 함께 있어 AnnotationOnly로 보는 것이 타당하나, 문서 섹션 노드로도 해석 가능함
+    recommended_handling: 0-9c에서 Note/Section 계열 후보 클래스를 검토하고, 필요 시 문서 주석 노드로 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - general notes / annotation / reference section 성격으로 보존
+    - raw 페이지 목록과 안내 문구를 free_notes 및 unresolved에 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:51.059687'
+  confidence: 0.93

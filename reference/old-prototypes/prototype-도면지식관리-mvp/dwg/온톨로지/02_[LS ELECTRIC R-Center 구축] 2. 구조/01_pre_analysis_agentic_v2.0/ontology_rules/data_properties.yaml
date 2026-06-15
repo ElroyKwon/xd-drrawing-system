@@ -1,0 +1,472 @@
+data_properties:
+- iri: dks:hasTag
+  label: hasTag
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: B1
+    value: 'tag: B1'
+    source_page: 0
+  - subject: PF1B
+    value: PF1B
+    source_page: 32
+  - subject: VBR2
+    value: 'name: 가상보 VBR2 (우측)'
+    source_page: 35
+  total_evidence: 34
+  derivation: free_notes에서 suggested_property_label=hasTag가 가장 반복적으로 관찰된다. 대부분 엔티티가
+    단일 대표 태그를 가지므로 functional 후보가 강하다.
+  confidence: 0.97
+- iri: dks:hasAvailablePages
+  label: hasAvailablePages
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: B1
+    value: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64,
+      65'
+    source_page: 0
+  - subject: S00.01
+    value: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64,
+      65'
+    source_page: 0
+  - subject: SC1~SC21
+    value: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64,
+      65'
+    source_page: 0
+  total_evidence: 90
+  derivation: availablePages/hasAvailablePages/hasAvailablePage/sourcePages 등 변형이
+    매우 많고 동일한 페이지 목록 메타를 가리킨다. 가장 빈도가 높은 정규 라벨로 hasAvailablePages를 채택해 승격한다.
+  confidence: 0.95
+- iri: dks:relationNote
+  label: relationNote
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: FOUNDATION-PLAN
+    value: MARK 태그(PF1, PF2 등)로 도면 내 기초 심볼과 매칭
+    source_page: 32
+  - subject: UNKNOWN-SCHEDULE-01
+    value: 부재 태그 → 일람표 치수 참조
+    source_page: 33
+  - subject: S06.31-3
+    value: 크레인 접합 상세-1과 상세-2는 동일 크레인 시스템(CBR1,CBR2/CRG1,CRG2) 연속 상세
+    source_page: 64
+  total_evidence: 43
+  derivation: 관계 설명성 자유 텍스트가 relationNote로 반복 제안되며, references/contains/connects_to의
+    의미 보강에 핵심적이다. 한 subject에 여러 note가 가능하므로 비기능적이다.
+  confidence: 0.94
+- iri: dks:hasDiscipline
+  label: hasDiscipline
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: GRID-SYSTEM
+    value: 'discipline: STRUCTURAL'
+    source_page: 0
+  - subject: EXP-JOINT-01
+    value: 'Discipline: unknown'
+    source_page: 0
+  - subject: S02.33
+    value: 'Discipline: unknown'
+    source_page: 0
+  total_evidence: 12
+  derivation: discipline/Discipline 표기가 여러 엔티티 free_notes에 반복된다. 엔티티당 단일 분야값만 관찰되어
+    functional 후보로 둔다.
+  confidence: 0.88
+- iri: dks:hasName
+  label: hasName
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: GRID-SYSTEM
+    value: 'name: 구조 그리드 시스템'
+    source_page: 0
+  - subject: VBR2
+    value: 'name: 가상보 VBR2 (우측)'
+    source_page: 35
+  - subject: S06.31-3
+    value: 크레인 접합-1 (1톤, 5톤 크레인)
+    source_page: 64
+  total_evidence: 4
+  derivation: 명시적 name 또는 상세명 문자열이 일부 엔티티에서 관찰된다. 현재는 sparse하지만 명확한 데이터 속성이다.
+  confidence: 0.83
+- iri: dks:hasFunctionCategory
+  label: hasFunctionCategory
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: GRID-SYSTEM
+    value: 'function_category: grid'
+    source_page: 0
+  - subject: VBR2
+    value: 'function_category: BEAM'
+    source_page: 35
+  total_evidence: 2
+  derivation: function_category가 GRID-SYSTEM과 VBR2에서 직접 관찰된다. coverage는 낮지만 값 구조가
+    명확하여 독립 속성으로 유지한다.
+  confidence: 0.79
+- iri: dks:hasRawText
+  label: hasRawText
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: B1
+    value: 'raw: ''사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+      63, 64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'''
+    source_page: 0
+  - subject: MC-01
+    value: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,\
+      \ 63, 64, 65\n\n  원하시면 특정 페이지의 내용을 확인해드릴게요.'"
+    source_page: 0
+  - subject: S00.34
+    value: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,\
+      \ 63, 64, 65\n\n  원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'"
+    source_page: 0
+  total_evidence: 18
+  derivation: hasRawText/rawText 계열 제안이 반복되며 원문 전체 보존 필요성이 명시된다. 엔티티당 하나의 원문 블록이 일반적이어서
+    functional 후보로 둔다.
+  confidence: 0.86
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasAvailablePages
+  datatype: xsd:string
+  label: hasAvailablePages
+  evidence_tags:
+  - B1
+  - ES1A
+  - FG2
+  - INDEX-S00.01
+  - MC-01
+  - MC-02
+  - S00.01
+  - S00.12
+  - S00.13
+  - S00.16
+  - S00.18
+  - S00.19
+  - S00.31
+  - S00.32
+  - S00.41
+  - S01.01
+  - S02.01
+  - S02.12
+  - S02.24
+  - S02.31
+  - S03.01
+  - S03.12
+  - S03.13
+  - S05.02
+  - S05.11
+  - S05.21
+  - S05.31
+  - S1-SERIES
+  - S1
+  - S2-SERIES
+  - S3-SERIES
+  - S4-SERIES
+  - S6-SERIES
+  - SC1
+  - SC11A
+  - SC12A
+  - SC12B
+  - SC13
+  - SC1A
+  - SC1~SC21
+  - SC2
+  - SC2B
+  - SC3A
+  threshold_applied: '≥ 10건 (variant-normalized: availablePages/hasAvailablePages/hasAvailablePage/sourcePages)'
+  total_evidence: 90
+  sample_evidence:
+  - tag: B1
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65'
+    source_page: 0
+  - tag: S00.01
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65'
+    source_page: 0
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:relationNote
+  datatype: xsd:string
+  label: relationNote
+  evidence_tags:
+  - FOUNDATION-PLAN
+  - MEMBER-LIST
+  - MF1
+  - MF2
+  - MF3
+  - PF1
+  - PF1A
+  - PF1B
+  - PF1C
+  - PF2
+  - PF21
+  - PF2A
+  - PF3
+  - PIT-ZONE
+  - S06.31-1
+  - S06.31-2
+  - S06.31-3
+  - S06.31-4
+  - S06.31-5
+  - UNKNOWN-NOTE-01
+  - UNKNOWN-NOTE-02
+  - UNKNOWN-SCHEDULE-01
+  - VBR1
+  - VBR3
+  - WF1
+  threshold_applied: ≥ 10건
+  total_evidence: 43
+  sample_evidence:
+  - tag: FOUNDATION-PLAN
+    raw_text: MARK 태그(PF1, PF2 등)로 도면 내 기초 심볼과 매칭
+    source_page: 32
+  - tag: S06.31-3
+    raw_text: 동일 크레인 시스템(CBR1,CBR2/CRG1,CRG2) 연속 상세
+    source_page: 64
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasTag
+  datatype: xsd:string
+  label: hasTag
+  evidence_tags:
+  - B1
+  - EXP-JOINT-01
+  - GRP-GRID-Y
+  - INDEX-S00.01
+  - MC-01
+  - MC-02
+  - MC-03
+  - MF1
+  - PF1B
+  - PW2
+  - PW3
+  - S0-SERIES
+  - S00.01
+  - S00.20
+  - S00.31
+  - S00.34
+  - S00.42
+  - S00.44
+  - S01.01
+  - S02.02
+  - S02.22
+  - S02.24
+  - S02.33
+  - S02.37
+  - S03.03
+  - S03.12
+  - S03.13
+  - S04.11
+  - S06.11-1
+  - S06.11-2
+  - S06.11-4
+  - S06.21-1
+  - S06.21-7
+  - S06.31-7
+  - S06.41-3
+  - S06.41-6
+  - S06.41-7
+  - S1-SERIES
+  - S1
+  - S2-SERIES
+  - S2
+  - S3-SERIES
+  - S4-SERIES
+  - S6-SERIES
+  - SC11A
+  - SC13
+  - SC1A
+  - SC3
+  - SC3A
+  - W1
+  threshold_applied: ≥ 10건
+  total_evidence: 50
+  sample_evidence:
+  - tag: B1
+    raw_text: 'tag: B1'
+    source_page: 0
+  - tag: PW2
+    raw_text: 'tag: PW2'
+    source_page: 34
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasRawText
+  datatype: xsd:string
+  label: hasRawText
+  evidence_tags:
+  - B1
+  - MC-01
+  - MC-02
+  - MC-05
+  - MF2_MF3
+  - S00.01
+  - S00.20
+  - S00.31
+  - S00.34
+  - S00.44
+  - S01.01
+  - S02.11
+  - S02.24
+  - S02.37
+  - S03.12
+  - S04.11
+  - S06.11-1
+  - S06.11-2
+  - S06.21-3
+  - S1
+  - S2-SERIES
+  - S4-SERIES
+  - S6-SERIES
+  - SC11A
+  - SC13
+  - SC2B
+  - SC3A
+  threshold_applied: '≥ 10건 (variant-normalized: hasRawText/rawText)'
+  total_evidence: 27
+  sample_evidence:
+  - tag: MC-01
+    raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61,\
+      \ 62, 63, 64, 65\n\n  원하시면 특정 페이지의 내용을 확인해드릴게요.'"
+    source_page: 0
+  - tag: S02.37
+    raw_text: 'raw: 사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+      63, 64, 65 / 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDiscipline
+  datatype: xsd:string
+  label: hasDiscipline
+  evidence_tags:
+  - EXP-JOINT-01
+  - GRID-SYSTEM
+  - INDEX-S00.01
+  - MF2_MF3
+  - S02.02
+  - S02.22
+  - S02.33
+  - S03.03
+  - S06.11-4
+  - S06.21-7
+  - S6-SERIES
+  threshold_applied: ≥ 5건
+  total_evidence: 11
+  sample_evidence:
+  - tag: GRID-SYSTEM
+    raw_text: 'discipline: STRUCTURAL'
+    source_page: 0
+  - tag: EXP-JOINT-01
+    raw_text: 'Discipline: unknown'
+    source_page: 0
+unused_hints:
+- suggested_property_label: analysisAvailabilityNote
+  evidence_count: 18
+  sample_tags:
+  - CENTRLIZER
+  - ES1
+  - MC-04
+  - S00.14
+  - S06.01
+  reason_not_promoted: 반복 빈도는 높지만 대부분 대화형 안내 문구로 도면 실체 속성보다 시스템 응답 메타에 가까워 정식 온톨로지
+    속성으로 승격하지 않음.
+- suggested_property_label: hasInstructionText
+  evidence_count: 22
+  sample_tags:
+  - FG1
+  - MC-02
+  - S00.20
+  - S03.13
+  - SC2B
+  reason_not_promoted: 안내 문구 계열이며 relationNote와 달리 도면 의미를 직접 담지 않는 경우가 대부분이라 승격 보류.
+- suggested_property_label: references
+  evidence_count: 14
+  sample_tags:
+  - GRID-SYSTEM
+  - MAIN-PLAN
+  - MF3
+  - PF1B
+  - UNKNOWN-REINFORCEMENT-02
+  reason_not_promoted: 이미 ObjectProperty로 정식 채택되었으므로 DataProperty 승격 대상에서 제외.
+- suggested_property_label: contains
+  evidence_count: 9
+  sample_tags:
+  - GRID-SYSTEM
+  - GRP-GENERAL-WALL
+  - GRP-PIT-WALL
+  - PW3
+  - W1
+  reason_not_promoted: 이미 ObjectProperty로 정식 채택되었으므로 DataProperty 승격 대상에서 제외.
+- suggested_property_label: sourcePages
+  evidence_count: 11
+  sample_tags:
+  - EXP-JOINT-01
+  - S00.42
+  - S03.03
+  - S06.21-1
+  - S06.41
+  reason_not_promoted: hasAvailablePages와 의미적으로 중복되어 variant-normalization으로 통합 승격함.
+- suggested_property_label: availablePages
+  evidence_count: 39
+  sample_tags:
+  - CENTRLIZER
+  - ES1
+  - MC-03
+  - S00.11
+  - S06.01
+  reason_not_promoted: hasAvailablePages로 정규화 통합 승격함.
+- suggested_property_label: hasName
+  evidence_count: 4
+  sample_tags:
+  - GRID-SYSTEM
+  - S06.11-4
+  - S06.31-3
+  - S06.31-4
+  reason_not_promoted: threshold 미달이지만 evidence가 있어 별도 DataProperty 후보로 직접 채택.
+- suggested_property_label: hasFunctionCategory
+  evidence_count: 2
+  sample_tags:
+  - GRID-SYSTEM
+  - VBR2
+  reason_not_promoted: threshold 미달이지만 evidence가 있어 별도 DataProperty 후보로 직접 채택.
+- suggested_property_label: isContainedIn
+  evidence_count: 4
+  sample_tags:
+  - PW1
+  - PW2
+  - W1
+  reason_not_promoted: free_notes 승격 대상은 DataProperty에 한정되므로 ObjectProperty 후보로 직접
+    채택.
+- suggested_property_label: memberTagMatchNote
+  evidence_count: 1
+  sample_tags:
+  - MEMBER-LIST
+  reason_not_promoted: threshold 미달이며 relationNote의 하위 의미로 흡수 가능.
+- suggested_property_label: referencesDetail
+  evidence_count: 2
+  sample_tags:
+  - PF1A
+  - PF1B
+  reason_not_promoted: threshold 미달이며 references + relationNote 조합으로 표현 가능.
+- suggested_property_label: referencesSchedule
+  evidence_count: 2
+  sample_tags:
+  - PF1A
+  - PF1B
+  reason_not_promoted: threshold 미달이며 references + relationNote 조합으로 표현 가능.
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T10:20:19.200561'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.88

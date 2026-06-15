@@ -1,0 +1,419 @@
+placement:
+  tag: SMFD-01
+  name: '스마트 방화댐퍼 #1'
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SMFD-01
+    class_hint: FireDamper
+    alternative_class_hints:
+    - FireProtectionEquipment
+    - SmokeControlDamper
+    - AirflowIsolationDevice
+    related_assertions:
+    - type: connects_to
+      target_hint: SMFD-02
+      note: SMFD 제어 배선 (CV 또는 UTP), source_page 50/53
+    - type: connects_to
+      target_hint: JB-A-01
+      note: UTP 0.6 4P (추정), source_page 50
+    - type: signal
+      target_hint: SMFD-02
+      note: SMFD 제어 배선 (CV 또는 UTP), source_page 50
+    - type: references
+      target_hint: LEGEND-CABLE
+      note: '범례 참조 관계 (전선 규격 A 적용: CV V 2.5 3C), source_page 53'
+    - type: contains
+      target_hint: SMFD-01
+      note: PANEL-ROOF-PLAN to SMFD-01 contains, source_page 53
+    - type: cable
+      target_hint: SMFD-02
+      note: SMFD 간 신호/전원 배선 (CV 또는 C3052), source_page 53
+    - type: signal
+      target_hint: LEGEND-CABLE
+      note: 범례 참조 관계 (전선 규격 A/B 적용), source_page 53
+    applicable_axioms:
+    - AX007
+    - AX006
+    - AX027
+    applicable_constraints:
+    - CN001
+    - CN019
+    - CN021
+    - CN022
+    confirmed_class: dks:FireDamper
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: fire_damper'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기
+      - raw_text: 'function_category: PROTECT'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 표기
+      - raw_text: 'shape: circle'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 형상 표기
+      - raw_text: 'labels_inside: A'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 심볼 내부 라벨
+      - raw_text: 'labels_above: SMFD, 300x300(A)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasLabelAbove
+          suggested_datatype: xsd:string
+          rationale: 심볼 상부 라벨
+      - raw_text: 'labels_below: H=300'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasLabelBelow
+          suggested_datatype: xsd:string
+          rationale: 심볼 하부 라벨
+      - raw_text: 'inferred_name: 스마트 방화댐퍼 #1 (SMFD)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 보존
+      - raw_text: 'position: center-right (PIT 구역 내 상단)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasPositionNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 설명
+      - raw_text: 'damper_size: 300x300'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasDamperSize
+          suggested_datatype: xsd:string
+          rationale: 치수 표기
+      - raw_text: 'height: 300'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasHeight
+          suggested_datatype: xsd:string
+          rationale: 높이 표기
+      - raw_text: 'raw_labels: A / SMFD / 300x300(A) / B (원형 태그)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 묶음 보존
+      - raw_text: 'equipment_symbols: SMFD 심볼 (원형) count 1'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 심볼 정보 보존
+      - raw_text: 'panel_id: SMFD-01'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasPanelId
+          suggested_datatype: xsd:string
+          rationale: 패널/태그 식별자 보존
+      - raw_text: 'source_model: visual_semantics'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasSourceModel
+          suggested_datatype: xsd:string
+          rationale: 추출 근거 모델 보존
+      - raw_text: 'labels_from_gemini: SMFD / 300x300(A)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasOCRLabel
+          suggested_datatype: xsd:string
+          rationale: OCR/추출 라벨 보존
+      - raw_text: 'labels_below_from_gemini: H=300'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasOCRLabelBelow
+          suggested_datatype: xsd:string
+          rationale: OCR/추출 하부 라벨 보존
+      - raw_text: 'tag: SMFD'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasSymbolTag
+          suggested_datatype: xsd:string
+          rationale: 심볼 태그 보존
+      - raw_text: 'actuator_type: motor_operated'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasActuatorType
+          suggested_datatype: xsd:string
+          rationale: 구동 방식 표기
+      - raw_text: 'is_motor_operated: true'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: isMotorOperated
+          suggested_datatype: xsd:boolean
+          rationale: 모터구동 여부
+      - raw_text: 'duct_direction: DN (하향)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasDuctDirection
+          suggested_datatype: xsd:string
+          rationale: 덕트 방향 표기
+      - raw_text: 'key_reference: A'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasKeyReference
+          suggested_datatype: xsd:string
+          rationale: 키 참조 문자
+      - raw_text: 'cable_spec_reference: CV V 2.5 3C'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasCableSpecReference
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 참조
+      - raw_text: 'cable_spec_reference_alt: C3052 0.6/1P'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasCableSpecReferenceAlt
+          suggested_datatype: xsd:string
+          rationale: 대체 케이블 규격 참조
+      - raw_text: 'location_note: 도면 중앙 우측 구역(5-6열, B-C행 사이)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasLocationNote
+          suggested_datatype: xsd:string
+          rationale: 도면 위치 메모
+      - raw_text: 'duct_direction_gemini: DN'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasDuctDirection
+          suggested_datatype: xsd:string
+          rationale: 추출된 덕트 방향
+      - raw_text: 'source_note: 모터구동 방화댐퍼 심볼'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasSourceNote
+          suggested_datatype: xsd:string
+          rationale: 원문 설명 보존
+  provenance:
+    name:
+      source_pages:
+      - 50
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 50
+      - 53
+      method: rule_based_classification
+    ontology_core.class_hint:
+      source_pages:
+      - 50
+      method: ontology_hints.suggested_parent_class + specs
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 50
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 50
+      - 53
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 50
+      method: all_specs_preserved_as_raw_notes
+    specs.shape:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.labels_inside:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.labels_above:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.labels_below:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.inferred_name:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.position:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.damper_size:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.height:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.raw_labels:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.equipment_symbols:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.panel_id:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.source_model:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.labels_from_gemini:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.labels_below_from_gemini:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.tag:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.actuator_type:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.is_motor_operated:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.duct_direction:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.key_reference:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.cable_spec_reference:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.cable_spec_reference_alt:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.location_note:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.duct_direction_gemini:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    specs.source_note:
+      source_pages:
+      - 50
+      method: entity_detail.specs
+    relations:
+      source_pages:
+      - 50
+      - 53
+      method: entity_detail.relations
+    collection_sources:
+      source_pages:
+      - 50
+      - 53
+      method: entity_detail.collection_sources
+    confidence:
+      source_pages:
+      - 50
+      - 53
+      method: entity_detail.confidence
+    equipment_symbols:
+      source_pages:
+      - 50
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 50
+      method: entity_detail.source_attribution
+    position:
+      source_pages:
+      - 50
+      method: entity_detail.position
+    ontology_hints:
+      source_pages:
+      - 50
+      method: entity_detail.ontology_hints
+  unresolved:
+  - field_candidate: specs.cable_spec_reference
+    raw_text: CV V 2.5 3C
+    source_page: 50
+    reason: 케이블 규격 문자열의 정확한 구조를 이 단계에서 확정하지 않음
+    preservation_note: 원문 그대로 보존; 관계/속성 승격 시 재사용 가능
+  - field_candidate: specs.cable_spec_reference_alt
+    raw_text: C3052 0.6/1P
+    source_page: 50
+    reason: 대체 케이블 규격 문자열의 의미를 확정하지 않음
+    preservation_note: 원문 그대로 보존
+  - field_candidate: specs.position
+    raw_text: center-right (PIT 구역 내 상단)
+    source_page: 50
+    reason: 도면 위치 설명은 정량 좌표로 변환하지 않음
+    preservation_note: 위치 메모로 보존
+  - field_candidate: specs.location_note
+    raw_text: 도면 중앙 우측 구역(5-6열, B-C행 사이)
+    source_page: 50
+    reason: 그리드 좌표 체계가 별도 정의되지 않아 정규화하지 않음
+    preservation_note: 원문 위치 설명 보존
+  - field_candidate: relations.from/to/relation
+    raw_text: PANEL-ROOF-PLAN contains SMFD-01
+    source_page: 53
+    reason: 상위 문서/플랜 객체의 정확한 분류는 이 태그 단독으로 확정하지 않음
+    preservation_note: contains 관계 원형 보존
+  - field_candidate: relations.relation
+    raw_text: cable
+    source_page: 53
+    reason: 관계 의미가 signal/connects_to와 중첩될 수 있어 정식 속성으로 확정하지 않음
+    preservation_note: 배선 관계 원형 보존
+  - field_candidate: relations.relation
+    raw_text: signal
+    source_page: 50
+    reason: 제어 신호 관계의 정식 속성명은 후속 단계에서 확정
+    preservation_note: 관계 사실 원형 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SMFD-01은 물리적 방화댐퍼로 보이지만, relations에 contains/references/signal/cable 등
+      여러 관계가 혼재하며 일부는 문서/범례/배선 의미가 중첩됨.
+    recommended_handling: 0-9d에서 connects_to, references, contains, signal, cable의
+      정식 property를 분리 검토하고, 0-9c에서 FireDamper/FireProtectionEquipment 계층을 확정할 것.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - 제어 신호 흐름(connects_to, signal)과 범례 참조(references), 포함 관계(contains)를 관계 원형으로 보존
+    deviations:
+    - supplement가 없어 standard_sub_kinds를 사용하지 못해 free_notes에 원문 보존 중심으로 처리함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:05.962586'
+  confidence: 0.95

@@ -1,0 +1,188 @@
+placement:
+  tag: MEETING-ROOM-SMALL-1
+  name: 소회의실1
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: MEETING-ROOM-SMALL-1
+    class_hint: Space
+    alternative_class_hints:
+    - MeetingRoom
+    - CommunicationRoom
+    related_assertions:
+    - type: hasInstalledEquipment
+      target_hint: LAN OUTLET
+      note: equipment_symbols에 LAN OUTLET 1개 관찰
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 소회의실1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 라벨
+      - raw_text: 'labels_inside: 소회의실1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기 텍스트
+      - raw_text: 'equipment_symbols: LAN OUTLET x1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 설치 심볼 정보
+      - raw_text: 'inferred_name: 소회의실1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추론명
+      - raw_text: 'position: bottom-left'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'shape: rectangle'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'panel_id: MEETING-ROOM-SMALL-1'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 패널/영역 식별자
+      - raw_text: 'source_models: visual_semantics_gemini'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: sourceModel
+          suggested_datatype: xsd:string
+          rationale: 생성/추출 모델 출처
+      - raw_text: 'suggested_parent_class: Space'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'function_candidates: Meeting, Communication'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+  provenance:
+    name:
+      source_pages:
+      - 10
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 10
+      method: inference from function_candidates and name
+    ontology_core.related_assertions:
+      source_pages:
+      - 10
+      method: specs.equipment_symbols
+    discipline_context.free_notes:
+      source_pages:
+      - 10
+      method: preserve all non-core observed fields
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 10
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 10
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 소회의실1
+    source_page: 10
+    reason: 원문 라벨이지만 별도 구조화 기준 없음
+    preservation_note: free_notes로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 소회의실1
+    source_page: 10
+    reason: 내부 표기 텍스트의 별도 의미 구분 불가
+    preservation_note: free_notes로 보존
+  - field_candidate: specs.equipment_symbols
+    raw_text: LAN OUTLET x1
+    source_page: 10
+    reason: 장비 심볼은 관찰되나 개별 장비 인스턴스/관계 확정 불가
+    preservation_note: related_assertions 및 free_notes로 보존
+  - field_candidate: specs.inferred_name
+    raw_text: 소회의실1
+    source_page: 10
+    reason: 추론명은 존재하나 별도 해석 불필요
+    preservation_note: name과 함께 보존
+  - field_candidate: specs.position
+    raw_text: bottom-left
+    source_page: 10
+    reason: 좌표가 아닌 상대 위치 표현
+    preservation_note: 위치 문자열 그대로 보존
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 10
+    reason: 도형 정보는 있으나 세부 기하 해석 없음
+    preservation_note: shape 문자열 보존
+  - field_candidate: specs.panel_id
+    raw_text: MEETING-ROOM-SMALL-1
+    source_page: 10
+    reason: 식별자이지만 추가 구조화 불필요
+    preservation_note: tag와 동일성 유지
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 10
+    reason: 후보 클래스이며 확정 불가
+    preservation_note: class_hint 후보로만 사용
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Meeting, Communication
+    source_page: 10
+    reason: 기능 후보일 뿐 확정 분류 아님
+    preservation_note: alternative_class_hints 참고용
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 공간 엔티티로 보이지만 meeting room과 communication room 해석이 모두 가능하며, supplement
+      sub_kind가 없어 세부 하위 분류를 확정할 수 없음.
+    recommended_handling: 0-9c에서 Space 계열로 검증하고, 필요 시 MeetingRoom 또는 CommunicationRoom
+      후보를 비교 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 계열로 보는 방향
+    - 공간 내부 equipment_symbols를 관계 원형으로 보존
+    - source_pages 기반 provenance 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:43:48.456885'
+  confidence: 0.91

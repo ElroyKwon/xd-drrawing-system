@@ -1,0 +1,833 @@
+cross_validated:
+  page_num: 4
+  model: gemini-3.1-pro
+  entities:
+  - tag: BLDG-A
+    name: A동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - A동
+    position: top-left
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: BLDG-B
+    name: B동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - B동
+    position: top-center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: BLDG-UT
+    name: U.T.동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - U.T.동
+    position: center-right
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: BLDG-OFFICE
+    name: 사무동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 사무동
+    position: bottom-left
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: BLDG-AB
+    name: A동/B동 복합 구역
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - A동
+      - B동
+    position: bottom-center
+    source_attribution:
+      sonnet: true
+      gemini: false
+      mini: true
+    confidence: 0.85
+  - tag: FDC-001
+    name: 쌍구형 연결송수구
+    discipline: FIRE_PROTECTION
+    function_category: DISTRIBUTE
+    specifications:
+      shape: dashed_box
+      labels_inside:
+      - 연결송수구(쌍구형)
+      - 100ø x 65ø x 65ø
+      - (압력표시 판넬부착)
+      connection_size: 100ø x 65ø x 65ø
+      pressure_indicator_panel_attached: true
+    equipment_symbols:
+    - type: 쌍구형연결송수구(FDC)
+      count: 1
+    position: center-left
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: FHY-001
+    name: 옥외소화전 H-100
+    discipline: FIRE_PROTECTION
+    function_category: PROTECT
+    specifications:
+      shape: circle
+      labels_below:
+      - H-100
+    equipment_symbols:
+    - type: 옥외소화전
+      count: 1
+    position: center-bottom
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: DUCT-CORRIDOR
+    name: 공동구
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 공동구
+    position: center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: TITLE-BLOCK
+    name: 표제란
+    discipline: FIRE_PROTECTION
+    function_category: TITLE_BLOCK
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - LS Electric
+      - R-Center 구축
+      - '224001'
+      - 가운 건축
+      - GAUN Architects & Engineers
+      - R-Center
+      - 옥외 소화 배관 평면도
+      - MF-003
+      - 'A1 : 1/500'
+      - 'A3 : 1/1000'
+      - '2024.04'
+      - (주)정연엔지니어링
+    position: right
+    source_attribution:
+      sonnet: true
+      gemini: false
+      mini: false
+    confidence: 0.65
+  - tag: UNKNOWN-NOTE-001
+    name: 방위표시 N
+    discipline: FIRE_PROTECTION
+    function_category: NOTABLE_SHAPE
+    specifications:
+      shape: circle
+      label: N
+      note: 방위 표시
+    position: upper-right
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    confidence: 0.6
+  - tag: UNKNOWN-NOTE-002
+    name: 주차구역 표시
+    discipline: FIRE_PROTECTION
+    function_category: NOTABLE_SHAPE
+    specifications:
+      note: 장애인전용 주차구역 표시 라인
+    position: lower-right
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    confidence: 0.6
+  relationships:
+  - from_tag: FDC-001
+    to_tag: DUCT-CORRIDOR
+    relation_type: connects_to
+    line_type: pipe
+    line_style: dashed
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 100ø 연결송수구 배관 (SC계통)
+  - from_tag: DUCT-CORRIDOR
+    to_tag: FHY-001
+    relation_type: supplies
+    line_type: pipe
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: H-100 옥외소화전 배관
+  - from_tag: BLDG-B
+    to_tag: DUCT-CORRIDOR
+    relation_type: connects_to
+    line_type: pipe
+    line_style: dashed
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 옥외 소화 배관 경로
+  - from_tag: DUCT-CORRIDOR
+    to_tag: BLDG-UT
+    relation_type: connects_to
+    line_type: pipe
+    line_style: dashed
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 옥외 소화 배관 경로
+  spaces:
+  - space_id: GRP-SITE
+    name: R-Center 옥외 부지 배치
+    contains:
+    - BLDG-A
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-OFFICE
+    - BLDG-AB
+    - DUCT-CORRIDOR
+  - space_id: GRP-FIRE-OUTDOOR
+    name: 옥외 소화 설비
+    contains:
+    - FDC-001
+    - FHY-001
+  diagram_spec:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    scale_a1: 1/500
+    scale_a3: 1/1000
+    date: '2024.04'
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운 건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    flow_direction: UNKNOWN
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    has_equipment_list: false
+    coverage_circles_present: false
+    pump_count: 0
+    seismic_scope: null
+    notes:
+    - 옥외 소화 배관 평면도로 부지 전체 배관 경로 표시
+    - 연결송수구(쌍구형) 100ø x 65ø x 65ø, 압력표시 판넬 부착
+    - 옥외소화전 H-100 표기 확인
+    - 굵은 점선 경로는 옥외 소화 배관(H 또는 SC 계통) 경로
+    - 장애인전용 주차구역 표시 라인 확인 (소화 배관과 무관)
+    - 방위 표시(N) 우측 상단 확인
+    - 축척 A1:1/500, A3:1/1000
+  disagreements:
+  - item_type: entity
+    tag_affected: DUCT-CORRIDOR
+    field: tag
+    values:
+      sonnet: DUCT-CORRIDOR
+      gemini: UTIL-TUNNEL
+      mini: DUCT-CORRIDOR
+    resolved_to: DUCT-CORRIDOR
+    reason: Sonnet의 태그 명명 규칙 우선 적용
+  - item_type: relationship
+    tag_affected: BLDG-B -> DUCT-CORRIDOR
+    field: direction
+    values:
+      sonnet: BLDG-B -> DUCT-CORRIDOR
+      gemini: UTIL-TUNNEL -> BLDG-B
+      mini: BLDG-B -> DUCT-CORRIDOR
+    resolved_to: BLDG-B -> DUCT-CORRIDOR
+    reason: Sonnet과 GPT-mini의 다수결 및 시각 분석 우선
+  preservation_check:
+    sonnet_spec_count: 41
+    preserved_count: 41
+    lost_fields: []
+  summary:
+    entity_count: 11
+    relationship_count: 4
+    high_confidence_count: 8
+    disagreement_count: 2
+    diagram_spec_preserved: true
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-003
+    title: 옥외 소화 배관 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 도면 제목과 표제란에 '옥외 소화 배관 평면도'가 보이며, 굵은 점선/실선 경로가 배관 또는 관련 라인으로 보임.
+  - 표제란 하단 도면번호는 MF-003으로 보임.
+  - 페이지 내 별도 범례/약어 표는 확인되지 않음.
+  confidence: 0.93
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_mechanical/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 도면번호 MF-003과 제목 '옥외 소화 배관 평면도'가 보이며, fire_protection 분야의 배관/배치 평면으로
+    판단되어 카탈로그의 genre_mechanical 보조자료로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: SITE_LAYOUT
+    shape: rectangle
+    primary_label: R-Center 구축
+    position: center
+    labels_near:
+    - A동
+    - B동
+    - U.T.동
+    - 사무동
+    - 공동구
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 옥외 소화 배관 평면도
+    position: bottom-right
+    labels_near:
+    - MF - 003
+    - LS Electric
+    - 가운 건축
+  connections:
+  - from: SITE_LAYOUT
+    to: TITLE_BLOCK
+    line_style: solid
+    annotation: context
+  notable_shapes:
+  - shape: dashed_box
+    label: 연결송수구(쌍구형)
+    note: 100ø x 65ø x 65ø (압력표시 판넬부착) 상세 지시
+  - shape: dashed_box
+    label: H-100
+    note: 옥외 소화 배관 경로 표시 (굵은 점선)
+  - shape: circle
+    label: N
+    note: 방위 표시 (우측 상단)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지 내 별도 범례/약어 표는 확인되지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 MF-003과 제목 '옥외 소화 배관 평면도'가 명확하며, vision으로 옥외 배치 및 배관 경로(H-100)를
+    확인하여 fire_protection 분야의 mechanical 서브시스템 평면도로 확정함. 0-0의 결정을 유지함.
+classification: FIRE_PROTECTION_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 옥외 소화 배관 평면도
+- MF
+- R-Center
+- LS Electric
+- 가운 건축
+- '도면번호: MF-003'
+- '축척: A1 1/500'
+- '축척: A3 1/1000'
+- 연결송수구(쌍구형)
+- 100ø x 65ø x 65ø
+- 압력표시 판넬부착
+- H-100
+- A동
+- B동
+- U.T.동
+- 사무동
+- 공동구
+title_block:
+  drawing_number: MF-003
+  title: 옥외 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline(FIRE_PROTECTION), classification(FIRE_DETECTION_LAYOUT), drawing_genre(floor_plan)는
+  페이지 4의 표제란과 도면 내용상 일부 불일치가 있음. 시각적으로는 옥외 배관 경로와 연결송수구가 표시된 소화배관 평면도이므로 classification은
+  FIRE_PROTECTION_DIAGRAM으로 보정함. 페이지 내 별도 범례는 보이지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: A동 건물
+    position: top-left
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: B동 건물
+    position: top-center
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: U.T.동 건물
+    position: center-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사무동 건물
+    position: bottom-left
+  - panel_id: BLDG-AB
+    shape: rectangle
+    labels_inside:
+    - A동
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: A동/B동 복합 구역
+    position: bottom-center
+  - panel_id: FDC-001
+    shape: dashed_box
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구(FDC)
+      count: 1
+    inferred_name: 쌍구형 연결송수구 (압력표시 판넬 부착)
+    position: center-left
+  - panel_id: FHY-001
+    shape: circle
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - H-100
+    equipment_symbols:
+    - type: 옥외소화전
+      count: 1
+    inferred_name: 옥외소화전 H-100
+    position: center-bottom
+  - panel_id: DUCT-CORRIDOR
+    shape: rectangle
+    labels_inside:
+    - 공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 공동구 (배관 공동구)
+    position: center
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운 건축
+    - GAUN Architects & Engineers
+    - R-Center
+    - 옥외 소화 배관 평면도
+    - MF-003
+    - 'A1 : 1/500'
+    - 'A3 : 1/1000'
+    - '2024.04'
+    - (주)정연엔지니어링
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: FDC-001
+    to: DUCT-CORRIDOR
+    line_type: pipe
+    line_style: dashed
+    annotation: 100ø 연결송수구 배관 (SC계통)
+  - from: DUCT-CORRIDOR
+    to: FHY-001
+    line_type: pipe
+    line_style: solid
+    annotation: H-100 옥외소화전 배관
+  - from: BLDG-B
+    to: DUCT-CORRIDOR
+    line_type: pipe
+    line_style: dashed
+    annotation: 옥외 소화 배관 경로
+  - from: DUCT-CORRIDOR
+    to: BLDG-UT
+    line_type: pipe
+    line_style: dashed
+    annotation: 옥외 소화 배관 경로
+  groups:
+  - group_id: GRP-SITE
+    label: R-Center 옥외 부지 배치
+    members:
+    - BLDG-A
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-OFFICE
+    - BLDG-AB
+    - DUCT-CORRIDOR
+  - group_id: GRP-FIRE-OUTDOOR
+    label: 옥외 소화 설비
+    members:
+    - FDC-001
+    - FHY-001
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: FHY-001
+  - text: SC (연결송수구배관)
+    linked_to: FDC-001
+  - text: 쌍구형연결송수구
+    linked_to: FDC-001
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    scale_a1: 1/500
+    scale_a3: 1/1000
+    date: '2024.04'
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운 건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    flow_direction: UNKNOWN
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    has_equipment_list: false
+    coverage_circles_present: false
+    pump_count: 0
+    seismic_scope: null
+    notes:
+    - 옥외 소화 배관 평면도로 부지 전체 배관 경로 표시
+    - 연결송수구(쌍구형) 100ø x 65ø x 65ø, 압력표시 판넬 부착
+    - 옥외소화전 H-100 표기 확인
+    - 굵은 점선 경로는 옥외 소화 배관(H 또는 SC 계통) 경로
+    - 장애인전용 주차구역 표시 라인 확인 (소화 배관과 무관)
+    - 방위 표시(N) 우측 상단 확인
+    - 축척 A1:1/500, A3:1/1000
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FDC-001
+    shape: dashed_box
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: FDC
+      count: 1
+    inferred_name: 쌍구형 연결송수구
+    position: center-left
+  - panel_id: FHY-001
+    shape: circle
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - H-100
+    equipment_symbols:
+    - type: FHY
+      count: 1
+    inferred_name: 옥외소화전
+    position: center
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: B동 건물
+    position: top-center
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: U.T.동 건물
+    position: center-right
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: A동 건물
+    position: bottom-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사무동 건물
+    position: bottom-left
+  - panel_id: UTIL-TUNNEL
+    shape: other
+    labels_inside:
+    - 공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 공동구
+    position: center
+  connections:
+  - from: FDC-001
+    to: UTIL-TUNNEL
+    line_type: pipe
+    line_style: dashed
+    annotation: null
+  - from: UTIL-TUNNEL
+    to: BLDG-B
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100
+  - from: UTIL-TUNNEL
+    to: BLDG-UT
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100
+  - from: UTIL-TUNNEL
+    to: FHY-001
+    line_type: pipe
+    line_style: solid
+    annotation: null
+  groups: []
+  legend_references: []
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    flow_direction: UNKNOWN
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_seismic: false
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    pump_count: 0
+entity_synthesis:
+  entities:
+  - tag: FDC-001
+    name: 쌍구형 연결송수구
+    discipline: FIRE_PROTECTION
+    function_category: DISTRIBUTE
+    specifications:
+      shape: dashed_box
+      labels_inside:
+      - 연결송수구(쌍구형)
+      - 100ø x 65ø x 65ø
+      - (압력표시 판넬부착)
+      equipment_type: 쌍구형연결송수구(FDC)
+      count: 1
+      connection_size: 100ø x 65ø x 65ø
+      pressure_indicator_panel_attached: true
+    position: center-left
+    source_block: both
+  - tag: FHY-001
+    name: 옥외소화전
+    discipline: FIRE_PROTECTION
+    function_category: PROTECT
+    specifications:
+      shape: circle
+      labels_below:
+      - H-100
+      equipment_type: 옥외소화전
+      count: 1
+    position: center-bottom
+    source_block: both
+  - tag: BLDG-A
+    name: A동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - A동
+    position: top-left
+    source_block: both
+  - tag: BLDG-B
+    name: B동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - B동
+    position: top-center
+    source_block: both
+  - tag: BLDG-UT
+    name: U.T.동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - U.T.동
+    position: center-right
+    source_block: both
+  - tag: BLDG-OFFICE
+    name: 사무동 건물
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 사무동
+    position: bottom-left
+    source_block: both
+  - tag: BLDG-AB
+    name: A동/B동 복합 구역
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - A동
+      - B동
+    position: bottom-center
+    source_block: visual_semantics
+  - tag: DUCT-CORRIDOR
+    name: 공동구
+    discipline: FIRE_PROTECTION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 공동구
+    position: center
+    source_block: visual_semantics
+  - tag: UNKNOWN-NOTE-001
+    name: 방위표시 N
+    discipline: FIRE_PROTECTION
+    function_category: NOTABLE_SHAPE
+    specifications:
+      shape: circle
+      label: N
+      note: 방위 표시
+    position: upper-right
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-NOTE-002
+    name: 주차구역 표시
+    discipline: FIRE_PROTECTION
+    function_category: NOTABLE_SHAPE
+    specifications:
+      note: 장애인전용 주차구역 표시 라인
+    position: lower-right
+    source_block: visual_semantics
+  relationships:
+  - from_tag: FDC-001
+    to_tag: DUCT-CORRIDOR
+    relation_type: connects_to
+    note: 연결송수구 배관 경로
+  - from_tag: DUCT-CORRIDOR
+    to_tag: FHY-001
+    relation_type: supplies
+    note: 옥외소화전 배관
+  - from_tag: BLDG-B
+    to_tag: DUCT-CORRIDOR
+    relation_type: connects_to
+    note: 옥외 소화 배관 경로
+  - from_tag: DUCT-CORRIDOR
+    to_tag: BLDG-UT
+    relation_type: connects_to
+    note: 옥외 소화 배관 경로
+  spaces:
+  - space_id: SPACE-001
+    name: R-Center 옥외 부지 배치
+    contains:
+    - BLDG-A
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-OFFICE
+    - BLDG-AB
+    - DUCT-CORRIDOR
+    source_block: visual_semantics
+  - space_id: SPACE-002
+    name: 옥외 소화 설비
+    contains:
+    - FDC-001
+    - FHY-001
+    source_block: visual_semantics
+  self_check:
+    entity_count: 10
+    relationship_count: 4
+    visual_spec_preserved: true
+    issues: []

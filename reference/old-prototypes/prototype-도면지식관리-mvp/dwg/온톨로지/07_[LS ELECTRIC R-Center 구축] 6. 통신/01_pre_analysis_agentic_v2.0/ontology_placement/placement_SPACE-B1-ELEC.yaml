@@ -1,0 +1,150 @@
+placement:
+  tag: SPACE-B1-ELEC
+  name: 전기실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-B1-ELEC
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationSpace
+    - ElectricalRoom
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: ELECTRICAL_ROOM'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 기능 분류가 직접 기재됨
+      - raw_text: 'specs.raw_labels: 전기실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 텍스트 보존 필요
+      - raw_text: 'specs.inferred_name: 지하1층 전기실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 보존 필요
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.observed_attributes: raw_labels, inferred_name'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: Power Distribution; Equipment
+          Housing'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+      - raw_text: 'position: left'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보 보존
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: direct
+    name:
+      source_pages:
+      - 9
+      method: direct
+    discipline:
+      source_pages:
+      - 9
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hint
+    discipline_context.free_notes:
+      source_pages:
+      - 9
+      method: preservation
+    position:
+      source_pages:
+      - 9
+      method: direct
+    specs.raw_labels:
+      source_pages:
+      - 9
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 9
+      method: direct
+    type:
+      source_pages:
+      - 9
+      method: direct
+    function_category:
+      source_pages:
+      - 9
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 9
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type는 SPACE이지만 function_category가 ELECTRICAL_ROOM이고 ontology_hints의 function_candidates가
+      Power Distribution / Equipment Housing으로 제시되어 공간 유형과 기능 해석이 혼재됨.
+    recommended_handling: 0-9c에서 Space 계열로 우선 유지하되, 기능 분류는 별도 데이터 속성 또는 주석으로 보존하고
+      후속 단계에서 세부 class 확정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - raw_labels, inferred_name, position, function_category, ontology_hints를 모두 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:15:09.444787'
+  confidence: 0.91

@@ -1,0 +1,181 @@
+placement:
+  tag: UNKNOWN-SPACE-06
+  name: 연결통로
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - SpatialZone
+    - Connecting Passage
+    - Fire Protection Zone
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-SPACE-03
+      note: 도면상 연결통로가 UNKNOWN-SPACE-03과 연결됨
+    applicable_axioms:
+    - AX037
+    - AX040
+    - AX041
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: 연결통로'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트
+      - raw_text: 'labels_inside: DN 50'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 규격 표기 텍스트
+      - raw_text: 'relation: connects_to from UNKNOWN-SPACE-03 to UNKNOWN-SPACE-06'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간 간 연결 관계
+      - raw_text: 'position: bottom-right'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: 'ontology_hints.suggested_parent_class: SpatialZone'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 메타정보
+      - raw_text: 'ontology_hints.function_candidates: Connecting Passage'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'ontology_hints.function_candidates: Fire Protection Zone'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: entity_detail
+    name:
+      source_pages:
+      - 8
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 8
+      method: entity_detail
+    type:
+      source_pages:
+      - 8
+      method: entity_detail
+    function_category:
+      source_pages:
+      - 8
+      method: entity_detail
+    source_pages:
+      source_pages:
+      - 8
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: entity_detail
+    relations:
+      source_pages:
+      - 8
+      method: entity_detail
+    collection_sources.cross_validated:
+      source_pages:
+      - 8
+      method: entity_detail
+    position:
+      source_pages:
+      - 8
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 8
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 연결통로
+    source_page: 8
+    reason: 도면 표기 텍스트로는 해석 가능하나, supplement sub_kind가 없어 free_notes로 보존
+    preservation_note: 공간명/라벨로 재사용 가능
+  - field_candidate: specs.labels_inside
+    raw_text: DN 50
+    source_page: 8
+    reason: 규격 표기이지만 이 태그의 확정 속성으로 승격하지 않음
+    preservation_note: 치수/구경 표기 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: SpatialZone
+    source_page: 8
+    reason: 힌트는 있으나 확정 class로 채우지 않음
+    preservation_note: 상위 클래스 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Connecting Passage
+    source_page: 8
+    reason: 기능 후보 텍스트
+    preservation_note: 기능 분류 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Fire Protection Zone
+    source_page: 8
+    reason: 기능 후보 텍스트
+    preservation_note: 기능 분류 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이나 name이 연결통로이고, ontology_hints에 SpatialZone/Fire Protection
+      Zone가 함께 제시되어 공간/구역/통로 해석이 혼재함
+    recommended_handling: 다음 단계에서 공간 엔티티로 유지하되, class 확정은 보류하고 관계(connects_to)와 라벨
+      텍스트를 우선 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/실 구획 계열로 관찰된 것만 보존
+    - 관계 사실(connects_to) 원형 보존
+    - ontology_hints는 후보로만 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:07:57.321070'
+  confidence: 0.98

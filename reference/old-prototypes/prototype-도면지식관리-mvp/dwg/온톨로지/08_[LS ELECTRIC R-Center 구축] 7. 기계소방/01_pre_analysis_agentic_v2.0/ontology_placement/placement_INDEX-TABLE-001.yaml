@@ -1,0 +1,190 @@
+placement:
+  tag: INDEX-TABLE-001
+  name: 도면 목록 표 (Index Table)
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:INDEX-TABLE-001
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - InformationEntity
+    - DocumentIndex
+    - IndexTable
+    related_assertions:
+    - type: references
+      target_hint: TITLE-BLOCK-001
+      note: 도면 목록 표가 표제란/문서 메타와 연계될 가능성
+    - type: references
+      target_hint: TITLE-BANNER-001
+      note: 도면 목록 표가 제목 배너와 연계될 가능성
+    - type: references
+      target_hint: MF-001
+      note: 인근 태그 요약에 포함된 문서성/메타 태그와의 참조 가능성
+    applicable_axioms:
+    - AX037
+    - AX038
+    - AX039
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN005
+    - CN006
+    - CN007
+    - CN013
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: INDEX_TABLE'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 문서 인덱스 유형을 직접 나타내는 타입 표기
+      - raw_text: 'function_category: DOCUMENT_INDEX'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 문서의 기능 범주를 직접 나타내는 값
+      - raw_text: 'ontology_hints.suggested_parent_class: InformationEntity'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로서 상위 클래스 후보를 제시
+      - raw_text: 'ontology_hints.function_candidates: Drawing Indexing, Document
+          Management'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록 보존 필요
+      - raw_text: 'specs: UNKNOWN'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: specStatus
+          suggested_datatype: xsd:string
+          rationale: 명세 미상 상태를 보존
+      - raw_text: 'tool_used: functions.search_entity_by_tag'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: toolUsed
+          suggested_datatype: xsd:string
+          rationale: 추출 도구 이력 보존
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: direct
+    name:
+      source_pages:
+      - 2
+      method: direct
+    discipline:
+      source_pages:
+      - 2
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hint_and_function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hint
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 2
+      method: neighbor_tag_summary
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 2
+      method: neighbor_tag_summary
+    ontology_core.related_assertions[2]:
+      source_pages:
+      - 2
+      method: neighbor_tag_summary
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 2
+      method: direct
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 2
+      method: direct
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 2
+      method: direct
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 2
+      method: direct
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 2
+      method: direct
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 2
+      method: direct
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 2
+    reason: 원문에 관계가 비어 있음
+    preservation_note: 관계 부재 자체를 보존
+  - field_candidate: specs
+    raw_text: UNKNOWN
+    source_page: 2
+    reason: 구체 명세가 제공되지 않음
+    preservation_note: 미상 상태 유지
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: '[]'
+    source_page: 2
+    reason: 관찰 속성 목록이 비어 있음
+    preservation_note: 추후 속성 보강 가능
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 2
+    reason: 유사 설비 후보가 제공되지 않음
+    preservation_note: 유사 태그 없음으로 보존
+  - field_candidate: source_pages
+    raw_text: '[2]'
+    source_page: 2
+    reason: 단일 페이지 출처만 존재
+    preservation_note: 단일 출처로 기록
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 문서성 엔티티이지만 AnnotationOnly와 NamedIndividual 경계가 다소 모호함. 실제 물리 설비가 아닌 도면
+      목록 표로 보이므로 AnnotationOnly로 우선 배치.
+    recommended_handling: 0-9c에서 DocumentEntity/InformationEntity 계열로 재검토하고, 필요 시
+      문서 인덱스 전용 클래스로 승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서/표제란/범례/스케줄 계열을 문서성 엔티티로 우선 분리
+    - ontology_hints.suggested_parent_class 및 function_candidates를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:03:55.846150'
+  confidence: 0.86

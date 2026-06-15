@@ -1,0 +1,251 @@
+placement:
+  tag: ZONE-대형공간서측
+  name: 서측 대형 공간
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ZONE-대형공간서측
+    class_hint: HVACZone
+    alternative_class_hints:
+    - Fire_Damper_Control_Zone
+    - Duct_Installation_Area
+    - Space
+    related_assertions:
+    - type: connects_to
+      target_hint: CTRL-GATEWAY
+      note: SMFD 제어 신호선 (B)(C)
+    - type: signal
+      target_hint: CTRL-GATEWAY
+      note: SMFD 제어 신호선 (B)(C)
+    applicable_axioms:
+    - AX023
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:ControlZone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: 220x250(2a), 220x250(EA), 550x150(2a), 560x400(2a),
+          660x400(PL)'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasObservedLabel
+          suggested_datatype: xsd:string
+          rationale: 공간 내부에 표기된 덕트/설비 라벨 문자열 보존 필요
+      - raw_text: 'equipment_symbols: SMFD 8, F.C 3, duct 5'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasObservedEquipmentSymbolCount
+          suggested_datatype: xsd:string
+          rationale: 공간 내 관찰된 설비 심볼 종류와 수량 정보 보존 필요
+      - raw_text: 'inferred_name: 서측 대형 공간 — 덕트 및 SMFD 설치 구역'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasInferredFunction
+          suggested_datatype: xsd:string
+          rationale: 공간의 추정 기능 설명 보존 필요
+      - raw_text: 'position: center-left'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면상 배치 위치 정보 보존 필요
+      - raw_text: 'source_panel_id: ZONE-대형공간서측'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasSourcePanelId
+          suggested_datatype: xsd:string
+          rationale: 원본 패널/도면 식별자 보존 필요
+      - raw_text: 'duct_sizes_noted: 220x250(2a), 220x250(EA), 550x150(2a), 560x400(2a),
+          660x400(PL)'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasDuctSizeNote
+          suggested_datatype: xsd:string
+          rationale: 덕트 규격 표기 보존 필요
+      - raw_text: 'cross_discipline_ref: null'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasCrossDisciplineReference
+          suggested_datatype: xsd:string
+          rationale: 교차 분야 참조 부재 상태도 원문 그대로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 52
+      method: direct
+    name:
+      source_pages:
+      - 52
+      method: direct
+    discipline:
+      source_pages:
+      - 52
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 52
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 52
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 52
+      method: ontology_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 52
+      method: ontology_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 52
+      method: relation_extraction
+    specs.labels_inside:
+      source_pages:
+      - 52
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 52
+      method: direct
+    specs.position:
+      source_pages:
+      - 52
+      method: direct
+    specs.raw_labels:
+      source_pages:
+      - 52
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 52
+      method: direct
+    specs.source_panel_id:
+      source_pages:
+      - 52
+      method: direct
+    specs.duct_sizes_noted:
+      source_pages:
+      - 52
+      method: direct
+    relations:
+      source_pages:
+      - 52
+      method: direct
+    equipment_symbols:
+      source_pages:
+      - 52
+      method: direct
+    source_attribution:
+      source_pages:
+      - 52
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 52
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 52
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 52
+      method: direct
+    collection_sources:
+      source_pages:
+      - 52
+      method: direct
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 220x250(2a), 220x250(EA), 550x150(2a), 560x400(2a), 660x400(PL)
+    source_page: 52
+    reason: 라벨은 관찰되나 OWL Core의 확정 데이터 속성으로 승격하지 않음
+    preservation_note: 덕트/설비 규격 표기 문자열로 원문 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 220x250(2a), 220x250(EA), 550x150(2a), 560x400(2a), 660x400(PL)
+    source_page: 52
+    reason: 원문 라벨 목록이지만 의미 확정 없이 보존 필요
+    preservation_note: labels_inside와 동일 계열의 표기
+  - field_candidate: specs.equipment_symbols
+    raw_text: SMFD (스마트 방화댐퍼) x8, F.C (Field Controller) x3, 덕트 (duct) x5
+    source_page: 52
+    reason: 공간 내부 관찰 심볼이지만 개별 장비 인스턴스로 분해하지 않음
+    preservation_note: 공간 내 포함 심볼 수량 정보로 유지
+  - field_candidate: specs.inferred_name
+    raw_text: 서측 대형 공간 — 덕트 및 SMFD 설치 구역
+    source_page: 52
+    reason: 추정명으로서 원문 보존 필요
+    preservation_note: 기능 추정 문구 포함
+  - field_candidate: specs.position
+    raw_text: center-left
+    source_page: 52
+    reason: 도면 위치 정보이나 표준화하지 않음
+    preservation_note: 배치 좌표 힌트
+  - field_candidate: specs.source_panel_id
+    raw_text: ZONE-대형공간서측
+    source_page: 52
+    reason: 식별자성 문자열이지만 별도 속성 승격 보류
+    preservation_note: 원본 패널 식별자
+  - field_candidate: specs.duct_sizes_noted
+    raw_text: 220x250(2a), 220x250(EA), 550x150(2a), 560x400(2a), 660x400(PL)
+    source_page: 52
+    reason: 덕트 규격 표기이지만 데이터 속성 확정 전
+    preservation_note: 규격 문자열 그대로 유지
+  - field_candidate: relations[0]
+    raw_text: 'CTRL-GATEWAY connects_to ZONE-대형공간서측; note: SMFD 제어 신호선 (B)(C)'
+    source_page: 52
+    reason: 관계는 추출되었으나 확정 property IRI는 미지정
+    preservation_note: ObjectPropertyAssertion 원형
+  - field_candidate: relations[1]
+    raw_text: 'CTRL-GATEWAY signal ZONE-대형공간서측; annotation: SMFD 제어 신호선 (B)(C)'
+    source_page: 52
+    reason: signal 관계의 의미는 있으나 확정 속성 미지정
+    preservation_note: 주석성 관계 원형
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: HVACZone
+    source_page: 52
+    reason: 힌트일 뿐 확정 분류 아님
+    preservation_note: 후속 taxonomy 단계에서 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: HVAC_Zone, Fire_Damper_Control_Zone, Duct_Installation_Area
+    source_page: 52
+    reason: 후보 기능명이며 확정 불가
+    preservation_note: class_hint 후보군으로만 사용
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: false, mini: true'
+    source_page: 52
+    reason: 생성/추출 출처 메타정보
+    preservation_note: 출처 추적용 메타데이터
+  - field_candidate: collection_sources
+    raw_text: 'cross_validated: true, visual_semantics: true, entity_synthesis: true'
+    source_page: 52
+    reason: 수집 방식 메타정보
+    preservation_note: 신뢰도/수집 경로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: ZONE 태그는 공간(Space) 성격이 강하지만, 도면 내 SMFD/F.C/덕트가 다수 관찰되어 HVACZone 또는 Fire_Damper_Control_Zone로도
+      해석 가능함.
+    recommended_handling: NamedIndividual로 유지하되 0-9c에서 Space/HVACZone 계열 taxonomy를
+      검토하고, 관계는 CTRL-GATEWAY와의 연결 사실로 보존.
+  merge_info:
+    is_merge_candidate: true
+    other_tag: ZONE-좌측대형공간
+    reason: 인근 태그 요약에 유사한 공간 태그가 존재하며, 대형공간의 좌/서측 표현이 중복 또는 상하위 관계일 가능성이 있음.
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - 제어 신호 흐름(connects_to, signal)과 전력 흐름(feeds, supplies)의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:38:12.658115'
+  confidence: 0.9

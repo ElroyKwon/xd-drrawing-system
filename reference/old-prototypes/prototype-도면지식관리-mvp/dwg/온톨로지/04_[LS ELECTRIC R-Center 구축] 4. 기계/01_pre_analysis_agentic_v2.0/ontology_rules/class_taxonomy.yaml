@@ -1,0 +1,601 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=94)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T08:39:32.769920'
+  classes:
+  - iri: dks:Equipment
+    label: 장비
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - 100T-IAC
+    - 22-OAC
+    - SMFD-01
+    - CTRL-PANEL-1F
+    - MAIN-MCCB
+    - SP
+    derivation: 물리적 실체가 있는 기계, 전기, 제어, 소방 장비의 최상위 클래스
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:HVACEquipment
+    label: 공조설비
+    super_classes:
+    - dks:Equipment
+    evidence_tags:
+    - 100T-IAC
+    - 22-OAC
+    - CHU
+    - ODU
+    - ERV-1000CMH
+    - SF-1
+    derivation: class_hint에 HVACEquipment, AirConditioningUnit 등이 다수 관찰됨
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:AirConditionerIndoorUnit
+    label: 실내기
+    super_classes:
+    - dks:HVACEquipment
+    evidence_tags:
+    - 100T-IAC
+    - 130T-IAC
+    - 23C-IAC
+    - 290P-IAC
+    - 32C-IAC
+    - 52G-IAC
+    - 52T-IAC
+    - 60T-IAC
+    - 72T-IAC
+    - 83T-IAC
+    - CHU
+    derivation: name 패턴 '시스템에어컨 실내기' 및 '천장취출형 냉난방 유니트', class_hint 'AirConditionerIndoorUnit'
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:AirConditionerOutdoorUnit
+    label: 실외기
+    super_classes:
+    - dks:HVACEquipment
+    evidence_tags:
+    - 22-OAC
+    - 24-OAC
+    - 30-OAC
+    - 32-OAC
+    - 34-OAC
+    - 42-OAC
+    - 48-OAC
+    - ODU
+    derivation: name 패턴 '시스템에어컨 실외기', class_hint 'OutdoorUnit'
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:VentilationEquipment
+    label: 환기장치
+    super_classes:
+    - dks:HVACEquipment
+    evidence_tags:
+    - ERV-1000CMH
+    - ERV-250CMH
+    - ERV-500CMH
+    - ERV-800CMH
+    derivation: name '전열교환 환기장치', class_hint 'EnergyRecoveryVentilator'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Fan
+    label: 송풍기
+    super_classes:
+    - dks:HVACEquipment
+    evidence_tags:
+    - EF-1
+    - TEF-1
+    - SF-1
+    - SF-2
+    derivation: name 'EXHAUST FAN', 'SUPPLY FAN', class_hint 'Fan', 'ExhaustFan'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:FireProtectionEquipment
+    label: 소방설비
+    super_classes:
+    - dks:Equipment
+    evidence_tags:
+    - SMFD-01
+    - SMFD-02
+    - SMFD
+    derivation: 방화댐퍼 등 화재 확산 방지 목적의 물리적 장비
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:FireDamper
+    label: 방화댐퍼
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - SMFD-01
+    - SMFD-02
+    - SMFD
+    derivation: name '스마트 방화댐퍼', class_hint 'FireDamper'
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:ControlEquipment
+    label: 제어설비
+    super_classes:
+    - dks:Equipment
+    evidence_tags:
+    - CTRL-GATEWAY
+    - CTRL-PANEL-1F
+    - MCP-PANEL
+    - LOAD-EHP1
+    derivation: 시스템 제어 및 통신을 담당하는 장비
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ControlPanel
+    label: 제어반
+    super_classes:
+    - dks:ControlEquipment
+    evidence_tags:
+    - CTRL-PANEL-1F
+    - MCP-PANEL
+    - LOAD-EHP1
+    - LOAD-EHP2
+    - LOAD-EHP3
+    - LOAD-EHP4
+    - LOAD-EHP5
+    derivation: name '제어반', '제어 패널', class_hint 'ControlPanel'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Gateway
+    label: 게이트웨이
+    super_classes:
+    - dks:ControlEquipment
+    evidence_tags:
+    - CTRL-GATEWAY
+    derivation: name 'GATE WAY', class_hint 'ControlEquipment'
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:PlumbingEquipment
+    label: 위생/배관설비
+    super_classes:
+    - dks:Equipment
+    evidence_tags:
+    - SP
+    - EHW
+    derivation: 펌프 및 온수기 등 유체 취급 장비
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Pump
+    label: 펌프
+    super_classes:
+    - dks:PlumbingEquipment
+    evidence_tags:
+    - SP
+    derivation: name '펌프', class_hint 'Pump'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:WaterHeater
+    label: 온수기
+    super_classes:
+    - dks:PlumbingEquipment
+    evidence_tags:
+    - EHW
+    derivation: name '전기온수기', class_hint 'WaterHeater'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalEquipment
+    label: 전기설비
+    super_classes:
+    - dks:Equipment
+    evidence_tags:
+    - MAIN-MCCB
+    - JB-A-01
+    - LOAD-DCF1
+    derivation: 전력 공급, 차단, 분기 및 부하 역할을 하는 장비
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:CircuitBreaker
+    label: 차단기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - MAIN-MCCB
+    derivation: name 'MCCB', class_hint 'CircuitBreaker'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:JunctionBox
+    label: 접속함
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - JB-A-01
+    - JB-A-02
+    derivation: name '전선 접속함', class_hint 'JunctionBox'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalLoad
+    label: 전기부하
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - LOAD-CTRL-PWR1
+    - LOAD-CTRL-PWR2
+    - LOAD-DCF1
+    - LOAD-DCF2
+    - LOAD-DCF3
+    - LOAD-DCF4
+    - LOAD-DCF5
+    derivation: name '부하', class_hint 'ElectricalLoad'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:MechanicalEquipment
+    label: 기타기계설비
+    super_classes:
+    - dks:Equipment
+    evidence_tags:
+    - UNKNOWN-PS-1
+    derivation: class_hint 'MechanicalEquipment'
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:Space
+    label: 공간
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - SPACE-사무실
+    - SPACE-EPS-TPS
+    - SPACE-GRID-1
+    derivation: 건축적, 설비적 구획 및 구조적 참조점
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ArchitecturalSpace
+    label: 건축공간
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - SPACE-SoftwareLab
+    - SPACE-기타구역
+    - SPACE-냉장고구역
+    - SPACE-복도
+    - SPACE-사무실
+    - SPACE-실습시스템전트롤실
+    - SPACE-실습시스템컨트롤실
+    - SPACE-연결통로
+    - SPACE-중회의실
+    - SPACE-휴게공간
+    - UNKNOWN-STAIRCASE-1
+    derivation: 일반적인 실, 복도, 계단 등 건축적 점유 공간
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:MechanicalSpace
+    label: 기계실
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - SPACE-MECH-ROOM-ROOF
+    derivation: 설비가 집중 배치된 기계실 공간
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ShaftSpace
+    label: 샤프트
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - SPACE-EPS-TPS
+    - SPACE-PS
+    derivation: 수직 배관/배선 통로 (EPS, TPS, PS)
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:StructuralGrid
+    label: 구조그리드
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - SPACE-GRID-1
+    derivation: 도면상의 구조적 참조선/그리드
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:LogicalGroup
+    label: 논리그룹
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - SMFD-CTRL-ZONE-A
+    - SMFD-GRP-001
+    - ZONE-대형공간북측
+    derivation: 제어, 연동, 방화 구획 등을 위해 장비나 공간을 묶는 논리적 단위
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ControlZone
+    label: 제어구역
+    super_classes:
+    - dks:LogicalGroup
+    evidence_tags:
+    - SMFD-CTRL-ZONE-A
+    - SMFD-CTRL-ZONE-B
+    - SMFD-CTRL-ZONE-C
+    - ZONE-대형공간북측
+    - ZONE-대형공간서측
+    - ZONE-좌측대형공간
+    derivation: name '제어 구역' 및 'ZONE-*' 패턴, class_hint 'ControlZone', 'HVACZone'
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:EquipmentGroup
+    label: 장비그룹
+    super_classes:
+    - dks:LogicalGroup
+    evidence_tags:
+    - SMFD-GRP-001
+    - SMFD-GRP-002
+    - SMFD-GRP-003
+    - SMFD-GRP-004
+    - SMFD-GRP-005
+    - SMFD-GRP-006
+    - SMFD-GRP-007
+    - SMFD-GRP-008
+    - SMFD-GRP-009
+    - SMFD-GRP-010
+    - SMFD-GRP-011
+    - SMFD-GRP-012
+    - SMFD-GRP-014
+    - SMFD-GRP-015
+    - SMFD-GRP-016
+    - SMFD-GRP-017
+    - SMFD-GRP-018
+    - SMFD-GRP-AREA-001
+    - SMFD-GRP-AREA-002
+    derivation: name 'SMFD 그룹', class_hint 'FireDamperGroup', 'LogicalGroup'
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:Document
+    label: 문서
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - LEGEND-CABLE
+    - PANEL-ROOF-PLAN
+    derivation: 도면, 범례표 등 정보 매체
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DrawingLegend
+    label: 도면범례
+    super_classes:
+    - dks:Document
+    evidence_tags:
+    - LEGEND-CABLE
+    - LEGEND-WIRE
+    derivation: name '범례', class_hint 'DrawingLegend'
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:PlanDrawing
+    label: 평면도
+    super_classes:
+    - dks:Document
+    evidence_tags:
+    - PANEL-ROOF-PLAN
+    derivation: name '평면도', class_hint 'PlanDrawing'
+    source_pages: []
+    confidence: 0.98
+  subclass_relations:
+  - sub: dks:HVACEquipment
+    super: dks:Equipment
+    derivation: 공조설비는 물리적 장비의 하위 분류
+    confidence: 0.95
+  - sub: dks:AirConditionerIndoorUnit
+    super: dks:HVACEquipment
+    derivation: 실내기는 공조설비의 일종
+    confidence: 0.98
+  - sub: dks:AirConditionerOutdoorUnit
+    super: dks:HVACEquipment
+    derivation: 실외기는 공조설비의 일종
+    confidence: 0.98
+  - sub: dks:VentilationEquipment
+    super: dks:HVACEquipment
+    derivation: 환기장치는 공조설비의 일종
+    confidence: 0.95
+  - sub: dks:Fan
+    super: dks:HVACEquipment
+    derivation: 송풍기는 공조설비의 일종
+    confidence: 0.95
+  - sub: dks:FireProtectionEquipment
+    super: dks:Equipment
+    derivation: 소방설비는 물리적 장비의 하위 분류
+    confidence: 0.95
+  - sub: dks:FireDamper
+    super: dks:FireProtectionEquipment
+    derivation: 방화댐퍼는 소방설비의 일종
+    confidence: 0.98
+  - sub: dks:ControlEquipment
+    super: dks:Equipment
+    derivation: 제어설비는 물리적 장비의 하위 분류
+    confidence: 0.95
+  - sub: dks:ControlPanel
+    super: dks:ControlEquipment
+    derivation: 제어반은 제어설비의 일종
+    confidence: 0.95
+  - sub: dks:Gateway
+    super: dks:ControlEquipment
+    derivation: 게이트웨이는 제어설비의 일종
+    confidence: 0.9
+  - sub: dks:PlumbingEquipment
+    super: dks:Equipment
+    derivation: 위생/배관설비는 물리적 장비의 하위 분류
+    confidence: 0.9
+  - sub: dks:Pump
+    super: dks:PlumbingEquipment
+    derivation: 펌프는 위생/배관설비의 일종
+    confidence: 0.95
+  - sub: dks:WaterHeater
+    super: dks:PlumbingEquipment
+    derivation: 온수기는 위생/배관설비의 일종
+    confidence: 0.95
+  - sub: dks:ElectricalEquipment
+    super: dks:Equipment
+    derivation: 전기설비는 물리적 장비의 하위 분류
+    confidence: 0.95
+  - sub: dks:CircuitBreaker
+    super: dks:ElectricalEquipment
+    derivation: 차단기는 전기설비의 일종
+    confidence: 0.95
+  - sub: dks:JunctionBox
+    super: dks:ElectricalEquipment
+    derivation: 접속함은 전기설비의 일종
+    confidence: 0.95
+  - sub: dks:ElectricalLoad
+    super: dks:ElectricalEquipment
+    derivation: 전기부하는 전기설비의 일종
+    confidence: 0.95
+  - sub: dks:MechanicalEquipment
+    super: dks:Equipment
+    derivation: 기타기계설비는 물리적 장비의 하위 분류
+    confidence: 0.8
+  - sub: dks:ArchitecturalSpace
+    super: dks:Space
+    derivation: 건축공간은 공간의 하위 분류
+    confidence: 0.95
+  - sub: dks:MechanicalSpace
+    super: dks:Space
+    derivation: 기계실은 공간의 하위 분류
+    confidence: 0.95
+  - sub: dks:ShaftSpace
+    super: dks:Space
+    derivation: 샤프트는 공간의 하위 분류
+    confidence: 0.95
+  - sub: dks:StructuralGrid
+    super: dks:Space
+    derivation: 구조그리드는 공간(참조점)의 하위 분류
+    confidence: 0.9
+  - sub: dks:ControlZone
+    super: dks:LogicalGroup
+    derivation: 제어구역은 논리그룹의 하위 분류
+    confidence: 0.95
+  - sub: dks:EquipmentGroup
+    super: dks:LogicalGroup
+    derivation: 장비그룹은 논리그룹의 하위 분류
+    confidence: 0.98
+  - sub: dks:DrawingLegend
+    super: dks:Document
+    derivation: 도면범례는 문서의 하위 분류
+    confidence: 0.98
+  - sub: dks:PlanDrawing
+    super: dks:Document
+    derivation: 평면도는 문서의 하위 분류
+    confidence: 0.98
+  disjoint_candidates:
+  - classes:
+    - dks:Equipment
+    - dks:Space
+    - dks:LogicalGroup
+    - dks:Document
+    reason: 물리적 장비, 공간, 논리적 그룹, 문서 간에는 교집합 태그가 0건임
+    confidence: 0.99
+  hierarchy_summary:
+    total_classes: 30
+    max_depth: 3
+    by_discipline:
+      mechanical: 89
+      electrical: 2
+      structural: 3
+  unclassified_tags: []
+  plan_deviations:
+  - plan_item: LOAD-* 태그를 모두 ElectricalLoad로 분류 권장
+    actual_finding: LOAD-EHP1~5는 name이 '제어반'이고 class_hint가 'ControlPanel'로 명시됨
+    action_taken: LOAD-DCF* 및 LOAD-CTRL-PWR*는 ElectricalLoad로 분류하되, LOAD-EHP*는 증거에
+      따라 ControlPanel로 분류함
+  back_update_instructions:
+    per_tag_confirmed_class:
+      100T-IAC: dks:AirConditionerIndoorUnit
+      130T-IAC: dks:AirConditionerIndoorUnit
+      22-OAC: dks:AirConditionerOutdoorUnit
+      23C-IAC: dks:AirConditionerIndoorUnit
+      24-OAC: dks:AirConditionerOutdoorUnit
+      290P-IAC: dks:AirConditionerIndoorUnit
+      30-OAC: dks:AirConditionerOutdoorUnit
+      32-OAC: dks:AirConditionerOutdoorUnit
+      32C-IAC: dks:AirConditionerIndoorUnit
+      34-OAC: dks:AirConditionerOutdoorUnit
+      42-OAC: dks:AirConditionerOutdoorUnit
+      48-OAC: dks:AirConditionerOutdoorUnit
+      52G-IAC: dks:AirConditionerIndoorUnit
+      52T-IAC: dks:AirConditionerIndoorUnit
+      60T-IAC: dks:AirConditionerIndoorUnit
+      72T-IAC: dks:AirConditionerIndoorUnit
+      83T-IAC: dks:AirConditionerIndoorUnit
+      CHU: dks:AirConditionerIndoorUnit
+      CTRL-GATEWAY: dks:Gateway
+      CTRL-PANEL-1F: dks:ControlPanel
+      EF-1: dks:Fan
+      EHW: dks:WaterHeater
+      ERV-1000CMH: dks:VentilationEquipment
+      ERV-250CMH: dks:VentilationEquipment
+      ERV-500CMH: dks:VentilationEquipment
+      ERV-800CMH: dks:VentilationEquipment
+      JB-A-01: dks:JunctionBox
+      JB-A-02: dks:JunctionBox
+      LEGEND-CABLE: dks:DrawingLegend
+      LEGEND-WIRE: dks:DrawingLegend
+      LOAD-CTRL-PWR1: dks:ElectricalLoad
+      LOAD-CTRL-PWR2: dks:ElectricalLoad
+      LOAD-DCF1: dks:ElectricalLoad
+      LOAD-DCF2: dks:ElectricalLoad
+      LOAD-DCF3: dks:ElectricalLoad
+      LOAD-DCF4: dks:ElectricalLoad
+      LOAD-DCF5: dks:ElectricalLoad
+      LOAD-EHP1: dks:ControlPanel
+      LOAD-EHP2: dks:ControlPanel
+      LOAD-EHP3: dks:ControlPanel
+      LOAD-EHP4: dks:ControlPanel
+      LOAD-EHP5: dks:ControlPanel
+      MAIN-MCCB: dks:CircuitBreaker
+      MCP-PANEL: dks:ControlPanel
+      ODU: dks:AirConditionerOutdoorUnit
+      PANEL-ROOF-PLAN: dks:PlanDrawing
+      SF-1: dks:Fan
+      SF-2: dks:Fan
+      SMFD-01: dks:FireDamper
+      SMFD-02: dks:FireDamper
+      SMFD-CTRL-ZONE-A: dks:ControlZone
+      SMFD-CTRL-ZONE-B: dks:ControlZone
+      SMFD-CTRL-ZONE-C: dks:ControlZone
+      SMFD-GRP-001: dks:EquipmentGroup
+      SMFD-GRP-002: dks:EquipmentGroup
+      SMFD-GRP-003: dks:EquipmentGroup
+      SMFD-GRP-004: dks:EquipmentGroup
+      SMFD-GRP-005: dks:EquipmentGroup
+      SMFD-GRP-006: dks:EquipmentGroup
+      SMFD-GRP-007: dks:EquipmentGroup
+      SMFD-GRP-008: dks:EquipmentGroup
+      SMFD-GRP-009: dks:EquipmentGroup
+      SMFD-GRP-010: dks:EquipmentGroup
+      SMFD-GRP-011: dks:EquipmentGroup
+      SMFD-GRP-012: dks:EquipmentGroup
+      SMFD-GRP-014: dks:EquipmentGroup
+      SMFD-GRP-015: dks:EquipmentGroup
+      SMFD-GRP-016: dks:EquipmentGroup
+      SMFD-GRP-017: dks:EquipmentGroup
+      SMFD-GRP-018: dks:EquipmentGroup
+      SMFD-GRP-AREA-001: dks:EquipmentGroup
+      SMFD-GRP-AREA-002: dks:EquipmentGroup
+      SMFD: dks:FireDamper
+      SP: dks:Pump
+      SPACE-EPS-TPS: dks:ShaftSpace
+      SPACE-GRID-1: dks:StructuralGrid
+      SPACE-MECH-ROOM-ROOF: dks:MechanicalSpace
+      SPACE-PS: dks:ShaftSpace
+      SPACE-SoftwareLab: dks:ArchitecturalSpace
+      SPACE-기타구역: dks:ArchitecturalSpace
+      SPACE-냉장고구역: dks:ArchitecturalSpace
+      SPACE-복도: dks:ArchitecturalSpace
+      SPACE-사무실: dks:ArchitecturalSpace
+      SPACE-실습시스템전트롤실: dks:ArchitecturalSpace
+      SPACE-실습시스템컨트롤실: dks:ArchitecturalSpace
+      SPACE-연결통로: dks:ArchitecturalSpace
+      SPACE-중회의실: dks:ArchitecturalSpace
+      SPACE-휴게공간: dks:ArchitecturalSpace
+      TEF-1: dks:Fan
+      UNKNOWN-PS-1: dks:MechanicalEquipment
+      UNKNOWN-STAIRCASE-1: dks:ArchitecturalSpace
+      ZONE-대형공간북측: dks:ControlZone
+      ZONE-대형공간서측: dks:ControlZone
+      ZONE-좌측대형공간: dks:ControlZone
+    confirmed_at: '2026-04-20T08:35:28Z'
+    by: step_0-9c
+  confidence_overall: 0.96
+  self_assessment: 제공된 94개 태그의 class_hint와 name 패턴이 매우 일관되어 명확한 계층 구조 도출이 가능함. Plan의
+    가설을 대부분 수용하되, LOAD-EHP* 태그의 경우 실제 명칭(제어반)을 우선하여 ControlPanel로 분류함으로써 증거 기반 원칙을
+    준수함.

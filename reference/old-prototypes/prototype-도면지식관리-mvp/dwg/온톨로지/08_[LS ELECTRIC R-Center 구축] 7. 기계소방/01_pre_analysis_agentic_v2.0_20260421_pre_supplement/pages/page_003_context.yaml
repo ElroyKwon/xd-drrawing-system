@@ -1,0 +1,918 @@
+initial_scan:
+  page_type: legend
+  is_legend: true
+  has_legend_section: true
+  legend_type: 심볼-설명 쌍과 장비일람표가 함께 있는 범례/장비일람 페이지
+  discipline: MECHANICAL
+  classification: EQUIPMENT_SCHEDULE
+  drawing_genre: schedule
+  title_block:
+    drawing_number: MF-002
+    title: 범례,장비일람표
+    revision: null
+  visible_tags:
+  - tag: FF-1
+    type: pump
+    source: both
+  - tag: FF-2
+    type: pump
+    source: both
+  - tag: T-1
+    type: tank
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: false
+    estimated_entity_count: 3
+  next_step_hints:
+  - 상단 중앙에 범례 표가 있고 하단에 펌프/탱크 장비일람표가 분리되어 있음
+  - 표제란 도면번호는 MF-002, 제목은 '범례,장비일람표'
+  - legend_data.yaml 조회 시 [NOT FOUND]로 확인 불가
+  confidence: 0.98
+  note: 페이지 상단에 기호-설명 범례가 있고 하단에 장비일람표가 함께 배치됨. 표제란 도면번호 MF-002와 제목 '범례,장비일람표'가 보임.
+  recommended_supplements: &id001
+    P-10: discipline/mechanical/genre_schedule/supplement_p10.yaml
+    P-4.5: discipline/mechanical/genre_schedule/supplement_p4_05.yaml
+  routing_confidence: 0.0
+  routing_reason: legend 페이지로 판단되어 recommended_supplements는 빈 dict로 둠.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND_TITLE
+    shape: other
+    primary_label: 범례
+    position: top-center
+    labels_near:
+    - 범례
+    note: 리본 모양의 제목 장식
+  - panel_id: LEGEND_TABLE
+    shape: rectangle
+    primary_label: 기호/기호명/비고
+    position: top-center
+    labels_near:
+    - 기호
+    - 기호명
+    - 비고
+    - 옥내소화전배관
+    - 스프링클러배관
+    - 연결송수구배관
+    - 게이트밸브
+    - 체크밸브
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+    note: 상단에 위치한 기호-설명 범례 표
+  - panel_id: SCHEDULE_TITLE
+    shape: other
+    primary_label: 장비일람표
+    position: middle-center
+    labels_near:
+    - 장비일람표
+    - '"기존 변경 없음"'
+    note: 리본 모양의 제목 장식
+  - panel_id: PUMP_SCHEDULE
+    shape: rectangle
+    primary_label: 펌프 장비일람표
+    position: middle-center
+    labels_near:
+    - 펌프
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - 유량
+    - 양정
+    - 접속 구경
+    - 단수
+    - 모타
+    - 전원
+    - 방진
+    - 내진
+    - 비고
+    - FP-1
+    - FP-2
+    note: 중앙에 위치한 펌프 장비일람표
+  - panel_id: TANK_SCHEDULE
+    shape: rectangle
+    primary_label: 탱크 장비일람표
+    position: bottom-center
+    labels_near:
+    - 탱크
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - 용량
+    - 규격
+    - 재질
+    - 철판두께 (MM)
+    - 도장
+    - 보온
+    - 비고
+    - FT-1
+    note: 하단에 위치한 탱크 장비일람표
+  connections: []
+  notable_shapes:
+  - shape: other
+    label: 범례
+    note: 리본 모양 제목 장식
+  - shape: other
+    label: 장비일람표
+    note: 리본 모양 제목 장식
+  - shape: circle
+    label: A.B.C 분말소화기
+    note: 범례 표 내 원형 심볼
+  - shape: circle
+    label: K급소화기
+    note: 범례 표 내 원형 심볼
+legend_candidate:
+  is_legend_page: true
+  has_legend_section: true
+  legend_region: top-center
+  confidence: 1.0
+  note: 페이지 상단에 '범례' 표가 명확히 존재하며, 하단에는 장비일람표가 함께 배치됨.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: schedule
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 MF-002의 M 접두사와 도면 내용(펌프, 탱크 장비일람표, 소화 배관 범례)이 기계(MECHANICAL)
+    분야의 장비일람표(schedule) 장르와 일치함.
+classification: LEGEND
+discipline: MECHANICAL
+key_elements_from_text:
+- 범례
+- 기호 / 기호명 / 비고
+- 옥내소화전배관
+- 스프링클러배관
+- 연결송수구배관
+- 게이트밸브
+- 체크밸브
+- 스트레이너
+- 여과망
+- 후렉시블 조인트
+- A.B.C 분말소화기
+- K급소화기
+- 옥내소화전함
+- 쌍구형연결송수구
+- 장비일람표
+- '"기존 변경 없음"'
+- 펌프
+- 탱크
+title_block:
+  drawing_number: MF-002
+  title: 범례,장비일람표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 discipline=MECHANICAL, classification=EQUIPMENT_SCHEDULE는 하단 장비일람표만 보면
+  일부 타당하지만, 페이지 상단에 '범례' 표가 명확히 존재하므로 페이지 전체 분류는 LEGEND가 더 적합함. 표제란의 도면번호 MF-002와
+  제목 '범례,장비일람표'는 시각적으로 확인됨. 리비전은 확인되지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: LEGEND-TITLE
+    shape: other
+    labels_inside:
+    - 범 례
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례 제목 장식 (리본형)
+    position: top-center
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 기 호
+    - 기호명
+    - 비 고
+    - H (옥내소화전배관) — 백강관 KSD-3507
+    - SP (스프링클러배관) — 백강관 KSD-3507
+    - SC (연결송수구배관) — 백강관 KSD-3507
+    - 게이트밸브 — 개폐표시형
+    - 게이트밸브
+    - 체크밸브 — 스모렌스키
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+    labels_above: []
+    labels_below:
+    - '* 배관부속 : 50φ이하(그루브조인트), 65φ이상(그루브조인트)'
+    - '* 관보온 : 80φ이하(25t 가교발포폴리에틸렌+매직테이프), 100φ이상(40t 가교발포폴리에틸렌+매직테이프)'
+    equipment_symbols:
+    - type: pipe_line_H
+      count: 1
+      description: 옥내소화전배관 — 실선, 중앙 H 표기
+    - type: pipe_line_SP
+      count: 1
+      description: 스프링클러배관 — 실선, 중앙 SP 표기
+    - type: pipe_line_SC
+      count: 1
+      description: 연결송수구배관 — 실선, 중앙 SC 표기
+    - type: gate_valve_indicator
+      count: 1
+      description: 게이트밸브(개폐표시형) — 나비형 밸브 기호
+    - type: gate_valve
+      count: 1
+      description: 게이트밸브 — 표준 밸브 기호
+    - type: check_valve
+      count: 1
+      description: 체크밸브 — 스모렌스키형
+    - type: strainer
+      count: 1
+      description: 스트레이너 기호
+    - type: filter_screen
+      count: 1
+      description: 여과망 기호
+    - type: flexible_joint
+      count: 1
+      description: 후렉시블 조인트 — 반복 패턴/삼각형 포함 선
+    - type: fire_extinguisher_ABC
+      count: 1
+      description: A.B.C 분말소화기 — 원형 심볼
+    - type: fire_extinguisher_K
+      count: 1
+      description: K급소화기 — 원형 심볼, K 표기
+    - type: indoor_hydrant_box
+      count: 1
+      description: 옥내소화전함 — 사각형 함체 기호
+    - type: siamese_connection
+      count: 1
+      description: 쌍구형연결송수구 — 배관 끝단 연결구 기호
+    inferred_name: 소화설비 배관 및 기기 범례 표
+    position: top-center
+  - panel_id: SCHEDULE-TITLE
+    shape: other
+    labels_inside:
+    - 장 비 일 람 표
+    - '"기존 변경 없음"'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 장비일람표 제목 장식 (리본형)
+    position: middle-center
+  - panel_id: TABLE-PUMP
+    shape: rectangle
+    labels_inside:
+    - 펌 프
+    - 기호 | 수량 | 명칭 | 용도 | 형식 | 설치 위치 | 유량(LPM) | 양정(M) | 접속구경(흡입φ/토출φ) | 단수(S) | 모타(KW/(HF))
+      | 전원(PH×V×HZ) | 방진 | 내진 | 비고
+    - FP-1 | 1 | 옥내소화전,스프링클러 주펌프 | 소화용 | 다단볼류트 | UT동 기계실 | 1500 | 153 | 150 | 6 |
+      37 (50) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+    - FP-2 | 1 | 옥내소화전,스프링클러 충압펌프 | 소화용 | 횡스크로 | UT동 기계실 | 60 | 73 | 40 | 40 | — |
+      3.75 (5) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+    labels_above:
+    - 펌 프
+    labels_below: []
+    equipment_symbols:
+    - type: pump
+      count: 2
+    inferred_name: 펌프 장비 일람표
+    position: middle-center
+    table_title: 펌프
+    column_headers:
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - 유량 LPM
+    - 양정 M
+    - 접속구경 흡입φ
+    - 접속구경 토출φ
+    - 단수 S
+    - 모타 KW
+    - 모타 (HF)
+    - 전원 PH×V×HZ
+    - 방진
+    - 내진
+    - 비고
+    schedule_entries:
+    - row_id: ROW-FP-1
+      tag: FP-1
+      category_path:
+      - 펌프
+      - 주펌프
+      model: null
+      quantity: 1
+      specs:
+        명칭: 옥내소화전,스프링클러 주펌프
+        용도: 소화용
+        형식: 다단볼류트
+        설치위치: UT동 기계실
+        유량_LPM: 1500
+        양정_M: 153
+        접속구경_흡입_mm: 150
+        접속구경_토출_mm: null
+        단수_S: 6
+        모타_KW: 37
+        모타_HF: 50
+        전원_PH: 3
+        전원_V: 380
+        전원_HZ: 60
+        방진: 방진스프링
+        내진: 없음
+      raw_row: FP-1 | 1 | 옥내소화전,스프링클러 주펌프 | 소화용 | 다단볼류트 | UT동 기계실 | 1500 | 153 | 150
+        | — | 6 | 37 | (50) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+      notes:
+      - 횡형복축흡입펌프,고효율모터
+    - row_id: ROW-FP-2
+      tag: FP-2
+      category_path:
+      - 펌프
+      - 충압펌프
+      model: null
+      quantity: 1
+      specs:
+        명칭: 옥내소화전,스프링클러 충압펌프
+        용도: 소화용
+        형식: 횡스크로
+        설치위치: UT동 기계실
+        유량_LPM: 60
+        양정_M: 73
+        접속구경_흡입_mm: 40
+        접속구경_토출_mm: 40
+        단수_S: null
+        모타_KW: 3.75
+        모타_HF: 5
+        전원_PH: 3
+        전원_V: 380
+        전원_HZ: 60
+        방진: 방진스프링
+        내진: 없음
+      raw_row: FP-2 | 1 | 옥내소화전,스프링클러 충압펌프 | 소화용 | 횡스크로 | UT동 기계실 | 60 | 73 | 40 |
+        40 | — | 3.75 | (5) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+      notes:
+      - 횡형복축흡입펌프,고효율모터
+    summary:
+      total_quantity: 2
+      row_count: 2
+  - panel_id: TABLE-TANK
+    shape: rectangle
+    labels_inside:
+    - 탱 크
+    - 기호 | 수량 | 명칭 | 용도 | 형식 | 설치 위치 | 용량(LIT) | 규격 W | 규격 L | 규격 H | 재질 상부 | 재질 옆면
+      | 재질 하부 | 도장 | 보온 | 비고
+    - FT-1 | 1 | 압력탱크 | 소화용 | 밀폐운동형 | UT동 기계실 | 100 | 380φ | — | 920 | SS-41 | 3.2
+      | 3.2 | 3.2 | — | — | 10KG/CM형 (압력스위치3개)
+    labels_above:
+    - 탱 크
+    labels_below: []
+    equipment_symbols:
+    - type: tank
+      count: 1
+    inferred_name: 탱크 장비 일람표
+    position: bottom-center
+    table_title: 탱크
+    column_headers:
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - 용량 LIT
+    - 규격 W
+    - 규격 L
+    - 규격 H
+    - 재질 상부
+    - 재질 옆면
+    - 재질 하부
+    - 도장
+    - 보온
+    - 비고
+    schedule_entries:
+    - row_id: ROW-FT-1
+      tag: FT-1
+      category_path:
+      - 탱크
+      - 압력탱크
+      model: null
+      quantity: 1
+      specs:
+        명칭: 압력탱크
+        용도: 소화용
+        형식: 밀폐운동형
+        설치위치: UT동 기계실
+        용량_LIT: 100
+        규격_W: 380φ
+        규격_L: null
+        규격_H_mm: 920
+        재질_상부: SS-41
+        재질_옆면_mm: 3.2
+        재질_하부_mm: 3.2
+        철판두께_상부_mm: 3.2
+        도장: null
+        보온: null
+      raw_row: FT-1 | 1 | 압력탱크 | 소화용 | 밀폐운동형 | UT동 기계실 | 100 | 380φ | — | 920 | SS-41
+        | 3.2 | 3.2 | 3.2 | — | — | 10KG/CM형 (압력스위치3개)
+      notes:
+      - 10KG/CM형 (압력스위치3개)
+    summary:
+      total_quantity: 1
+      row_count: 1
+  connections: []
+  groups:
+  - group_id: GRP-FIRE-PUMP
+    label: 소화용 펌프
+    members:
+    - TABLE-PUMP
+    member_rows:
+    - ROW-FP-1
+    - ROW-FP-2
+    member_tags:
+    - FP-1
+    - FP-2
+  - group_id: GRP-FIRE-TANK
+    label: 소화용 탱크
+    members:
+    - TABLE-TANK
+    member_rows:
+    - ROW-FT-1
+    member_tags:
+    - FT-1
+  legend_references:
+  - symbol_id: SYM-001
+    text: 옥내소화전배관
+    abbreviation: H
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-002
+    text: 스프링클러배관
+    abbreviation: SP
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-003
+    text: 연결송수구배관
+    abbreviation: SC
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-004
+    text: 게이트밸브
+    abbreviation: null
+    note: 개폐표시형
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-005
+    text: 게이트밸브
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-006
+    text: 체크밸브
+    abbreviation: null
+    note: 스모렌스키
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-007
+    text: 스트레이너
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-008
+    text: 여과망
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-009
+    text: 후렉시블 조인트
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-010
+    text: A.B.C 분말소화기
+    abbreviation: A.B.C
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-011
+    text: K급소화기
+    abbreviation: K
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-012
+    text: 옥내소화전함
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-013
+    text: 쌍구형연결송수구
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  diagram_meta:
+    title: 범례,장비일람표
+    drawing_number: MF-002
+    project: LS Electric R-Center 구축
+    design_consultant: 가운건축 (GAUN Architects & Engineers)
+    engineer_of_record: (주)정연엔지니어링
+    discipline: MECHANICAL
+    mech_subsystem: fire_protection
+    view_type: legend_and_schedule
+    has_equipment_list: true
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - 소화수 (옥내소화전)
+    - 소화수 (스프링클러)
+    - 연결송수구
+    schedule_summary:
+      tables:
+      - title: 펌프
+        total_quantity: 2
+        row_count: 2
+        group_counts:
+          주펌프: 1
+          충압펌프: 1
+      - title: 탱크
+        total_quantity: 1
+        row_count: 1
+        group_counts:
+          압력탱크: 1
+    legend_notes:
+    - '배관부속 : 50φ이하(그루브조인트), 65φ이상(그루브조인트)'
+    - '관보온 : 80φ이하(25t 가교발포폴리에틸렌+매직테이프), 100φ이상(40t 가교발포폴리에틸렌+매직테이프)'
+    schedule_notes:
+    - '"기존 변경 없음"'
+    revision: null
+    scale: A1:1/NONE, A3:1/NONE
+    date: '2024.04'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: LEGEND-TITLE
+    shape: other
+    labels_inside:
+    - 범 례
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례 제목 장식 (리본형)
+    position: top-center
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 기 호
+    - 기호명
+    - 비 고
+    - H (옥내소화전배관) — 백강관 KSD-3507
+    - SP (스프링클러배관) — 백강관 KSD-3507
+    - SC (연결송수구배관) — 백강관 KSD-3507
+    - 게이트밸브 — 개폐표시형
+    - 게이트밸브
+    - 체크밸브 — 스모렌스키
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+    labels_above: []
+    labels_below:
+    - '* 배관부속 : 50φ이하(스크류조인트), 65φ이상(그루브조인트)'
+    - '* 관보온 : 50φ이하(25t 가교발포폴리에틸렌+매직테이프), 65φ이상(40t 가교발포폴리에틸렌+매직테이프)'
+    equipment_symbols:
+    - type: pipe_line_H
+      count: 1
+      description: 옥내소화전배관 — 실선, 중앙 H 표기
+    - type: pipe_line_SP
+      count: 1
+      description: 스프링클러배관 — 실선, 중앙 SP 표기
+    - type: pipe_line_SC
+      count: 1
+      description: 연결송수구배관 — 실선, 중앙 SC 표기
+    - type: gate_valve_indicator
+      count: 1
+      description: 게이트밸브(개폐표시형) — 나비형 밸브 기호
+    - type: gate_valve
+      count: 1
+      description: 게이트밸브 — 표준 밸브 기호
+    - type: check_valve
+      count: 1
+      description: 체크밸브 — 스모렌스키형
+    - type: strainer
+      count: 1
+      description: 스트레이너 기호
+    - type: filter_screen
+      count: 1
+      description: 여과망 기호
+    - type: flexible_joint
+      count: 1
+      description: 후렉시블 조인트 — 반복 패턴/삼각형 포함 선
+    - type: fire_extinguisher_ABC
+      count: 1
+      description: A.B.C 분말소화기 — 원형 심볼
+    - type: fire_extinguisher_K
+      count: 1
+      description: K급소화기 — 원형 심볼, K 표기
+    - type: indoor_hydrant_box
+      count: 1
+      description: 옥내소화전함 — 사각형 함체 기호
+    - type: siamese_connection
+      count: 1
+      description: 쌍구형연결송수구 — 배관 끝단 연결구 기호
+    inferred_name: 소화설비 배관 및 기기 범례 표
+    position: top-center
+  - panel_id: SCHEDULE-TITLE
+    shape: other
+    labels_inside:
+    - 장 비 일 람 표
+    - '"기존 변경 없음"'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 장비일람표 제목 장식 (리본형)
+    position: middle-center
+  - panel_id: TABLE-PUMP
+    shape: rectangle
+    labels_inside:
+    - 펌 프
+    - 기호 | 수량 | 명칭 | 용도 | 형식 | 설치 위치 | 유량(LPM) | 양정(M) | 접속구경(흡입φ/토출φ) | 단수(S) | 모타(KW/(HF))
+      | 전원(PH×V×HZ) | 방진 | 내진 | 비고
+    - FP-1 | 1 | 옥내소화전,스프링클러 주펌프 | 소화용 | 다단볼류트 | UT동 기계실 | 1500 | 153 | 150 | 6 |
+      37 (50) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+    - FP-2 | 1 | 옥내소화전,스프링클러 충압펌프 | 소화용 | 횡스크로 | UT동 기계실 | 60 | 73 | 40 | 40 | — |
+      3.75 (5) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+    labels_above:
+    - 펌 프
+    labels_below: []
+    equipment_symbols:
+    - type: pump
+      count: 2
+    inferred_name: 펌프 장비 일람표
+    position: middle-center
+    table_title: 펌프
+    column_headers:
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - 유량 LPM
+    - 양정 M
+    - 접속구경 흡입φ
+    - 접속구경 토출φ
+    - 단수 S
+    - 모타 KW
+    - 모타 (HF)
+    - 전원 PH×V×HZ
+    - 방진
+    - 내진
+    - 비고
+    schedule_entries:
+    - row_id: ROW-FP-1
+      tag: FP-1
+      category_path:
+      - 펌프
+      - 주펌프
+      model: null
+      quantity: 1
+      specs:
+        명칭: 옥내소화전,스프링클러 주펌프
+        용도: 소화용
+        형식: 다단볼류트
+        설치위치: UT동 기계실
+        유량_LPM: 1500
+        양정_M: 153
+        접속구경_흡입_mm: 150
+        접속구경_토출_mm: null
+        단수_S: 6
+        모타_KW: 37
+        모타_HF: 50
+        전원_PH: 3
+        전원_V: 380
+        전원_HZ: 60
+        방진: 방진스프링
+        내진: 없음
+      raw_row: FP-1 | 1 | 옥내소화전,스프링클러 주펌프 | 소화용 | 다단볼류트 | UT동 기계실 | 1500 | 153 | 150
+        | — | 6 | 37 | (50) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+      notes:
+      - 횡형복축흡입펌프,고효율모터
+    - row_id: ROW-FP-2
+      tag: FP-2
+      category_path:
+      - 펌프
+      - 충압펌프
+      model: null
+      quantity: 1
+      specs:
+        명칭: 옥내소화전,스프링클러 충압펌프
+        용도: 소화용
+        형식: 횡스크로
+        설치위치: UT동 기계실
+        유량_LPM: 60
+        양정_M: 73
+        접속구경_흡입_mm: 40
+        접속구경_토출_mm: 40
+        단수_S: null
+        모타_KW: 3.75
+        모타_HF: 5
+        전원_PH: 3
+        전원_V: 380
+        전원_HZ: 60
+        방진: 방진스프링
+        내진: 없음
+      raw_row: FP-2 | 1 | 옥내소화전,스프링클러 충압펌프 | 소화용 | 횡스크로 | UT동 기계실 | 60 | 73 | 40 |
+        40 | — | 3.75 | (5) | 3×380×60 | 방진스프링 | 없음 | 횡형복축흡입펌프,고효율모터
+      notes:
+      - 횡형복축흡입펌프,고효율모터
+    summary:
+      total_quantity: 2
+      row_count: 2
+  - panel_id: TABLE-TANK
+    shape: rectangle
+    labels_inside:
+    - 탱 크
+    - 기호 | 수량 | 명칭 | 용도 | 형식 | 설치 위치 | 용량(LIT) | 규격 W | 규격 L | 규격 H | 재질 상부 | 재질 옆면
+      | 재질 하부 | 도장 | 보온 | 비고
+    - FT-1 | 1 | 압력탱크 | 소화용 | 밀폐운동형 | UT동 기계실 | 100 | 380φ | — | 920 | SS-41 | 3.2
+      | 3.2 | 3.2 | — | — | 10KG/CM²형 (압력스위치3개)
+    labels_above:
+    - 탱 크
+    labels_below: []
+    equipment_symbols:
+    - type: tank
+      count: 1
+    inferred_name: 탱크 장비 일람표
+    position: bottom-center
+    table_title: 탱크
+    column_headers:
+    - 기호
+    - 수량
+    - 명칭
+    - 용도
+    - 형식
+    - 설치 위치
+    - 용량 LIT
+    - 규격 W
+    - 규격 L
+    - 규격 H
+    - 재질 상부
+    - 재질 옆면
+    - 재질 하부
+    - 도장
+    - 보온
+    - 비고
+    schedule_entries:
+    - row_id: ROW-FT-1
+      tag: FT-1
+      category_path:
+      - 탱크
+      - 압력탱크
+      model: null
+      quantity: 1
+      specs:
+        명칭: 압력탱크
+        용도: 소화용
+        형식: 밀폐운동형
+        설치위치: UT동 기계실
+        용량_LIT: 100
+        규격_W: 380φ
+        규격_L: null
+        규격_H_mm: 920
+        재질_상부: SS-41
+        재질_옆면_mm: 3.2
+        재질_하부_mm: 3.2
+        철판두께_상부_mm: 3.2
+        도장: null
+        보온: null
+      raw_row: FT-1 | 1 | 압력탱크 | 소화용 | 밀폐운동형 | UT동 기계실 | 100 | 380φ | — | 920 | SS-41
+        | 3.2 | 3.2 | 3.2 | — | — | 10KG/CM²형 (압력스위치3개)
+      notes:
+      - 10KG/CM²형 (압력스위치3개)
+    summary:
+      total_quantity: 1
+      row_count: 1
+  connections: []
+  groups:
+  - group_id: GRP-FIRE-PUMP
+    label: 소화용 펌프
+    members:
+    - TABLE-PUMP
+    member_rows:
+    - ROW-FP-1
+    - ROW-FP-2
+    member_tags:
+    - FP-1
+    - FP-2
+  - group_id: GRP-FIRE-TANK
+    label: 소화용 탱크
+    members:
+    - TABLE-TANK
+    member_rows:
+    - ROW-FT-1
+    member_tags:
+    - FT-1
+  legend_references:
+  - symbol_id: SYM-001
+    text: 옥내소화전배관
+    abbreviation: H
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-002
+    text: 스프링클러배관
+    abbreviation: SP
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-003
+    text: 연결송수구배관
+    abbreviation: SC
+    note: 백강관 KSD-3507
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-004
+    text: 게이트밸브
+    abbreviation: null
+    note: 개폐표시형
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-005
+    text: 게이트밸브
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-006
+    text: 체크밸브
+    abbreviation: null
+    note: 스모렌스키
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-007
+    text: 스트레이너
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-008
+    text: 여과망
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-009
+    text: 후렉시블 조인트
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-010
+    text: A.B.C 분말소화기
+    abbreviation: A.B.C
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-011
+    text: K급소화기
+    abbreviation: K
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-012
+    text: 옥내소화전함
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  - symbol_id: SYM-013
+    text: 쌍구형연결송수구
+    abbreviation: null
+    note: null
+    linked_to: LEGEND-TABLE
+  diagram_meta:
+    title: 범례,장비일람표
+    drawing_number: MF-002
+    project: LS Electric R-Center 구축
+    design_consultant: 가운건축 (GAUN Architects & Engineers)
+    engineer_of_record: (주)정연엔지니어링
+    discipline: MECHANICAL
+    mech_subsystem: fire_protection
+    view_type: legend_and_schedule
+    has_equipment_list: true
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - 소화수 (옥내소화전)
+    - 소화수 (스프링클러)
+    - 연결송수구
+    schedule_summary:
+      tables:
+      - title: 펌프
+        total_quantity: 2
+        row_count: 2
+        group_counts:
+          주펌프: 1
+          충압펌프: 1
+      - title: 탱크
+        total_quantity: 1
+        row_count: 1
+        group_counts:
+          압력탱크: 1
+    legend_notes:
+    - '배관부속 : 50φ이하(스크류조인트), 65φ이상(그루브조인트)'
+    - '관보온 : 50φ이하(25t 가교발포폴리에틸렌+매직테이프), 65φ이상(40t 가교발포폴리에틸렌+매직테이프)'
+    schedule_notes:
+    - '"기존 변경 없음"'
+    revision: null
+    scale: A1:1/NONE, A3:1/NONE
+    date: '2024.04'

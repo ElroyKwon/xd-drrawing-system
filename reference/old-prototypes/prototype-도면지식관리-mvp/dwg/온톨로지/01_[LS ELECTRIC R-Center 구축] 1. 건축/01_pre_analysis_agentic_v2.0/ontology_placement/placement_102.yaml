@@ -1,0 +1,151 @@
+placement:
+  tag: '102'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:102
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - RoomLikeEntity
+    - UnknownEntity
+    related_assertions:
+    - type: adjacent_to
+      target_hint: T01
+      note: incoming relation observed; 102 is adjacent_to T01
+      confirmed_property: dks:adjacent_to
+      confirmed_target: T01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: adjacent_to
+      target_hint: T01
+      note: from T01 to 102, source_page 63, cross_validated
+      confirmed_property: dks:adjacent_to
+      confirmed_target: T01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX032
+    - AX033
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'relation: adjacent_to with T01 (incoming)'
+        source_page: 63
+        promotion_hint:
+          suggested_property_label: adjacent_to
+          suggested_datatype: ''
+          rationale: Observed object relation between spatial-like tags
+      - raw_text: 'from T01 to ''102'' relation: adjacent_to'
+        source_page: 63
+        promotion_hint:
+          suggested_property_label: adjacent_to
+          suggested_datatype: ''
+          rationale: Cross-validated adjacency relation recorded in raw relation entry
+  provenance:
+    tag:
+      source_pages:
+      - 63
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 63
+      method: inferred_from_relation_and_tag_presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 63
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 63
+      method: plan_guided_inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 63
+      method: plan_guided_inference
+    ontology_core.related_assertions:
+      source_pages:
+      - 63
+      method: entity_detail.relations
+    discipline_context.free_notes:
+      source_pages:
+      - 63
+      method: relation_preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 63
+      method: plan_and_relation_review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 63
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: T01
+    source_page: 63
+    reason: Relation is preserved, but no additional semantics beyond adjacency can
+      be confirmed here.
+    preservation_note: Keep as raw relation endpoint for later property assertion
+      mapping.
+  - field_candidate: relations[1].from
+    raw_text: T01
+    source_page: 63
+    reason: Source endpoint preserved as raw relation fact.
+    preservation_note: Useful for reconstructing bidirectional adjacency graph.
+  - field_candidate: relations[1].to
+    raw_text: '102'
+    source_page: 63
+    reason: Target endpoint preserved as raw relation fact.
+    preservation_note: Use with relation type adjacent_to.
+  - field_candidate: relations[1].relation
+    raw_text: adjacent_to
+    source_page: 63
+    reason: Relation label is preserved as observed, but property IRI not assigned
+      at this stage.
+    preservation_note: 0-9d may map to formal object property.
+  - field_candidate: relations[1].origin
+    raw_text: cross_validated
+    source_page: 63
+    reason: Origin is metadata, not a normalized ontology value.
+    preservation_note: Retain for provenance and confidence tracing.
+  - field_candidate: relations[1].line_style
+    raw_text: 'null'
+    source_page: 63
+    reason: No line style information provided.
+    preservation_note: Absence preserved.
+  - field_candidate: relations[1].note
+    raw_text: 'null'
+    source_page: 63
+    reason: No relation note provided.
+    preservation_note: Absence preserved.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: Tag 102 has only adjacency relations and no explicit name/specs; it could
+      be a spatial marker, room-like entity, or another spatial individual.
+    recommended_handling: Keep as NamedIndividual with SpatialEntity/RoomLikeEntity
+      candidate hints until more page context or additional relations are available.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Applied plan focus on space/room-like entities and adjacent_to relations.
+    - Applied plan focus on preserving raw relation facts for later property mapping.
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:00.533848'
+  confidence: 0.71

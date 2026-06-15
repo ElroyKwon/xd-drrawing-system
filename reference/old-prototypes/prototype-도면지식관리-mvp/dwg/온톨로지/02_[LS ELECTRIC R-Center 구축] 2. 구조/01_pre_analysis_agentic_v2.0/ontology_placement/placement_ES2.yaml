@@ -1,0 +1,92 @@
+placement:
+  tag: ES2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:ES2
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인했습니다. 사용 가능한 페이지는 다음과 같습니다: [1, 2, 3, 4, 5, 31, 32, 33, 34, 35,
+        61, 62, 63, 64, 65] 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasAvailablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록을 포함한 안내 문구로, 도면 주석/응답 텍스트 성격의 정보임
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail header
+    name:
+      source_pages:
+      - 0
+      method: absent
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: text classification from raw
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: text classification from raw
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: verbatim extraction
+    discipline_context.free_notes[0].promotion_hint:
+      source_pages:
+      - 0
+      method: derived from raw text
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인했습니다. 사용 가능한 페이지는 다음과 같습니다:
+
+
+      [1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64, 65]
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/관계/속성 정보가 아니라 안내성 문장으로, 물리 실체나 명시 관계로 해석 불가
+    preservation_note: 페이지 목록 자체는 후속 문맥에서 참조 가능하므로 원문 그대로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 ES2는 설비 실체라기보다 페이지 안내/주석성 텍스트로 보이며, NoteOrLegend와 DocumentEntity 사이
+      경계가 불명확함
+    recommended_handling: 후속 단계에서 문서 메타/주석 엔티티로 우선 취급하고, 실제 도면 객체와의 관계가 추가로 확인되면 재분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타 또는 미해결 구조 엔티티로 보수적으로 처리
+    - 분류 불가 정보는 free_notes에 raw_text와 promotion_hint로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:11.143288'
+  confidence: 0.86

@@ -1,0 +1,102 @@
+placement:
+  tag: S00.32
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S00.32
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 문서/시트 참조 가능성은 있으나 현재는 분류 불가
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 대화형 안내 문구로 도면 실체 정보가 아니며 주석성 텍스트로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification from raw text only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 도면 설비/관계/스펙이 아니라 페이지 안내 문구로, OWL 실체 분류에 직접 매핑 불가
+    preservation_note: 문서 메타 또는 주석성 텍스트로 보존; 페이지 목록은 후속 문서 구조 분석 시 참조 가능
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: (분야 supplement 없음)
+    source_page: 0
+    reason: supplement 정의 카테고리가 없어 표준 sub_kind로 승격 불가
+    preservation_note: free_notes에 원문 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag 형식은 시트/문서 식별자 계열로 보이지만, 원문은 페이지 안내 문구만 포함하여 DocumentEntity, ScheduleOrList,
+      NoteOrLegend 가능성이 모두 남음
+    recommended_handling: 0-9c에서 문서 메타/주석 계층 후보로 재검토하고, 페이지 목록이 실제 시트 참조인지 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - document metadata / unresolved structural entities 문맥을 우선 고려
+    - raw only placeholder responses는 unknown discipline로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:17.968114'
+  confidence: 0.62

@@ -1,0 +1,161 @@
+placement:
+  tag: UNKNOWN-BOUNDARY-04
+  name: 경사경계석
+  discipline: civil
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-BOUNDARY-04
+    class_hint: BoundaryStone
+    alternative_class_hints:
+    - BoundaryDefinition
+    - SlopeProtection
+    related_assertions: []
+    applicable_axioms:
+    - AX007
+    applicable_constraints:
+    - CN008
+    confirmed_class: dks:BoundaryStone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T13:22:29.731739'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: BOUNDARY_STONE / function_category: BOUNDARY_STONE'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 기능 분류가 명시됨
+      - raw_text: 'specs.spec: 200X100~250'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: hasSpecification
+          suggested_datatype: xsd:string
+          rationale: 치수 형식의 규격 문자열
+      - raw_text: 'specs.unit: m'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: hasUnit
+          suggested_datatype: xsd:string
+          rationale: 규격 단위 표기
+      - raw_text: 'specs.material: 콘크리트'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: hasMaterial
+          suggested_datatype: xsd:string
+          rationale: 재질 정보
+      - raw_text: 'specs.line_style: dotted_special'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: hasLineStyle
+          suggested_datatype: xsd:string
+          rationale: 도면 표현선 스타일 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: CivilInfrastructure'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스
+      - raw_text: 'ontology_hints.observed_attributes: label, spec, unit, material,
+          line_style'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: BoundaryDefinition, SlopeProtection'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 19
+        promotion_hint:
+          suggested_property_label: isEntitySynthesized
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 여부 표시
+  provenance:
+    tag:
+      source_pages:
+      - 19
+      method: direct
+    name:
+      source_pages:
+      - 19
+      method: direct
+    discipline:
+      source_pages:
+      - 19
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 19
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 19
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 19
+      method: inferred_from_type_and_name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 19
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 19
+      method: direct
+    ambiguous:
+      source_pages:
+      - 19
+      method: reviewed
+    merge_info:
+      source_pages:
+      - 19
+      method: reviewed
+    plan_reference.guidance_applied:
+      source_pages:
+      - 19
+      method: plan_alignment
+  unresolved:
+  - field_candidate: specs.spec
+    raw_text: 200X100~250
+    source_page: 19
+    reason: 수치 범위는 있으나 단위/의미가 도면 내에서 명시적으로 정의되지 않음
+    preservation_note: 원문 문자열 그대로 보존
+  - field_candidate: type/function_category
+    raw_text: BOUNDARY_STONE
+    source_page: 19
+    reason: 표준 sub_kind가 없어 상위 분류로만 보존
+    preservation_note: 원문 타입 문자열 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: BoundaryDefinition, SlopeProtection
+    source_page: 19
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 분류 단계에서 후보 비교 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 경계석 자체의 물리적 설비로 볼 수 있으나, 기능 후보가 BoundaryDefinition과 SlopeProtection으로
+      갈려 있어 정확한 class 확정이 어려움
+    recommended_handling: 0-9c에서 CivilInfrastructure 하위의 경계/사면 관련 클래스로 검토하고, 필요 시
+      별도 subclass 후보로 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:43:52.128761'
+  confidence: 0.86

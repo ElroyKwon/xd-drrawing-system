@@ -1,0 +1,120 @@
+ontology_readiness:
+  tag: EXT-2207
+  verdict: demoted
+  confidence: 0.93
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 1
+    reason: 'JUNCTION_PANEL이지만 raw_labels가 ''TO: 2207'' 및 케이블 표기만으로 구성되어 있어, 물리 설비라기보다
+      외부 참조/연결점 성격이 강함. 독립 설비로 보기보다 document/cross-page reference 성격의 junction panel로
+      demoted 처리.'
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 1
+    convertible: 0
+    ambiguous_attributes:
+    - key: raw_labels
+      value:
+      - 'TO: 2207'
+      - 6.6kV CV 160sq-3C-1L (CABLE TRAY)
+      reason: 연결 대상 참조와 케이블 표기가 혼재된 라벨로, 단일 설비 속성으로 직접 변환하기 어려움. OWL annotation으로
+        원문 보존 필요.
+    auxiliary_attributes:
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: entity_detail
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: false
+      source: entity_detail
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: entity_detail
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - ConnectionPoint
+    - CableTermination
+  spatial_context:
+    position: bottom-center
+    source_pages:
+    - 5
+    room_or_zone: U/T 동 주변전실-1(기존)
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 'TO: 2207'
+      - 6.6kV CV 160sq-3C-1L (CABLE TRAY)
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: false
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.raw_labels
+  - relations
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - collection_sources
+  - notes
+  - drawing_texts
+  - requirements
+  skipped_fields:
+  - ontology_hints.observed_relations (not provided)
+  - ontology_hints.cross_discipline (not provided)
+  - requirements (empty/not provided)
+  - drawing_texts (empty/not provided)
+  - notes (empty/not provided)
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :EXT-2207 rdf:type :Component ; :references :DrawingOrExternalTarget2207
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Component
+    annotations_to_emit:
+    - raw_labels
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    - collection_sources.cross_validated
+    - collection_sources.visual_semantics
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: EXT-2207
+discovered_relations: 2

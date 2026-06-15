@@ -1,0 +1,50 @@
+tag: BLK-MANHOLE
+name: 전력 인입용 전력맨홀
+type: INFRASTRUCTURE
+discipline: ELECTRICAL
+function_category: INFRASTRUCTURE
+source_pages:
+- 23
+specs:
+  labels_inside:
+  - 전력 인입용 전력맨홀
+  - 2,000x2,000x2,000mm
+  dimensions: 2,000x2,000x2,000mm
+  raw_labels:
+  - 전력 인입용 전력맨홀
+  - 2,000x2,000x2,000mm
+relations:
+- from: EXT-UT-ELEC
+  to: BLK-MANHOLE
+  relation: connects_to
+  source_page: 23
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: BLK-MANHOLE
+  to: BLK-SS-RCENTER
+  relation: feeds
+  source_page: 23
+  origin: cross_validated
+  line_style: solid
+  note: null
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+position: bottom-left
+confidence: 0.98
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: Manhole
+  observed_attributes:
+  - labels_inside
+  - dimensions
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - PowerCableRouting
+  - CablePullingPoint

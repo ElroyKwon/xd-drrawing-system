@@ -1,0 +1,88 @@
+entity_detail:
+  tag: MH-002
+  type: equipment
+  specs:
+    size:
+      value: 2,000 x 2,000 x 2,000
+      unit: mm
+      source: page 4
+      confidence: 0.98
+    name:
+      value: 전력용 맨홀
+      source: page 4
+      confidence: 0.98
+    discipline:
+      value: STRUCTURAL
+      source: page 4
+      confidence: 0.98
+    function_category:
+      value: BOUNDARY
+      source: page 4
+      confidence: 0.98
+    location:
+      value: 평면도 중앙
+      source: page 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page 4 executive_summary
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와
+      지중 인입 경로를 보여준다.
+
+
+      공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개, 지중선표시기,
+      SECTION 1·2 단면 상세가 포함된다.
+
+
+      우측에는 지하공동구 현황도 사진 1장이 있으며, A동 지상1층 인버터 시험센타와 A동 지하1층 전기실 방향의 연결도 함께 보인다.'
+  requirements:
+  - text: 옥외 전력간선설비 인입 배치도
+    source: page 4
+    type: drawing_context
+  - text: UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결
+    source: page 4
+    type: connection_requirement
+  - text: 지중 인입 경로
+    source: page 4
+    type: routing_requirement
+  - text: 공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간
+    source: page 4
+    type: routing_requirement
+  - text: SECTION 1·2 단면 상세
+    source: page 4
+    type: detail_requirement
+  connection_specs:
+  - relation: adjacent_to
+    partner: SP-COMMON-DUCT-2
+    details:
+      source: page 4
+  - relation: adjacent_to
+    partner: SP-BLDG-A
+    details:
+      source: page 4
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: SP-COMMON-DUCT-2
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: associated_with
+      partner_tag: DB-001
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - name
+    - size
+    - discipline
+    - function_category
+    - location
+    similar_equipment:
+    - MH-001
+    suggested_parent_class: Manhole
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - 도면 분석 결과에서 MH-002는 전력용 맨홀로 표시됨.
+  - 연결 방향은 도면 원문만으로 명확히 확정되지 않아 UNKNOWN으로 기록함.
+tag: MH-002

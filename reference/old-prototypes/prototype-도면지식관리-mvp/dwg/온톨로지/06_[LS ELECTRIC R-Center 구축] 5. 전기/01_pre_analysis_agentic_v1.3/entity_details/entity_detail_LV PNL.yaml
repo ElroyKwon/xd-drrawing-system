@@ -1,0 +1,47 @@
+entity_detail:
+  tag: LV PNL
+  type: equipment
+  specs:
+    voltage:
+      value: 440V
+      unit: V
+      source: page 5
+      confidence: 0.96
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: '주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.'
+  - source: page 5 executive_summary
+    page_number: 5
+    text: 도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.
+  - source: page 5 context search_entity_by_tag
+    page_number: 5
+    text: "from: BUS TIE\n    to: LV PNL\n    relation: feeds\n    medium: 440V\n\
+      \    direction: downstream"
+  requirements: []
+  connection_specs:
+  - relation: feeds
+    partner: BUS TIE
+    details:
+      source: page 5
+      medium: 440V
+      direction: downstream
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: BUS TIE
+      direction: incoming
+      source: page 5 context search_entity_by_tag
+    observed_attributes:
+    - voltage
+    - medium
+    - direction
+    - function_category
+    similar_equipment: []
+    suggested_parent_class: Electrical Panel
+    cross_discipline: []
+  notes:
+  - LV PNL 관련 상세 사양은 페이지 컨텍스트에서 추가로 확인되지 않음.
+tag: LV PNL

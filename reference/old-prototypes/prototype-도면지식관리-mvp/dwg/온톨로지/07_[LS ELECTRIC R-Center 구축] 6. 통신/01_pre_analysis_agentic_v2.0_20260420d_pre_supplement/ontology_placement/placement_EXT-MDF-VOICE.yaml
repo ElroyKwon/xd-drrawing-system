@@ -1,0 +1,214 @@
+placement:
+  tag: EXT-MDF-VOICE
+  name: 기존 MDF VOICE에 연결
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:EXT-MDF-VOICE
+    class_hint: ExternalConnection
+    alternative_class_hints:
+    - VoiceSignalDistribution
+    - SignalTermination
+    - CommunicationEquipment
+    related_assertions:
+    - type: connectedTo
+      target_hint: HUB-RACK-1
+      note: 'relation=cable; annotation: 110BLOCK - OUT (기존 예정 자재) → CAT.5e 25P CABLE
+        → 110BLOCK - IN / OUT'
+    - type: connectedTo
+      target_hint: HUB-RACK-2
+      note: 'relation=cable; annotation: 110BLOCK - IN / OUT (우측)'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ExternalConnection
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 MDF VOICE에 연결
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionNote
+          suggested_datatype: xsd:string
+          rationale: 도면 주석성 문구로 연결 대상과 용도를 설명함
+      - raw_text: 외부 인입 - 기존 MDF VOICE 연결점
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: specs.inferred_name 값으로 관찰되며 외부 인입 연결점 의미를 가짐
+      - raw_text: 110BLOCK - OUT (기존 예정 자재) → CAT.5e 25P CABLE → 110BLOCK - IN / OUT
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionAnnotation
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 포함된 케이블 경로 및 종단 설명
+      - raw_text: 110BLOCK - IN / OUT (우측)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionAnnotation
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 포함된 우측 연결 설명
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification from type=connection_point and name semantics
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 18
+      method: relations[0].relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 18
+      method: relations[0].to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 18
+      method: relations[0].annotation
+    ontology_core.related_assertions[1].type:
+      source_pages:
+      - 18
+      method: relations[1].relation
+    ontology_core.related_assertions[1].target_hint:
+      source_pages:
+      - 18
+      method: relations[1].to
+    ontology_core.related_assertions[1].note:
+      source_pages:
+      - 18
+      method: relations[1].annotation
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 18
+      method: specs.raw_labels[0]
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 18
+      method: specs.inferred_name
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 18
+      method: relations[0].annotation
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 18
+      method: relations[1].annotation
+    provenance.collection_sources.visual_semantics:
+      source_pages:
+      - 18
+      method: entity_detail.collection_sources.visual_semantics
+    provenance.collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 18
+      method: entity_detail.collection_sources.visual_semantics_gemini
+    provenance.collection_sources.entity_synthesis:
+      source_pages:
+      - 18
+      method: entity_detail.collection_sources.entity_synthesis
+    provenance.position:
+      source_pages:
+      - 18
+      method: entity_detail.position
+    provenance.specs.raw_labels:
+      source_pages:
+      - 18
+      method: entity_detail.specs.raw_labels
+    provenance.specs.inferred_name:
+      source_pages:
+      - 18
+      method: entity_detail.specs.inferred_name
+    provenance.specs.position:
+      source_pages:
+      - 18
+      method: entity_detail.specs.position
+    provenance.specs.shape:
+      source_pages:
+      - 18
+      method: entity_detail.specs.shape
+    provenance.specs.labels_inside:
+      source_pages:
+      - 18
+      method: entity_detail.specs.labels_inside
+    provenance.ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.suggested_parent_class
+    provenance.ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.observed_attributes
+    provenance.ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.function_candidates
+    provenance.relations:
+      source_pages:
+      - 18
+      method: entity_detail.relations
+  unresolved:
+  - field_candidate: specs.shape
+    raw_text: other
+    source_page: 18
+    reason: 도형 유형이 일반화된 값이라 구체 형상으로 해석 불가
+    preservation_note: 원문 shape 값을 그대로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: VoiceSignalDistribution; ExternalConnection; SignalTermination
+    source_page: 18
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 단계에서 class/function 분해 검토
+  - field_candidate: relations[0].annotation
+    raw_text: 110BLOCK - OUT (기존 예정 자재) → CAT.5e 25P CABLE → 110BLOCK - IN / OUT
+    source_page: 18
+    reason: 관계 주석은 있으나 확정 property IRI 미정
+    preservation_note: connectedTo/terminatesAt/cable 관련 원형으로 유지
+  - field_candidate: relations[1].annotation
+    raw_text: 110BLOCK - IN / OUT (우측)
+    source_page: 18
+    reason: 관계 주석은 있으나 확정 property IRI 미정
+    preservation_note: 우측 연결 방향 정보 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 connection_point이고 name은 주석형 문구이며, 물리 설비인지 연결 표기인지 경계가 불명확함
+    recommended_handling: 0-9c에서 AnnotationOnly 우선 검토 후, 연결점 개체로 유지할지 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 connection point/외부 인입/종단점 패턴을 우선 반영
+    - relations의 cable 의미를 connectedTo 원형으로 보존
+    - specs.raw_labels, inferred_name, position, shape, labels_inside를 모두 스캔하여 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:32.298567'
+  confidence: 0.78

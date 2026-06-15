@@ -1,0 +1,103 @@
+placement:
+  tag: UNKNOWN-PANEL-TITLE
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: PanelTitle
+    alternative_class_hints:
+    - Title
+    - PanelLabel
+    - DocumentTitle
+    related_assertions: []
+    applicable_axioms:
+    - AX028
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:PanelTitle
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 출처 정보이며, 문서/주석 메타데이터로 보존 가치가 있음.
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 주석/메타 텍스트에 해당함.
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: input_tag
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: classification
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 실체 설비 정보가 아니라 안내/주석 텍스트이며, 별도 구조화 필드가 없음.
+    preservation_note: 페이지 목록과 안내 문구를 분리 보존했으며, 필요 시 문서 메타 또는 주석 노드로 승격 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명에 PANEL과 TITLE이 함께 포함되지만, 실제 물리 패널인지 제목 라벨인지 도면 문맥만으로 확정 불가함.
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 문서 제목/패널 제목/섹션 라벨 후보를 비교 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그를 AnnotationOrReferenceEntity 계열로 우선 보존
+    - raw 텍스트의 페이지 목록과 안내 문구를 분리하여 free_notes/unresolved에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:09.879548'
+  confidence: 0.86

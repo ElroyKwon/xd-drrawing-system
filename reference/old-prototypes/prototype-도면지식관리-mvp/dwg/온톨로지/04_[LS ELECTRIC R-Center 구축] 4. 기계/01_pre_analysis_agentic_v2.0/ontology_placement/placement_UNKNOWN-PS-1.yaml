@@ -1,0 +1,182 @@
+placement:
+  tag: UNKNOWN-PS-1
+  name: PS
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-PS-1
+    class_hint: MechanicalEquipment
+    alternative_class_hints:
+    - Pipe Support
+    - Pressure Switch
+    related_assertions:
+    - type: contains
+      target_hint: PANEL-ROOF-PLAN
+      note: PANEL-ROOF-PLAN이 UNKNOWN-PS-1을 contains로 연결
+    applicable_axioms:
+    - AX018
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:MechanicalEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'abbreviation: PS'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasAbbreviation
+          suggested_datatype: xsd:string
+          rationale: 도면 본문에 표기된 약어 정보
+      - raw_text: 'source_note: 도면 본문에 표기된 PS'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasSourceNote
+          suggested_datatype: xsd:string
+          rationale: 도면 본문 표기 설명
+      - raw_text: 'location_note: null'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasLocationNote
+          suggested_datatype: xsd:string
+          rationale: 위치 메모 필드가 존재하나 값이 비어 있음
+      - raw_text: 'function_category: UNKNOWN'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류가 미상으로 보존 필요
+      - raw_text: 'suggested_parent_class: MechanicalEquipment'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'similar_equipment: []'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 목록이 비어 있음
+      - raw_text: 'function_candidates: Pipe Support, Pressure Switch'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 복수로 제시됨
+  provenance:
+    name:
+      source_pages:
+      - 53
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 53
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 53
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 53
+      method: from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 53
+      method: from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 53
+      method: from_relations
+    discipline_context.free_notes:
+      source_pages:
+      - 53
+      method: preserved_raw
+    relations:
+      source_pages:
+      - 53
+      method: cross_validated
+    position:
+      source_pages:
+      - 53
+      method: direct
+    confidence:
+      source_pages:
+      - 53
+      method: direct
+    source_attribution:
+      source_pages:
+      - 53
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 53
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 53
+      method: direct
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 53
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 53
+      method: direct
+    specs.abbreviation:
+      source_pages:
+      - 53
+      method: direct
+    specs.source_note:
+      source_pages:
+      - 53
+      method: direct
+    specs.location_note:
+      source_pages:
+      - 53
+      method: direct_or_null
+    function_category:
+      source_pages:
+      - 53
+      method: direct
+  unresolved:
+  - field_candidate: function_category
+    raw_text: UNKNOWN
+    source_page: 53
+    reason: 기능 분류가 명시되지 않음
+    preservation_note: 추후 도면 맥락 또는 동일 패턴 태그와 비교하여 해석 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Pipe Support; Pressure Switch
+    source_page: 53
+    reason: 복수 후보로 단일 확정 불가
+    preservation_note: PS 약어의 실제 의미를 도면 내 추가 근거로 판별 필요
+  - field_candidate: specs.location_note
+    raw_text: 'null'
+    source_page: 53
+    reason: 값 없음
+    preservation_note: 빈 값 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PS 약어가 Pipe Support 또는 Pressure Switch로 모두 해석 가능하며, 도면 본문만으로 물리적 실체와 기능을
+      확정하기 어려움
+    recommended_handling: NamedIndividual로 유지하되 0-9c/0-9d 단계에서 동일 약어 태그 및 주변 관계를 추가
+      검토하여 class 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:38:02.382093'
+  confidence: 0.6

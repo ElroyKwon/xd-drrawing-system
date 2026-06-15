@@ -1,0 +1,223 @@
+placement:
+  tag: SYSBOX-6
+  name: SYSTEM BOX
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SYSBOX-6
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationOutlet
+    - CableTermination
+    - SignalDistribution
+    related_assertions:
+    - type: connectedTo
+      target_hint: HUB-RACK-2
+      note: 'relations: HUB-RACK-2 -> SYSBOX-6, annotation: CAT.6 UTP CABLE'
+      confirmed_property: dks:connectedTo
+      confirmed_target: HUB-RACK-2
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    - type: connectedTo
+      target_hint: TEL-1
+      note: 'relations: SYSBOX-6 -> TEL-1, annotation: OUTLET BOX / 일반전화기'
+      confirmed_property: dks:connectedTo
+      confirmed_target: TEL-1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: SYSTEM BOX / CAT.6 UTP CABLE / OUTLET BOX'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 보존 필요
+      - raw_text: 'shape: rectangle'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보
+      - raw_text: 'labels_inside: SYSTEM BOX'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelInsideText
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 텍스트
+      - raw_text: 'labels_above: CAT.6 UTP CABLE'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelAboveText
+          suggested_datatype: xsd:string
+          rationale: 상단 라벨 텍스트
+      - raw_text: 'labels_below: OUTLET BOX / CAT.6 UTP CABLE'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelBelowText
+          suggested_datatype: xsd:string
+          rationale: 하단 라벨 텍스트
+      - raw_text: 'inferred_name: 시스템 박스 6 (수평배선계 우측)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 보존
+      - raw_text: 'position: bottom-right'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'function_category: COMMUNICATION_OUTLET'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문
+      - raw_text: 'ontology_hints.function_candidates: CableTermination, SignalDistribution'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 후보 기능 보존
+      - raw_text: 'relation: cable from HUB-RACK-2 to SYSBOX-6, annotation: CAT.6
+          UTP CABLE'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 설비 간 케이블 연결 사실
+      - raw_text: 'relation: cable from SYSBOX-6 to TEL-1, annotation: OUTLET BOX
+          / 일반전화기'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 설비 간 케이블 연결 사실
+  provenance:
+    name:
+      source_pages:
+      - 18
+      method: direct_from_entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification_by_entity_type_and_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints + observed_labels
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints + observed_labels
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 18
+      method: preserve_all_unclassified_fields
+    provenance:
+      source_pages:
+      - 18
+      method: entity_detail.source_pages
+    ambiguous:
+      source_pages:
+      - 18
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 18
+      method: applied_ontology_plan_focus
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: SYSTEM BOX
+    source_page: 18
+    reason: supplement sub_kinds 없음; 원문 보존 필요
+    preservation_note: 내부 표기 텍스트로 재활용 가능
+  - field_candidate: specs.labels_above
+    raw_text: CAT.6 UTP CABLE
+    source_page: 18
+    reason: supplement sub_kinds 없음; 원문 보존 필요
+    preservation_note: 상단 주석 텍스트로 재활용 가능
+  - field_candidate: specs.labels_below
+    raw_text: OUTLET BOX / CAT.6 UTP CABLE
+    source_page: 18
+    reason: supplement sub_kinds 없음; 원문 보존 필요
+    preservation_note: 하단 주석 텍스트로 재활용 가능
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 18
+    reason: 도형 정보는 core class 확정에 사용하지 않음
+    preservation_note: 형상 속성 후보
+  - field_candidate: specs.inferred_name
+    raw_text: 시스템 박스 6 (수평배선계 우측)
+    source_page: 18
+    reason: 추론명은 원문과 별도이며 확정명 아님
+    preservation_note: 후속 정규화 시 참고
+  - field_candidate: position
+    raw_text: bottom-right
+    source_page: 18
+    reason: 위치 정보는 분류 불가 항목으로 보존
+    preservation_note: 레이아웃/배치 속성 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationEquipment
+    source_page: 18
+    reason: 힌트는 확정 클래스가 아님
+    preservation_note: 상위 클래스 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CableTermination, SignalDistribution
+    source_page: 18
+    reason: 후보 기능 목록
+    preservation_note: 기능 분류 후보
+  - field_candidate: relations.annotation
+    raw_text: CAT.6 UTP CABLE
+    source_page: 18
+    reason: 관계 주석은 관계 사실의 보조 정보
+    preservation_note: 케이블 규격 주석으로 보존
+  - field_candidate: relations.annotation
+    raw_text: OUTLET BOX / 일반전화기
+    source_page: 18
+    reason: 관계 주석은 관계 사실의 보조 정보
+    preservation_note: 종단 대상 설명으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SYSTEM BOX가 독립 장비인지, 아울렛/종단 박스인지, 또는 단순 연결점인지 도면만으로 단정하기 어려움. 다만 equipment로
+      표기되고 양방향 케이블 관계가 있어 독립 Individual로 보존함.
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열 후보를 우선 검토하고, 0-9d에서 connectedTo/terminatesAt
+      계열 관계로 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 통신 랙/분배 프레임, 단말/아울렛/시스템박스 그룹, 연결점 패턴을 우선 고려
+    - relations의 cable 연결 사실을 related_assertions로 보존
+    - inferred_name, position, raw_labels, ontology_hints를 누락 없이 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:33.465092'
+  confidence: 0.86

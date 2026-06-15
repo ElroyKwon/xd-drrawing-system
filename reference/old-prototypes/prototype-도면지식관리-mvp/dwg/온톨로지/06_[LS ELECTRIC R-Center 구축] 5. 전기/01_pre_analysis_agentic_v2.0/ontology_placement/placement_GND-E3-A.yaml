@@ -1,0 +1,140 @@
+placement:
+  tag: GND-E3-A
+  name: E3 접지
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:GND-E3-A
+    class_hint: GroundingSystem
+    alternative_class_hints:
+    - GroundTerminal
+    - EarthingPoint
+    - ElectricalGround
+    related_assertions:
+    - type: grounds_to
+      target_hint: P-A-3PP
+      note: P-A-3PP가 E3 접지단자로 접지됨
+    - type: cable
+      target_hint: P-A-3PP
+      note: 도면상 E3 접지로 연결된 케이블/연결선 표기
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroundingSystem
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'designation: E3'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasDesignation
+          suggested_datatype: xsd:string
+          rationale: 접지 식별자 E3가 명시됨
+      - raw_text: 'grounding_type: 접지단자'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasGroundingType
+          suggested_datatype: xsd:string
+          rationale: 접지 유형이 접지단자로 명시됨
+      - raw_text: 'connected_panel: P-A-3PP'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: connectedPanel
+          suggested_datatype: xsd:string
+          rationale: 연결 대상 패널 태그가 명시됨
+      - raw_text: 'system_voltage_kV: 0.38'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSystemVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 수치가 kV 단위로 명시됨
+      - raw_text: 'system_phase: 3Ø 380V'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSystemPhase
+          suggested_datatype: xsd:string
+          rationale: 상수 및 전압 표기가 함께 있는 계통 표기
+      - raw_text: 'labels_below: E3 (접지)'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 하단 라벨 텍스트가 존재함
+      - raw_text: 'equipment_symbols: 접지단자 E3 (count: 1)'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 도면 심볼 개수 정보가 존재함
+  provenance:
+    tag:
+      source_pages:
+      - 20
+      method: direct
+    name:
+      source_pages:
+      - 20
+      method: direct
+    discipline:
+      source_pages:
+      - 20
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 20
+      method: inferred_from_entity_type_and_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 20
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 20
+      method: from_ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 20
+      method: from_ontology_hints.function_candidates_and_observed_type
+    ontology_core.related_assertions:
+      source_pages:
+      - 20
+      method: from_relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 20
+      method: preserve_all_nonstandard_fields
+    source_attribution:
+      source_pages:
+      - 20
+      method: direct
+    position:
+      source_pages:
+      - 20
+      method: direct
+    confidence:
+      source_pages:
+      - 20
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: true
+    other_tag: GND-E3-AC
+    reason: ontology_hints.similar_equipment에 동일한 E3 계통으로 보이는 유사 태그가 제시됨. 동일 접지 네트워크의
+      변형 태그일 가능성이 있음.
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    - 접지/피뢰 시스템의 물리적 연결망 상세화
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:10:01.525193'
+  confidence: 0.85

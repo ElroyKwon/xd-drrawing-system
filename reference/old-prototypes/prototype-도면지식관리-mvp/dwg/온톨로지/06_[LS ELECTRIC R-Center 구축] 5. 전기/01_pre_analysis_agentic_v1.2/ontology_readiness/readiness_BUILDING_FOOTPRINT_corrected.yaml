@@ -1,0 +1,13 @@
+verdict: demoted
+confidence: 0.97
+reason: "이전 평가를 재검토한 결과, 강등 판정이 타당하며 오히려 근거가 더 명확하게 보강된다.\n1. **비-설비 성격 확정**: entity_detail의\
+  \ type이 'equipment'로 기재되어 있으나,\n   drawing_texts에서 \"건물 외곽\"으로 명시되고, specs에는 좌표축(A-D,\
+  \ 1-7)만 존재한다.\n   피뢰·접지 도면 위에 배경 레이어로 표현된 건축 윤곽선이며,\n   독립적인 설비 사양(정격, 용량, 모델, 접속\
+  \ 규격 등)이 전무하다.\n\n2. **관계 희박성 유지**: observed_relations가 boundary_of(ROOF_PLANE)\
+  \ 1건뿐으로,\n   설비 간 전기적·기계적 연결을 나타내는 connection_specs도 없다.\n   이는 공간 맥락 제공 역할만 수행함을\
+  \ 재확인한다.\n\n3. **교차 분야 속성**: cross_discipline이 ARCHITECTURAL 단독이며,\n   suggested_parent_class도\
+  \ ArchitecturalBoundary로 전기설비 온톨로지 계층과 무관하다.\n\n4. **온톨로지 진입 기준 미달**: 독립 엔티티로 온톨로지에\
+  \ 등록되려면\n   고유 식별 속성, 기능적 역할, 최소 2개 이상의 의미 있는 관계가 요구되나,\n   본 엔티티는 어느 조건도 충족하지 못한다.\n\
+  \n**처리 방향**: 전기설비 온톨로지에서 제외하고, 도면 메타데이터(document_spatial_reference) 또는 건축 경계 레이어(ArchitecturalBoundary\
+  \ / SpatialZone)로 분류하여 다른 설비 엔티티의 location 속성 참조값으로만 활용하는 것이 적절하다."
+tag: BUILDING_FOOTPRINT

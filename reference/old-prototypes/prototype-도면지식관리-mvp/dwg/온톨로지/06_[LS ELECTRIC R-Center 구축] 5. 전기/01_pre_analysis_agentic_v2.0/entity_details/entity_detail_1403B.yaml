@@ -1,0 +1,104 @@
+tag: 1403B
+name: GP 피더 VCB 패널 1403B
+type: SWITCHGEAR_PANEL
+discipline: ELECTRICAL
+function_category: SWITCHGEAR_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - 1403B
+  - GP
+  - VCB 3P
+  - 7.2kV 600A
+  - 250MVA
+  - 2×CT 100/5A
+  - GIPAM
+  - 50/51
+  - SA 9kV 5kA
+  bus_section: GP
+  vcb_rating: 3P 7.2kV 600A 250MVA
+  ct_ratio: 100/5A
+  sa_rating: 9kV 5kA
+  protection_functions:
+  - 50/51
+  destination: 'TO: 73038 HV'
+  panel_id: 1403B
+  voltage_kV: 6.6
+  vcb_poles: 3
+  vcb_rated_voltage_kV: 7.2
+  vcb_rated_current_A: 600
+  vcb_breaking_capacity_MVA: 250
+  ct_count: 2
+  sa_voltage_kV: 9
+  sa_discharge_current_kA: 5
+  protection_relay_model: GIPAM
+  protection_relay_indicators_gemini:
+  - A
+  load_name_gemini: B동 비상
+  destination_gemini: 7303B/HV
+  grounding_mark: E1
+relations:
+- from: 1403A
+  to: 1403B
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV GP BUS
+- from: 1403B
+  to: 1404A
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV GP BUS
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-left
+confidence: 0.95
+equipment_symbols:
+- type: VCB
+  count: 1
+- type: CT
+  count: 2
+- type: SA
+  count: 1
+- type: GIPAM
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalSwitchgear
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - vcb_rating
+  - ct_ratio
+  - sa_rating
+  - protection_functions
+  - destination
+  - panel_id
+  - voltage_kV
+  - vcb_poles
+  - vcb_rated_voltage_kV
+  - vcb_rated_current_A
+  - vcb_breaking_capacity_MVA
+  - ct_count
+  - sa_voltage_kV
+  - sa_discharge_current_kA
+  - protection_relay_model
+  - protection_relay_indicators_gemini
+  - load_name_gemini
+  - destination_gemini
+  - grounding_mark
+  similar_equipment:
+  - 1403A
+  - 1404A
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection
+  - LoadSwitching

@@ -1,0 +1,96 @@
+placement:
+  tag: S06.11-3
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: S06.11-3
+    class_hint: DetailEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DetailEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: availablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 번호 목록 형태의 메타 정보이며, 향후 구조화된 페이지 참조 속성으로 승격 가능
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: analysisOffer
+        suggested_datatype: xsd:string
+        rationale: 도면 내용이 아니라 응답 안내 문구로, 주석/메타 텍스트로 보존 가능
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_hint
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/관계 정보가 아니라 페이지 안내 문구로, 물리 실체나 관계로 직접 해석 불가
+    preservation_note: 페이지 목록과 안내 문구를 분리 보존; 후속 단계에서 문서 메타로 승격 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식상 상세/시트 계열로 보이나, 원문에는 설비 실체나 관계가 없고 페이지 안내만 존재함
+    recommended_handling: 문서 메타 또는 상세 엔티티 후보로 유지하되, 후속 단계에서 페이지별 원문 확인 시 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 계열 및 상세/시트 메타 가능성 반영'
+    - 'predicted_ontology_structure.class_hierarchy_hint: DetailEntity / DocumentEntity
+      후보 반영'
+    - 'discipline_context_plan.unknown: document_metadata 또는 unresolved_structural_entities
+      가능성 반영'
+    deviations:
+    - plan상 structural 문맥 가능성이 있으나, 현재 entity_detail에는 구조/관계 정보가 없어 보수적으로 unknown
+      유지
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:02.310211'
+  confidence: 0.74

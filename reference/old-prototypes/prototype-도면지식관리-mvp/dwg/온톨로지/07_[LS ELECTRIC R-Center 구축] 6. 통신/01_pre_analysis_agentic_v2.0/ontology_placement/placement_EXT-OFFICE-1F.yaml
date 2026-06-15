@@ -1,0 +1,156 @@
+placement:
+  tag: EXT-OFFICE-1F
+  name: 사무동 지상1층 통신실 연결점
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-OFFICE-1F
+    class_hint: ExternalConnection
+    alternative_class_hints:
+    - ExternalConnectionPoint
+    - SignalTransmission
+    - ExternalInterface
+    related_assertions:
+    - type: cable
+      target_hint: TRAY-EXISTING-COMM
+      note: 'from TRAY-EXISTING-COMM to EXT-OFFICE-1F; annotation: UTP 0.5mm/25Px1,CAT.5
+        (IN TRAY), 기존 CABLE 포설'
+    applicable_axioms:
+    - AX041
+    applicable_constraints:
+    - CN011
+    confirmed_class: dks:ExternalConnection
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'TO : 사무동 지상1층 통신실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destinationLabel
+          suggested_datatype: xsd:string
+          rationale: 연결 목적지 텍스트가 명시됨
+      - raw_text: UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격/포설 조건 텍스트
+      - raw_text: 기존 CABLE 포설
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: noteText
+          suggested_datatype: xsd:string
+          rationale: 기존 포설 상태를 나타내는 주석
+      - raw_text: 'destination: 사무동 지상1층 통신실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destination
+          suggested_datatype: xsd:string
+          rationale: specs에 목적지 필드가 직접 존재
+      - raw_text: 'label_prefix: TO :'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: labelPrefix
+          suggested_datatype: xsd:string
+          rationale: 라벨 접두어가 명시됨
+  provenance:
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: inferred from type/function_category and relation presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 9
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 9
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 9
+      method: relations.annotation
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 9
+      method: specs.note
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 9
+      method: specs.destination
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 9
+      method: specs.label_prefix
+    unresolved:
+      source_pages:
+      - 9
+      method: scanned all fields; no unresolved field required
+    orphan_relations:
+      source_pages:
+      - 9
+      method: none
+    ambiguous:
+      source_pages:
+      - 9
+      method: type EXTERNAL_CONNECTION with explicit cable relation and destination
+        text
+    merge_info:
+      source_pages:
+      - 9
+      method: no similar tag evidence in provided nearby tags
+    plan_reference:
+      guidance_applied:
+      - external connection point / originates-from-external-point pattern
+      - connectedTo/cable relation preservation
+      deviations: []
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 외부 연결점으로 명시되고, 목적지/케이블 규격/기존 포설 주석 및 TRAY-EXISTING-COMM와의 cable 관계가 함께
+      관찰됨.
+    recommended_handling: NamedIndividual로 유지하고, 0-9d에서 cable/connectedTo 계열 관계로 정식화
+      검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - originate/connection-point 계열 외부 연결점으로 배치
+    - cable 관계 원형 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:14.806792'
+  confidence: 0.96

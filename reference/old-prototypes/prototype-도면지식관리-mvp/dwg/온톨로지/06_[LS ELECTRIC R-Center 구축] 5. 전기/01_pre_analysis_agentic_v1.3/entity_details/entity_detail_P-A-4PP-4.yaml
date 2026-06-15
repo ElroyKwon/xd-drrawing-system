@@ -1,0 +1,127 @@
+entity_detail:
+  tag: P-A-4PP-4
+  type: equipment
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    panel_location:
+      value: 1층 Drive 시험실
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    from:
+      value: 전기실
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    voltage:
+      value: 3Ø 440V
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    breaker:
+      value: MCCB
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    surge_protection:
+      value: SPD
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    grounding:
+      value: E3 접지
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+  drawing_texts:
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 'P-A-4PP-4
+
+      분전반 P-A-4PP-4
+
+      COVER TYPE: 노출형(STEEL), PANEL LOCATION: 1층 Drive 시험실, FROM: 전기실, 3Ø 440V, MCCB,
+      SPD, E3 접지'
+  - source: page_023_context.yaml
+    page_number: 23
+    text: P-A-4PP-4
+  requirements:
+  - text: 'COVER TYPE: 노출형(STEEL)'
+    source: page 21
+    type: construction_requirement
+  - text: 'PANEL LOCATION: 1층 Drive 시험실'
+    source: page 21
+    type: location_requirement
+  - text: 'FROM: 전기실'
+    source: page 21
+    type: supply_requirement
+  - text: 3Ø 440V
+    source: page 21
+    type: electrical_requirement
+  - text: MCCB
+    source: page 21
+    type: protection_requirement
+  - text: SPD
+    source: page 21
+    type: protection_requirement
+  - text: E3 접지
+    source: page 21
+    type: grounding_requirement
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 21
+  - relation: power_supply
+    partner: S/S R-Center
+    details:
+      source: page 23
+  - relation: grounded_to
+    partner: E3
+    details:
+      source: page 21
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: downstream
+      source: page 21
+    - relation_type: power_supply
+      partner_tag: S/S R-Center
+      direction: source_to_load
+      source: page 23
+    - relation_type: grounded_to
+      partner_tag: E3
+      direction: downstream
+      source: page 21
+    observed_attributes:
+    - cover_type
+    - panel_location
+    - from
+    - voltage
+    - breaker
+    - surge_protection
+    - grounding
+    similar_equipment:
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-3
+    - P-A-4PP-5
+    - P-A-4PP-6
+    suggested_parent_class: 분전반
+    cross_discipline: []
+  notes:
+  - page 21과 page 23에서 동일 태그가 확인됨
+  - page 23에서는 P-A-4PP-4의 상세 사양은 보이지 않고 태그만 확인됨
+tag: P-A-4PP-4

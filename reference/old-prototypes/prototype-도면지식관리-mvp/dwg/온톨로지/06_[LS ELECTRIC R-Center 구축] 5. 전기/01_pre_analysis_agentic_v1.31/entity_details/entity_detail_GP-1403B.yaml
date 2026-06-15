@@ -1,0 +1,108 @@
+entity_detail:
+  tag: GP-1403B
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: 5
+      confidence: 0.96
+    feeder_name:
+      value: 1403B GP 6.6kV 피더 - 비트동 비상
+      unit: null
+      source: 5
+      confidence: 0.95
+    drawing_number:
+      value: EE-01-001
+      unit: null
+      source: 5
+      confidence: 0.96
+    drawing_title:
+      value: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+      unit: null
+      source: 5
+      confidence: 0.96
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'title: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'drawing_number: EE-01-001'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: '도면상 22.9kV, 6.6kV, 440V 전압 표기가 보이며, TR #1~#4와 다수의 VCB/배전반 베이, 비상·동력 부하
+      계통이 함께 표시된다.'
+  - source: search_entity_by_tag:GP-1403B
+    page_number: 5
+    text: 'inferred_name: 1403A GP 6.6kV 피더 - SPARE'
+  - source: search_entity_by_tag:GP-1403B
+    page_number: 5
+    text: 'panel_id: PNL-GP-1403B'
+  - source: search_entity_by_tag:GP-1403B
+    page_number: 5
+    text: "labels_inside:\n    - 1403B"
+  - source: search_entity_by_tag:1403B
+    page_number: 5
+    text: "tag: 1403B\n    name: Breaker"
+  - source: search_entity_by_tag:1403B
+    page_number: 5
+    text: 'type: breaker'
+  - source: search_entity_by_tag:1403B
+    page_number: 5
+    text: 'panel_id: PNL_GP_1403B'
+  - source: search_entity_by_tag:1403B
+    page_number: 5
+    text: 'primary_label: 1403B'
+  requirements:
+  - text: 6.6kV
+    source: page_005_context.yaml
+    type: voltage_requirement
+  - text: 비트동 비상
+    source: page_005_context.yaml
+    type: service_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-GP-1404A
+    details:
+      source: search_entity_by_tag:GP-1403B
+  - relation: feeds
+    partner: PNL-GP-1403A
+    details:
+      source: search_entity_by_tag:GP-1403B
+  - relation: feeds
+    partner: 6.6kV Bus
+    details:
+      source: search_entity_by_tag:GP-1403B
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-GP-1404A
+      direction: outgoing
+      source: search_entity_by_tag:GP-1403B
+    - relation_type: feeds
+      partner_tag: PNL-GP-1403A
+      direction: incoming_or_outgoing_unknown
+      source: search_entity_by_tag:GP-1403B
+    - relation_type: feeds
+      partner_tag: 6.6kV Bus
+      direction: unknown
+      source: search_entity_by_tag:GP-1403B
+    observed_attributes:
+    - voltage
+    - feeder_name
+    - drawing_number
+    - drawing_title
+    - panel_id
+    - primary_label
+    - labels_inside
+    similar_equipment:
+    - 1403A
+    - 1404A
+    - 1404B
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - 페이지 5의 컨텍스트와 태그 검색 결과에서 확인 가능한 정보만 기록함.
+  - 연결 방향은 검색 결과에 일부만 나타나 있어 불확실한 항목은 UNKNOWN 성격으로 보존함.
+tag: GP-1403B

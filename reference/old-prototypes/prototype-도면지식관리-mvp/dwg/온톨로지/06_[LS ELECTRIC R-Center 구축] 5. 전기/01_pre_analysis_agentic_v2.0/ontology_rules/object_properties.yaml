@@ -1,0 +1,184 @@
+object_properties:
+- iri: dks:feeds
+  label: feeds
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:is_fed_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: true
+  evidence_assertions:
+  - subject: '1101'
+    object: BLK-MOF
+    source_page: 5
+    note: 22.9kV → SHV VCB 1101
+  - subject: BLK-SS-RCENTER
+    object: BLK-LP-1F
+    source_page: 23
+    note: 수변전설비에서 1F 조명/전등 계통으로 공급
+  total_evidence: 150
+  derivation: 전원 공급 흐름 (TR -> VCB, Panel -> Branch, Source -> Panel)에서 귀납
+  confidence: 0.95
+- iri: dks:connects_to
+  label: connects to
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connected_to
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: '1101'
+    object: '1102'
+    source_page: 5
+    note: 22.9kV SHV BUS-1
+  - subject: UNKNOWN-CONDUCTOR-01
+    object: UNKNOWN-BRACKET-01
+    source_page: 40
+    note: 수평도체가 지지금구로 1m간격 지지
+  total_evidence: 120
+  derivation: Busbar 연결, 도선 간 물리적 접속, 이종 금속 접속 등 물리적/전기적 양방향 연결에서 귀납
+  confidence: 0.95
+- iri: dks:grounds_to
+  label: grounds to
+  domain: dks:ElectricalEquipment
+  range: dks:GroundingAndLightningSystem
+  inverse_of_candidate: dks:provides_ground_for
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: 1305A
+    object: E1
+    source_page: 5
+    note: 'grounding_mark: E1'
+  - subject: P-A-4PP-1
+    object: E3
+    source_page: 21
+    note: 'E3 (접지), grounding: E3'
+  total_evidence: 60
+  derivation: 패널에서 접지단자(E1, E3)로의 연결, 피뢰침에서 인하도선/기초접지극으로의 연결에서 귀납
+  confidence: 0.95
+- iri: dks:contains
+  label: contains
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:is_contained_in
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: true
+  evidence_assertions:
+  - subject: 1301B
+    object: VCB
+    source_page: 5
+    note: panel equipment symbol count 1; VCB 3P present in raw_labels/specs
+  - subject: BLK-P-A-2PP-1
+    object: MCCB
+    source_page: 23
+    note: equipment_symbols에 MCCB 1개가 관찰됨
+  total_evidence: 80
+  derivation: 분전반(Panel) 내부에 설치된 차단기(MCCB), 서지보호기(SPD), 변류기(CT) 포함 관계에서 귀납
+  confidence: 0.95
+- iri: dks:controls
+  label: controls
+  domain: dks:ProtectionAndControlDevice
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:is_controlled_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: 1302A
+    object: 1302B
+    source_page: 5
+    note: INTER-LOCK
+  total_evidence: 10
+  derivation: VCB 패널 간의 INTER-LOCK 관계에서 귀납
+  confidence: 0.9
+- iri: dks:bonded_to
+  label: bonded to
+  domain: dks:StructuralAndMechanical
+  range: dks:GroundingAndLightningSystem
+  inverse_of_candidate: dks:bonds
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PIPE-001
+    object: GND-TERM-BOX-002
+    source_page: 39
+    note: 주접지 단자함과 연결 (F-GV Wire)
+  total_evidence: 5
+  derivation: 수도관, 가스관 등 기계 배관이 접지단자함에 등전위 접속됨에서 귀납
+  confidence: 0.9
+- iri: dks:protects
+  label: protects
+  domain: dks:ProtectionAndControlDevice
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:is_protected_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SPD-P-A-4PP-7
+    object: P-A-4PP-7
+    source_page: 22
+    note: 도면상 P-A-4PP-7 내부에 설치된 SPD가 패널을 보호하는 관계
+  total_evidence: 15
+  derivation: SPD가 패널을 보호하거나, 수막처리봉이 접지극을 보호하는 관계에서 귀납
+  confidence: 0.95
+- iri: dks:spaced_from
+  label: spaced from
+  domain: dks:GroundingElectrode
+  range: dks:GroundingElectrode
+  inverse_of_candidate: ''
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: GND-ELEC-TEST-001
+    object: GND-ELEC-TEST-002
+    source_page: 39
+    note: 10m 이상 이격
+  total_evidence: 6
+  derivation: 접지극 간의 이격 거리 요구사항 관계에서 귀납
+  confidence: 0.9
+- iri: dks:supported_by
+  label: supported by
+  domain: dks:ElectricalEquipment
+  range: dks:InfrastructureAndSupport
+  inverse_of_candidate: dks:supports
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+    object: UNKNOWN-SUPPORT-FIXTURE-001
+    source_page: 38
+    note: 지지금구가 1m 간격으로 수평도체를 지지
+  total_evidence: 5
+  derivation: 도체나 장비가 지지 구조물에 의해 지지되는 관계에서 귀납
+  confidence: 0.9
+- iri: dks:hasCableConnection
+  label: has cable connection
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: ''
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: BLK-22KV-ACSR
+    object: BLK-LA1
+    source_page: 5
+    note: visual_semantics로 관찰된 케이블 연결
+  total_evidence: 45
+  derivation: 도면상 visual_semantics로 추출된 케이블 연결선 관계에서 귀납
+  confidence: 0.85
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-17T13:20:27.755999'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.95

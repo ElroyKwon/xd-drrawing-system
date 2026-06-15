@@ -1,0 +1,166 @@
+entity_detail:
+  tag: P-F-2PP
+  type: Power Panelboard
+  specs:
+    panel_board:
+      value: PANEL BOARD
+      source: 19
+      confidence: 0.95
+    cover_type:
+      value: 노출형(STEEL)
+      source: 19
+      confidence: 0.95
+    main_cb_type:
+      value: MCCB
+      source: 19
+      confidence: 0.95
+    main_cb_poles:
+      value: 3P
+      source: 19
+      confidence: 0.95
+    main_cb_frame:
+      value: 400AF
+      source: 19
+      confidence: 0.95
+    main_cb_trip:
+      value: 350AT
+      source: 19
+      confidence: 0.95
+    spd:
+      value: 3Ø S.P.D 40KA/mode
+      source: 19
+      confidence: 0.95
+    branch_circuits:
+      value:
+      - 63.OP PNL(Vibration Test)(40/50 3MCCB)
+      - 설비용(150/250 3MCCB)
+      - 61.복합환경 시험기(150/250 3MCCB)
+      - 60.진동 시험기 Control(75/125 3MCCB)
+      - SP(75/125 3MCCB)
+      source: 19
+      confidence: 0.95
+    supply_voltage:
+      value: R/S/T 3상 220V
+      source: 19
+      confidence: 0.98
+    location:
+      value: 1층 진동시험실
+      source: 19
+      confidence: 0.95
+    drawing_number:
+      value: EE-01-015
+      source: 19
+      confidence: 0.97
+    drawing_title:
+      value: 생산동력(3Ø 220V) 분전반 결선도-2
+      source: 19
+      confidence: 0.97
+  drawing_texts:
+  - source: page_019_context.yaml
+    page_number: 19
+    text: "P-F-2PP\nname: 1층 진동시험실 분전반\nspec: 'PANEL BOARD; COVER TYPE: 노출형(STEEL);\
+      \ MAIN C.B: TYPE MCCB, 3P, 400AF, 350AT;\n      3Ø S.P.D 40KA/mode; 분기회로: 63.OP\
+      \ PNL(Vibration Test)(40/50 3MCCB), 설비용(150/250\n      3MCCB), 61.복합환경 시험기(150/250\
+      \ 3MCCB), 60.진동 시험기 Control(75/125 3MCCB), SP(75/125\n      3MCCB)'"
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 전기실에서 R/S/T 3상 220V가 4개의 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)으로 각각 공급되는
+      단선 결선도이다.
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 각 분전반은 노출형(STEEL) 외함, MAIN MCCB, 3Ø SPD, 접지 E3를 포함하며, 분기회로 수는 분전반별로 상이하다.
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 도면상 주요 용량 표기는 P-EA-2PP 100AT, P-F-2PP 400AT, P-G-2PP 175AT, P-I-2PP 150AT이며,
+      SPD 표기는 40KA/mode로 보인다.
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'drawing_number: EE-01-015'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'title: 생산동력(3Ø 220V) 분전반 결선도-2'
+  requirements:
+  - text: 노출형(STEEL) 외함
+    source: page_019_context.yaml
+    type: construction_requirement
+  - text: 'MAIN C.B: TYPE MCCB, 3P, 400AF, 350AT'
+    source: page_019_context.yaml
+    type: electrical_requirement
+  - text: 3Ø S.P.D 40KA/mode
+    source: page_019_context.yaml
+    type: protection_requirement
+  - text: 접지 E3
+    source: page_019_context.yaml
+    type: grounding_requirement
+  - text: R/S/T 3상 220V
+    source: page_019_context.yaml
+    type: supply_condition
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page_019_context.yaml
+      text: 전기실에서 R/S/T 3상 220V가 4개의 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)으로 각각
+        공급
+  - relation: grounded_to
+    partner: GND-E3
+    details:
+      source: page_019_context.yaml
+      text: 접지 E3
+  - relation: branch_circuit
+    partner: 63.OP PNL(Vibration Test)
+    details:
+      source: page_019_context.yaml
+      text: 63.OP PNL(Vibration Test)(40/50 3MCCB)
+  - relation: branch_circuit
+    partner: 설비용
+    details:
+      source: page_019_context.yaml
+      text: 설비용(150/250 3MCCB)
+  - relation: branch_circuit
+    partner: 61.복합환경 시험기
+    details:
+      source: page_019_context.yaml
+      text: 61.복합환경 시험기(150/250 3MCCB)
+  - relation: branch_circuit
+    partner: 60.진동 시험기 Control
+    details:
+      source: page_019_context.yaml
+      text: 60.진동 시험기 Control(75/125 3MCCB)
+  - relation: branch_circuit
+    partner: SP
+    details:
+      source: page_019_context.yaml
+      text: SP(75/125 3MCCB)
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: incoming
+      source: page_019_context.yaml
+    - relation_type: grounded_to
+      partner_tag: GND-E3
+      direction: downstream
+      source: page_019_context.yaml
+    observed_attributes:
+    - PANEL BOARD
+    - COVER TYPE
+    - MAIN C.B
+    - TYPE
+    - 3P
+    - 400AF
+    - 350AT
+    - 3Ø S.P.D
+    - 분기회로
+    - R/S/T 3상 220V
+    - 1층 진동시험실
+    similar_equipment:
+    - P-EA-2PP
+    - P-G-2PP
+    - P-I-2PP
+    suggested_parent_class: ElectricalPanelboard
+    cross_discipline: []
+  notes:
+  - 페이지 19의 분석 결과에서 확인 가능한 정보만 기록함.
+  - feeds 관계는 전기실 -> P-F-2PP 방향으로 해석됨.
+tag: P-F-2PP

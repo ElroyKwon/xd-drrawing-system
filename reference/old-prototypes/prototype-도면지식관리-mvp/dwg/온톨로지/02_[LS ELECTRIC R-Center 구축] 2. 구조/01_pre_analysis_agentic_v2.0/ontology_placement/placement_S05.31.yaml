@@ -1,0 +1,153 @@
+placement:
+  tag: S05.31
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S05.31
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 시트/문서 참조 속성 후보로 보임.
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 도면 실체 정보가 아닌 안내 문구/대화형 주석으로 보임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: annotation text only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag normalization
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidate
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/부재의 물리 실체나 관계가 아니라 페이지 안내 문구로만 구성됨.
+    preservation_note: 페이지 번호 목록은 후속 시트/문서 메타 분류 후보로 보존.
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 명시된 name 필드 없음.
+    preservation_note: tag S05.31만 존재.
+  - field_candidate: entity_detail.specs
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.relations
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.requirements
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.notes
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.source_pages
+    raw_text: ''
+    source_page: 0
+    reason: 개별 source_pages 필드가 아니라 raw 문구에 페이지 목록만 존재.
+    preservation_note: 페이지 목록은 free_notes로 보존.
+  - field_candidate: entity_detail.source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  - field_candidate: entity_detail.position
+    raw_text: ''
+    source_page: 0
+    reason: 제공되지 않음.
+    preservation_note: 없음
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag 형식상 시트/문서 메타 또는 페이지 안내 주석일 가능성이 높지만, 실제 도면 컨텍스트의 문서 엔티티인지 단순 안내문인지
+      단정 불가.
+    recommended_handling: 후속 단계에서 DocumentEntity/NoteOrLegend 후보로 재검토하되, 현재는 AnnotationOnly로
+      유지.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: dominant_equipment_types 중 도면/시트 식별자 계열 및 문서 메타 계층 관찰'
+    - 'predicted_ontology_structure: DocumentEntity / PlanOrView / ScheduleOrList
+      / NoteOrLegend 후보 반영'
+    - 'discipline_context_plan.unknown: document_metadata 또는 unresolved_structural_entities
+      가능성 고려'
+    deviations:
+    - 실제 entity_detail에 물리 설비/관계가 없어서 structural member mark로 분류하지 않음
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:58.242210'
+  confidence: 0.93

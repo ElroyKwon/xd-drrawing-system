@@ -1,0 +1,198 @@
+placement:
+  tag: SPACE-INSTRUMENT
+  name: 계장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-INSTRUMENT
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - InstrumentRoom
+    - SpatialEntity
+    related_assertions:
+    - type: hasInstalledEquipment
+      target_hint: LAN OUTLET
+      note: specs.equipment_symbols에 관찰됨
+    - type: hasInstalledEquipment
+      target_hint: SYSTEM BOX
+      note: specs.equipment_symbols에 관찰됨
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: 'relations.cable, annotation: UTP CAT.5e / T 배선'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: INSTRUMENT_ROOM'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 내 기능 분류 문자열
+      - raw_text: 'type: space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 표기
+      - raw_text: 'shape: rectangle'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 표기
+      - raw_text: 'position: center-left'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'raw_labels: 계장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면에 직접 표기된 라벨
+      - raw_text: 'labels_inside: 계장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기
+      - raw_text: 'equipment_symbols: LAN OUTLET'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼
+      - raw_text: 'equipment_symbols: SYSTEM BOX'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼
+      - raw_text: 'relation: cable'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 장비 간 연결 관계 원형
+      - raw_text: 'annotation: UTP CAT.5e / T 배선'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격/배선 방식 문자열
+      - raw_text: 'suggested_parent_class: CommunicationSpace'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스
+      - raw_text: 'observed_attributes: raw_labels, labels_inside, equipment_symbols,
+          inferred_name, position, shape'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'function_candidates: NetworkConnectivity, SignalProcessing'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록 보존
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 8
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 8
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates + inferred from type/labels
+    ontology_core.related_assertions:
+      source_pages:
+      - 8
+      method: relations + specs.equipment_symbols
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: scan_all_fields
+    unresolved:
+      source_pages:
+      - 8
+      method: none_explicitly_unresolved
+    ambiguous:
+      source_pages:
+      - 8
+      method: classification_with_mixed_space_equipment_signals
+    plan_reference.guidance_applied:
+      source_pages:
+      - 8
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+    confidence:
+      source_pages:
+      - 8
+      method: heuristic
+  unresolved:
+  - field_candidate: specs.equipment_symbols.count
+    raw_text: 'null'
+    source_page: 8
+    reason: 수량이 명시되지 않음
+    preservation_note: 심볼 종류만 보존
+  - field_candidate: relations[0].annotation
+    raw_text: UTP CAT.5e / T 배선
+    source_page: 8
+    reason: 관계 사실의 정식 속성명은 아직 미확정
+    preservation_note: 케이블 규격/배선 방식 원문 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: NetworkConnectivity, SignalProcessing
+    source_page: 8
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 단계에서 기능 클래스 후보로 검토
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 공간(space)으로 보이지만 내부에 LAN OUTLET, SYSTEM BOX가 있어 순수 공간인지 공간-장비 혼합인지 경계가
+      있음
+    recommended_handling: 0-9c에서 CommunicationSpace 우선 검토 후, 필요 시 공간-설비 혼합 엔티티로 재평가
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 계열 엔티티로 분류
+    - equipment_symbols와 relations를 관계 원형으로 보존
+    - function_category 및 ontology_hints를 후보 정보로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:55.255299'
+  confidence: 0.86

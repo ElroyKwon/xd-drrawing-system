@@ -1,0 +1,159 @@
+placement:
+  tag: S3-SERIES
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 문서 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUsageNote
+          suggested_datatype: xsd:string
+          rationale: 도면/문서 사용 안내 문구
+      - raw_text: S3-SERIES
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 태그 자체의 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: input
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-based candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-based candidate
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 구조적 설비/관계가 아니라 페이지 안내 문구로만 관찰됨
+    preservation_note: 문서 메타/안내 문구로 보존
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드 미제공
+    preservation_note: 빈 값 유지
+  - field_candidate: relations
+    raw_text: ''
+    source_page: 0
+    reason: 관계 정보 미제공
+    preservation_note: 관계 없음으로 보존
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 0
+    reason: specs 정보 미제공
+    preservation_note: 스펙 없음으로 보존
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: connection_specs 정보 미제공
+    preservation_note: 연결 스펙 없음으로 보존
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 0
+    reason: requirements 정보 미제공
+    preservation_note: 요구사항 없음으로 보존
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: drawing_texts 정보 미제공
+    preservation_note: 도면 텍스트 없음으로 보존
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: ontology_hints 정보 미제공
+    preservation_note: 힌트 없음으로 보존
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 0
+    reason: notes 정보 미제공
+    preservation_note: 노트 없음으로 보존
+  - field_candidate: source_pages
+    raw_text: ''
+    source_page: 0
+    reason: 개별 source_pages 필드 미제공
+    preservation_note: 원문 전체 source_page=0만 확인 가능
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: source_attribution 정보 미제공
+    preservation_note: 출처 귀속 없음으로 보존
+  - field_candidate: position
+    raw_text: ''
+    source_page: 0
+    reason: position 정보 미제공
+    preservation_note: 위치 정보 없음으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그가 SERIES 형태의 문서/시트 계열로 보이지만, 실제로는 페이지 안내 문구만 있어 물리 실체인지 문서 메타인지 단정 불가
+    recommended_handling: 후속 단계에서 DocumentEntity 또는 PlanOrView 후보로 재검토하되, 현재는 AnnotationOnly로
+      보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서 메타 계층 우선 보존
+    - 관찰된 것만 기록
+    - 분류 불가 정보는 free_notes로 승격 후보와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:44.982539'
+  confidence: 0.86

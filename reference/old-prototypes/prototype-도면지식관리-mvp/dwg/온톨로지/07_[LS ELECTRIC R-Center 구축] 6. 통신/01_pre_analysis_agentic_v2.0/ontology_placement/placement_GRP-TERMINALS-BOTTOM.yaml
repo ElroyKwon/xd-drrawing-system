@@ -1,0 +1,98 @@
+placement:
+  tag: GRP-TERMINALS-BOTTOM
+  name: Terminals in Bottom Zone
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GRP-TERMINALS-BOTTOM
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - TerminalGroup
+    - Terminal
+    - CommunicationPhysicalEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: TERMINAL_GROUP'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 기능 범주가 직접 표기됨
+      - raw_text: 'symbol_type: AP, FLOOR_BOX, WALL_OUTLET'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: symbolTypeText
+          suggested_datatype: xsd:string
+          rationale: 단말군 구성 심볼 유형이 나열되어 있음
+      - raw_text: 'name: Terminals in Bottom Zone'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기명 자체를 보존할 수 있음
+  provenance:
+    tag:
+      source_pages:
+      - 11
+    name:
+      source_pages:
+      - 11
+    discipline:
+      source_pages:
+      - 11
+    type:
+      source_pages:
+      - 11
+    specs.function_category:
+      source_pages:
+      - 11
+    specs.symbol_type:
+      source_pages:
+      - 11
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 11
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 11
+    ontology_hints.function_candidates:
+      source_pages:
+      - 11
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 11
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 11
+    source_pages:
+      source_pages:
+      - 11
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 단말군(group)으로 보이지만 relations가 없고, 실제 물리 설비 개체인지 단말 묶음 표기인지 경계가 도면상
+      명확하지 않음.
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열의 그룹 인스턴스로 우선 유지하고, 이후 동일
+      패턴의 GRP-TERMINALS-*와 비교해 class 정교화.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'dominant_equipment_types: 단말/아울렛/시스템박스 그룹'
+    - 'predicted_ontology_structure.class_hierarchy_hint: CommunicationEquipment'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:37.080544'
+  confidence: 0.84

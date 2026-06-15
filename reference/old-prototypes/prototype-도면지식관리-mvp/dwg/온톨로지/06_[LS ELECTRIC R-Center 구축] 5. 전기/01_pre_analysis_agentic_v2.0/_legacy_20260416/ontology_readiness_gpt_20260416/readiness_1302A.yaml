@@ -1,0 +1,250 @@
+ontology_readiness:
+  tag: 1302A
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 24
+    reason: 고유 tag와 자체 사양이 충분하며, HV 피더 VCB 패널로서 독립 설비로 식별된다. 부품이 아니라 패널 단위 엔티티다.
+  relation_completeness:
+    declared_relations: 3
+    discovered_relations: 3
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 24
+    convertible: 20
+    ambiguous_attributes:
+    - key: ct_ratio_gemini
+      value: 200/5A
+      reason: ct_ratio와 값 충돌. 동일 개념의 이중 출처 값으로 원문 보존 필요.
+    - key: zct_rating_secondary_mA_gemini
+      value: 1.5
+      reason: ZCT 보조측 표기값으로 보이나 단위/의미가 혼재된 이중 출처 값. 원문 보존 필요.
+    - key: raw_labels
+      value:
+      - 1302A
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      - INTER-LOCK
+      reason: 원문 라벨 묶음은 개별 속성으로 단순 전환 가능하지만, 원문 보존이 필요하여 annotation 대상으로 유지.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - zct_rating
+    - sa_rating
+    - protection_functions
+    - destination
+    - interlock
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - zct_count
+    - zct_rating_mA
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    - load_name
+    - cable_type
+    - cable_size
+    - cable_cores
+    - cable_routing
+    - has_interlock
+    - grounding_mark
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: ct_ratio_sonnet
+      value: 75/5A
+      source: sonnet
+      conflict_with: ct_ratio_gemini=200/5A
+    - key: ct_ratio_gemini
+      value: 200/5A
+      source: gemini
+      conflict_with: ct_ratio_sonnet=75/5A
+    - key: zct_rating_secondary_mA_gemini
+      value: 1.5
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.sonnet
+      value: true
+      source: source_attribution
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: source_attribution
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: source_attribution
+      conflict_with: null
+    conflicts:
+    - key: ct_ratio
+      values:
+      - 75/5A
+      - 200/5A
+      sources:
+      - ct_ratio_sonnet
+      - ct_ratio_gemini
+  duplicate_candidates:
+  - tag: 1302B
+    reason: similar_equipment 후보로 제시되었으나, tag와 목적지/관계가 다르고 동일 물리 설비라는 명확 증거가 없어 중복
+      판정하지 않음.
+  - tag: 1303A
+    reason: similar_equipment 후보로 제시되었으나, 목적지 및 관계가 다르며 동일 설비 증거 부족.
+  - tag: 1301B
+    reason: 동일 계열 HV 피더 VCB 패널이지만 tag와 일부 사양/관계가 달라 중복으로 확정 불가.
+  cross_discipline:
+    links_found:
+    - page 5에서 1302A -> EXT-2201 HV 케이블 연결이 관찰됨
+    hints_added:
+    - 'ELECTRICAL to external load/reference connection via TO: 6301 HV'
+    - page context의 cross_page_references 및 connections에서 외부 연계 확인
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - SwitchgearPanel
+    - CircuitProtection
+    - PowerDistribution
+  spatial_context:
+    position: bottom-left
+    source_pages:
+    - 5
+    room_or_zone: U/T 동 주변전실-1(기존)
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1302A
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      - INTER-LOCK
+      bus_section: HV
+      vcb_rating: 3P 24kV 600A 750MVA
+      ct_ratio: 75/5A
+      zct_rating: 200mA
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      - '67'
+      destination: 'TO: 6301 HV'
+      interlock: true
+      panel_id: 1302A
+      voltage_kV: 3.3
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      ct_ratio_sonnet: 75/5A
+      ct_ratio_gemini: 200/5A
+      zct_count: 1
+      zct_rating_mA: 200
+      zct_rating_secondary_mA_gemini: 1.5
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      load_name: U/T동 부속동력
+      cable_type: 6.6kV CV
+      cable_size: 100sq
+      cable_cores: 3C*1L
+      cable_routing: CABLE TRAY
+      has_interlock: true
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  - connection_specs
+  - requirements
+  - source_attribution
+  - read_page_context.page_5.relationships
+  - read_page_context.page_5.spaces
+  - read_page_context.page_5.diagram_spec
+  - read_page_context.page_5.disagreements
+  - read_page_context.page_5.key_elements_from_text
+  - read_page_context.page_5.visual_semantics
+  - read_page_context.page_5.entity_synthesis
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SwitchgearPanel
+    annotations_to_emit:
+    - ct_ratio_sonnet=75/5A
+    - ct_ratio_gemini=200/5A
+    - zct_rating_secondary_mA_gemini=1.5
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=true
+    - raw_labels
+    - grounding_mark=E1
+    - interlock=true
+    - 'destination=TO: 6301 HV'
+    - load_name=U/T동 부속동력
+    relations_to_emit:
+    - :1302A :connectsTo :1303A
+    - :1302B :controls :1302A
+    - :1302A :partOf :HVBusOrPanelGroup
+    needs_human_review: false
+tag: 1302A
+discovered_relations: 3

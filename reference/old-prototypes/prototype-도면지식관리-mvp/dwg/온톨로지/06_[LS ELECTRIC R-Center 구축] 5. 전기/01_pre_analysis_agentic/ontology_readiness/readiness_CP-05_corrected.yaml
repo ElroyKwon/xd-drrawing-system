@@ -1,0 +1,13 @@
+verdict: demoted
+confidence: 0.98
+reason: 이전 평가를 유지한다. CP-05는 entity_list상 Circuit로 분류되어 있으나, 현재 제공된 근거에서 CP-05라는 태그
+  자체가 page 19 도면 내에서 직접 식별되는 독립 물리 객체로 확인되지 않는다. 확인 가능한 실체는 "생산동력(3Ø 220V) 분전반 결선도-2"라는
+  도면, PANEL BOARD로 표기된 P-EA-2PP / P-F-2PP / P-G-2PP / P-I-2PP 등의 패널, 그리고 MAIN CB /
+  MCCB / SPD / E3 접지와 같은 회로 구성요소 및 일반 요구사항이다. entity_detail의 drawing_number, drawing_title,
+  project_title, project_number는 명백히 도면 메타데이터이며, breaker_rating_notes, cover_type,
+  protection/grounding 관련 표기도 특정 CP-05 고유 사양이라기보다 해당 결선도 또는 패널군에 대한 일반 표기이다. voltage
+  역시 도면 범주의 전원 조건으로는 유효하지만 CP-05라는 독립 엔티티를 고정적으로 식별해 주지 못한다. 따라서 CP-05는 온톨로지에 독립 설비/회로
+  엔티티로 승격하기보다, 도면 기반 회로 참조 또는 문맥성 정보로 보는 것이 타당하다. 또한 기존 평가와 같이 power_feed, protection,
+  surge_protection_to_ground, grounding 관계는 문맥상 관찰되지만, 이는 CP-05 고유 관계라기보다 도면 일반 구성
+  관계로 해석되는 점도 강등 판단을 지지한다.
+tag: CP-05

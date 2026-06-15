@@ -1,0 +1,932 @@
+data_properties:
+- iri: dks:rawLabel
+  label: rawLabel
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: AD-AREA
+    value: A.D
+    source_page: 17
+  - subject: COMM-ROOM-1F
+    value: 사무동 지상1층 통신실
+    source_page: 10
+  - subject: HUB-RACK-01
+    value: HUB RACK - 1 (RACK TYPE)
+    source_page: 4
+  - subject: PA-HEAD-END
+    value: 방송반
+    source_page: 12
+  - subject: ZONE-USER
+    value: 사용자구간
+    source_page: 18
+  total_evidence: 5
+  derivation: raw_labels, labels_inside, raw text에서 원문 표기 보존이 전 영역에 반복된다.
+  confidence: 0.97
+- iri: dks:inferredName
+  label: inferredName
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AD-AREA
+    value: A.D (Air Duct 또는 부속실)
+    source_page: 17
+  - subject: AMP-RACK
+    value: 방송 앰프 랙 (SPK-SP-3, 10회로)
+    source_page: 15
+  - subject: HUB-RACK-1
+    value: HUB RACK-1 (IDF 내 주 허브 랙)
+    source_page: 18
+  - subject: SPACE-SoftwareLab
+    value: Software Lab 방송 설비 구역
+    source_page: 15
+  - subject: ZONE-IDF
+    value: IDF (Intermediate Distribution Frame) 구역
+    source_page: 18
+  total_evidence: 5
+  derivation: inferred_name 계열이 공간, 장비, 문서 전반에서 단일 추론명으로 반복된다.
+  confidence: 0.93
+- iri: dks:position
+  label: position
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AD-WC-1
+    value: center
+    source_page: 10
+  - subject: CCTV-CTL-01
+    value: top-center
+    source_page: 4
+  - subject: HUB-RACK-2F
+    value: center
+    source_page: 8
+  - subject: SPACE-센터장실
+    value: right-center-bottom
+    source_page: 15
+  - subject: TOC-MAIN
+    value: center
+    source_page: 2
+  total_evidence: 5
+  derivation: 도면 내 배치 위치가 거의 모든 엔티티 유형에서 단일 문자열로 관찰된다.
+  confidence: 0.95
+- iri: dks:shape
+  label: shape
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AD-AREA
+    value: rectangle
+    source_page: 17
+  - subject: HUB-RACK-1
+    value: shaded_box
+    source_page: 18
+  - subject: R1-OPT-SWITCH-2
+    value: dashed_box
+    source_page: 18
+  - subject: USER-AP-02
+    value: circle
+    source_page: 18
+  - subject: SPACE-ENTRANCE
+    value: other
+    source_page: 8
+  total_evidence: 5
+  derivation: rectangle, dashed_box, shaded_box, circle, other 등 시각 형상이 반복된다.
+  confidence: 0.95
+- iri: dks:panelId
+  label: panelId
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AD-WC-1
+    value: AD-WC-1
+    source_page: 10
+  - subject: CCTV-CTL-01
+    value: CCTV-CTL-01
+    source_page: 4
+  - subject: HUB-RACK-1
+    value: HUB-RACK-1
+    source_page: 18
+  - subject: NOTE-SECTION
+    value: NOTE-SECTION
+    source_page: 17
+  - subject: SECTION-T2
+    value: SECTION-T2
+    source_page: 4
+  total_evidence: 5
+  derivation: panel_id가 식별자 역할로 반복되며 대부분 단일값이다.
+  confidence: 0.94
+- iri: dks:functionCategory
+  label: functionCategory
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: AMP-RACK
+    value: COMMUNICATION_RACK
+    source_page: 15
+  - subject: IDF-1
+    value: DISTRIBUTION_FRAME
+    source_page: 5
+  - subject: SPACE-중앙회의실
+    value: BROADCASTING_ZONE
+    source_page: 15
+  - subject: SYSTEM_BOX(FA)_2PORT
+    value: OUTLET
+    source_page: 3
+  - subject: ZONE-HORIZONTAL
+    value: CABLING_ZONE
+    source_page: 18
+  total_evidence: 5
+  derivation: function_category 원문이 장비/공간/경로/문서 전반에서 반복된다.
+  confidence: 0.96
+- iri: dks:entityType
+  label: entityType
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: AMP-RACK
+    value: CONTROL
+    source_page: 15
+  - subject: EXT-DUCT
+    value: BOUNDARY
+    source_page: 5
+  - subject: IDF-1
+    value: DISTRIBUTE
+    source_page: 5
+  - subject: SPACE-SEMINAR
+    value: space
+    source_page: 8
+  - subject: 전화_OUTLET(유선)_1PORT
+    value: telephone_outlet
+    source_page: 3
+  total_evidence: 5
+  derivation: type 원문 보존 요구가 매우 빈번하며 대부분 단일 문자열이다.
+  confidence: 0.95
+- iri: dks:suggestedParentClass
+  label: suggestedParentClass
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: 16C_(HFIX_2-1.5sq)
+    value: Cable
+    source_page: 3
+  - subject: AD-WC-1
+    value: CommunicationSpace
+    source_page: 10
+  - subject: CCTV-CTL-01
+    value: ControlPanel
+    source_page: 4
+  - subject: SPACE-ELEC
+    value: ElectricalSpace
+    source_page: 8
+  - subject: ZONE-USER
+    value: CommunicationZone
+    source_page: 18
+  total_evidence: 5
+  derivation: ontology_hints.suggested_parent_class 원문 보존이 다수 태그에서 반복된다.
+  confidence: 0.88
+- iri: dks:functionCandidate
+  label: functionCandidate
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: AMP-RACK
+    value: SignalAmplification
+    source_page: 15
+  - subject: AD-AREA
+    value: Vertical utility passage
+    source_page: 17
+  - subject: IDF-1
+    value: SignalDistribution
+    source_page: 5
+  - subject: SPACE-휴게공간
+    value: Broadcasting
+    source_page: 15
+  - subject: ZONE-MDF
+    value: SignalDistribution
+    source_page: 18
+  total_evidence: 5
+  derivation: function_candidates가 복수값 후보로 반복되어 다값 데이터 속성이 필요하다.
+  confidence: 0.9
+- iri: dks:dimensions
+  label: dimensions
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: CABLE-TRAY-MAIN
+    value: W:500(H)1000mm
+    source_page: 16
+  - subject: HUB-RACK-01
+    value: 1,700 × 800 × 1,100mm
+    source_page: 4
+  - subject: HUB-RACK-1
+    value: 1800(H)×600(W)×750(D)
+    source_page: 18
+  - subject: ITB-CABINET
+    value: 1,700 x 800 x 1,100mm
+    source_page: 5
+  - subject: PB-01
+    value: 400 x 400 x 300mm
+    source_page: 12
+  total_evidence: 5
+  derivation: 랙, 맨홀, 트레이, 풀박스 등에서 치수 문자열이 반복된다.
+  confidence: 0.92
+- iri: dks:cableSpec
+  label: cableSpec
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BROADCAST-ROOM
+    value: FR-3 2.5sq / 10C (36C)
+    source_page: 17
+  - subject: COMM-ROOM-1F
+    value: UTP 0.5mm/25Px1, CAT.5 (28C)
+    source_page: 10
+  - subject: EXT-1F-COMM
+    value: FIBER OPTICAL S.M 12CORE
+    source_page: 5
+  - subject: PULL-BOX-01
+    value: F (ELP 500 FR-8 10C/2.5sq)
+    source_page: 12
+  - subject: SPEAKER-TB-01
+    value: FR-3 2.5sq / 10C
+    source_page: 16
+  total_evidence: 5
+  derivation: 관계 주석과 free_notes에서 케이블 규격 문자열이 매우 반복되며 개별 Cable 개체와 별도로 원문 보존이 필요하다.
+  confidence: 0.94
+- iri: dks:mountType
+  label: mountType
+  domain: dks:CommunicationEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: LAN_OUTLET(FA)_1PORT
+    value: 벽매입형 (Flush Mounted Type)
+    source_page: 3
+  - subject: LAN_OUTLET(OA)_2PORT
+    value: 벽매입형 (Flush Mounted Type)
+    source_page: 3
+  - subject: SYSTEM_BOX(FA)_2PORT
+    value: 바닥매입형 (Floor Mounted Type)
+    source_page: 3
+  - subject: Speaker_Terminal_Board
+    value: 벽매입형 (Flush Mounted Type)
+    source_page: 3
+  - subject: 천정형_스피커_(3W)
+    value: 천정형 (Ceiling Mounting Type)
+    source_page: 3
+  total_evidence: 5
+  derivation: 범례 기반 장비에서 설치 방식이 반복적으로 관찰된다.
+  confidence: 0.93
+- iri: dks:visualDescription
+  label: visualDescription
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: 16C_(HFIX_2-1.5sq)
+    value: 선 위에 사선 2개 표기 (방송배선)
+    source_page: 3
+  - subject: AMP
+    value: 사각형 안에 AMP 표기
+    source_page: 3
+  - subject: HAND_HOLE_FOR_TEL
+    value: 점선 타원형 핸드홀 심볼
+    source_page: 3
+  - subject: LEGEND-BOX
+    value: 범례 및 주기사항 박스
+    source_page: 8
+  - subject: 천정형_스피커_(3W)
+    value: 원형 스피커 심볼
+    source_page: 3
+  total_evidence: 5
+  derivation: 범례/심볼/배선 표기 설명이 반복되어 시각 설명 속성이 필요하다.
+  confidence: 0.9
+- iri: dks:sourceNote
+  label: sourceNote
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: 16C_(HFIX_2-1.5sq)
+    value: 좌측 범례, 방송설비 (배선) 항목
+    source_page: 3
+  - subject: AMP
+    value: 좌측 범례, 전관방송설비 항목
+    source_page: 3
+  - subject: HAND_HOLE_FOR_TEL
+    value: 우측 범례, 공통사항 항목
+    source_page: 3
+  - subject: Speaker_Terminal_Board
+    value: 좌측 범례, 전관방송설비 항목
+    source_page: 3
+  - subject: 전선관_Rise-up,_Through_and_Down
+    value: 우측 범례, 공통사항 항목
+    source_page: 3
+  total_evidence: 5
+  derivation: 범례/출처/근거 위치 설명이 반복되어 원문 출처 보존 속성이 필요하다.
+  confidence: 0.87
+- iri: dks:conductorCount
+  label: conductorCount
+  domain: dks:Cable
+  range: xsd:integer
+  functional_candidate: true
+  evidence:
+  - subject: 16C_(HFIX_2-1.5sq)
+    value: '2'
+    source_page: 3
+  - subject: 16C_(HFIX_3-1.5sq)
+    value: '3'
+    source_page: 3
+  - subject: 16C_(HFIX_4-1.5sq)
+    value: '4'
+    source_page: 3
+  total_evidence: 3
+  derivation: HFIX 계열 케이블 규격에서 도체 수가 정수로 반복 관찰된다.
+  confidence: 0.93
+- iri: dks:conductorSize
+  label: conductorSize
+  domain: dks:Cable
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: 16C_(HFIX_2-1.5sq)
+    value: 1.5sq
+    source_page: 3
+  - subject: 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+    value: 0.5mm
+    source_page: 3
+  - subject: 22C_(UTP_0.5mm___4Px3,_CAT.5e)
+    value: 0.5mm
+    source_page: 3
+  total_evidence: 3
+  derivation: 케이블 규격에서 도체 굵기/치수가 반복된다.
+  confidence: 0.92
+- iri: dks:cableType
+  label: cableType
+  domain: dks:Cable
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: 16C_(HFIX_2-1.5sq)
+    value: HFIX
+    source_page: 3
+  - subject: 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+    value: UTP
+    source_page: 3
+  - subject: 28C_(UTP_0.5mm___4Px8,_CAT.5e)
+    value: UTP
+    source_page: 3
+  total_evidence: 3
+  derivation: HFIX, UTP 등 케이블 종류가 규격 엔티티에서 반복된다.
+  confidence: 0.94
+- iri: dks:pairCount
+  label: pairCount
+  domain: dks:Cable
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+    value: 4Px1
+    source_page: 3
+  - subject: 22C_(UTP_0.5mm___4Px3,_CAT.5e)
+    value: 4Px3
+    source_page: 3
+  - subject: 28C_(UTP_0.5mm___4Px8,_CAT.5e)
+    value: 4Px8
+    source_page: 3
+  total_evidence: 3
+  derivation: UTP 규격에서 pair_count가 반복된다.
+  confidence: 0.93
+- iri: dks:category
+  label: category
+  domain: dks:Cable
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+    value: CAT.5e
+    source_page: 3
+  - subject: 22C_(UTP_0.5mm___4Px4,_CAT.5e)
+    value: CAT.5e
+    source_page: 3
+  - subject: 28C_(UTP_0.5mm___4Px6,_CAT.5e)
+    value: CAT.5e
+    source_page: 3
+  total_evidence: 3
+  derivation: UTP 케이블 카테고리 표기가 반복된다.
+  confidence: 0.92
+- iri: dks:powerRating
+  label: powerRating
+  domain: dks:CommunicationEquipment
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: 천정형_스피커_(3W)
+    value: 3W
+    source_page: 3
+  - subject: 벽부형_스피커_(3W)
+    value: 3W
+    source_page: 3
+  - subject: 벽부형_스피커_(10W)
+    value: 10W
+    source_page: 3
+  - subject: 벽부형_스피커_(20~30W)
+    value: 20~30W
+    source_page: 3
+  - subject: UNKNOWN-SPEAKER-CEILING-01
+    value: 3W
+    source_page: 16
+  total_evidence: 5
+  derivation: 스피커류에서 정격 출력이 반복적으로 관찰된다.
+  confidence: 0.94
+- iri: dks:scheduleText
+  label: scheduleText
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: HUB-RACK-1
+    value: 19" CABINET RACK 1800(H)×600(W)×750(D) qty 1; F.D.F - IN 5M 12CORE, LC
+      TYPE qty 1; ...
+    source_page: 18
+  - subject: HUB-RACK-2
+    value: GIGABIT ETHERNET SWITCH, 10/100/1000T 24PORT, SFP 4PORT
+    source_page: 5
+  - subject: SEC-BROADCAST
+    value: 11 | ET-02-001 | 방송설비 계통도 | NONE | NONE
+    source_page: 2
+  - subject: SEC-COMM
+    value: 4 | ET-01-001 | 정보통신설비 계통도 | NONE | NONE
+    source_page: 2
+  - subject: META-CABLE-SCH
+    value: T1 | 16C (UTP 0.5mm/4Px1, CAT.5e)
+    source_page: 5
+  total_evidence: 5
+  derivation: 랙 스케줄, 도면 목록, 케이블 스케줄 등 표/목록 원문이 반복된다.
+  confidence: 0.86
+- iri: dks:drawingNumber
+  label: drawingNumber
+  domain: dks:DocumentEntity
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: HUB-RACK-001
+    value: ET-01-007
+    source_page: 11
+  - subject: TITLE-BLOCK
+    value: ET-00-001
+    source_page: 2
+  - subject: TITLE-BLOCK
+    value: ET-00-002
+    source_page: 2
+  - subject: TITLE-BLOCK
+    value: ET-01-006
+    source_page: 2
+  - subject: TITLE-BLOCK
+    value: ET-02-006
+    source_page: 2
+  total_evidence: 5
+  derivation: 표제란과 일부 장비 참조에서 도면번호가 반복된다.
+  confidence: 0.88
+- iri: dks:drawingTitle
+  label: drawingTitle
+  domain: dks:DocumentEntity
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: HUB-RACK-001
+    value: 사무동 지상2층 정보통신 설비 평면도
+    source_page: 11
+  - subject: FLOOR-B1
+    value: 사무동 지하1층 정보통신 설비 평면도
+    source_page: 9
+  - subject: TITLE-BLOCK
+    value: 정보통신용 도면 목록표
+    source_page: 2
+  - subject: TITLE-BLOCK
+    value: 정보통신용 범례 및 주기사항
+    source_page: 2
+  - subject: UNKNOWN-PANEL-001
+    value: LS ELECTRIC 천안 R-Center 구축설계
+    source_page: 1
+  total_evidence: 5
+  derivation: 표제란/표지/도면 메타에서 제목 문자열이 반복된다.
+  confidence: 0.9
+- iri: dks:date
+  label: date
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: HUB-RACK-001
+    value: '2024.04'
+    source_page: 11
+  - subject: TITLE-BLOCK
+    value: '2024.04'
+    source_page: 2
+  - subject: UNKNOWN-PANEL-001
+    value: '2024.05'
+    source_page: 1
+  - subject: UNKNOWN-PANEL-002
+    value: '2024.05'
+    source_page: 1
+  total_evidence: 4
+  derivation: 표제란/표지/도면 메타에서 날짜 문자열이 반복된다.
+  confidence: 0.84
+- iri: dks:note
+  label: note
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BB-110-VOICE
+    value: (기존 예정 자재)
+    source_page: 18
+  - subject: BROADCAST-ROOM
+    value: 기존 방송실 MAIN AMP 360W 추가 신설
+    source_page: 17
+  - subject: MANHOLE-01
+    value: 터파기 신설 구역
+    source_page: 4
+  - subject: META-NOTES
+    value: 2. CABLE TRAY내 배관,배선시 전선관을 제외한 CABLE만 포설한다.
+    source_page: 5
+  - subject: SECTION-T1
+    value: 사용전 표시(전기공사분)
+    source_page: 4
+  total_evidence: 5
+  derivation: 주석성 문구, 시공 메모, 상태 설명이 전반적으로 반복된다.
+  confidence: 0.9
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:rawLabel
+  datatype: xsd:string
+  label: rawLabel
+  evidence_tags:
+  - AD-AREA
+  - COMM-ROOM-1F
+  - HUB-RACK-01
+  - PA-HEAD-END
+  - ZONE-USER
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AD-AREA
+    raw_text: A.D
+    source_page: 17
+  - tag: COMM-ROOM-1F
+    raw_text: 사무동 지상1층 통신실
+    source_page: 10
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:inferredName
+  datatype: xsd:string
+  label: inferredName
+  evidence_tags:
+  - AD-AREA
+  - AMP-RACK
+  - HUB-RACK-1
+  - SPACE-SoftwareLab
+  - ZONE-IDF
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AMP-RACK
+    raw_text: 'specs.inferred_name: 방송 앰프 랙 (SPK-SP-3, 10회로)'
+    source_page: 15
+  - tag: ZONE-IDF
+    raw_text: 'inferred_name: IDF (Intermediate Distribution Frame) 구역'
+    source_page: 18
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:position
+  datatype: xsd:string
+  label: position
+  evidence_tags:
+  - AD-WC-1
+  - CCTV-CTL-01
+  - HUB-RACK-2F
+  - SPACE-센터장실
+  - TOC-MAIN
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AD-WC-1
+    raw_text: 'position: center'
+    source_page: 10
+  - tag: CCTV-CTL-01
+    raw_text: 'specs.position: top-center'
+    source_page: 4
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:shape
+  datatype: xsd:string
+  label: shape
+  evidence_tags:
+  - AD-AREA
+  - HUB-RACK-1
+  - R1-OPT-SWITCH-2
+  - USER-AP-02
+  - SPACE-ENTRANCE
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AD-AREA
+    raw_text: 'shape: rectangle'
+    source_page: 17
+  - tag: USER-AP-02
+    raw_text: 'shape: circle'
+    source_page: 18
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:panelId
+  datatype: xsd:string
+  label: panelId
+  evidence_tags:
+  - AD-WC-1
+  - CCTV-CTL-01
+  - HUB-RACK-1
+  - NOTE-SECTION
+  - SECTION-T2
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AD-WC-1
+    raw_text: 'panel_id: AD-WC-1'
+    source_page: 10
+  - tag: SECTION-T2
+    raw_text: SECTION-T2
+    source_page: 4
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:functionCategory
+  datatype: xsd:string
+  label: functionCategory
+  evidence_tags:
+  - AMP-RACK
+  - IDF-1
+  - SPACE-중앙회의실
+  - SYSTEM_BOX(FA)_2PORT
+  - ZONE-HORIZONTAL
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AMP-RACK
+    raw_text: 'function_category: COMMUNICATION_RACK'
+    source_page: 15
+  - tag: ZONE-HORIZONTAL
+    raw_text: 'function_category: CABLING_ZONE'
+    source_page: 18
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:entityType
+  datatype: xsd:string
+  label: entityType
+  evidence_tags:
+  - AMP-RACK
+  - EXT-DUCT
+  - IDF-1
+  - SPACE-SEMINAR
+  - 전화_OUTLET(유선)_1PORT
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: EXT-DUCT
+    raw_text: 'type: BOUNDARY'
+    source_page: 5
+  - tag: 전화_OUTLET(유선)_1PORT
+    raw_text: 'type: telephone_outlet'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:suggestedParentClass
+  datatype: xsd:string
+  label: suggestedParentClass
+  evidence_tags:
+  - 16C_(HFIX_2-1.5sq)
+  - AD-WC-1
+  - CCTV-CTL-01
+  - SPACE-ELEC
+  - ZONE-USER
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: 16C_(HFIX_2-1.5sq)
+    raw_text: 'ontology_hints.suggested_parent_class: Cable'
+    source_page: 3
+  - tag: AD-WC-1
+    raw_text: 'suggested_parent_class: CommunicationSpace'
+    source_page: 10
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:functionCandidate
+  datatype: xsd:string
+  label: functionCandidate
+  evidence_tags:
+  - AMP-RACK
+  - AD-AREA
+  - IDF-1
+  - SPACE-휴게공간
+  - ZONE-MDF
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AMP-RACK
+    raw_text: 'ontology_hints.function_candidates: SignalAmplification, AudioDistribution,
+      PublicAddressControl'
+    source_page: 15
+  - tag: AD-AREA
+    raw_text: 'function_candidates: Vertical utility passage'
+    source_page: 17
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:dimensions
+  datatype: xsd:string
+  label: dimensions
+  evidence_tags:
+  - CABLE-TRAY-MAIN
+  - HUB-RACK-01
+  - HUB-RACK-1
+  - ITB-CABINET
+  - PB-01
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: ITB-CABINET
+    raw_text: 1,700 x 800 x 1,100mm
+    source_page: 5
+  - tag: PB-01
+    raw_text: 400 x 400 x 300mm
+    source_page: 12
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:cableSpec
+  datatype: xsd:string
+  label: cableSpec
+  evidence_tags:
+  - BROADCAST-ROOM
+  - COMM-ROOM-1F
+  - EXT-1F-COMM
+  - PULL-BOX-01
+  - SPEAKER-TB-01
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: COMM-ROOM-1F
+    raw_text: UTP 0.5mm/25Px1, CAT.5 (28C)
+    source_page: 10
+  - tag: SPEAKER-TB-01
+    raw_text: FR-3 2.5sq / 10C
+    source_page: 16
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:mountType
+  datatype: xsd:string
+  label: mountType
+  evidence_tags:
+  - LAN_OUTLET(FA)_1PORT
+  - LAN_OUTLET(OA)_2PORT
+  - SYSTEM_BOX(FA)_2PORT
+  - Speaker_Terminal_Board
+  - 천정형_스피커_(3W)
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: LAN_OUTLET(FA)_1PORT
+    raw_text: 'mount_type: 벽매입형 (Flush Mounted Type)'
+    source_page: 3
+  - tag: SYSTEM_BOX(FA)_2PORT
+    raw_text: 'mount_type_sonnet: 바닥매입형 (Floor Mounted Type)'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:visualDescription
+  datatype: xsd:string
+  label: visualDescription
+  evidence_tags:
+  - 16C_(HFIX_2-1.5sq)
+  - AMP
+  - HAND_HOLE_FOR_TEL
+  - LEGEND-BOX
+  - 천정형_스피커_(3W)
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AMP
+    raw_text: 'visual_description: 사각형 안에 AMP 표기'
+    source_page: 3
+  - tag: HAND_HOLE_FOR_TEL
+    raw_text: 'visual_description: 점선 타원형 핸드홀 심볼'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:sourceNote
+  datatype: xsd:string
+  label: sourceNote
+  evidence_tags:
+  - 16C_(HFIX_2-1.5sq)
+  - AMP
+  - HAND_HOLE_FOR_TEL
+  - Speaker_Terminal_Board
+  - 전선관_Rise-up,_Through_and_Down
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: AMP
+    raw_text: 'source: 좌측 범례, 전관방송설비 항목'
+    source_page: 3
+  - tag: 전선관_Rise-up,_Through_and_Down
+    raw_text: 'source: 우측 범례, 공통사항 항목'
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:powerRating
+  datatype: xsd:string
+  label: powerRating
+  evidence_tags:
+  - 천정형_스피커_(3W)
+  - 벽부형_스피커_(3W)
+  - 벽부형_스피커_(10W)
+  - 벽부형_스피커_(20~30W)
+  - UNKNOWN-SPEAKER-CEILING-01
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: 벽부형_스피커_(10W)
+    raw_text: 'power: 10W'
+    source_page: 3
+  - tag: UNKNOWN-SPEAKER-CEILING-01
+    raw_text: 스피커 천정형 (3W)
+    source_page: 16
+unused_hints:
+- suggested_property_label: observedAttributes
+  evidence_count: 4
+  sample_tags:
+  - 16C_(HFIX_2-1.5sq)
+  - EXT-DUCT
+  - SPACE-ELEC
+  reason_not_promoted: 메타 보존 가치는 있으나 도메인 의미가 약하고 구조화 효용이 낮음
+- suggested_property_label: discipline
+  evidence_count: 4
+  sample_tags:
+  - 16C_(HFIX_3-1.5sq)
+  - EL-AREA
+  - ZONE-MDF
+  reason_not_promoted: 본 프로젝트가 단일 discipline 중심이라 구분 효용이 낮음
+- suggested_property_label: equipmentSymbol
+  evidence_count: 4
+  sample_tags:
+  - SPACE-사무실
+  - SPACE-센터장실
+  - UNKNOWN-SPEAKER-WALL-3W-01
+  reason_not_promoted: 심볼 문자열과 실제 장비 관계가 혼재되어 object/data 분리 추가 검증 필요
+- suggested_property_label: labelsInside
+  evidence_count: 4
+  sample_tags:
+  - ROOM-COMM-1F
+  - USER-AP-02
+  - ZONE-IDF
+  reason_not_promoted: rawLabel과 중복도가 높아 우선 rawLabel로 통합
+- suggested_property_label: collectionSource
+  evidence_count: 3
+  sample_tags:
+  - PULL-BOX-MAIN
+  - SHOW-ROOM
+  - STB-S1
+  reason_not_promoted: 추출 메타정보로서 핵심 도메인 속성 우선순위가 낮음
+- suggested_property_label: sourcePages
+  evidence_count: 3
+  sample_tags:
+  - HUB-RACK-1
+  - SPACE-ELEC
+  - UNKNOWN-SPACE-02
+  reason_not_promoted: locatedOnPage object property로 일부 대체 가능
+- suggested_property_label: equipmentSymbols
+  evidence_count: 4
+  sample_tags:
+  - HUB-RACK-1
+  - ROOM-BROAD-1F
+  - SPACE-PARKING
+  reason_not_promoted: 심볼 집계 문자열은 hasInstalledEquipment와 중복되며 정규화 필요
+- suggested_property_label: relationAnnotation
+  evidence_count: 2
+  sample_tags:
+  - SPACE-COMM
+  - TUNNEL-DUCT-01
+  reason_not_promoted: cableSpec/note/routesThrough로 분해 가능
+- suggested_property_label: installationMethod
+  evidence_count: 4
+  sample_tags:
+  - BROADCAST-ROOM
+  - COMM-ROOM-1F
+  - HUB-RACK-EQUIP
+  reason_not_promoted: 반복은 있으나 표현 다양성이 커서 우선 note/cableSpec에 흡수
+- suggested_property_label: hasInstalledEquipmentCount
+  evidence_count: 2
+  sample_tags:
+  - ROOM-1F-ZONES
+  - PULL-BOX-ZONE
+  reason_not_promoted: 수량 문자열 정규화 기준 미정
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T14:54:44.218382'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.87

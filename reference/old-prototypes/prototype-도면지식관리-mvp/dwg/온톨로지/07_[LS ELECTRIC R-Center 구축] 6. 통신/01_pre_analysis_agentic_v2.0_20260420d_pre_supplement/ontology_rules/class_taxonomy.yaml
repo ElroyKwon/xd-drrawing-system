@@ -1,0 +1,1398 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=252)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T14:51:02.681773'
+  classes:
+  - iri: dks:SpatialEntity
+    label: SpatialEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - AD-AREA
+    - ANTEROOM
+    - COMM-ROOM-1F
+    - COO-ROOM
+    - CORE-EL
+    - DOCUMENT-STORAGE
+    - DRIVE-DEV-LAB
+    - DRIVE-LAB
+    - EL-AREA
+    - FLOOR-PIT
+    - JEONSAN-ROOM
+    - MEETING-ROOM-MAIN
+    - RESERVE
+    - RESERVED-AREA
+    - RESTROOM-1
+    - RESTROOM-2
+    - ROOM-COMM-1F
+    - SHAFT-EPS
+    - SHAFT-PS
+    - SPACE-CORRIDOR
+    - SPACE-ELEC
+    - SPACE-중층소방공간
+    - STAIR-CORE
+    - SUPPORT-AREA-LEFT
+    - WC-AREA
+    derivation: class_hint가 SpatialEntity 또는 공간 일반형(Space, Room, SpatialRegion, Shaft,
+      ReservedSpace 등)으로 반복됨.
+    source_pages:
+    - 5
+    - 10
+    - 12
+    - 15
+    - 17
+    confidence: 0.9
+  - iri: dks:CommunicationSpace
+    label: CommunicationSpace
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - AD-WC-1
+    - AD-WC-2
+    - BROADCAST-ROOM
+    - MEETING-ROOM-SMALL-6
+    - ROOM-1F-ZONES
+    - ROOM-BROAD-1F
+    - ROOM-ROOF-MGMT
+    - SHOW-ROOM
+    - SMART-HOME-MTG
+    - SMART-ROOM
+    - SPACE-ANNEX
+    - SPACE-COMM-CORRIDOR
+    - SPACE-COMM
+    - SPACE-FLOOR-MGMT
+    - SPACE-INSTRUMENT
+    - SPACE-NOISE
+    - SPACE-OA-PANTRY
+    - SPACE-SEMINAR
+    - SPACE-SERVER
+    - SPACE-SOFTLAB
+    - SPACE-SoftwareLab
+    - SPACE-로비휴게공간
+    - SPACE-사무실
+    - SPACE-세미나다목적실
+    - SPACE-센터장실
+    - ZONE-1F
+    - ZONE-BACKBONE
+    - ZONE-IDF
+    - ZONE-ROOF
+    derivation: class_hint가 CommunicationSpace로 직접 반복되며, 이름도 통신실/방송실/단말구역/시스템 공간 패턴을
+      보임.
+    source_pages:
+    - 5
+    - 10
+    - 12
+    - 15
+    - 17
+    - 18
+    confidence: 0.93
+  - iri: dks:CommunicationRoom
+    label: CommunicationRoom
+    super_classes:
+    - dks:CommunicationSpace
+    evidence_tags:
+    - COMM-ROOM-1F
+    - ROOM-COMM-1F
+    derivation: class_hint가 CommunicationRoom으로 직접 관찰됨.
+    source_pages:
+    - 10
+    confidence: 0.95
+  - iri: dks:TelecommunicationsRoom
+    label: TelecommunicationsRoom
+    super_classes:
+    - dks:CommunicationRoom
+    evidence_tags:
+    - JEONSAN-ROOM
+    derivation: JEONSAN-ROOM의 class_hint가 TelecommunicationsRoom으로 직접 주어짐.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:Laboratory
+    label: Laboratory
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - DRIVE-DEV-LAB
+    derivation: class_hint가 Laboratory로 직접 관찰됨.
+    source_pages:
+    - 10
+    confidence: 0.9
+  - iri: dks:MeetingRoom
+    label: MeetingRoom
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - MEETING-ROOM-MAIN
+    derivation: class_hint가 MeetingRoom으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:CommunicationZone
+    label: CommunicationZone
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - CONF-ROOM-ZONE-A
+    - FLOOR-1F
+    - FLOOR-2F
+    - FLOOR-B1
+    - LOBBY-CORRIDOR
+    - OFFICE-AREA
+    - OPEN-OFFICE-ZONE
+    - ROOM-2F-ZONES
+    - SPACE-PARKING
+    - SPACE-남자화장실
+    - SPACE-여자화장실
+    - SPACE-연결통로
+    - SPACE-중앙회의실
+    - SPACE-휴게공간
+    - SUPPORT-AREA
+    - ZONE-2F
+    - ZONE-HORIZONTAL
+    - ZONE-USER
+    derivation: class_hint가 CommunicationZone으로 반복되며, 이름 패턴도 층/구역/사용자구간/오피스존 등 영역
+      단위임.
+    source_pages:
+    - 5
+    - 9
+    - 10
+    - 12
+    - 15
+    - 17
+    confidence: 0.93
+  - iri: dks:BroadcastZone
+    label: BroadcastZone
+    super_classes:
+    - dks:CommunicationZone
+    evidence_tags:
+    - FLOOR-ROOF
+    derivation: class_hint가 BroadcastZone으로 직접 관찰되며 층 단위 방송 구역으로 보임.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SupportArea
+    label: SupportArea
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - SUPPORT-AREA-LEFT
+    derivation: class_hint가 SupportArea로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:ReservedSpace
+    label: ReservedSpace
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - RESERVE
+    - RESERVED-AREA
+    derivation: class_hint가 ReservedSpace로 반복됨.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:Shaft
+    label: Shaft
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - SHAFT-EPS
+    - SHAFT-PS
+    derivation: class_hint가 Shaft로 직접 반복됨.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalSpace
+    label: ElectricalSpace
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - SPACE-ELEC
+    derivation: class_hint가 ElectricalSpace로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.87
+  - iri: dks:FireProtectionArea
+    label: FireProtectionArea
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - SPACE-중층소방공간
+    derivation: class_hint가 FireProtectionArea로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:CommunicationEquipment
+    label: CommunicationEquipment
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - AMP-RACK
+    - BB-110-VOICE
+    - FA_NETWORK_CABINET
+    - HOR-UNIT-01
+    - HOR-UNIT-02
+    - HOR-UNIT-03
+    - HOR-UNIT-04
+    - HOR-UNIT-05
+    - HUB-RACK-001
+    - HUB-RACK-01
+    - HUB-RACK-1
+    - HUB-RACK-2
+    - HUB-RACK-EQUIP
+    - IDF-1
+    - LAN_6PORT_OUTLET_-_FA
+    - LAN_OUTLET(FA)_1PORT
+    - LAN_OUTLET(FA)_2PORT
+    - LAN_OUTLET(OA)_1PORT
+    - LAN_OUTLET(OA)_2PORT
+    - OA_NETWORK_CABINET
+    - PA-HEAD-END
+    - PA-RACK-01
+    - R1-110-BLOCK
+    - R1-AP-CONTROLLER
+    - R1-ETH-SWITCH
+    - R1-OPT-SWITCH-1
+    - R1-OPT-SWITCH-2
+    - R1-PATCH-PANEL-1
+    - R1-PATCH-PANEL-2
+    - R1-POE-SWITCH
+    - R2-ETH-SWITCH
+    - R2-OPT-SWITCH
+    - R2-PATCH-PANEL
+    - R2-POE-SWITCH
+    - RACK-HUB-2
+    - RACK-IDF-1
+    - SPEAKER-TB-01
+    - Speaker_Terminal_Board
+    - SYSBOX-DATA-01
+    - SYSBOX-DATA-02
+    - SYSBOX-DATA-03
+    - SYSBOX-DATA-04
+    - SYSBOX-VOICE-LEFT
+    - SYSBOX-VOICE-RIGHT
+    - SYSTEM_BOX(FA)_2PORT
+    - SYSTEM_BOX(OA)_2PORT_-_ACCESS_및_O.A_FLOOR형
+    - UNKNOWN-SPEAKER-CEILING-01
+    - UNKNOWN-SPEAKER-WALL-10W-01
+    - UNKNOWN-SPEAKER-WALL-3W-01
+    - ZONE-MDF
+    - 무선_AP_-_FA
+    - 무선_AP_-_OA
+    - 벽부형_스피커_(10W)
+    - 벽부형_스피커_(20~30W)
+    - 벽부형_스피커_(3W)
+    - 천정형_스피커_(3W)
+    derivation: class_hint가 CommunicationEquipment로 가장 빈번하게 반복되며, 랙/패널/아울렛/스피커/단자함
+      등 장비명 패턴이 강함.
+    source_pages:
+    - 3
+    - 5
+    - 11
+    - 16
+    - 18
+    confidence: 0.95
+  - iri: dks:CommunicationRack
+    label: CommunicationRack
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - HUB-RACK-2F
+    derivation: class_hint가 CommunicationRack으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:FiberDistributionFrame
+    label: FiberDistributionFrame
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - BB-FDF-DATA
+    - R1-FDF-IN
+    - R1-FDF-OUT-1
+    - R1-FDF-OUT-2
+    - R2-FDF-IN
+    - R2-FDF-OUT
+    derivation: class_hint가 FiberDistributionFrame으로 반복되며 이름도 F.D.F/FDF 패턴.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:ControlPanel
+    label: ControlPanel
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - CCTV-CTL-01
+    derivation: class_hint가 ControlPanel로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:CommunicationOutlet
+    label: CommunicationOutlet
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - HOR-UNIT-06
+    - SYSTEM_BOX(OA)_2PORT
+    derivation: class_hint가 CommunicationOutlet으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SpeakerTerminalBox
+    label: SpeakerTerminalBox
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - STB-S1
+    derivation: class_hint가 SpeakerTerminalBox로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:TerminalBox
+    label: TerminalBox
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - STB-S2
+    derivation: class_hint가 TerminalBox로 직접 관찰되며 이름도 단자함 패턴.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:CommunicationDevice
+    label: CommunicationDevice
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - 전화_OUTLET(유선)_1PORT
+    derivation: class_hint가 CommunicationDevice로 반복되며 사용자 단말/전화 아울렛 패턴이 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:WirelessAccessPoint
+    label: WirelessAccessPoint
+    super_classes:
+    - dks:CommunicationEquipment
+    evidence_tags:
+    - USER-AP-02
+    derivation: class_hint가 WirelessAccessPoint로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:CommunicationTerminal
+    label: CommunicationTerminal
+    super_classes:
+    - dks:CommunicationDevice
+    evidence_tags:
+    - USER-TEL-RIGHT
+    derivation: class_hint가 CommunicationTerminal로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:CableAndPathway
+    label: CableAndPathway
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EXT-DUCT
+    - EXT-UNDERGROUND
+    derivation: class_hint가 CableAndPathway로 직접 반복됨.
+    source_pages:
+    - 5
+    confidence: 0.9
+  - iri: dks:CableTray
+    label: CableTray
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - CABLE-TRAY-MAIN
+    - CABLE-TRAY-SUB
+    - TRAY-EXISTING
+    - TRAY-GONGDONG
+    - UNKNOWN-SPACE-01
+    - UNKNOWN-SPACE-02
+    derivation: class_hint가 CableTray로 반복되며 이름도 TRAY 패턴.
+    source_pages:
+    - 16
+    confidence: 0.96
+  - iri: dks:CableManagementSystem
+    label: CableManagementSystem
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - SECTION-T2
+    - TUNNEL-DUCT-01
+    derivation: class_hint가 CableManagementSystem으로 관찰되며 공동구/덕트 상세와 연결됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:CableContainment
+    label: CableContainment
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - UNDERGROUND-DUCT
+    derivation: class_hint가 CableContainment로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:CommunicationPathway
+    label: CommunicationPathway
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - UNKNOWN-SPACE-03
+    derivation: class_hint가 CommunicationPathway로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:CablePath
+    label: CablePath
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - UNKNOWN-SPACE-05
+    derivation: class_hint가 CablePath로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:CableRoute
+    label: CableRoute
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - ROUTE-TO-2F-SERVER
+    - ROUTE-TO-RCENTER
+    - UNKNOWN-SPACE-04
+    derivation: class_hint가 CableRoute로 반복되며 TO/방향/경로 패턴이 일치함.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:JunctionBox
+    label: JunctionBox
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - PB-01
+    - PULL-BOX-01
+    - PULL-BOX-MAIN
+    - PULL-BOX-ZONE
+    - PULL-BOX
+    - PULLBOX-ZONE
+    - 조인트_박스_(J.B)
+    - 풀_박스_(P.B)
+    derivation: class_hint가 JunctionBox로 반복되며 이름도 PULL BOX/J.B/P.B 패턴.
+    source_pages:
+    - 5
+    confidence: 0.96
+  - iri: dks:Manhole
+    label: Manhole
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - ITB-CABINET
+    - MANHOLE-IC
+    - MH-01
+    derivation: class_hint가 Manhole로 직접 반복됨.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:UndergroundStructure
+    label: UndergroundStructure
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - MANHOLE-01
+    derivation: class_hint가 UndergroundStructure로 직접 관찰되며 이름은 맨홀 패턴.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:CivilStructure
+    label: CivilStructure
+    super_classes:
+    - dks:CableAndPathway
+    evidence_tags:
+    - DUCT-01
+    derivation: class_hint가 CivilStructure로 직접 관찰되며 이름은 지하공동구.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:CommunicationInfrastructure
+    label: CommunicationInfrastructure
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EXT-INTAKE
+    - HAND_HOLE_FOR_TEL
+    derivation: class_hint가 CommunicationInfrastructure로 관찰됨. 외부 인입/핸드홀 등 기반시설 성격.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:ExternalSource
+    label: ExternalSource
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EXT-SOURCE-CCTV
+    - EXT-사무동방송실
+    derivation: class_hint가 ExternalSource로 반복되며 이름도 외부 인입 소스 패턴.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:SignalSource
+    label: SignalSource
+    super_classes:
+    - dks:ExternalSource
+    evidence_tags:
+    - EXT-SOURCE-01
+    derivation: class_hint가 SignalSource로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:CommunicationSource
+    label: CommunicationSource
+    super_classes:
+    - dks:ExternalSource
+    evidence_tags:
+    - EXT-SOURCE-BROAD-1F
+    derivation: class_hint가 CommunicationSource로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:ExternalInlet
+    label: ExternalInlet
+    super_classes:
+    - dks:ExternalSource
+    evidence_tags:
+    - EXT-SOURCE-COMM-1F
+    derivation: class_hint가 ExternalInlet으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:ExternalConnection
+    label: ExternalConnection
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EXT-MDF-VOICE
+    - EXT-SOURCE-SERVER-2F
+    derivation: class_hint가 ExternalConnection으로 반복됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:ExternalInterface
+    label: ExternalInterface
+    super_classes:
+    - dks:ExternalConnection
+    evidence_tags:
+    - EXT-MDF-DATA
+    derivation: class_hint가 ExternalInterface로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:CommunicationEntry
+    label: CommunicationEntry
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EXT-1F-COMM
+    derivation: class_hint가 CommunicationEntry로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Cable
+    label: Cable
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - 16C_(HFIX_3-1.5sq)
+    derivation: class_hint가 Cable로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:CommunicationCable
+    label: CommunicationCable
+    super_classes:
+    - dks:Cable
+    evidence_tags:
+    - 16C_(HFIX_4-1.5sq)
+    - 16C_(UTP_0.5mm___4Px1,_CAT.5e)
+    - 16C_(UTP_0.5mm___4Px2,_CAT.5e)
+    - 22C_(UTP_0.5mm___4Px3,_CAT.5e)
+    - 22C_(UTP_0.5mm___4Px4,_CAT.5e)
+    - 28C_(UTP_0.5mm___4Px6,_CAT.5e)
+    - 28C_(UTP_0.5mm___4Px8,_CAT.5e)
+    derivation: class_hint가 CommunicationCable로 반복되며 이름도 UTP/HFIX 케이블 규격 패턴.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:CableSpec
+    label: CableSpec
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - 16C_(HFIX_2-1.5sq)
+    derivation: class_hint가 CableSpec으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Wiring
+    label: Wiring
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - Duct,_Tray내_배선
+    derivation: class_hint가 Wiring으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:ConduitSystem
+    label: ConduitSystem
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - 바닥_은폐배관,_배선_또는_지중_매설배관,_배선
+    derivation: class_hint가 ConduitSystem으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:ConduitRoute
+    label: ConduitRoute
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - 전선관_Rise-up,_Through_and_Down
+    derivation: class_hint가 ConduitRoute로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:WiringPath
+    label: WiringPath
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - 홈런_to_Panelboard
+    derivation: class_hint가 WiringPath로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:InformationEntity
+    label: InformationEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - CABLE-SCHEDULE
+    derivation: class_hint가 InformationEntity로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:Legend
+    label: Legend
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - LEGEND-BOX
+    derivation: class_hint가 Legend로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:InformationElement
+    label: InformationElement
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - LEGEND-NOTE
+    derivation: class_hint가 InformationElement로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:TechnicalSchedule
+    label: TechnicalSchedule
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - META-CABLE-SCH
+    derivation: class_hint가 TechnicalSchedule로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:DrawingMetadata
+    label: DrawingMetadata
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - META-NOTES
+    - NOTES-SECTION
+    derivation: class_hint가 DrawingMetadata로 반복됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:LegendSection
+    label: LegendSection
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - NOTE-LEGEND
+    derivation: class_hint가 LegendSection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:DrawingLegend
+    label: DrawingLegend
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - NOTE-SECTION
+    derivation: class_hint가 DrawingLegend로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:Annotation
+    label: Annotation
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - NOTES-BOX
+    derivation: class_hint가 Annotation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:ReferenceInformation
+    label: ReferenceInformation
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - TOC-MAIN
+    derivation: class_hint가 ReferenceInformation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:LegendItem
+    label: LegendItem
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - 노출배관,_배선
+    derivation: class_hint가 LegendItem으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:DocumentEntity
+    label: DocumentEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - SEC-BROADCAST
+    - TITLE-BLOCK
+    derivation: class_hint가 DocumentEntity로 직접 반복됨.
+    source_pages:
+    - 2
+    - 3
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    confidence: 0.9
+  - iri: dks:DrawingSection
+    label: DrawingSection
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SEC-BLOCKDIAG
+    derivation: class_hint가 DrawingSection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:CommunicationSystemSection
+    label: CommunicationSystemSection
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SEC-COMM
+    derivation: class_hint가 CommunicationSystemSection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:DrawingReference
+    label: DrawingReference
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SEC-GENERAL
+    derivation: class_hint가 DrawingReference로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SitePhoto
+    label: SitePhoto
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - PHOTO-TUNNEL
+    derivation: class_hint가 SitePhoto로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:DrawingStamp
+    label: DrawingStamp
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - STAMP
+    derivation: class_hint가 DrawingStamp로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:DocumentInformation
+    label: DocumentInformation
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-PANEL-001
+    derivation: class_hint가 DocumentInformation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:DocumentComponent
+    label: DocumentComponent
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-PANEL-002
+    derivation: class_hint가 DocumentComponent로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:SectionDetail
+    label: SectionDetail
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SECTION-T1
+    derivation: class_hint가 SectionDetail로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Boundary
+    label: Boundary
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - Without_Conduit
+    derivation: class_hint가 Boundary로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  subclass_relations:
+  - sub: dks:CommunicationSpace
+    super: dks:SpatialEntity
+    derivation: class_hint 명명상 Space 계열이며 다수 태그가 공간/실/구역 이름 패턴.
+    confidence: 0.94
+  - sub: dks:CommunicationRoom
+    super: dks:CommunicationSpace
+    derivation: CommunicationRoom은 CommunicationSpace보다 더 구체적 명칭.
+    confidence: 0.93
+  - sub: dks:TelecommunicationsRoom
+    super: dks:CommunicationRoom
+    derivation: TelecommunicationsRoom은 Room 계열의 더 구체적 통신실 명칭.
+    confidence: 0.88
+  - sub: dks:CommunicationZone
+    super: dks:SpatialEntity
+    derivation: Zone은 공간 계열이며 다수 태그가 층/구역/사용자영역 패턴.
+    confidence: 0.94
+  - sub: dks:BroadcastZone
+    super: dks:CommunicationZone
+    derivation: BroadcastZone은 Zone의 특수화 명칭.
+    confidence: 0.83
+  - sub: dks:SupportArea
+    super: dks:SpatialEntity
+    derivation: Area는 공간 계열 명칭.
+    confidence: 0.86
+  - sub: dks:ReservedSpace
+    super: dks:SpatialEntity
+    derivation: ReservedSpace는 Space의 특수화 명칭.
+    confidence: 0.92
+  - sub: dks:Shaft
+    super: dks:SpatialEntity
+    derivation: Shaft는 공간/수직통로 계열 명칭.
+    confidence: 0.9
+  - sub: dks:ElectricalSpace
+    super: dks:SpatialEntity
+    derivation: ElectricalSpace는 Space의 특수화 명칭.
+    confidence: 0.87
+  - sub: dks:FireProtectionArea
+    super: dks:SpatialEntity
+    derivation: Area 명칭이며 공간 계열.
+    confidence: 0.86
+  - sub: dks:Laboratory
+    super: dks:SpatialEntity
+    derivation: Laboratory는 Room/Space 계열 명칭.
+    confidence: 0.9
+  - sub: dks:MeetingRoom
+    super: dks:SpatialEntity
+    derivation: MeetingRoom은 Room 계열 명칭.
+    confidence: 0.9
+  - sub: dks:CommunicationRack
+    super: dks:CommunicationEquipment
+    derivation: Rack는 장비 계열이며 HUB-RACK 이름 패턴과 일치.
+    confidence: 0.94
+  - sub: dks:FiberDistributionFrame
+    super: dks:CommunicationEquipment
+    derivation: FDF는 장비 구성요소/프레임으로 반복 관찰.
+    confidence: 0.97
+  - sub: dks:ControlPanel
+    super: dks:CommunicationEquipment
+    derivation: 제어반은 장비 계열.
+    confidence: 0.9
+  - sub: dks:CommunicationOutlet
+    super: dks:CommunicationEquipment
+    derivation: Outlet은 장비/종단점 계열로 관찰.
+    confidence: 0.9
+  - sub: dks:SpeakerTerminalBox
+    super: dks:CommunicationEquipment
+    derivation: 단자함은 장비 계열이며 STB 이름 패턴.
+    confidence: 0.92
+  - sub: dks:TerminalBox
+    super: dks:CommunicationEquipment
+    derivation: TerminalBox는 장비 계열 명칭.
+    confidence: 0.84
+  - sub: dks:WirelessAccessPoint
+    super: dks:CommunicationEquipment
+    derivation: AP는 장비 계열로 관찰.
+    confidence: 0.9
+  - sub: dks:CommunicationTerminal
+    super: dks:CommunicationDevice
+    derivation: Terminal은 사용자 단말 계열 명칭.
+    confidence: 0.88
+  - sub: dks:CommunicationCable
+    super: dks:Cable
+    derivation: CommunicationCable은 Cable의 특수화 명칭.
+    confidence: 0.94
+  - sub: dks:CableTray
+    super: dks:CableAndPathway
+    derivation: Tray는 경로/지지체 계열로 반복 관찰.
+    confidence: 0.96
+  - sub: dks:CableManagementSystem
+    super: dks:CableAndPathway
+    derivation: 공동구/덕트 관리체계 성격의 경로 계열.
+    confidence: 0.84
+  - sub: dks:CableContainment
+    super: dks:CableAndPathway
+    derivation: Containment는 경로/수용체 계열 명칭.
+    confidence: 0.88
+  - sub: dks:CommunicationPathway
+    super: dks:CableAndPathway
+    derivation: Pathway는 경로 계열 명칭.
+    confidence: 0.86
+  - sub: dks:CablePath
+    super: dks:CableAndPathway
+    derivation: CablePath는 경로 계열 명칭.
+    confidence: 0.86
+  - sub: dks:CableRoute
+    super: dks:CableAndPathway
+    derivation: Route는 경로 계열 명칭.
+    confidence: 0.93
+  - sub: dks:JunctionBox
+    super: dks:CableAndPathway
+    derivation: PULL BOX/J.B/P.B가 경유·접속 설비로 반복 관찰.
+    confidence: 0.95
+  - sub: dks:Manhole
+    super: dks:CableAndPathway
+    derivation: 맨홀은 지중 경로 설비로 반복 관찰.
+    confidence: 0.93
+  - sub: dks:UndergroundStructure
+    super: dks:CableAndPathway
+    derivation: MANHOLE-01의 이름상 지중 구조물이며 경로 설비와 연결됨.
+    confidence: 0.8
+  - sub: dks:CivilStructure
+    super: dks:CableAndPathway
+    derivation: 지하공동구 명칭이 경로 구조물 성격.
+    confidence: 0.78
+  - sub: dks:SignalSource
+    super: dks:ExternalSource
+    derivation: SignalSource는 ExternalSource보다 구체적 명칭.
+    confidence: 0.82
+  - sub: dks:CommunicationSource
+    super: dks:ExternalSource
+    derivation: CommunicationSource는 ExternalSource의 특수화 명칭.
+    confidence: 0.84
+  - sub: dks:ExternalInlet
+    super: dks:ExternalSource
+    derivation: 외부 인입 출처 명칭상 ExternalSource 하위.
+    confidence: 0.84
+  - sub: dks:ExternalInterface
+    super: dks:ExternalConnection
+    derivation: Interface는 Connection의 구체화 명칭.
+    confidence: 0.84
+  - sub: dks:Legend
+    super: dks:InformationEntity
+    derivation: Legend는 정보 엔티티의 특수화.
+    confidence: 0.9
+  - sub: dks:InformationElement
+    super: dks:InformationEntity
+    derivation: Element는 정보 엔티티의 하위 명칭.
+    confidence: 0.82
+  - sub: dks:TechnicalSchedule
+    super: dks:InformationEntity
+    derivation: Schedule은 정보 엔티티의 특수화.
+    confidence: 0.84
+  - sub: dks:DrawingMetadata
+    super: dks:InformationEntity
+    derivation: Metadata는 정보 엔티티의 특수화.
+    confidence: 0.9
+  - sub: dks:LegendSection
+    super: dks:InformationEntity
+    derivation: LegendSection은 정보 섹션 성격.
+    confidence: 0.86
+  - sub: dks:DrawingLegend
+    super: dks:InformationEntity
+    derivation: DrawingLegend는 정보 엔티티의 특수화.
+    confidence: 0.84
+  - sub: dks:Annotation
+    super: dks:InformationEntity
+    derivation: 주석 박스는 정보 엔티티 성격.
+    confidence: 0.86
+  - sub: dks:ReferenceInformation
+    super: dks:InformationEntity
+    derivation: 목록표/참조 정보 성격.
+    confidence: 0.84
+  - sub: dks:LegendItem
+    super: dks:InformationEntity
+    derivation: 범례 항목은 정보 엔티티의 특수화.
+    confidence: 0.82
+  - sub: dks:DrawingSection
+    super: dks:DocumentEntity
+    derivation: Section은 문서 엔티티의 하위.
+    confidence: 0.86
+  - sub: dks:CommunicationSystemSection
+    super: dks:DocumentEntity
+    derivation: 시스템 섹션은 문서 엔티티의 하위.
+    confidence: 0.88
+  - sub: dks:DrawingReference
+    super: dks:DocumentEntity
+    derivation: Reference는 문서 엔티티의 하위.
+    confidence: 0.84
+  - sub: dks:SitePhoto
+    super: dks:DocumentEntity
+    derivation: 사진 기록은 문서 엔티티의 하위.
+    confidence: 0.84
+  - sub: dks:DrawingStamp
+    super: dks:DocumentEntity
+    derivation: 날인란은 문서 구성요소.
+    confidence: 0.86
+  - sub: dks:DocumentInformation
+    super: dks:DocumentEntity
+    derivation: 문서 정보 블록은 문서 엔티티의 하위.
+    confidence: 0.84
+  - sub: dks:DocumentComponent
+    super: dks:DocumentEntity
+    derivation: 문서 구성요소 명칭.
+    confidence: 0.84
+  - sub: dks:SectionDetail
+    super: dks:DocumentEntity
+    derivation: SECTION T1은 상세도/문서 섹션 성격.
+    confidence: 0.82
+  disjoint_candidates:
+  - classes:
+    - dks:SpatialEntity
+    - dks:CommunicationEquipment
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.78
+  - classes:
+    - dks:SpatialEntity
+    - dks:CableAndPathway
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.8
+  - classes:
+    - dks:SpatialEntity
+    - dks:DocumentEntity
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.88
+  - classes:
+    - dks:SpatialEntity
+    - dks:InformationEntity
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.86
+  - classes:
+    - dks:CommunicationEquipment
+    - dks:DocumentEntity
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.9
+  - classes:
+    - dks:CommunicationEquipment
+    - dks:InformationEntity
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.88
+  - classes:
+    - dks:CommunicationDevice
+    - dks:DocumentEntity
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.9
+  - classes:
+    - dks:CommunicationCable
+    - dks:CommunicationEquipment
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.86
+  - classes:
+    - dks:CableSpec
+    - dks:SpatialEntity
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.9
+  - classes:
+    - dks:CableSpec
+    - dks:CommunicationEquipment
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.88
+  hierarchy_summary:
+    total_classes: 49
+    max_depth: 4
+    by_discipline:
+      communication: 49
+  unclassified_tags:
+  - tag: AMP
+    reason: owl_role이 AnnotationOnly이고 class_hint PublicAddressAmplifier는 단일 태그만 관찰되어
+      독립 클래스 생성 근거가 약함.
+    hint: CommunicationEquipment 하위 증거가 더 모이면 Amplifier 계열로 승격 가능
+  - tag: Intermediate_Terminal_Board
+    reason: AnnotationOnly이며 TerminalBoard class_hint가 단일 관찰.
+    hint: Speaker_Terminal_Board, STB 계열과 함께 TerminalBoard 클래스 재검토
+  - tag: META-FLOORS
+    reason: class_hint가 SpatialEntity이나 실제 태그명은 메타데이터 성격으로 공간 개체로 확정하기 어려움.
+    hint: 문서 메타/층 안내 표로 재평가
+  - tag: PAC-SOLUTION
+    reason: AnnotationOnly이며 ControlSystemArea class_hint가 단일 관찰.
+    hint: 공간인지 시스템 주석인지 추가 evidence 필요
+  - tag: SECTION-T1
+    reason: SectionDetail을 문서 계열로 임시 분류했으나 단면 상세와 물리 경로 상세의 혼합 가능성 있음.
+    hint: 후속 단계에서 상세도/문서 구분 재검토
+  - tag: Without_Conduit
+    reason: Boundary class_hint는 있으나 물리 경계보다 시공 조건 주석일 가능성이 큼.
+    hint: 조건성 주석/범례 항목으로 재평가 가능
+  - tag: 슬라브_매입_또는_천정_매입배관,_배선
+    reason: ConcealedConduitWiringNote class_hint가 단일이며 상위 귀납 근거 부족.
+    hint: Wiring/Conduit note 군집이 더 모이면 별도 note 클래스 생성
+  - tag: PHOTO-TUNNEL
+    reason: 문서 계열로 분류했으나 사진 기록 특수 클래스가 단일 태그.
+    hint: SitePhoto 유지 가능하나 후속 검증 필요
+  plan_deviations:
+  - plan_item: predicted top_level에 PhysicalCommunicationAsset 채택
+    actual_finding: evidence에서는 CommunicationEquipment, CommunicationDevice, CableAndPathway,
+      SpatialEntity, Information/Document 계열이 직접 관찰되며 PhysicalCommunicationAsset 명칭은
+      없음.
+    action_taken: 관찰된 class_hint 기반으로 상위 클래스를 재구성하고 PhysicalCommunicationAsset은 채택하지
+      않음.
+  - plan_item: InformationEntity와 DocumentEntity를 명확히 분리
+    actual_finding: 일부 태그는 정보/문서 경계가 모호함(LEGEND-NOTE, META-NOTES, SECTION-T1 등).
+    action_taken: 직접 class_hint가 있는 경우만 분리하고 모호 태그는 보수적으로 배치 또는 unclassified 기록.
+  - plan_item: CommunicationDevice를 top-level 축으로 예상
+    actual_finding: 실제 evidence에서는 CommunicationDevice 태그 수가 적고 대부분 장비는 CommunicationEquipment로
+      수렴.
+    action_taken: CommunicationDevice는 유지하되 top-level 보조 축으로만 반영.
+  - plan_item: Cable/Route/Containment를 하나의 큰 축으로 예상
+    actual_finding: 실제 evidence에서 Cable, CableSpec, CableAndPathway, CableRoute가 분리되어
+      관찰됨.
+    action_taken: 관찰된 class_hint에 따라 Cable, CableSpec, CableAndPathway를 별도 클래스로 분리.
+  back_update_instructions:
+    per_tag_confirmed_class:
+      16C_(HFIX_2-1.5sq): dks:CableSpec
+      16C_(HFIX_3-1.5sq): dks:Cable
+      16C_(HFIX_4-1.5sq): dks:CommunicationCable
+      16C_(UTP_0.5mm___4Px1,_CAT.5e): dks:CommunicationCable
+      16C_(UTP_0.5mm___4Px2,_CAT.5e): dks:CommunicationCable
+      22C_(UTP_0.5mm___4Px3,_CAT.5e): dks:CommunicationCable
+      22C_(UTP_0.5mm___4Px4,_CAT.5e): dks:CommunicationCable
+      28C_(UTP_0.5mm___4Px6,_CAT.5e): dks:CommunicationCable
+      28C_(UTP_0.5mm___4Px8,_CAT.5e): dks:CommunicationCable
+      AD-AREA: dks:SpatialEntity
+      AD-WC-1: dks:CommunicationSpace
+      AD-WC-2: dks:CommunicationSpace
+      AMP-RACK: dks:CommunicationEquipment
+      ANTEROOM: dks:SpatialEntity
+      BB-110-VOICE: dks:CommunicationEquipment
+      BB-FDF-DATA: dks:FiberDistributionFrame
+      BROADCAST-ROOM: dks:CommunicationSpace
+      CABLE-SCHEDULE: dks:InformationEntity
+      CABLE-TRAY-MAIN: dks:CableTray
+      CABLE-TRAY-SUB: dks:CableTray
+      CCTV-CTL-01: dks:ControlPanel
+      COMM-ROOM-1F: dks:CommunicationRoom
+      CONF-ROOM-ZONE-A: dks:CommunicationZone
+      COO-ROOM: dks:SpatialEntity
+      CORE-EL: dks:SpatialEntity
+      DOCUMENT-STORAGE: dks:SpatialEntity
+      DRIVE-DEV-LAB: dks:Laboratory
+      DRIVE-LAB: dks:SpatialEntity
+      DUCT-01: dks:CivilStructure
+      EL-AREA: dks:SpatialEntity
+      EXT-1F-COMM: dks:CommunicationEntry
+      EXT-DUCT: dks:CableAndPathway
+      EXT-INTAKE: dks:CommunicationInfrastructure
+      EXT-MDF-DATA: dks:ExternalInterface
+      EXT-MDF-VOICE: dks:ExternalConnection
+      EXT-SOURCE-01: dks:SignalSource
+      EXT-SOURCE-BROAD-1F: dks:CommunicationSource
+      EXT-SOURCE-COMM-1F: dks:ExternalInlet
+      EXT-SOURCE-SERVER-2F: dks:ExternalConnection
+      EXT-UNDERGROUND: dks:CableAndPathway
+      EXT-사무동방송실: dks:ExternalSource
+      FA_NETWORK_CABINET: dks:CommunicationEquipment
+      FACTORY-OFFICE: dks:SpatialEntity
+      FLOOR-1F: dks:CommunicationZone
+      FLOOR-2F: dks:CommunicationZone
+      FLOOR-B1: dks:CommunicationZone
+      FLOOR-PIT: dks:SpatialEntity
+      FLOOR-ROOF: dks:BroadcastZone
+      HAND_HOLE_FOR_TEL: dks:CommunicationInfrastructure
+      HOR-UNIT-01: dks:CommunicationEquipment
+      HOR-UNIT-02: dks:CommunicationEquipment
+      HOR-UNIT-03: dks:CommunicationEquipment
+      HOR-UNIT-04: dks:CommunicationEquipment
+      HOR-UNIT-05: dks:CommunicationEquipment
+      HOR-UNIT-06: dks:CommunicationOutlet
+      HUB-RACK-001: dks:CommunicationEquipment
+      HUB-RACK-01: dks:CommunicationEquipment
+      HUB-RACK-1: dks:CommunicationEquipment
+      HUB-RACK-2: dks:CommunicationEquipment
+      HUB-RACK-2F: dks:CommunicationRack
+      HUB-RACK-EQUIP: dks:CommunicationEquipment
+      IDF-1: dks:CommunicationEquipment
+      ITB-CABINET: dks:Manhole
+      JEONSAN-ROOM: dks:TelecommunicationsRoom
+      LAN_6PORT_OUTLET_-_FA: dks:CommunicationEquipment
+      LAN_OUTLET(FA)_1PORT: dks:CommunicationEquipment
+      LAN_OUTLET(FA)_2PORT: dks:CommunicationEquipment
+      LAN_OUTLET(OA)_1PORT: dks:CommunicationEquipment
+      LAN_OUTLET(OA)_2PORT: dks:CommunicationEquipment
+      LEGEND-BOX: dks:Legend
+      LEGEND-NOTE: dks:InformationElement
+      LOBBY-CORRIDOR: dks:CommunicationZone
+      MANHOLE-01: dks:UndergroundStructure
+      MANHOLE-IC: dks:Manhole
+      MEETING-ROOM-MAIN: dks:MeetingRoom
+      MEETING-ROOM-SMALL-1: dks:SpatialEntity
+      MEETING-ROOM-SMALL-2: dks:SpatialEntity
+      MEETING-ROOM-SMALL-3: dks:SpatialEntity
+      MEETING-ROOM-SMALL-4: dks:SpatialEntity
+      MEETING-ROOM-SMALL-5: dks:SpatialEntity
+      MEETING-ROOM-SMALL-6: dks:CommunicationSpace
+      MEETING-ROOM-SMALL-7: dks:SpatialEntity
+      META-CABLE-SCH: dks:TechnicalSchedule
+      META-NOTES: dks:DrawingMetadata
+      MH-01: dks:Manhole
+      NOTE-LEGEND: dks:LegendSection
+      NOTE-SECTION: dks:DrawingLegend
+      NOTES-BOX: dks:Annotation
+      NOTES-SECTION: dks:DrawingMetadata
+      OA_NETWORK_CABINET: dks:CommunicationEquipment
+      OFFICE-AREA: dks:CommunicationZone
+      OPEN-OFFICE-ZONE: dks:CommunicationZone
+      PA-HEAD-END: dks:CommunicationEquipment
+      PA-RACK-01: dks:CommunicationEquipment
+      PB-01: dks:JunctionBox
+      PHOTO-TUNNEL: dks:SitePhoto
+      PULL-BOX-01: dks:JunctionBox
+      PULL-BOX-MAIN: dks:JunctionBox
+      PULL-BOX-ZONE: dks:JunctionBox
+      PULL-BOX: dks:JunctionBox
+      PULLBOX-ZONE: dks:JunctionBox
+      R1-110-BLOCK: dks:CommunicationEquipment
+      R1-AP-CONTROLLER: dks:CommunicationEquipment
+      R1-ETH-SWITCH: dks:CommunicationEquipment
+      R1-FDF-IN: dks:FiberDistributionFrame
+      R1-FDF-OUT-1: dks:FiberDistributionFrame
+      R1-FDF-OUT-2: dks:FiberDistributionFrame
+      R1-OPT-SWITCH-1: dks:CommunicationEquipment
+      R1-OPT-SWITCH-2: dks:CommunicationEquipment
+      R1-PATCH-PANEL-1: dks:CommunicationEquipment
+      R1-PATCH-PANEL-2: dks:CommunicationEquipment
+      R1-POE-SWITCH: dks:CommunicationEquipment
+      R2-ETH-SWITCH: dks:CommunicationEquipment
+      R2-FDF-IN: dks:FiberDistributionFrame
+      R2-FDF-OUT: dks:FiberDistributionFrame
+      R2-OPT-SWITCH: dks:CommunicationEquipment
+      R2-PATCH-PANEL: dks:CommunicationEquipment
+      R2-POE-SWITCH: dks:CommunicationEquipment
+      RACK-HUB-2: dks:CommunicationEquipment
+      RACK-IDF-1: dks:CommunicationEquipment
+      RECEPTION-ROOM: dks:SpatialEntity
+      RESERVE: dks:ReservedSpace
+      RESERVED-AREA: dks:ReservedSpace
+      RESTROOM-1: dks:SpatialEntity
+      RESTROOM-2: dks:SpatialEntity
+      ROOM-1F-ZONES: dks:CommunicationSpace
+      ROOM-2F-ZONES: dks:CommunicationZone
+      ROOM-BROAD-1F: dks:CommunicationSpace
+      ROOM-COMM-1F: dks:CommunicationRoom
+      ROOM-ROOF-MGMT: dks:CommunicationSpace
+      ROUTE-TO-1F-COMM: dks:CableRoute
+      ROUTE-TO-2F-SERVER: dks:CableRoute
+      ROUTE-TO-RCENTER: dks:CableRoute
+      SEC-BLOCKDIAG: dks:DrawingSection
+      SEC-BROADCAST: dks:DocumentEntity
+      SEC-COMM: dks:CommunicationSystemSection
+      SEC-GENERAL: dks:DrawingReference
+      SECTION-T1: dks:SectionDetail
+      SECTION-T2: dks:CableManagementSystem
+      SHAFT-EPS: dks:Shaft
+      SHAFT-PS: dks:Shaft
+      SHOW-ROOM: dks:CommunicationSpace
+      SHOWROOM: dks:SpatialEntity
+      SMART-HOME-MTG: dks:CommunicationSpace
+      SMART-ROOM: dks:CommunicationSpace
+      SPACE-ANNEX: dks:CommunicationSpace
+      SPACE-COMM-CORRIDOR: dks:CommunicationSpace
+      SPACE-COMM: dks:CommunicationSpace
+      SPACE-CONF: dks:SpatialEntity
+      SPACE-CORRIDOR: dks:SpatialEntity
+      SPACE-CORRIDOR2: dks:SpatialEntity
+      SPACE-DIRECTOR: dks:SpatialEntity
+      SPACE-ELEC: dks:ElectricalSpace
+      SPACE-ENTRANCE: dks:SpatialEntity
+      SPACE-FAN-ROOM: dks:SpatialEntity
+      SPACE-FLOOR-MGMT: dks:CommunicationSpace
+      SPACE-INSTRUMENT: dks:CommunicationSpace
+      SPACE-LOUNGE: dks:SpatialEntity
+      SPACE-MECH: dks:SpatialEntity
+      SPACE-MULTIPURPOSE: dks:SpatialEntity
+      SPACE-NOISE: dks:CommunicationSpace
+      SPACE-OA-PANTRY: dks:CommunicationSpace
+      SPACE-OFFICE: dks:SpatialEntity
+      SPACE-PARKING: dks:CommunicationZone
+      SPACE-SEMINAR: dks:CommunicationSpace
+      SPACE-SERVER: dks:CommunicationSpace
+      SPACE-SOFTLAB: dks:CommunicationSpace
+      SPACE-SoftwareLab: dks:CommunicationSpace
+      SPACE-남자화장실: dks:CommunicationZone
+      SPACE-대회의실: dks:SpatialEntity
+      SPACE-로비휴게공간: dks:CommunicationSpace
+      SPACE-사무실: dks:CommunicationSpace
+      SPACE-세미나다목적실: dks:CommunicationSpace
+      SPACE-센터장실: dks:CommunicationSpace
+      SPACE-여자화장실: dks:CommunicationZone
+      SPACE-연결통로: dks:CommunicationZone
+      SPACE-주차장: dks:SpatialEntity
+      SPACE-중앙회의실: dks:CommunicationZone
+      SPACE-중층소방공간: dks:FireProtectionArea
+      SPACE-통신시스템컨트롤실: dks:SpatialEntity
+      SPACE-휴게공간: dks:CommunicationZone
+      SPEAKER-TB-01: dks:CommunicationEquipment
+      Speaker_Terminal_Board: dks:CommunicationEquipment
+      STAIR-CORE: dks:SpatialEntity
+      STAMP: dks:DrawingStamp
+      STB-S1: dks:SpeakerTerminalBox
+      STB-S2: dks:TerminalBox
+      SUPPORT-AREA-LEFT: dks:SupportArea
+      SUPPORT-AREA: dks:CommunicationZone
+      SYSBOX-DATA-01: dks:CommunicationEquipment
+      SYSBOX-DATA-02: dks:CommunicationEquipment
+      SYSBOX-DATA-03: dks:CommunicationEquipment
+      SYSBOX-DATA-04: dks:CommunicationEquipment
+      SYSBOX-VOICE-LEFT: dks:CommunicationEquipment
+      SYSBOX-VOICE-RIGHT: dks:CommunicationEquipment
+      SYSTEM_BOX(FA)_2PORT: dks:CommunicationEquipment
+      SYSTEM_BOX(OA)_2PORT: dks:CommunicationOutlet
+      SYSTEM_BOX(OA)_2PORT_-_ACCESS_및_O.A_FLOOR형: dks:CommunicationEquipment
+      TITLE-BLOCK: dks:DocumentEntity
+      TOC-MAIN: dks:ReferenceInformation
+      TRAY-EXISTING: dks:CableTray
+      TRAY-GONGDONG: dks:CableTray
+      TUNNEL-DUCT-01: dks:CableManagementSystem
+      UNDERGROUND-DUCT: dks:CableContainment
+      UNKNOWN-PANEL-001: dks:DocumentInformation
+      UNKNOWN-PANEL-002: dks:DocumentComponent
+      UNKNOWN-SPACE-01: dks:CableTray
+      UNKNOWN-SPACE-02: dks:CableTray
+      UNKNOWN-SPACE-03: dks:CommunicationPathway
+      UNKNOWN-SPACE-04: dks:CableRoute
+      UNKNOWN-SPACE-05: dks:CablePath
+      UNKNOWN-SPEAKER-CEILING-01: dks:CommunicationEquipment
+      UNKNOWN-SPEAKER-WALL-10W-01: dks:CommunicationEquipment
+      UNKNOWN-SPEAKER-WALL-3W-01: dks:CommunicationEquipment
+      USER-AP-01: dks:CommunicationEquipment
+      USER-AP-02: dks:WirelessAccessPoint
+      USER-PC-01: dks:CommunicationDevice
+      USER-PC-02: dks:CommunicationDevice
+      USER-PC-03: dks:CommunicationDevice
+      USER-PC-04: dks:CommunicationDevice
+      USER-TEL-LEFT: dks:CommunicationDevice
+      USER-TEL-RIGHT: dks:CommunicationTerminal
+      WC-AREA: dks:SpatialEntity
+      Without_Conduit: dks:Boundary
+      ZONE-1F: dks:CommunicationSpace
+      ZONE-2F: dks:CommunicationZone
+      ZONE-BACKBONE: dks:CommunicationSpace
+      ZONE-HORIZONTAL: dks:CommunicationZone
+      ZONE-IDF: dks:CommunicationSpace
+      ZONE-MDF: dks:CommunicationEquipment
+      ZONE-ROOF: dks:CommunicationSpace
+      ZONE-USER: dks:CommunicationZone
+      노출배관,_배선: dks:LegendItem
+      무선_AP_-_FA: dks:CommunicationEquipment
+      무선_AP_-_OA: dks:CommunicationEquipment
+      바닥_은폐배관,_배선_또는_지중_매설배관,_배선: dks:ConduitSystem
+      벽부형_스피커_(10W): dks:CommunicationEquipment
+      벽부형_스피커_(20~30W): dks:CommunicationEquipment
+      벽부형_스피커_(3W): dks:CommunicationEquipment
+      전선관_Rise-up,_Through_and_Down: dks:ConduitRoute
+      전화_OUTLET(유선)_1PORT: dks:CommunicationDevice
+      조인트_박스_(J.B): dks:JunctionBox
+      천정형_스피커_(3W): dks:CommunicationEquipment
+      풀_박스_(P.B): dks:JunctionBox
+      홈런_to_Panelboard: dks:WiringPath
+    confirmed_at: '2026-04-20T00:00:00Z'
+    by: step_0-9c
+  confidence_overall: 0.84
+  self_assessment: class_hint 직접 관찰값을 우선 사용하고, 반복 빈도와 이름 패턴이 강한 경우에만 상하위 관계를 귀납했다.
+    공간/장비/경로/문서 축은 비교적 안정적이나, AnnotationOnly 태그와 메타/범례/상세도 혼합 태그는 보수적으로 처리했다.

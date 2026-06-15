@@ -1,0 +1,112 @@
+entity_detail:
+  tag: GP-1402B
+  type: breaker_bay
+  specs:
+    panel_id:
+      value: PNL_GP_1402B
+      source: 5
+      confidence: 0.95
+    primary_label:
+      value: 1402B
+      source: 5
+      confidence: 0.95
+    labels_near:
+      value:
+      - GP
+      source: 5
+      confidence: 0.95
+    shape:
+      value: rectangle
+      source: 5
+      confidence: 0.95
+    position:
+      value: middle-left
+      source: 5
+      confidence: 0.95
+    inferred_name:
+      value: 1402A GP 6.6kV 피더 - U/T 비상
+      source: 5
+      confidence: 0.95
+    annotation:
+      value: 6.6kV Bus
+      source: 5
+      confidence: 0.95
+    annotation_2:
+      value: 6.6kV PR 8 100SQ 1C×1LINE(CABLE TRAY)
+      source: 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "  - panel_id: PNL-GP-1402B\n    shape: hexagon\n    labels_inside:\n  \
+      \  - 1402B\n...\n    annotation: 6.6kV PR 8 100SQ 1C×1LINE(CABLE TRAY)\n  -\
+      \ from: PNL-GP-1402A\n    to: PNL-GP-1402B\n    line_type: power_cable\n   \
+      \ line_style: solid\n    annotation: 6.6kV Bus\n...\n    line_style: solid\n\
+      \    annotation: 6.6kV Bus"
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "    location: null\n    confidence: 0.95\n  - tag: 1402B\n    name: Breaker\n\
+      \    spec: null\n    discipline: ELECTRICAL\n..."
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "    type: breaker\n    source: both\n  - tag: 1402B\n    type: breaker\n\
+      \    source: both\n  - tag: 1403A\n..."
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "    labels_near:\n    - GP\n  - panel_id: PNL_GP_1402B\n    shape: rectangle\n\
+      \    primary_label: 1402B\n    position: middle-left"
+  requirements:
+  - text: 6.6kV Bus
+    source: page 5
+    type: electrical_connection_requirement
+  - text: 6.6kV PR 8 100SQ 1C×1LINE(CABLE TRAY)
+    source: page 5
+    type: cable_requirement
+  connection_specs:
+  - relation: feeds
+    partner: PNL-GP-1402A
+    details:
+      source: page 5
+      annotation: 6.6kV Bus
+      line_type: power_cable
+      line_style: solid
+  - relation: feeds
+    partner: PNL-GP-1403A
+    details:
+      source: page 5
+      annotation: 6.6kV Bus
+      line_type: power_cable
+      line_style: solid
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-GP-1402A
+      direction: PNL-GP-1402A -> PNL-GP-1402B
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-GP-1403A
+      direction: GP-1402B -> PNL-GP-1403A
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - labels_near
+    - primary_label
+    - position
+    - annotation
+    - line_type
+    - line_style
+    similar_equipment:
+    - 1402A
+    - 1403A
+    - 1403B
+    - 1404A
+    - 1404B
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - page 5 context indicates the entity is associated with 6.6kV bus connection and
+    cable tray annotation.
+  - search results show both PNL-GP-1402B and 1402B references in the page context.
+tag: GP-1402B

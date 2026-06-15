@@ -1,0 +1,171 @@
+placement:
+  tag: CABLE-TRAY-01
+  name: CABLE TRAY
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: CABLE-TRAY-01
+    class_hint: CableManagementSystem
+    alternative_class_hints:
+    - CableRoutingElement
+    - DistributionNetworkElement
+    - WiringOrConnectionEntity
+    related_assertions:
+    - type: connects_to
+      target_hint: PULL-BOX-01
+      note: CABLE TRAY (통신용) 연결
+      confirmed_property: dks:connects_to
+      confirmed_target: PULL-BOX-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:08:25.807779'
+    - type: cable
+      target_hint: PULL-BOX-01
+      note: CABLE TRAY (통신용) 연결
+      confirmed_property: dks:cable
+      confirmed_target: PULL-BOX-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:08:25.807779'
+    applicable_axioms:
+    - AX020
+    - AX026
+    - AX028
+    applicable_constraints:
+    - CN003
+    - CN004
+    - CN005
+    confirmed_class: dks:ConnectionInfrastructure
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: CABLE TRAY (통신용)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasUsageNote
+          suggested_datatype: xsd:string
+          rationale: 괄호 주석으로 용도/종류를 보존할 필요가 있음
+      - raw_text: 400 x400 x500mm
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDimensionNote
+          suggested_datatype: xsd:string
+          rationale: 치수로 보이는 문자열이지만 단위/축 의미가 불명확하여 원문 보존 필요
+      - raw_text: 1층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFloorNote
+          suggested_datatype: xsd:string
+          rationale: 층/레벨 표기로 보이나 표준화 전 원문 보존이 필요함
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification_by_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + observed labels
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + observed labels
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: specs
+    provenance:
+      source_pages:
+      - 5
+      method: entity_detail.source_pages
+    unresolved:
+      source_pages:
+      - 5
+      method: scan_all_fields
+    equipment_symbols:
+      source_pages:
+      - 5
+      method: equipment_symbols
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position + specs.position
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    collection_sources:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources
+  unresolved:
+  - field_candidate: specs.inferred_name
+    raw_text: 통신용 케이블 트레이
+    source_page: 5
+    reason: 의미는 파악되나 표준 class/property로 확정하지 않음
+    preservation_note: 용도 설명으로 보존
+  - field_candidate: specs.labels_inside[1]
+    raw_text: 400 x400 x500mm
+    source_page: 5
+    reason: 치수 문자열의 정확한 축/단위 해석 불가
+    preservation_note: 원문 치수 표기 유지
+  - field_candidate: specs.floor
+    raw_text: 1층 F.L
+    source_page: 5
+    reason: 층 정보로 보이나 정규화 규칙 미적용
+    preservation_note: 레벨 표기 원문 유지
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CableManagementSystem
+    source_page: 5
+    reason: 외부 힌트이므로 후보로만 보존
+    preservation_note: class_hint 후보 근거로만 사용
+  - field_candidate: ontology_hints.function_candidates[0]
+    raw_text: Communication Cable Routing
+    source_page: 5
+    reason: 기능 후보이며 확정 분류 아님
+    preservation_note: 기능 후보 보존
+  - field_candidate: ontology_hints.function_candidates[1]
+    raw_text: Cable Support
+    source_page: 5
+    reason: 기능 후보이며 확정 분류 아님
+    preservation_note: 기능 후보 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - expected_object_properties.connects_to
+    - expected_object_properties.cable
+    - predicted_ontology_structure.WiringOrConnectionEntity
+    - predicted_ontology_structure.DistributionNetworkElement
+    deviations:
+    - supplement가 없어 sub_kinds를 free_notes만 사용함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:57:49.701622'
+  confidence: 0.95

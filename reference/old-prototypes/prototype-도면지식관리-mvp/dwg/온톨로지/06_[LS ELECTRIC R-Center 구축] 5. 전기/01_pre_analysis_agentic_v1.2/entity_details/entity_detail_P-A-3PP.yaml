@@ -1,0 +1,114 @@
+entity_detail:
+  tag: P-A-3PP
+  type: equipment
+  specs:
+    voltage:
+      value: 3Ø 380V
+      unit: V
+      source: page 20
+      confidence: 0.95
+    enclosure_type:
+      value: 노출형(STEEL) 또는 매입형(STS/STEEL)
+      unit: null
+      source: page 20
+      confidence: 0.95
+    breaker_rating:
+      value: 30AF~600AF
+      unit: AF
+      source: page 20
+      confidence: 0.95
+    breaking_capacity:
+      value: 5KA~50KA 이상
+      unit: KA
+      source: page 20
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: 생산동력(3Ø 380V) 분전반 결선도
+  - source: page 20
+    page_number: 20
+    text: P-A-3PP
+  - source: page 20
+    page_number: 20
+    text: 3Ø 380V, 노출형(STEEL) 또는 매입형(STS/STEEL), 차단기 정격 30AF~600AF, 차단용량 5KA~50KA
+      이상
+  - source: page 20
+    page_number: 20
+    text: 주 전원 인입
+  - source: page 20
+    page_number: 20
+    text: 3Ø 380V 생산동력 전원 인입
+  - source: page 20
+    page_number: 20
+    text: MCCB-001
+  - source: page 20
+    page_number: 20
+    text: CBR-001
+  - source: page 20
+    page_number: 20
+    text: SPD-001
+  - source: page 20
+    page_number: 20
+    text: GND-001
+  - source: page 20
+    page_number: 20
+    text: 차단기 정격 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+  - source: page 20
+    page_number: 20
+    text: 차단용량 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상
+  - source: page 20
+    page_number: 20
+    text: '외함 사양: 노출형(STEEL), 매입형(STS/STEEL) 관련 주기'
+  requirements:
+  - text: 3Ø 380V
+    source: page 20
+    type: electrical_supply
+  - text: 노출형(STEEL) 또는 매입형(STS/STEEL)
+    source: page 20
+    type: enclosure_requirement
+  - text: 차단기 정격 30AF~600AF
+    source: page 20
+    type: breaker_rating_requirement
+  - text: 차단용량 5KA~50KA 이상
+    source: page 20
+    type: breaking_capacity_requirement
+  - text: 주 전원 인입
+    source: page 20
+    type: power_inlet_requirement
+  connection_specs:
+  - relation: feeds
+    partner: MCCB-001
+    details:
+      source: page 20
+  - relation: power_inlet
+    partner: MAIN-INLET
+    details:
+      source: page 20
+  - relation: ground_connection
+    partner: GND-001
+    details:
+      source: page 20
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: MCCB-001
+      direction: downstream
+      source: page 20
+    observed_attributes:
+    - voltage
+    - enclosure_type
+    - breaker_rating
+    - breaking_capacity
+    similar_equipment:
+    - P-AC-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    suggested_parent_class: PanelBoard
+    cross_discipline: []
+  notes:
+  - page 23에는 동일 tag P-A-3PP가 다른 계통도에 등장하지만, 해당 페이지에서 개별 사양은 확인되지 않음
+tag: P-A-3PP

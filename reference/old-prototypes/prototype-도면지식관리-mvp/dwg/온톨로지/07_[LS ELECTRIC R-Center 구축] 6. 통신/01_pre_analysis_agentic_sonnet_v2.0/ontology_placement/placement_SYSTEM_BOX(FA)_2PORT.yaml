@@ -1,0 +1,172 @@
+placement:
+  tag: SYSTEM_BOX(FA)_2PORT
+  name: SYSTEM BOX(FA) 2PORT
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: system_box/SYSTEM_BOX_FA_2PORT
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - Outlet
+    - SystemBox
+    - FloorMountedCommunicationOutlet
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'mount_type_sonnet: 바닥매입형 (Floor Mounted Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식/형태를 나타내는 문자열 값
+        promoted_to: dks:mountType
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: 'mount_type_gemini: 바닥매입형 (Floor Mounted Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식/형태를 나타내는 문자열 값
+        promoted_to: dks:mountType
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: 'visual_description: 바닥매입형으로 표시된 시스템 박스 심볼, FA 구분 및 2PORT 표기'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼의 시각적 설명 문자열
+        promoted_to: dks:visualDescription
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: 'source: 좌측 범례, 통합배선설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: source
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/근거 위치를 나타내는 텍스트
+        promoted_to: dks:sourceNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: 'function_category: OUTLET'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 문자열
+        promoted_to: dks:functionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'function_candidates: DataConnection, SignalDistribution'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 도면 분야 표기
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: normalized_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_function_category_and_visual_description
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 3
+      method: preserved_raw
+    specs.mount_type_sonnet:
+      source_pages:
+      - 3
+      method: direct
+    specs.mount_type_gemini:
+      source_pages:
+      - 3
+      method: direct
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: direct
+    specs.source:
+      source_pages:
+      - 3
+      method: direct
+    function_category:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: system_box가 독립 설비인지, 범례성 심볼/아울렛 표기인지 경계가 다소 혼재함. 다만 물리 실체를 가리키는 장비 심볼로
+      관찰되어 NamedIndividual로 우선 배치함.
+    recommended_handling: 0-9c에서 class 확정 시 CommunicationEquipment 계열과 Outlet 계열의
+      적합성을 검증하고, 필요 시 심볼/장비 구분을 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 CommunicationEquipment 계열을 우선 고려
+    - function_category, visual_description, mount_type 등 관찰 속성 보존
+    - source_pages 기반 provenance 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:46:52.244532'
+  confidence: 0.86

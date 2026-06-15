@@ -1,0 +1,472 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: symbol-description table for fire alarm devices and notes
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-203
+    title: 옥탑층 자동화재탐지설비 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 범례 및 주기사항 표가 하단 좌측에 있으며, 감지기 배관 배선 주기와 심볼-설명-수량 표가 함께 보임
+  - 도면번호 EF-203과 제목이 모두 소방 자동화재탐지설비 평면도에 해당
+  - 페이지 내 개별 설비 태그는 식별되지 않음; 대신 범례 심볼과 장비 명칭이 중심
+  confidence: 0.98
+  note: 도면번호 접두사 EF-203에서 E/F 혼재처럼 보이나, 제목과 범례 내용이 자동화재탐지설비로 명확하여 FIRE_PROTECTION으로
+    판단함. 페이지 하단 좌측에 범례/주기사항 섹션이 존재함.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_electrical_alarm/supplement_p10.yaml
+    P-11: discipline/fire_protection/_general/supplement_p11.yaml
+  routing_confidence: 0.74
+  routing_reason: 페이지는 소방 자동화재탐지설비 평면도이며 범례/주기사항 섹션이 있어 fire_protection 계열로 라우팅 가능하나,
+    카탈로그에 genre_legend는 P-4.5만 있고 P-10/P-11은 해당 genre가 없어 각각 genre_mechanical 또는 _general로
+    fallback함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 옥탑층 자동화재탐지설비 평면도
+    position: center
+    labels_near:
+    - 계단 별도 감지기
+    - 12,000
+    - 13,000
+  - panel_id: LEGEND_SECTION
+    shape: rectangle
+    primary_label: 범례 및 주기사항
+    position: bottom-left
+    labels_near:
+    - 자동식 감지기
+    - 수동발신기 SET
+    - 화재 수신반
+    - 감지기 배관 배선
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: EF - 203
+    position: bottom-right
+    labels_near:
+    - 옥탑층 자동화재탐지설비 평면도
+    - LS Electric
+    - 가운 건축
+  connections:
+  - from: LEGEND_SECTION
+    to: FLOOR_PLAN_AREA
+    line_style: dotted
+    annotation: 심볼 정의 참조
+  notable_shapes:
+  - shape: circle
+    label: 감지기 심볼
+    note: 평면도 내 계단 부근에 배치된 원형 심볼
+  - shape: rectangle
+    label: 수동발신기 SET 심볼
+    note: 범례에 정의된 사각형 내 아이콘 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-left
+  confidence: 1.0
+  note: 페이지 하단 좌측에 '범례 및 주기사항' 표가 명확히 존재함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 제목 '자동화재탐지설비 평면도'와 도면 내용(감지기 배치)이 일치하며, 하단 범례 섹션이 확인됨. 0-0의 판정을
+    유지하되, 카탈로그에 따라 P-10 supplement 경로를 genre_electrical_alarm으로 구체화함.
+classification: FIRE_DETECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: 옥탑층 자동화재탐지설비 평면도'
+- '도면 번호: EF-203'
+- '프로젝트 제목: LS Electric / R-Center 구축'
+- '건물명: R-Center'
+- '프로젝트 번호: 224001'
+- '날짜: 2024.01'
+- 범례 및 주기사항
+- 감지기 배관 배선
+- 수동발신기 SET (소화전 상단형)
+- 화재 수신반
+- 정온식 감지기(1종 스포트형)-LED 부착형
+- 연기식 감지기(1,2종 광전식)-LED 부착형
+- 차동식 감지기(2종 스포트형)-LED 부착형
+- 전원반(중계기)
+- 방화셔터 연동 제어반
+title_block:
+  drawing_number: EF-203
+  title: 옥탑층 자동화재탐지설비 평면도
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 FIRE_PROTECTION / FIRE_DETECTION_LAYOUT 판정을 유지한다. 페이지 하단 좌측에 범례 및 주기사항
+  표가 보이며, 도면 중앙은 옥탑층 자동화재탐지설비 배치 평면으로 보인다. 표제란의 도면번호 EF-203, 제목 옥탑층 자동화재탐지설비 평면도는
+  페이지 우하단 및 하단 중앙에서 확인된다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: FLOOR-PLAN
+    shape: rectangle
+    labels_inside:
+    - 계단 별도 감지기
+    labels_above:
+    - 71,000
+    - 12,000 / 12,000 / 12,000 / 14,000 / 11,000 / 10,000
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 3
+      description: 원형 심볼, 평면도 내 배치
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 2
+      description: 원형 심볼, 계단 부근 배치
+    - type: 수동발신기 SET (소화전 상단형)
+      count: 1
+      description: 사각형 심볼, 우측 벽면 부근
+    - type: 전원반(중계기)
+      count: 1
+      description: 사각형 심볼, 우측 구역
+    - type: 방화셔터 연동 제어반
+      count: 1
+      description: 사각형 심볼, 우측 구역
+    inferred_name: 옥탑층 자동화재탐지설비 배치 평면
+    position: center
+    notes:
+    - '그리드 축: 수평 1~7 (71,000mm 총폭), 수직 A~D (43,000mm 총고)'
+    - 'A-B 구간: 11,000mm, B-C 구간: 17,000mm (합 28,000mm 아님 — 도면 치수 기준), C-D 구간: 13,000mm'
+    - '주요 공간: 대형 격자 패턴 구역(지붕 구조물 표현), 우측 소규모 설비실'
+    - 계단 부근에 '계단 별도 감지기' 주기 표기
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 범례 및 주기사항
+    - 심볼 | 내용 | 수량
+    - 차동식 감지기(2종 스포트형)-LED 부착형
+    - 정온식 감지기(1종 스포트형)-LED 부착형
+    - 연기식 감지기(1,2종 광전식)-LED 부착형
+    - 수동발신기 SET (소화전 상단형) — 1EA
+    - 화재 수신반
+    - 전원반(중계기)
+    - 방화셔터 연동 제어반
+    labels_above: []
+    labels_below:
+    - 1. 감지기 배관 배선
+    - 16C ( HFIX 2-1.5㎟ )
+    - 16C ( HFIX 4 1.5㎟ )
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.
+    equipment_symbols:
+    - type: 차동식 감지기 심볼
+      count: 1
+      description: 원형 내부 가로선 형태
+    - type: 정온식 감지기 심볼
+      count: 1
+      description: 원형 심볼
+    - type: 연기식 감지기 심볼
+      count: 1
+      description: 원형/사각형 표식 심볼
+    - type: 수동발신기 SET 심볼
+      count: 1
+      description: 사각형 내부 점/표식
+    - type: 화재 수신반 심볼
+      count: 1
+      description: 사각형 내부 X형 분할선
+    - type: 전원반(중계기) 심볼
+      count: 1
+      description: 격자형 사각형 심볼
+    - type: 방화셔터 연동 제어반 심볼
+      count: 1
+      description: 사각형 내부 대각선 심볼
+    inferred_name: 범례 및 주기사항 표
+    position: bottom-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - 'PROJECT NUMBER: 224001'
+    - 가운건축 (GAUN Architects & Engineers)
+    - 서울시 강남구 언주로 608, 10층 (논현동, 팍스마워)
+    - Tel:02-2-3443-7799 Fax:02-2-3443-2877
+    - www.gaun.co.kr
+    - (주)정연엔지니어링
+    - 소방설비사 종기만
+    - 정보통신설비사 홍선덕
+    - 기계설비 등록 [제 E-6-825호]
+    - 건축기계설비사 홍기만
+    - 경기도 안양시 동안구 흥안대로 415, 1115호, 1116호 (관양동 두산벤처다임)
+    - '대표전화: (031) 458-9666'
+    - 'DRAWN: 안동식'
+    - 'CHECKED: 이은진'
+    - 'APPROVED: 정용재'
+    - 'SCALE: A3:1/300'
+    - 'DATE: 2024.01'
+    - 'DRAWING NO: EF-203'
+    - 'BUILDING NAME: R-Center'
+    - 'DRAWING TITLE: 옥탑층 자동화재탐지설비 평면도'
+    labels_above: []
+    labels_below: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: LEGEND-TABLE
+    to: FLOOR-PLAN
+    line_type: signal
+    line_style: dotted
+    annotation: 심볼 정의 참조 — 감지기 배관 배선 16C(HFIX 2-1.5㎟), 16C(HFIX 4 1.5㎟)
+  - from: FLOOR-PLAN
+    to: FLOOR-PLAN
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관 배선 — 평면도 내 감지기 간 연결선
+  groups:
+  - group_id: GRP-DETECTOR
+    label: 감지기 그룹 (옥탑층)
+    members:
+    - FLOOR-PLAN
+    notes:
+    - 차동식/정온식/연기식 감지기 혼합 배치
+    - 계단 부근 별도 감지기 주기
+  - group_id: GRP-CONTROL
+    label: 제어반 그룹 (옥탑층 우측)
+    members:
+    - FLOOR-PLAN
+    notes:
+    - 수동발신기 SET, 전원반(중계기), 방화셔터 연동 제어반 우측 집중 배치
+  legend_references:
+  - text: 차동식 감지기(2종 스포트형)-LED 부착형
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-001
+  - text: 정온식 감지기(1종 스포트형)-LED 부착형
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-002
+  - text: 연기식 감지기(1,2종 광전식)-LED 부착형
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-003
+  - text: 수동발신기 SET (소화전 상단형)
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-004
+  - text: 화재 수신반
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-005
+  - text: 전원반(중계기)
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-014
+  - text: 방화셔터 연동 제어반
+    linked_to: FLOOR-PLAN
+    symbol_id: SYM-009
+  diagram_meta:
+    title: 옥탑층 자동화재탐지설비 평면도
+    drawing_number: EF-203
+    project_number: '224001'
+    project_name: LS Electric R-Center 구축
+    building_name: R-Center
+    floor: 옥탑층
+    scale: A3:1/300, A1:1/NONE
+    date: '2024.01'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: detection_alarm
+    drawing_genre: floor_plan
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    grid_axes:
+      horizontal:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      vertical:
+      - A
+      - B
+      - C
+      - D
+      total_width_mm: 71000
+      span_details: 12000+12000+12000+14000+11000+10000
+      total_height_mm: 43000
+      height_details: A-B:11000, B-C:17000, C-D:13000
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    drawn_by: 안동식
+    checked_by: 이은진
+    approved_by: 정용재
+    wiring_notes:
+    - '감지기 배관 배선: 16C (HFIX 2-1.5㎟)'
+    - '감지기 배관 배선: 16C (HFIX 4 1.5㎟)'
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.
+    special_notes:
+    - 계단 별도 감지기 — 계단실 감지기는 별도 계통으로 처리
+    legend_groups:
+    - 경보설비 (감지기류)
+    - 제어반류
+    pipe_abbreviations: {}
+    symbol_count: 7
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FLOOR_PLAN
+    shape: rectangle
+    labels_inside:
+    - 계단 별도 감지기
+    labels_above:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - 71,000
+    - 12,000
+    - 12,000
+    - 12,000
+    - 14,000
+    - 11,000
+    - 10,000
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 3
+      description: 원형 심볼 내부에 가로선, 우측 소규모 실내 설치
+    - type: 수동발신기 SET (소화전 상단형)
+      count: 1
+      description: 사각형 심볼 내부에 작은 사각형, 우측 소규모 실내 설치
+    - type: 방화셔터 연동 제어반
+      count: 1
+      description: 사각형 심볼 내부에 대각선, 우측 소규모 실내 설치
+    - type: 화재 수신반
+      count: 1
+      description: 사각형 심볼 내부에 X 표시, 우측 소규모 실내 설치 (범례상 전원반(중계기)와 동일 심볼)
+    inferred_name: 옥탑층 자동화재탐지설비 평면도
+    position: center
+    notes:
+    - 좌측 A-D열 그리드 및 치수(43,000, 13,000, 17,000, 13,000) 포함
+    - 우측 소규모 실에 감지기 및 제어반 집중 배치
+    - 계단실 부근에 '계단 별도 감지기' 지시선 있음
+  - panel_id: LEGEND_NOTES
+    shape: rectangle
+    labels_inside:
+    - 범례 및 주기사항
+    - 심 별 | 내 용 | 수 량
+    - 차동식 감지기(2종 스포트형)-LED 부착형
+    - 정온식 감지기(1종 스포트형)-LED 부착형
+    - 연기식 감지기(1,2종 광전식)-LED 부착형
+    - 수동발신기 SET (소화전 상단형) | 1EA
+    - 화재 수신반
+    - 전원반(중계기)
+    - 방화셔터 연동 제어반
+    - 1. 감지기 배관 배선
+    - ': 16C ( HFIX 2-1.5㎟ )'
+    - ': 16C ( HFIX 4-1.5㎟ )'
+    - ': 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.'
+    labels_above: []
+    labels_below: []
+    inferred_name: 범례 및 주기사항 표
+    position: bottom-left
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - PROJECT NUMBER 224001
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 서울시 강남구 언주로 608, 10층 (논현동, 팍스타워)
+    - Tel.02-2-3443-7799 Fax.02-2-3443-2877
+    - www.gaun.co.kr
+    - NOTES
+    - KEY PLAN
+    - NO. | DESCRIPTION | DATE
+    - ISSUES & REVISIONS
+    - BUILDING NAME R-Center
+    - DRAWING TITLE 옥탑층 자동화재탐지설비 평면도
+    - (주)정연엔지니어링
+    - 전력전문1종설계업등록 [경기안양1-1호]
+    - 건축전기설비기술사 조 성 환
+    - 전 문 소 방 시 설 설 계 업 등 록 [제2017-01-00097호]
+    - 소방설비기술사 홍 기 만
+    - 정 보 통 신 등 록 [제 E-6-825호]
+    - 정보통신책임기술자 황 선 덕
+    - 기 계 설 비 등 록 [제 E-6-825호]
+    - 건축기계설비기술사 홍 기 만
+    - 경기도 안양시 동안구 흥안대로 415, 1115호, 1116호 (평촌동, 두산벤처다임)
+    - '대 표 전 화 : (031) 456 - 9666'
+    - DRAWN 안 동 식
+    - CHECK 1 이 은 진
+    - CHECK 2 이 은 진
+    - APPR. 정 용 재
+    - SCALE A3:1/300
+    - DATE 2024.01
+    - DRAWING NO. EF - 203
+    labels_above: []
+    labels_below: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: LEGEND_NOTES
+    to: FLOOR_PLAN
+    line_type: other
+    line_style: dashed
+    annotation: 심볼 및 배선 사양 정의
+  groups:
+  - group_id: GRP_ROOFTOP_EQUIPMENT
+    label: 옥탑층 소방 설비
+    members:
+    - FLOOR_PLAN
+    notes:
+    - 우측 소규모 실내에 감지기 및 제어반 설치
+  legend_references:
+  - text: 차동식 감지기(2종 스포트형)-LED 부착형
+    linked_to: FLOOR_PLAN
+  - text: 수동발신기 SET (소화전 상단형)
+    linked_to: FLOOR_PLAN
+  - text: 방화셔터 연동 제어반
+    linked_to: FLOOR_PLAN
+  - text: 화재 수신반
+    linked_to: FLOOR_PLAN
+  diagram_meta:
+    title: 옥탑층 자동화재탐지설비 평면도
+    drawing_number: EF-203
+    project_name: LS Electric R-Center 구축
+    building_name: R-Center
+    project_number: '224001'
+    date: '2024.01'
+    scale: A3:1/300
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    drawing_genre: floor_plan
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    drawn_by: 안동식
+    checked_by: 이은진
+    approved_by: 정용재
+    wiring_notes:
+    - '감지기 배관 배선: 16C ( HFIX 2-1.5㎟ )'
+    - '감지기 배관 배선: 16C ( HFIX 4-1.5㎟ )'
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.
+    grid_axes:
+      horizontal:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      vertical:
+      - A
+      - B
+      - C
+      - D
+      total_width_mm: 71000
+      total_height_mm: 43000

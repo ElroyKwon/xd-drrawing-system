@@ -1,0 +1,126 @@
+page_19_entities:
+- tag: P019-P-EA-2PP
+  name: P-EA-2PP PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+  type: panel_board
+  discipline: ELECTRICAL
+  confidence: 0.99
+- tag: P019-P-F-2PP
+  name: P-F-2PP PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+  type: panel_board
+  discipline: ELECTRICAL
+  confidence: 0.99
+- tag: P019-P-G-2PP
+  name: P-G-2PP PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+  type: panel_board
+  discipline: ELECTRICAL
+  confidence: 0.99
+- tag: P019-P-I-2PP
+  name: P-I-2PP PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+  type: panel_board
+  discipline: ELECTRICAL
+  confidence: 0.99
+- tag: P019-MCCB
+  name: MCCB
+  type: circuit_breaker
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: P019-SPD
+  name: 3Ø SPD 40kA/mode
+  type: surge_protection_device
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: P019-E3
+  name: E3
+  type: grounding_symbol_label
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: P019-MAIN
+  name: MAIN
+  type: unknown
+  discipline: ELECTRICAL
+  confidence: 0.96
+- tag: 'P019-FROM : 전기실'
+  name: 'FROM : 전기실'
+  type: unknown
+  discipline: ELECTRICAL
+  confidence: 0.96
+- tag: P019-EQ-E11
+  name: 차단기 정격/차단용량 표
+  type: table
+  discipline: ELECTRICAL
+  confidence: 0.97
+- tag: P019-EQ-E12
+  name: PANEL LOCATION
+  type: label
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: P019-EQ-E13
+  name: COVER TYPE 노출형(STEEL)
+  type: label
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: P019-EQ-E14
+  name: BOX SIZE -
+  type: label
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: P019-SP-ARCH-01
+  name: 외곽 테두리
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.96
+- tag: P019-SP-ARCH-02
+  name: 우측 표제란
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.97
+- tag: P019-SP-ARCH-03
+  name: 중앙 4분할 도면 영역
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: P019-SP-ARCH-04
+  name: 하단 제목 영역
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.96
+- tag: P019-SP-ARCH-05
+  name: 도면번호 영역
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.96
+- tag: P019-SP-ARCH-06
+  name: 표제란 내 회사/프로젝트 정보 영역
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.94
+- tag: P019-SP-ARCH-07
+  name: 차단기 정격/차단용량 주기 영역
+  type: boundary
+  discipline: ARCHITECTURAL
+  confidence: 0.93
+page_19_relations:
+- from: 'P019-FROM : 전기실'
+  to: P019-MAIN
+  relation: power_feed
+- from: P019-MAIN
+  to: P019-P-EA-2PP
+  relation: power_feed
+- from: P019-MAIN
+  to: P019-P-F-2PP
+  relation: power_feed
+- from: P019-MAIN
+  to: P019-P-G-2PP
+  relation: power_feed
+- from: P019-MAIN
+  to: P019-P-I-2PP
+  relation: power_feed
+- from: P019-MCCB
+  to: panel_board circuits
+  relation: protection
+- from: P019-SPD
+  to: ground
+  relation: surge_protection_to_ground
+- from: P019-E3
+  to: ground
+  relation: grounding

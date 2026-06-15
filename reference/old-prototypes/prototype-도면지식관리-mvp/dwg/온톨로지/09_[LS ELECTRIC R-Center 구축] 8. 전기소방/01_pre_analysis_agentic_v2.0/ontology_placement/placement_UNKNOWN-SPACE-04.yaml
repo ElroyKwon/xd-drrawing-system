@@ -1,0 +1,165 @@
+placement:
+  tag: UNKNOWN-SPACE-04
+  name: 주기사항
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:UNKNOWN-SPACE-04
+    class_hint: GeneralNote
+    alternative_class_hints:
+    - InstallationSpecification
+    - WiringStandard
+    related_assertions: []
+    applicable_axioms:
+    - AX009
+    - AX022
+    - AX025
+    - AX026
+    applicable_constraints:
+    - CN001
+    - CN003
+    - CN004
+    - CN011
+    confirmed_class: dks:Note
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 1. 감지기 배관 배선
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: noteText
+          suggested_datatype: xsd:string
+          rationale: 주기사항 내부의 일반 문구로, 도면 주석 텍스트 보존이 필요함
+      - raw_text: 16C ( HFIX 2-1.5㎟ )
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: cableSpec
+          suggested_datatype: xsd:string
+          rationale: 배선 규격처럼 보이는 문자열이지만 supplement sub_kind 부재로 원문 보존
+      - raw_text: 16C ( HFIX 4-1.5㎟ )
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: cableSpec
+          suggested_datatype: xsd:string
+          rationale: 배선 규격처럼 보이는 문자열이지만 supplement sub_kind 부재로 원문 보존
+      - raw_text: 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: installationNote
+          suggested_datatype: xsd:string
+          rationale: 시공 지시 문장으로, 설치/시공 주의사항 텍스트 보존이 필요함
+  provenance:
+    name:
+      source_pages:
+      - 11
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: inferred_from_type_and_function_category
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hints
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 11
+      method: direct
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 11
+      method: direct
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 11
+      method: direct
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 11
+      method: direct
+    specs.shape:
+      source_pages:
+      - 11
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 11
+      method: direct
+    position:
+      source_pages:
+      - 11
+      method: direct
+    source_attribution:
+      source_pages:
+      - 11
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 11
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 11
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 11
+      method: direct
+    collection_sources.cross_validated:
+      source_pages:
+      - 11
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 11
+      method: direct
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 1. 감지기 배관 배선
+    source_page: 11
+    reason: 주석 문구로는 명확하나, 별도 구조화된 속성으로 확정할 supplement sub_kind가 없음
+    preservation_note: 원문 순서 유지
+  - field_candidate: specs.labels_inside
+    raw_text: 16C ( HFIX 2-1.5㎟ )
+    source_page: 11
+    reason: 배선/케이블 규격으로 보이나 정확한 의미와 속성명 확정 불가
+    preservation_note: 규격 문자열 그대로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 16C ( HFIX 4-1.5㎟ )
+    source_page: 11
+    reason: 배선/케이블 규격으로 보이나 정확한 의미와 속성명 확정 불가
+    preservation_note: 규격 문자열 그대로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.
+    source_page: 11
+    reason: 시공 지시 문장으로 해석되나 구조화된 관계/속성으로 분해하지 않음
+    preservation_note: 설치 주의 문구 원문 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name은 주기사항으로 명백한 주석 객체이나, labels_inside에 설치 지시와 배선 규격이 함께 있어 GeneralNote
+      / InstallationSpecification / WiringStandard 성격이 혼재함
+    recommended_handling: AnnotationOnly로 유지하되, free_notes의 promotion_hint를 통해 noteText,
+      cableSpec, installationNote 후보를 후속 단계에서 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone/Room 계열 중 주석성 공간/메타 객체를 AnnotationOnly로 분류
+    - 도면 주석 및 표기 텍스트를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:01:25.092453'
+  confidence: 0.95

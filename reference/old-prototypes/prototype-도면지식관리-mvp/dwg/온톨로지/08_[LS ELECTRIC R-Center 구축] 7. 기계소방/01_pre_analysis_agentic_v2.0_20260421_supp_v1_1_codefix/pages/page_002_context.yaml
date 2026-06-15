@@ -1,0 +1,561 @@
+initial_scan:
+  page_type: toc
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: null
+  drawing_genre: index
+  title_block:
+    drawing_number: MF-001
+    title: 도면목록표
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 도면목록표(목차) 페이지로 보이며, 중앙 표에 도면번호와 도면명 목록이 정리되어 있음
+  - 표제란에 MF-001, 제목 도면목록표, 프로젝트명 R-Center가 보임
+  - legend_data.yaml 조회 결과 NOT FOUND
+  confidence: 0.98
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_index/supplement_p4_05.yaml
+  routing_confidence: 0.99
+  routing_reason: 페이지 제목이 '도면목록표'로 보이며 실제 도면/범례가 아닌 목차 페이지이므로 supplement 라우팅 대상이 아님.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BANNER
+    shape: other
+    primary_label: 도면목록표
+    position: top-center
+    labels_near:
+    - 도면목록표
+    note: 리본 모양의 장식 테두리 안에 제목이 있음
+  - panel_id: INDEX_TABLE
+    shape: rectangle
+    primary_label: 도면 목록
+    position: center
+    labels_near:
+    - 구분
+    - 도면번호
+    - 도면명
+    - 축척
+    - 소화설비
+    - 내진설비
+    note: 4개 열로 구성된 대형 표
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - MF - 001
+    - 도면목록표
+    - R-Center
+  connections: []
+  notable_shapes:
+  - shape: other
+    label: 도면목록표
+    note: 제목을 감싸는 리본 배너 형태
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.0
+  note: 페이지 전체가 도면 목록표(Index)이며 범례 섹션이 없음
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: index
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.99
+  routing_reason: 0-0은 UNKNOWN이었으나, 도면번호 접두사 MF 및 목록표 내 '소화설비', '내진설비', '스프링클러' 키워드로
+    FIRE_PROTECTION 확정. 장르는 index 유지.
+classification: DRAWING_LIST
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 도면목록표
+- 구분
+- 도면번호
+- 도면명
+- 축척
+- 소화설비
+- 내진설비
+- MF-001
+- 도면목록표
+- R-Center
+title_block:
+  drawing_number: MF-001
+  title: 도면목록표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 page_type=toc, drawing_genre=index, discipline=FIRE_PROTECTION와 일치함.
+  페이지 중앙 표에는 소화설비/내진설비 항목의 도면번호와 도면명이 정리되어 있으며, 우측 표제란에 MF-001과 제목 도면목록표가 보임. 범례 페이지는
+  아님.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: TITLE-BANNER
+    shape: other
+    labels_inside:
+    - 도 면 목 록 표
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면목록표 제목 배너 (리본 장식형)
+    position: top-center
+  - panel_id: INDEX-TABLE
+    shape: rectangle
+    labels_inside:
+    - 구 분
+    - 도 면 번 호
+    - 도 면 명
+    - 축 척
+    - 소화설비
+    - 내진설비
+    - MF - 001
+    - 도면목록표
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 002
+    - 범례,장비일람표
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 003
+    - 옥외 소화 배관 평면도
+    - 'A1 : 1/500'
+    - 'A3 : 1/1000'
+    - MF - 004
+    - 소화 배관 계통도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 005
+    - PIT 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - MF - 006
+    - 1층 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - MF - 007
+    - 2층 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - MF - 008
+    - 소화 밸브 상세도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 101
+    - 소화 배관 내진 계통도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 102
+    - PIT 소화 배관 내진 평면도
+    - 'A1 : 1/100'
+    - 'A3 : 1/200'
+    - MF - 103
+    - 1층 소화 배관 내진 평면도
+    - 'A1 : 1/100'
+    - 'A3 : 1/200'
+    - MF - 104
+    - 2층 소화 배관 내진 평면도
+    - 'A1 : 1/100'
+    - 'A3 : 1/200'
+    - MF - 105
+    - 4-WAY 입상배관 상세도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 106
+    - 소화 배관 내진 상세도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면목록 본표 (소화설비 8건 + 내진설비 6건)
+    position: center
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 609, 12층 (논현동, 럭스안빌)
+    - Tel:82-2-3443-7799  Fax:82-2-3443-3807
+    - www.gaun.co.kr
+    - R-Center
+    - 도면목록표
+    - SCALE
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - DATE
+    - '2024.04'
+    - DRAWING NO
+    - MF - 001
+    - (주)정연엔지니어링
+    - 소방시설비기술사 종기단
+    - 전문소방시설 등기록
+    - 소방설비기술사 종기단
+    - 기계설비 등록
+    - 건축기계설비기술사 종기단
+    - 경기도 성남시 중원구 둔촌대로 415, 1115호, 1116호 [분당동, 두산분지(다)동]
+    - 대표전화 (031) 456 - 9666
+    - 오 단 일
+    - 명 동 식
+    - 여 운 진
+    - 청 용 재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란 (Title Block)
+    position: right
+  connections: []
+  groups:
+  - group_id: GRP-소화설비
+    label: 소화설비
+    members:
+    - MF-001
+    - MF-002
+    - MF-003
+    - MF-004
+    - MF-005
+    - MF-006
+    - MF-007
+    - MF-008
+  - group_id: GRP-내진설비
+    label: 내진설비
+    members:
+    - MF-101
+    - MF-102
+    - MF-103
+    - MF-104
+    - MF-105
+    - MF-106
+  legend_references: []
+  diagram_meta:
+    title: 도면목록표
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 접두사 MF + 목록 내 '소화설비'/'내진설비' 섹션 두 단서 근거
+    fire_subsystem: mechanical
+    fire_mech_subsystem: index
+    has_seismic: true
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    drawing_number: MF-001
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineer_firm: (주)정연엔지니어링
+    date: '2024.04'
+    drawn_by: 오 단 일
+    checked_by_1: 명 동 식
+    checked_by_2: 여 운 진
+    approved_by: 청 용 재
+    scale_A1: 1/NONE
+    scale_A3: 1/NONE
+    drawing_list:
+      소화설비:
+      - drawing_number: MF-001
+        title: 도면목록표
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-002
+        title: 범례,장비일람표
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-003
+        title: 옥외 소화 배관 평면도
+        scale_A1: 1/500
+        scale_A3: 1/1000
+      - drawing_number: MF-004
+        title: 소화 배관 계통도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-005
+        title: PIT 소화 배관 평면도
+        scale_A1: 1/200
+        scale_A3: 1/400
+      - drawing_number: MF-006
+        title: 1층 소화 배관 평면도
+        scale_A1: 1/200
+        scale_A3: 1/400
+      - drawing_number: MF-007
+        title: 2층 소화 배관 평면도
+        scale_A1: 1/200
+        scale_A3: 1/400
+      - drawing_number: MF-008
+        title: 소화 밸브 상세도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      내진설비:
+      - drawing_number: MF-101
+        title: 소화 배관 내진 계통도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-102
+        title: PIT 소화 배관 내진 평면도
+        scale_A1: 1/100
+        scale_A3: 1/200
+      - drawing_number: MF-103
+        title: 1층 소화 배관 내진 평면도
+        scale_A1: 1/100
+        scale_A3: 1/200
+      - drawing_number: MF-104
+        title: 2층 소화 배관 내진 평면도
+        scale_A1: 1/100
+        scale_A3: 1/200
+      - drawing_number: MF-105
+        title: 4-WAY 입상배관 상세도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-106
+        title: 소화 배관 내진 상세도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+    number_ranges:
+      소화설비:
+      - MF-001
+      - MF-008
+      내진설비:
+      - MF-101
+      - MF-106
+    total_drawings: 14
+    total_sections: 2
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01
+    shape: other
+    labels_inside:
+    - 도면목록표
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 메인 타이틀 배너
+    position: top-center
+  - panel_id: P02
+    shape: rectangle
+    labels_inside:
+    - 구분
+    - 도면번호
+    - 도면명
+    - 축척
+    - 소화설비
+    - MF - 001
+    - 도면목록표
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 002
+    - 범례,장비일람표
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 003
+    - 옥외 소화 배관 평면도
+    - 'A1 : 1/500'
+    - 'A3 : 1/1000'
+    - MF - 004
+    - 소화 배관 계통도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 005
+    - PIT 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - MF - 006
+    - 1층 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - MF - 007
+    - 2층 소화 배관 평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - MF - 008
+    - 소화 밸브 상세도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - 내진설비
+    - MF - 101
+    - 소화 배관 내진 계통도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 102
+    - PIT 소화 배관 내진 평면도
+    - 'A1 : 1/100'
+    - 'A3 : 1/200'
+    - MF - 103
+    - 1층 소화 배관 내진 평면도
+    - 'A1 : 1/100'
+    - 'A3 : 1/200'
+    - MF - 104
+    - 2층 소화 배관 내진 평면도
+    - 'A1 : 1/100'
+    - 'A3 : 1/200'
+    - MF - 105
+    - 4-WAY 입상배관 상세도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - MF - 106
+    - 소화 배관 내진 상세도
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 목록 테이블
+    position: center
+  - panel_id: P03
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 609, 12층 (논현동, 팍스타워)
+    - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+    - www.gaun.co.kr
+    - R-Center
+    - 도면목록표
+    - SCALE
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - DATE
+    - '2024.04'
+    - DRAWING NO
+    - MF - 001
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 프로젝트 표제란
+    position: right
+  - panel_id: P04
+    shape: rectangle
+    labels_inside:
+    - (주)정연엔지니어링
+    - 전문소방시설공사업등록
+    - '[제2017-01-00097호]'
+    - 소방설비기술사 홍 기 만
+    - 정보통신공사업등록 [제 E-6-825호]
+    - 정보통신특급기술사 황 신 익
+    - 기계설비등록 [제 E-6-825호]
+    - 건축기계설비기술사 홍 기 만
+    - 경기도 안양시 동안구 흥안대로 415, 1115호, 1116호 (평촌동, 두산벤처다임)
+    - 대표전화 (031) 456 - 9666
+    - 오 단 일
+    - 명 동 식
+    - 여 운 진
+    - 청 용 재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설계사(엔지니어링) 스탬프란
+    position: bottom-right
+  connections: []
+  groups:
+  - group_id: GRP-FIRE-EXT
+    label: 소화설비
+    members:
+    - P02
+  - group_id: GRP-SEISMIC
+    label: 내진설비
+    members:
+    - P02
+  legend_references: []
+  diagram_meta:
+    title: 도면목록표
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 접두사 MF + 목록 내 '소화설비'/'내진설비' 섹션 두 단서 근거
+    fire_subsystem: mechanical
+    fire_mech_subsystem: index
+    has_seismic: true
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    drawing_number: MF-001
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineer_firm: (주)정연엔지니어링
+    date: '2024.04'
+    drawn_by: 오 단 일
+    checked_by_1: 명 동 식
+    checked_by_2: 여 운 진
+    approved_by: 청 용 재
+    scale_A1: 1/NONE
+    scale_A3: 1/NONE
+    drawing_list:
+      소화설비:
+      - drawing_number: MF-001
+        title: 도면목록표
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-002
+        title: 범례,장비일람표
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-003
+        title: 옥외 소화 배관 평면도
+        scale_A1: 1/500
+        scale_A3: 1/1000
+      - drawing_number: MF-004
+        title: 소화 배관 계통도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-005
+        title: PIT 소화 배관 평면도
+        scale_A1: 1/200
+        scale_A3: 1/400
+      - drawing_number: MF-006
+        title: 1층 소화 배관 평면도
+        scale_A1: 1/200
+        scale_A3: 1/400
+      - drawing_number: MF-007
+        title: 2층 소화 배관 평면도
+        scale_A1: 1/200
+        scale_A3: 1/400
+      - drawing_number: MF-008
+        title: 소화 밸브 상세도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      내진설비:
+      - drawing_number: MF-101
+        title: 소화 배관 내진 계통도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-102
+        title: PIT 소화 배관 내진 평면도
+        scale_A1: 1/100
+        scale_A3: 1/200
+      - drawing_number: MF-103
+        title: 1층 소화 배관 내진 평면도
+        scale_A1: 1/100
+        scale_A3: 1/200
+      - drawing_number: MF-104
+        title: 2층 소화 배관 내진 평면도
+        scale_A1: 1/100
+        scale_A3: 1/200
+      - drawing_number: MF-105
+        title: 4-WAY 입상배관 상세도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+      - drawing_number: MF-106
+        title: 소화 배관 내진 상세도
+        scale_A1: 1/NONE
+        scale_A3: 1/NONE
+    number_ranges:
+      소화설비:
+      - MF-001
+      - MF-008
+      내진설비:
+      - MF-101
+      - MF-106
+    total_drawings: 14
+    total_sections: 2

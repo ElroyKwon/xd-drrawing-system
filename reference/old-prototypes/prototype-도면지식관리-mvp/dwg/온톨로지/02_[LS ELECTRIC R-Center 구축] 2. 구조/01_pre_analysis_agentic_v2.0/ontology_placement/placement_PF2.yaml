@@ -1,0 +1,176 @@
+placement:
+  tag: PF2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PF2
+    class_hint: MemberMark
+    alternative_class_hints:
+    - FoundationMemberMark
+    - StructuralMemberMark
+    related_assertions:
+    - type: located_in
+      target_hint: FOUNDATION-PLAN
+      note: PF2 -> FOUNDATION-PLAN located_in
+      confirmed_property: dks:located_in
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-SCHEDULE-01
+      note: UNKNOWN-SCHEDULE-01 -> PF2 references
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-SCHEDULE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX007
+    - AX010
+    - AX012
+    - AX013
+    applicable_constraints:
+    - CN001
+    - CN012
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 도면 내 기초 심볼
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 메모성 텍스트로 보이며 엔티티 설명 정보로 승격 가능
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 부재 태그 → 일람표 치수 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 일람표 참조 의미를 가진 관계 주석으로 보임
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail
+    name:
+      source_pages: []
+    ontology_core.owl_role:
+      source_pages:
+      - 32
+      - 33
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 32
+      - 33
+      method: tag_as_identifier
+    ontology_core.class_hint:
+      source_pages:
+      - 32
+      - 33
+      method: ontology_plan_guidance
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 32
+      - 33
+      method: ontology_plan_guidance
+    ontology_core.related_assertions:
+      source_pages:
+      - 32
+      - 33
+      method: cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 32
+      - 33
+      method: preservation
+    relations:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 name 필드 없음
+    preservation_note: 추후 동일 태그의 다른 페이지/레코드에서 보완 가능
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 specs 필드 없음
+    preservation_note: 관계 중심 레코드로 보이며 별도 스펙 미관찰
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 connection_specs 필드 없음
+    preservation_note: 연결 상세는 relations의 note로만 관찰됨
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 requirements 필드 없음
+    preservation_note: 요구사항 정보 미관찰
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 drawing_texts 필드 없음
+    preservation_note: 도면 텍스트 원문은 relations.note에 일부 반영됨
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 ontology_hints 필드 없음
+    preservation_note: ontology_plan만 참고하여 추론
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 notes 필드 없음
+    preservation_note: 관계 note만 존재
+  - field_candidate: source_pages
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail 최상위 source_pages 필드 없음
+    preservation_note: relations 각 항목의 source_page만 존재
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 source_attribution 필드 없음
+    preservation_note: cross_validated origin만 관찰됨
+  - field_candidate: position
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 position 필드 없음
+    preservation_note: 위치 정보는 located_in 관계로만 간접 관찰됨
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: PF2는 FOUNDATION-PLAN에 located_in 되고, UNKNOWN-SCHEDULE-01로부터 references를
+      받는 개별 부재 마크로 관찰됨
+    recommended_handling: MemberMark 계열의 독립 Individual로 유지하고, located_in 및 references
+      관계를 후속 단계에서 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - PF/WF/MF/PW/W 계열을 member marks로 보는 guidance
+    - located_in 관계를 MemberMark -> PlanOrView 패턴으로 보는 guidance
+    - schedule/list -> references -> member mark 패턴
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:50.046680'
+  confidence: 0.91

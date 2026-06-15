@@ -1,0 +1,784 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: symbol/abbreviation note block for fire piping components
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: MF-004
+    title: 소화배관계통도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 우측 상단 주기(Notes) 박스가 있음
+  - 하단 중앙에 A.B.C 밸브/소화설비 관련 기호 설명 박스가 있음
+  - 도면번호 접두사 MF와 제목 '소화배관계통도'가 일치
+  confidence: 0.96
+  note: 페이지 5는 소화배관계통도이며, 범례 전용 페이지는 아니지만 하단 중앙에 기호/설명 박스가 있어 has_legend_section=true로
+    판단함. 표제란의 도면번호는 MF-004, 제목은 소화배관계통도.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_system_diagram/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: discipline=FIRE_PROTECTION에 대해 카탈로그에 P-4.5 _general과 P-10 genre_mechanical가
+    존재하며, 본 페이지의 drawing_genre는 범례/계통도 성격이 강하지만 정확한 genre 매칭 파일은 없어 _general fallback과
+    가장 근접한 P-10 genre_mechanical를 기록함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: DIAGRAM-MAIN
+    shape: rectangle
+    primary_label: 소화배관계통도
+    position: center
+    labels_near:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    - H
+    - 연결송수구
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 1. 도면에 설계된 제품...
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+  - panel_id: LEGEND-EQUIP
+    shape: rectangle
+    primary_label: 소화설비 기호 설명
+    position: bottom-center
+    labels_near:
+    - A.B.C 분말소화기
+    - 옥내소화전함(호스릴형)
+    - 쌍구형 연결송수구
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 소화배관계통도
+    - MF-004
+  connections:
+  - from: DIAGRAM-MAIN
+    to: LEGEND-EQUIP
+    line_style: dotted
+    annotation: 심볼 참조
+  notable_shapes:
+  - shape: circle
+    label: MF
+    note: 도면 하단 제목 옆 도면 구분 기호
+  - shape: other
+    label: 소화전 심볼
+    note: 계통도 내 옥내소화전함 표현
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-center
+  confidence: 0.98
+  note: 하단 중앙에 소화기, 소화전함, 연결송수구 심볼과 설명을 담은 명확한 범례 표가 존재함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: system_diagram
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 0-0의 'other' 장르를 vision으로 확인한 제목 '소화배관계통도' 및 층별 수직 배관 구성에 따라 'system_diagram'으로
+    구체화하여 갱신함. 카탈로그에서 해당 장르 supplement 경로를 추출하여 적용.
+classification: FIRE_PROTECTION_SYSTEM_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 주기
+- 지붕층
+- 2층
+- 1층
+- PIT
+- 연결송수구
+- A.B.C 분말소화기
+- 옥내소화전함(호스릴형)
+- 쌍구형 연결송수구
+- 신설 배관
+- 기존 배관
+title_block:
+  drawing_number: MF-004
+  title: 소화배관계통도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=FIRE_PROTECTION, drawing_genre=system_diagram, title_block(MF-004/소화배관계통도)와
+  일치함. 페이지 하단 중앙에 소화설비 기호 설명 박스가 보이며, 우측 상단에 주기 박스가 있음. 범례 참고의 page 3은 별도 범례 페이지로,
+  본 페이지는 범례 전용이 아님.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: RISER-MAIN
+    shape: rectangle
+    labels_inside:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    labels_above:
+    - 지붕층
+    labels_below:
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 6
+    - type: A.B.C 분말소화기
+      count: 29
+    - type: 쌍구형 연결송수구
+      count: 1
+    - type: 게이트밸브
+      count: 10
+    inferred_name: 소화배관 계통도 (층별 수직 배관 계통)
+    position: center
+  - panel_id: RISER-01
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 2층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 입상관 계통 1 (H 배관)
+    position: center-left
+  - panel_id: RISER-02
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 2층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 입상관 계통 2 (H 배관)
+    position: center
+  - panel_id: RISER-03
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 2층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 입상관 계통 3 (H 배관)
+    position: center
+  - panel_id: RISER-04
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 2층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 입상관 계통 4 (H 배관)
+    position: center
+  - panel_id: RISER-05
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 2층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 입상관 계통 5 (H 배관)
+    position: center
+  - panel_id: RISER-SC-01
+    shape: other
+    labels_inside:
+    - T-100
+    - 연결송수구
+    - T-100
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 쌍구형 연결송수구
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    - type: 체크밸브
+      count: 1
+    inferred_name: 연결송수구 입상관 계통 (SC 배관)
+    position: center-right
+  - panel_id: RISER-SC-02
+    shape: other
+    labels_inside:
+    - T-50
+    - T-100
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 연결송수구 연결 입상관 계통 2
+    position: right
+  - panel_id: FHC-PIT
+    shape: other
+    labels_inside:
+    - 기존 공동구 폐내소화전 배관에서 분기
+    - (공동구 내부 커미트_피(테블브 이상)
+    - T-100
+    labels_above:
+    - 1층
+    labels_below:
+    - PIT
+    equipment_symbols:
+    - type: 게이트밸브
+      count: 1
+    - type: 체크밸브
+      count: 1
+    inferred_name: PIT층 기존 공동구 소화전 배관 분기점
+    position: bottom-right
+  - panel_id: LEGEND-EQUIP
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말소화기 3단 위 칸막이 추가(신설치) 및 발생 소화기 반경 변경가능
+    - x 29EA
+    - 옥내소화전함(호스릴형) 25ex30M드럼, 25ø관경12M 전면(ST), 후면(STEEL)
+    - x 6EA
+    - 쌍구형 연결송수구 100ø x 65ø x 65ø
+    - x 1EA
+    labels_above:
+    - A.B.C 분말소화기
+    - 옥내소화전함(호스릴형)
+    - 쌍구형 연결송수구
+    labels_below: []
+    equipment_symbols:
+    - type: A.B.C 분말소화기 심볼
+      count: 1
+    - type: 옥내소화전함 심볼
+      count: 1
+    - type: 쌍구형 연결송수구 심볼
+      count: 1
+    inferred_name: 소화설비 기호 및 수량 설명 박스
+    position: bottom-center
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - 1. 도면에 설계된 제품(시스템 포함)은 성기 표준 또는 동등 이상의 제품으로 사용가능.
+    - 2. 붉게 도면이 심한 곳 부에는 현장아건여 맞게 시공하며의 공관리의 충분한 특할 것.
+    - 3. 기존 장비 및 기구류는 최손이 되지 않게 주의하며 철거후 재설치 할 것.
+    - 4. 날부지의 오구에 비해 경기(한 반경)가 있을 수 있으며, 그에 따른 물량들과 연관이 있음하여 오측인의 충인을 득한 후 시공할 것.
+    - 5. 배관 및지 철물은 기존 재사용.
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+    - '7. 기존배관 자재 : 백강관'
+    - 8. 통과우려가 있는 배관 동파방지배선 설치후 임통보온 한다.
+    - 9. 기존 스임용품(IT등)는 변경 없음.
+    labels_above:
+    - ■ 주 기
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주기(Notes) 박스
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 소화배관계통도
+    - MF-004
+    - 'A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    - '2024.04'
+    - 청용재
+    - (주)정연엔지니어링
+    - R-Center
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  connections:
+  - from: RISER-01
+    to: RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관 T-50
+  - from: RISER-02
+    to: RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관 T-50
+  - from: RISER-03
+    to: RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관 T-50
+  - from: RISER-04
+    to: RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관 T-50
+  - from: RISER-05
+    to: RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: H 배관 T-50
+  - from: RISER-SC-01
+    to: RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: SC 배관 T-100, 연결송수구
+  - from: RISER-SC-02
+    to: RISER-SC-01
+    line_type: pipe
+    line_style: solid
+    annotation: T-100 연결
+  - from: FHC-PIT
+    to: RISER-SC-01
+    line_type: pipe
+    line_style: solid
+    annotation: 기존 공동구 폐내소화전 배관에서 분기, T-100
+  groups:
+  - group_id: GRP-H-RISERS
+    label: 옥내소화전 입상관 그룹 (H 배관)
+    members:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+  - group_id: GRP-SC-RISERS
+    label: 연결송수구 입상관 그룹 (SC 배관)
+    members:
+    - RISER-SC-01
+    - RISER-SC-02
+  - group_id: GRP-FLOORS
+    label: 층별 구획 (지붕층/2층/1층/PIT)
+    members:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+    - RISER-SC-01
+    - RISER-SC-02
+    - FHC-PIT
+  legend_references:
+  - text: A.B.C 분말소화기
+    linked_to: LEGEND-EQUIP
+  - text: 옥내소화전함(호스릴형)
+    linked_to: LEGEND-EQUIP
+  - text: 쌍구형 연결송수구
+    linked_to: LEGEND-EQUIP
+  - text: 신설 배관 (실선)
+    linked_to: NOTES-BOX
+  - text: 기존 배관 (점선)
+    linked_to: NOTES-BOX
+  diagram_meta:
+    title: 소화배관계통도
+    drawing_number: MF-004
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: system_diagram
+    has_seismic: false
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: top-to-bottom
+    floors:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    pipe_systems:
+    - abbreviation: H
+      name: 옥내소화전배관
+      nominal_diameter_A: 50
+      pipe_role: branch
+    - abbreviation: SC
+      name: 연결송수구배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+    equipment_schedule:
+    - tag: A.B.C 분말소화기
+      quantity: 29
+      spec: 3단 위 칸막이 추가(신설치)
+    - tag: 옥내소화전함(호스릴형)
+      quantity: 6
+      spec: 25ex30M드럼, 25ø관경12M, 전면(ST), 후면(STEEL)
+    - tag: 쌍구형 연결송수구
+      quantity: 1
+      spec: 100ø x 65ø x 65ø
+    scale: A1:1/NONE, A3:1/NONE
+    date: '2024.04'
+    design_firm: (주)정연엔지니어링
+    architect: 가운건축 (GAUN Architects & Engineers)
+    drawn_by: null
+    checked_by: null
+    approved_by: 청용재
+    notes:
+    - '기존배관 자재: 백강관'
+    - 통과우려가 있는 배관 동파방지배선 설치후 임통보온 한다
+    - 기존 스임용품(IT등)는 변경 없음
+    - 기존 공동구 폐내소화전 배관에서 분기 (공동구 내부 커미트_피(테블브 이상))
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: H-RISER-01
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 옥내소화전 입상관 1
+    position: center-left
+  - panel_id: H-RISER-02
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 옥내소화전 입상관 2
+    position: center-left
+  - panel_id: H-RISER-03
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 옥내소화전 입상관 3
+    position: center
+  - panel_id: H-RISER-04
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 옥내소화전 입상관 4
+    position: center
+  - panel_id: H-RISER-05
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 1층
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    inferred_name: 옥내소화전 입상관 5
+    position: center-right
+  - panel_id: SC-RISER-MAIN
+    shape: other
+    labels_inside:
+    - T-100
+    - T-50
+    - 연결송수구
+    - 기존 공동구 옥내소화전 배관에서 분기
+    - (공동구 내부 게이트,체크밸브 이설)
+    labels_above:
+    - 지붕층
+    labels_below:
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: A.B.C 분말소화기
+      count: 1
+    - type: 쌍구형 연결송수구
+      count: 1
+    - type: 게이트밸브
+      count: 5
+    - type: 체크밸브
+      count: 1
+    inferred_name: 연결송수구 및 주 입상관
+    position: right
+  - panel_id: LEGEND-BOX
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말소화기
+    - 3단 위
+    - 칸막이 추가시 실별로 추가설치.
+    - 법오에 따라 청정소화약제 소화기로 변경가능
+    - x 29EA
+    - 옥내소화전함(호스릴형)
+    - 25Ax30M드럼, 25ø관창1개
+    - 전면(STS), 후면(STEEL)
+    - x 6EA
+    - 쌍구형 연결송수구
+    - 100ø x 65ø x 65ø
+    - x 1EA
+    equipment_symbols:
+    - type: A.B.C 분말소화기 심볼
+      count: 1
+    - type: 옥내소화전함 심볼
+      count: 1
+    - type: 쌍구형 연결송수구 심볼
+      count: 1
+    inferred_name: 소화설비 범례 및 수량표
+    position: bottom-center
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설계된 제품(시스템 포함등)은 상기 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 설계 도면과 상이한 경우에는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의있게 철거후 재설치 할 것.
+    - 4. 발주처의 요구에 비해 경미한 변경이 있을 수 있으며, 그에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    - 5. 배관 지지 철물은 기존 재사용.
+    - 6. 범례
+    - ㅡ 신설 배관
+    - '--- 기존 배관'
+    - 7. 기존배관 자재: 백강관
+    - 8. 동파우려가 있는 배관은 동파방지열선 설치후 발포보온 한다.
+    - 9. 기존 소화용밸브(UT등)는 변경 없음.
+    inferred_name: 주기 사항
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - 224001
+    - 가운건축
+    - GAUN Architects & Engineers
+    - (주)정연엔지니어링
+    - 소화배관계통도
+    - MF - 004
+    - A1: 1/NONE
+    - A3: 1/NONE
+    - 2024.04
+    - 청용재
+    inferred_name: 표제란
+    position: bottom-right
+  connections:
+  - from: H-RISER-01
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 지붕층 연결 배관
+  - from: H-RISER-02
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 지붕층 연결 배관
+  - from: H-RISER-03
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 지붕층 연결 배관
+  - from: H-RISER-04
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 지붕층 연결 배관
+  - from: H-RISER-05
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 지붕층 연결 배관
+  - from: H-RISER-01
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 2층 연결 배관
+  - from: H-RISER-02
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 2층 연결 배관
+  - from: H-RISER-03
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 2층 연결 배관
+  - from: H-RISER-04
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 2층 연결 배관
+  - from: H-RISER-05
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 2층 연결 배관
+  - from: H-RISER-01
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 연결 배관
+  - from: H-RISER-02
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 연결 배관
+  - from: H-RISER-03
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 연결 배관
+  - from: H-RISER-04
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 연결 배관
+  - from: H-RISER-05
+    to: SC-RISER-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 연결 배관
+  groups:
+  - group_id: GRP-H-RISERS
+    label: 옥내소화전 입상관 그룹
+    members:
+    - H-RISER-01
+    - H-RISER-02
+    - H-RISER-03
+    - H-RISER-04
+    - H-RISER-05
+  - group_id: GRP-FLOORS
+    label: 층별 구획
+    members:
+    - H-RISER-01
+    - H-RISER-02
+    - H-RISER-03
+    - H-RISER-04
+    - H-RISER-05
+    - SC-RISER-MAIN
+  legend_references:
+  - text: A.B.C 분말소화기
+    linked_to: LEGEND-BOX
+  - text: 옥내소화전함(호스릴형)
+    linked_to: LEGEND-BOX
+  - text: 쌍구형 연결송수구
+    linked_to: LEGEND-BOX
+  diagram_meta:
+    title: 소화배관계통도
+    drawing_number: MF-004
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: system_diagram
+    has_seismic: false
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: top-to-bottom
+    floors:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    pipe_systems:
+    - abbreviation: H
+      name: 옥내소화전배관
+      nominal_diameter_A: 50
+      pipe_role: branch
+    - abbreviation: SC
+      name: 연결송수구배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+    equipment_schedule:
+    - tag: A.B.C 분말소화기
+      quantity: 29
+      spec: 3단 위, 칸막이 추가시 실별로 추가설치
+    - tag: 옥내소화전함(호스릴형)
+      quantity: 6
+      spec: 25Ax30M드럼, 25ø관경12M, 전면(STS), 후면(STEEL)
+    - tag: 쌍구형 연결송수구
+      quantity: 1
+      spec: 100ø x 65ø x 65ø
+    scale: A1:1/NONE, A3:1/NONE
+    date: '2024.04'
+    design_firm: (주)정연엔지니어링
+    architect: 가운건축 (GAUN Architects & Engineers)
+    approved_by: 청용재
+    notes:
+    - 기존배관 자재: 백강관
+    - 동파우려가 있는 배관은 동파방지열선 설치후 발포보온 한다.
+    - 기존 공동구 옥내소화전 배관에서 분기 (공동구 내부 게이트,체크밸브 이설)

@@ -1,0 +1,16 @@
+tag: P-EA-2PP
+verdict: demoted
+confidence: 0.93
+missing_fields:
+- name
+- discipline
+missing_relations:
+- P-EA-2PP ↔ P-F-2PP (MAIN 배선 연결)
+- P-EA-2PP ↔ P-G-2PP (MAIN 배선 연결)
+- P-EA-2PP ↔ P-I-2PP (MAIN 배선 연결)
+reason: tag는 고유하고 전기 설비로 보이지만, entity_detail에 name과 discipline 필드가 직접 없고, 더 중요한 점은
+  page 19의 설명상 이 항목은 'Panel Board'이며 자체 사양(location, system_voltage, mcs_spec 등)은
+  있으나 도면 메타 성격(title, drawing_number)과 패널 그룹 정보가 섞여 있다. 또한 page 19에서 MCS와의 상위/하위 관계는
+  확인되지만, 동일 페이지의 MAIN 배선으로 연결된 P-F-2PP, P-G-2PP, P-I-2PP 관계가 connection_specs에 누락되어
+  relation completeness가 불완전하다. 독립 엔티티로는 판정 가능하나, 도면 메타데이터 성격의 속성이 포함되어 있어 ontology
+  진입용 정제 대상이며 demoted_to는 document_metadata로 처리한다.

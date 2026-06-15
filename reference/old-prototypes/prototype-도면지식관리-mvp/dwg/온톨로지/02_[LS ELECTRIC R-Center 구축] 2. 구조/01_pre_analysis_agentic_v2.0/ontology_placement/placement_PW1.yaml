@@ -1,0 +1,136 @@
+placement:
+  tag: PW1
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PW1
+    class_hint: MemberMark
+    alternative_class_hints:
+    - PitWallMark
+    - PartMark
+    related_assertions:
+    - type: contains
+      target_hint: GRP-PIT-WALL
+      note: GRP-PIT-WALL contains PW1
+      confirmed_property: dks:isContainedIn
+      confirmed_target: dks:GRP-PIT-WALL
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: linked_to
+      target_hint: PLAN-PIT
+      note: PW1 linked_to PLAN-PIT
+      confirmed_property: dks:linked_to
+      confirmed_target: dks:PLAN-PIT
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX010
+    - AX011
+    - AX012
+    - AX014
+    - AX015
+    applicable_constraints:
+    - CN001
+    - CN013
+    - CN015
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: GRP-PIT-WALL contains PW1
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: isContainedIn
+          suggested_datatype: owl:ObjectProperty
+          rationale: contains 관계의 역방향 보존 후보
+      - raw_text: PW1 linked_to PLAN-PIT
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: hasLinkedPlan
+          suggested_datatype: owl:ObjectProperty
+          rationale: PLAN-PIT과의 연결 관계가 반복 관찰되는 패턴 후보
+  provenance:
+    tag:
+      source_pages:
+      - 34
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 34
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 34
+      method: entity_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 34
+      method: plan_hint + relation_pattern
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 34
+      method: plan_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 34
+      method: cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 34
+      method: relation_text_preservation
+  unresolved:
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 34
+    reason: name 필드가 원문에 존재하지 않음
+    preservation_note: 빈 값으로 보존
+  - field_candidate: discipline
+    raw_text: unknown
+    source_page: 34
+    reason: 입력 discipline이 unknown으로 주어짐
+    preservation_note: 후속 단계에서 structural 귀속 가능성 검토
+  - field_candidate: relations[0]
+    raw_text: 'partner: GRP-PIT-WALL; relation_type: contains; direction: incoming'
+    source_page: 34
+    reason: 관계의 원문 구조는 있으나 from/to가 완전하지 않은 요약 레코드
+    preservation_note: cross_validated 관계의 보조 흔적으로 보존
+  - field_candidate: relations[1]
+    raw_text: 'from: GRP-PIT-WALL; to: PW1; relation: contains; source_page: 34; origin:
+      cross_validated'
+    source_page: 34
+    reason: 관계는 해석 가능하나 OWL property 확정은 다음 단계에서 수행
+    preservation_note: contains 관계 원형 보존
+  - field_candidate: relations[2]
+    raw_text: 'from: PW1; to: PLAN-PIT; relation: linked_to; source_page: 34; origin:
+      cross_validated'
+    source_page: 34
+    reason: 관계는 해석 가능하나 OWL property 확정은 다음 단계에서 수행
+    preservation_note: linked_to 관계 원형 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PW1은 부재 마크로 보이지만, 단독 개체인지 그룹 내 부품인지, 그리고 class_hint를 MemberMark로 둘지 PitWallMark로
+      둘지 확정 불가
+    recommended_handling: 0-9c에서 class 정제 시 MemberMark 우선 검토, 0-9d에서 contains/linked_to
+      정규화 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - group -> contains -> member mark
+    - plan -> linked_to -> member mark
+    deviations:
+    - plan의 located_in 패턴이 아니라 입력에는 contains와 linked_to만 직접 관찰됨
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:55.887847'
+  confidence: 0.78

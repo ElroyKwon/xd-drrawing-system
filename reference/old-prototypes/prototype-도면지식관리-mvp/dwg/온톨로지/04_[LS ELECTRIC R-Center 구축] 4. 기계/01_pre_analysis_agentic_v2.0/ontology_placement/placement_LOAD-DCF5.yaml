@@ -1,0 +1,245 @@
+placement:
+  tag: LOAD-DCF5
+  name: DCF-5 급기팬 부하
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: LOAD-DCF5
+    class_hint: ElectricalLoad
+    alternative_class_hints:
+    - MotorLoad
+    - HVACLoad
+    related_assertions:
+    - type: feeds
+      target_hint: FEEDER-DCF5
+      note: FEEDER-DCF5가 LOAD-DCF5로 feeds 관계를 가짐
+    - type: cable
+      target_hint: FEEDER-DCF5
+      note: 'FEEDER-DCF5와 LOAD-DCF5 사이에 cable 관계가 관찰됨; annotation: 2.5sqMM, 적입기동,
+        1.6kW'
+    applicable_axioms:
+    - AX017
+    - AX014
+    - AX027
+    applicable_constraints:
+    - CN023
+    - CN040
+    confirmed_class: dks:ElectricalLoad
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: load'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasEntityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 type 값이 명시됨
+      - raw_text: 'shape: circle'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 형상이 명시됨
+      - raw_text: 'labels_inside: DCF-5'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 심볼 내부 표기 보존 필요
+      - raw_text: 'labels_below: 1.6Kw'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasRatedPower
+          suggested_datatype: xsd:decimal
+          rationale: 부하 용량으로 해석 가능한 수치 표기
+      - raw_text: 'inferred_name: DCF-5 급기팬 부하 (1.6kW)'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 원문 추론명 보존
+      - raw_text: 'position: bottom-center'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'raw_labels: DCF-5'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원시 라벨 보존
+      - raw_text: 'equipment_symbols: Motor load symbol (circle), count: 1'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 심볼 유형 보존
+      - raw_text: 'capacity_kW: 1.6'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasCapacity_kW
+          suggested_datatype: xsd:decimal
+          rationale: 수치 스펙이 명시됨
+      - raw_text: 'relation: feeds'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: feeds
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실이 명시됨
+      - raw_text: 'relation: cable'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: cable
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실이 명시됨
+      - raw_text: 'annotation: 2.5sqMM, 적입기동, 1.6kW'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 및 부가 표기 보존 필요
+  provenance:
+    name:
+      source_pages:
+      - 25
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 25
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 25
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 25
+      method: ontology_hints + entity_detail.type + specs
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 25
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 25
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 25
+      method: full_field_scan
+    specs.shape:
+      source_pages:
+      - 25
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 25
+      method: direct
+    specs.labels_below:
+      source_pages:
+      - 25
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 25
+      method: direct
+    specs.position:
+      source_pages:
+      - 25
+      method: direct
+    specs.raw_labels:
+      source_pages:
+      - 25
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 25
+      method: direct
+    specs.capacity_kW:
+      source_pages:
+      - 25
+      method: direct
+    relations:
+      source_pages:
+      - 25
+      method: direct
+    equipment_symbols:
+      source_pages:
+      - 25
+      method: direct
+    source_attribution:
+      source_pages:
+      - 25
+      method: direct
+    position:
+      source_pages:
+      - 25
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 25
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 25
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 25
+      method: direct
+    collection_sources:
+      source_pages:
+      - 25
+      method: direct
+    confidence:
+      source_pages:
+      - 25
+      method: direct
+  unresolved:
+  - field_candidate: function_category
+    raw_text: UNKNOWN
+    source_page: 25
+    reason: 도면 원문에서 기능 범주가 UNKNOWN으로만 제시됨
+    preservation_note: 추후 동일 태그군의 패턴과 대조 가능
+  - field_candidate: labels_below
+    raw_text: 1.6Kw
+    source_page: 25
+    reason: 대소문자/단위 표기 혼재로 정규화는 가능하나 원문 보존 필요
+    preservation_note: capacity_kW=1.6과 함께 원문 문자열 유지
+  - field_candidate: relations.annotation
+    raw_text: 2.5sqMM, 적입기동, 1.6kW
+    source_page: 25
+    reason: 케이블 규격과 기동 관련 문구가 혼재하여 단일 의미로 확정 불가
+    preservation_note: 후속 단계에서 cable/spec note로 분해 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Supply Fan; Motor Load; HVAC Load
+    source_page: 25
+    reason: 후보 기능이 복수이며 도면만으로 단일 확정 불가
+    preservation_note: class_hint 후보로만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 load로 명시되지만, 이름은 급기팬 부하이고 관계상 FEEDER-DCF5에 의해 공급되는 전기적 부하로 보이며 물리
+      팬 자체와는 구분 필요
+    recommended_handling: ElectricalLoad로 우선 배치하고, 실제 기계 장비와는 별도 개체로 유지한 뒤 feeds/cable
+      관계를 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - LOAD-* 태그를 기계 장비가 아닌 전기 부하(ElectricalLoad)로 정확히 식별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:36:34.149166'
+  confidence: 0.95

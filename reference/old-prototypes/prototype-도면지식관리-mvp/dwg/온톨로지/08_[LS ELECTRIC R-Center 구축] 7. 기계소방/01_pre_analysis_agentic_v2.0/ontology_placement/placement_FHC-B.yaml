@@ -1,0 +1,167 @@
+placement:
+  tag: FHC-B
+  name: 옥내소화전함 (하단)
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: FHC-B
+    class_hint: FireProtectionEquipment
+    alternative_class_hints:
+    - FireHydrantCabinet
+    - WaterSupplyAccess
+    related_assertions: []
+    applicable_axioms:
+    - AX038
+    - AX040
+    - AX042
+    applicable_constraints:
+    - CN015
+    confirmed_class: dks:FireProtectionEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 옥내소화전함
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: raw_labels
+          suggested_datatype: xsd:string
+          rationale: 도면 내 직접 표기된 설비명
+      - raw_text: 'shape: rectangle'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도면에서 관찰된 형상 정보
+      - raw_text: 'labels_inside: 옥내소화전함'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트
+      - raw_text: 'inferred_name: 옥내소화전함 (하단)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: inferred_name
+          suggested_datatype: xsd:string
+          rationale: 시각 추론으로 부여된 이름
+      - raw_text: 'position: bottom'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates + similar_equipment
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 13
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 13
+      method: specs.shape
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 13
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 13
+      method: specs.inferred_name
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 13
+      method: specs.position
+    unresolved:
+      source_pages:
+      - 13
+      method: entity_detail scan
+    ambiguous:
+      source_pages:
+      - 13
+      method: classification review
+    merge_info:
+      source_pages:
+      - 13
+      method: tag comparison
+    plan_reference.guidance_applied:
+      source_pages:
+      - 13
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 13
+    reason: 관계 항목이 비어 있어 추출할 관계 사실이 없음
+    preservation_note: 후속 단계에서 인근 태그와의 관계가 확인되면 추가 가능
+  - field_candidate: collection_sources.visual_semantics_gemini
+    raw_text: 'true'
+    source_page: 13
+    reason: 메타 수집 출처 정보로 OWL 실체 속성으로 직접 해석하지 않음
+    preservation_note: 출처 메타데이터로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 13
+    reason: 메타 수집 출처 정보로 OWL 실체 속성으로 직접 해석하지 않음
+    preservation_note: 출처 메타데이터로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: FireSuppression, WaterSupplyAccess
+    source_page: 13
+    reason: 후보 기능은 있으나 확정 분류가 아님
+    preservation_note: alternative_class_hints로 일부 보존했으며, 기능 후보 원문도 유지
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: FHC
+    source_page: 13
+    reason: 유사 설비 참조이나 동일 태그 여부 불명
+    preservation_note: merge 후보 판단에는 부족하여 참고 정보로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 옥내소화전함이라는 명시적 설비명과 도면 속성(raw_labels, shape, labels_inside, position)이
+      함께 존재하여 독립 설비로 분류 가능
+    recommended_handling: NamedIndividual로 유지하고, 후속 단계에서 class 및 관계를 정밀 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: 유사 설비로 FHC가 언급되지만 동일 태그로 확인되지 않음
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관, 옥내소화전함, 문서/범례/스케줄 등 반복 패턴 중 옥내소화전함 계열로 배치
+    - 도면에서 관찰된 속성만 보존하고, 해석 불가 항목은 free_notes/unresolved에 원문 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:03:23.632942'
+  confidence: 0.93

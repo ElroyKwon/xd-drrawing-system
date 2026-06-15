@@ -1,0 +1,308 @@
+placement:
+  tag: 1404B
+  name: GP 피더 VCB 패널 1404B
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:1404B
+    class_hint: SwitchgearPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - PowerDistributionEquipment
+    - ProtectionAndControlDevice
+    related_assertions:
+    - type: connects_to
+      target_hint: 1404A
+      note: 'relation from 1404A to 1404B, source_page 5, note: 6.6kV GP BUS'
+    - type: feeds
+      target_hint: 13030 HV
+      note: 'specs.destination: TO: 13030 HV, source_page 5'
+    - type: feeds
+      target_hint: 4302/HV
+      note: 'destination_gemini: 4302/HV, source_page 5'
+    - type: grounds_to
+      target_hint: E1
+      note: 'grounding_mark: E1, source_page 5'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SwitchgearPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: GP
+        source_page: 5
+      - raw_text: 6.6kV GP BUS
+        source_page: 5
+      free_notes:
+      - raw_text: 1404B
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 패널 식별자 형태의 태그/패널 번호
+      - raw_text: VCB 3P
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasBreakerPoles
+          suggested_datatype: xsd:integer
+          rationale: 차단기 극수 표기
+      - raw_text: 7.2kV 600A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRatedVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압과 전류 정격이 함께 표기된 장비 사양
+      - raw_text: 250MVA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasBreakingCapacity
+          suggested_datatype: xsd:decimal
+          rationale: 차단용량으로 보이는 MVA 정격 표기
+      - raw_text: 2×CT 100/5A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCTRatio
+          suggested_datatype: xsd:string
+          rationale: 변류기 비율과 수량 표기
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionRelayModel
+          suggested_datatype: xsd:string
+          rationale: 보호계전기 모델명 표기
+      - raw_text: 50/51
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionFunctions
+          suggested_datatype: xsd:string
+          rationale: 보호 기능 코드 표기
+      - raw_text: SA 9kV 5kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasSurgeArresterRating
+          suggested_datatype: xsd:string
+          rationale: 서지보호기/피뢰기 정격으로 보이는 전압·전류 표기
+      - raw_text: 'TO: 13030 HV'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: feedsTo
+          suggested_datatype: xsd:string
+          rationale: 도면상의 목적지 표기
+      - raw_text: 6.6kV GP BUS
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: belongsToBusSection
+          suggested_datatype: xsd:string
+          rationale: 버스 섹션 및 전압 레벨 표기
+      - raw_text: A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRelayIndicator
+          suggested_datatype: xsd:string
+          rationale: 보호계전기 표시 문자로 보이는 단일 문자 표기
+      - raw_text: 사무동 비상
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasLoadName
+          suggested_datatype: xsd:string
+          rationale: 부하/계통 명칭으로 보이는 한글 표기
+      - raw_text: 4302/HV
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: feedsTo
+          suggested_datatype: xsd:string
+          rationale: 목적지 노드 표기
+      - raw_text: E1
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasGroundingMark
+          suggested_datatype: xsd:string
+          rationale: 접지 마크 표기
+      - raw_text: VCB
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 표기
+      - raw_text: CT
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 표기
+      - raw_text: SA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 표기
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 표기
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag_based
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + specs/function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + project_plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations + specs.destination + grounding_mark
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 5
+      method: specs.raw_labels + bus_section
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels + specs + ontology_hints
+    specs.raw_labels:
+      source_pages:
+      - 5
+    specs.bus_section:
+      source_pages:
+      - 5
+    specs.vcb_rating:
+      source_pages:
+      - 5
+    specs.ct_ratio:
+      source_pages:
+      - 5
+    specs.sa_rating:
+      source_pages:
+      - 5
+    specs.protection_functions:
+      source_pages:
+      - 5
+    specs.destination:
+      source_pages:
+      - 5
+    specs.panel_id:
+      source_pages:
+      - 5
+    specs.voltage_kV:
+      source_pages:
+      - 5
+    specs.vcb_poles:
+      source_pages:
+      - 5
+    specs.vcb_rated_voltage_kV:
+      source_pages:
+      - 5
+    specs.vcb_rated_current_A:
+      source_pages:
+      - 5
+    specs.vcb_breaking_capacity_MVA:
+      source_pages:
+      - 5
+    specs.ct_count:
+      source_pages:
+      - 5
+    specs.sa_voltage_kV:
+      source_pages:
+      - 5
+    specs.sa_discharge_current_kA:
+      source_pages:
+      - 5
+    specs.protection_relay_model:
+      source_pages:
+      - 5
+    specs.protection_relay_indicators_gemini:
+      source_pages:
+      - 5
+    specs.load_name_gemini:
+      source_pages:
+      - 5
+    specs.destination_gemini:
+      source_pages:
+      - 5
+    specs.grounding_mark:
+      source_pages:
+      - 5
+    relations:
+      source_pages:
+      - 5
+    equipment_symbols:
+      source_pages:
+      - 5
+    source_attribution:
+      source_pages:
+      - 5
+    position:
+      source_pages:
+      - 5
+    confidence:
+      source_pages:
+      - 5
+  unresolved:
+  - field_candidate: specs.vcb_breaking_capacity_MVA
+    raw_text: 250MVA
+    source_page: 5
+    reason: 차단용량으로 보이나 단위가 MVA로 표기되어 있어 값의 정확한 의미를 이 단계에서 확정하지 않음
+    preservation_note: 원문 단위와 수치를 그대로 보존
+  - field_candidate: specs.destination
+    raw_text: 'TO: 13030 HV'
+    source_page: 5
+    reason: 도면 목적지 표기이지만 대상 태그의 정확한 실체를 이 단계에서 확정하지 않음
+    preservation_note: feeds 관계 후보로 보존
+  - field_candidate: specs.destination_gemini
+    raw_text: 4302/HV
+    source_page: 5
+    reason: 목적지 표기이지만 대상 태그의 정확한 실체를 이 단계에서 확정하지 않음
+    preservation_note: feeds 관계 후보로 보존
+  - field_candidate: specs.protection_relay_indicators_gemini
+    raw_text: A
+    source_page: 5
+    reason: 단일 문자 표기로 의미가 불명확함
+    preservation_note: 보호계전기 표시값 후보로 보존
+  - field_candidate: specs.load_name_gemini
+    raw_text: 사무동 비상
+    source_page: 5
+    reason: 부하명으로 보이나 정확한 설비 범주를 이 단계에서 확정하지 않음
+    preservation_note: 부하/계통 명칭 후보로 보존
+  - field_candidate: specs.grounding_mark
+    raw_text: E1
+    source_page: 5
+    reason: 접지 마크로 보이나 계통 의미를 이 단계에서 확정하지 않음
+    preservation_note: grounds_to 관련 표기 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: true
+    other_tag: 1404A
+    reason: relations에 1404A와의 connects_to가 있으며, 동일 GP BUS 계통의 인접 패널로 보이는 연결 관계가 확인됨
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:07:20.340975'
+  confidence: 0.95

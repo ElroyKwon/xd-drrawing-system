@@ -1,0 +1,184 @@
+ontology_readiness:
+  tag: BRANCH-P-F-4PP
+  verdict: qualified
+  confidence: 0.98
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 6
+    reason: 고유 tag가 있으며 specifications에 branch_circuits, source_panel, source_voltage,
+      phase, location, cover_type 등 자체 사양이 존재한다. page 22에서 전기실로부터 feeds 관계와 E3 접지,
+      SPD 보호 분기, 분기 MCCB 회로가 확인되어 독립 엔티티로 판단된다.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 6
+    convertible: 5
+    ambiguous_attributes:
+    - key: branch_circuits[0].circuit_id
+      value: '#4B'
+      reason: 회로 식별자이지만 원문에 annotation(배선)과 함께 표기되어 있어 정규 속성/주석 경계가 모호함.
+    - key: branch_circuits[1].circuit_id
+      value: 배선
+      reason: 회로 식별자라기보다 일반 텍스트로 보이며, 고유 회로명인지 불명확함.
+    - key: branch_circuits[0].annotation
+      value: 배선
+      reason: 회로 속성인지 도면 주석인지 모호하므로 annotation으로 보존 필요.
+    - key: source_voltage
+      value: 440V
+      reason: 수치+단위는 명확하나 문자열 형태이므로 정규화 시 unit 분리 필요.
+    - key: phase
+      value: 3Ø
+      reason: 상(phase) 표기이지만 기호형 문자열이므로 정규 속성으로 변환 시 표준화 필요.
+    - key: location
+      value: 1층 진동시험실
+      reason: 공간 속성으로는 명확하나 room/zone 정규화가 필요함.
+    - key: cover_type
+      value: 노출형(STEEL)
+      reason: 외함/설치형태와 재질이 결합된 복합 문자열로, 분해 전 annotation 보존이 필요함.
+    auxiliary_attributes:
+    - three_phase_distribution
+    - molded_case_circuit_breaker
+    - surge_protection_capable
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: entity_detail
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: false
+      source: entity_detail
+      conflict_with: null
+    - key: source_attribution.mini
+      value: false
+      source: entity_detail
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates:
+  - BRANCH-P-A-4PP-7
+  - BRANCH-P-AC-4PP-1
+  - BRANCH-P-C-4PP
+  - BRANCH-P-E-4PP
+  - BRANCH-P-P-4PP
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: BranchCircuit
+    alternative_parent_classes:
+    - LoadFeeding
+    - PowerDistribution
+  spatial_context:
+    position: ''
+    source_pages:
+    - 22
+    room_or_zone: 1층 진동시험실
+    floor: 1층
+  preserved_auxiliary:
+    specs_full:
+      branch_circuits:
+      - circuit_id: '#4B'
+        at: 80
+        af: 400
+        poles: 3
+        type: MCCB
+        annotation: 배선
+      - circuit_id: 배선
+        at: 200
+        af: 200
+        poles: 3
+        type: MCCB
+      - circuit_id: SP
+        at: 75
+        af: 125
+        poles: 3
+        type: MCCB
+      source_panel: P-F-4PP
+      source_voltage: 440V
+      phase: 3Ø
+      location: 1층 진동시험실
+      cover_type: 노출형(STEEL)
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: false
+      mini: false
+    collection_sources:
+      cross_validated: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - specifications
+  - specifications.branch_circuits
+  - specifications.source_panel
+  - specifications.source_voltage
+  - specifications.phase
+  - specifications.location
+  - specifications.cover_type
+  - source_pages
+  - relations
+  - collection_sources
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - page_022_context.yaml.cross_validated.entities
+  - page_022_context.yaml.cross_validated.relationships
+  - page_022_context.yaml.cross_validated.spaces
+  - page_022_context.yaml.cross_validated.diagram_spec
+  - page_022_context.yaml.cross_validated.initial_scan
+  - page_022_context.yaml.cross_validated.key_elements_from_text
+  - page_022_context.yaml.cross_validated.visual_semantics
+  - page_022_context.yaml.cross_validated.visual_semantics_gemini
+  - page_022_context.yaml.cross_validated.entity_synthesis
+  skipped_fields:
+  - requirements (not present)
+  - drawing_texts (not present)
+  - notes (not present)
+  - connection_specs (not present)
+  - ontology_hints.observed_relations (not present)
+  - ontology_hints.cross_discipline (not present)
+  - ontology_hints.similar_equipment details beyond listed tags (not provided)
+  - position (not present in entity_detail)
+  - source_attribution details beyond booleans (not present)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :BranchCircuit
+    annotations_to_emit:
+    - specifications.branch_circuits
+    - specifications.source_panel
+    - specifications.source_voltage
+    - specifications.phase
+    - specifications.location
+    - specifications.cover_type
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    - collection_sources.cross_validated
+    - confidence
+    - ontology_hints.suggested_parent_class
+    - ontology_hints.observed_attributes
+    - ontology_hints.similar_equipment
+    relations_to_emit:
+    - feeds
+    needs_human_review: false
+tag: BRANCH-P-F-4PP
+discovered_relations: 1

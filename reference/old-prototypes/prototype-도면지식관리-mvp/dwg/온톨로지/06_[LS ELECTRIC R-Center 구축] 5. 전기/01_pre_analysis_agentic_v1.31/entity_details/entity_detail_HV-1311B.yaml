@@ -1,0 +1,75 @@
+entity_detail:
+  tag: HV-1311B
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    feeder_name:
+      value: 1311B HV 6.6kV 피더 - 냉동기 1호기
+      unit: null
+      source: page 5
+      confidence: 0.95
+    panel_id:
+      value: PNL-HV-1311B
+      unit: null
+      source: page 5
+      confidence: 0.95
+    label_inside:
+      value: 1311B
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "panel_id: PNL-HV-1311B\nshape: hexagon\nlabels_inside:\n- 1311B\nannotation:\
+      \ 6.6kV Bus\n...\nline_style: solid\nannotation: 6.6kV Bus\n...\nline_style:\
+      \ solid\nannotation: 6.6kV Bus\n- from: PNL-HV-1311B\n  to: PNL-HV-1312\n  line_type:\
+      \ power_cable\n  line_style: solid"
+  requirements: []
+  connection_specs:
+  - relation: power_cable
+    partner: PNL-HV-1312
+    details:
+      source: page 5
+  - relation: 6.6kV Bus
+    partner: PNL-HV-1311A
+    details:
+      source: page 5
+  - relation: 6.6kV Bus
+    partner: PNL-HV-1311B
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_cable
+      partner_tag: PNL-HV-1312
+      direction: OUTGOING
+      source: page 5
+    - relation_type: bus_connection
+      partner_tag: PNL-HV-1311A
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: bus_connection
+      partner_tag: PNL-HV-1311B
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - annotation
+    - line_type
+    - line_style
+    similar_equipment:
+    - 1311A
+    - '1312'
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 확인 가능한 정보만 기록함.
+  - page 5의 검색 결과와 페이지 컨텍스트에 나타난 텍스트만 사용함.
+tag: HV-1311B

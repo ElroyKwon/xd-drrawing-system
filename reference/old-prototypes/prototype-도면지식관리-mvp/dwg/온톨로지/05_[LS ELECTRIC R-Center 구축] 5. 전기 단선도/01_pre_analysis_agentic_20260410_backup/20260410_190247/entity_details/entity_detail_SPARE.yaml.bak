@@ -1,0 +1,46 @@
+entity_detail:
+  tag: SPARE
+  type: feeder
+  name: 예비 회로
+  discipline: ELECTRICAL
+  specs:
+    source_page: 2
+    confidence: 0.85
+  drawing_texts:
+  - source: page_002_context.yaml
+    page_number: 2
+    text: "tag: SPARE\nname: 예비\nspec: null\ndiscipline: ELECTRICAL\n...\n    spec:\
+      \ null\n    discipline: ELECTRICAL\n    function_category: SPARE\n    location:\
+      \ null\n    confidence: 0.85\n  - tag: R-Center 변전실\n...\n    type: panel\n\
+      \    source: both\n  - tag: SPARE\n    type: spare\n    source: both\n  - tag:\
+      \ R-Center 변전실"
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations: []
+    observed_attributes:
+    - tag
+    - name
+    - spec
+    - discipline
+    - function_category
+    - location
+    - confidence
+    - type
+    - source
+    similar_equipment: []
+    suggested_parent_class: Feeder
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 SPARE의 상세 사양은 확인되지 않음.
+  - search_entity_by_tag('SPARE') 결과에서 확인 가능한 원문만 기록함.
+  - read_page_context(page_num=2) 및 read_page_image(page_num=2)에서 SPARE는 예비 회로로 표기되며,
+    별도 상세 spec은 확인되지 않음.
+  - read_page_image(page_num=2)에서 SPARE는 패널 내 예비 회로 항목으로 보이며, 연결 대상 설비의 구체 태그는 확인되지
+    않음.
+  - read_entity_detail(tag='P-AC-4PP-1')는 [NOT FOUND]로 확인됨.
+  - read_page_context(page_num=2)에서 SPARE는 R-Center 변전실 단선결선도 내 예비 회로(function_category: SPARE)로
+      확인됨.
+  - read_page_context(page_num=2)에서 SPARE의 별도 spec, location, 연결 대상 설비 태그는 확인되지 않음.
+  - read_page_context(page_num=2)에서 SPARE는 독립 설비가 아니라 패널 내 회로 항목으로 표기됨.
+tag: SPARE

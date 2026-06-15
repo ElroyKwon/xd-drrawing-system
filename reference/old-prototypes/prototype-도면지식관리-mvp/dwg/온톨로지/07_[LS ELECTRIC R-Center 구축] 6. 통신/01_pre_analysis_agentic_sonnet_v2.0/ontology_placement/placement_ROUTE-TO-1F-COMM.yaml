@@ -1,0 +1,258 @@
+placement:
+  tag: ROUTE-TO-1F-COMM
+  name: 'TO : 사무동 지상1층 통신실'
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: CableRoute
+    alternative_class_hints:
+    - CommunicationConnection
+    - RouteArrow
+    related_assertions:
+    - type: referencesDestination
+      target_hint: 사무동 지상1층 통신실
+      note: specs.destination에 명시된 도착지
+    - type: hasCableSpec
+      target_hint: UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+      note: specs.cable_specifications 및 raw_labels에 반복 표기
+    - type: hasNote
+      target_hint: 기존 CABLE 포설
+      note: specs.note에 명시된 기존 포설 상태
+    - type: connectedTo
+      target_hint: TRAY-EXISTING
+      note: relations[0]에서 tray와 cable 관계로 연결됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CableRoute
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'TO : 사무동 지상1층 통신실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destinationLabel
+          suggested_datatype: xsd:string
+          rationale: 도착지 표기 문자열
+      - raw_text: UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열과 포설 방식 표기
+      - raw_text: 기존 CABLE 포설
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: installationNote
+          suggested_datatype: xsd:string
+          rationale: 기존 포설 상태를 나타내는 주석
+      - raw_text: route_arrow_up
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: visualSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols의 시각 심볼 유형
+      - raw_text: right
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: cable
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: relationType
+          suggested_datatype: xsd:string
+          rationale: 관계 원문 라벨
+      - raw_text: visual_semantics
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출 근거
+      - raw_text: entity_synthesis
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: collectionSource
+          suggested_datatype: xsd:string
+          rationale: 엔티티 합성 출처
+      - raw_text: Routing
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보
+      - raw_text: Communication Connection
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: inferred_from_function_category_and_visual_semantics
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 9
+      method: specs.destination
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 9
+      method: specs.cable_specifications
+    ontology_core.related_assertions[2]:
+      source_pages:
+      - 9
+      method: specs.note
+    ontology_core.related_assertions[3]:
+      source_pages:
+      - 9
+      method: relations
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 9
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 9
+      method: specs.note
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 9
+      method: equipment_symbols.type
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 9
+      method: position
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 9
+      method: relations.relation
+    discipline_context.sub_kinds.free_notes[6]:
+      source_pages:
+      - 9
+      method: relations.origin
+    discipline_context.sub_kinds.free_notes[7]:
+      source_pages:
+      - 9
+      method: collection_sources
+    discipline_context.sub_kinds.free_notes[8]:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[9]:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO : 사무동 지상1층 통신실'
+    source_page: 9
+    reason: 원문 라벨이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: destination 표기와 동일 의미로 보이나 원문 그대로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+    source_page: 9
+    reason: 케이블 규격 문자열의 세부 속성 분해는 이 단계에서 확정하지 않음
+    preservation_note: 케이블 규격 원문 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 기존 CABLE 포설
+    source_page: 9
+    reason: 설치 상태 주석으로 해석되나 정식 속성 미확정
+    preservation_note: 기존 포설 상태 메모로 보존
+  - field_candidate: specs.destination
+    raw_text: 사무동 지상1층 통신실
+    source_page: 9
+    reason: 도착지 문자열이지만 관계/공간 엔티티로 확정하지 않음
+    preservation_note: 도착지 텍스트 그대로 유지
+  - field_candidate: specs.cable_specifications
+    raw_text: UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+    source_page: 9
+    reason: 케이블 규격의 세부 분해 기준 없음
+    preservation_note: 규격 문자열 원형 보존
+  - field_candidate: specs.note
+    raw_text: 기존 CABLE 포설
+    source_page: 9
+    reason: 주석성 텍스트
+    preservation_note: 설치 상태 주석으로 보존
+  - field_candidate: relations[0]
+    raw_text: 'from: TRAY-EXISTING / to: ROUTE-TO-1F-COMM / relation: cable / annotation:
+      UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설'
+    source_page: 9
+    reason: 관계 사실은 있으나 확정 property IRI 미지정
+    preservation_note: 관계 원형만 보존
+  - field_candidate: equipment_symbols[0]
+    raw_text: route_arrow_up
+    source_page: 9
+    reason: 시각 심볼 유형의 정식 분류 미확정
+    preservation_note: 도면 심볼 정보 보존
+  - field_candidate: position
+    raw_text: right
+    source_page: 9
+    reason: 위치 정보는 있으나 공간 좌표로 구조화하지 않음
+    preservation_note: 문서 내 상대 위치로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CableRoute
+    source_page: 9
+    reason: 후보 클래스이며 확정 아님
+    preservation_note: class_hint 후보로만 사용
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Routing
+    source_page: 9
+    reason: 기능 후보
+    preservation_note: 후보 기능명 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Communication Connection
+    source_page: 9
+    reason: 기능 후보
+    preservation_note: 후보 기능명 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 물리 설비 자체라기보다 케이블 경로/주석/도착지 표기가 결합된 엔티티로 보이며, AnnotationOnly와 CableRoute
+      성격이 혼재함
+    recommended_handling: 0-9c에서 공간/경로 엔티티 여부를 재검토하고, 필요 시 route entity와 destination
+      text를 분리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CableRoute 계열 후보로 분류
+    - relations의 cable 관계 원형 보존
+    - raw_labels, destination, cable_specifications, note, position, equipment_symbols,
+      ontology_hints 전부 스캔 및 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:16.197158'
+  confidence: 0.78

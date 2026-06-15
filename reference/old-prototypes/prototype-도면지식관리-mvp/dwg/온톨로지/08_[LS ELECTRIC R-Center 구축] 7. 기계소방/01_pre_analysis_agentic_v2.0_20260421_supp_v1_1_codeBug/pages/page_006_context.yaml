@@ -1,0 +1,459 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: SANITARY_PIPING
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-005
+    title: PIT 소화 배관 평면도
+    revision: null
+  visible_tags:
+  - tag: PIT
+    type: structural_element
+    source: image
+  - tag: MF-005
+    type: title_block_code
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 도면 제목에 'PIT 소화 배관 평면도'가 보이며, 배관 라인과 연결 표기가 존재함
+  - 우측 상단 주기(Notes) 박스가 있으나 심볼-설명 범례 전용 페이지로 보이지는 않음
+  - legend_data.yaml를 읽으려 했으나 NOT FOUND
+  confidence: 0.93
+  note: null
+  recommended_supplements: &id001
+    P-0.5: discipline/fire_protection/_general/supplement_p0_5.yaml
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_5.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.96
+  routing_reason: 표제란에 'MF-005'와 'PIT 소화 배관 평면도'가 보이고, 기계(MF) 접두사 및 배관 평면도 시각 내용이
+    일치하여 MECHANICAL/sanitary_piping으로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: PIT 소화 배관 평면도
+    position: center
+    labels_near:
+    - PIT
+    - H 100
+    - SC 100
+    - 20ø자동배수밸브
+    - 지중매립(아스콘, 31.6㎡)
+  - panel_id: NOTES_SECTION
+    shape: rectangle
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: NOTES_SECTION
+    line_style: dotted
+    annotation: 범례 참조
+  notable_shapes:
+  - shape: dashed_box
+    label: PIT 영역
+    note: 도면 중앙의 점선 사각형 영역
+  - shape: circle
+    label: 그리드 버블
+    note: A, B, C, D 및 1~7 그리드 번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.95
+  note: 우측 상단 '주 기' 섹션 내부에 '6. 범례' 항목이 포함되어 배관 선 종류를 설명함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목의 '소화 배관' 키워드 및 도면번호 접두사 'MF'(Mechanical Fire)를 근거로 FIRE_PROTECTION
+    분야로 확정. 시각 내용이 평면도이므로 drawing_genre를 floor_plan으로 변경. 기계소방 서브시스템이므로 P-10은 genre_mechanical
+    경로 채택.
+classification: FIRE_PROTECTION_PIPING_FLOOR_PLAN
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: PIT 소화 배관 평면도'
+- '도면 번호: MF-005'
+- '축선 표기: A, B, B1, B2, C, D 및 1~7'
+- '배관 표기: H, SC'
+- '주기(Notes) 내 범례 항목: 신설 배관, 기존 배관'
+- '표기: 20ø자동배수밸브'
+- '표기: 지중매립(아스콘, 31.6㎡)'
+- '표기: 1층 소화 배관 컨덴서 연결'
+- '표기: 기존 배관에 연결'
+title_block:
+  drawing_number: MF-005
+  title: PIT 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline=FIRE_PROTECTION, drawing_genre=floor_plan은 이미지와 일치함. 다만 classification은
+  SANITARY_PIPING이 아니라 소화 배관 평면도에 해당하는 FIRE_PROTECTION_PIPING_FLOOR_PLAN으로 교정함. 근거:
+  표제란의 ''PIT 소화 배관 평면도'', 도면 내 ''20ø자동배수밸브'', ''기존 배관에 연결'', ''1층 소화 배관 컨덴서 연결'' 표기.
+  우측 상단 주기 박스는 범례 전용 페이지가 아니라 주기/범례 일부를 포함한 노트 섹션으로 보임.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PIT-PLAN
+    shape: dashed_box
+    labels_inside:
+    - H 100
+    - SC 100
+    - 20ø자동배수밸브
+    - 지중매립(아스콘, 31.6㎡)
+    - 1층 소화 배관 컨덴서 연결
+    - 기존 배관에 연결 (후면시점)
+    - 기존 배관에 연결 (우면시점)
+    - H=100
+    - SC=100
+    labels_above:
+    - PIT 소화 배관 평면도
+    - 'SCALE : 1:200'
+    - MF
+    labels_below: []
+    equipment_symbols:
+    - type: 자동배수밸브 (20ø)
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    - type: 배관 엘보/분기
+      count: 4
+    inferred_name: PIT층 소화 배관 평면 구역
+    position: center
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면의 설계된 재료(시스템 범위등)본 설계 재료로 동등 이상의 재료로서 사용가능함.
+    - 2. 본 도면이 상이한 곳 무에는 현장여건에 맞게 시공하며 공사관리 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거후 재설치 할 것.
+    - 4. 설주치의 오류에 의해 비례 검기한 변경이 있을 수 있으며, 그에 따른 물량표 변경이 발생하여 감독관의 승인을 득한 후 시공할 것.
+    - 5. 배관 및 기 철물은 기존 세시공.
+    - 6. 범례
+    - 신설 배관 (실선)
+    - 기존 배관 (파선)
+    - '7. 기존배관 자재 : 백강관'
+    - 8. 통과우려가 있는 배관 동파방지배선 설치후 접지본딩 한다.
+    - 9. 기존 스임용품(IT등)는 변경 없음.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 주기 및 범례 노트 섹션
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - (주)정연엔지니어링
+    - R-Center
+    - PIT 소화 배관 평면도
+    - MF-005
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.04'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: GRID-SYSTEM
+    shape: other
+    labels_inside:
+    - ① ② ③ ④ ⑤ ⑤A ⑤B ⑥ ⑦ (수평 그리드)
+    - A B B1 B2 C D (수직 그리드)
+    - 71,300 (전체 폭)
+    - 12,000 / 4,720 / 7,320 / 12,300 / 14,300 / 2,100 / 6,125 / 7,875 / 10,000 (스팬)
+    - 12,000 / 6,000 / 4,000 / 5,000 / 10,500 (수직 스팬)
+    - UP 100ø (계단/개구부)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 그리드 버블 (원형)
+      count: 10
+    inferred_name: 구조 그리드 축선 시스템
+    position: perimeter
+  connections:
+  - from: PIT-PLAN
+    to: PIT-PLAN
+    line_type: pipe
+    line_style: solid
+    annotation: H 100 (옥내소화전배관 100A, 신설)
+  - from: PIT-PLAN
+    to: PIT-PLAN
+    line_type: pipe
+    line_style: solid
+    annotation: SC 100 (연결송수구배관 100A, 신설)
+  - from: PIT-PLAN
+    to: UPPER-FLOOR
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 소화 배관 컨덴서 연결
+  - from: PIT-PLAN
+    to: EXISTING-PIPE-REAR
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 배관에 연결 (후면시점)
+  - from: PIT-PLAN
+    to: EXISTING-PIPE-RIGHT
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 배관에 연결 (우면시점)
+  - from: PIT-PLAN
+    to: NOTES-BOX
+    line_type: other
+    line_style: dotted
+    annotation: 범례 참조 (신설=실선, 기존=파선)
+  groups:
+  - group_id: GRP-FIRE-PIPE
+    label: 소화 배관 계통 (H + SC)
+    members:
+    - PIT-PLAN
+  - group_id: GRP-LEGEND
+    label: 주기 및 범례
+    members:
+    - NOTES-BOX
+  legend_references:
+  - text: 신설 배관 (실선)
+    linked_to: PIT-PLAN
+  - text: 기존 배관 (파선)
+    linked_to: PIT-PLAN
+  - text: H — 옥내소화전배관
+    linked_to: PIT-PLAN
+  - text: SC — 연결송수구배관
+    linked_to: PIT-PLAN
+  - text: 20ø자동배수밸브
+    linked_to: PIT-PLAN
+  diagram_meta:
+    title: PIT 소화 배관 평면도
+    drawing_number: MF-005
+    scale: 1:200 (A1) / 1:400 (A3)
+    discipline: FIRE_PROTECTION
+    mech_subsystem: fire_suppression_piping
+    view_type: plan
+    floor_label: PIT (지하 피트층)
+    classification: FIRE_PROTECTION_PIPING_FLOOR_PLAN
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - fluid_type: H
+      name: 옥내소화전배관
+      nominal_diameter_A: 100
+      line_style: solid (신설)
+    - fluid_type: SC
+      name: 연결송수구배관
+      nominal_diameter_A: 100
+      line_style: solid (신설)
+    pipe_materials:
+    - 백강관 (기존 배관 자재)
+    special_notes:
+    - '지중매립 구간: 아스콘, 31.6㎡'
+    - 20ø 자동배수밸브 설치
+    - 동파방지배선 설치 후 접지본딩 필요 (통과우려 배관)
+    - 기존 스임용품(IT등) 변경 없음
+    has_equipment_list: false
+    has_riser_schedule: false
+    project:
+      client: LS Electric
+      project_name: R-Center 구축
+      project_number: '224001'
+      architect: 가운건축 (GAUN Architects & Engineers)
+      mep_engineer: (주)정연엔지니어링
+      date: '2024.04'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01-PIT-PIPING-AREA
+    shape: other
+    labels_inside:
+    - H 100
+    - SC 100
+    - 20ø자동배수밸브
+    - 지중매립(아스콘, 31.6㎡)
+    - 1층 소화 배관 평면도에 연결
+    - 기존 배관에 연결 (후면시점)
+    - 기존 배관에 연결 (우면시점)
+    - H=100
+    - SC=100
+    - UP 100ø
+    labels_above:
+    - PIT 소화 배관 평면도
+    - 'SCALE : 1:200'
+    - MF
+    labels_below: []
+    equipment_symbols:
+    - type: 자동배수밸브
+      count: 1
+    - type: 게이트밸브
+      count: 2
+    - type: 체크밸브
+      count: 1
+    - type: 배관 엘보/분기
+      count: 6
+    - type: 배관 입상/입하 기호
+      count: 1
+    inferred_name: PIT층 소화 배관 평면 구역
+    position: center
+  - panel_id: P02-NOTES-SECTION
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설계된 제품(시스템 공법등)은 상기 제품 또는 동등 이상의 제품으로서 사용가능함.
+    - 2. 설계 도면과 상이한 경우에는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의있게 철거후 재설치 할 것.
+    - 4. 발주처의 요구에 의해 경미한 변경이 있을 수 있으며, 그에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    - 5. 배관 지지 철물은 기존 재사용.
+    - 6. 범례
+    - ㅡ ㅡ ㅡ 신설 배관
+    - '--- --- 기존 배관'
+    - '7. 기존배관 자재 : 백강관'
+    - 8. 동파우려가 있는 배관은 동파방지열선 설치후 방동보온 한다.
+    - 9. 기존 소화용펌프(UT동)는 변경 없음.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 주기 및 범례 노트 섹션
+    position: top-right
+  - panel_id: P03-TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - (주)정연엔지니어링
+    - R-Center
+    - PIT 소화 배관 평면도
+    - MF-005
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.04'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: P04-GRID-SYSTEM
+    shape: other
+    labels_inside:
+    - ① ② ③ ④ ⑤ ⑤A ⑤B ⑥ ⑦
+    - A B B1 B2 C D
+    - 71,300
+    - 12,000
+    - 4,720
+    - 7,320
+    - 12,300
+    - 14,300
+    - 2,100
+    - 6,125
+    - 2,875
+    - 10,000
+    - 13,000
+    - 6,850
+    - 4,100
+    - 5,050
+    - 13,000
+    - 43,000
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 그리드 버블
+      count: 15
+    inferred_name: 구조 그리드 축선 시스템
+    position: perimeter
+  connections:
+  - from: P01-PIT-PIPING-AREA
+    to: P01-PIT-PIPING-AREA
+    line_type: pipe
+    line_style: solid
+    annotation: H 100 (옥내소화전배관 100A, 신설)
+  - from: P01-PIT-PIPING-AREA
+    to: P01-PIT-PIPING-AREA
+    line_type: pipe
+    line_style: solid
+    annotation: SC 100 (연결송수구배관 100A, 신설)
+  - from: P01-PIT-PIPING-AREA
+    to: UPPER-FLOOR
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 소화 배관 평면도에 연결
+  - from: P01-PIT-PIPING-AREA
+    to: EXISTING-PIPE-REAR
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 배관에 연결 (후면시점)
+  - from: P01-PIT-PIPING-AREA
+    to: EXISTING-PIPE-RIGHT
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 배관에 연결 (우면시점)
+  groups:
+  - group_id: GRP-FIRE-PIPE
+    label: 소화 배관 계통 (H + SC)
+    members:
+    - P01-PIT-PIPING-AREA
+  - group_id: GRP-LEGEND
+    label: 주기 및 범례
+    members:
+    - P02-NOTES-SECTION
+  legend_references:
+  - text: 신설 배관 (실선)
+    linked_to: P01-PIT-PIPING-AREA
+  - text: 기존 배관 (파선)
+    linked_to: P01-PIT-PIPING-AREA
+  - text: H — 옥내소화전배관
+    linked_to: P01-PIT-PIPING-AREA
+  - text: SC — 연결송수구배관
+    linked_to: P01-PIT-PIPING-AREA
+  - text: 20ø자동배수밸브
+    linked_to: P01-PIT-PIPING-AREA
+  diagram_meta:
+    title: PIT 소화 배관 평면도
+    drawing_number: MF-005
+    scale: 1:200 (A1) / 1:400 (A3)
+    discipline: FIRE_PROTECTION
+    mech_subsystem: fire_suppression_piping
+    view_type: plan
+    floor_label: PIT (지하 피트층)
+    classification: FIRE_PROTECTION_PIPING_FLOOR_PLAN
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - fluid_type: H
+      name: 옥내소화전배관
+      nominal_diameter_A: 100
+      line_style: solid (신설)
+    - fluid_type: SC
+      name: 연결송수구배관
+      nominal_diameter_A: 100
+      line_style: solid (신설)
+    pipe_materials:
+    - 백강관 (기존 배관 자재)
+    special_notes:
+    - '지중매립 구간: 아스콘, 31.6㎡'
+    - 20ø 자동배수밸브 설치
+    - 동파방지배선 설치 후 접지본딩 필요 (통과우려 배관)
+    - 기존 스임용품(IT등) 변경 없음
+    has_equipment_list: false
+    has_riser_schedule: false
+    project:
+      client: LS Electric
+      project_name: R-Center 구축
+      project_number: '224001'
+      architect: 가운건축 (GAUN Architects & Engineers)
+      mep_engineer: (주)정연엔지니어링
+      date: '2024.04'

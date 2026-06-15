@@ -1,0 +1,718 @@
+data_properties:
+- iri: dks:hasTag
+  label: hasTag
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: PLAN-1F
+    value: PLAN-1F
+    source_page: 60
+  - subject: AB_114
+    value: AB/114
+    source_page: 60
+  - subject: UNKNOWN-LADDER-01
+    value: UNKNOWN-LADDER-01
+    source_page: 60
+  - subject: TOC-MAIN
+    value: TOC-MAIN
+    source_page: 0
+  - subject: UNKNOWN-REFERENCE-005
+    value: UNKNOWN-REFERENCE-005
+    source_page: 0
+  total_evidence: 18
+  derivation: free_notes의 suggested_property_label=hasTag가 다수 태그에서 반복되며 식별자 원문을 보존한다.
+    모든 엔티티가 단일 tag를 중심으로 식별되므로 functional 후보가 강하다. subject 클래스가 문서/공간/요소/참조 전반에 걸쳐
+    있어 domain은 owl:Thing으로 둔다.
+  confidence: 0.97
+- iri: dks:hasSourcePages
+  label: hasSourcePages
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: A12.03
+    value: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120,
+      121, 122.'
+    source_page: 0
+  - subject: A12.11
+    value: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120,
+      121, 122'
+    source_page: 0
+  - subject: GENERAL-NOTES-01
+    value: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120,
+      121, 122'
+    source_page: 0
+  - subject: TITLE-BLOCK-01
+    value: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120,
+      121, 122'
+    source_page: 0
+  - subject: UNKNOWN-STRUCTURAL-008
+    value: '확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122'
+    source_page: 0
+  total_evidence: 34
+  derivation: free_notes에서 hasSourcePages/hasSourcePage/hasSourcePageList/hasAvailablePages/hasAvailablePageList/hasPageList/hasReferencedPages
+    등 페이지 목록 계열 힌트가 대량 반복되었다. 문자열 형태의 페이지 집합 원문을 손실 없이 보존하기 위해 대표 DataProperty로 통합
+    승격했다.
+  confidence: 0.91
+- iri: dks:hasInstructionText
+  label: hasInstructionText
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: A12.03
+    value: 원하시는 페이지 번호나 태그를 알려주시면 확인해드리겠습니다.
+    source_page: 0
+  - subject: G01.01
+    value: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+    source_page: 0
+  - subject: MISC-NOTES-01
+    value: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+    source_page: 0
+  - subject: TOC-MAIN
+    value: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+    source_page: 0
+  - subject: UNKNOWN-PANEL-HEADER
+    value: 특정 페이지의 분석 결과를 읽어드리겠습니다.
+    source_page: 0
+  total_evidence: 27
+  derivation: free_notes의 hasInstructionText, hasUserInstruction, hasUsageNote, hasUserOfferNote,
+    hasAssistiveNote, hasAvailabilityNote 등 안내/응답 문구 계열 힌트를 하나의 텍스트 속성으로 통합 승격했다.
+    대부분 문서/참조/주석 엔티티에서 관찰되지만 UnknownEntity에도 나타나므로 domain은 owl:Thing으로 둔다.
+  confidence: 0.88
+- iri: dks:hasRelationNote
+  label: hasRelationNote
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: DRAWING-SYMBOLS-01
+    value: 도면 표기 부호 범례의 축열 버블 예시
+    source_page: 4
+  - subject: GRP-A11
+    value: 패널 내 그룹 포함
+    source_page: 3
+  - subject: UNKNOWN-RD-001
+    value: Ø100 R.D (2EA) -> Ø100 SST 횡주관
+    source_page: 62
+  - subject: UNKNOWN-RD-002
+    value: Ø125 R.D -> 오픈트렌치 배수 연결 추정
+    source_page: 62
+  - subject: EA_118
+    value: 'relation_type: contains; direction: incoming; origin: cross_validated'
+    source_page: 60
+  total_evidence: 24
+  derivation: 관계 설명 note를 보존하려는 hasRelationNote/relationNote 계열 힌트가 범례, 그룹 포함, 서비스
+    네트워크 연결, 관계 메타정보에서 반복된다. 관계 자체를 재ified하지 않은 현재 단계에서는 개체 수준 보조 텍스트 속성으로 유지한다.
+  confidence: 0.9
+- iri: dks:hasDiscipline
+  label: hasDiscipline
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EA_118
+    value: ARCHITECTURAL
+    source_page: 60
+  - subject: G_116
+    value: unknown
+    source_page: 60
+  - subject: GENERAL-NOTES-01
+    value: unknown
+    source_page: 0
+  - subject: UNKNOWN-PANEL-04
+    value: unknown
+    source_page: 0
+  - subject: UNKNOWN-REFERENCE-005
+    value: 분야 supplement 없음
+    source_page: 0
+  total_evidence: 11
+  derivation: free_notes와 구조 필드에서 discipline 값이 반복 관찰된다. 대부분 엔티티당 하나의 분야 문자열만 나타나므로
+    functional 후보를 부여한다.
+  confidence: 0.84
+- iri: dks:hasFunctionCategory
+  label: hasFunctionCategory
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: EA_118
+    value: SPACE
+    source_page: 60
+  - subject: UNKNOWN-TRENCH-01
+    value: TRENCH
+    source_page: 60
+  - subject: UNKNOWN-BUILDING-SERVICE-001
+    value: 태그명 자체가 UNKNOWN-BUILDING-SERVICE-001이며, 건물 서비스 관련 미확정 엔티티로 보이나 원문에는 구체적
+      기능/관계/스펙이 없음.
+    source_page: 0
+  - subject: UNKNOWN-TRENCH-002
+    value: tag indicates trench; no additional entity_detail fields provided beyond
+      available pages list
+    source_page: 0
+  - subject: UNKNOWN-REFERENCE-005
+    value: 태그 패턴상 UNKNOWN-REFERENCE-* 계열의 참조/주석/메타 엔티티로 보이나, 도면 내 실제 물리 실체 여부는 확인
+      불가
+    source_page: 0
+  total_evidence: 5
+  derivation: function_category가 직접 명시되거나 free_notes에서 기능 범주 후보로 제안된 사례를 집계했다. 값은
+    아직 정규화되지 않은 문자열이므로 xsd:string으로 둔다. 엔티티당 하나의 기능 범주만 제시되는 경향이 있어 functional 후보를
+    부여한다.
+  confidence: 0.72
+- iri: dks:hasName
+  label: hasName
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: B_113
+    value: 시험 전원실
+    source_page: 60
+  - subject: F_117
+    value: 진동시험실
+    source_page: 60
+  - subject: EA_118
+    value: 극한환경시험실
+    source_page: 60
+  - subject: UNKNOWN-PIPE-001
+    value: Ø100 SST 횡주관
+    source_page: 62
+  - subject: UNKNOWN-TRENCH-01
+    value: 트렌치 (550X250)
+    source_page: 60
+  total_evidence: 5
+  derivation: 'placement의 name 필드와 free_notes의 name: ... 패턴에서 직접 관찰된다. 각 엔티티당 단일 명칭만
+    나타나므로 functional 후보를 부여한다.'
+  confidence: 0.94
+- iri: dks:hasRawText
+  label: hasRawText
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: A12.42
+    value: 'raw: ''사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'''
+    source_page: 0
+  - subject: C_121
+    value: 'raw: ''사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'''
+    source_page: 121
+  - subject: REF-A07.01
+    value: 'raw: ''확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'''
+    source_page: 0
+  - subject: UNKNOWN-COVER-01
+    value: 'raw: 확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+      119, 120, 121, 122 / 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+  - subject: UNKNOWN-SYM-03
+    value: 'raw: "확인 가능한 페이지 목록은 다음과 같습니다: [1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+      119, 120, 121, 122]\n\n원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다."'
+    source_page: 0
+  total_evidence: 8
+  derivation: free_notes에서 원문 전체 보존을 위해 hasRawText가 반복 제안되었다. 구조화가 어려운 안내/메타 텍스트를
+    손실 없이 보존하는 보조 속성으로 승격한다.
+  confidence: 0.79
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSourcePages
+  datatype: xsd:string
+  label: hasSourcePages
+  evidence_tags:
+  - '106'
+  - A11.01
+  - A12.03
+  - A12.11
+  - A12.22
+  - A12.23
+  - A12.31
+  - A12.41
+  - A12.42
+  - ABBREVIATIONS-TABLE
+  - C_121
+  - CC_122
+  - D109
+  - FIRE-PROTECTION-01
+  - G01.01
+  - GENERAL-NOTES-01
+  - I_112
+  - INSULATION-01
+  - J_214
+  - M_205
+  - M_217
+  - MISC-NOTES-01
+  - NOTES-SECTION
+  - REF-A07.01
+  - REF-SEC-JP
+  - T03
+  - TITLE-BLOCK
+  - TITLE-BLOCK-01
+  - TOC-MAIN
+  - UNKNOWN-ACCESS-001
+  - UNKNOWN-ACCESS-002
+  - UNKNOWN-BUILDING-SERVICE-001
+  - UNKNOWN-BUILDING-SERVICE-004
+  - UNKNOWN-BUILDING-SERVICE-005
+  - UNKNOWN-COVER-01
+  - UNKNOWN-DETAIL-001
+  - UNKNOWN-DETAIL-004
+  - UNKNOWN-EJ-001
+  - UNKNOWN-EJ-002
+  - UNKNOWN-GROUP-A10
+  - UNKNOWN-GROUP-A5
+  - UNKNOWN-GROUP-A6
+  - UNKNOWN-GROUP-A7
+  - UNKNOWN-GROUP-A8
+  - UNKNOWN-GROUP-A9
+  - UNKNOWN-GROUP-G1
+  - UNKNOWN-LADDER-001
+  - UNKNOWN-LADDER-002
+  - UNKNOWN-LEVEL-002
+  - UNKNOWN-LEVEL-003
+  - UNKNOWN-MARK-01
+  - UNKNOWN-PAD-001
+  - UNKNOWN-PAD-003
+  - UNKNOWN-PANEL-01
+  - UNKNOWN-PANEL-02
+  - UNKNOWN-PANEL-03
+  - UNKNOWN-PANEL-04
+  - UNKNOWN-PANEL-05
+  - UNKNOWN-PANEL-06
+  - UNKNOWN-PANEL-HEADER
+  - UNKNOWN-PANEL-TITLE
+  - UNKNOWN-REF-001
+  - UNKNOWN-REF-002
+  - UNKNOWN-REF-004
+  - UNKNOWN-REFERENCE-001
+  - UNKNOWN-REFERENCE-002
+  - UNKNOWN-REFERENCE-003
+  - UNKNOWN-REFERENCE-004
+  - UNKNOWN-REFERENCE-005
+  - UNKNOWN-SHAFT-001
+  - UNKNOWN-SHAFT-002
+  - UNKNOWN-SHAPE-02
+  - UNKNOWN-STRUCTURAL-004
+  - UNKNOWN-STRUCTURAL-006
+  - UNKNOWN-STRUCTURAL-007
+  - UNKNOWN-STRUCTURAL-008
+  - UNKNOWN-STRUCTURAL-009
+  - UNKNOWN-SYM-02
+  - UNKNOWN-SYM-03
+  - UNKNOWN-SYM-06
+  - UNKNOWN-TABLE-01
+  - UNKNOWN-TABLE-02
+  - UNKNOWN-TABLE-03
+  - UNKNOWN-TRENCH-002
+  threshold_applied: ≥ 8건의 페이지 목록/가용 페이지 계열 suggested_property_label을 통합
+  total_evidence: 34
+  sample_evidence:
+  - tag: A12.03
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.'
+    source_page: 0
+  - tag: TOC-MAIN
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122'
+    source_page: 0
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasInstructionText
+  datatype: xsd:string
+  label: hasInstructionText
+  evidence_tags:
+  - '107'
+  - A12.03
+  - A12.24
+  - A12.42
+  - C_121
+  - G01.01
+  - GENERAL-NOTES-01
+  - M_205
+  - M_217
+  - MISC-NOTES-01
+  - NOTES-SECTION
+  - REF-SEC-JP
+  - T03
+  - TITLE-BLOCK
+  - TOC-MAIN
+  - UNKNOWN-ACCESS-001
+  - UNKNOWN-DETAIL-004
+  - UNKNOWN-GROUP-A9
+  - UNKNOWN-MARK-01
+  - UNKNOWN-PAD-003
+  - UNKNOWN-PANEL-04
+  - UNKNOWN-PANEL-HEADER
+  - UNKNOWN-PANEL-TITLE
+  - UNKNOWN-REF-001
+  - UNKNOWN-REFERENCE-002
+  - UNKNOWN-SHAFT-002
+  - UNKNOWN-STRUCTURAL-006
+  - UNKNOWN-TABLE-03
+  threshold_applied: ≥ 8건의 안내/응답 문구 계열 suggested_property_label을 통합
+  total_evidence: 27
+  sample_evidence:
+  - tag: G01.01
+    raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+    source_page: 0
+  - tag: UNKNOWN-PANEL-HEADER
+    raw_text: 특정 페이지의 분석 결과를 읽어드리겠습니다.
+    source_page: 0
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasRelationNote
+  datatype: xsd:string
+  label: hasRelationNote
+  evidence_tags:
+  - '106'
+  - A12.22
+  - DRAWING-SYMBOLS-01
+  - EA_118
+  - EB_119
+  - GRP-A11
+  - GRP-A12-FIRE
+  - GRP-A12-PERF
+  - UNKNOWN-BUILDING-SERVICE-001
+  - UNKNOWN-PANEL-01
+  - UNKNOWN-PIPE-002
+  - UNKNOWN-RD-001
+  - UNKNOWN-RD-002
+  - UNKNOWN-RD-003
+  - UNKNOWN-REFERENCE-005
+  - UNKNOWN-TRENCH-001
+  - UNKNOWN-TRENCH-003
+  threshold_applied: ≥ 6건의 관계 설명/메타 note 계열 suggested_property_label을 통합
+  total_evidence: 24
+  sample_evidence:
+  - tag: DRAWING-SYMBOLS-01
+    raw_text: 도면 표기 부호 범례의 축열 버블 예시
+    source_page: 4
+  - tag: UNKNOWN-RD-002
+    raw_text: Ø125 R.D -> 오픈트렌치 배수 연결 추정
+    source_page: 62
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDiscipline
+  datatype: xsd:string
+  label: hasDiscipline
+  evidence_tags:
+  - G_116
+  - GENERAL-NOTES-01
+  - PLAN-1F
+  - TOC-MAIN
+  - UNKNOWN-ACCESS-002
+  - UNKNOWN-PANEL-04
+  - UNKNOWN-PANEL-06
+  - UNKNOWN-REFERENCE-005
+  threshold_applied: ≥ 5건
+  total_evidence: 8
+  sample_evidence:
+  - tag: G_116
+    raw_text: 'discipline: unknown'
+    source_page: 60
+  - tag: GENERAL-NOTES-01
+    raw_text: 'Discipline: unknown'
+    source_page: 0
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasFunctionCategory
+  datatype: xsd:string
+  label: hasFunctionCategory
+  evidence_tags:
+  - EA_118
+  - UNKNOWN-BUILDING-SERVICE-001
+  - UNKNOWN-REFERENCE-005
+  - UNKNOWN-TRENCH-001
+  - UNKNOWN-TRENCH-002
+  - UNKNOWN-TRENCH-01
+  threshold_applied: ≥ 4건
+  total_evidence: 5
+  sample_evidence:
+  - tag: EA_118
+    raw_text: 'tag: EA/118; discipline: ARCHITECTURAL; function_category: SPACE'
+    source_page: 60
+  - tag: UNKNOWN-TRENCH-01
+    raw_text: 'function_category: TRENCH'
+    source_page: 60
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasRawText
+  datatype: xsd:string
+  label: hasRawText
+  evidence_tags:
+  - A12.42
+  - C_121
+  - CC_122
+  - D109
+  - REF-A07.01
+  - UNKNOWN-COVER-01
+  - UNKNOWN-SYM-03
+  threshold_applied: ≥ 4건
+  total_evidence: 8
+  sample_evidence:
+  - tag: A12.42
+    raw_text: 'raw: ''사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+      119, 120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'''
+    source_page: 0
+  - tag: UNKNOWN-COVER-01
+    raw_text: 'raw: 확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+      119, 120, 121, 122 / 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+unused_hints:
+- suggested_property_label: hasAvailablePage
+  evidence_count: 1
+  sample_tags:
+  - D109
+  reason_not_promoted: 페이지 목록 계열로 dks:hasSourcePages에 통합 승격
+- suggested_property_label: hasPlanReference
+  evidence_count: 1
+  sample_tags:
+  - TOC-MAIN
+  reason_not_promoted: 단일 메타 노트이며 반복 근거 부족
+- suggested_property_label: relationDirection
+  evidence_count: 4
+  sample_tags:
+  - E_120
+  - GRP-A12-WINDOWLESS
+  - UNKNOWN-FINISH-01
+  - UNKNOWN-RD-002
+  reason_not_promoted: 관계 재ification 없이 개체 DataProperty로 승격하기엔 의미가 불안정
+- suggested_property_label: lineStyle
+  evidence_count: 4
+  sample_tags:
+  - E_120
+  - GRP-A12-WINDOWLESS
+  - UNKNOWN-FINISH-01
+  - UNKNOWN-RD-002
+  reason_not_promoted: 관계 표현 속성으로 보이며 개체 고유 속성으로 일반화하기 어려움
+- suggested_property_label: hasLineStyle
+  evidence_count: 4
+  sample_tags:
+  - UNKNOWN-PIPE-002
+  - UNKNOWN-RD-001
+  - UNKNOWN-RD-003
+  - UNKNOWN-TRENCH-001
+  reason_not_promoted: 관계선 스타일에 가까워 assertion-level provenance 모델이 더 적합
+- suggested_property_label: relationProvenance
+  evidence_count: 1
+  sample_tags:
+  - E_120
+  reason_not_promoted: 반복 근거 부족
+- suggested_property_label: hasRelationProvenance
+  evidence_count: 1
+  sample_tags:
+  - EB_119
+  reason_not_promoted: 반복 근거 부족
+- suggested_property_label: relationOrigin
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-FINISH-01
+  reason_not_promoted: 반복 근거 부족
+- suggested_property_label: sourceValidationMethod
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-RD-002
+  reason_not_promoted: 반복 근거 부족
+- suggested_property_label: hasProvenanceMethod
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-RD-003
+  reason_not_promoted: 반복 근거 부족
+- suggested_property_label: assertionProvenanceMethod
+  evidence_count: 1
+  sample_tags:
+  - GRP-A12-WINDOWLESS
+  reason_not_promoted: 반복 근거 부족
+- suggested_property_label: hasTargetTag
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-RD-003
+  reason_not_promoted: 관계 원문 보조 필드이며 일반 DataProperty로 승격 근거 부족
+- suggested_property_label: groupMembershipNote
+  evidence_count: 1
+  sample_tags:
+  - GRP-A12-WINDOWLESS
+  reason_not_promoted: dks:hasRelationNote로 흡수 가능하나 독립 승격 threshold 미달
+- suggested_property_label: isContainedInPanel
+  evidence_count: 1
+  sample_tags:
+  - GRP-A12-HVAC
+  reason_not_promoted: object property contained_in으로 해석 가능하며 DataProperty 승격 부적절
+- suggested_property_label: hasAvailablePages
+  evidence_count: 14
+  sample_tags:
+  - '107'
+  - A12.24
+  - A12.42
+  - C_121
+  - D109
+  - M_205
+  - M_217
+  - T03
+  - UNKNOWN-ACCESS-001
+  - UNKNOWN-DETAIL-004
+  - UNKNOWN-MARK-01
+  - UNKNOWN-REFERENCE-001
+  - UNKNOWN-REFERENCE-002
+  - UNKNOWN-SHAFT-002
+  reason_not_promoted: dks:hasSourcePages로 통합 승격
+- suggested_property_label: hasSourcePage
+  evidence_count: 12
+  sample_tags:
+  - '106'
+  - A12.22
+  - A12.23
+  - A12.41
+  - UNKNOWN-ACCESS-002
+  - UNKNOWN-BUILDING-SERVICE-001
+  - UNKNOWN-BUILDING-SERVICE-004
+  - UNKNOWN-BUILDING-SERVICE-005
+  - UNKNOWN-PANEL-03
+  - UNKNOWN-PANEL-05
+  - UNKNOWN-REFERENCE-005
+  - UNKNOWN-TRENCH-002
+  reason_not_promoted: 단수/복수 혼재 페이지 목록 계열을 dks:hasSourcePages로 통합
+- suggested_property_label: hasSourcePageList
+  evidence_count: 8
+  sample_tags:
+  - G01.01
+  - MISC-NOTES-01
+  - REF-A07.01
+  - TITLE-BLOCK
+  - UNKNOWN-GROUP-A8
+  - UNKNOWN-LEVEL-003
+  - UNKNOWN-PANEL-04
+  - UNKNOWN-SYM-02
+  reason_not_promoted: 페이지 목록 계열을 dks:hasSourcePages로 통합
+- suggested_property_label: hasReferencedPages
+  evidence_count: 1
+  sample_tags:
+  - TOC-MAIN
+  reason_not_promoted: 페이지 목록 계열을 dks:hasSourcePages로 통합
+- suggested_property_label: hasPageList
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-PANEL-HEADER
+  reason_not_promoted: 페이지 목록 계열을 dks:hasSourcePages로 통합
+- suggested_property_label: hasAvailablePageList
+  evidence_count: 3
+  sample_tags:
+  - A11.01
+  - I_112
+  - UNKNOWN-REF-002
+  reason_not_promoted: 페이지 목록 계열을 dks:hasSourcePages로 통합
+- suggested_property_label: hasNote
+  evidence_count: 29
+  sample_tags:
+  - A12.11
+  - A12.23
+  - A12.31
+  - A12.41
+  - ABBREVIATIONS-TABLE
+  - FIRE-PROTECTION-01
+  - J_214
+  - REF-A07.01
+  - TITLE-BLOCK-01
+  - UNKNOWN-BUILDING-SERVICE-004
+  reason_not_promoted: 안내/주석 문구 계열을 dks:hasInstructionText와 dks:hasRelationNote로 분산
+    통합
+- suggested_property_label: hasAvailabilityNote
+  evidence_count: 2
+  sample_tags:
+  - '107'
+  - UNKNOWN-STRUCTURAL-004
+  reason_not_promoted: 안내 문구 계열을 dks:hasInstructionText로 통합
+- suggested_property_label: hasUserInstruction
+  evidence_count: 5
+  sample_tags:
+  - A12.42
+  - C_121
+  - EPS/TPS
+  - UNKNOWN-ACCESS-001
+  - UNKNOWN-REFERENCE-002
+  reason_not_promoted: 안내 문구 계열을 dks:hasInstructionText로 통합
+- suggested_property_label: hasUsageNote
+  evidence_count: 1
+  sample_tags:
+  - A12.24
+  reason_not_promoted: 안내 문구 계열을 dks:hasInstructionText로 통합
+- suggested_property_label: hasUserOfferNote
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-DETAIL-004
+  reason_not_promoted: 안내 문구 계열을 dks:hasInstructionText로 통합
+- suggested_property_label: hasAssistiveNote
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-TABLE-02
+  reason_not_promoted: 안내 문구 계열을 dks:hasInstructionText로 통합
+- suggested_property_label: adjacentTo
+  evidence_count: 7
+  sample_tags:
+  - T01
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty dks:adjacent_to로 확정
+- suggested_property_label: connectsTo
+  evidence_count: 7
+  sample_tags:
+  - UNKNOWN-PIPE-001
+  - UNKNOWN-PIPE-002
+  - UNKNOWN-RD-001
+  - UNKNOWN-RD-002
+  - UNKNOWN-TRENCH-001
+  - UNKNOWN-TRENCH-003
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty dks:connects_to로 확정
+- suggested_property_label: containedIn
+  evidence_count: 3
+  sample_tags:
+  - UNKNOWN-FINISH-01
+  - UNKNOWN-HATCH-01
+  reason_not_promoted: 표기 변형이며 ObjectProperty dks:contained_in으로 통합
+- suggested_property_label: containedInPanel
+  evidence_count: 0
+  sample_tags: []
+  reason_not_promoted: 관찰 없음
+- suggested_property_label: contains
+  evidence_count: 18
+  sample_tags:
+  - GRP-A12-AREA
+  - GRP-A12-PERF
+  - PLAN-1F
+  - PLAN-PIT
+  - T01
+  - TOC-A11
+  - TOC-A12
+  - UNKNOWN-FINISH-01
+  - UNKNOWN-RD-003
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty dks:contains로 확정
+- suggested_property_label: contained_in
+  evidence_count: 17
+  sample_tags:
+  - AB_114
+  - AC_115
+  - E_120
+  - EA_118
+  - EB_119
+  - G_116
+  - GRP-A12-PERF
+  - UNKNOWN-CANOPY-01
+  - UNKNOWN-LADDER-01
+  - UNKNOWN-PLATE-01
+  - UNKNOWN-SUMP-01
+  - UNKNOWN-TRENCH-01
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty dks:contained_in으로 확정
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T09:30:45.621592'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.86

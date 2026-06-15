@@ -1,0 +1,120 @@
+constraints:
+- id: CN_FUN_01
+  type: FunctionalProperty
+  target_class: dks:CircuitBreaker
+  property: dks:hasPoleCount
+  params: {}
+  derivation: 1101, MCCB-EA-MAIN 등 차단기 인스턴스에서 hasPoleCount가 충돌 없이 1건만 나타남
+  evidence_tags:
+  - '1101'
+  - MCCB-EA-MAIN
+  - P-A-3PP
+  confidence: 0.95
+- id: CN_FUN_02
+  type: FunctionalProperty
+  target_class: dks:CurrentTransformer
+  property: dks:hasCTRatio
+  params: {}
+  derivation: 1101, 1301B 등 CT 포함 인스턴스에서 hasCTRatio가 충돌 없이 1건만 나타남
+  evidence_tags:
+  - '1101'
+  - 1301B
+  - 1402A
+  confidence: 0.95
+- id: CN_FUN_03
+  type: FunctionalProperty
+  target_class: dks:Panel
+  property: dks:hasPanelId
+  params: {}
+  derivation: 1103, BLK-P-A-2PP-1 등 패널 인스턴스에서 hasPanelId가 충돌 없이 1건만 나타남
+  evidence_tags:
+  - '1103'
+  - BLK-P-A-2PP-1
+  - P-A-3PP
+  confidence: 0.95
+- id: CN_DR_01
+  type: DomainRange
+  target_class: dks:ElectricalEquipment
+  property: dks:feeds
+  params:
+    domain: dks:ElectricalEquipment
+    range: dks:ElectricalEquipment
+  derivation: feeds 관계가 항상 전기 설비 간(TR->VCB, Panel->Branch 등)에만 발생함
+  evidence_tags:
+  - '1101'
+  - BLK-SS-RCENTER
+  - TR-001
+  confidence: 0.95
+- id: CN_DR_02
+  type: DomainRange
+  target_class: dks:ElectricalEquipment
+  property: dks:grounds_to
+  params:
+    domain: dks:ElectricalEquipment
+    range: dks:GroundingAndLightningSystem
+  derivation: grounds_to 관계가 패널 등에서 접지단자(E1, E3)로 향함
+  evidence_tags:
+  - 1305A
+  - P-A-4PP-1
+  - GND-TERM-BOX-002
+  confidence: 0.95
+- id: CN_DR_03
+  type: DomainRange
+  target_class: dks:ElectricalEquipment
+  property: dks:contains
+  params:
+    domain: dks:ElectricalEquipment
+    range: dks:ElectricalEquipment
+  derivation: contains 관계가 패널 내부에 차단기, SPD 등을 포함하는 데 사용됨
+  evidence_tags:
+  - 1301B
+  - BLK-P-A-2PP-1
+  - P-A-4PP-1
+  confidence: 0.95
+- id: CN_DR_04
+  type: DomainRange
+  target_class: dks:StructuralAndMechanical
+  property: dks:bonded_to
+  params:
+    domain: dks:StructuralAndMechanical
+    range: dks:GroundingAndLightningSystem
+  derivation: bonded_to 관계가 기계 배관(PIPE-001)에서 접지단자함으로 향함
+  evidence_tags:
+  - PIPE-001
+  - PIPE-002
+  - PIPE-003
+  confidence: 0.95
+- id: CN_DR_05
+  type: DomainRange
+  target_class: dks:ProtectionAndControlDevice
+  property: dks:protects
+  params:
+    domain: dks:ProtectionAndControlDevice
+    range: dks:ElectricalEquipment
+  derivation: protects 관계가 SPD에서 패널로 향함
+  evidence_tags:
+  - SPD-P-A-4PP-7
+  - SPD-P-AC-4PP-1
+  confidence: 0.95
+- id: CN_CAR_01
+  type: Cardinality
+  target_class: dks:Transformer
+  property: dks:feeds
+  params:
+    min: 1
+  derivation: TR-001, TR-002 모두 최소 1개 이상의 feeds 대상을 가짐 (각 3건 관찰)
+  evidence_tags:
+  - TR-001
+  - TR-002
+  confidence: 0.9
+summary_by_type:
+  FunctionalProperty: 3
+  DomainRange: 5
+  Cardinality: 1
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-17T13:21:31.415800'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.95

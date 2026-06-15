@@ -1,0 +1,72 @@
+entity_detail:
+  tag: P040-EQ-E27
+  type: UNKNOWN
+  specs:
+    drawing_title:
+      value: 베이스 상세도
+      source: page 40
+      confidence: 0.99
+    drawing_number:
+      value: EE-05-006
+      source: page 40
+      confidence: 0.96
+    discipline:
+      value: ELECTRICAL
+      source: page 40 context
+      confidence: 0.96
+    location:
+      value: 하단 좌측 상세도
+      source: page 40
+      confidence: 0.99
+    visible_text:
+      value: Screw Bolt
+      source: page 40
+      confidence: 0.98
+    visible_text_2:
+      value: Set Anchor 3/8"
+      source: page 40
+      confidence: 0.95
+  drawing_texts:
+  - source: page 40
+    page_number: 40
+    text: '피뢰접지설비 상세도-2
+
+      EE-05-006
+
+      베이스 상세도
+
+      Screw Bolt
+
+      Set Anchor 3/8"'
+  requirements:
+  - text: 베이스 상세도 내 볼트(Screw Bolt) 및 Set Anchor 3/8" 표기 확인
+    source: page 40
+    type: installation_detail
+  connection_specs:
+  - relation: associated_with
+    partner: Set Anchor 3/8"
+    details:
+      source: page 40
+  ontology_hints:
+    observed_relations:
+    - relation_type: associated_with
+      partner_tag: P040-EQ-E25
+      direction: UNKNOWN
+      source: page 40
+    observed_attributes:
+    - drawing_title
+    - drawing_number
+    - discipline
+    - location
+    - visible_text
+    similar_equipment: []
+    suggested_parent_class: Fastener
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과에서 대상 태그는 직접 검색되지 않았음.
+  - page 40 context에서 P040-EQ-E27은 독립 설비가 아니라 베이스 상세도 하단 좌측의 부속/상세 표기 성격으로 확인됨.
+  - page 40 context의 equipment 목록에 EQ-E27은 '베이스 상세도'로만 존재하며, 독립 사양은 확인되지 않음.
+  - visible_text 'Screw Bolt'와 'Set Anchor 3/8"'는 상세도 내 부품 표기이며, 독립 엔티티 사양으로 확정할 수
+    없음.
+  - 사용한 도구: search_entity_by_tag, read_page_context, read_legend_data
+tag: P040-EQ-E27

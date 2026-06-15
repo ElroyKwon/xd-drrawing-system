@@ -1,0 +1,67 @@
+tag: UNKNOWN-STRUCTURAL-CONNECTION-001
+name: 구조체접속
+type: entity
+discipline: ELECTRICAL
+function_category: GROUNDING_CONNECTION
+source_pages:
+- 38
+specs:
+  description: 철근 및 철골 접속
+  legend_symbol: □
+  connection_type: 철근 및 철골 접속
+  symbol: □
+  electrical_resistance_ohm: ≤0.2
+  applicable_standards:
+  - 한국전기설비규정(KEC) 150 피뢰시스템
+  - KS C IEC 62305
+  note: 접지전극과 수뢰부 사이의 전기저항이 0.2 Ω 이하로 확보되어야 함
+relations:
+- from: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  to: UNKNOWN-STRUCTURAL-CONNECTION-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: solid
+  note: 수평도체에서 구조체 접속점(철근/철골)으로 연결
+- from: UNKNOWN-DOWN-CONDUCTOR-MAIN-001
+  to: UNKNOWN-STRUCTURAL-CONNECTION-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: dashed
+  note: '인하도선 (주: 기초철골 / 보조: F-GV 50㎟ HI-PVC 28C) - 구조체 접속'
+- from: UNKNOWN-DOWN-CONDUCTOR-AUXILIARY-001
+  to: UNKNOWN-STRUCTURAL-CONNECTION-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: dashed
+  note: '인하도선 (주: 기초철골 / 보조: F-GV 50㎟ HI-PVC 28C) - 구조체 접속'
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: center-left
+confidence: 0.95
+equipment_symbols:
+- type: structural_connection_symbol
+  count: 1
+- type: structural_connection_point
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingConnection
+  observed_attributes:
+  - description
+  - legend_symbol
+  - connection_type
+  - symbol
+  - electrical_resistance_ohm
+  - applicable_standards
+  - note
+  similar_equipment: []
+  function_candidates:
+  - StructuralBonding
+  - LightningProtectionConnection

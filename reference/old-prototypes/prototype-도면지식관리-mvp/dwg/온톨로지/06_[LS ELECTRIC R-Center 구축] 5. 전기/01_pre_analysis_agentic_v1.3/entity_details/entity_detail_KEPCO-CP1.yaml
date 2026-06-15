@@ -1,0 +1,71 @@
+entity_detail:
+  tag: KEPCO-CP1
+  type: power_cable
+  specs:
+    cable_spec:
+      value: 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m
+      unit: null
+      source: page 5
+      confidence: 0.98
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: '22.9kV 수전설비 단선결선도로, 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI),
+      계량(MOF) 및 개폐기(VCB, G/S)를 거쳐 하단 다수 피더로 분기되는 구조가 보인다.
+
+
+      주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.
+
+
+      도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.'
+  - source: page 5 equipment
+    page_number: 5
+    text: 'CP-1
+
+      수전점 (Power Receiving Point)
+
+      spec: 3Ø 4W 22.9kV-Y 60Hz, 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m, 22.9kV-Y
+      CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음'
+  - source: page 5 conduits
+    page_number: 5
+    text: 'KEPCO-CP1
+
+      power_cable
+
+      spec: 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m
+
+      from: KEPCO LINE'
+  requirements:
+  - text: 3Ø 4W 22.9kV-Y 60Hz
+    source: page 5 equipment
+    type: electrical_condition
+  - text: 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m
+    source: page 5 equipment
+    type: cable_spec
+  - text: 22.9kV-Y CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음
+    source: page 5 equipment
+    type: cable_spec
+  connection_specs:
+  - relation: feeds
+    partner: KEPCO LINE
+    details:
+      source: page 5 conduits
+      spec: 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: KEPCO LINE
+      direction: source_to_target
+      source: page 5 conduits
+    observed_attributes:
+    - spec
+    - from
+    - type
+    similar_equipment: []
+    suggested_parent_class: PowerCable
+    cross_discipline: []
+  notes:
+  - page 5에서 KEPCO-CP1은 power_cable로 확인됨.
+tag: KEPCO-CP1

@@ -1,0 +1,70 @@
+page_122_entities:
+- tag: ELEV-NORTH
+  name: 북측 입면도 (무창층 검토용)
+  type: ELEVATION
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: ELEV-WEST
+  name: 서측 입면도 (무창층 검토용)
+  type: ELEVATION
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: TABLE-NOPILOTI
+  name: 무창층 검토 계산표
+  type: CALCULATION_TABLE
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: GRP-NOPILOTI-REVIEW
+  name: 무창층 검토서-2 (북측면도 + 서측면도 + 검토표)
+  type: GROUP
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: UNKNOWN-LEVEL-01
+  name: 레벨 마커
+  type: LEVEL_MARKER
+  discipline: ARCHITECTURAL
+  confidence: 0.6
+- tag: UNKNOWN-GRID-01
+  name: 그리드 버블
+  type: GRID_BUBBLE
+  discipline: ARCHITECTURAL
+  confidence: 0.6
+- tag: UNKNOWN-WINDOW-01
+  name: 창호 및 도어면적 표기
+  type: SCHEDULE_REFERENCE
+  discipline: ARCHITECTURAL
+  confidence: 0.6
+page_122_relations:
+- from: GRP-NOPILOTI-REVIEW
+  to: ELEV-NORTH
+  relation: contains
+- from: GRP-NOPILOTI-REVIEW
+  to: ELEV-WEST
+  relation: contains
+- from: GRP-NOPILOTI-REVIEW
+  to: TABLE-NOPILOTI
+  relation: contains
+- from: ELEV-NORTH
+  to: UNKNOWN-GRID-01
+  relation: uses
+- from: ELEV-WEST
+  to: UNKNOWN-GRID-01
+  relation: uses
+- from: TABLE-NOPILOTI
+  to: UNKNOWN-WINDOW-01
+  relation: references
+- from: TABLE-NOPILOTI
+  to: ELEV-NORTH
+  relation: supports
+- from: TABLE-NOPILOTI
+  to: ELEV-WEST
+  relation: supports
+- from: ELEV-NORTH
+  to: ELEV-NORTH
+  relation: legend_reference
+- from: ELEV-WEST
+  to: ELEV-WEST
+  relation: legend_reference
+- from: TABLE-NOPILOTI
+  to: TABLE-NOPILOTI
+  relation: legend_reference

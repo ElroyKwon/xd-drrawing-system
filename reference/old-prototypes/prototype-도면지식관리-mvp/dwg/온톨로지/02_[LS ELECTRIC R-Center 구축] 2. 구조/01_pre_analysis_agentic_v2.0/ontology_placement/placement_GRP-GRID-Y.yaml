@@ -1,0 +1,153 @@
+placement:
+  tag: GRP-GRID-Y
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:GRP-GRID-Y
+    class_hint: GroupingEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DocumentEntity
+    related_assertions:
+    - type: contains
+      target_hint: GRID-SYSTEM
+      note: outgoing relation; source_page 34; cross_validated
+      confirmed_property: dks:contains
+      confirmed_target: dks:GRID-SYSTEM
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX009
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:GroupingEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'relation: contains; from GRP-GRID-Y to GRID-SYSTEM; source_page
+          34; origin cross_validated'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: ''
+          rationale: 그룹이 GRID-SYSTEM을 포함하는 관계 사실이 관찰됨
+      - raw_text: 'tag: GRP-GRID-Y'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 대표 태그 문자열
+    free_notes:
+    - raw_text: 'relation: contains; from GRP-GRID-Y to GRID-SYSTEM; source_page 34;
+        origin cross_validated'
+      source_page: 34
+      promotion_hint:
+        suggested_property_label: contains
+        suggested_datatype: ''
+        rationale: 그룹이 GRID-SYSTEM을 포함하는 관계 사실이 관찰됨
+    - raw_text: 'tag: GRP-GRID-Y'
+      source_page: 34
+      promotion_hint:
+        suggested_property_label: hasTag
+        suggested_datatype: xsd:string
+        rationale: 엔티티 대표 태그 문자열
+  provenance:
+    tag:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 34
+      method: inferred_from_relation_and_tag_pattern
+    ontology_core.iri_hint:
+      source_pages:
+      - 34
+      method: constructed
+    ontology_core.class_hint:
+      source_pages:
+      - 34
+      method: plan_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 34
+      method: plan_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 34
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 34
+      method: direct
+    plan_reference.guidance_applied:
+      source_pages:
+      - 34
+      method: plan_applied
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: GroupingEntity
+    source_page: 34
+    reason: 후보 클래스이며 확정 불가
+    preservation_note: 0-9c에서 class 정규화 후보로 검토
+  - field_candidate: ontology_core.alternative_class_hints[0]
+    raw_text: PlanOrView
+    source_page: 34
+    reason: 관계 허브처럼 보이나 그룹 엔티티로 더 강하게 관찰됨
+    preservation_note: 그룹/플랜 경계 재검토 필요
+  - field_candidate: ontology_core.alternative_class_hints[1]
+    raw_text: DocumentEntity
+    source_page: 34
+    reason: 상위 문서 메타 가능성은 있으나 직접 관찰 근거 약함
+    preservation_note: 문서 컨테이너 여부 후속 검토
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: (supplement 없음)
+    source_page: 34
+    reason: 이 분야 supplement가 제공되지 않아 표준 sub_kind로 분류 불가
+    preservation_note: free_notes에 원문 보존
+  - field_candidate: related_assertions[0].type
+    raw_text: contains
+    source_page: 34
+    reason: 관계 원형만 보존하며 확정 property IRI는 미정
+    preservation_note: 0-9d에서 정규화 가능
+  - field_candidate: related_assertions[0].target_hint
+    raw_text: GRID-SYSTEM
+    source_page: 34
+    reason: 대상 태그는 관찰되나 클래스/개체 확정은 별도 단계
+    preservation_note: 대상 엔티티와의 연결 유지
+  - field_candidate: related_assertions[0].note
+    raw_text: outgoing relation; source_page 34; cross_validated
+    source_page: 34
+    reason: 관계 메타 설명
+    preservation_note: 관계 출처 추적용
+  - field_candidate: owl_role
+    raw_text: NamedIndividual
+    source_page: 34
+    reason: 독립 태그이지만 그룹/관계 중심이라 PartOf/ObjectPropertyAssertion 가능성도 검토됨
+    preservation_note: 현재는 개별 Individual로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: GRP-* 패턴상 GroupingEntity로 보이지만, 관계 중심 허브 성격도 있어 PlanOrView/DocumentEntity
+      가능성을 완전히 배제할 수 없음
+    recommended_handling: 개별 Individual로 유지하되 0-9c에서 class 정규화 시 그룹 계열 우선 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - group/contains 패턴 보존
+    - unknown discipline로 유지
+    - relation fact 원형만 related_assertions에 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:25.600030'
+  confidence: 0.86

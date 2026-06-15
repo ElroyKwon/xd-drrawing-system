@@ -1,0 +1,169 @@
+placement:
+  tag: UNKNOWN-SPACE-01
+  name: 기존 지하공동구 통신 케이블 트레이 구간
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-SPACE-01
+    class_hint: CableTray
+    alternative_class_hints:
+    - CableRouting
+    - CableSupport
+    - CableManagementSystem
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CableTray
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 공동구 통신 CABLE TRAY
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 문자열로, 대상의 직접 라벨 정보임
+      - raw_text: W:1000xH:500mm
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: dimensions
+          suggested_datatype: xsd:string
+          rationale: 폭/높이 치수 문자열이므로 치수 속성 후보
+      - raw_text: 지하공동구 사용
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 사용 조건/설치 맥락을 나타내는 주석성 문구
+      - raw_text: 'function_category: CABLE_TRAY'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 기능 분류 값
+      - raw_text: 'suggested_parent_class: CableManagementSystem'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: ontologyHint
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스 후보
+      - raw_text: 'function_candidates: CableRouting, CableSupport'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록으로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification from observed entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints + function_category + labels_inside
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 9
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 9
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 9
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 9
+      method: entity_detail.function_category
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    source_pages:
+      source_pages:
+      - 9
+      method: entity_detail.source_pages
+    specs.labels_inside:
+      source_pages:
+      - 9
+      method: entity_detail.specs.labels_inside
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.function_candidates
+    function_category:
+      source_pages:
+      - 9
+      method: entity_detail.function_category
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 9
+    reason: 관계 항목이 비어 있어 해석할 관계 사실이 없음
+    preservation_note: 빈 배열 상태를 그대로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 9
+    reason: 수집 출처 플래그는 의미는 있으나 별도 분류 레이어가 정의되지 않음
+    preservation_note: 생성/합성 출처 메타로 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 9
+    reason: 유사 장비 목록이 비어 있음
+    preservation_note: 빈 배열 상태를 그대로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name은 공간/구간 표현이지만 function_category와 labels_inside는 케이블 트레이 설비를 가리켜 공간과
+      설비 성격이 혼재함
+    recommended_handling: 0-9c에서 공간/설비 중 최종 class를 검증하되, 현재는 NamedIndividual로 보존하고
+      CableTray 계열 후보를 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - dominant_equipment_types 중 Cable/Route/Containment 축을 반영
+    - expected_data_properties 중 dimensions, note, functionCategory, rawLabel 성격을
+      free_notes로 보존
+    - predicted_ontology_structure의 CableAndPathway 계열 힌트를 class_hint에 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:11.205089'
+  confidence: 0.84

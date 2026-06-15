@@ -1,0 +1,103 @@
+entity_detail:
+  tag: WC
+  type: structural_member
+  specs:
+    wall_member:
+      value: WC 벽체
+      unit: null
+      source: 35
+      confidence: 0.97
+    wc_rc_joint_detail_wc1:
+      value: WC1+ RC접합상세도
+      unit: null
+      source: 64
+      confidence: 0.98
+    wc_rc_joint_detail_wc2:
+      value: WC2+ RC접합상세도
+      unit: null
+      source: 64
+      confidence: 0.98
+  drawing_texts:
+  - source: page_035_context.yaml
+    page_number: 35
+    text: 'LS Electric R-Center 구축 프로젝트의 지상1층 구조평면도로, SC 계열 기둥, VBR 보, FG 기초, WC 벽체
+      등 주요 구조 부재의 배치와 규격을 보여준다.
+
+
+      도면 내에는 트렌치(W550XH250), Expansion Joint, THK 600mm 이중기초 표기와 관련 시공 NOTE가 포함되어
+      있다.
+
+
+      재료강도는 콘크리트 fck=27MPa, 철근 fy=400/500MPa, 강재 SS275/SM355이며, 기준 레벨은 1SL ±0 = GL+200
+      = FH. +94.20이다.'
+  - source: page_035_context.yaml
+    page_number: 35
+    text: "WC1\n    name: 벽체\n    spec: null\n    discipline: STRUCTURAL"
+  - source: page_035_context.yaml
+    page_number: 35
+    text: "WC2\n    name: 벽체\n    spec: null\n    discipline: STRUCTURAL"
+  - source: page_064_context.yaml
+    page_number: 64
+    text: 'LS Electric R-Center 구축 공사의 철골 접합 상세도이며, WC1/WC2 RC 접합, 크레인 접합(1톤, 5톤),
+      보 이음 접합, T-BAR 보강, TSG+SP1 접합 등 여러 구조 접합 상세가 한 페이지에 배치되어 있다.
+
+
+      가시 태그로 WC1, WC2, CRG1, CRG2, CBR1, CBR2, BG1, BR1, BR2, 2SG2B, 2SSG2, 2SB1,
+      TSG2, TSG1, SP1, ST2가 확인되며, H형강 단면, 플레이트, 볼트/앵커, 용접 기호가 함께 표기된다.
+
+
+      재료강도는 콘크리트 fck=27MPa, 철근 fy=400/500MPa, 강재 SS275/SM355/SHN275, 앵커볼트 Fy=660MPa,
+      볼트 등급 F10T가 표기되어 있다.'
+  - source: page_064_context.yaml
+    page_number: 64
+    text: "WC1\n    name: WC1 RC 접합부\n    spec: WC1+ RC접합상세도\n    discipline: STRUCTURAL"
+  - source: page_064_context.yaml
+    page_number: 64
+    text: "WC2\n    name: WC2 RC 접합부\n    spec: WC2+ RC접합상세도\n    discipline: STRUCTURAL"
+  requirements:
+  - text: 재료강도는 콘크리트 fck=27MPa, 철근 fy=400/500MPa, 강재 SS275/SM355이며
+    source: page_035_context.yaml
+    type: material_requirement
+  - text: 재료강도는 콘크리트 fck=27MPa, 철근 fy=400/500MPa, 강재 SS275/SM355/SHN275, 앵커볼트 Fy=660MPa,
+      볼트 등급 F10T가 표기되어 있다.
+    source: page_064_context.yaml
+    type: material_requirement
+  connection_specs:
+  - relation: RC 접합
+    partner: WC1
+    details:
+      source: page_064_context.yaml
+  - relation: RC 접합
+    partner: WC2
+    details:
+      source: page_064_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: appears_on_page
+      partner_tag: WC1
+      direction: self_to_partner
+      source: page_035_context.yaml
+    - relation_type: appears_on_page
+      partner_tag: WC2
+      direction: self_to_partner
+      source: page_035_context.yaml
+    - relation_type: appears_on_page
+      partner_tag: WC1
+      direction: self_to_partner
+      source: page_064_context.yaml
+    - relation_type: appears_on_page
+      partner_tag: WC2
+      direction: self_to_partner
+      source: page_064_context.yaml
+    observed_attributes:
+    - 벽체
+    - WC 벽체
+    - WC1+ RC접합상세도
+    - WC2+ RC접합상세도
+    similar_equipment:
+    - WC1
+    - WC2
+    suggested_parent_class: StructuralMember
+    cross_discipline: []
+  notes: []
+tag: WC

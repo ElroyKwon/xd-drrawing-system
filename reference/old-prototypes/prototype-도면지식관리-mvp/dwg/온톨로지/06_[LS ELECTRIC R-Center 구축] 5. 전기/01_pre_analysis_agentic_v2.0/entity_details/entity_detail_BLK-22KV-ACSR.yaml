@@ -1,0 +1,85 @@
+tag: BLK-22KV-ACSR
+name: 22.9kV 가공 인입 케이블
+type: INCOMING_CABLE
+discipline: ELECTRICAL
+function_category: INCOMING_CABLE
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - 22.9kV-Y ACSR-OC 160sq×3/ACSR 95sq(N)+20m
+  - 전선보호관 SB81A-621
+  - 수용가 설비(L1/L1,1 등)
+  - 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m
+  - CP-1
+  - W/LAx3
+  - 22.9kV-Y CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE)
+  - (공용구:CABLE TRAY&ELP)*250m-MH포함
+  cable_spec: 22.9kV-Y ACSR-OC 160sq×3/ACSR 95sq(N)+20m
+  protection_tube: SB81A-621
+  voltage_kV: 22.9
+  voltage_phase: 3Ø
+  cable_type: ACSR-OC
+  cable_size_main: 160sq
+  cable_count_main: 3
+  cable_size_neutral: 95sq
+  cable_length_m: 20
+  cable_tray_type: CABLE TRAY(M)(P)
+  cable_tray_length_m: 250
+  secondary_cable: 22.9kV-Y CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE)
+  secondary_cable_tray: 공용구:CABLE TRAY&ELP
+  secondary_cable_tray_length_m: 250
+  secondary_cable_includes_mh: true
+  cp_designation: CP-1
+relations:
+- from: BLK-22KV-ACSR
+  to: BLK-LA1
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV 가공 인입 → LA
+- from: BLK-22KV-ACSR
+  to: BLK-LA1
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV 가공 인입 → LA
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-right
+confidence: 0.95
+equipment_symbols:
+- type: incoming_cable
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalCable
+  observed_attributes:
+  - raw_labels
+  - cable_spec
+  - protection_tube
+  - voltage_kV
+  - voltage_phase
+  - cable_type
+  - cable_size_main
+  - cable_count_main
+  - cable_size_neutral
+  - cable_length_m
+  - cable_tray_type
+  - cable_tray_length_m
+  - secondary_cable
+  - secondary_cable_tray
+  - secondary_cable_tray_length_m
+  - secondary_cable_includes_mh
+  - cp_designation
+  similar_equipment: []
+  function_candidates:
+  - PowerSupply
+  - IncomingFeeder

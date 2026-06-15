@@ -1,0 +1,193 @@
+placement:
+  tag: VBR2
+  name: 가상보 VBR2 (우측)
+  discipline: structural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: VBR2
+    class_hint: Beam
+    alternative_class_hints:
+    - DetailEntity
+    - MemberMark
+    related_assertions:
+    - type: connects_to
+      target_hint: VBR1
+      note: VBR 외곽 가상보 연결 (상단→우측)
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:VBR1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: connects_to
+      target_hint: VBR3
+      note: VBR 외곽 가상보 연결 (우측→하단)
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:VBR3
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms: []
+    applicable_constraints:
+    - CN009
+    - CN010
+    confirmed_class: dks:Beam
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: structural
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: BEAM'
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 문자열이 명시됨
+        promoted_to: dks:hasFunctionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 'name: 가상보 VBR2 (우측)'
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: hasName
+          suggested_datatype: xsd:string
+          rationale: 명칭 문자열이 명시됨
+        promoted_to: dks:hasName
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 'relation: connects_to / from VBR1 to VBR2 / note: VBR 외곽 가상보 연결
+          (상단→우측)'
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 도면 관계 사실이 명시됨
+      - raw_text: 'relation: connects_to / from VBR2 to VBR3 / note: VBR 외곽 가상보 연결
+          (우측→하단)'
+        source_page: 35
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 도면 관계 사실이 명시됨
+  provenance:
+    name:
+      source_pages:
+      - 35
+      method: direct
+    discipline:
+      source_pages:
+      - 35
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 35
+      method: inferred_from_entity_with_self_identity_and_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 35
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 35
+      method: inferred_from_function_category_and_name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 35
+      method: inferred
+    ontology_core.related_assertions:
+      source_pages:
+      - 35
+      method: cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 35
+      method: preserved_raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 35
+      method: applied_plan_focus
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: VBR1
+    source_page: 35
+    reason: 관계는 명시되나 별도 entity_detail 미제공으로 대상 속성 정규화 불가
+    preservation_note: connects_to의 상대 태그로 보존
+  - field_candidate: relations[0].relation_type
+    raw_text: connects_to
+    source_page: 35
+    reason: 관계 원형은 보존하되 확정 property IRI는 후속 단계에서 정규화
+    preservation_note: object property 후보
+  - field_candidate: relations[0].direction
+    raw_text: incoming
+    source_page: 35
+    reason: 방향 정보는 있으나 OWL core 단계에서 확정 해석하지 않음
+    preservation_note: 역방향 연결 가능성 메모
+  - field_candidate: relations[1].from
+    raw_text: VBR1
+    source_page: 35
+    reason: 관계 사실의 일부이나 정규화된 assertion으로만 보존
+    preservation_note: source endpoint
+  - field_candidate: relations[1].to
+    raw_text: VBR2
+    source_page: 35
+    reason: 자기 태그 포함 관계로 보존
+    preservation_note: target endpoint
+  - field_candidate: relations[1].relation
+    raw_text: connects_to
+    source_page: 35
+    reason: 확정 property IRI 미지정
+    preservation_note: relation label
+  - field_candidate: relations[1].line_style
+    raw_text: solid
+    source_page: 35
+    reason: 관계 표현 스타일이지만 ontology core로 승격하지 않음
+    preservation_note: visual encoding
+  - field_candidate: relations[1].note
+    raw_text: VBR 외곽 가상보 연결 (상단→우측)
+    source_page: 35
+    reason: 관계 설명 문구이나 별도 구조화 규칙 없음
+    preservation_note: relation annotation
+  - field_candidate: relations[2].from
+    raw_text: VBR2
+    source_page: 35
+    reason: 관계 사실의 일부이나 정규화된 assertion으로만 보존
+    preservation_note: source endpoint
+  - field_candidate: relations[2].to
+    raw_text: VBR3
+    source_page: 35
+    reason: 상대 태그 존재
+    preservation_note: target endpoint
+  - field_candidate: relations[2].relation
+    raw_text: connects_to
+    source_page: 35
+    reason: 확정 property IRI 미지정
+    preservation_note: relation label
+  - field_candidate: relations[2].line_style
+    raw_text: solid
+    source_page: 35
+    reason: 관계 표현 스타일이지만 ontology core로 승격하지 않음
+    preservation_note: visual encoding
+  - field_candidate: relations[2].note
+    raw_text: VBR 외곽 가상보 연결 (우측→하단)
+    source_page: 35
+    reason: 관계 설명 문구이나 별도 구조화 규칙 없음
+    preservation_note: relation annotation
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: VBR2는 고유 태그와 명칭, 기능 범주가 있으며 VBR1/VBR3와의 연결 관계가 명시되어 독립 Individual로 보존
+      가능
+    recommended_handling: NamedIndividual로 유지하고 connects_to 관계는 후속 단계에서 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - detail/beam -> connects_to -> detail/beam
+    - member mark / detail entity의 관계 사실 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:14.910038'
+  confidence: 0.91

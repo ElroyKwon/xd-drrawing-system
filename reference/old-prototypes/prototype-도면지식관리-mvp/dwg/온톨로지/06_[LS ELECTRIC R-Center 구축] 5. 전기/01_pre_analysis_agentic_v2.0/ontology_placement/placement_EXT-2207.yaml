@@ -1,0 +1,139 @@
+placement:
+  tag: EXT-2207
+  name: 외부 연결 2207
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:EXT-2207
+    class_hint: ElectricalEquipment
+    alternative_class_hints:
+    - ConnectionPoint
+    - CableTermination
+    - JunctionPanel
+    related_assertions:
+    - type: feeds
+      target_hint: '1306'
+      note: 'TO: 2207 / 6.6kV CV 160sq-3C-1L (CABLE TRAY)'
+    - type: cable
+      target_hint: BLK-1306
+      note: 'TO: 2207 / 6.6kV CV 160sq-3C-1L (CABLE TRAY)'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:JunctionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 'TO: 2207'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasConnectionTarget
+          suggested_datatype: xsd:string
+          rationale: 외부 연결 대상 번호를 나타내는 문자열 표기
+      - raw_text: 6.6kV CV 160sq-3C-1L (CABLE TRAY)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 전압, 규격, 심수, 포설 방식이 함께 표기된 원문 문자열
+      - raw_text: 외부 연결 2207
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDisplayName
+          suggested_datatype: xsd:string
+          rationale: 도면상 명칭 표기
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: placement_rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag_based
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + function_candidates
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels + name
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO: 2207'
+    source_page: 5
+    reason: 관계/표기인지 속성인지 단정 불가
+    preservation_note: 외부 연결 대상 식별 문자열로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 6.6kV CV 160sq-3C-1L (CABLE TRAY)
+    source_page: 5
+    reason: 케이블 사양과 포설 정보가 혼합된 원문 문자열
+    preservation_note: 전압/규격/포설방식 분리 가능성 보존
+  - field_candidate: relations.relation
+    raw_text: feeds
+    source_page: 5
+    reason: 확정 property IRI 미지정
+    preservation_note: 전원 흐름 관계 원형으로 보존
+  - field_candidate: relations.relation
+    raw_text: cable
+    source_page: 5
+    reason: 확정 property IRI 미지정
+    preservation_note: 케이블 연결 관계 원형으로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: ConnectionPoint
+    source_page: 5
+    reason: 후보 기능명이며 확정 class 아님
+    preservation_note: 연결점 개념 후보로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CableTermination
+    source_page: 5
+    reason: 후보 기능명이며 확정 class 아님
+    preservation_note: 케이블 종단 개념 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 외부 연결 노드처럼 보이지만 type은 JUNCTION_PANEL이며, 관계 중심 객체인지 독립 설비인지 경계가 다소
+      모호함
+    recommended_handling: NamedIndividual로 유지하되 0-9c에서 ConnectionPoint 또는 CableTermination
+      계열로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(cable)의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:49.799371'
+  confidence: 0.85

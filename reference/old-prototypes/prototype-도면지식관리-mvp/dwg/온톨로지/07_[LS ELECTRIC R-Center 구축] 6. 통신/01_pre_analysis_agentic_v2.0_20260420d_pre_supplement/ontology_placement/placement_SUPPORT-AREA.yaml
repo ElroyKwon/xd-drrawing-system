@@ -1,0 +1,215 @@
+placement:
+  tag: SUPPORT-AREA
+  name: 지원부문
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:SUPPORT-AREA
+    class_hint: CommunicationZone
+    alternative_class_hints:
+    - SpatialEntity
+    - CommunicationEquipment
+    related_assertions:
+    - type: hasInstalledEquipment
+      target_hint: LAN OUTLET (count 2)
+      note: specs.equipment_symbols에 관찰됨
+    - type: hasInstalledEquipment
+      target_hint: SYSTEM BOX (count 2)
+      note: specs.equipment_symbols에 관찰됨
+    - type: locatedOnPage
+      target_hint: page 10
+      note: source_pages 기반
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationZone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 지원부문
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 라벨
+      - raw_text: 지원부문
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: visual_semantics 기반 추론명
+      - raw_text: center-right
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면상 위치 정보
+      - raw_text: rectangle
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태
+      - raw_text: SUPPORT-AREA
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 패널/영역 식별자
+      - raw_text: COMMUNICATION_ZONE
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류값
+      - raw_text: Data Connectivity
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 기능
+      - raw_text: Office Support
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 기능
+  provenance:
+    tag:
+      source_pages:
+      - 10
+      method: direct
+    name:
+      source_pages:
+      - 10
+      method: direct
+    discipline:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      method: inferred_from_type_and_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 10
+      method: from_specs_and_source_pages
+    discipline_context.free_notes:
+      source_pages:
+      - 10
+      method: preservation
+    specs.raw_labels:
+      source_pages:
+      - 10
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 10
+      method: direct
+    specs.labels_above:
+      source_pages:
+      - 10
+      method: direct
+    specs.labels_below:
+      source_pages:
+      - 10
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 10
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 10
+      method: direct
+    specs.position:
+      source_pages:
+      - 10
+      method: direct
+    specs.shape:
+      source_pages:
+      - 10
+      method: direct
+    specs.panel_id:
+      source_pages:
+      - 10
+      method: direct
+    specs.source_models:
+      source_pages:
+      - 10
+      method: direct
+    relations:
+      source_pages:
+      - 10
+      method: direct_empty
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 10
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 10
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 10
+      method: direct
+  unresolved:
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 10
+    reason: 관찰값 없음
+    preservation_note: 빈 배열로 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 10
+    reason: 관찰값 없음
+    preservation_note: 빈 배열로 보존
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 10
+    reason: 관계 항목이 존재하지 않음
+    preservation_note: 빈 관계 목록 보존
+  - field_candidate: collection_sources.visual_semantics_gemini
+    raw_text: 'true'
+    source_page: 10
+    reason: 출처 플래그이지만 개별 관찰값은 아님
+    preservation_note: 메타 출처로만 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 10
+    reason: 출처 플래그이지만 개별 관찰값은 아님
+    preservation_note: 메타 출처로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 space이고 function_category는 COMMUNICATION_ZONE이며, ontology_hints는
+      CommunicationZone을 제안하지만 specs에 LAN OUTLET과 SYSTEM BOX가 포함되어 공간/구역과 장비 내재성이
+      혼재함.
+    recommended_handling: 0-9c에서 SpatialEntity/CommunicationZone 계열로 검증하고, 장비 내재 관계는
+      별도 관계로 분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 엔티티로서 CommunicationZone 계열 후보를 우선 반영
+    - locatedOnPage 및 source_pages 추적을 보존
+    - equipment_symbols를 관계 원형으로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:46:41.742725'
+  confidence: 0.84

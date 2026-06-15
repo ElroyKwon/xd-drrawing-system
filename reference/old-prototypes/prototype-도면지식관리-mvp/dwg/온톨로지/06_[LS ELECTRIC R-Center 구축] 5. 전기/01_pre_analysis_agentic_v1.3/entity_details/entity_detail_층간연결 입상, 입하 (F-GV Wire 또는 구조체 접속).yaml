@@ -1,0 +1,77 @@
+entity_detail:
+  tag: 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+  type: interstory_connection_note
+  specs:
+    connection_method:
+      value: F-GV Wire 또는 구조체 접속
+      unit: null
+      source: 37
+      confidence: 0.95
+  drawing_texts:
+  - source: page 37
+    page_number: 37
+    text: 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+  - source: page 38
+    page_number: 38
+    text: 주 인하도선(기초철골), 보조 인하도선(F-GV 50㎟, HI-PVC 28C), 구조체 접속(철근 및 철골 접속)이 명시되어 있으며
+  requirements:
+  - text: F-GV Wire 또는 구조체 접속
+    source: page 37
+    type: connection_requirement
+  - text: 주 인하도선(기초철골)
+    source: page 38
+    type: connection_requirement
+  - text: 보조 인하도선(F-GV 50㎟, HI-PVC 28C)
+    source: page 38
+    type: connection_requirement
+  - text: 구조체 접속(철근 및 철골 접속)
+    source: page 38
+    type: connection_requirement
+  connection_specs:
+  - relation: interstory_connection
+    partner: F-GV Wire
+    details:
+      source: page 37
+  - relation: interstory_connection
+    partner: 구조체
+    details:
+      source: page 37
+  - relation: related_to
+    partner: 주 인하도선
+    details:
+      source: page 38
+  - relation: related_to
+    partner: 보조 인하도선
+    details:
+      source: page 38
+  - relation: related_to
+    partner: 구조체 접속
+    details:
+      source: page 38
+  ontology_hints:
+    observed_relations:
+    - relation_type: connection_method
+      partner_tag: DC-001
+      direction: UNKNOWN
+      source: page 37
+    - relation_type: connection_method
+      partner_tag: DC-002
+      direction: UNKNOWN
+      source: page 38
+    - relation_type: connection_method
+      partner_tag: SC-001
+      direction: UNKNOWN
+      source: page 38
+    observed_attributes:
+    - F-GV Wire 또는 구조체 접속
+    - 주 인하도선
+    - 보조 인하도선
+    - 구조체 접속
+    similar_equipment:
+    - IC-001
+    suggested_parent_class: electrical_connection_note
+    cross_discipline:
+    - ELECTRICAL
+    - STRUCTURAL
+  notes: []
+tag: 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)

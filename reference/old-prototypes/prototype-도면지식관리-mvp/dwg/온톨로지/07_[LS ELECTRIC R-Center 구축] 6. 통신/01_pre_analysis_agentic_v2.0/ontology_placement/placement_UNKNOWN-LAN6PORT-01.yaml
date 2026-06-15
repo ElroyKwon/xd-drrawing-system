@@ -1,0 +1,155 @@
+placement:
+  tag: UNKNOWN-LAN6PORT-01
+  name: LAN 6PORT OUTLET - FA
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-LAN6PORT-01
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - LANOutlet
+    - NetworkOutlet
+    - CommunicationOutlet
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'name: LAN 6PORT OUTLET - FA'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기명 원문
+      - raw_text: 'type: lan_outlet'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문
+      - raw_text: 'function_category: COMMUNICATION_OUTLET'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문
+      - raw_text: 'visual_description: 노출형으로 표시된 LAN 6PORT 아울렛 심볼, FA 표기'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: noteText
+          suggested_datatype: xsd:string
+          rationale: 심볼/표기/설치형태 설명
+      - raw_text: 'mounting_type: 노출형 (CABLE TRAY 내 노출설치)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountingType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 및 위치 설명
+      - raw_text: 'source: 좌측 범례, 통합배선설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처 설명
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationEquipment'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.observed_attributes: visual_description, mounting_type,
+          source'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: observedAttributesText
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 원문
+      - raw_text: 'ontology_hints.function_candidates: Network Connectivity, Signal
+          Termination'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidatesText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: collectionSourceFlag
+          suggested_datatype: xsd:boolean
+          rationale: 합성 생성 여부 원문
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 3
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 3
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: entity tag
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred from name/type/function_category
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: preserve all non-core fields
+  unresolved:
+  - field_candidate: specs.visual_description
+    raw_text: 노출형으로 표시된 LAN 6PORT 아울렛 심볼, FA 표기
+    source_page: 3
+    reason: 정확한 OWL class/property로 확정 불가
+    preservation_note: 심볼/표기/설치형태 정보로 보존
+  - field_candidate: specs.mounting_type
+    raw_text: 노출형 (CABLE TRAY 내 노출설치)
+    source_page: 3
+    reason: 표준화된 값으로 정규화하지 않음
+    preservation_note: 설치 방식 원문 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Network Connectivity, Signal Termination
+    source_page: 3
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 기능 후보 목록 그대로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name/type/function_category는 장비성 개체를 강하게 시사하지만, 실제로는 아울렛 심볼/표기 요소일 가능성도
+      있어 class 확정이 어려움.
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열과 CommunicationOutlet 계열을
+      함께 검토하고, 심볼/실체 여부를 도면 맥락으로 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 랙/단말/아울렛/문서 혼재 구조를 고려해 outlet 계열로 배치
+    - suggested_parent_class 힌트를 반영하되 class 확정은 보류
+    - visual_description, mounting_type, source, function_candidates를 free_notes로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:03.279868'
+  confidence: 0.78

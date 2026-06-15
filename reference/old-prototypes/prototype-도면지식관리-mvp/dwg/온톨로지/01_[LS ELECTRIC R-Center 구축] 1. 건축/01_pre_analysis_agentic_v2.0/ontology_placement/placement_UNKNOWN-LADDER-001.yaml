@@ -1,0 +1,95 @@
+placement:
+  tag: UNKNOWN-LADDER-001
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-LADDER-001
+    class_hint: BuildingElement
+    alternative_class_hints:
+    - ArchitecturalElement
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:BuildingElement
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지 목록은 다음과 같습니다: [1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+          119, 120, 121, 122]. 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 태그 자체의 원문이 페이지 목록 안내이며, 특정 설비 정보가 아니라 출처 가능한 페이지 범위를 보존해야 함
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: direct
+    discipline:
+      source_pages:
+      - 0
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: verbatim
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지 목록은 다음과 같습니다:
+
+
+      [1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120, 121, 122]
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 설비/부품/관계의 실체 정보가 아니라 페이지 안내 문구만 존재함
+    preservation_note: 후속 단계에서 문서 참조형 주석 또는 페이지 인덱스 정보로 승격 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 LADDER이지만 entity_detail에는 실제 사다리의 물리적 속성, 관계, 위치 정보가 없고 페이지 목록 안내만
+      존재함
+    recommended_handling: AnnotationOnly로 재검토하거나, 이후 페이지 본문에서 ladder 실체가 확인되면 NamedIndividual로
+      재분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown_building_elements
+    - annotation_or_reference_entity_candidate
+    - plan_container/space/element 구분을 보수적으로 적용
+    deviations:
+    - plan상 unknown_building_elements 가능성이 있으나, 현재 entity_detail에는 실체 관계가 없어 AnnotationOnly보다
+      NamedIndividual 후보로 우선 보존
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:51.581153'
+  confidence: 0.41

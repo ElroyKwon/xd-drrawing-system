@@ -1,0 +1,1160 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: cable_schedule
+  discipline: COMMUNICATION
+  classification: SYSTEM_DIAGRAM
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: ET-02-001
+    title: 방송설비 계통도
+    revision: null
+  visible_tags:
+  - tag: Fa
+    type: cable_schedule_item
+    source: both
+  - tag: Fb
+    type: cable_schedule_item
+    source: both
+  - tag: Fc
+    type: cable_schedule_item
+    source: both
+  - tag: Fd
+    type: cable_schedule_item
+    source: both
+  - tag: Fe
+    type: cable_schedule_item
+    source: both
+  - tag: Ff
+    type: cable_schedule_item
+    source: both
+  - tag: Fg
+    type: cable_schedule_item
+    source: both
+  - tag: Fh
+    type: cable_schedule_item
+    source: both
+  - tag: Fi
+    type: cable_schedule_item
+    source: both
+  - tag: F
+    type: cable_schedule_item
+    source: both
+  - tag: S1
+    type: system_marker
+    source: both
+  - tag: S2
+    type: system_marker
+    source: both
+  - tag: SKS-P2-10P
+    type: equipment_or_panel
+    source: both
+  - tag: SKS-P1-10P
+    type: equipment_or_panel
+    source: both
+  - tag: PULL BOX
+    type: structural_element
+    source: both
+  - tag: ELP 50
+    type: cable_or_conduit_spec
+    source: both
+  - tag: FR-3 2.5sq / 10C
+    type: cable_spec
+    source: both
+  - tag: 정보통신용 맨홀
+    type: structural_element
+    source: both
+  - tag: 지하공동구
+    type: structural_element
+    source: both
+  - tag: 지하공동구 사용
+    type: note_or_route
+    source: both
+  - tag: 'FROM : 사무동 지상1층 방송실'
+    type: source_note
+    source: both
+  - tag: 1층 F.L
+    type: level_marker
+    source: both
+  - tag: 2층 F.L
+    type: level_marker
+    source: both
+  - tag: 지붕층 F.L
+    type: level_marker
+    source: both
+  - tag: PIT층 F.L
+    type: level_marker
+    source: both
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 좌상단에 방송용 CABLE SCHEDULE 표가 있고, 본 도면은 방송설비 계통도임.
+  - 표제란 도면번호는 ET-02-001이며, 우측 표제란과 하단 제목이 모두 보임.
+  - 지하공동구, 정보통신용 맨홀, PULL BOX, 층별 F.L 표기가 함께 나타남.
+  - legend_data.yaml은 조회되었으나 존재하지 않음(UNKNOWN).
+  confidence: 0.96
+  note: 도면번호 ET-02-001과 제목 '방송설비 계통도'가 보이며, 좌상단에 방송용 CABLE SCHEDULE가 포함되어 있어 통신/방송
+    계통도 페이지로 판단됨. 도면번호 접두사 ET는 카탈로그 기준 명시되지 않아 시각적 내용 우선.
+  recommended_supplements: &id001
+    P-10: discipline/communication/genre_system_diagram/supplement_p10.yaml
+    P-4.5: discipline/communication/genre_system_diagram/supplement_p4_05.yaml
+  routing_confidence: 0.93
+  routing_reason: COMMUNICATION + system_diagram 조합이 카탈로그에 존재하므로 genre 매칭 supplement를
+    우선 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: SCHEDULE-01
+    shape: rectangle
+    primary_label: 방송용 CABLE SCHEDULE
+    position: top-left
+    labels_near:
+    - 'NO'
+    - CABLE & CONDUIT SIZE
+    - REMARKS
+    - Fa
+    - Fb
+    - Fc
+    - Fd
+    - Fe
+    - Ff
+    - Fg
+    - Fh
+    - Fi
+    - F
+  - panel_id: DIAGRAM-01
+    shape: other
+    primary_label: 방송설비 계통도
+    position: center
+    labels_near:
+    - SKS-P2-10P
+    - SKS-P1-10P
+    - PULL BOX
+    - 정보통신용 맨홀
+    - 지하공동구
+    - 'FROM : 사무동 지상1층 방송실'
+    - 1층 F.L
+    - 2층 F.L
+    - 지붕층 F.L
+    - PIT층 F.L
+  connections:
+  - from: SCHEDULE-01
+    to: DIAGRAM-01
+    line_style: dashed
+    annotation: 케이블 태그 매칭 (Fa~Fi, F)
+  - from: DIAGRAM-01
+    to: DIAGRAM-01
+    line_style: solid
+    annotation: 설비 간 연결선
+  notable_shapes:
+  - shape: circle
+    label: Fa
+    note: 케이블 스케줄 항목 식별자 (Fa~Fi, F)
+  - shape: circle
+    label: S1
+    note: 시스템 마커 (S1, S2)
+  - shape: rectangle
+    label: SKS-P2-10P
+    note: 방송 설비/판넬
+  - shape: rectangle
+    label: PULL BOX
+    note: 구조물/박스
+  - shape: other
+    label: 정보통신용 맨홀
+    note: 맨홀 단면 형상
+  - shape: other
+    label: 지하공동구
+    note: 공동구 단면 형상
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-left
+  confidence: 0.98
+  note: 좌상단에 '방송용 CABLE SCHEDULE' 표가 명확히 존재하여 범례 섹션을 포함함.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: system_diagram
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: vision으로 도면 제목 '방송설비 계통도' 및 내용(방송 설비 간 연결) 확인. existing_yaml의 COMMUNICATION
+    + system_diagram 판단이 타당하므로 유지.
+classification: SYSTEM_DIAGRAM
+discipline: COMMUNICATION
+key_elements_from_text:
+- 방송설비 계통도
+- 방송용 CABLE SCHEDULE
+- Fa, Fb, Fc, Fd, Fe, Ff, Fg, Fh, Fi, F
+- S1, S2
+- SKS-P2-10P
+- SKS-P1-10P
+- PULL BOX 400 x400 x300mm
+- 정보통신용 맨홀 1,700 x 800 x 1,100mm
+- 지하공동구 사용
+- 'FROM : 사무동 지상1층 방송실'
+- FR-3 2.5sq / 10C
+- ELP 50 /IN TRAY
+- 1층 F.L
+- 2층 F.L
+- 지붕층 F.L
+- PIT층 F.L
+title_block:
+  drawing_number: ET-02-001
+  title: 방송설비 계통도
+  revision: UNKNOWN
+confidence: 0.98
+note: 페이지 12의 좌상단에 방송용 CABLE SCHEDULE가 있고, 중앙/하단에 방송설비 계통 연결과 층별 F.L, 맨홀, 공동구, 풀박스
+  표기가 보여 통신/방송 계통도 페이지로 판단됨. 기존 분석의 COMMUNICATION, SYSTEM_DIAGRAM, 도면번호 ET-02-001,
+  제목 방송설비 계통도는 시각적 근거와 일치함. 리비전 표기는 보이지 않아 UNKNOWN.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: CABLE-SCHEDULE
+    shape: rectangle
+    labels_inside:
+    - 방송용 CABLE SCHEDULE
+    - NO / CABLE & CONDUIT SIZE / REMARKS
+    - 'Fa : 2BC (F-FR-8 2C/1.5sq)'
+    - 'Fb : 2BC (F-FR-8 4C/1.5sq)'
+    - 'Fc : 2BC (F-FR-8 6C/1.5sq)'
+    - 'Fd : 2BC (F-FR-8 8C/1.5sq)'
+    - 'Fe : 36C (F-FR-8 10C/1.5sq)'
+    - 'Ff : 36C (F-FR-8 12C/1.5sq)'
+    - 'Fg : 36C (F-FR-8 15C/1.5sq)'
+    - 'Fh : 42C (F-FR-8 20C/1.5sq)'
+    - 'Fi : 54C (F-FR-8 30C/1.5sq)'
+    - 'F : ELP 500(FR-8 10C/2.5sq)'
+    labels_above:
+    - 방송용 CABLE SCHEDULE
+    labels_below:
+    - 1. 중간 방화 구획 처리
+    - 2. CABLE TRAY내 배관·배선시 전선관을 제외한 CABLE만 포설한다.
+    - 3. CABLE TRAY에 금을 접지전선은 1-0V 6sq를 쓴다.
+    - 4. CABLE TRAY 통신용과 공용임
+    - 5. 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+    inferred_name: 방송용 케이블 스케줄 범례표
+    position: top-left
+  - panel_id: PA-HEAD-END
+    shape: rectangle
+    labels_inside:
+    - 방송반
+    - SKS-P2-10P
+    - SKS-P1-10P
+    labels_above:
+    - S1
+    - S2
+    - S3
+    labels_below: []
+    equipment_symbols:
+    - type: AMP / 방송반 (PA Head-End)
+      count: 1
+    - type: 스피커 단자함 (Speaker Terminal Board)
+      count: 2
+    inferred_name: 방송 헤드엔드 (앰프 + 방송반)
+    position: center
+    panel_group: PA_HEAD_END
+  - panel_id: FLOOR-ROOF
+    shape: other
+    labels_inside:
+    - S1 (지붕층 방송 계통)
+    - 스피커 심볼 다수
+    - Fa, Fb 케이블 분기
+    labels_above:
+    - 지붕층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 천정형/벽부형 스피커
+      count: 8
+    - type: 스피커 단자함
+      count: 1
+    inferred_name: 지붕층 방송 단말 구역
+    position: top-center
+  - panel_id: FLOOR-2F
+    shape: other
+    labels_inside:
+    - S2 (2층 방송 계통)
+    - 스피커 심볼 다수
+    - Fa, Fb, Fc 케이블 분기
+    labels_above:
+    - 2층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 천정형/벽부형 스피커
+      count: 10
+    - type: 스피커 단자함
+      count: 1
+    inferred_name: 2층 방송 단말 구역
+    position: center-left
+  - panel_id: FLOOR-1F
+    shape: other
+    labels_inside:
+    - S3 (1층 방송 계통)
+    - 스피커 심볼 다수
+    - Fa, Fb 케이블 분기
+    - F (ELP 케이블)
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 천정형/벽부형 스피커
+      count: 5
+    - type: 스피커 단자함
+      count: 1
+    inferred_name: 1층 방송 단말 구역
+    position: center
+  - panel_id: PULL-BOX-01
+    shape: rectangle
+    labels_inside:
+    - PULL BOX
+    - 400 x 400 x 300mm
+    labels_above: []
+    labels_below: []
+    inferred_name: 풀박스 (케이블 인입 중계함)
+    position: center-right
+  - panel_id: MANHOLE-01
+    shape: rectangle
+    labels_inside:
+    - 정보통신용 맨홀
+    - 1,700 x 800 x 1,100mm
+    labels_above: []
+    labels_below: []
+    inferred_name: 정보통신용 맨홀
+    position: right-center
+  - panel_id: UNDERGROUND-DUCT
+    shape: other
+    labels_inside:
+    - 지하공동구
+    labels_above: []
+    labels_below:
+    - 지하공동구 사용
+    inferred_name: 지하공동구 (케이블 경로)
+    position: bottom-right
+  - panel_id: EXT-사무동방송실
+    shape: other
+    labels_inside:
+    - 'FROM : 사무동 지상1층 방송실'
+    - ELP 50 / IN TRAY
+    - FR-3 2.5sq / 10C
+    - 지하공동구 사용
+    labels_above: []
+    labels_below: []
+    inferred_name: 외부 인입 소스 (사무동 지상1층 방송실)
+    position: bottom-right
+  connections:
+  - from: EXT-사무동방송실
+    to: UNDERGROUND-DUCT
+    line_type: cable
+    line_style: solid
+    annotation: ELP 50 / IN TRAY, FR-3 2.5sq / 10C, 지하공동구 사용
+  - from: UNDERGROUND-DUCT
+    to: MANHOLE-01
+    line_type: cable
+    line_style: solid
+    annotation: 지하공동구 경유
+  - from: MANHOLE-01
+    to: PULL-BOX-01
+    line_type: cable
+    line_style: solid
+    annotation: F (ELP 500 FR-8 10C/2.5sq)
+  - from: PULL-BOX-01
+    to: PA-HEAD-END
+    line_type: cable
+    line_style: solid
+    annotation: F 케이블 인입
+  - from: PA-HEAD-END
+    to: FLOOR-ROOF
+    line_type: cable
+    line_style: solid
+    annotation: S1 계통, Fa/Fb 케이블
+    from_floor: 1F
+    to_floor: 지붕층
+  - from: PA-HEAD-END
+    to: FLOOR-2F
+    line_type: cable
+    line_style: solid
+    annotation: S2 계통, Fa/Fb/Fc 케이블
+    from_floor: 1F
+    to_floor: 2F
+  - from: PA-HEAD-END
+    to: FLOOR-1F
+    line_type: cable
+    line_style: solid
+    annotation: S3 계통, Fa/Fb 케이블
+    from_floor: 1F
+    to_floor: 1F
+  groups:
+  - group_id: GRP-PA-HEAD-END
+    label: PA_HEAD_END (방송 헤드엔드 그룹)
+    members:
+    - PA-HEAD-END
+  - group_id: GRP-BROADCAST
+    label: BROADCAST (방송설비 전체)
+    members:
+    - PA-HEAD-END
+    - FLOOR-ROOF
+    - FLOOR-2F
+    - FLOOR-1F
+    - PULL-BOX-01
+    - MANHOLE-01
+    - UNDERGROUND-DUCT
+    - EXT-사무동방송실
+  - group_id: GRP-FLOOR-ZONES
+    label: 층별 방송 구역 (PA Zone)
+    members:
+    - FLOOR-ROOF
+    - FLOOR-2F
+    - FLOOR-1F
+  legend_references:
+  - text: AMP (앰프)
+    linked_to: PA-HEAD-END
+  - text: Speaker Terminal Board (스피커 단자함)
+    linked_to: FLOOR-ROOF
+  - text: Speaker Terminal Board (스피커 단자함)
+    linked_to: FLOOR-2F
+  - text: Speaker Terminal Board (스피커 단자함)
+    linked_to: FLOOR-1F
+  - text: 천정형 스피커 (3W)
+    linked_to: FLOOR-ROOF
+  - text: 벽부형 스피커 (3W/10W)
+    linked_to: FLOOR-2F
+  - text: P.B (풀박스)
+    linked_to: PULL-BOX-01
+  - text: 'Fa : 2BC (F-FR-8 2C/1.5sq)'
+    linked_to: FLOOR-ROOF
+  - text: 'Fb : 2BC (F-FR-8 4C/1.5sq)'
+    linked_to: FLOOR-2F
+  - text: 'F : ELP 500(FR-8 10C/2.5sq)'
+    linked_to: PULL-BOX-01
+  diagram_meta:
+    title: 방송설비 계통도
+    drawing_number: ET-02-001
+    flow_direction: top-to-bottom
+    sub_system: BROADCAST
+    diagram_subtype: cabling_tree
+    layers:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    pa_zone_count: 3
+    external_inflows:
+    - from: 사무동 지상1층 방송실
+      cable: FR-3 2.5sq / 10C
+      conduit: ELP 50 / IN TRAY
+      route: 지하공동구 사용
+    cable_schedule:
+    - false: Fa
+      cable_conduit_size: 2BC (F-FR-8 2C/1.5sq)
+      remarks: null
+    - false: Fb
+      cable_conduit_size: 2BC (F-FR-8 4C/1.5sq)
+      remarks: null
+    - false: Fc
+      cable_conduit_size: 2BC (F-FR-8 6C/1.5sq)
+      remarks: null
+    - false: Fd
+      cable_conduit_size: 2BC (F-FR-8 8C/1.5sq)
+      remarks: null
+    - false: Fe
+      cable_conduit_size: 36C (F-FR-8 10C/1.5sq)
+      remarks: null
+    - false: Ff
+      cable_conduit_size: 36C (F-FR-8 12C/1.5sq)
+      remarks: null
+    - false: Fg
+      cable_conduit_size: 36C (F-FR-8 15C/1.5sq)
+      remarks: null
+    - false: Fh
+      cable_conduit_size: 42C (F-FR-8 20C/1.5sq)
+      remarks: null
+    - false: Fi
+      cable_conduit_size: 54C (F-FR-8 30C/1.5sq)
+      remarks: null
+    - false: F
+      cable_conduit_size: ELP 500(FR-8 10C/2.5sq)
+      remarks: null
+    notes:
+    - 중간 방화 구획 처리
+    - CABLE TRAY내 배관·배선시 전선관을 제외한 CABLE만 포설한다.
+    - CABLE TRAY에 금을 접지전선은 1-0V 6sq를 쓴다.
+    - CABLE TRAY 통신용과 공용임
+    - 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+    pull_box_spec: 400 x 400 x 300mm
+    manhole_spec: 1,700 x 800 x 1,100mm
+    pa_head_end_equipment:
+    - SKS-P2-10P
+    - SKS-P1-10P
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PA-RACK-01
+    shape: rectangle
+    labels_inside:
+    - SKS-P2-10P
+    - SKS-P1-10P
+    inferred_name: 방송 메인 랙 (PA Head-End)
+    position: center
+    panel_group: PA_HEAD_END
+  - panel_id: ZONE-ROOF
+    shape: other
+    labels_above:
+    - 지붕층 F.L
+    - S1
+    labels_inside:
+    - EV기계실
+    - 계단실1
+    - 계단실2
+    - 복도
+    - 공조실
+    - 휀룸
+    equipment_symbols:
+    - type: speaker_terminal
+      count: 1
+    - type: ceiling_speaker
+      count: 6
+    inferred_name: 지붕층 방송 구역
+    position: top-center
+  - panel_id: ZONE-2F
+    shape: other
+    labels_above:
+    - 2층 F.L
+    - S2
+    labels_inside:
+    - 사무실
+    - 서고
+    - 대회의실
+    - 소회의실
+    - 임원실
+    - 접견실
+    - 다목적실
+    - 체력단련실
+    - 휴게실
+    - 식당
+    - 주방
+    equipment_symbols:
+    - type: speaker_terminal
+      count: 1
+    - type: ceiling_speaker
+      count: 11
+    inferred_name: 2층 방송 구역
+    position: center
+  - panel_id: ZONE-1F
+    shape: other
+    labels_above:
+    - 1층 F.L
+    - S3
+    labels_inside:
+    - 주차장
+    - 기전실
+    - 방재실
+    - MDF실
+    - 숙직실
+    equipment_symbols:
+    - type: speaker_terminal
+      count: 1
+    - type: ceiling_speaker
+      count: 5
+    inferred_name: 1층 방송 구역
+    position: center
+  - panel_id: PB-01
+    shape: rectangle
+    labels_inside:
+    - PULL BOX
+    - 400 x 400 x 300mm
+    inferred_name: 풀박스
+    position: center-right
+  - panel_id: MH-01
+    shape: rectangle
+    labels_inside:
+    - 정보통신용 맨홀
+    - 1,700 x 800 x 1,100mm
+    inferred_name: 정보통신용 맨홀
+    position: bottom-right
+  - panel_id: DUCT-01
+    shape: other
+    labels_inside:
+    - 지하공동구
+    labels_below:
+    - 지하공동구 사용
+    inferred_name: 지하공동구
+    position: bottom-right
+  - panel_id: EXT-SOURCE-01
+    shape: other
+    labels_inside:
+    - 'FROM : 사무동 지상1층 방송실'
+    inferred_name: 외부 인입 (사무동 방송실)
+    position: bottom-right
+  connections:
+  - from: EXT-SOURCE-01
+    to: DUCT-01
+    line_type: cable
+    line_style: solid
+    annotation: ELP 50 / IN TRAY, FR-3 2.5sq / 10C
+  - from: DUCT-01
+    to: MH-01
+    line_type: cable
+    line_style: solid
+  - from: MH-01
+    to: PB-01
+    line_type: cable
+    line_style: solid
+    annotation: F
+  - from: PB-01
+    to: PA-RACK-01
+    line_type: cable
+    line_style: solid
+    annotation: F
+  - from: PA-RACK-01
+    to: ZONE-ROOF
+    line_type: cable
+    line_style: solid
+    annotation: Fa, Fb
+    from_floor: 1층 F.L
+    to_floor: 지붕층 F.L
+  - from: PA-RACK-01
+    to: ZONE-2F
+    line_type: cable
+    line_style: solid
+    annotation: Fa, Fb, Fc
+    from_floor: 1층 F.L
+    to_floor: 2층 F.L
+  - from: PA-RACK-01
+    to: ZONE-1F
+    line_type: cable
+    line_style: solid
+    annotation: Fa, Fb
+    from_floor: 1층 F.L
+    to_floor: 1층 F.L
+  groups:
+  - group_id: GRP-PA-HEAD-END
+    label: PA_HEAD_END
+    members:
+    - PA-RACK-01
+  - group_id: GRP-ZONES
+    label: 방송 구역
+    members:
+    - ZONE-ROOF
+    - ZONE-2F
+    - ZONE-1F
+  diagram_meta:
+    title: 방송설비 계통도
+    drawing_number: ET-02-001
+    flow_direction: bottom-to-top
+    sub_system: BROADCAST
+    diagram_subtype: cabling_tree
+    layers:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    pa_zone_count: 3
+    external_inflows:
+    - from: 사무동 지상1층 방송실
+      cable: FR-3 2.5sq / 10C
+      conduit: ELP 50 / IN TRAY
+      route: 지하공동구 사용
+    cable_schedule:
+    - false: Fa
+      cable_conduit_size: 2BC (F-FR-8 2C/1.5sq)
+    - false: Fb
+      cable_conduit_size: 2BC (F-FR-8 4C/1.5sq)
+    - false: Fc
+      cable_conduit_size: 2BC (F-FR-8 6C/1.5sq)
+    - false: Fd
+      cable_conduit_size: 2BC (F-FR-8 8C/1.5sq)
+    - false: Fe
+      cable_conduit_size: 36C (F-FR-8 10C/1.5sq)
+    - false: Ff
+      cable_conduit_size: 36C (F-FR-8 12C/1.5sq)
+    - false: Fg
+      cable_conduit_size: 36C (F-FR-8 15C/1.5sq)
+    - false: Fh
+      cable_conduit_size: 42C (F-FR-8 20C/1.5sq)
+    - false: Fi
+      cable_conduit_size: 54C (F-FR-8 30C/1.5sq)
+    - false: F
+      cable_conduit_size: ELP 500(FR-8 10C/2.5sq)
+    notes:
+    - 1. 중간 방화 구획 처리.
+    - 2. CABLE TRAY내 배관·배선시 전선관을 제외한 CABLE만 포설한다.
+    - 3. CABLE TRAY에 금을 접지전선은 1-GV 6sq를 쓴다.
+    - 4. CABLE TRAY 통신용과 공용임.
+    - 5. 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+entity_synthesis:
+  entities:
+  - tag: CABLE-SCHEDULE
+    name: 방송용 CABLE SCHEDULE
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      labels_inside:
+      - 방송용 CABLE SCHEDULE
+      - NO / CABLE & CONDUIT SIZE / REMARKS
+      - 'Fa : 2BC (F-FR-8 2C/1.5sq)'
+      - 'Fb : 2BC (F-FR-8 4C/1.5sq)'
+      - 'Fc : 2BC (F-FR-8 6C/1.5sq)'
+      - 'Fd : 2BC (F-FR-8 8C/1.5sq)'
+      - 'Fe : 36C (F-FR-8 10C/1.5sq)'
+      - 'Ff : 36C (F-FR-8 12C/1.5sq)'
+      - 'Fg : 36C (F-FR-8 15C/1.5sq)'
+      - 'Fh : 42C (F-FR-8 20C/1.5sq)'
+      - 'Fi : 54C (F-FR-8 30C/1.5sq)'
+      - 'F : ELP 500(FR-8 10C/2.5sq)'
+      labels_above:
+      - 방송용 CABLE SCHEDULE
+      labels_below:
+      - 1. 중간 방화 구획 처리
+      - 2. CABLE TRAY내 배관·배선시 전선관을 제외한 CABLE만 포설한다.
+      - 3. CABLE TRAY에 금을 접지전선은 1-0V 6sq를 쓴다.
+      - 4. CABLE TRAY 통신용과 공용임
+      - 5. 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+      position: top-left
+      source_block: visual_semantics
+  - tag: PA-HEAD-END
+    name: 방송 헤드엔드
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      labels_inside:
+      - 방송반
+      - SKS-P2-10P
+      - SKS-P1-10P
+      labels_above:
+      - S1
+      - S2
+      - S3
+      labels_below: []
+      equipment_symbols:
+      - type: AMP / 방송반 (PA Head-End)
+        count: 1
+      - type: 스피커 단자함 (Speaker Terminal Board)
+        count: 2
+      panel_group: PA_HEAD_END
+      inferred_name: 방송 헤드엔드 (앰프 + 방송반)
+    position: center
+    source_block: visual_semantics
+  - tag: FLOOR-ROOF
+    name: 지붕층 방송 단말 구역
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      labels_inside:
+      - S1 (지붕층 방송 계통)
+      - 스피커 심볼 다수
+      - Fa, Fb 케이블 분기
+      labels_above:
+      - 지붕층 F.L
+      labels_below: []
+      equipment_symbols:
+      - type: 천정형/벽부형 스피커
+        count: 8
+      - type: 스피커 단자함
+        count: 1
+      inferred_name: 지붕층 방송 단말 구역
+    position: top-center
+    source_block: visual_semantics
+  - tag: FLOOR-2F
+    name: 2층 방송 단말 구역
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      labels_inside:
+      - S2 (2층 방송 계통)
+      - 스피커 심볼 다수
+      - Fa, Fb, Fc 케이블 분기
+      labels_above:
+      - 2층 F.L
+      labels_below: []
+      equipment_symbols:
+      - type: 천정형/벽부형 스피커
+        count: 10
+      - type: 스피커 단자함
+        count: 1
+      inferred_name: 2층 방송 단말 구역
+    position: center-left
+    source_block: visual_semantics
+  - tag: FLOOR-1F
+    name: 1층 방송 단말 구역
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      labels_inside:
+      - S3 (1층 방송 계통)
+      - 스피커 심볼 다수
+      - Fa, Fb 케이블 분기
+      - F (ELP 케이블)
+      labels_above:
+      - 1층 F.L
+      labels_below: []
+      equipment_symbols:
+      - type: 천정형/벽부형 스피커
+        count: 5
+      - type: 스피커 단자함
+        count: 1
+      inferred_name: 1층 방송 단말 구역
+    position: center
+    source_block: visual_semantics
+  - tag: PULL-BOX-01
+    name: PULL BOX
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      labels_inside:
+      - PULL BOX
+      - 400 x 400 x 300mm
+      inferred_name: 풀박스 (케이블 인입 중계함)
+      pull_box_spec: 400 x 400 x 300mm
+    position: center-right
+    source_block: visual_semantics
+  - tag: MANHOLE-01
+    name: 정보통신용 맨홀
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      labels_inside:
+      - 정보통신용 맨홀
+      - 1,700 x 800 x 1,100mm
+      inferred_name: 정보통신용 맨홀
+      manhole_spec: 1,700 x 800 x 1,100mm
+    position: right-center
+    source_block: visual_semantics
+  - tag: UNDERGROUND-DUCT
+    name: 지하공동구
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      labels_inside:
+      - 지하공동구
+      labels_below:
+      - 지하공동구 사용
+      inferred_name: 지하공동구 (케이블 경로)
+    position: bottom-right
+    source_block: visual_semantics
+  - tag: EXT-사무동방송실
+    name: 외부 인입 소스 (사무동 지상1층 방송실)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      labels_inside:
+      - 'FROM : 사무동 지상1층 방송실'
+      - ELP 50 / IN TRAY
+      - FR-3 2.5sq / 10C
+      - 지하공동구 사용
+      inferred_name: 외부 인입 소스 (사무동 지상1층 방송실)
+    position: bottom-right
+    source_block: visual_semantics
+  - tag: PA-RACK-01
+    name: 방송 메인 랙
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      labels_inside:
+      - SKS-P2-10P
+      - SKS-P1-10P
+      inferred_name: 방송 메인 랙 (PA Head-End)
+      panel_group: PA_HEAD_END
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: ZONE-ROOF
+    name: 지붕층 방송 구역
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      labels_above:
+      - 지붕층 F.L
+      - S1
+      labels_inside:
+      - EV기계실
+      - 계단실1
+      - 계단실2
+      - 복도
+      - 공조실
+      - 휀룸
+      equipment_symbols:
+      - type: speaker_terminal
+        count: 1
+      - type: ceiling_speaker
+        count: 6
+      inferred_name: 지붕층 방송 구역
+    position: top-center
+    source_block: visual_semantics_gemini
+  - tag: ZONE-2F
+    name: 2층 방송 구역
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      labels_above:
+      - 2층 F.L
+      - S2
+      labels_inside:
+      - 사무실
+      - 서고
+      - 대회의실
+      - 소회의실
+      - 임원실
+      - 접견실
+      - 다목적실
+      - 체력단련실
+      - 휴게실
+      - 식당
+      - 주방
+      equipment_symbols:
+      - type: speaker_terminal
+        count: 1
+      - type: ceiling_speaker
+        count: 11
+      inferred_name: 2층 방송 구역
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: ZONE-1F
+    name: 1층 방송 구역
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      labels_above:
+      - 1층 F.L
+      - S3
+      labels_inside:
+      - 주차장
+      - 기전실
+      - 방재실
+      - MDF실
+      - 숙직실
+      equipment_symbols:
+      - type: speaker_terminal
+        count: 1
+      - type: ceiling_speaker
+        count: 5
+      inferred_name: 1층 방송 구역
+    position: center
+    source_block: visual_semantics_gemini
+  - tag: PB-01
+    name: PULL BOX
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      labels_inside:
+      - PULL BOX
+      - 400 x 400 x 300mm
+      inferred_name: 풀박스
+    position: center-right
+    source_block: visual_semantics_gemini
+  - tag: MH-01
+    name: 정보통신용 맨홀
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      labels_inside:
+      - 정보통신용 맨홀
+      - 1,700 x 800 x 1,100mm
+      inferred_name: 정보통신용 맨홀
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  - tag: DUCT-01
+    name: 지하공동구
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      labels_inside:
+      - 지하공동구
+      labels_below:
+      - 지하공동구 사용
+      inferred_name: 지하공동구
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  - tag: EXT-SOURCE-01
+    name: 외부 인입 (사무동 방송실)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      labels_inside:
+      - 'FROM : 사무동 지상1층 방송실'
+      inferred_name: 외부 인입 (사무동 방송실)
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: EXT-사무동방송실
+    to_tag: UNDERGROUND-DUCT
+    relation_type: connects_to
+    note: ELP 50 / IN TRAY, FR-3 2.5sq / 10C, 지하공동구 사용
+    source_block: visual_semantics
+  - from_tag: UNDERGROUND-DUCT
+    to_tag: MANHOLE-01
+    relation_type: connects_to
+    note: 지하공동구 경유
+    source_block: visual_semantics
+  - from_tag: MANHOLE-01
+    to_tag: PULL-BOX-01
+    relation_type: connects_to
+    note: F (ELP 500 FR-8 10C/2.5sq)
+    source_block: visual_semantics
+  - from_tag: PULL-BOX-01
+    to_tag: PA-HEAD-END
+    relation_type: connects_to
+    note: F 케이블 인입
+    source_block: visual_semantics
+  - from_tag: PA-HEAD-END
+    to_tag: FLOOR-ROOF
+    relation_type: connects_to
+    note: S1 계통, Fa/Fb 케이블
+    from_floor: 1F
+    to_floor: 지붕층
+    source_block: visual_semantics
+  - from_tag: PA-HEAD-END
+    to_tag: FLOOR-2F
+    relation_type: connects_to
+    note: S2 계통, Fa/Fb/Fc 케이블
+    from_floor: 1F
+    to_floor: 2F
+    source_block: visual_semantics
+  - from_tag: PA-HEAD-END
+    to_tag: FLOOR-1F
+    relation_type: connects_to
+    note: S3 계통, Fa/Fb 케이블
+    from_floor: 1F
+    to_floor: 1F
+    source_block: visual_semantics
+  - from_tag: EXT-SOURCE-01
+    to_tag: DUCT-01
+    relation_type: connects_to
+    note: ELP 50 / IN TRAY, FR-3 2.5sq / 10C
+    source_block: visual_semantics_gemini
+  - from_tag: DUCT-01
+    to_tag: MH-01
+    relation_type: connects_to
+    note: null
+    source_block: visual_semantics_gemini
+  - from_tag: MH-01
+    to_tag: PB-01
+    relation_type: connects_to
+    note: F
+    source_block: visual_semantics_gemini
+  - from_tag: PB-01
+    to_tag: PA-RACK-01
+    relation_type: connects_to
+    note: F
+    source_block: visual_semantics_gemini
+  - from_tag: PA-RACK-01
+    to_tag: ZONE-ROOF
+    relation_type: connects_to
+    note: Fa, Fb
+    from_floor: 1층 F.L
+    to_floor: 지붕층 F.L
+    source_block: visual_semantics_gemini
+  - from_tag: PA-RACK-01
+    to_tag: ZONE-2F
+    relation_type: connects_to
+    note: Fa, Fb, Fc
+    from_floor: 1층 F.L
+    to_floor: 2층 F.L
+    source_block: visual_semantics_gemini
+  - from_tag: PA-RACK-01
+    to_tag: ZONE-1F
+    relation_type: connects_to
+    note: Fa, Fb
+    from_floor: 1층 F.L
+    to_floor: 1층 F.L
+    source_block: visual_semantics_gemini
+  spaces:
+  - space_id: GRP-PA-HEAD-END
+    name: PA_HEAD_END
+    contains:
+    - PA-HEAD-END
+    - PA-RACK-01
+    source_block: both
+  - space_id: GRP-BROADCAST
+    name: BROADCAST
+    contains:
+    - PA-HEAD-END
+    - FLOOR-ROOF
+    - FLOOR-2F
+    - FLOOR-1F
+    - PULL-BOX-01
+    - MANHOLE-01
+    - UNDERGROUND-DUCT
+    - EXT-사무동방송실
+    source_block: visual_semantics
+  - space_id: GRP-FLOOR-ZONES
+    name: 층별 방송 구역 (PA Zone)
+    contains:
+    - FLOOR-ROOF
+    - FLOOR-2F
+    - FLOOR-1F
+    source_block: visual_semantics
+  - space_id: GRP-ZONES
+    name: 방송 구역
+    contains:
+    - ZONE-ROOF
+    - ZONE-2F
+    - ZONE-1F
+    source_block: visual_semantics_gemini
+  diagram_meta:
+    title: 방송설비 계통도
+    drawing_number: ET-02-001
+    flow_direction: bottom-to-top
+    sub_system: BROADCAST
+    diagram_subtype: cabling_tree
+    layers:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    pa_zone_count: 3
+    external_inflows:
+    - from: 사무동 지상1층 방송실
+      cable: FR-3 2.5sq / 10C
+      conduit: ELP 50 / IN TRAY
+      route: 지하공동구 사용
+    cable_schedule:
+    - false: Fa
+      cable_conduit_size: 2BC (F-FR-8 2C/1.5sq)
+      remarks: null
+    - false: Fb
+      cable_conduit_size: 2BC (F-FR-8 4C/1.5sq)
+      remarks: null
+    - false: Fc
+      cable_conduit_size: 2BC (F-FR-8 6C/1.5sq)
+      remarks: null
+    - false: Fd
+      cable_conduit_size: 2BC (F-FR-8 8C/1.5sq)
+      remarks: null
+    - false: Fe
+      cable_conduit_size: 36C (F-FR-8 10C/1.5sq)
+      remarks: null
+    - false: Ff
+      cable_conduit_size: 36C (F-FR-8 12C/1.5sq)
+      remarks: null
+    - false: Fg
+      cable_conduit_size: 36C (F-FR-8 15C/1.5sq)
+      remarks: null
+    - false: Fh
+      cable_conduit_size: 42C (F-FR-8 20C/1.5sq)
+      remarks: null
+    - false: Fi
+      cable_conduit_size: 54C (F-FR-8 30C/1.5sq)
+      remarks: null
+    - false: F
+      cable_conduit_size: ELP 500(FR-8 10C/2.5sq)
+      remarks: null
+    notes:
+    - 1. 중간 방화 구획 처리.
+    - 2. CABLE TRAY내 배관·배선시 전선관을 제외한 CABLE만 포설한다.
+    - 3. CABLE TRAY에 금을 접지전선은 1-GV 6sq를 쓴다.
+    - 4. CABLE TRAY 통신용과 공용임.
+    - 5. 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+    pull_box_spec: 400 x 400 x 300mm
+    manhole_spec: 1,700 x 800 x 1,100mm
+    pa_head_end_equipment:
+    - SKS-P2-10P
+    - SKS-P1-10P
+    source_block: both
+  self_check:
+    entity_count: 13
+    relationship_count: 14
+    visual_spec_preserved: true
+    issues:
+    - visual_semantics_gemini와 visual_semantics의 일부 panel/tag 명칭이 상이하나, 합집합으로 보존함.
+    - visual_semantics의 cable_schedule 키가 false로 표기된 항목은 no로 정규화함.

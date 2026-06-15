@@ -1,0 +1,103 @@
+ontology_readiness:
+  tag: PANEL-BLK-L01
+  verdict: demoted
+  confidence: 0.98
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 2
+    reason: tag와 자체 specs(panel_id, shape)는 있으나, name/type/function_category 및 equipment_symbols(전력설비
+      심볼 일람표 35개), ontology_hints.suggested_parent_class=Legend, function_candidates=[Legend,
+      SymbolList]로 보아 물리 설비가 아닌 범례/심볼 표 성격의 패널이다. 따라서 독립 설비가 아니라 document_metadata
+      성격으로 demoted 처리한다.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 2
+    convertible: 2
+    ambiguous_attributes: []
+    auxiliary_attributes:
+    - panel_id
+    - shape
+    - equipment_symbols
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes: []
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: Legend
+    alternative_parent_classes:
+    - SymbolList
+  spatial_context:
+    position: left
+    source_pages:
+    - 3
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      panel_id: BLK-L01
+      shape: rectangle
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - ontology_hints.observed_relations (없음)
+  - ontology_hints.cross_discipline (없음)
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :PANEL-BLK-L01 rdf:type :DocumentMetadata ; :references :LEGEND-CH-001,
+      :LEGEND-LBS-001
+  owl_export_hints:
+    create_individual: true
+    individual_type: :DocumentMetadata
+    annotations_to_emit:
+    - 'name: 전력 설비 범례 표'
+    - 'source_attribution: {sonnet: true, gemini: true, mini: false}'
+    - 'collection_sources: {cross_validated: true}'
+    - 'ontology_hints.suggested_parent_class: Legend'
+    - 'ontology_hints.function_candidates: [Legend, SymbolList]'
+    - 'specs_full: {panel_id: BLK-L01, shape: rectangle}'
+    relations_to_emit:
+    - :references :LEGEND-CH-001
+    - :references :LEGEND-LBS-001
+    needs_human_review: false
+tag: PANEL-BLK-L01
+discovered_relations: 2

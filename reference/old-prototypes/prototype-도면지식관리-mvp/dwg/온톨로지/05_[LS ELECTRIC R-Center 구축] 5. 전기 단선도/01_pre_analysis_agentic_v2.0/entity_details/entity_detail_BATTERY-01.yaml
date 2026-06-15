@@ -1,0 +1,51 @@
+tag: BATTERY-01
+name: 축전지 DC 110V
+type: BATTERY
+discipline: ELECTRICAL
+function_category: STORE
+source_pages:
+- 2
+specs:
+  voltage_V: 110
+  f_w_Ah: 80
+  raw_labels:
+  - BATTERY
+  - DC 110V
+  - F/W 80AH
+relations:
+- from: RECTIFIER-01
+  to: BATTERY-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: DC 110V 충전
+- from: RECTIFIER-01
+  to: BATTERY-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: DC 110V 충전
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-left
+confidence: 0.95
+equipment_symbols:
+- type: battery
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - voltage_V
+  - f_w_Ah
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - EnergyStorage
+  - BackupPowerSupply

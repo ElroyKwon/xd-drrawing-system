@@ -1,0 +1,301 @@
+executive_summary:
+  drawing_number: EE-00-003
+  title: 옥외 전력간선설비 인입 배치도
+  classification: 옥외 전력간선설비 인입 배치도
+  discipline: 전기
+  confidence: 0.95
+  summary: 'LS Electric R-Center 천안 사이트의 옥외 전력간선 인입 배치도로, 공동구(ZONE-001)를 따라 UT동 변전실에서
+    R-Center 변전실로 6.6kV 케이블이 연결된다.
+
+    주요 설비는 전력용 맨홀 2기(MH-001, MH-002), PULL BOX 1기(PB-001), DUCT BANK 1식(DUCT-BANK-001),
+    6.6kV 케이블 2회선(CABLE-001, CABLE-002)이다.
+
+    케이블은 덕트뱅크와 기존 TRAY를 통해 인입되며, R-Center 변전실의 층 정보는 도면에 명시되지 않아 UNKNOWN이다.
+
+    '
+  equipment:
+  - tag: MH-001
+    name: 전력용 맨홀
+    spec: 2,000 x 2,000 x 2,000mm
+    discipline: 전기
+    function_category: 맨홀
+    location: ZONE-001 공동구 내
+    confidence: 0.95
+  - tag: MH-002
+    name: 전력용 맨홀
+    spec: 2,000 x 2,000 x 2,000mm
+    discipline: 전기
+    function_category: 맨홀
+    location: ZONE-001 공동구 내
+    confidence: 0.95
+  - tag: PB-001
+    name: PULL BOX
+    spec: 400 x 400 x 300mm
+    discipline: 전기
+    function_category: 풀박스
+    location: ZONE-001 옥외 케이블 경로상
+    confidence: 0.9
+  - tag: DUCT-BANK-001
+    name: DUCT BANK
+    spec: null
+    discipline: 전기
+    function_category: 덕트뱅크
+    location: ZONE-001 R-Center과 기존 공동구 사이 지중 배관
+    confidence: 0.95
+  - tag: CABLE-001
+    name: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+    spec: 3Ф 3W, 6.6kV, F-CV 150㎟, -1C x6L
+    discipline: 전기
+    function_category: 케이블
+    location: ZONE-001 덕트뱅크 내, UT동 변전실에서 R-Center 변전실로 연결
+    confidence: 0.9
+  - tag: CABLE-002
+    name: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+    spec: 3Ф 3W, 6.6kV, F-CV 150㎟, -1C x6L
+    discipline: 전기
+    function_category: 케이블
+    location: ZONE-001 공동구 기존 TRAY 내, UT동 변전실에서 R-Center 변전실로 연결
+    confidence: 0.9
+  relationships:
+  - from: UT동 1층 변전실
+    to: R-Center 변전실
+    relation: 전력 인입 연결
+    medium: 6.6kV 케이블
+    direction: UT동 → R-Center
+    confidence: 0.9
+  - from: UT동 1층 변전실
+    to: R-Center 변전실
+    relation: 전력 인입 연결
+    medium: 6.6kV 케이블
+    direction: UT동 → R-Center
+    confidence: 0.9
+  - from: DUCT-BANK-001
+    to: CABLE-001
+    relation: 수용
+    medium: 덕트뱅크
+    direction: 내부
+    confidence: 0.9
+  - from: 공동구 기존 TRAY
+    to: CABLE-002
+    relation: 수용
+    medium: TRAY
+    direction: 내부
+    confidence: 0.9
+  - from: ZONE-001
+    to: MH-001
+    relation: 설치
+    medium: null
+    direction: 내부
+    confidence: 0.95
+  - from: ZONE-001
+    to: MH-002
+    relation: 설치
+    medium: null
+    direction: 내부
+    confidence: 0.95
+  - from: ZONE-001
+    to: PB-001
+    relation: 설치
+    medium: null
+    direction: 내부
+    confidence: 0.9
+  - from: ZONE-001
+    to: DUCT-BANK-001
+    relation: 설치
+    medium: null
+    direction: 내부
+    confidence: 0.95
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center 천안
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: R-Center
+    parent: SITE-001
+  - space_id: BLDG-002
+    type: building
+    name: UT동
+    parent: SITE-001
+  - space_id: BLDG-003
+    type: building
+    name: A동
+    parent: SITE-001
+  - space_id: BLDG-004
+    type: building
+    name: B동
+    parent: SITE-001
+  - space_id: BLDG-005
+    type: building
+    name: 사무동
+    parent: SITE-001
+  - space_id: ZONE-001
+    type: zone
+    name: 공동구
+    parent: SITE-001
+  - space_id: FLOOR-UT-01
+    type: floor
+    name: UT동 1층
+    parent: BLDG-002
+  - space_id: FLOOR-A-01
+    type: floor
+    name: A동 지상1층
+    parent: BLDG-003
+  - space_id: FLOOR-A-B1
+    type: floor
+    name: A동 지하1층
+    parent: BLDG-003
+  - space_id: ROOM-UT-01-SUBST
+    type: room
+    name: UT동 1층 변전실
+    parent: FLOOR-UT-01
+  - space_id: ROOM-A-01-TEST
+    type: room
+    name: A동 지상1층 인버터 시험센타
+    parent: FLOOR-A-01
+  - space_id: ROOM-A-B1-ELEC
+    type: room
+    name: A동 지하1층 전기실
+    parent: FLOOR-A-B1
+  - space_id: ROOM-RCENTER-SUBST
+    type: room
+    name: R-Center 변전실
+    parent: BLDG-001
+  flow_paths:
+  - - ROOM-UT-01-SUBST
+    - CABLE-001
+    - ROOM-RCENTER-SUBST
+  - - ROOM-UT-01-SUBST
+    - CABLE-002
+    - ROOM-RCENTER-SUBST
+  top_equipment:
+  - 전력용 맨홀 2기 (2,000 x 2,000 x 2,000mm)
+  - PULL BOX 1기 (400 x 400 x 300mm)
+  - DUCT BANK 1식
+  - 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L 2회선
+  stats:
+    equipment: 6
+    relationships: 8
+    spaces: 13
+    flow_paths: 2
+  uncertainties:
+  - R-Center 변전실의 층 정보는 도면에 명시되지 않음
+  - CABLE-001과 CABLE-002의 관계가 동일 사양의 별도 회선인지, 중복 표기인지 도면 텍스트만으로는 추가 확인 불가
+  - SECTION '1', SECTION '2'는 단면도로서 공간 관계로 해석하지 않음
+  related_pages:
+  - 7
+  - 10
+  - 11
+spaces:
+- space_id: SITE-001
+  type: site
+  name: LS Electric R-Center 천안
+  parent: null
+- space_id: BLDG-001
+  type: building
+  name: R-Center
+  parent: SITE-001
+- space_id: BLDG-002
+  type: building
+  name: UT동
+  parent: SITE-001
+- space_id: BLDG-003
+  type: building
+  name: A동
+  parent: SITE-001
+- space_id: BLDG-004
+  type: building
+  name: B동
+  parent: SITE-001
+- space_id: BLDG-005
+  type: building
+  name: 사무동
+  parent: SITE-001
+- space_id: ZONE-001
+  type: zone
+  name: 공동구
+  parent: SITE-001
+  description: 지하 공동구 (지중 유틸리티 터널)
+- space_id: FLOOR-UT-01
+  type: floor
+  name: UT동 1층
+  parent: BLDG-002
+- space_id: FLOOR-A-01
+  type: floor
+  name: A동 지상1층
+  parent: BLDG-003
+- space_id: FLOOR-A-B1
+  type: floor
+  name: A동 지하1층
+  parent: BLDG-003
+- space_id: ROOM-UT-01-SUBST
+  type: room
+  name: UT동 1층 변전실
+  parent: FLOOR-UT-01
+- space_id: ROOM-A-01-TEST
+  type: room
+  name: A동 지상1층 인버터 시험센타
+  parent: FLOOR-A-01
+- space_id: ROOM-A-B1-ELEC
+  type: room
+  name: A동 지하1층 전기실
+  parent: FLOOR-A-B1
+- space_id: ROOM-RCENTER-SUBST
+  type: room
+  name: R-Center 변전실
+  parent: BLDG-001
+  description: 층 정보 미표기 (도면에서 명시되지 않음)
+equipment_placement:
+- tag: MH-001
+  name: 전력용 맨홀
+  type: manhole
+  dimensions: 2,000 x 2,000 x 2,000mm
+  located_in: ZONE-001
+  description: 공동구 내 위치
+  confidence: 0.95
+  source: EE-00-003 page 4
+- tag: MH-002
+  name: 전력용 맨홀
+  type: manhole
+  dimensions: 2,000 x 2,000 x 2,000mm
+  located_in: ZONE-001
+  description: 공동구 내 위치
+  confidence: 0.95
+  source: EE-00-003 page 4
+- tag: PB-001
+  name: PULL BOX
+  type: pull_box
+  dimensions: 400 x 400 x 300mm
+  located_in: ZONE-001
+  description: 옥외 케이블 경로상 위치
+  confidence: 0.9
+  source: EE-00-003 page 4
+- tag: DUCT-BANK-001
+  name: DUCT BANK
+  type: conduit_system
+  located_in: ZONE-001
+  description: R-Center과 기존 공동구 사이 지중 배관
+  confidence: 0.95
+  source: EE-00-003 page 4
+- tag: CABLE-001
+  name: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+  type: cable
+  located_in: ZONE-001
+  description: ELP100 X 2 덕트뱅크 내 설치, UT동 변전실에서 R-Center 변전실로 연결
+  confidence: 0.9
+  source: EE-00-003 page 4
+- tag: CABLE-002
+  name: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+  type: cable
+  located_in: ZONE-001
+  description: TRAY 내 설치, 공동구 기존 TRAY 사용, UT동 변전실에서 R-Center 변전실로 연결
+  confidence: 0.9
+  source: EE-00-003 page 4
+notes:
+- 도면 EE-00-003은 옥외 전력간선설비 인입 배치도로, 건물 간 지중 케이블 경로와 맨홀, 덕트뱅크 위치를 표시
+- R-Center 변전실의 층 정보는 도면에 명시되지 않음 (UNKNOWN)
+- SECTION "1"과 SECTION "2"는 단면도로, 공간이 아닌 상세 구성도
+- 참조 도면 EE-01-010, EE-01-007, EE-01-011에 더 상세한 실내 배치 정보 있음
+- 공동구는 지하 유틸리티 터널로 여러 건물을 연결하는 사이트 레벨 존
+pass4_검증: {}

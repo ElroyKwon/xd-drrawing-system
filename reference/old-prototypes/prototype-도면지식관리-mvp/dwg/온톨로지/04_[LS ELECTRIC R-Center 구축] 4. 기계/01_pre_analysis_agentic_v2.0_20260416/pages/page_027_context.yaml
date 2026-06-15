@@ -1,0 +1,539 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: M32-001
+    title: PIT층 위생배관 평면도
+    revision: null
+  visible_tags:
+  - tag: PIT
+    type: structural_element
+    source: both
+  - tag: SP
+    type: equipment_tag
+    source: both
+  - tag: RD
+    type: equipment_tag
+    source: both
+  - tag: ED
+    type: equipment_tag
+    source: both
+  complexity:
+    symbol_density: LOW
+    has_connections: true
+    estimated_entity_count: 4
+  next_step_hints:
+  - 도면 중앙 우하단에 PIT 상세 배관이 집중되어 있고, 나머지 평면은 대부분 그리드/치수 위주로 보임
+  - 표제란과 본문에 '옥외 배관 평면도에 연결', '화장실 확대배관 평면도에 연결' 문구가 보임
+  - 페이지 3 범례 데이터에서 SANITARY 관련 약어는 확인되지만, 이 페이지 자체에는 범례 표가 보이지 않음
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/mechanical/genre_schedule/supplement_p10.yaml
+  routing_confidence: 0.98
+  routing_reason: 도면 제목이 'PIT층 위생배관 평면도'로 보이며 기계/위생배관 평면도에 해당하고, 카탈로그에 mechanical
+    + genre_floor_plan 매칭 supplement가 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: PIT
+    position: center-right
+    labels_near:
+    - PIT
+    - 100 (S)
+    - 75 (D)
+    - 200 (RD)
+    - 50 (ED)
+    - 50 (+)
+    - 32 (-)
+    - SP
+    - RD
+    - ED
+  - panel_id: BLK-002
+    shape: circle
+    primary_label: '1'
+    position: center-right
+    labels_near:
+    - M33-001
+    - 화장실 확대배관 평면도에 연결
+  - panel_id: BLK-003
+    shape: circle
+    primary_label: '1'
+    position: bottom-right
+    labels_near:
+    - M06-001
+    - 옥외 배관 평면도에 연결
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: solid
+    annotation: 배관 연결
+  - from: BLK-001
+    to: BLK-003
+    line_style: solid
+    annotation: 배관 연결
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 번호 및 연결 참조 심볼
+  - shape: circle
+    label: SP
+    note: 배관 심볼 (SP)
+  - shape: circle
+    label: RD
+    note: 배관 심볼 (RD)
+  - shape: circle
+    label: ED
+    note: 배관 심볼 (ED)
+  - shape: dashed_box
+    label: PIT 영역
+    note: PIT 배관이 집중된 영역을 나타내는 점선 테두리
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 도면 제목이 'PIT층 위생배관 평면도'이며, 범례 표나 기호 정의 목록이 확인되지 않음.
+classification: PLUMBING_DIAGRAM
+discipline: PLUMBING
+key_elements_from_text:
+- PIT층 위생배관 평면도
+- LS Electric
+- R-Center 구축
+- R-Center
+- 'PROJECT NUMBER: 224001'
+- 'DRAWING NO.: M32-001'
+- 'SCALE: A1:1/200 A3:1/400'
+- 'DATE: 2024.05'
+- 옥외 배관 평면도에 연결
+- 화장실 확대배관 평면도에 연결
+- PIT
+- SP
+- RD
+- ED
+- 100 (S)
+- 75 (D)
+- 200 (RD)
+- 50 (ED)
+- 50 (+)
+- 32 (-)
+- 71,000
+- 43,000
+- 17,000
+- 14,000
+- 13,000
+- 12,000
+- 11,000
+- 10,000
+title_block:
+  drawing_number: M32-001
+  title: PIT층 위생배관 평면도
+  revision: UNKNOWN
+confidence: 0.99
+note: 페이지 27의 표제란과 본문에 'PIT층 위생배관 평면도'가 보이고, 배관 연결 문구('옥외 배관 평면도에 연결', '화장실 확대배관 평면도에
+  연결')와 배관 약어(PIT, SP, RD, ED)가 함께 보여 위생배관 평면도로 판단됨. 기존 분석의 PLUMBING / PLUMBING_DIAGRAM
+  판정과 일치하며, 도면 번호 M32-001과 축척/날짜는 표제란에서 확인됨. 리비전 표기는 보이지 않아 UNKNOWN.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 'PIT층 위생배관 평면도'와 배관 연결 문구, 약어(PIT, SP, RD, ED)를 통해 기계/위생배관
+    평면도로 확정. 기존 분석과 일치하며 카탈로그 매칭 경로를 기록함.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - PIT
+    labels_above:
+    - 화장실 확대배관 평면도에 연결
+    labels_below:
+    - 옥외 배관 평면도에 연결
+    labels_near:
+    - 100 (S)
+    - 75 (D)
+    - 200 (RD)
+    - 50 (ED)
+    - '50'
+    - '32'
+    - '90'
+    - '100'
+    equipment_symbols:
+    - type: sump_pump
+      tag: SP
+      count: 1
+    - type: roof_drain
+      tag: RD
+      count: 1
+    - type: equipment_drain
+      tag: ED
+      count: 1
+    inferred_name: PIT층 집수정 및 배수 집합 구역
+    position: center-right
+    grid_coordinate: 5-6 × B-C
+    notes:
+    - 도면 중앙 우측에 집중된 배관 상세 구역
+    - 다수의 배관 서비스(S/D/RD/ED)가 집합
+  - panel_id: BLK-M02
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_near:
+    - M33-001
+    - 화장실 확대배관 평면도에 연결
+    inferred_name: 화장실 확대배관 평면도 참조 심볼
+    position: center-right-upper
+    cross_page_reference:
+      drawing_number: M33-001
+      description: 화장실 확대배관 평면도
+  - panel_id: BLK-M03
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_near:
+    - M06-001
+    - 옥외 배관 평면도에 연결
+    inferred_name: 옥외 배관 평면도 참조 심볼
+    position: center-right-lower
+    cross_page_reference:
+      drawing_number: M06-001
+      description: 옥외 배관 평면도
+  - panel_id: BLK-M04
+    shape: circle
+    labels_inside:
+    - SP
+    inferred_name: 집수 펌프 (Sump Pump)
+    position: center-right
+    equipment_symbols:
+    - type: sump_pump
+      tag: SP
+      count: 1
+    pump_type: sump
+  - panel_id: BLK-M05
+    shape: circle
+    labels_inside:
+    - RD
+    inferred_name: 루프 드레인 (Roof Drain)
+    position: center-right
+    equipment_symbols:
+    - type: roof_drain
+      tag: RD
+      count: 1
+  - panel_id: BLK-M06
+    shape: circle
+    labels_inside:
+    - ED
+    inferred_name: 장비 드레인 (Equipment Drain)
+    position: center-right
+    equipment_symbols:
+    - type: equipment_drain
+      tag: ED
+      count: 1
+  connections:
+  - from: BLK-M01
+    to: BLK-M02
+    line_type: pipe
+    line_style: solid
+    annotation: 화장실 확대배관 평면도에 연결
+    pipe_services:
+    - service: S
+      nominal_diameter_A: '100'
+      fluid_type: sewage
+    - service: D
+      nominal_diameter_A: '75'
+      fluid_type: domestic_water
+  - from: BLK-M01
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: 옥외 배관 평면도에 연결
+    pipe_services:
+    - service: RD
+      nominal_diameter_A: '200'
+      fluid_type: rainwater
+    - service: ED
+      nominal_diameter_A: '50'
+      fluid_type: equipment_drain
+  - from: BLK-M04
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: SP → PIT 집수정 배수
+    flow_direction: pump_to_pit
+  - from: BLK-M05
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: RD 우수 유입
+    pipe_service: RD
+    nominal_diameter_A: '200'
+  - from: BLK-M06
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: ED 장비 드레인 유입
+    pipe_service: ED
+    nominal_diameter_A: '50'
+  groups:
+  - group_id: GRP-001
+    label: PIT층 배수 집합 구역
+    members:
+    - BLK-M01
+    - BLK-M04
+    - BLK-M05
+    - BLK-M06
+    pipe_services_present:
+    - service: S
+      nominal_diameter_A: '100'
+      fluid_type: sewage
+    - service: D
+      nominal_diameter_A: '75'
+      fluid_type: domestic_water
+    - service: RD
+      nominal_diameter_A: '200'
+      fluid_type: rainwater
+    - service: ED
+      nominal_diameter_A: '50'
+      fluid_type: equipment_drain
+    notes:
+    - 50A 및 32A 배관도 존재하나 서비스 구분 불명확
+    - 90A 및 100A 배관 표기 확인
+  - group_id: GRP-002
+    label: 외부 도면 참조 그룹
+    members:
+    - BLK-M02
+    - BLK-M03
+    notes:
+    - M33-001 화장실 확대배관 평면도 연결
+    - M06-001 옥외 배관 평면도 연결
+  legend_references:
+  - text: SP (Sump Pump)
+    linked_to: BLK-M04
+    symbol_id: SYM-abbreviation-SP
+  - text: RD (Roof Drain)
+    linked_to: BLK-M05
+  - text: ED (Equipment Drain)
+    linked_to: BLK-M06
+  - text: S 100 (오수 100A)
+    linked_to: BLK-M01
+  - text: D 75 (급수 75A)
+    linked_to: BLK-M01
+  - text: RD 200 (우수 200A)
+    linked_to: BLK-M01
+  - text: ED 50 (장비드레인 50A)
+    linked_to: BLK-M01
+  diagram_meta:
+    title: PIT층 위생배관 평면도
+    drawing_number: M32-001
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    revision: null
+    discipline: MECHANICAL
+    mech_subsystem: sanitary_piping
+    mech_floor_subtype: pit_floor_plan
+    view_type: plan
+    floor_label: PIT
+    flow_direction: UNKNOWN
+    grid_system: A-D × 1-7
+    grid_dimensions:
+      total_width_mm: 71000
+      total_depth_mm: 43000
+      bay_widths_mm:
+      - grid: 1-2
+        width: 12000
+      - grid: 2-3
+        width: 12000
+      - grid: 3-4
+        width: 12000
+      - grid: 4-5
+        width: 14000
+      - grid: 5-6
+        width: 11000
+      - grid: 6-7
+        width: 10000
+      bay_depths_mm:
+      - grid: A-B
+        depth: 13000
+      - grid: B-C
+        depth: 17000
+      - grid: C-D
+        depth: 13000
+    pipe_services_present:
+    - sanitary (S)
+    - domestic_water (D)
+    - rainwater (RD)
+    - equipment_drain (ED)
+    has_sump_pit: true
+    has_utility_duct: false
+    has_equipment_list: false
+    room_count: null
+    cross_page_references:
+    - drawing_number: M33-001
+      description: 화장실 확대배관 평면도
+      connection_type: pipe_continuation
+    - drawing_number: M06-001
+      description: 옥외 배관 평면도
+      connection_type: pipe_continuation
+    notes:
+    - 배관 상세는 도면 중앙 우측(그리드 5-6 × B-C 부근)에 집중
+    - 나머지 평면 영역은 그리드/치수 위주로 배관 없음
+    - PIT층 특성상 기둥 그리드는 표시되나 실 구획 없음
+    - 50A 및 32A 배관의 서비스 구분은 도면 판독 한계로 불명확
+    - SP 펌프 태그 원문 확인, 집수정 연결 관계 추정
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - PIT
+    - 100 (S)
+    - 75 (D)
+    - 200 (RD)
+    - 50 (ED)
+    - 50 (+)
+    - 32 (-)
+    - 1200
+    - 1500
+    - 600
+    labels_near:
+    - RD 200
+    - ED 50
+    equipment_symbols:
+    - type: sump_pump
+      tag: SP
+      count: 2
+    inferred_name: PIT층 집수정 구역
+    position: center-right
+    grid_coordinate: 5-6 × B-C
+    notes:
+    - 다양한 위생 및 배수 배관이 집합되는 피트 공간
+    - 내부에 집수펌프(SP) 2대가 설치되어 있음
+  - panel_id: BLK-M02
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_near:
+    - M33-001
+    - 화장실 확대배관 평면도에 연결
+    inferred_name: 화장실 확대배관 평면도 참조
+    position: center-right-upper
+    cross_page_reference:
+      drawing_number: M33-001
+      description: 화장실 확대배관 평면도
+  - panel_id: BLK-M03
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_near:
+    - M06-001
+    - 옥외 배관 평면도에 연결
+    inferred_name: 옥외 배관 평면도 참조
+    position: center-right-lower
+    cross_page_reference:
+      drawing_number: M06-001
+      description: 옥외 배관 평면도
+  - panel_id: BLK-SP01
+    shape: circle
+    labels_near:
+    - SP
+    inferred_name: 집수펌프 1
+    position: inside BLK-M01 (left)
+    equipment_symbols:
+    - type: sump_pump
+      tag: SP
+      count: 1
+  - panel_id: BLK-SP02
+    shape: circle
+    labels_near:
+    - SP
+    inferred_name: 집수펌프 2
+    position: inside BLK-M01 (right)
+    equipment_symbols:
+    - type: sump_pump
+      tag: SP
+      count: 1
+  connections:
+  - from: BLK-M02
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: 상부층에서 PIT로 유입되는 배관
+    pipe_services:
+    - service: S
+      nominal_diameter_A: '100'
+    - service: D
+      nominal_diameter_A: '75'
+    - service: RD
+      nominal_diameter_A: '200'
+    - service: ED
+      nominal_diameter_A: '50'
+  - from: BLK-SP01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: 펌프 토출 배관
+    flow_direction: pump_to_discharge
+  - from: BLK-SP02
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: 펌프 토출 배관
+    flow_direction: pump_to_discharge
+  - from: BLK-M01
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: PIT에서 옥외로 연결되는 배관
+    pipe_services:
+    - service: RD
+      nominal_diameter_A: '200'
+    - service: ED
+      nominal_diameter_A: '50'
+  groups:
+  - group_id: GRP-PIT-AREA
+    label: PIT층 위생설비 구역
+    members:
+    - BLK-M01
+    - BLK-SP01
+    - BLK-SP02
+  diagram_meta:
+    title: PIT층 위생배관 평면도
+    drawing_number: M32-001
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    discipline: MECHANICAL
+    mech_subsystem: sanitary_piping
+    mech_floor_subtype: pit_floor_plan
+    view_type: plan
+    floor_label: PIT
+    grid_system: A-D × 1-7
+    pipe_services_present:
+    - S (Sewage)
+    - D (Domestic Water)
+    - RD (Roof Drain)
+    - ED (Equipment Drain)
+    - + (Unknown Supply/Pressure)
+    - - (Unknown Return/Suction)
+    has_sump_pit: true
+    has_utility_duct: false
+    cross_page_references:
+    - drawing_number: M33-001
+      description: 화장실 확대배관 평면도
+    - drawing_number: M06-001
+      description: 옥외 배관 평면도

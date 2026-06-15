@@ -1,0 +1,181 @@
+entity_detail:
+  tag: 지하공동구
+  type: 지하 공동구 / Underground Common Duct
+  specs:
+    usage:
+      value: 기존 TRAY 사용
+      unit: ''
+      source: 4
+      confidence: 0.98
+    route_condition:
+      value: 공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시됨
+      unit: ''
+      source: 4
+      confidence: 0.98
+    section_detail:
+      value: SECTION 1·2 단면 상세 포함
+      unit: ''
+      source: 4
+      confidence: 0.95
+    cable_spec:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+      unit: ''
+      source: 4
+      confidence: 0.98
+    cable_route:
+      value: IN TRAY
+      unit: ''
+      source: 4
+      confidence: 0.98
+    cable_route_alt:
+      value: ELP100 X 2
+      unit: ''
+      source: 4
+      confidence: 0.98
+    duct_bank:
+      value: 터파기 신설 구역, CONCRETE 포함
+      unit: ''
+      source: 4
+      confidence: 0.98
+    empty_pipe:
+      value: ELP100, 철거후 R-Center로 이설
+      unit: ''
+      source: 4
+      confidence: 0.95
+    underground_marker:
+      value: 전기공사분, 5M마다 설치
+      unit: ''
+      source: 4
+      confidence: 0.95
+    section_reference:
+      value: GL.±0.0 기준, DUCT BANK, CONCRETE, SPACER, SOIL, 지중선표시기 포함
+      unit: ''
+      source: 4
+      confidence: 0.95
+    voltage_mentions:
+      value:
+      - 6.6kV
+      - 380/220V
+      - 440V
+      - 220V
+      unit: ''
+      source: 23
+      confidence: 0.95
+  drawing_texts:
+  - source: page_4_context
+    page_number: 4
+    text: 옥외 전력간선설비 인입 배치도
+  - source: page_4_context
+    page_number: 4
+    text: 옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와 지중
+      인입 경로를 보여준다.
+  - source: page_4_context
+    page_number: 4
+    text: 공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개,
+      지중선표시기, SECTION 1·2 단면 상세가 포함된다.
+  - source: page_4_context
+    page_number: 4
+    text: 우측에는 지하공동구 현황도 사진 1장이 있으며, A동 지상1층 인버터 시험센타와 A동 지하1층 전기실 방향의 연결도 함께 보인다.
+  - source: page_23_context
+    page_number: 23
+    text: 지하공동구 사용
+  - source: page_23_context
+    page_number: 23
+    text: '층 표기: 1층 F.L, 2층 F.L, 지붕층 F.L, 지하공동구 사용'
+  - source: page_23_context
+    page_number: 23
+    text: '전압 표기: 6.6kV, 380/220V, 440V, 220V'
+  requirements:
+  - text: 기존 TRAY 사용
+    source: page_4_context
+    type: operation_condition
+  - text: DUCT BANK/ELP100 구간 포함
+    source: page_4_context
+    type: layout_condition
+  - text: 지중선표시기 전기공사분, 5M마다 설치
+    source: page_4_context
+    type: installation_requirement
+  - text: GL.±0.0 기준
+    source: page_4_context
+    type: reference_level
+  - text: 지하공동구 사용
+    source: page_23_context
+    type: operation_condition
+  connection_specs:
+  - relation: 전력케이블 경로
+    partner: UT동 1층 변전실
+    details:
+      source: 4
+  - relation: 전력케이블 경로
+    partner: R-Center 변전실
+    details:
+      source: 4
+  - relation: 기존 TRAY 경로
+    partner: R-Center 변전실
+    details:
+      source: 4
+  - relation: 이설
+    partner: R-Center 변전실
+    details:
+      source: 4
+  - relation: 단면 상세
+    partner: SECTION 1
+    details:
+      source: 4
+  - relation: 단면 상세
+    partner: SECTION 2
+    details:
+      source: 4
+  ontology_hints:
+    observed_relations:
+    - relation_type: connection
+      partner_tag: SP-UT-PS
+      direction: UT동 1층 변전실 -> 지하공동구 -> R-Center 변전실
+      source: 4
+    - relation_type: connection
+      partner_tag: SP-RCENTER-PS
+      direction: UT동 1층 변전실 -> 지하공동구 -> R-Center 변전실
+      source: 4
+    - relation_type: contains_route
+      partner_tag: SP-COMMON-DUCT-1
+      direction: UNKNOWN
+      source: 4
+    - relation_type: contains_route
+      partner_tag: DB-001
+      direction: UNKNOWN
+      source: 4
+    - relation_type: contains_route
+      partner_tag: ELP-001
+      direction: UNKNOWN
+      source: 4
+    - relation_type: related_section
+      partner_tag: SECTION-1
+      direction: UNKNOWN
+      source: 4
+    - relation_type: related_section
+      partner_tag: SECTION-2
+      direction: UNKNOWN
+      source: 4
+    observed_attributes:
+    - 기존 TRAY 사용
+    - DUCT BANK/ELP100
+    - 지중선표시기
+    - SECTION 1·2
+    - GL.±0.0 기준
+    - 6.6kV
+    - 380/220V
+    - 440V
+    - 220V
+    - 지하공동구 사용
+    similar_equipment:
+    - SP-COMMON-DUCT-1
+    - SP-COMMON-DUCT-2
+    - SP-COMMON-DUCT-3
+    suggested_parent_class: UndergroundDuctSpace
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - 도면에서 '지하공동구 현황도' 사진 존재는 확인되나 사진 내부 세부 대상은 반영하지 않음.
+  - 페이지 23은 지하공동구 자체의 상세 공간도라기보다 계통도 내 사용 표기로 확인됨.
+tag: 지하공동구

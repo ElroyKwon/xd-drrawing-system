@@ -1,0 +1,238 @@
+ontology_readiness:
+  tag: 1304A
+  verdict: qualified
+  confidence: 0.96
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 21
+    reason: 고유 tag 1304A가 있고, VCB/CT/ZCT/SA/보호계전기/정격 등 자체 사양이 명확히 존재함. 다른 설비의 부품으로만
+      보이지 않음.
+  relation_completeness:
+    declared_relations: 3
+    discovered_relations: 3
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 21
+    convertible: 17
+    ambiguous_attributes:
+    - key: voltage_kV
+      value: 3.3
+      reason: specs 내 다른 정격(vcb_rated_voltage_kV=7.2, raw_labels=24kV)과 계통 표기 간 해석
+        충돌 가능성이 있어 원문 보존 필요.
+    - key: vcb_breaking_capacity_MVA
+      value: 250
+      reason: raw_labels의 750MVA와 값이 상이함. 충돌값은 provenance/conflicts로 보존.
+    - key: ct_ratio_gemini
+      value: 400/5A
+      reason: ct_ratio(75/5A) 및 ct_ratio_sonnet(75/5A)와 충돌하는 이중 출처 값.
+    - key: zct_rating_secondary_mA_gemini
+      value: 1.5
+      reason: zct_rating(200mA)와 단위/값 체계가 달라 충돌 보존 필요.
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      reason: 단일 지시등 표기이며 속성화 가능하나 출처별 보존 필요.
+    - key: load_name_gemini
+      value: B동 동력1, LSPS동력, 이오스솔라 동력
+      reason: 부하명으로 보이지만 패널 자체 정격 속성은 아니므로 annotation 보존.
+    - key: grounding_mark
+      value: E1
+      reason: 접지 표기/마킹으로 해석되며 위치/표기 속성으로 보존.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - zct_rating
+    - sa_rating
+    - protection_functions
+    - panel_id
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - ct_count
+    - zct_count
+    - zct_rating_mA
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: ct_ratio_sonnet
+      value: 75/5A
+      source: sonnet
+      conflict_with: ct_ratio_gemini=400/5A
+    - key: ct_ratio_gemini
+      value: 400/5A
+      source: gemini
+      conflict_with: ct_ratio=75/5A; ct_ratio_sonnet=75/5A
+    - key: zct_rating_secondary_mA_gemini
+      value: 1.5
+      source: gemini
+      conflict_with: zct_rating=200mA
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      source: gemini
+      conflict_with: null
+    - key: load_name_gemini
+      value: B동 동력1, LSPS동력, 이오스솔라 동력
+      source: gemini
+      conflict_with: null
+    conflicts:
+    - key: ct_ratio
+      values:
+      - 75/5A
+      - 400/5A
+      sources:
+      - specs.ct_ratio
+      - specs.ct_ratio_sonnet
+      - specs.ct_ratio_gemini
+    - key: zct_rating
+      values:
+      - 200mA
+      - '1.5'
+      sources:
+      - specs.zct_rating
+      - specs.zct_rating_secondary_mA_gemini
+    - key: vcb_breaking_capacity
+      values:
+      - 750MVA
+      - 250MVA
+      sources:
+      - specs.raw_labels
+      - specs.vcb_breaking_capacity_MVA
+  duplicate_candidates:
+  - tag: 1303B
+    reason: ontology_hints.similar_equipment에 명시된 후보. 다만 현재 상세 사양이 없어 중복 확정은 불가.
+  cross_discipline:
+    links_found: []
+    hints_added:
+    - connection_specs는 없지만 relations에 전기 분야 내부 연결만 확인됨.
+    - 타 분야 연결은 entity_detail 및 read_entity_list 범위에서 확인되지 않음.
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - SwitchgearPanel
+    - CircuitProtection
+    - PowerDistribution
+    - LoadSwitching
+    - CurrentMeasurement
+    - GroundFaultDetection
+    - SurgeProtection
+    - Interlocking
+  spatial_context:
+    position: bottom-left
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1304A
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      bus_section: HV
+      vcb_rating: 3P 24kV 600A 750MVA
+      ct_ratio: 75/5A
+      zct_rating: 200mA
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      - '67'
+      panel_id: 1304A
+      voltage_kV: 3.3
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      ct_ratio_sonnet: 75/5A
+      ct_ratio_gemini: 400/5A
+      zct_count: 1
+      zct_rating_mA: 200
+      zct_rating_secondary_mA_gemini: 1.5
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      load_name_gemini: B동 동력1, LSPS동력, 이오스솔라 동력
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  - connection_specs
+  - read_entity_list
+  skipped_fields:
+  - 'connection_specs: entity_detail에 존재하지 않음'
+  - 'requirements: 값 없음'
+  - 'drawing_texts: 값 없음'
+  - 'notes: 값 없음'
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SwitchgearPanel
+    annotations_to_emit:
+    - specs_full
+    - provenance_attributes
+    - conflicts
+    - source_attribution
+    - collection_sources
+    - spatial_context
+    - ontology_hints.suggested_parent_class
+    - ontology_hints.observed_attributes
+    - ontology_hints.similar_equipment
+    relations_to_emit:
+    - connects_to(1303B)
+    - controls(1303B)
+    - connects_to(1304B)
+    needs_human_review: false
+tag: 1304A
+discovered_relations: 3

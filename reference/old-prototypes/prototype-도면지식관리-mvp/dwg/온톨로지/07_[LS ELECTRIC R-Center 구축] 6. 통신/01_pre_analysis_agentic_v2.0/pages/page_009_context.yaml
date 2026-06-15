@@ -1,0 +1,913 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: ET-01-005
+    title: 사무동 지하1층 정보통신 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: ELP 50
+    type: cable_tray_or_route_label
+    source: both
+  - tag: 'TO : R-Conter EPS/TPS'
+    type: destination_label
+    source: both
+  - tag: UTP 0.5mm/25Px1,CAT.5
+    type: cable_spec_label
+    source: both
+  - tag: FIBER OPTICAL S.M 12CORE
+    type: cable_spec_label
+    source: both
+  - tag: TO.사무동 지상2층 전산실
+    type: destination_label
+    source: both
+  - tag: 'TO : 사무동 지상1층 통신실'
+    type: destination_label
+    source: both
+  - tag: 기존 CABLE 포설
+    type: route_note
+    source: both
+  - tag: 기존 통신 TRAY
+    type: route_note
+    source: image
+  - tag: 기존 공동구 통신 CABLE TRAY W:1000xH:500mm
+    type: route_note
+    source: image
+  - tag: 지하공동구 사용
+    type: route_note
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 통신 케이블 트레이/배관 경로와 목적지 라벨이 중심인 평면도
+  - 표제란 도면번호 ET-01-005, 제목과 일치
+  - 범례 전용 섹션은 보이지 않음
+  confidence: 0.95
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/communication/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/communication/genre_floor_plan/supplement_p10.yaml
+  routing_confidence: 0.98
+  routing_reason: 도면번호 ET-01-005와 제목 '정보통신 설비 평면도'가 보여 COMMUNICATION/FLOOR_PLAN으로
+    판단되며, 카탈로그에 communication genre_floor_plan 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 사무동 지하1층 정보통신 설비 평면도
+    position: center
+    labels_near:
+    - 주차장
+    - 기계실
+    - 전기실
+    - FAN ROOM
+    - A.D
+    - DA
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: ET-01-005
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 가운 건축
+    - 사무동 지하1층 정보통신 설비 평면도
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: TITLE_BLOCK
+    line_style: solid
+    annotation: 도면 영역과 표제란
+  notable_shapes:
+  - shape: dashed_box
+    label: 기존 공동구 통신 CABLE TRAY W:1000xH:500mm
+    note: 도면 우측 상단, 기존 트레이 경로 표시
+  - shape: dashed_box
+    label: 기존 통신 TRAY
+    note: 도면 중앙 우측, 기존 트레이 경로 표시
+  - shape: dashed_box
+    label: 기존 CABLE 포설
+    note: 도면 중앙, 기존 케이블 포설 구간 표시
+  - shape: circle
+    label: 'TO : R-Conter EPS/TPS'
+    note: 도면 우측 상단, 외부 연결 지점 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 도면 전체가 사무동 지하1층의 정보통신 설비 평면도로 구성되어 있으며, 범례 전용 섹션은 식별되지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.99
+  routing_reason: 표제란의 도면번호 ET-01-005와 제목 '사무동 지하1층 정보통신 설비 평면도'를 통해 COMMUNICATION
+    분야의 floor_plan 장르임이 명확함. 사전 분석 결과와 일치하여 유지함.
+classification: FLOOR_LAYOUT
+discipline: COMMUNICATION
+key_elements_from_text:
+- 사무동 지하1층 정보통신 설비 평면도
+- ET-01-005
+- 'A3 : 1/150'
+- 'A3 : 1/300'
+- 지하공동구 사용
+- ELP 50 /IN TRAY
+- 'TO : R-Conter EPS/TPS'
+- UTP 0.5mm/25Px1,CAT.5
+- FIBER OPTICAL S.M 12CORE
+- TO.사무동 지상2층 전산실
+- FIBER OPTICAL S.M 12CORE (IN TRAY)
+- 기존 CABLE 포설
+- 'TO : 사무동 지상1층 통신실'
+- UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+- 기존 CABLE 포설
+title_block:
+  drawing_number: ET-01-005
+  title: 사무동 지하1층 정보통신 설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=COMMUNICATION, drawing_genre=floor_plan과 일치함. 표제란과 본문에 통신
+  케이블/트레이 경로, 목적지 라벨, 케이블 규격이 보이며 범례 전용 섹션은 보이지 않음. 페이지 하단/우측 표제란에서 도면번호 ET-01-005와
+  제목을 확인함.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: SPACE-B1-PARKING
+    shape: rectangle
+    labels_inside:
+    - 주차장
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 주차장 구역
+    position: center
+  - panel_id: SPACE-B1-MECH
+    shape: rectangle
+    labels_inside:
+    - 기계실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 기계실
+    position: left-center
+  - panel_id: SPACE-B1-ELEC
+    shape: rectangle
+    labels_inside:
+    - 전기실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 전기실
+    position: left
+  - panel_id: SPACE-B1-FAN
+    shape: rectangle
+    labels_inside:
+    - FAN ROOM
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 팬룸
+    position: left
+  - panel_id: TRAY-EXISTING-DUCT
+    shape: dashed_box
+    labels_inside:
+    - 기존 공동구 통신 CABLE TRAY
+    - W:1000xH:500mm
+    - 지하공동구 사용
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: cable_tray
+      count: 1
+    inferred_name: 기존 공동구 통신 케이블 트레이 (W:1000×H:500mm)
+    position: top-right
+  - panel_id: TRAY-EXISTING-COMM
+    shape: dashed_box
+    labels_inside:
+    - 기존 통신 TRAY
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: cable_tray
+      count: 1
+    inferred_name: 기존 통신 트레이
+    position: center-right
+  - panel_id: ROUTE-EXISTING-CABLE
+    shape: dashed_box
+    labels_inside:
+    - 기존 CABLE 포설
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 기존 케이블 포설 구간
+    position: center
+  - panel_id: EXT-RCENTER-EPS
+    shape: circle
+    labels_inside:
+    - 'TO : R-Center EPS/TPS'
+    - ELP 50 /IN TRAY
+    - UTP 0.5mm/25Px1,CAT.5
+    - FIBER OPTICAL S.M 12CORE
+    - 지하공동구 사용
+    - (옥외 정보통신 인입 배치도 참조)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: external_connection_point
+      count: 1
+    inferred_name: R-Center EPS/TPS 외부 연결점
+    position: top-right
+  - panel_id: EXT-OFFICE-2F
+    shape: circle
+    labels_inside:
+    - TO.사무동 지상2층 전산실
+    - FIBER OPTICAL S.M 12CORE (IN TRAY)
+    - 기존 CABLE 포설
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: external_connection_point
+      count: 1
+    inferred_name: 사무동 지상2층 전산실 연결점
+    position: center
+  - panel_id: EXT-OFFICE-1F
+    shape: circle
+    labels_inside:
+    - 'TO : 사무동 지상1층 통신실'
+    - UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+    - 기존 CABLE 포설
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: external_connection_point
+      count: 1
+    inferred_name: 사무동 지상1층 통신실 연결점
+    position: right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운 건축
+    - GAUN I Architects & Engineers
+    - 사무동 지하1층 정보통신 설비 평면도
+    - ET-01-005
+    - 'A3 : 1/150'
+    - 'A3 : 1/300'
+    - '2024.04'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  connections:
+  - from: TRAY-EXISTING-DUCT
+    to: EXT-RCENTER-EPS
+    line_type: cable
+    line_style: solid
+    annotation: ELP 50 /IN TRAY, UTP 0.5mm/25Px1 CAT.5, FIBER OPTICAL S.M 12CORE,
+      지하공동구 사용
+  - from: TRAY-EXISTING-COMM
+    to: EXT-OFFICE-2F
+    line_type: cable
+    line_style: solid
+    annotation: FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+  - from: TRAY-EXISTING-COMM
+    to: EXT-OFFICE-1F
+    line_type: cable
+    line_style: solid
+    annotation: UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+  - from: TRAY-EXISTING-DUCT
+    to: TRAY-EXISTING-COMM
+    line_type: cable
+    line_style: dashed
+    annotation: 기존 통신 TRAY 연결
+  - from: ROUTE-EXISTING-CABLE
+    to: TRAY-EXISTING-COMM
+    line_type: cable
+    line_style: dashed
+    annotation: 기존 CABLE 포설 구간
+  groups:
+  - group_id: GRP-EXISTING-INFRA
+    label: 기존 통신 인프라 (트레이/케이블)
+    members:
+    - TRAY-EXISTING-DUCT
+    - TRAY-EXISTING-COMM
+    - ROUTE-EXISTING-CABLE
+  - group_id: GRP-EXTERNAL-DEST
+    label: 외부 연결 목적지
+    members:
+    - EXT-RCENTER-EPS
+    - EXT-OFFICE-2F
+    - EXT-OFFICE-1F
+  - group_id: GRP-B1-SPACES
+    label: 지하1층 공간 구획
+    members:
+    - SPACE-B1-PARKING
+    - SPACE-B1-MECH
+    - SPACE-B1-ELEC
+    - SPACE-B1-FAN
+  legend_references:
+  - text: SYM-029 Duct, Tray내 배선
+    linked_to: TRAY-EXISTING-DUCT
+  - text: SYM-029 Duct, Tray내 배선
+    linked_to: TRAY-EXISTING-COMM
+  - text: SYM-028 바닥 은폐배관/지중 매설배관
+    linked_to: ROUTE-EXISTING-CABLE
+  diagram_meta:
+    title: 사무동 지하1층 정보통신 설비 평면도
+    drawing_number: ET-01-005
+    drawing_subtype: 정보통신
+    floor_label: 지하1층 (B1F)
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    scale_a1: 1/150
+    scale_a3: 1/300
+    date: '2024.04'
+    flow_direction: top-to-bottom
+    has_legend_section: false
+    has_cctv: false
+    has_ap: false
+    discipline: COMMUNICATION
+    drawing_genre: floor_plan
+    notes:
+    - 이 도면은 지하1층 정보통신 설비 평면도로, 기존 케이블 트레이 및 케이블 포설 경로와 외부 연결 목적지(R-Center EPS/TPS,
+      지상1층 통신실, 지상2층 전산실)를 나타냄
+    - 기존 공동구 통신 CABLE TRAY W:1000xH:500mm를 통해 지하공동구 경유 R-Center EPS/TPS로 연결
+    - FIBER OPTICAL S.M 12CORE 및 UTP 0.5mm/25Px1 CAT.5 케이블이 IN TRAY 방식으로 포설
+    - 옥외 정보통신 인입 배치도 참조 지시 있음
+    - 단말 심볼(LAN OUTLET, AP, CCTV 등) 미배치 — 지하1층은 주차장/기계실/전기실/팬룸으로 구성되어 단말 설비 없음
+    symbol_counts:
+      LAN_OUTLET: 0
+      WIRELESS_AP: 0
+      CCTV_CAMERA: 0
+      PULL_BOX: 0
+      SYSTEM_BOX: 0
+    space_symbol_matrix:
+      SPACE-B1-PARKING:
+        LAN_OUTLET: 0
+        WIRELESS_AP: 0
+      SPACE-B1-MECH:
+        LAN_OUTLET: 0
+      SPACE-B1-ELEC:
+        LAN_OUTLET: 0
+      SPACE-B1-FAN:
+        LAN_OUTLET: 0
+    cable_routes:
+    - route_id: ROUTE-01
+      medium: FIBER OPTICAL S.M 12CORE
+      spec: S.M 12CORE
+      routing: IN TRAY
+      from: 지하공동구
+      to: R-Center EPS/TPS
+      note: 기존 케이블 포설
+    - route_id: ROUTE-02
+      medium: UTP
+      spec: 0.5mm/25Px1 CAT.5
+      routing: IN TRAY
+      from: 지하공동구
+      to: R-Center EPS/TPS
+      note: ELP 50 /IN TRAY
+    - route_id: ROUTE-03
+      medium: FIBER OPTICAL S.M 12CORE
+      spec: S.M 12CORE
+      routing: IN TRAY (기존 CABLE TRAY)
+      from: 지하1층
+      to: 사무동 지상2층 전산실
+      note: 기존 CABLE 포설
+    - route_id: ROUTE-04
+      medium: UTP
+      spec: 0.5mm/25Px1 CAT.5
+      routing: IN TRAY (기존 CABLE TRAY)
+      from: 지하1층
+      to: 사무동 지상1층 통신실
+      note: 기존 CABLE 포설
+    ambiguities:
+    - id: AMB-001
+      type: terminal_density_estimate
+      description: 지하1층은 주차장/기계실/전기실/팬룸으로 구성되어 단말 심볼(LAN OUTLET, AP 등)이 배치되지 않은 것으로
+        판단됨. 심볼 카운트 0은 추정값.
+    - id: AMB-002
+      type: label_ocr_uncertainty
+      description: EXT-RCENTER-EPS 연결점의 일부 라벨(케이블 규격, 공동구 참조 문구)이 소자로 OCR 정확도 낮을 수
+        있음.
+    - id: AMB-003
+      type: space_boundary
+      description: 도면 내 공간 경계(주차장/기계실/전기실/팬룸)의 정확한 구획선이 해상도 한계로 일부 불명확함.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: SPACE-B1-PARKING
+    shape: rectangle
+    labels_inside:
+    - 주차장
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 주차장 구역
+    position: center
+  - panel_id: SPACE-B1-MECH
+    shape: rectangle
+    labels_inside:
+    - 기계실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 기계실
+    position: left-center
+  - panel_id: SPACE-B1-ELEC
+    shape: rectangle
+    labels_inside:
+    - 전기실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 전기실
+    position: left
+  - panel_id: SPACE-B1-FAN
+    shape: rectangle
+    labels_inside:
+    - FAN ROOM
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하1층 팬룸
+    position: left
+  - panel_id: TRAY-EXISTING-DUCT
+    shape: dashed_box
+    labels_inside:
+    - 기존 공동구 통신 CABLE TRAY
+    - W:1000xH:500mm
+    - 지하공동구 사용
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: cable_tray
+      count: 1
+    inferred_name: 기존 공동구 통신 케이블 트레이 (W:1000×H:500mm)
+    position: top-right
+  - panel_id: TRAY-EXISTING-COMM
+    shape: dashed_box
+    labels_inside:
+    - 기존 통신 TRAY
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: cable_tray
+      count: 1
+    inferred_name: 기존 통신 트레이
+    position: center-right
+  - panel_id: ROUTE-EXISTING-CABLE
+    shape: dashed_box
+    labels_inside:
+    - 기존 CABLE 포설
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 기존 케이블 포설 구간
+    position: center
+  - panel_id: EXT-RCENTER-EPS
+    shape: circle
+    labels_inside:
+    - 'TO : R-Center EPS/TPS'
+    - ELP 50 /IN TRAY
+    - UTP 0.5mm/25Px1,CAT.5
+    - FIBER OPTICAL S.M 12CORE
+    - 지하공동구 사용
+    - (옥외 정보통신 인입 배치도 참조)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: external_connection_point
+      count: 1
+    inferred_name: R-Center EPS/TPS 외부 연결점
+    position: top-right
+  - panel_id: EXT-OFFICE-2F
+    shape: circle
+    labels_inside:
+    - TO.사무동 지상2층 전산실
+    - FIBER OPTICAL S.M 12CORE (IN TRAY)
+    - 기존 CABLE 포설
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: external_connection_point
+      count: 1
+    inferred_name: 사무동 지상2층 전산실 연결점
+    position: center
+  - panel_id: EXT-OFFICE-1F
+    shape: circle
+    labels_inside:
+    - 'TO : 사무동 지상1층 통신실'
+    - UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+    - 기존 CABLE 포설
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: external_connection_point
+      count: 1
+    inferred_name: 사무동 지상1층 통신실 연결점
+    position: right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운 건축
+    - GAUN I Architects & Engineers
+    - 사무동 지하1층 정보통신 설비 평면도
+    - ET-01-005
+    - 'A3 : 1/150'
+    - 'A3 : 1/300'
+    - '2024.04'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  connections:
+  - from: TRAY-EXISTING-DUCT
+    to: EXT-RCENTER-EPS
+    line_type: cable
+    line_style: solid
+    annotation: ELP 50 /IN TRAY, UTP 0.5mm/25Px1 CAT.5, FIBER OPTICAL S.M 12CORE,
+      지하공동구 사용
+  - from: TRAY-EXISTING-COMM
+    to: EXT-OFFICE-2F
+    line_type: cable
+    line_style: solid
+    annotation: FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+  - from: TRAY-EXISTING-COMM
+    to: EXT-OFFICE-1F
+    line_type: cable
+    line_style: solid
+    annotation: UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+  - from: TRAY-EXISTING-DUCT
+    to: TRAY-EXISTING-COMM
+    line_type: cable
+    line_style: dashed
+    annotation: 기존 통신 TRAY 연결
+  - from: ROUTE-EXISTING-CABLE
+    to: TRAY-EXISTING-COMM
+    line_type: cable
+    line_style: dashed
+    annotation: 기존 CABLE 포설 구간
+  groups:
+  - group_id: GRP-EXISTING-INFRA
+    label: 기존 통신 인프라 (트레이/케이블)
+    members:
+    - TRAY-EXISTING-DUCT
+    - TRAY-EXISTING-COMM
+    - ROUTE-EXISTING-CABLE
+  - group_id: GRP-EXTERNAL-DEST
+    label: 외부 연결 목적지
+    members:
+    - EXT-RCENTER-EPS
+    - EXT-OFFICE-2F
+    - EXT-OFFICE-1F
+  - group_id: GRP-B1-SPACES
+    label: 지하1층 공간 구획
+    members:
+    - SPACE-B1-PARKING
+    - SPACE-B1-MECH
+    - SPACE-B1-ELEC
+    - SPACE-B1-FAN
+  legend_references: []
+  diagram_meta:
+    title: 사무동 지하1층 정보통신 설비 평면도
+    drawing_number: ET-01-005
+    drawing_subtype: 정보통신
+    floor_label: 지하1층 (B1F)
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    scale_a1: 1/150
+    scale_a3: 1/300
+    date: '2024.04'
+    flow_direction: UNKNOWN
+    has_legend_section: false
+    has_cctv: false
+    has_ap: false
+    discipline: COMMUNICATION
+    drawing_genre: floor_plan
+    notes:
+    - 이 도면은 지하1층 정보통신 설비 평면도로, 기존 케이블 트레이 및 케이블 포설 경로와 외부 연결 목적지(R-Center EPS/TPS,
+      지상1층 통신실, 지상2층 전산실)를 나타냄
+    - 기존 공동구 통신 CABLE TRAY W:1000xH:500mm를 통해 지하공동구 경유 R-Center EPS/TPS로 연결
+    - FIBER OPTICAL S.M 12CORE 및 UTP 0.5mm/25Px1 CAT.5 케이블이 IN TRAY 방식으로 포설
+    - 옥외 정보통신 인입 배치도 참조 지시 있음
+    - 단말 심볼(LAN OUTLET, AP, CCTV 등) 미배치 — 지하1층은 주차장/기계실/전기실/팬룸으로 구성되어 단말 설비 없음
+    symbol_counts:
+      LAN_OUTLET: 0
+      WIRELESS_AP: 0
+      CCTV_CAMERA: 0
+      PULL_BOX: 0
+      SYSTEM_BOX: 0
+    space_symbol_matrix:
+      SPACE-B1-PARKING:
+        LAN_OUTLET: 0
+        WIRELESS_AP: 0
+      SPACE-B1-MECH:
+        LAN_OUTLET: 0
+      SPACE-B1-ELEC:
+        LAN_OUTLET: 0
+      SPACE-B1-FAN:
+        LAN_OUTLET: 0
+    cable_routes:
+    - route_id: ROUTE-01
+      medium: FIBER OPTICAL S.M 12CORE
+      spec: S.M 12CORE
+      routing: IN TRAY
+      from: 지하공동구
+      to: R-Center EPS/TPS
+      note: 기존 케이블 포설
+    - route_id: ROUTE-02
+      medium: UTP
+      spec: 0.5mm/25Px1 CAT.5
+      routing: IN TRAY
+      from: 지하공동구
+      to: R-Center EPS/TPS
+      note: ELP 50 /IN TRAY
+    - route_id: ROUTE-03
+      medium: FIBER OPTICAL S.M 12CORE
+      spec: S.M 12CORE
+      routing: IN TRAY (기존 CABLE TRAY)
+      from: 지하1층
+      to: 사무동 지상2층 전산실
+      note: 기존 CABLE 포설
+    - route_id: ROUTE-04
+      medium: UTP
+      spec: 0.5mm/25Px1 CAT.5
+      routing: IN TRAY (기존 CABLE TRAY)
+      from: 지하1층
+      to: 사무동 지상1층 통신실
+      note: 기존 CABLE 포설
+    ambiguities:
+    - id: AMB-001
+      type: terminal_density_estimate
+      description: 지하1층은 주차장/기계실/전기실/팬룸으로 구성되어 단말 심볼(LAN OUTLET, AP 등)이 배치되지 않은 것으로
+        판단됨. 심볼 카운트 0은 추정값.
+    - id: AMB-002
+      type: label_ocr_uncertainty
+      description: EXT-RCENTER-EPS 연결점의 일부 라벨(케이블 규격, 공동구 참조 문구)이 소자로 OCR 정확도 낮을 수
+        있음.
+    - id: AMB-003
+      type: space_boundary
+      description: 도면 내 공간 경계(주차장/기계실/전기실/팬룸)의 정확한 구획선이 해상도 한계로 일부 불명확함.
+entity_synthesis:
+  entities:
+  - tag: TRAY-EXISTING-DUCT
+    name: 기존 공동구 통신 CABLE TRAY
+    discipline: COMMUNICATION
+    function_category: TRANSPORT
+    specifications:
+      width: 1000mm
+      height: 500mm
+      label: 기존 공동구 통신 CABLE TRAY
+      note: 지하공동구 사용
+      source_text: W:1000xH:500mm
+    position: top-right
+    source_block: both
+  - tag: TRAY-EXISTING-COMM
+    name: 기존 통신 TRAY
+    discipline: COMMUNICATION
+    function_category: TRANSPORT
+    specifications:
+      label: 기존 통신 TRAY
+    position: center-right
+    source_block: both
+  - tag: ROUTE-EXISTING-CABLE
+    name: 기존 CABLE 포설
+    discipline: COMMUNICATION
+    function_category: TRANSPORT
+    specifications:
+      label: 기존 CABLE 포설
+    position: center
+    source_block: both
+  - tag: EXT-RCENTER-EPS
+    name: R-Center EPS/TPS 외부 연결점
+    discipline: COMMUNICATION
+    function_category: EXTERNAL_CONNECTION
+    specifications:
+      destination: R-Center EPS/TPS
+      cable_specifications:
+      - ELP 50 /IN TRAY
+      - UTP 0.5mm/25Px1,CAT.5
+      - FIBER OPTICAL S.M 12CORE
+      note: 지하공동구 사용
+      reference_note: (옥외 정보통신 인입 배치도 참조)
+      label_prefix: 'TO :'
+    position: top-right
+    source_block: both
+  - tag: EXT-OFFICE-2F
+    name: 사무동 지상2층 전산실 연결점
+    discipline: COMMUNICATION
+    function_category: EXTERNAL_CONNECTION
+    specifications:
+      destination: 사무동 지상2층 전산실
+      cable_specifications:
+      - FIBER OPTICAL S.M 12CORE (IN TRAY)
+      note: 기존 CABLE 포설
+      label_prefix: TO.
+    position: center
+    source_block: both
+  - tag: EXT-OFFICE-1F
+    name: 사무동 지상1층 통신실 연결점
+    discipline: COMMUNICATION
+    function_category: EXTERNAL_CONNECTION
+    specifications:
+      destination: 사무동 지상1층 통신실
+      cable_specifications:
+      - UTP 0.5mm/25Px1,CAT.5 (IN TRAY)
+      note: 기존 CABLE 포설
+      label_prefix: 'TO :'
+    position: right
+    source_block: both
+  - tag: SPACE-B1-PARKING
+    name: 주차장
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 지하1층 주차장 구역
+    position: center
+    source_block: both
+  - tag: SPACE-B1-MECH
+    name: 기계실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 지하1층 기계실
+    position: left-center
+    source_block: both
+  - tag: SPACE-B1-ELEC
+    name: 전기실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 지하1층 전기실
+    position: left
+    source_block: both
+  - tag: SPACE-B1-FAN
+    name: FAN ROOM
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 지하1층 팬룸
+    position: left
+    source_block: both
+  - tag: TITLE-BLOCK
+    name: 표제란
+    discipline: COMMUNICATION
+    function_category: TITLE_BLOCK
+    specifications:
+      project: LS Electric R-Center 구축
+      project_number: '624001'
+      architect: 가운 건축
+      architect_english: GAUN I Architects & Engineers
+      title: 사무동 지하1층 정보통신 설비 평면도
+      drawing_number: ET-01-005
+      scale_a3_primary: 1/150
+      scale_a3_secondary: 1/300
+      date: '2024.04'
+    position: bottom-right
+    source_block: both
+  relationships:
+  - from_tag: TRAY-EXISTING-DUCT
+    to_tag: EXT-RCENTER-EPS
+    relation_type: connects_to
+    note: ELP 50 /IN TRAY, UTP 0.5mm/25Px1,CAT.5, FIBER OPTICAL S.M 12CORE, 지하공동구
+      사용
+  - from_tag: TRAY-EXISTING-COMM
+    to_tag: EXT-OFFICE-2F
+    relation_type: connects_to
+    note: FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+  - from_tag: TRAY-EXISTING-COMM
+    to_tag: EXT-OFFICE-1F
+    relation_type: connects_to
+    note: UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+  - from_tag: TRAY-EXISTING-DUCT
+    to_tag: TRAY-EXISTING-COMM
+    relation_type: connects_to
+    note: 기존 통신 TRAY 연결
+  - from_tag: ROUTE-EXISTING-CABLE
+    to_tag: TRAY-EXISTING-COMM
+    relation_type: connects_to
+    note: 기존 CABLE 포설 구간
+  - from_tag: SPACE-B1-PARKING
+    to_tag: TRAY-EXISTING-COMM
+    relation_type: contains
+    note: null
+  - from_tag: SPACE-B1-MECH
+    to_tag: TRAY-EXISTING-COMM
+    relation_type: contains
+    note: null
+  - from_tag: SPACE-B1-ELEC
+    to_tag: TRAY-EXISTING-COMM
+    relation_type: contains
+    note: null
+  - from_tag: SPACE-B1-FAN
+    to_tag: TRAY-EXISTING-COMM
+    relation_type: contains
+    note: null
+  spaces:
+  - space_id: SPACE-B1-PARKING
+    name: 주차장
+    contains:
+    - TRAY-EXISTING-COMM
+  - space_id: SPACE-B1-MECH
+    name: 기계실
+    contains:
+    - TRAY-EXISTING-COMM
+  - space_id: SPACE-B1-ELEC
+    name: 전기실
+    contains:
+    - TRAY-EXISTING-COMM
+  - space_id: SPACE-B1-FAN
+    name: FAN ROOM
+    contains:
+    - TRAY-EXISTING-COMM
+  diagram_meta:
+    title: 사무동 지하1층 정보통신 설비 평면도
+    drawing_number: ET-01-005
+    drawing_subtype: 정보통신
+    floor_label: 지하1층 (B1F)
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    scale_a1: 1/150
+    scale_a3: 1/300
+    date: '2024.04'
+    flow_direction: UNKNOWN
+    has_legend_section: false
+    has_cctv: false
+    has_ap: false
+    discipline: COMMUNICATION
+    drawing_genre: floor_plan
+    symbol_counts:
+      LAN_OUTLET: 0
+      WIRELESS_AP: 0
+      CCTV_CAMERA: 0
+      PULL_BOX: 0
+      SYSTEM_BOX: 0
+    space_symbol_matrix:
+      SPACE-B1-PARKING:
+        LAN_OUTLET: 0
+        WIRELESS_AP: 0
+      SPACE-B1-MECH:
+        LAN_OUTLET: 0
+      SPACE-B1-ELEC:
+        LAN_OUTLET: 0
+      SPACE-B1-FAN:
+        LAN_OUTLET: 0
+    cable_routes:
+    - route_id: ROUTE-01
+      medium: FIBER OPTICAL S.M 12CORE
+      spec: S.M 12CORE
+      routing: IN TRAY
+      from: 지하공동구
+      to: R-Center EPS/TPS
+      note: 기존 케이블 포설
+    - route_id: ROUTE-02
+      medium: UTP
+      spec: 0.5mm/25Px1 CAT.5
+      routing: IN TRAY
+      from: 지하공동구
+      to: R-Center EPS/TPS
+      note: ELP 50 /IN TRAY
+    - route_id: ROUTE-03
+      medium: FIBER OPTICAL S.M 12CORE
+      spec: S.M 12CORE
+      routing: IN TRAY (기존 CABLE TRAY)
+      from: 지하1층
+      to: 사무동 지상2층 전산실
+      note: 기존 CABLE 포설
+    - route_id: ROUTE-04
+      medium: UTP
+      spec: 0.5mm/25Px1 CAT.5
+      routing: IN TRAY (기존 CABLE TRAY)
+      from: 지하1층
+      to: 사무동 지상1층 통신실
+      note: 기존 CABLE 포설
+    ambiguities:
+    - id: AMB-001
+      type: terminal_density_estimate
+      description: 지하1층은 주차장/기계실/전기실/팬룸으로 구성되어 단말 심볼(LAN OUTLET, AP 등)이 배치되지 않은 것으로
+        판단됨. 심볼 카운트 0은 추정값.
+    - id: AMB-002
+      type: label_ocr_uncertainty
+      description: EXT-RCENTER-EPS 연결점의 일부 라벨(케이블 규격, 공동구 참조 문구)이 소자로 OCR 정확도 낮을 수
+        있음.
+    - id: AMB-003
+      type: space_boundary
+      description: 도면 내 공간 경계(주차장/기계실/전기실/팬룸)의 정확한 구획선이 해상도 한계로 일부 불명확함.
+  self_check:
+    entity_count: 11
+    relationship_count: 9
+    visual_spec_preserved: true
+    issues: []

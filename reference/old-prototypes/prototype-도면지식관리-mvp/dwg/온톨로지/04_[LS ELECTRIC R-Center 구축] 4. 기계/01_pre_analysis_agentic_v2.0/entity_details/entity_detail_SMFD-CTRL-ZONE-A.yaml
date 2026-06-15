@@ -1,0 +1,76 @@
+tag: SMFD-CTRL-ZONE-A
+name: SMFD 제어 구역 A (상부 시험실 구역)
+type: zone
+discipline: MECHANICAL
+function_category: CONTROL
+source_pages:
+- 51
+specs:
+  shape: dashed_box
+  position: top / grid A-B
+  labels_inside:
+  - 진동시험실
+  - 극한환경시험실
+  - 환경시험실
+  - EM/EMS Shield실
+  - AMP 실
+  - 컨트롤실
+  - EMC 챔버실
+  - 전기/통신/방송실
+  - 제어룸
+  equipment_symbols:
+  - type: SMFD 방화댐퍼 심볼
+    count: null
+    note: 각 실 경계 덕트 관통부에 설치 추정
+  note: 상부 시험실 구역 전체에 SMFD 제어 배선 포설
+  raw_labels:
+  - 진동시험실
+  - 극한환경시험실
+  - 환경시험실
+  - EM/EMS Shield실
+  - AMP 실
+  - 컨트롤실
+  - EMC 챔버실
+  - 전기/통신/방송실
+  - 제어룸
+relations:
+- from: CTRL-PANEL-1F
+  to: SMFD-CTRL-ZONE-A
+  relation: connects_to
+  source_page: 51
+  origin: cross_validated
+  line_style: solid
+  note: CV 2.5×3C 또는 UTP 0.6×4P (범례 참조)
+- from: CTRL-PANEL-1F
+  to: SMFD-CTRL-ZONE-A
+  relation: cable
+  source_page: 51
+  origin: visual_semantics
+  annotation: CV 2.5×3C 또는 UTP 0.6×4P (범례 참조)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+position: top / grid A-B
+confidence: 0.65
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: false
+equipment_symbols:
+- type: SMFD 방화댐퍼 심볼
+  count: null
+  note: 각 실 경계 덕트 관통부에 설치 추정
+ontology_hints:
+  suggested_parent_class: ControlZone
+  observed_attributes:
+  - shape
+  - position
+  - labels_inside
+  - equipment_symbols
+  - note
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - Fire Damper Control
+  - Zone Control
+  - Smoke Management

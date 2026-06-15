@@ -1,0 +1,71 @@
+entity_detail:
+  tag: UT동 1층 변전실
+  type: room_or_space
+  specs:
+  - key: drawing_number
+    value: EE-00-003
+    source: page 4
+    confidence: 0.96
+  - key: title
+    value: 옥외 전력간선설비 인입 배치도
+    source: page 4
+    confidence: 0.96
+  drawing_texts:
+  - source: page 4 executive_summary
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와
+      지중 인입 경로를 보여준다.
+
+
+      공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개, 지중선표시기,
+      SECTION 1·2 단면 상세가 포함된다.
+
+
+      우측에는 지하공동구 현황도 사진 1장이 있으며, A동 지상1층 인버터 시험센타와 A동 지하1층 전기실 방향의 연결도 함께 보인다.'
+  requirements:
+  - text: UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결된다.
+    source: page 4
+    type: connection_requirement
+  - text: 공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시된다.
+    source: page 4
+    type: layout_requirement
+  - text: SECTION 1·2 단면 상세가 포함된다.
+    source: page 4
+    type: documentation_requirement
+  connection_specs:
+  - relation: connects_to
+    partner: R-Center 변전실
+    details:
+      source: page 4
+      text: UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결됨
+  - relation: connected_via
+    partner: 공동구 / DUCT BANK / ELP100
+    details:
+      source: page 4
+      text: 공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시됨
+  ontology_hints:
+    observed_relations:
+    - relation_type: connects_to
+      partner_tag: SP-RCENTER-PS
+      direction: UT동 1층 변전실 -> R-Center 변전실
+      source: page 4
+    - relation_type: located_in_context_of
+      partner_tag: SP-COMMON-DUCT-1
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - drawing_number
+    - title
+    - 6.6kV 전력케이블
+    - 기존 TRAY
+    - DUCT BANK
+    - ELP100
+    - SECTION 1·2
+    similar_equipment: []
+    suggested_parent_class: ElectricalRoom
+    cross_discipline:
+    - ELECTRICAL
+    - ARCHITECTURAL
+  notes:
+  - 대상 공간 자체의 별도 치수/면적/설비 사양은 페이지 4 분석 결과에서 확인되지 않음.
+tag: UT동 1층 변전실

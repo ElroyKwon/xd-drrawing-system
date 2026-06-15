@@ -1,0 +1,165 @@
+placement:
+  tag: TRAY-EXISTING
+  name: 기존 통신 TRAY
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:TRAY-EXISTING
+    class_hint: CableTray
+    alternative_class_hints:
+    - CableRouting
+    - CableSupport
+    related_assertions:
+    - type: connectedTo
+      target_hint: ROUTE-TO-2F-SERVER
+      note: relation=cable; FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:ROUTE-TO-2F-SERVER
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: connectedTo
+      target_hint: ROUTE-TO-1F-COMM
+      note: relation=cable; UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:ROUTE-TO-1F-COMM
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: connectedTo
+      target_hint: TRAY-GONGDONG
+      note: relation=cable; 기존 통신 TRAY 연결
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:TRAY-GONGDONG
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    applicable_axioms:
+    - AX022
+    applicable_constraints:
+    - CN016
+    confirmed_class: dks:CableTray
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 통신 TRAY
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 라벨
+      - raw_text: FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableRouteNote
+          suggested_datatype: xsd:string
+          rationale: 트레이 내 포설 케이블 설명과 경로 주석
+      - raw_text: UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableRouteNote
+          suggested_datatype: xsd:string
+          rationale: 트레이 내 포설 케이블 규격 주석
+      - raw_text: 기존 통신 TRAY 연결
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: connectionNote
+          suggested_datatype: xsd:string
+          rationale: 트레이 간 연결 관계 주석
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail
+    name:
+      source_pages:
+      - 9
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 9
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 9
+      method: specs + relations
+    position:
+      source_pages:
+      - 9
+      method: entity_detail
+    specs.raw_labels:
+      source_pages:
+      - 9
+      method: entity_detail
+    specs.label:
+      source_pages:
+      - 9
+      method: entity_detail
+    relations:
+      source_pages:
+      - 9
+      method: entity_detail
+    equipment_symbols:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+      method: entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 기존 통신 TRAY로 명시되어 있고, suggested_parent_class가 CableTray이며 관계도 트레이 간/경로
+      연결로 일관됨.
+    recommended_handling: CableTray 계열 NamedIndividual로 유지하고, 관계는 0-9d에서 정식 object
+      property로 확정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CableTray 계열을 CommunicationEquipment/Pathway 축으로 우선 배치
+    - relations의 cable 의미를 관계 사실 원형으로 보존
+    - source_page 9 기반 provenance 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:46:59.740023'
+  confidence: 0.96

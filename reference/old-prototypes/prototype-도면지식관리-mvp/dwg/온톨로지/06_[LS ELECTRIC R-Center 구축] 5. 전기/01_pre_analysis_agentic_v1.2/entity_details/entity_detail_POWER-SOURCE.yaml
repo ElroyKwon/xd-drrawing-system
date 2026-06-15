@@ -1,0 +1,155 @@
+entity_detail:
+  tag: POWER-SOURCE
+  type: equipment
+  specs:
+    voltage:
+      value: 3Ø 380V
+      unit: V
+      source: page 20
+      confidence: 0.95
+    drawing_number:
+      value: EE-01-016
+      unit: null
+      source: page 20
+      confidence: 0.96
+    title:
+      value: 생산동력(3Ø 380V) 분전반 결선도
+      unit: null
+      source: page 20
+      confidence: 0.96
+    project_name:
+      value: LS Electric / R-Center 구축
+      unit: null
+      source: page 20
+      confidence: 0.9
+    main_inlet_text:
+      value: 3Ø 380V 생산동력 전원 인입
+      unit: null
+      source: page 20
+      confidence: 0.85
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: 생산동력(3Ø 380V) 분전반 결선도
+  - source: page 20
+    page_number: 20
+    text: 도면번호 EE-01-016
+  - source: page 20
+    page_number: 20
+    text: '프로젝트명: LS Electric / R-Center 구축'
+  - source: page 20
+    page_number: 20
+    text: 주 전원 인입
+  - source: page 20
+    page_number: 20
+    text: 3Ø 380V 생산동력 전원 인입
+  - source: page 20
+    page_number: 20
+    text: 전기실
+  - source: page 20
+    page_number: 20
+    text: P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP
+  - source: page 21
+    page_number: 21
+    text: 생산동력(3Ø 440V) 분전반 결선도-1
+  - source: page 21
+    page_number: 21
+    text: P-A-4PP-1부터 P-A-4PP-6까지 6개의 분전반
+  - source: page 21
+    page_number: 21
+    text: 'PANEL LOCATION: 1층 Drive 시험실'
+  - source: page 21
+    page_number: 21
+    text: 'PROJECT TITLE: LS Electric R-Center 구축'
+  - source: page 21
+    page_number: 21
+    text: 'PROJECT NUMBER: 624001'
+  - source: page 21
+    page_number: 21
+    text: E3 접지 표기
+  requirements:
+  - text: 3Ø 380V 생산동력 전원 인입
+    source: page 20
+    type: electrical_supply
+  - text: 전기실(전원 인입점)
+    source: 'search_entity_by_tag: POWER-SOURCE'
+    type: location_hint
+  - text: 'FROM: 전기실'
+    source: 'search_entity_by_tag: POWER-SOURCE'
+    type: upstream_source_hint
+  connection_specs:
+  - relation: feeds
+    partner: P-A-3PP
+    details:
+      source: page 20
+  - relation: feeds
+    partner: P-AC-3PP
+    details:
+      source: page 20
+  - relation: feeds
+    partner: P-D-3PP
+    details:
+      source: page 20
+  - relation: feeds
+    partner: P-E-3PP
+    details:
+      source: page 20
+  - relation: feeds
+    partner: P-F-3PP
+    details:
+      source: page 20
+  - relation: feeds
+    partner: P-G-3PP
+    details:
+      source: page 20
+  - relation: feeds
+    partner: P-I-3PP
+    details:
+      source: page 20
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: P-A-3PP
+      direction: source_to_target
+      source: page 20
+    - relation_type: feeds
+      partner_tag: P-AC-3PP
+      direction: source_to_target
+      source: page 20
+    - relation_type: feeds
+      partner_tag: P-D-3PP
+      direction: source_to_target
+      source: page 20
+    - relation_type: feeds
+      partner_tag: P-E-3PP
+      direction: source_to_target
+      source: page 20
+    - relation_type: feeds
+      partner_tag: P-F-3PP
+      direction: source_to_target
+      source: page 20
+    - relation_type: feeds
+      partner_tag: P-G-3PP
+      direction: source_to_target
+      source: page 20
+    - relation_type: feeds
+      partner_tag: P-I-3PP
+      direction: source_to_target
+      source: page 20
+    observed_attributes:
+    - 3Ø 380V
+    - 전기실
+    - 전원 인입
+    - 주 전원 인입
+    - LS Electric / R-Center 구축
+    - EE-01-016
+    - 'FROM: 전기실'
+    similar_equipment:
+    - POWER-SOURCE-UPSTREAM
+    suggested_parent_class: PowerSource
+    cross_discipline: []
+  notes:
+  - '페이지 20과 21 모두 전기 도면이지만, 대상 tag POWER-SOURCE는 페이지 20의 ''전기실(전원 인입점)'' 및 ''FROM:
+    전기실'' 맥락이 직접적임.'
+  - 페이지 21에는 상위 전원 공급원 관련 힌트가 있으나 대상 설비의 직접 상세는 페이지 20 중심으로 수집함.
+tag: POWER-SOURCE

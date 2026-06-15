@@ -1,0 +1,12 @@
+tag: P041-EQ-E08
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- discipline
+missing_relations: []
+reason: entity_detail와 page_041_context에서 확인되는 값은 주로 도면 메타데이터(title, drawing_number,
+  project_name)와 상세도 설명이며, 독립 설비로서의 자체 사양은 재질/마감/설치조건 수준의 브래킷 상세도 정보뿐이다. 또한 type이
+  '브래킷'이지만 connection_specs와 observed_relations에서 확인되는 관계는 BEARING ANGLE, 내진형 Support
+  System, 내진형 TRAY 시스템과의 지지/고정·적용 대상 관계이며, 이는 독립 설비라기보다 상세도 내 부품/구성요소 성격으로 해석된다. 도면
+  메타데이터는 물리적 설비가 아니므로 demoted_to는 document_metadata로 처리한다.
+demoted_to: document_metadata

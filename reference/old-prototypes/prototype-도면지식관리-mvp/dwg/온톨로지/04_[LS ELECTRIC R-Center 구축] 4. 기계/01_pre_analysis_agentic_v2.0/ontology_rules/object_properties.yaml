@@ -1,0 +1,176 @@
+object_properties:
+- iri: dks:connects_to
+  label: 연결됨
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:is_connected_to
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: CTRL-GATEWAY
+    object: SPACE-SoftwareLab
+    source_page: 52
+    note: SMFD 제어 신호선 (A) CV 2.5 3C / VP 0.6 2P
+  - subject: CTRL-PANEL-1F
+    object: SMFD-CTRL-ZONE-A
+    source_page: 51
+    note: CV 2.5×3C 또는 UTP 0.6×4P (범례 참조)
+  - subject: JB-A-01
+    object: SMFD-01
+    source_page: 50
+    note: SMFD-01 to JB-A-01, solid line, UTP 0.6 4P (추정)
+  total_evidence: 45
+  derivation: 제어반, 게이트웨이, 접속함, 댐퍼, 구역 간의 물리적/논리적 연결 관계
+  confidence: 0.95
+- iri: dks:signal
+  label: 신호연결
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:receives_signal_from
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: CTRL-GATEWAY
+    object: SPACE-SoftwareLab
+    source_page: 52
+    note: SMFD 제어 신호선 (A) CV 2.5 3C / VP 0.6 2P
+  - subject: LEGEND-CABLE
+    object: SMFD-01
+    source_page: 53
+    note: 범례 참조 관계 (전선 규격 A/B 적용)
+  total_evidence: 15
+  derivation: 제어 신호선의 흐름 및 참조 관계
+  confidence: 0.9
+- iri: dks:cable
+  label: 케이블연결
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:cabled_to
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: CTRL-PANEL-1F
+    object: SMFD-CTRL-ZONE-A
+    source_page: 51
+    note: CV 2.5×3C 또는 UTP 0.6×4P (범례 참조)
+  - subject: LOAD-CTRL-PWR1
+    object: FEEDER-CTRL-PWR1
+    source_page: 25
+    note: 'FEEDER-CTRL-PWR1 to LOAD-CTRL-PWR1, annotation: 1.5sqMM, CONTROL POWER-1'
+  total_evidence: 25
+  derivation: 전력 및 제어 케이블의 물리적 배선 관계
+  confidence: 0.95
+- iri: dks:feeds
+  label: 전력공급
+  domain: dks:ElectricalEquipment
+  range: owl:Thing
+  inverse_of_candidate: dks:is_fed_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: true
+  evidence_assertions:
+  - subject: LOAD-DCF1
+    object: FEEDER-DCF1
+    source_page: 25
+    note: FEEDER-DCF1 -> LOAD-DCF1 전력 공급 관계
+  - subject: MAIN-MCCB
+    object: MCP-PANEL
+    source_page: 25
+    note: MAIN-MCCB에서 MCP-PANEL로 공급
+  total_evidence: 18
+  derivation: 차단기, 패널, 부하 간의 전력 공급 계통
+  confidence: 0.98
+- iri: dks:supplies
+  label: 공급
+  domain: dks:ControlPanel
+  range: owl:Thing
+  inverse_of_candidate: dks:is_supplied_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: MCP-PANEL
+    object: FEEDER-DCF1
+    source_page: 25
+    note: MCP-PANEL -> FEEDER-DCF1
+  total_evidence: 13
+  derivation: 메인 제어 패널에서 하위 피더로의 공급 관계
+  confidence: 0.95
+- iri: dks:references
+  label: 참조
+  domain: dks:Document
+  range: owl:Thing
+  inverse_of_candidate: dks:is_referenced_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: LEGEND-CABLE
+    object: SMFD-01
+    source_page: 53
+    note: '범례 참조 관계 (전선 규격 A 적용: CV V 2.5 3C)'
+  total_evidence: 3
+  derivation: 범례표와 도면 내 객체 간의 참조 관계
+  confidence: 0.9
+- iri: dks:contains
+  label: 포함
+  domain: dks:Document
+  range: owl:Thing
+  inverse_of_candidate: dks:is_contained_in
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: true
+  evidence_assertions:
+  - subject: PANEL-ROOF-PLAN
+    object: SMFD-01
+    source_page: 53
+    note: 도면이 SMFD 심볼 2개를 포함
+  - subject: PANEL-ROOF-PLAN
+    object: SPACE-MECH-ROOM-ROOF
+    source_page: 53
+    note: 도면 내 우측 상단 별도 구획 포함
+  total_evidence: 8
+  derivation: 평면도(Plan)가 공간이나 장비를 시각적으로 포함하는 관계
+  confidence: 0.95
+- iri: dks:related_to_space
+  label: 공간연관
+  domain: dks:Equipment
+  range: dks:Space
+  inverse_of_candidate: dks:has_related_equipment
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SF-1
+    object: 1F 시험실구역
+    source_page: 5
+    note: specs.용도에 기재된 사용 구역
+  total_evidence: 1
+  derivation: 장비의 용도상 연관된 공간
+  confidence: 0.85
+- iri: dks:installed_in
+  label: 설치위치
+  domain: dks:Equipment
+  range: dks:Space
+  inverse_of_candidate: dks:contains_equipment
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SF-1
+    object: 1F 검증시스템실
+    source_page: 5
+    note: specs.설치위치에 기재된 설치 위치
+  total_evidence: 1
+  derivation: 장비가 물리적으로 설치된 공간
+  confidence: 0.9
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T08:41:55.682437'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.95

@@ -1,0 +1,55 @@
+entity_detail:
+  tag: SP-03
+  type: named_space / room_area
+  specs:
+    parent_building:
+      value: A동
+      source: page 4
+      confidence: 0.99
+    floor_level:
+      value: 지상1층
+      source: page 4
+      confidence: 0.99
+    space_name:
+      value: 인버터 시험센타
+      source: page 4
+      confidence: 0.99
+  drawing_texts:
+  - source: page 4
+    page_number: 4
+    text: A동 지상1층 인버터 시험센타
+  requirements:
+  - text: 도면상 공동구를 통해 전력간선이 연결되는 대상 공간으로 표시됨
+    source: page 4
+    type: connection
+  - text: 전력간선설비 인입 배치도에 포함된 공간으로 표시됨
+    source: page 4
+    type: context
+  connection_specs:
+  - relation: 연결
+    partner: 공동구
+    details:
+      source: page 4
+      confidence: 0.95
+      medium: 전력간선
+  ontology_hints:
+    observed_relations:
+    - relation_type: 연결
+      partner_tag: SP-09
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - A동
+    - 지상1층
+    - 인버터 시험센타
+    similar_equipment:
+    - SP-01
+    - SP-02
+    - SP-04
+    suggested_parent_class: room_area
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - page 4 분석 결과에서 공간명과 위치 정보만 확인됨
+tag: SP-03

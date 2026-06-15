@@ -1,0 +1,92 @@
+placement:
+  tag: '108'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:108
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasAvailablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 메타 정보이며, 도면 분석 가능 범위를 나타내는 주석성 텍스트
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasInstructionText
+        suggested_datatype: xsd:string
+        rationale: 사용자 안내 문구로서 도면 실체가 아닌 주석/응답 문장
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inference_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate_only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate_only
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 도면 설비/객체의 물리적 실체나 관계가 아니라 안내성 문장만 존재
+    preservation_note: 페이지 목록과 안내 문구는 주석성 텍스트로 보존; 후속 단계에서 문서 메타 또는 annotation으로 승격
+      가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 108은 설비/부품/관계가 아니라 페이지 안내 문구만 포함하여 물리 실체 여부를 단정하기 어려움
+    recommended_handling: AnnotationOnly로 유지하되, 문서 메타/주석 엔티티 후보로 후속 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야에서 raw-only, 주석성 텍스트는 AnnotationOrReferenceEntity 계열로 우선 배치
+    - 관찰된 것만 기록하고, 해석 불가 정보는 free_notes/unresolved에 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:03.807291'
+  confidence: 0.93

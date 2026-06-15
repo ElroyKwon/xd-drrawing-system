@@ -1,0 +1,141 @@
+entity_detail:
+  tag: P-F-2PP
+  type: equipment
+  specs:
+    위치:
+      value: 1층 진동시험실
+      unit: null
+      source: 19
+      confidence: 0.95
+    커버타입:
+      value: 노출형(STEEL)
+      unit: null
+      source: 19
+      confidence: 0.95
+    전원:
+      value: FROM 전기실
+      unit: null
+      source: 19
+      confidence: 0.95
+    MAIN:
+      value: MCCB 3P
+      unit: null
+      source: 19
+      confidence: 0.95
+    SPD:
+      value: 3Ø 40KA/mode
+      unit: null
+      source: 19
+      confidence: 0.95
+    접지:
+      value: E3
+      unit: null
+      source: 19
+      confidence: 0.95
+    분기회로:
+      value: MCCBs 포함
+      unit: null
+      source: 19
+      confidence: 0.95
+    전원표기:
+      value: 3Ø 220V
+      unit: null
+      source: 19
+      confidence: 0.98
+    차단기정격:
+      value: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+      unit: null
+      source: 19
+      confidence: 0.9
+    차단용량:
+      value: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상
+      unit: null
+      source: 19
+      confidence: 0.9
+  drawing_texts:
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 전기실에서 4개 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)으로 전원이 공급되는 결선도이다.
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 각 분전반에는 MAIN, MCCB, SPD, 접지(E3) 및 분기 회로가 반복되며, 우측 주기사항 영역에 차단기 정격(30AF~600AF)과
+      차단용량(5KA 이상~50KA 이상) 표가 보인다.
+  - source: page_019_context.yaml
+    page_number: 19
+    text: '도면은 2x2 패널 배치의 전기 계통이며, 노출형(STEEL) 커버 타입과 FROM: 전기실 표기가 확인된다.'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: '위치: 1층 진동시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode,
+      접지 E3, 분기 회로 MCCBs 포함'
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 전원은 S/S R-Center에서 시작하며 6.6kV, 380/220V, 440V, 220V 표기가 혼재하고, LP-1F/LP-2F
+      및 다수의 P-* 분기반이 연결된다.
+  requirements:
+  - text: 노출형(STEEL) 커버 타입
+    source: page_019_context.yaml
+    type: installation_condition
+  - text: '전원 표기: FROM 전기실'
+    source: page_019_context.yaml
+    type: power_supply_condition
+  - text: MAIN MCCB 3P
+    source: page_019_context.yaml
+    type: protection_condition
+  - text: SPD 3Ø 40KA/mode
+    source: page_019_context.yaml
+    type: protection_condition
+  - text: 접지 E3
+    source: page_019_context.yaml
+    type: grounding_condition
+  - text: 분기 회로 MCCBs 포함
+    source: page_019_context.yaml
+    type: distribution_condition
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: 19
+      text: FROM 전기실
+      direction: downstream
+      medium: power
+  - relation: connected_via
+    partner: SPD-F
+    details:
+      source: 19
+      text: P-F-2PP to SPD-F
+      direction: downstream
+      medium: power_cable
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: source_to_load
+      source: page_019_context.yaml
+    - relation_type: connected_via
+      partner_tag: SPD-F
+      direction: downstream
+      source: page_019_context.yaml
+    observed_attributes:
+    - 위치
+    - 커버타입
+    - 전원
+    - MAIN
+    - SPD
+    - 접지
+    - 분기 회로
+    - 전원표기
+    - 차단기정격
+    - 차단용량
+    similar_equipment:
+    - P-EA-2PP
+    - P-G-2PP
+    - P-I-2PP
+    suggested_parent_class: Panelboard
+    cross_discipline: []
+  notes:
+  - page_023_context.yaml에는 P-F-2PP가 전력간선설비 계통도에도 등장함.
+  - page_023_context.yaml에서 P-F-2PP는 S/S R-Center로부터 power_supply 관계가 확인됨.
+tag: P-F-2PP

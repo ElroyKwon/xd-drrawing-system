@@ -1,0 +1,214 @@
+placement:
+  tag: SPACE-OFFICE
+  name: 사무실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-OFFICE
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationRoom
+    - Network Connectivity Area
+    - Wireless Access Zone
+    related_assertions:
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: relations.relation=cable; annotation='UTP CAT.5e / T 배선'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 사무실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨 문자열
+      - raw_text: 'labels_inside: 사무실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기 문자열
+      - raw_text: 'equipment_symbols: LAN OUTLET'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼 관찰
+      - raw_text: 'equipment_symbols: SYSTEM BOX'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼 관찰
+      - raw_text: 'equipment_symbols: 무선 AP'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼 관찰
+      - raw_text: 'inferred_name: 사무실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추정명
+      - raw_text: 'position: right'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'shape: rectangle'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: null
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트의 후보 상위 클래스
+      - raw_text: 'ontology_hints.function_candidates: Network Connectivity Area'
+        source_page: null
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: 'ontology_hints.function_candidates: Wireless Access Zone'
+        source_page: null
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: space entity with own tag and relation
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 8
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 8
+      method: relations.from
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 8
+      method: relations.annotation
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: specs + ontology_hints
+    specs.raw_labels:
+      source_pages:
+      - 8
+      method: specs.raw_labels
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: specs.labels_inside
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      method: specs.equipment_symbols
+    specs.inferred_name:
+      source_pages:
+      - 8
+      method: specs.inferred_name
+    specs.position:
+      source_pages:
+      - 8
+      method: specs.position
+    specs.shape:
+      source_pages:
+      - 8
+      method: specs.shape
+    relations:
+      source_pages:
+      - 8
+      method: relations
+    equipment_symbols:
+      source_pages:
+      - 8
+      method: entity_detail.equipment_symbols
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.equipment_symbols.count
+    raw_text: 'null'
+    source_page: 8
+    reason: 수량이 명시되지 않음
+    preservation_note: 심볼 종류만 보존
+  - field_candidate: relations.annotation
+    raw_text: UTP CAT.5e / T 배선
+    source_page: 8
+    reason: 관계 사실의 정식 property로는 아직 확정하지 않음
+    preservation_note: 배선 규격/방식 문자열로 후속 승격 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 8
+    reason: 후보 클래스이며 확정 아님
+    preservation_note: 0-9c에서 class 확정 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Network Connectivity Area
+    source_page: 8
+    reason: 기능 후보 문자열
+    preservation_note: 공간 기능 라벨 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Wireless Access Zone
+    source_page: 8
+    reason: 기능 후보 문자열
+    preservation_note: 공간 기능 라벨 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 사무실은 공간 엔티티로 보이지만, 내부에 LAN OUTLET, SYSTEM BOX, 무선 AP 심볼이 있어 단순 공간/설비 혼합
+      가능성이 있음.
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, 공간-설비 내재 관계와 기능 후보를 별도 확인.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 우선 축 반영
+    - connectedTo 관계 원형 보존
+    - locatedOnPage 성격의 source_pages 추적
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:46:03.941695'
+  confidence: 0.86

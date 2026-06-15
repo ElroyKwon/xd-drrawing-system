@@ -1,0 +1,131 @@
+placement:
+  tag: UNKNOWN-RD-001
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-RD-001
+    class_hint: ServiceNetworkElement
+    alternative_class_hints:
+    - DrainageElement
+    - RoofDrainOrRD
+    - UnknownEntity
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-PIPE-001
+      note: 'from UNKNOWN-RD-001 to UNKNOWN-PIPE-001; note: Ø100 R.D (2EA) -> Ø100
+        SST 횡주관; line_style=solid; source_page=62'
+      confirmed_property: dks:connects_to
+      confirmed_target: UNKNOWN-PIPE-001
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX032
+    - AX035
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN010
+    confirmed_class: dks:ServiceNetworkElement
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: Ø100 R.D (2EA) -> Ø100 SST 횡주관
+        source_page: 62
+        promotion_hint:
+          suggested_property_label: hasRelationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 배수 연결 설명과 규격/수량 정보가 함께 포함됨
+        promoted_to: dks:hasRelationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: connects_to
+        source_page: 62
+        promotion_hint:
+          suggested_property_label: connectsTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: RD와 PIPE 사이의 연결 관계가 직접 관찰됨
+      - raw_text: line_style=solid
+        source_page: 62
+        promotion_hint:
+          suggested_property_label: hasLineStyle
+          suggested_datatype: xsd:string
+          rationale: 관계 표현의 선 스타일 정보가 존재함
+  provenance:
+    tag:
+      source_pages:
+      - 62
+      method: direct_tag
+    name:
+      source_pages: []
+    discipline:
+      source_pages: []
+    ontology_core.owl_role:
+      source_pages:
+      - 62
+      method: inferred_from_relation_record
+    ontology_core.iri_hint:
+      source_pages:
+      - 62
+      method: direct_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 62
+      method: plan_guidance + relation_context
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 62
+      method: plan_guidance + relation_context
+    ontology_core.related_assertions:
+      source_pages:
+      - 62
+      method: direct_relation_record
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 62
+      method: preserved_raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 62
+      method: ontology_plan_guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: UNKNOWN-RD-001
+    source_page: 62
+    reason: 태그만으로는 정확한 클래스 확정 불가; RD는 배수/서비스 네트워크 후보로만 관찰됨
+    preservation_note: ServiceNetworkElement 계열 후보로 보존
+  - field_candidate: discipline_context.sub_kinds.free_notes
+    raw_text: Ø100 R.D (2EA) -> Ø100 SST 횡주관
+    source_page: 62
+    reason: supplement가 없어 sub_kind로 승격 불가
+    preservation_note: 관계 주석 원문 보존
+  - field_candidate: ontology_core.related_assertions[0].type
+    raw_text: connects_to
+    source_page: 62
+    reason: 확정 property IRI는 다음 단계에서 채움
+    preservation_note: 관계 사실 원형만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: RD 약어의 정확한 의미와 세부 클래스가 도면 원문만으로 확정되지 않음
+    recommended_handling: 0-9c에서 ServiceNetworkElement 상위로 두고, 0-9d에서 connects_to
+      계열 관계로 정식화 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - drainage_or_service_network_entities
+    - expected_object_properties.connects_to
+    - discipline_context_plan.mechanical
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:14.151572'
+  confidence: 0.86

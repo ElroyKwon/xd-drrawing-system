@@ -1,0 +1,169 @@
+placement:
+  tag: GP-BUS-VCB
+  name: GP 버스 인입 VCB 패널
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GP-BUS-VCB
+    class_hint: SwitchgearPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - ProtectionAndControlDevice
+    - PowerDistributionEquipment
+    related_assertions:
+    - type: feeds
+      target_hint: GEN-VCB
+      note: relation field shows GEN-VCB -> GP-BUS-VCB as feeds; cross_validated
+    - type: connects_to
+      target_hint: 1402A
+      note: relation field shows GP-BUS-VCB -> 1402A as connects_to; cross_validated
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SwitchgearPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: GP
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasGroup
+          suggested_datatype: xsd:string
+          rationale: bus_section 값이 GP로 주어져 계통/섹션 구분 정보로 보존 필요
+      free_notes:
+      - raw_text: VCB 3P
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasPoleCount
+          suggested_datatype: xsd:string
+          rationale: 3P는 극수 표기이며 장비 사양으로 보존 가치가 있음
+      - raw_text: 7.2kV 600A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasVoltageAndCurrentRating
+          suggested_datatype: xsd:string
+          rationale: 전압(kV)과 전류(A) 정격이 함께 표기된 장비 사양
+      - raw_text: 250MVA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasBreakingCapacity
+          suggested_datatype: xsd:string
+          rationale: 차단 관련 정격으로 보이는 용량 표기이나 단독 해석은 보류
+      - raw_text: 2×CT 100/5A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCTRatio
+          suggested_datatype: xsd:string
+          rationale: CT 비율과 수량이 함께 표기된 보호계측 사양
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionDevice
+          suggested_datatype: xsd:string
+          rationale: 보호계전기/보호장치 명칭으로 보이는 장비 표기
+      - raw_text: 50/51
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionFunctions
+          suggested_datatype: xsd:string
+          rationale: 보호 기능 코드로 보이는 ANSI 계열 표기
+      - raw_text: SA 9kV 5kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasSurgeArresterRating
+          suggested_datatype: xsd:string
+          rationale: SA와 함께 전압/전류 정격이 표기된 부속 사양
+      - raw_text: 6.6kV CNCV W 100SQ 1C×1LINE(CABLE TRAY)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 전압, 종류, 굵기, 심수, 포설 방식이 함께 표기됨
+      - raw_text: middle-left
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: VCB
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 나타난 장비 심볼 정보
+      - raw_text: CT
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 나타난 장비 심볼 정보
+      - raw_text: SA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 나타난 장비 심볼 정보
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 나타난 장비 심볼 정보
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification_by_electrical_specialization
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + specs/relations
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_plan + ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 5
+      method: specs.bus_section
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels, equipment_symbols, position
+    provenance:
+      source_pages:
+      - 5
+      method: entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:10:28.738867'
+  confidence: 0.6

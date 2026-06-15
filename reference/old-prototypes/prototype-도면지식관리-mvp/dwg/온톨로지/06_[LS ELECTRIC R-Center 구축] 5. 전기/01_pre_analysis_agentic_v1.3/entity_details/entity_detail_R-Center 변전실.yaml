@@ -1,0 +1,51 @@
+entity_detail:
+  tag: R-Center 변전실
+  type: room_or_space
+  specs:
+    location:
+      value: 평면도 우측 상단
+      source: page 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page 4 executive_summary
+    page_number: 4
+    text: 옥외 전력간선설비 인입 배치도
+  - source: page 4 executive_summary
+    page_number: 4
+    text: 옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와 지중
+      인입 경로를 보여준다.
+  - source: page 4 equipment
+    page_number: 4
+    text: R-Center 변전실
+  requirements:
+  - text: UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결됨
+    source: page 4 executive_summary
+    type: connection_requirement
+  connection_specs:
+  - relation: connected_from
+    partner: UT동 1층 변전실
+    details:
+      source: page 4 executive_summary
+      text: UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결
+  - relation: receives_power_cable_from
+    partner: UT동 1층 변전실
+    details:
+      source: page 4 executive_summary
+      text: UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_from
+      partner_tag: SP-UT-PS
+      direction: from SP-UT-PS to R-Center 변전실
+      source: page 4 executive_summary
+    observed_attributes:
+    - location
+    - 6.6kV 전력케이블 연결
+    similar_equipment: []
+    suggested_parent_class: ElectricalRoom
+    cross_discipline:
+    - ELECTRICAL
+    - ARCHITECTURAL
+  notes:
+  - 도면에서 R-Center 변전실 자체의 면적, 치수, 내부 사양은 확인되지 않음.
+tag: R-Center 변전실

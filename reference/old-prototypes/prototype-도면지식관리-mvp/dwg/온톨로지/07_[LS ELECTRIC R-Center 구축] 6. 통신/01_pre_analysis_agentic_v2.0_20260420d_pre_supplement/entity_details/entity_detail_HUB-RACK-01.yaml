@@ -1,0 +1,86 @@
+tag: HUB-RACK-01
+name: 정보통신 허브랙
+type: communication_equipment
+discipline: COMMUNICATION
+function_category: COMMUNICATION_RACK
+source_pages:
+- 4
+specs:
+  raw_labels:
+  - HUB RACK - 1 (RACK TYPE)
+  - 'IN : 12CORE'
+  - 'DATA OUT : 26PORT'
+  - FDF 형 FDF(SM) 12CORE
+  - IDF-1
+  - SPKSP-1
+  - 'VOICE : 25P'
+  - 'DATA : 10P'
+  panel_id: HUB-RACK-01
+  shape: rectangle
+  labels_inside:
+  - HUB RACK - 1 (RACK TYPE)
+  - 'IN : 12CORE'
+  - 'DATA OUT : 26PORT'
+  - FDF 형 FDF(SM) 12CORE
+  labels_above:
+  - IDF-1
+  - SPKSP-1
+  - 'VOICE : 25P'
+  - 'DATA : 10P'
+  labels_below:
+  - 정보통신용 맨홀
+  - 1,700 × 800 × 1,100mm
+  equipment_symbols:
+  - type: rack_cabinet
+    count: 1
+  - type: FDF
+    count: 1
+  inferred_name: 정보통신 허브랙 (IDF-1, FDF 포함)
+  position: center-left
+relations:
+- from: TUNNEL-DUCT-01
+  to: HUB-RACK-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: IN TRAY, 기존 공동구 CABLE TRAY 사용
+- from: HUB-RACK-01
+  to: ROOM-COMM-1F
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 사무동 지하1층 평면도 참조
+- from: HUB-RACK-01
+  to: ROOM-BROAD-1F
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: 사무동 지하1층 평면도 참조
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-left
+equipment_symbols:
+- type: rack_cabinet
+  count: 1
+- type: FDF
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - panel_id
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  similar_equipment: []
+  function_candidates:
+  - Data Distribution
+  - Voice Distribution
+  - Fiber Termination
+  - Network Hub

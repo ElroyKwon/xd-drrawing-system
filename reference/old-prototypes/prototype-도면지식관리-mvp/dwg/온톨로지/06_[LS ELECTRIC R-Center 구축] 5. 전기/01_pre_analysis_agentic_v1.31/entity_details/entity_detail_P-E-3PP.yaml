@@ -1,0 +1,122 @@
+entity_detail:
+  tag: P-E-3PP
+  type: Power Panelboard
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 20
+      confidence: 0.92
+    main_cb:
+      value: MCCB 3P 50/20AT (380V)
+      unit: null
+      source: page 20
+      confidence: 0.85
+    spd:
+      value: 3Ø S.P.D 40KA/mode
+      unit: null
+      source: page 20
+      confidence: 0.85
+    branch_circuits:
+      value: MCCB 4개 + CBR 다수 (고온, H/DC PWR, 전원/부하대, drying oven, 가압 TPC 등)
+      unit: null
+      source: page 20
+      confidence: 0.85
+    incoming_phase_wire:
+      value: R S T N (3상 4선)
+      unit: null
+      source: page 20
+      confidence: 0.92
+    supply_voltage:
+      value: 380V
+      unit: V
+      source: page 20
+      confidence: 0.85
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: P-E-3PP 분전반 (1층 환경시험실)
+  - source: page 20
+    page_number: 20
+    text: 'COVER TYPE: 노출형(STEEL), MAIN C.B: MCCB 3P 50/20AT (380V), SPD: 3Ø S.P.D
+      40KA/mode, 분기: MCCB 4개 + CBR 다수 (고온, H/DC PWR, 전원/부하대, drying oven, 가압 TPC 등),
+      인입: R S T N (3상 4선)'
+  - source: page 20
+    page_number: 20
+    text: 전기실에서 7개 분전반(P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP)으로
+      독립 방사형 공급
+  - source: page 20
+    page_number: 20
+    text: 모든 분전반은 공통 접지점 E3에 연결
+  - source: page 20
+    page_number: 20
+    text: 1층 환경시험실
+  - source: page 20
+    page_number: 20
+    text: 고온, H/DC PWR, 전원/부하대, drying oven, 가압 TPC 등
+  requirements:
+  - text: 노출형(STEEL) 커버 타입
+    source: page 20
+    type: installation_condition
+  - text: 3Ø S.P.D 40KA/mode
+    source: page 20
+    type: protection_requirement
+  - text: '인입: R S T N (3상 4선)'
+    source: page 20
+    type: electrical_supply_condition
+  - text: 공통 접지점 E3에 연결
+    source: page 20
+    type: grounding_requirement
+  - text: 1층 환경시험실
+    source: page 20
+    type: location_requirement
+  connection_specs:
+  - relation: 전원 공급
+    partner: 전기실
+    details:
+      source: page 20
+      text: 전기실에서 ... P-E-3PP ... 독립 방사형 공급
+  - relation: 접지 연결
+    partner: E3 접지 기준점
+    details:
+      source: page 20
+      text: 모든 분전반은 공통 접지점 E3에 연결
+  - relation: 인입
+    partner: R S T N (3상 4선)
+    details:
+      source: page 20
+      text: '인입: R S T N (3상 4선)'
+  ontology_hints:
+    observed_relations:
+    - relation_type: supply
+      partner_tag: SPACE-ELEC-ROOM
+      direction: from_to
+      source: page 20
+    - relation_type: grounding
+      partner_tag: E3
+      direction: from_to
+      source: page 20
+    - relation_type: located_in
+      partner_tag: SPACE-ENV-TEST
+      direction: UNKNOWN
+      source: page 20
+    observed_attributes:
+    - cover_type
+    - main_cb
+    - spd
+    - branch_circuits
+    - incoming_phase_wire
+    - supply_voltage
+    similar_equipment:
+    - P-A-3PP
+    - P-AC-3PP
+    - P-D-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    suggested_parent_class: Power Panelboard
+    cross_discipline: []
+  notes:
+  - page 20 분석 결과에서 P-E-3PP 관련 정보만 수집함
+  - 분기 회로의 세부 수량은 'CBR 다수'로만 확인됨
+tag: P-E-3PP

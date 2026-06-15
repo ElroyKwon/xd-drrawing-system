@@ -1,0 +1,87 @@
+placement:
+  tag: FG1
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 접근 가능 범위를 나타내는 주석성 정보로 보임.
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 엔티티의 설명/주석 텍스트에 해당할 수 있음.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw header
+    discipline:
+      source_pages:
+      - 0
+      method: input header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred from raw text being a page-availability note
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred from raw text
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: verbatim preservation from raw
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65'
+    source_page: 0
+    reason: 도면 실체인지 문서 주석인지 경계가 있으나, 물리 설비로 볼 근거는 없음.
+    preservation_note: 페이지 목록을 포함한 안내 문구로 보존
+  - field_candidate: discipline_context.sub_kinds.free_notes[1]
+    raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+    source_page: 0
+    reason: 설비 속성으로 승격할 근거가 부족한 안내성 문장.
+    preservation_note: 주석/설명 텍스트로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 FG1의 원문이 설비/부재가 아니라 페이지 안내 문구만 포함하여, AnnotationOnly와 DocumentEntity
+      사이 경계가 있음.
+    recommended_handling: 후속 단계에서 문서 메타/주석 엔티티로 우선 취급하고, 다른 페이지 참조 관계가 발견되면 DocumentEntity
+      또는 NoteOrLegend로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타/주석성 텍스트를 free_notes로 보존
+    - raw 텍스트 전체를 분해하지 않고 원문 그대로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:15.189899'
+  confidence: 0.86

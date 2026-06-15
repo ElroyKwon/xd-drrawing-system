@@ -1,0 +1,126 @@
+page_16_entities:
+- tag: SPEAKER-TB-01
+  name: SPEAKER 단자함
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: CABLE-TRAY-MAIN
+  name: 기존 공동구 통신 CABLE TRAY
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: CABLE-TRAY-SUB
+  name: 기존 통신 TRAY
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: PULLBOX-ZONE
+  name: PULL BOX
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-SPEAKER-CEILING-01
+  name: 스피커 천정형 (3W)
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-SPEAKER-WALL-3W-01
+  name: 컬럼형 SPEAKER (3W)
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-SPEAKER-WALL-10W-01
+  name: 컬럼형 SPEAKER (10W)
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-FAN-ROOM
+  name: FAN ROOM
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-PARKING
+  name: 주차장
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-ELEC
+  name: 전기실
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: SPACE-MECH
+  name: 기계실
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: NOTE-LEGEND
+  name: NOTE 및 LEGEND 섹션
+  type: legend
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: TITLE-BLOCK
+  name: 표제란
+  type: title_block
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: STAMP
+  name: 설계 및 감리 날인란
+  type: stamp
+  discipline: COMMUNICATION
+  confidence: 0.95
+page_16_relations:
+- from: SPEAKER-TB-01
+  to: CABLE-TRAY-MAIN
+  relation: connects_to
+- from: CABLE-TRAY-MAIN
+  to: CABLE-TRAY-SUB
+  relation: connects_to
+- from: CABLE-TRAY-SUB
+  to: PULLBOX-ZONE
+  relation: connects_to
+- from: PULLBOX-ZONE
+  to: UNKNOWN-SPEAKER-CEILING-01
+  relation: connects_to
+- from: PULLBOX-ZONE
+  to: UNKNOWN-SPEAKER-WALL-3W-01
+  relation: connects_to
+- from: PULLBOX-ZONE
+  to: UNKNOWN-SPEAKER-WALL-10W-01
+  relation: connects_to
+- from: NOTE-LEGEND
+  to: SPEAKER-TB-01
+  relation: defines
+- from: NOTE-LEGEND
+  to: UNKNOWN-SPEAKER-CEILING-01
+  relation: defines
+- from: NOTE-LEGEND
+  to: UNKNOWN-SPEAKER-WALL-3W-01
+  relation: defines
+- from: NOTE-LEGEND
+  to: UNKNOWN-SPEAKER-WALL-10W-01
+  relation: defines
+- from: NOTE-LEGEND
+  to: PULLBOX-ZONE
+  relation: defines
+- from: TITLE-BLOCK
+  to: NOTE-LEGEND
+  relation: adjacent_to
+- from: SPACE-PARKING
+  to: UNKNOWN-SPEAKER-CEILING-01
+  relation: contains
+- from: SPACE-PARKING
+  to: UNKNOWN-SPEAKER-WALL-3W-01
+  relation: contains
+- from: SPACE-PARKING
+  to: UNKNOWN-SPEAKER-WALL-10W-01
+  relation: contains
+- from: SPACE-PARKING
+  to: PULLBOX-ZONE
+  relation: contains
+- from: SPACE-FAN-ROOM
+  to: SPEAKER-TB-01
+  relation: adjacent_to
+- from: SPACE-ELEC
+  to: SPACE-MECH
+  relation: adjacent_to

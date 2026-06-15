@@ -1,0 +1,100 @@
+tag: LEGEND-CABLE
+name: 전선 및 전선관 범례
+type: legend
+discipline: MECHANICAL
+function_category: UNKNOWN
+source_pages:
+- 53
+specs:
+  legend_content:
+    entries:
+    - key: A
+      cable_type: CV
+      spec: V 2.5 3C
+      note: 전력 케이블 (CV 2.5mm² 3심)
+    - key: B
+      cable_type: C3052
+      spec: 0.6/1P 또는 4P
+      note: 제어 신호 케이블 (UTP 포함 가능)
+    - key: UTP
+      cable_type: UTP
+      spec: 4P
+      note: 통신/신호 케이블
+  raw_labels:
+  - 전선 및 전선관
+  - KEY
+  - CV
+  - C3052
+  - UTP
+  - V 2.5 3C
+  - 0.6/1P
+  - 4P
+  - A (원형 KEY 식별자)
+  - B (원형 KEY 식별자)
+  - 전선 및 전선관 (범례 제목)
+  title: 전선 및 전선관
+  key_label: KEY
+  entries:
+  - key: A
+    cable_type: CV
+    spec: V 2.5 3C
+    note: 전력 케이블
+  - key: B
+    cable_type: C3052
+    spec: 0.6/1P
+    note: 제어 신호 케이블
+  - key: UTP
+    cable_type: UTP
+    spec: 4P
+    note: 통신/신호 케이블
+  source_note: 우하단 범례 박스
+relations:
+- from: SMFD-01
+  to: LEGEND-CABLE
+  relation: references
+  source_page: 53
+  origin: cross_validated
+  line_style: dashed
+  note: '범례 참조 관계 (전선 규격 A 적용: CV V 2.5 3C)'
+- from: SMFD-02
+  to: LEGEND-CABLE
+  relation: references
+  source_page: 53
+  origin: cross_validated
+  line_style: dashed
+  note: '범례 참조 관계 (전선 규격 B 적용: C3052 0.6/1P 또는 UTP 4P)'
+- from: SMFD-01
+  to: LEGEND-CABLE
+  relation: signal
+  source_page: 53
+  origin: visual_semantics
+  annotation: 범례 참조 관계 (전선 규격 A/B 적용)
+- from: SMFD-02
+  to: LEGEND-CABLE
+  relation: signal
+  source_page: 53
+  origin: visual_semantics
+  annotation: 범례 참조 관계 (전선 규격 A/B 적용)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-right
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: DrawingLegend
+  observed_attributes:
+  - legend_content
+  - raw_labels
+  - title
+  - key_label
+  - entries
+  - source_note
+  similar_equipment: []
+  function_candidates:
+  - cable_specification
+  - wiring_legend

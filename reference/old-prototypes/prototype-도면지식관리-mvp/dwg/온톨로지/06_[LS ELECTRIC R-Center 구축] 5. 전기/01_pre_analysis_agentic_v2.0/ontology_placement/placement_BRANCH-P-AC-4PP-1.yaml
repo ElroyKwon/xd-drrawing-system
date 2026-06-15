@@ -1,0 +1,300 @@
+placement:
+  tag: BRANCH-P-AC-4PP-1
+  name: P-AC-4PP-1 분기회로
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:BRANCH-P-AC-4PP-1
+    class_hint: ElectricalCircuit
+    alternative_class_hints:
+    - Load
+    - BranchCircuit
+    - MCCBBranch
+    related_assertions:
+    - type: feeds
+      target_hint: P-AC-4PP-1
+      note: source_detail.relations에 명시된 전원/공급 관계 원형
+    - type: is_contained_in
+      target_hint: P-AC-4PP-1
+      note: specs.parent_panel 기준 종속 관계 후보
+    - type: contains
+      target_hint: MCCB(125AT/125AF, 3P)
+      note: branch_circuits에 포함된 분기 차단기 원형
+    - type: contains
+      target_hint: MCCB(75AT/125AF, 3P, SP)
+      note: branch_circuits에 포함된 서지보호기 분기 원형
+    applicable_axioms:
+    - AX_INV_03
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalCircuit
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-17T13:26:19.626981'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 'type: LOAD / function_category: LOAD'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열이 명시되어 있으나 supplement의 다른 sub_kind에 해당하지 않음
+      - raw_text: 'parent_panel: P-AC-4PP-1'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: isPartOfPanel
+          suggested_datatype: xsd:string
+          rationale: 분기회로가 상위 패널에 종속됨을 나타내는 구조 정보
+      - raw_text: 'parent_panel_location: 1층 대용량 모터부하실(방음)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasLocation
+          suggested_datatype: xsd:string
+          rationale: 설치 위치를 나타내는 공간 정보
+      - raw_text: 'voltage: 440V'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 표기 값
+      - raw_text: 'phase: 3Ø'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasPhase
+          suggested_datatype: xsd:string
+          rationale: 상수 표기 값
+      - raw_text: 'branch_circuits: 2 circuits; MCCB 125AT/125AF 3P, MCCB 75AT/125AF
+          3P SP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitCount
+          suggested_datatype: xsd:integer
+          rationale: 분기회로 수와 차단기 정격/극수 정보가 함께 표기됨
+      - raw_text: 'source_annotation: 분기 MCCB 회로 (125AT/3P, 75AT/125AF SP)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSourceAnnotation
+          suggested_datatype: xsd:string
+          rationale: 도면 주석 원문
+      - raw_text: 'note: 파싱 오류 수정 (원본 af:3 → af:125, poles:3로 정정)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasCorrectionNote
+          suggested_datatype: xsd:string
+          rationale: 원본 파싱 오류와 정정 내용이 함께 기록됨
+      - raw_text: 'note: 서지보호기 분기'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchNote
+          suggested_datatype: xsd:string
+          rationale: 분기 회로의 용도 설명
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: isCrossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 출처 검증 상태
+      - raw_text: 'confidence: 0.7'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 수치
+      - raw_text: 'source_attribution.sonnet: true, gemini: false, mini: false'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처 모델 귀속 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: ElectricalCircuit'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문
+      - raw_text: 'ontology_hints.function_candidates: PowerDistribution'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: 'specs.total_branch_circuits: 2'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasTotalBranchCircuits
+          suggested_datatype: xsd:integer
+          rationale: 총 분기회로 수
+      - raw_text: 'specs.branch_circuits[0]: circuit_id=회로, at=125, af=125, poles=3,
+          type=MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpec
+          suggested_datatype: xsd:string
+          rationale: 개별 분기 회로 사양
+      - raw_text: 'specs.branch_circuits[1]: circuit_id=SP, at=75, af=125, poles=3,
+          type=MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpec
+          suggested_datatype: xsd:string
+          rationale: 개별 분기 회로 사양
+      - raw_text: 'specs.source_annotation: 분기 MCCB 회로 (125AT/3P, 75AT/125AF SP)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSourceAnnotation
+          suggested_datatype: xsd:string
+          rationale: 도면 주석 원문
+      - raw_text: 'specs.parent_panel_location: 1층 대용량 모터부하실(방음)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasLocation
+          suggested_datatype: xsd:string
+          rationale: 공간 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 22
+    name:
+      source_pages:
+      - 22
+    discipline:
+      source_pages:
+      - 22
+    ontology_core.owl_role:
+      source_pages:
+      - 22
+    ontology_core.iri_hint:
+      source_pages:
+      - 22
+    ontology_core.class_hint:
+      source_pages:
+      - 22
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 22
+    ontology_core.related_assertions:
+      source_pages:
+      - 22
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 22
+    specs.parent_panel:
+      source_pages:
+      - 22
+    specs.parent_panel_location:
+      source_pages:
+      - 22
+    specs.voltage:
+      source_pages:
+      - 22
+    specs.phase:
+      source_pages:
+      - 22
+    specs.branch_circuits:
+      source_pages:
+      - 22
+    specs.total_branch_circuits:
+      source_pages:
+      - 22
+    specs.source_annotation:
+      source_pages:
+      - 22
+    relations:
+      source_pages:
+      - 22
+    collection_sources.cross_validated:
+      source_pages:
+      - 22
+    confidence:
+      source_pages:
+      - 22
+    source_attribution:
+      source_pages:
+      - 22
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 22
+    ontology_hints.function_candidates:
+      source_pages:
+      - 22
+  unresolved:
+  - field_candidate: specs.branch_circuits[0].circuit_id
+    raw_text: 회로
+    source_page: 22
+    reason: 고유 식별자라기보다 일반명으로 보이며, 개별 회로명인지 OCR 축약인지 불명확함
+    preservation_note: 원문 그대로 보존
+  - field_candidate: specs.branch_circuits[0].note
+    raw_text: 파싱 오류 수정 (원본 af:3 → af:125, poles:3로 정정)
+    source_page: 22
+    reason: 원본 오류와 정정이 함께 포함되어 있어 정규화 전 원문 보존 필요
+    preservation_note: 정정 전후 값 모두 보존
+  - field_candidate: specs.branch_circuits[1].circuit_id
+    raw_text: SP
+    source_page: 22
+    reason: 약어 의미가 도면 내에서 직접 정의되지 않음
+    preservation_note: 서지보호기 분기 표기로 추정되나 확정 불가
+  - field_candidate: specs.branch_circuits[1].note
+    raw_text: 서지보호기 분기
+    source_page: 22
+    reason: 설명 문구이지만 정식 속성으로 승격 전 원문 보존
+    preservation_note: 분기 용도 설명
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ElectricalCircuit
+    source_page: 22
+    reason: 힌트 값이지만 이 단계에서 class 확정 불가
+    preservation_note: 후속 taxonomy 단계에서 검토
+  - field_candidate: ontology_hints.function_candidates[0]
+    raw_text: PowerDistribution
+    source_page: 22
+    reason: 기능 후보 문자열이며 정식 분류 아님
+    preservation_note: 기능 후보로만 유지
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: false, mini: false'
+    source_page: 22
+    reason: 출처 모델 귀속 정보의 구조화 방식 미확정
+    preservation_note: 모델 귀속 메타데이터로 보존
+  - field_candidate: collection_sources.cross_validated
+    raw_text: 'true'
+    source_page: 22
+    reason: 검증 상태는 있으나 관계/속성으로 승격 여부 미정
+    preservation_note: 검증 플래그로 보존
+  - field_candidate: confidence
+    raw_text: '0.7'
+    source_page: 22
+    reason: 추출 신뢰도 값이지만 본 배치의 핵심 분류값은 아님
+    preservation_note: 메타 신뢰도 보존
+  - field_candidate: relations[0]
+    raw_text: 'from: P-AC-4PP-1, to: BRANCH-P-AC-4PP-1, relation: feeds'
+    source_page: 22
+    reason: 관계 방향은 있으나 정확한 property IRI는 후속 단계에서 확정
+    preservation_note: 관계 원형 보존
+  - field_candidate: specs.source_annotation
+    raw_text: 분기 MCCB 회로 (125AT/3P, 75AT/125AF SP)
+    source_page: 22
+    reason: 주석 문자열이지만 구조화된 속성으로 완전 분해하지 않음
+    preservation_note: 원문 주석 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 BRANCH-*이지만 specs와 주석상 분기회로/LOAD 성격이 함께 나타나며, 독립 설비인지 패널 종속 회로인지 경계가
+      모호함
+    recommended_handling: 0-9b에서는 NamedIndividual로 유지하되, 0-9c/0-9d에서 ElectricalCircuit
+      또는 BranchCircuit 하위로 정리하고 parent_panel 관계를 우선 반영
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 패널 종속 관계(parent_panel) 구분
+    - 분전반 내부 분기회로를 패널의 종속 요소로 취급
+    deviations:
+    - BRANCH-* 엔티티를 독립 Individual로 보존하되, 분기회로 종속성을 함께 기록함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:00.834396'
+  confidence: 0.7

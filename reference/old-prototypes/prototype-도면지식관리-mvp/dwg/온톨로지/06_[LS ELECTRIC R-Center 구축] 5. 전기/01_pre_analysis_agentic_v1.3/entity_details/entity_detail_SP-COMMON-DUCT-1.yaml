@@ -1,0 +1,66 @@
+entity_detail:
+  tag: SP-COMMON-DUCT-1
+  type: equipment
+  specs:
+    existing_tray_use:
+      value: 기존 TRAY 사용
+      unit: null
+      source: page 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page 4 executive_summary
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와
+      지중 인입 경로를 보여준다.
+
+
+      공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개, 지중선표시기,
+      SECTION 1·2 단면 상세가 포함된다.
+
+
+      우측에는 지하공동구 현황도 사진 1장이 있으며, A동 지상1층 인버터 시험센타와 A동 지하1층 전기실 방향의 연결도 함께 보인다.'
+  - source: page 4 equipment list
+    page_number: 4
+    text: 'tag: SP-COMMON-DUCT-1
+
+      name: 공동구
+
+      spec: 기존 TRAY 사용
+
+      discipline: ARCHITECTURAL
+
+      function_category: BOUNDARY
+
+      location: 평면도 좌측
+
+      confidence: 0.98'
+  requirements:
+  - text: 기존 TRAY 사용
+    source: page 4
+    type: operational_condition
+  connection_specs:
+  - relation: 기존 TRAY 경로를 통한 연결
+    partner: SP-RCENTER-PS
+    details:
+      source: page 4 search result
+  ontology_hints:
+    observed_relations:
+    - relation_type: connection
+      partner_tag: SP-RCENTER-PS
+      direction: SP-COMMON-DUCT-1 -> SP-RCENTER-PS
+      source: page 4 search result
+    observed_attributes:
+    - existing_tray_use
+    - location
+    - discipline
+    - function_category
+    similar_equipment:
+    - SP-COMMON-DUCT-2
+    - SP-COMMON-DUCT-3
+    suggested_parent_class: ArchitecturalSpace
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - 도면에서 확인 가능한 사양은 '기존 TRAY 사용'뿐이다.
+tag: SP-COMMON-DUCT-1

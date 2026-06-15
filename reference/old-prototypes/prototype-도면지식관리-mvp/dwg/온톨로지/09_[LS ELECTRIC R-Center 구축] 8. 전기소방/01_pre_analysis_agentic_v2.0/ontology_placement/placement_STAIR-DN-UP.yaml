@@ -1,0 +1,134 @@
+placement:
+  tag: STAIR-DN-UP
+  name: 계단 방향 표시
+  discipline: electrical
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:STAIR-DN-UP
+    class_hint: DirectionIndicator
+    alternative_class_hints:
+    - StairwayNavigation
+    - SpatialElement
+    - DocumentAnnotation
+    related_assertions: []
+    applicable_axioms:
+    - AX022
+    - AX025
+    - AX026
+    applicable_constraints:
+    - CN001
+    - CN003
+    - CN004
+    - CN011
+    confirmed_class: dks:DrawingInformationEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: 계단 방향 표시
+        source_page: 13
+      - raw_text: DN
+        source_page: 13
+      - raw_text: UP
+        source_page: 13
+      free_notes:
+      - raw_text: 'shape: rectangle'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도면 객체의 형상이 rectangle로 관찰됨
+      - raw_text: 'labels_inside: DN, UP'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 텍스트가 명시적으로 관찰됨
+      - raw_text: 'position: grid 4-5, B-C'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 그리드 좌표 형태의 위치 정보가 관찰됨
+      - raw_text: 'note: 계단 방향 표시 DN/UP 포함'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 주석 텍스트가 직접 관찰됨
+      - raw_text: 'raw_labels: DN, UP'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존 필요
+      - raw_text: 'inferred_name: 계단 방향 표시'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 필드가 존재함
+  provenance:
+    tag:
+      source_pages:
+      - 13
+      method: entity_detail
+    name:
+      source_pages:
+      - 13
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: placement_inference_from_annotation_like_symbol
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class + function_candidates
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates + observed_attributes
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 13
+      method: labels_inside + inferred_name + note
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 13
+      method: specs + ontology_hints observed_attributes
+    confidence:
+      source_pages:
+      - 13
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Applied placement focus by treating the tag as an annotation-like spatial marker
+      rather than a physical equipment entity.
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:00:19.493053'
+  confidence: 0.95

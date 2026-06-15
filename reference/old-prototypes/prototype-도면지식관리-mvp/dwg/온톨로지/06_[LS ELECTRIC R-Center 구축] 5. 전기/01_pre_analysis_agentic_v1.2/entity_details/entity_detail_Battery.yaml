@@ -1,0 +1,69 @@
+entity_detail:
+  tag: Battery
+  type: equipment
+  specs:
+    capacity:
+      value: 150 AH
+      unit: AH
+      source: page 5
+      confidence: 0.95
+    battery_spec_text:
+      value: 150AH 무보수 무누액 2V 55CELL 완전 밀폐형
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 'spec: 150AH 무보수 무누액 2V 55CELL 완전 밀폐형'
+  - source: page 3
+    page_number: 3
+    text: Battery
+  requirements:
+  - text: 무보수 무누액
+    source: page 5
+    type: maintenance
+  - text: 완전 밀폐형
+    source: page 5
+    type: construction
+  - text: 2V 55CELL
+    source: page 5
+    type: electrical_spec
+  connection_specs:
+  - relation: feeds
+    partner: LV_PNL
+    details:
+      source: page 5
+  - relation: feeds
+    partner: HV_PNL
+    details:
+      source: page 5
+  - relation: feeds
+    partner: RECTIFIER
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: LV_PNL
+      direction: Battery -> LV_PNL
+      source: page 5
+    - relation_type: feeds
+      partner_tag: HV_PNL
+      direction: Battery -> HV_PNL
+      source: page 5
+    - relation_type: feeds
+      partner_tag: RECTIFIER
+      direction: RECTIFIER -> BATTERY
+      source: page 5
+    observed_attributes:
+    - 150 AH
+    - 150AH 무보수 무누액 2V 55CELL 완전 밀폐형
+    similar_equipment:
+    - Battery
+    suggested_parent_class: Battery
+    cross_discipline: []
+  notes:
+  - page 3는 범례/주기사항 페이지로, Battery는 범례 항목으로만 보임.
+  - page 5에서 Battery 관련 사양 및 연결 관계가 확인됨.
+tag: Battery

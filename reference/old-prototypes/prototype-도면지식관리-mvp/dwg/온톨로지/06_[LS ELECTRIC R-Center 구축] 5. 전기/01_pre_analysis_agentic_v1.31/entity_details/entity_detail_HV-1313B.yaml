@@ -1,0 +1,55 @@
+entity_detail:
+  tag: HV-1313B
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    feeder_name:
+      value: 1313B HV 6.6kV 피더 - 냉동기 1호기
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "panel_id: PNL-HV-1313B\nshape: hexagon\nlabels_inside:\n- 1313B\n...\n\
+      annotation: 6.6kV Bus\n- from: PNL-HV-1313A\n  to: PNL-HV-1313B\n  line_type:\
+      \ power_cable\n  line_style: solid\n  annotation: 6.6kV Bus\n...\n- PNL-HV-1312\n\
+      - PNL-HV-1313A\n- PNL-HV-1313B\n- bus_id: BUS-6.6kV-GEN\n  voltage: 6.6kV\n\
+      \  members:"
+  requirements:
+  - text: 6.6kV Bus
+    source: page 5
+    type: electrical_connection_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-HV-1313B
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1313B
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - voltage
+    - feeder_name
+    - annotation
+    - line_type
+    - line_style
+    - labels_inside
+    - panel_id
+    similar_equipment:
+    - HV-1313A
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - page 5 context and search results only; no additional page/image lookup performed.
+tag: HV-1313B

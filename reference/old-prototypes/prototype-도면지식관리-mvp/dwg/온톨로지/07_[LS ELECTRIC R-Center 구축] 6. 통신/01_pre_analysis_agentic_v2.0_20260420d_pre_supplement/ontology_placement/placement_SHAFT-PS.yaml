@@ -1,0 +1,162 @@
+placement:
+  tag: SHAFT-PS
+  name: PS
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:SHAFT-PS
+    class_hint: Shaft
+    alternative_class_hints:
+    - VerticalPassage
+    - CableShaft
+    - PipeShaft
+    related_assertions: []
+    applicable_axioms:
+    - AX008
+    applicable_constraints: []
+    confirmed_class: dks:Shaft
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'inferred_name: PS (Pipe Shaft)'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 도면 내 추론명 표기
+      - raw_text: 'raw_labels: PS'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면에 직접 표기된 라벨
+      - raw_text: 'labels_inside: PS'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기
+      - raw_text: 'function_candidates: Vertical passage for communication cables'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문구
+      - raw_text: 'function_candidates: Pipe space for communication infrastructure'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문구
+      - raw_text: 'suggested_parent_class: Shaft'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology hint 원문
+      - raw_text: 'similar_equipment: EPS'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 태그 참조
+      - raw_text: 'similar_equipment: TPS'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 태그 참조
+  provenance:
+    tag:
+      source_pages:
+      - 15
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 15
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 15
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 15
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 15
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 15
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 15
+      method: ontology_hints.similar_equipment + function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 15
+      method: preserve_all_unclassified_fields
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 15
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 15
+      method: ontology_plan.review
+  unresolved:
+  - field_candidate: specs.inferred_name
+    raw_text: PS (Pipe Shaft)
+    source_page: 15
+    reason: 추론명은 관찰값이지만 정규 class/property로 확정 불가
+    preservation_note: 후속 단계에서 name/annotation 후보로 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Vertical passage for communication cables
+    source_page: 15
+    reason: 기능 설명이지만 표준화된 속성으로 확정 불가
+    preservation_note: 기능 주석 또는 공간/샤프트 설명으로 승격 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Pipe space for communication infrastructure
+    source_page: 15
+    reason: 기능 설명이지만 표준화된 속성으로 확정 불가
+    preservation_note: 기능 주석 또는 공간/샤프트 설명으로 승격 가능
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: EPS
+    source_page: 15
+    reason: 유사 태그 참조이나 관계 유형 미확정
+    preservation_note: merge/compare 후보로 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: TPS
+    source_page: 15
+    reason: 유사 태그 참조이나 관계 유형 미확정
+    preservation_note: merge/compare 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PS가 Pipe Shaft로 해석되지만, 도면 원문에는 SHAFT와 PS만 관찰되며 실제 물리 샤프트인지 주석성 라벨인지 단정할
+      추가 관계가 없음
+    recommended_handling: NamedIndividual로 보존하되, 후속 단계에서 Shaft/SpatialEntity 계열 후보를
+      검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'dominant_equipment_types: Space/Zone 및 Cable/Route/Containment 경향 반영'
+    - 'expected_object_properties: locatedOnPage, belongsToSystem, routesThrough 관련
+      관찰 가능성 고려'
+    deviations:
+    - 관계가 없어 related_assertions를 비워두고, 관찰된 텍스트/힌트만 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:30.808346'
+  confidence: 0.78

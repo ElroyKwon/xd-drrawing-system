@@ -1,0 +1,76 @@
+tag: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+name: 수평도체
+type: entity
+discipline: ELECTRICAL
+function_category: GROUNDING_CONDUCTOR
+source_pages:
+- 38
+specs:
+  material: STS 환봉 8㎜
+  installation_pattern: 지붕 외곽 및 내부 배선
+  legend_symbol: ⑤ ---------
+  diameter_mm: 8
+  support_fixture_interval_m: 1
+  legend_reference: ⑤
+  line_style: 실선
+  applicable_standards:
+  - 한국전기설비규정(KEC) 150 피뢰시스템
+  - KS C IEC 62305
+relations:
+- from: UNKNOWN-LIGHTNING-ROD-001
+  to: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: solid
+  note: 수평도체 (STS 환봉 8㎜) - 피뢰침에서 지붕 외곽으로 연결
+- from: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  to: UNKNOWN-STRUCTURAL-CONNECTION-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: solid
+  note: 수평도체에서 구조체 접속점(철근/철골)으로 연결
+- from: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  to: UNKNOWN-STRUCTURE-CONTACT-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: solid
+  note: 수평도체에서 구조물 접속으로 연결
+- from: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  to: UNKNOWN-SUPPORT-FIXTURE-001
+  relation: supported_by
+  source_page: 38
+  origin: cross_validated
+  line_style: solid
+  note: 지지금구가 1m 간격으로 수평도체를 지지
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: center-left
+confidence: 0.95
+equipment_symbols:
+- type: horizontal_conductor_STS_round_bar_8mm
+  count: 1
+- type: horizontal_conductor_line
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingConductor
+  observed_attributes:
+  - material
+  - installation_pattern
+  - legend_symbol
+  - diameter_mm
+  - support_fixture_interval_m
+  - legend_reference
+  - line_style
+  - applicable_standards
+  similar_equipment: []
+  function_candidates:
+  - LightningProtectionSystemConductor
+  - RoofConductor

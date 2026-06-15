@@ -1,0 +1,99 @@
+placement:
+  tag: UNKNOWN-GROUP-A8
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: unknown:UNKNOWN-GROUP-A8
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - GroupingLabel
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePageList
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 원문 정보이며, 엔티티의 출처 범위를 보존할 수 있음
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아니라 응답 안내 문구로, 주석성 텍스트로 보존 가능
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: raw_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 읽어드리겠습니다.'
+    source_page: 0
+    reason: entity_detail에 tag 외 구조화된 specs/relations/connection_specs/requirements/drawing_texts/ontology_hints/notes/source_pages/source_attribution/position
+      필드가 제공되지 않음
+    preservation_note: 페이지 범위와 안내 문구를 free_notes로 보존함
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag 형식상 그룹/라벨/미확정 엔티티 가능성이 있으나, 실제 도면 관계나 실체 여부를 판단할 구조화 정보가 없음
+    recommended_handling: 후속 단계에서 동일 접두 패턴의 UNKNOWN-GROUP-* 태그들과 함께 검토하고, 페이지 원문이
+      확보되면 그룹/주석/실체 여부를 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그는 실제 의미 미확정으로 두고 raw만 보존
+    - 분류 불가 정보는 free_notes에 promotion_hint와 함께 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:48.876492'
+  confidence: 0.62

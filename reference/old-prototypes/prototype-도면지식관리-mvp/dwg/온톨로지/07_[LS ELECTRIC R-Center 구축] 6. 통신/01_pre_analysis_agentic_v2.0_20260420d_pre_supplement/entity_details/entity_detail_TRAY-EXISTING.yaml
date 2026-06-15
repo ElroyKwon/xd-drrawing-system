@@ -1,0 +1,47 @@
+tag: TRAY-EXISTING
+name: 기존 통신 TRAY
+type: entity
+discipline: COMMUNICATION
+function_category: CABLE_TRAY
+source_pages:
+- 9
+specs:
+  raw_labels:
+  - 기존 통신 TRAY
+  label: 기존 통신 TRAY
+relations:
+- from: TRAY-EXISTING
+  to: ROUTE-TO-2F-SERVER
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: FIBER OPTICAL S.M 12CORE (IN TRAY), 기존 CABLE 포설
+- from: TRAY-EXISTING
+  to: ROUTE-TO-1F-COMM
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: UTP 0.5mm/25Px1,CAT.5 (IN TRAY), 기존 CABLE 포설
+- from: TRAY-GONGDONG
+  to: TRAY-EXISTING
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: 기존 통신 TRAY 연결
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: center-right
+equipment_symbols:
+- type: cable_tray_existing
+  count: 1
+ontology_hints:
+  suggested_parent_class: CableTray
+  observed_attributes:
+  - raw_labels
+  - label
+  similar_equipment:
+  - TRAY-GONGDONG
+  function_candidates:
+  - Cable Routing
+  - Cable Support

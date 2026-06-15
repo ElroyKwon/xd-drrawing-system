@@ -1,0 +1,141 @@
+placement:
+  tag: GRP-GENERAL-WALL
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GRP-GENERAL-WALL
+    class_hint: GroupingEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions:
+    - type: contains
+      target_hint: W1
+      note: GRP-GENERAL-WALL contains W1
+      confirmed_property: dks:contains
+      confirmed_target: dks:W1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX009
+    - AX014
+    applicable_constraints:
+    - CN014
+    - CN015
+    confirmed_class: dks:GroupingEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: contains relation to W1
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: 그룹 태그가 W1을 포함하는 관계가 도면에서 직접 관찰됨
+      - raw_text: cross_validated
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: sourceValidationStatus
+          suggested_datatype: xsd:string
+          rationale: 관계 출처가 cross_validated로 표기됨
+      - raw_text: 'line_style: null'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: lineStyle
+          suggested_datatype: xsd:string
+          rationale: 관계 메타에 선 스타일 정보가 있으나 값이 null로 관찰됨
+      - raw_text: 'note: null'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 메타에 note 필드가 있으나 값이 null로 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 34
+      method: direct
+    name:
+      source_pages:
+      - 34
+      method: absent_in_source
+    discipline:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 34
+      method: inferred_from_group_tag_and_contains_relation
+    ontology_core.iri_hint:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 34
+      method: inferred_from_ontology_plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 34
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 34
+      method: direct
+    orphan_relations:
+      source_pages:
+      - 34
+      method: direct
+    ambiguous:
+      source_pages:
+      - 34
+      method: inferred
+    merge_info:
+      source_pages:
+      - 34
+      method: inferred
+    plan_reference.guidance_applied:
+      source_pages:
+      - 34
+      method: applied
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 name 필드가 없음
+    preservation_note: 빈 값 자체를 보존
+  - field_candidate: relations[0].line_style
+    raw_text: 'null'
+    source_page: 34
+    reason: 관계 메타 값이 null
+    preservation_note: 후속 단계에서 시각적 선 스타일 정보로 복원 가능
+  - field_candidate: relations[0].note
+    raw_text: 'null'
+    source_page: 34
+    reason: 관계 메타 값이 null
+    preservation_note: 후속 단계에서 관계 주석으로 복원 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - group -> contains -> member mark
+    - member mark / group 계열의 구조적 문맥 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:20.395731'
+  confidence: 0.86

@@ -1,0 +1,219 @@
+placement:
+  tag: SMFD-GRP-012
+  name: 고객 접견실 SMFD 그룹
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SMFD-GRP-012
+    class_hint: FireDamperGroup
+    alternative_class_hints:
+    - LogicalGroup
+    - FireProtectionEquipment
+    related_assertions:
+    - type: connects_to
+      target_hint: CTRL-PANEL-1F
+      note: CTRL-PANEL-1F에서 SMFD-GRP-012로 connects_to 관계가 관찰됨
+    applicable_axioms:
+    - AX024
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:EquipmentGroup
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: group'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasGroupType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 group 타입이 명시됨
+      - raw_text: 'function_category: PROTECT'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 보호 기능 범주가 명시됨
+      - raw_text: 'specs.position: center-right / grid B-C / 6-7'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 위치/그리드 정보가 명시됨
+      - raw_text: 'specs.equipment_symbols: type=SMFD_symbol, count=1'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 기호 수량 정보가 명시됨
+      - raw_text: 'specs.inferred_name: 고객 접견실 SMFD 그룹'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 필드가 존재함
+      - raw_text: 'ontology_hints.suggested_parent_class: FireDamperGroup'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 상위 클래스 후보가 제시됨
+      - raw_text: 'ontology_hints.observed_attributes: position, equipment_symbols,
+          inferred_name'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록이 명시됨
+      - raw_text: 'ontology_hints.function_candidates: Smoke Control, Fire Protection'
+        source_page: 51
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 51
+      method: direct
+    name:
+      source_pages:
+      - 51
+      method: direct
+    discipline:
+      source_pages:
+      - 51
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 51
+      method: inferred_from_group_with_symbols_and_relation
+    ontology_core.iri_hint:
+      source_pages:
+      - 51
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 51
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 51
+      method: derived_from_ontology_hints_and_plan
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 51
+      method: direct
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 51
+      method: direct
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 51
+      method: direct
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 51
+      method: direct
+    source_pages:
+      source_pages:
+      - 51
+      method: direct
+    specs.position:
+      source_pages:
+      - 51
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 51
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 51
+      method: direct
+    relations:
+      source_pages:
+      - 51
+      method: direct
+    position:
+      source_pages:
+      - 51
+      method: direct
+    confidence:
+      source_pages:
+      - 51
+      method: direct
+    source_attribution:
+      source_pages:
+      - 51
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 51
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 51
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 51
+      method: direct
+    collection_sources.cross_validated:
+      source_pages:
+      - 51
+      method: direct
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 51
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 51
+      method: direct
+  unresolved:
+  - field_candidate: specs.position
+    raw_text: center-right / grid B-C / 6-7
+    source_page: 51
+    reason: 위치 표현은 관찰 가능하나 정규화된 좌표/공간명으로 단정할 수 없음
+    preservation_note: 원문 위치 문자열을 그대로 보존
+  - field_candidate: specs.equipment_symbols
+    raw_text: 'type: SMFD_symbol, count: 1'
+    source_page: 51
+    reason: 기호 타입은 관찰되나 OWL 속성으로 확정 매핑하지 않음
+    preservation_note: 기호 수량 및 타입 원문 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Smoke Control; Fire Protection
+    source_page: 51
+    reason: 기능 후보는 있으나 확정 분류로 승격하지 않음
+    preservation_note: 후속 taxonomy 단계에서 활용 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: FireDamperGroup
+    source_page: 51
+    reason: 힌트는 있으나 이 단계에서 확정 class로 채택하지 않음
+    preservation_note: class_hint 후보로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: group 태그이지만 SMFD 기호 1개와 제어반 연결 관계가 함께 있어, 단순 논리그룹인지 물리적 장비군인지 텍스트만으로 완전
+      확정이 어려움
+    recommended_handling: NamedIndividual로 존속시키되 0-9c에서 FireDamperGroup 또는 LogicalGroup
+      계열로 재검토하고, 관계는 ObjectPropertyAssertion으로 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - 제어반과 댐퍼 그룹 간의 connects_to 관계 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:28.416092'
+  confidence: 0.85

@@ -1,0 +1,167 @@
+entity_detail:
+  tag: 1302A
+  name: 피더 ID
+  type: equipment
+  specs:
+    feeder_id:
+      value: 1302A
+      source: page 5
+      confidence: 0.99
+    name:
+      value: 피더 ID
+      source: page 5
+      confidence: 0.95
+    discipline:
+      value: ELECTRICAL
+      source: page 5
+      confidence: 0.99
+    voltage_class:
+      value: HV
+      source: page 5
+      confidence: 0.99
+    breaker_type:
+      value: VCB 3P
+      source: page 5
+      confidence: 0.99
+    rated_voltage:
+      value: 7.2kV
+      source: page 5
+      confidence: 0.99
+    rated_current:
+      value: 600A
+      source: page 5
+      confidence: 0.99
+    capacity:
+      value: 25kVA
+      source: page 5
+      confidence: 0.99
+    protection_relay:
+      value: GIPAM
+      source: page 5
+      confidence: 0.99
+    protection_functions:
+      value: 50:51, 67
+      source: page 5
+      confidence: 0.99
+    surge_arrester:
+      value: SA 9kV 5kA
+      source: page 5
+      confidence: 0.99
+    ct_spec:
+      value: 2xCT 100/5A
+      source: page 5
+      confidence: 0.99
+    interlock:
+      value: INTER-LOCK
+      source: page 5
+      confidence: 0.99
+    c1_designation:
+      value: C1
+      source: page 5
+      confidence: 0.85
+    metering_current:
+      value: 1.5mA
+      source: page 5
+      confidence: 0.85
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: '1302A
+
+      HV
+
+      VCB 3P
+
+      7.2kV 600A
+
+      25kVA
+
+      GIPAM
+
+      50:51
+
+      67
+
+      SA
+
+      9kV 5kA
+
+      C1
+
+      2xCT
+
+      100/5A
+
+      1.5mA
+
+      INTER-LOCK'
+  requirements:
+  - text: INTER-LOCK
+    source: page 5
+    type: operational_condition
+  connection_specs:
+  - relation: feeds
+    partner: '6.6kV Bus #1'
+    details:
+      source: search_entity_by_tag(1302A) result, page 5 context
+  - relation: connected_to
+    partner: VCB 3P
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: GIPAM
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: SA
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: 2xCT
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: '6.6kV Bus #1'
+      direction: downstream
+      source: search_entity_by_tag(1302A)
+    observed_attributes:
+    - feeder_id
+    - HV
+    - VCB 3P
+    - 7.2kV 600A
+    - 25kVA
+    - GIPAM
+    - '50:51'
+    - '67'
+    - SA
+    - 9kV 5kA
+    - C1
+    - 2xCT
+    - 100/5A
+    - 1.5mA
+    - INTER-LOCK
+    similar_equipment:
+    - 1301A
+    - 1301B
+    - 1302B
+    - 1303A
+    - 1303B
+    - 1304A
+    - 1304B
+    - 1305A
+    - 1305B
+    - '1306'
+    - '1309'
+    - '1310'
+    - 1311A
+    - 1311B
+    suggested_parent_class: Feeder
+    cross_discipline: []
+  notes:
+  - 도면 이미지에서 1302A 주변 표기를 직접 확인함.
+  - feeds 관계는 검색 결과에 명시된 downstream 방향을 따름.
+  - name 필드는 page 5 context에서 "피더 ID"로 확인됨 (confidence 0.95).
+  - specs 필드는 drawing_texts의 텍스트 정보를 구조화하여 보완함 (모두 page 5 출처).
+tag: 1302A

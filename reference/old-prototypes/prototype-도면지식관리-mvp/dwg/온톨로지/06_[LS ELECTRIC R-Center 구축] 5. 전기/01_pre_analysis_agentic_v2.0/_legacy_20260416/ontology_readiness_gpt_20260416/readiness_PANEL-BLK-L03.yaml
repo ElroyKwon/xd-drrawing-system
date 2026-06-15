@@ -1,0 +1,126 @@
+ontology_readiness:
+  tag: PANEL-BLK-L03
+  verdict: demoted
+  confidence: 0.96
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 2
+    reason: PANEL tag이지만 entity_detail과 page_context에서 확인된 내용은 전열 설비 / 공통 사항 범례 표로,
+      물리 설비가 아니라 도면의 legend panel이다. 따라서 독립 물리 엔티티가 아니라 document_metadata 성격으로 demoted
+      처리한다.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 2
+    convertible: 2
+    ambiguous_attributes: []
+    auxiliary_attributes:
+    - panel_id
+    - shape
+    requirement_attributes: []
+    extracted_attributes:
+    - 전열 설비 / 공통 사항 범례 표
+    - 전열/공통/배선 심볼 일람표
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: entity_detail
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: entity_detail
+      conflict_with: null
+    - key: source_attribution.mini
+      value: false
+      source: entity_detail
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - DocumentMetadata
+    - LegendPanel
+  spatial_context:
+    position: right
+    source_pages:
+    - 3
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      panel_id: BLK-L03
+      shape: rectangle
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - read_page_context.page_003_context.yaml.cross_validated
+  - read_page_context.page_003_context.yaml.visual_sketch
+  - read_page_context.page_003_context.yaml.visual_semantics
+  - read_page_context.page_003_context.yaml.diagram_meta
+  - read_page_context.page_003_context.yaml.legend_candidate
+  - read_page_context.page_003_context.yaml.self_check
+  skipped_fields:
+  - requirements (entity_detail에 없음)
+  - drawing_texts (entity_detail에 없음)
+  - notes (entity_detail에 없음)
+  - ontology_hints.observed_relations (entity_detail에 없음)
+  - connection_specs (entity_detail에 없음)
+  - source_attribution.*_sonnet/*_gemini/*_mini 외 추가 provenance 필드 없음
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :PANEL-BLK-L03 rdf:type :Component ; :partOf :EE-00-002_legend_page
+  owl_export_hints:
+    create_individual: true
+    individual_type: :LegendPanel
+    annotations_to_emit:
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=false
+    - collection_sources.cross_validated=true
+    - confidence=0.9
+    - position=right
+    - source_pages=[3]
+    - specs_full.panel_id=BLK-L03
+    - specs_full.shape=rectangle
+    - extracted_text=전열 설비 / 공통 사항 범례 표
+    - extracted_text=전열/공통/배선 심볼 일람표
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: PANEL-BLK-L03
+discovered_relations: 1

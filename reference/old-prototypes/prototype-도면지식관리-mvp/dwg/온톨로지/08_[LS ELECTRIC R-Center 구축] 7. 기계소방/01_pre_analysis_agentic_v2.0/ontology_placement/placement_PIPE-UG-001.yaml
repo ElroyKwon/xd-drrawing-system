@@ -1,0 +1,199 @@
+placement:
+  tag: PIPE-UG-001
+  name: 지중매립 배관
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PIPE-UG-001
+    class_hint: PipingEntity
+    alternative_class_hints:
+    - UndergroundPiping
+    - FireWaterDistribution
+    - DISTRIBUTE
+    related_assertions:
+    - type: located_in
+      target_hint: SPACE-PIT-001
+      note: source relation from entity_detail.relations; cross_validated
+    applicable_axioms:
+    - AX039
+    - AX041
+    - AX042
+    - AX043
+    applicable_constraints:
+    - CN003
+    - CN016
+    - CN019
+    confirmed_class: dks:PipingEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 지중매립(아스콘, 31.6m³)
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 배관의 시공/매립 방식과 수량성 메모로 보이는 원문 보존
+      - raw_text: 'type: DISTRIBUTE'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: entity_type
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기 보존
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: PipingSystem'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.observed_attributes: note'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: observed_attributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: FireWaterDistribution, UndergroundPiping'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 후보 기능 분류 원문 보존
+      - raw_text: 'source_pages: [6, 11]'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: source_pages
+          suggested_datatype: xsd:integer
+          rationale: 다중 출처 페이지 보존
+      - raw_text: 'confidence: 0.95'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 원문 신뢰도 값 보존
+      - raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: source_attribution
+          suggested_datatype: xsd:string
+          rationale: 출처 귀속 정보 보존
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: collection_sources
+          suggested_datatype: xsd:boolean
+          rationale: 교차검증 여부 보존
+  provenance:
+    tag:
+      source_pages:
+      - 6
+      - 11
+      method: entity_detail
+    name:
+      source_pages:
+      - 6
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 6
+      - 11
+      method: entity_detail
+    type:
+      source_pages:
+      - 6
+      method: entity_detail
+    function_category:
+      source_pages:
+      - 6
+      method: entity_detail
+    source_pages:
+      source_pages:
+      - 6
+      - 11
+      method: entity_detail
+    specs.note:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations.located_in:
+      source_pages:
+      - 6
+      method: cross_validated
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 6
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 6
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 6
+      method: entity_detail
+    collection_sources.cross_validated:
+      source_pages:
+      - 6
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.note
+    raw_text: 지중매립(아스콘, 31.6m³)
+    source_page: 6
+    reason: 수치와 시공 메모가 결합되어 있어 정형 속성으로 단정 불가
+    preservation_note: 원문 그대로 보존; 추후 note 또는 시공/수량 관련 데이터 속성 승격 검토
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: PipingSystem
+    source_page: 6
+    reason: 힌트 값이며 확정 클래스 아님
+    preservation_note: class_hint 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: FireWaterDistribution, UndergroundPiping
+    source_page: 6
+    reason: 복수 후보 기능 분류
+    preservation_note: alternative_class_hints 또는 free_notes로 보존
+  - field_candidate: relations.relation
+    raw_text: located_in
+    source_page: 6
+    reason: 관계 원형은 보존하되 확정 property IRI는 다음 단계에서 결정
+    preservation_note: related_assertions에 원형 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관 계열로 분류하는 guidance
+    - located_in 관계를 관계 원형으로 보존하는 guidance
+    - PipingSystem / UndergroundPiping / FireWaterDistribution 후보를 class_hint 및 alternative_class_hints에
+      반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:04:24.225068'
+  confidence: 0.95

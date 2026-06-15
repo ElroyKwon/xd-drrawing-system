@@ -1,0 +1,116 @@
+placement:
+  tag: H_105
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:H_105
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX035
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 출처 정보이며, 엔티티의 관찰 가능 범위를 보존하는 메타 정보로 승격 가능
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 분석 안내 문구로, 주석/응답성 메타 텍스트로 보존 가능
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: not_present
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_by_raw_text_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guidance_and_raw_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guidance_and_raw_text
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+    ambiguous:
+      source_pages:
+      - 0
+      method: inspection
+    merge_info:
+      source_pages:
+      - 0
+      method: inspection
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 실체 설비 정보가 아니라 페이지 가용성 안내 문구임
+    preservation_note: 주석/안내 텍스트로 보존; 페이지 목록은 provenance 및 free_notes에 반영
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag 형식은 개별 엔티티처럼 보이나 raw에는 설비/관계/수치가 없고, 페이지 안내 문구만 존재하여 AnnotationOnly와
+      DocumentEntity 해석이 경합함
+    recommended_handling: 후속 단계에서 동일 tag의 다른 page evidence가 있으면 DocumentEntity 또는
+      AnnotationOrReferenceEntity로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야에서 raw만 존재하는 엔티티는 AnnotationOrReferenceEntity/DocumentEntity 후보로 우선
+      보존
+    - 페이지 목록과 안내 문구를 free_notes 및 provenance로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:56.445229'
+  confidence: 0.74

@@ -1,0 +1,171 @@
+placement:
+  tag: ZONE-USER
+  name: 사용자구간
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ZONE-USER
+    class_hint: CommunicationZone
+    alternative_class_hints:
+    - WorkAreaZone
+    - SpatialEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX004
+    applicable_constraints:
+    - CN006
+    confirmed_class: dks:CommunicationZone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 사용자구간'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면에 직접 표기된 라벨 문자열
+      - raw_text: 'inferred_name: 사용자구간 (Work Area Zone)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 시각 의미 기반 추정명
+      - raw_text: 'position: bottom-left'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'labels_inside: 사용자구간'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기 라벨
+      - raw_text: 'function_category: WORK_AREA'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 엔티티 기능 분류값
+      - raw_text: 'suggested_parent_class: CommunicationZone'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'similar_equipment: []'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 후보 목록이 비어 있음
+      - raw_text: 'function_candidates: UserConnectivity, WorkAreaZone'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'type: space'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 표기
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 도면 상 분야 표기
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: direct
+    name:
+      source_pages:
+      - 18
+      method: direct
+    discipline:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: inferred_from_space_entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: inferred_from_ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 18
+      method: preserved_raw
+    position:
+      source_pages:
+      - 18
+      method: direct
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: direct
+    function_category:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 공간/구역 엔티티로 보이지만, 도면 내에서 독립 공간인지 사용자 동선/구역 라벨인지 단정할 추가 관계가 없음.
+    recommended_handling: 0-9c에서 SpatialEntity 계열로 검증하고, 필요 시 CommunicationZone 또는
+      WorkAreaZone 후보를 비교 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 축으로 우선 배치
+    - suggested_parent_class와 function_candidates를 후보 class_hint로 보존
+    - 관찰된 값만 기록하고 해석 불가 항목은 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:50.618555'
+  confidence: 0.86

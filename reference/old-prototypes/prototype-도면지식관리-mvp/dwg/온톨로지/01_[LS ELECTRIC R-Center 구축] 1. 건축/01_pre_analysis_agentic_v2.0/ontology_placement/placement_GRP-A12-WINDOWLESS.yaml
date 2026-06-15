@@ -1,0 +1,158 @@
+placement:
+  tag: GRP-A12-WINDOWLESS
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GRP-A12-WINDOWLESS
+    class_hint: Group
+    alternative_class_hints:
+    - PanelGroup
+    - TOCGroup
+    - ContainerGroup
+    related_assertions:
+    - type: contains
+      target_hint: GRP-A12-WINDOWLESS
+      note: TOC-A12가 패널 내 그룹 포함으로 연결됨
+      confirmed_property: dks:contained_in
+      confirmed_target: TOC-A12
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX017
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:Group
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 패널 내 그룹 포함
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: groupMembershipNote
+          suggested_datatype: xsd:string
+          rationale: 그룹 포함 관계를 설명하는 주석성 문구
+      - raw_text: TOC-A12
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 상위 컨테이너 태그가 직접 관찰됨
+      - raw_text: 'relation_type: contains'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 타입이 명시됨
+      - raw_text: 'direction: incoming'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: relationDirection
+          suggested_datatype: xsd:string
+          rationale: 관계 방향 정보가 별도 필드로 존재
+      - raw_text: 'line_style: none'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: lineStyle
+          suggested_datatype: xsd:string
+          rationale: 도면 관계 표현 스타일 정보
+      - raw_text: 'origin: cross_validated'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: assertionProvenanceMethod
+          suggested_datatype: xsd:string
+          rationale: 관계가 교차 검증된 출처임을 나타냄
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_relation_presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_tag_pattern
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_tag_pattern
+    ontology_core.related_assertions:
+      source_pages:
+      - 3
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: direct
+    ambiguous:
+      source_pages:
+      - 3
+      method: assessed
+    plan_reference.guidance_applied:
+      source_pages:
+      - 3
+      method: applied_plan_focus
+  unresolved:
+  - field_candidate: relations.partner
+    raw_text: TOC-A12
+    source_page: 3
+    reason: 관계의 상대 태그는 확인되나, 이 단계에서는 확정 property IRI와 방향성 정규화가 불가
+    preservation_note: contains/incoming 관계 원형으로 보존
+  - field_candidate: relations.relation_type
+    raw_text: contains
+    source_page: 3
+    reason: 관계 타입은 관찰되나 OWL 확정 property는 0-9d 단계에서 결정
+    preservation_note: 원문 relation_type 유지
+  - field_candidate: relations.direction
+    raw_text: incoming
+    source_page: 3
+    reason: 방향 정보는 있으나 정규화된 관계 모델로 변환하지 않음
+    preservation_note: 관계 방향 메타로 보존
+  - field_candidate: relations.line_style
+    raw_text: none
+    source_page: 3
+    reason: 도면 표현 속성으로 보이나 현재 분류 체계에 직접 승격 불가
+    preservation_note: 주석성 메타로 보존
+  - field_candidate: relations.note
+    raw_text: 패널 내 그룹 포함
+    source_page: 3
+    reason: 설명 문구는 있으나 표준 sub_kind가 없어 free_notes로 이동
+    preservation_note: 그룹 포함 설명으로 보존
+  - field_candidate: relations.origin
+    raw_text: cross_validated
+    source_page: 3
+    reason: 출처 검증 방식은 provenance 메타로만 보존 가능
+    preservation_note: 교차 검증 출처 메타
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: GRP-A12-WINDOWLESS는 그룹/패널 내 포함 관계만 관찰되며, 독립 실체인지 패널 하위 구성인지 단정하기 어려움
+    recommended_handling: NamedIndividual로 존속시키되, 후속 단계에서 TOC-A12와의 contains/contained_in
+      정규화 및 class 승격 여부를 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - TOC-A11/TOC-A12와 GRP-* 관계를 목차-그룹 구조로 우선 해석
+    - contains 관계를 중심으로 배치
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:00.198547'
+  confidence: 0.78

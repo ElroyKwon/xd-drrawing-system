@@ -1,0 +1,159 @@
+placement:
+  tag: SPLIT-POINT-1F
+  name: 1층 메인 분기점
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPLIT-POINT-1F
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationDistributionPoint
+    - CommunicationConnectionEntity
+    related_assertions:
+    - type: hasFunction
+      target_hint: SignalDistribution
+      note: specs.note에 main feeder 'F'가 분기되어 distribution lines로 나뉜다고 관찰됨
+    - type: hasFunction
+      target_hint: LineSplitting
+      note: ontology_hints.function_candidates에 제시됨
+    - type: locatedIn
+      target_hint: 1층 F.L
+      note: specs.floor에 기록됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: Physical location where main feeder 'F' splits into distribution
+          lines.
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: noteText
+          suggested_datatype: xsd:string
+          rationale: 설명 문장 형태의 주석이며 설비 기능 설명을 담고 있음
+      - raw_text: 'floor: 1층 F.L'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: floorLabel
+          suggested_datatype: xsd:string
+          rationale: 층 표기 문자열
+      - raw_text: 'type: DISTRIBUTE'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 엔티티 타입 표기
+      - raw_text: 'function_category: DISTRIBUTION_POINT'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 제안
+      - raw_text: 'observed_attributes: floor, note'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'function_candidates: SignalDistribution, LineSplitting'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열 목록
+  provenance:
+    tag:
+      source_pages:
+      - 12
+      method: direct
+    name:
+      source_pages:
+      - 12
+      method: direct
+    discipline:
+      source_pages:
+      - 12
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 12
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 12
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 12
+      method: ontology_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 12
+      method: ontology_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 12
+      method: relation_extraction
+    discipline_context.free_notes:
+      source_pages:
+      - 12
+      method: preservation
+    specs.floor:
+      source_pages:
+      - 12
+      method: direct
+    specs.note:
+      source_pages:
+      - 12
+      method: direct
+    type:
+      source_pages:
+      - 12
+      method: direct
+    function_category:
+      source_pages:
+      - 12
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 12
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 12
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 12
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 분기점이라는 물리적/기능적 엔티티로 보이나, 관계가 없고 type이 DISTRIBUTE로만 제시되어 정확한 OWL class와
+      역할 경계가 다소 모호함.
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열 또는 DistributionPoint 계열
+      후보를 검토하고, 0-9d에서 기능/연결 관계를 정식 속성으로 승격 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 랙/분배/연결점 패턴을 고려해 분기점 엔티티로 보존
+    - ontology_hints의 suggested_parent_class와 function_candidates를 후보로 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:20.202404'
+  confidence: 0.84

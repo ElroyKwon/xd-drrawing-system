@@ -1,0 +1,117 @@
+entity_detail:
+  tag: P-E-4PP
+  type: Power Panelboard
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: 22
+      confidence: 0.98
+    panel_location:
+      value: 1층 환경시험실
+      unit: null
+      source: 22
+      confidence: 0.98
+    source_volt:
+      value: 440V
+      unit: V
+      source: 22
+      confidence: 0.98
+    main_cb_type:
+      value: MCCB 3F 30/20AT
+      unit: null
+      source: 22
+      confidence: 0.98
+    surge_protective_device:
+      value: 3Ø S.P.D 40KA/mode
+      unit: null
+      source: 22
+      confidence: 0.98
+    grounding:
+      value: E3 접지
+      unit: null
+      source: 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page_022_context.yaml
+    page_number: 22
+    text: 'P-E-4PP 분전반
+
+      COVER TYPE: 노출형(STEEL); PANEL LOCATION: 1층 환경시험실; SOURCE VOLT: 440V; MAIN C.B
+      TYPE: MCCB 3F 30/20AT; 3Ø S.P.D 40KA/mode'
+  - source: page_022_context.yaml
+    page_number: 22
+    text: 3Ø 440V 전원을 전기실에서 인입해 6개 분전반(P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP, P-F-4PP,
+      P-P-4PP)으로 분기하는 분전반 결선도이다.
+  - source: page_022_context.yaml
+    page_number: 22
+    text: 각 분전반은 노출형(STEEL)이며, MCCB와 SPD, E3 접지가 반복 표기된다.
+  - source: page_022_context.yaml
+    page_number: 22
+    text: '도면상 주요 용량 표기는 MAIN C.B TYPE: MCCB 3F 30/20AT, 3Ø S.P.D 40KA/mode, SOURCE
+      VOLT: 440V로 보인다.'
+  requirements:
+  - text: 노출형(STEEL)
+    source: page_022_context.yaml
+    type: installation_condition
+  - text: 'SOURCE VOLT: 440V'
+    source: page_022_context.yaml
+    type: electrical_requirement
+  - text: 'MAIN C.B TYPE: MCCB 3F 30/20AT'
+    source: page_022_context.yaml
+    type: electrical_requirement
+  - text: 3Ø S.P.D 40KA/mode
+    source: page_022_context.yaml
+    type: protection_requirement
+  - text: E3 접지
+    source: page_022_context.yaml
+    type: grounding_requirement
+  connection_specs:
+  - relation: supply_from
+    partner: 전기실
+    details:
+      source: page_022_context.yaml
+      text: 3Ø 440V 전원을 전기실에서 인입해 ... P-E-4PP ... 으로 분기
+  - relation: grounded_to
+    partner: E3
+    details:
+      source: page_022_context.yaml
+      text: E3 접지
+  - relation: protected_by
+    partner: SPD
+    details:
+      source: page_022_context.yaml
+      text: 3Ø S.P.D 40KA/mode
+  - relation: main_breaker
+    partner: MCCB
+    details:
+      source: page_022_context.yaml
+      text: 'MAIN C.B TYPE: MCCB 3F 30/20AT'
+  ontology_hints:
+    observed_relations:
+    - relation_type: supply
+      partner_tag: 전기실
+      direction: 전기실 -> P-E-4PP
+      source: page_022_context.yaml
+    - relation_type: 접지
+      partner_tag: E3
+      direction: P-E-4PP -> E3
+      source: page_022_context.yaml
+    observed_attributes:
+    - COVER TYPE
+    - PANEL LOCATION
+    - SOURCE VOLT
+    - MAIN C.B TYPE
+    - 3Ø S.P.D
+    - E3 접지
+    similar_equipment:
+    - P-A-4PP-7
+    - P-AC-4PP-1
+    - P-C-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: Power Panelboard
+    cross_discipline: []
+  notes:
+  - 페이지 22의 분석 결과에서 P-E-4PP 관련 정보만 수집함.
+tag: P-E-4PP

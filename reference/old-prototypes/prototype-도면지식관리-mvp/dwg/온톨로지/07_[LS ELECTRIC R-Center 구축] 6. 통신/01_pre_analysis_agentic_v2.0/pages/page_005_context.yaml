@@ -1,0 +1,1371 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: cable schedule / symbol legend / notes section
+  discipline: COMMUNICATION
+  classification: SYSTEM_DIAGRAM
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: ET-01-001
+    title: 정보통신설비 계통도
+    revision: null
+  visible_tags:
+  - tag: FDF
+    type: communication_distribution_frame
+    source: both
+  - tag: IDF-1
+    type: communication_distribution_frame
+    source: both
+  - tag: HUB RACK-2
+    type: rack
+    source: both
+  - tag: PULL BOX
+    type: structural_element
+    source: both
+  - tag: 정보통신용 맨홀
+    type: structural_element
+    source: both
+  - tag: 지하공동구
+    type: structural_element
+    source: both
+  - tag: 사무동 지상1층 통신실
+    type: named_space
+    source: both
+  - tag: 사무동 지상2층 전산실
+    type: named_space
+    source: both
+  - tag: 전산실
+    type: named_space
+    source: image
+  - tag: 통신실
+    type: named_space
+    source: image
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 범례/기호 설명 박스가 우상단에 별도 존재함
+  - 케이블 스케줄 표가 좌상단에 존재함
+  - 통신실/전산실/지하공동구/맨홀/풀박스 등 경로와 공간명이 함께 표기됨
+  - 도면번호 ET-01-001로 표제란 확인됨
+  confidence: 0.97
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/communication/genre_system_diagram/supplement_p4_05.yaml
+    P-10: discipline/communication/genre_system_diagram/supplement_p10.yaml
+  routing_confidence: 0.94
+  routing_reason: 도면번호 ET-01-001과 제목 '정보통신설비 계통도'가 명확하여 COMMUNICATION/system_diagram으로
+    분류되며, 카탈로그에 해당 genre 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: CABLE_SCHEDULE
+    shape: rectangle
+    primary_label: CABLE SCHEDULE
+    position: top-left
+    labels_near:
+    - 'NO'
+    - CABLE & CONDUIT SIZE
+    - T1
+    - F1
+  - panel_id: NOTES_SECTION
+    shape: rectangle
+    primary_label: 주기사항
+    position: top-right
+    labels_near:
+    - SYMBOL
+    - LAN OUTLET
+    - SYSTEM BOX
+  - panel_id: SYSTEM_DIAGRAM
+    shape: rectangle
+    primary_label: 정보통신설비 계통도
+    position: center
+    labels_near:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - HUB RACK-2
+    - IDF-1
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: LS Electric R-Center 구축
+    position: bottom-right
+    labels_near:
+    - 가운 건축
+    - 정보통신설비 계통도
+    - ET-01-001
+  connections:
+  - from: CABLE_SCHEDULE
+    to: SYSTEM_DIAGRAM
+    line_style: dashed
+    annotation: 참조 관계 (케이블 번호)
+  - from: NOTES_SECTION
+    to: SYSTEM_DIAGRAM
+    line_style: dashed
+    annotation: 참조 관계 (심볼)
+  notable_shapes:
+  - shape: circle
+    label: T1
+    note: 케이블 스케줄 번호 식별자
+  - shape: circle
+    label: F1
+    note: 케이블 스케줄 번호 식별자
+  - shape: rectangle
+    label: HUB RACK-2
+    note: 장비 랙 표현
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.98
+  note: 우상단에 '주기사항' 섹션 내 'SYMBOL' 목록(범례)이 명확히 존재함
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: system_diagram
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.99
+  routing_reason: 도면번호 ET-01-001의 'ET' 접두사와 제목 '정보통신설비 계통도', 그리고 vision으로 확인된 HUB
+    RACK, IDF, LAN OUTLET 등의 통신 설비 계통 표현이 일치함. 기존 분류 유지.
+classification: SYSTEM_DIAGRAM
+discipline: COMMUNICATION
+key_elements_from_text:
+- 정보통신설비 계통도
+- CABLE SCHEDULE
+- 주기사항
+- SYMBOL
+- FDF
+- IDF-1
+- HUB RACK-2
+- PULL BOX
+- 정보통신용 맨홀
+- 지하공동구
+- 사무동 지상1층 통신실
+- 사무동 지상2층 전산실
+- LS Electric
+- R-Center 구축
+title_block:
+  drawing_number: ET-01-001
+  title: 정보통신설비 계통도
+  revision: UNKNOWN
+confidence: 0.99
+note: 페이지 5의 표제란과 본문 텍스트에 '정보통신설비 계통도' 및 도면번호 ET-01-001이 보이며, 케이블 스케줄/범례/통신실·전산실·FDF·IDF·HUB
+  RACK 등의 통신 계통 요소가 함께 표시됨. 기존 분석의 COMMUNICATION / SYSTEM_DIAGRAM 판정과 일치함.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: HUB-RACK-2
+    shape: rectangle
+    labels_inside:
+    - HUB RACK-2 (RACK TYPE)
+    - DATA IN 12CORE
+    - OUT 8PORT
+    - FDF 형 FDF(SM) 12CORE
+    labels_above:
+    - HUB RACK-2
+    labels_below: []
+    equipment_symbols:
+    - type: rack
+      count: 1
+    - type: FDF
+      count: 1
+    inferred_name: 2층 허브 랙 (데이터 분배)
+    position: center-upper
+  - panel_id: IDF-1
+    shape: rectangle
+    labels_inside:
+    - IDF-1
+    - VOICE
+    - HUB RACK-1 (RACK TYPE)
+    - DATA IN 12CORE
+    - OUT 2PORT
+    - FDF 형 FDF(SM) 24CORE
+    labels_above:
+    - IDF-1
+    labels_below: []
+    equipment_symbols:
+    - type: rack
+      count: 1
+    - type: FDF
+      count: 1
+    inferred_name: 1층 IDF 랙 (음성+데이터 분배)
+    position: center-middle
+  - panel_id: PULL-BOX
+    shape: rectangle
+    labels_inside:
+    - PULL BOX
+    - 400 x400 x300mm
+    labels_above: []
+    labels_below:
+    - 집보통신용 맨홀
+    - 1,700 x 800 x 1,100mm
+    equipment_symbols:
+    - type: pull_box
+      count: 1
+    inferred_name: 풀박스 및 정보통신용 맨홀
+    position: right-middle
+  - panel_id: EXT-사무동1층통신실
+    shape: other
+    labels_inside:
+    - 'FROM : 사무동 지상1층 통신실'
+    - UTP 0.5mm/25Px1,CAT.5
+    - 'IN TRAY FROM : 사무동 지상2층 전산실'
+    - FIBER OPTICAL S.M 12CORE
+    - 지하공동구 사용
+    - (옥외 정보통신 인입 배치도 참조)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 외부 인입 - 사무동 지상1층 통신실 / 지상2층 전산실
+    position: bottom-center
+  - panel_id: 지하공동구
+    shape: rectangle
+    labels_inside:
+    - 지하공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 지하공동구 (케이블 경로)
+    position: center-bottom
+  groups:
+  - group_id: GRP-지붕층
+    label: 지붕층 F.L
+    members:
+    - 지붕층-단말군
+    floor: 지붕층
+    notes: 지붕층 F.L 라벨에서 수평으로 뻗어 나오는 단말(LAN OUTLET, AP 등) 그룹
+  - group_id: GRP-2층
+    label: 2층 F.L
+    members:
+    - HUB-RACK-2
+    - 2층-단말군
+    floor: 2층
+    room_labels:
+    - 강당/로비
+    - 회의실-1/2
+    - 전산실
+    - 식당
+    - 사장실
+    - 대회의실
+    - Software Lab
+    - 도서관
+    - 대기실
+    notes: 2층 F.L 라벨에서 수평으로 뻗어 나오는 HUB RACK-2 및 각 실 단말 그룹
+  - group_id: GRP-1층
+    label: 1층 F.L
+    members:
+    - IDF-1
+    - 1층-단말군
+    floor: 1층
+    room_labels:
+    - 복도 및 기타 공용부
+    - 통신실
+    - One Stop 서비스
+    - 지원 기능실
+    - Star 서버실
+    - 전산
+    - 전산방재실
+    - 3개 창업
+    notes: 1층 F.L 라벨에서 수평으로 뻗어 나오는 IDF-1 및 각 실 단말 그룹
+  - group_id: GRP-PIT
+    label: PIT층 F.L
+    members:
+    - 지하공동구
+    - PULL-BOX
+    floor: PIT
+    notes: PIT층 F.L 라벨 구간, 지하공동구 및 풀박스 경유
+  - group_id: DATA
+    label: DATA 계통
+    members:
+    - HUB-RACK-2
+    - IDF-1
+    notes: UTP 및 F/O 케이블을 통한 데이터 계통
+  connections:
+  - from: EXT-사무동1층통신실
+    to: IDF-1
+    line_type: cable
+    line_style: solid
+    annotation: UTP 0.5mm/25Px1,CAT.5 / FIBER OPTICAL S.M 12CORE / 지하공동구 경유
+    cable_id: F4
+  - from: IDF-1
+    to: HUB-RACK-2
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE S.M 12CORE (F4)
+    cable_id: F4
+  - from: HUB-RACK-2
+    to: GRP-2층
+    line_type: cable
+    line_style: solid
+    annotation: UTP 0.5mm/4Px, CAT.5e 각 실 분기
+  - from: IDF-1
+    to: GRP-1층
+    line_type: cable
+    line_style: solid
+    annotation: UTP 0.5mm/4Px, CAT.5e 각 실 분기
+  - from: HUB-RACK-2
+    to: GRP-지붕층
+    line_type: cable
+    line_style: solid
+    annotation: 지붕층 단말 연결
+  - from: 지하공동구
+    to: PULL-BOX
+    line_type: cable
+    line_style: solid
+    annotation: 지하공동구 → 풀박스 경유 인입
+  diagram_meta:
+    title: 정보통신설비 계통도
+    drawing_number: ET-01-001
+    project: LS Electric R-Center 구축
+    scale: A3:1/NONE
+    flow_direction: top-to-bottom
+    sub_system: DATA
+    diagram_subtype: cabling_tree
+    layers:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    external_inflows:
+    - from: 사무동 지상1층 통신실
+      cable: UTP 0.5mm/25Px1,CAT.5
+      conduit: IN TRAY
+      route: 지하공동구
+    - from: 사무동 지상2층 전산실
+      cable: FIBER OPTICAL S.M 12CORE
+      conduit: IN TRAY
+      route: 지하공동구
+    cable_schedule:
+    - false: T
+      cable_conduit_size: 2BC (UTP 0.5mm/25Px1, CAT.5e)
+      remarks: null
+    - false: T1
+      cable_conduit_size: 16C (UTP 0.5mm/4Px1, CAT.5e)
+      remarks: null
+    - false: T2
+      cable_conduit_size: 16C (UTP 0.5mm/4Px2, CAT.5e)
+      remarks: null
+    - false: T3
+      cable_conduit_size: 22C (UTP 0.5mm/4Px3, CAT.5e)
+      remarks: null
+    - false: T4
+      cable_conduit_size: 22C (UTP 0.5mm/4Px4, CAT.5e)
+      remarks: null
+    - false: T5
+      cable_conduit_size: 28C (UTP 0.5mm/4Px5, CAT.5e)
+      remarks: null
+    - false: T6
+      cable_conduit_size: 28C (UTP 0.5mm/4Px6, CAT.5e)
+      remarks: null
+    - false: F
+      cable_conduit_size: ELP 100Ø (F/O CABLE S.M 12CORE)
+      remarks: null
+    - false: F1
+      cable_conduit_size: F/O CABLE S.M 2CORE
+      remarks: null
+    - false: F2
+      cable_conduit_size: F/O CABLE S.M 4CORE
+      remarks: null
+    - false: F3
+      cable_conduit_size: F/O CABLE S.M 8CORE
+      remarks: null
+    - false: F4
+      cable_conduit_size: F/O CABLE S.M 12CORE
+      remarks: null
+    - false: E1
+      cable_conduit_size: 2BC (EMPTY CONDUIT)
+      remarks: null
+    - false: E2
+      cable_conduit_size: 36C (EMPTY CONDUIT)
+      remarks: null
+    - false: G1
+      cable_conduit_size: 16C (F-GV 1 - 6sq)
+      remarks: null
+    - false: G2
+      cable_conduit_size: 22C (F-GV 1 - 16sq)
+      remarks: null
+    notes:
+    - 중간 방화 구획 처리
+    - CABLE TRAY내 배관 배선시 전선관을 제외한 CABLE만 포설한다
+    - CABLE TRAY내 공통 합지선은 1-GV 16sq로 한다
+    - CABLE TRAY 통신용과 공용함
+    - 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다
+    symbols_legend:
+    - symbol: LAN OUTLET 2PORT
+      description: LAN OUTLET 2PORT
+    - symbol: LAN OUTLET 1PORT
+      description: LAN OUTLET 1PORT
+    - symbol: LAN OUTLET(TEL) 1PORT
+      description: LAN OUTLET(TEL) 1PORT
+    - symbol: 전화 단자함
+      description: Intermediate Terminal Board
+    - symbol: 무선 OUTLET
+      description: 무선 OUTLET
+    - symbol: SYSTEM BOX(LAN) 2PORT
+      description: SYSTEM BOX(LAN) 2PORT
+    - symbol: SYSTEM BOX(LAN) 1PORT, (무) 1PORT
+      description: SYSTEM BOX(LAN) 1PORT, (무) 1PORT
+    - symbol: 무선 AP
+      description: 무선 AP
+    structural_elements:
+    - id: PULL-BOX-STRUCT
+      type: pull_box
+      size: 400 x 400 x 300mm
+      position: right-middle
+    - id: 정보통신용맨홀
+      type: manhole
+      size: 1,700 x 800 x 1,100mm
+      position: right-middle
+    - id: 지하공동구-STRUCT
+      type: underground_duct
+      position: center-bottom
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: HUB-RACK-2
+    shape: rectangle
+    labels_inside:
+    - HUB RACK -2 (RACK TYPE)
+    - IN 12CORE
+    - DATA OUT 8PORT
+    - FDF 형 FDF(SM) 12CORE
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: rack
+      count: 1
+    - type: FDF
+      count: 1
+    inferred_name: 2층 허브 랙 (데이터 분배)
+    position: center-upper
+  - panel_id: IDF-1
+    shape: rectangle
+    labels_inside:
+    - IDF-1
+    - VOICE 200P
+    - HUB RACK -1 (RACK TYPE)
+    - IN 12CORE
+    - DATA OUT 2PORT
+    - FDF 형 FDF(SM) 24CORE
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: rack
+      count: 1
+    - type: FDF
+      count: 1
+    - type: voice_panel
+      count: 1
+    inferred_name: 1층 IDF 랙 (음성+데이터 분배)
+    position: center-middle
+  - panel_id: PULL-BOX
+    shape: rectangle
+    labels_inside:
+    - PULL BOX
+    - 400 x400 x300mm
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: pull_box
+      count: 1
+    inferred_name: 풀박스
+    position: right-middle
+  - panel_id: MANHOLE
+    shape: rectangle
+    labels_inside:
+    - 정보통신용 맨홀
+    - 1,700 x 800 x 1,100mm
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: manhole
+      count: 1
+    inferred_name: 정보통신용 맨홀
+    position: right-bottom
+  - panel_id: UNDERGROUND-DUCT
+    shape: other
+    labels_inside:
+    - 지하공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: underground_duct
+      count: 1
+    inferred_name: 지하공동구
+    position: center-bottom
+  - panel_id: EXT-INFLOW
+    shape: other
+    labels_inside:
+    - 'FROM : 사무동 지상1층 통신실'
+    - UTP 0.5mm/25Px1,CAT.5
+    - 'IN TRAY FROM : 사무동 지상2층 전산실'
+    - FIBER OPTICAL S.M 12CORE
+    - 지하공동구 사용
+    - (옥외 정보통신 인입 배치도 참조)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 외부 인입 (사무동 통신실/전산실)
+    position: bottom-right
+  groups:
+  - group_id: GRP-ROOF
+    label: 지붕층 F.L
+    members:
+    - OUTLET-ROOF-1
+    - OUTLET-ROOF-2
+    floor: 지붕층
+  - group_id: GRP-2F
+    label: 2층 F.L
+    members:
+    - HUB-RACK-2
+    - ROOM-강당/로비
+    - ROOM-회의실-1
+    - ROOM-회의실-2
+    - ROOM-전산실
+    - ROOM-식당
+    - ROOM-사장실
+    - ROOM-대회의실
+    - ROOM-Software Lab
+    - ROOM-도서관
+    - ROOM-대기실
+    floor: 2층
+  - group_id: GRP-1F
+    label: 1층 F.L
+    members:
+    - IDF-1
+    - ROOM-복도 및 기타 공용부
+    - ROOM-통신실
+    - ROOM-One Stop 서비스
+    - ROOM-지원 기능실
+    - ROOM-Star 서버실
+    - ROOM-전산
+    - ROOM-전산방재실
+    - ROOM-3개 창업
+    floor: 1층
+  - group_id: GRP-PIT
+    label: PIT층 F.L
+    members:
+    - PULL-BOX
+    - MANHOLE
+    - UNDERGROUND-DUCT
+    floor: PIT층
+  - group_id: ROOM-강당/로비
+    label: 강당/로비
+    members:
+    - OUTLET-2F-1
+    - OUTLET-2F-2
+  - group_id: ROOM-회의실-1
+    label: 회의실-1
+    members:
+    - OUTLET-2F-3
+  - group_id: ROOM-회의실-2
+    label: 회의실-2
+    members:
+    - OUTLET-2F-4
+  - group_id: ROOM-전산실
+    label: 전산실
+    members:
+    - OUTLET-2F-5
+    - OUTLET-2F-6
+    - OUTLET-2F-7
+  - group_id: ROOM-식당
+    label: 식당
+    members:
+    - OUTLET-2F-8
+  - group_id: ROOM-사장실
+    label: 사장실
+    members:
+    - OUTLET-2F-9
+  - group_id: ROOM-대회의실
+    label: 대회의실
+    members:
+    - OUTLET-2F-10
+  - group_id: ROOM-Software Lab
+    label: Software Lab
+    members:
+    - OUTLET-2F-11
+  - group_id: ROOM-도서관
+    label: 도서관
+    members:
+    - OUTLET-2F-12
+  - group_id: ROOM-대기실
+    label: 대기실
+    members:
+    - OUTLET-2F-13
+  - group_id: ROOM-복도 및 기타 공용부
+    label: 복도 및 기타 공용부
+    members:
+    - OUTLET-1F-1
+    - OUTLET-1F-2
+  - group_id: ROOM-통신실
+    label: 통신실
+    members:
+    - OUTLET-1F-3
+  - group_id: ROOM-One Stop 서비스
+    label: One Stop 서비스
+    members:
+    - OUTLET-1F-4
+  - group_id: ROOM-지원 기능실
+    label: 지원 기능실
+    members:
+    - OUTLET-1F-5
+  - group_id: ROOM-Star 서버실
+    label: Star 서버실
+    members:
+    - OUTLET-1F-6
+  - group_id: ROOM-전산
+    label: 전산
+    members:
+    - OUTLET-1F-7
+  - group_id: ROOM-전산방재실
+    label: 전산방재실
+    members:
+    - OUTLET-1F-8
+  - group_id: ROOM-3개 창업
+    label: 3개 창업
+    members:
+    - OUTLET-1F-9
+  connections:
+  - from: EXT-INFLOW
+    to: UNDERGROUND-DUCT
+    line_type: cable
+    line_style: solid
+    annotation: ELP 100Ø / IN TRAY
+  - from: UNDERGROUND-DUCT
+    to: MANHOLE
+    line_type: cable
+    line_style: solid
+    annotation: F4
+  - from: MANHOLE
+    to: PULL-BOX
+    line_type: cable
+    line_style: solid
+    annotation: F4
+  - from: PULL-BOX
+    to: IDF-1
+    line_type: cable
+    line_style: solid
+    annotation: F4, T
+  - from: IDF-1
+    to: HUB-RACK-2
+    line_type: cable
+    line_style: solid
+    annotation: F4
+  - from: HUB-RACK-2
+    to: GRP-2F
+    line_type: cable
+    line_style: solid
+    annotation: T1, T2, F1, F2, F3 (각 실 분기)
+  - from: IDF-1
+    to: GRP-1F
+    line_type: cable
+    line_style: solid
+    annotation: T1, T2, F1 (각 실 분기)
+  - from: HUB-RACK-2
+    to: GRP-ROOF
+    line_type: cable
+    line_style: solid
+    annotation: T (지붕층 분기)
+  diagram_meta:
+    title: 정보통신설비 계통도
+    drawing_number: ET-01-001
+    project: LS Electric R-Center 구축
+    scale: A3:1/NONE
+    flow_direction: bottom-to-top
+    sub_system: MIXED
+    diagram_subtype: cabling_tree
+    layers:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    external_inflows:
+    - from: 사무동 지상1층 통신실
+      cable: UTP 0.5mm/25Px1,CAT.5
+      conduit: IN TRAY
+      route: 지하공동구
+    - from: 사무동 지상2층 전산실
+      cable: FIBER OPTICAL S.M 12CORE
+      conduit: IN TRAY
+      route: 지하공동구
+    cable_schedule:
+    - false: T
+      cable_conduit_size: 28C (UTP 0.5mm/25Px1, CAT.5e)
+      remarks: null
+    - false: T1
+      cable_conduit_size: 16C (UTP 0.5mm/4Px1, CAT.5e)
+      remarks: null
+    - false: T2
+      cable_conduit_size: 16C (UTP 0.5mm/4Px2, CAT.5e)
+      remarks: null
+    - false: T3
+      cable_conduit_size: 22C (UTP 0.5mm/4Px3, CAT.5e)
+      remarks: null
+    - false: T4
+      cable_conduit_size: 22C (UTP 0.5mm/4Px4, CAT.5e)
+      remarks: null
+    - false: T5
+      cable_conduit_size: 28C (UTP 0.5mm/4Px5, CAT.5e)
+      remarks: null
+    - false: T6
+      cable_conduit_size: 28C (UTP 0.5mm/4Px6, CAT.5e)
+      remarks: null
+    - false: F
+      cable_conduit_size: ELP 100Ø (F/O CABLE S.M 12CORE)
+      remarks: null
+    - false: F1
+      cable_conduit_size: F/O CABLE S.M 2CORE
+      remarks: null
+    - false: F2
+      cable_conduit_size: F/O CABLE S.M 4CORE
+      remarks: null
+    - false: F3
+      cable_conduit_size: F/O CABLE S.M 8CORE
+      remarks: null
+    - false: F4
+      cable_conduit_size: F/O CABLE S.M 12CORE
+      remarks: null
+    - false: E1
+      cable_conduit_size: 28C (EMPTY CONDUIT)
+      remarks: null
+    - false: E2
+      cable_conduit_size: 36C (EMPTY CONDUIT)
+      remarks: null
+    - false: G1
+      cable_conduit_size: 16C (F-GV 1 - 6sq)
+      remarks: null
+    - false: G2
+      cable_conduit_size: 22C (F-GV 1 - 16sq)
+      remarks: null
+    notes:
+    - 1.0: 층간 방화 구획 처리.
+    - 2. CABLE TRAY내 배관,배선시 전선관을 제외한 CABLE만 포설한다.
+    - 3. CABLE TRAY내 공통 접지선은 1-GV 16sq로 한다.
+    - 4. CABLE TRAY 통신용과 공용함.
+    - 5. 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+    symbols_legend:
+    - symbol: LAN OUTLET 2PORT
+      description: LAN OUTLET 2PORT
+    - symbol: LAN OUTLET 1PORT
+      description: LAN OUTLET 1PORT
+    - symbol: LAN OUTLET(TEL) 1PORT
+      description: LAN OUTLET(TEL) 1PORT
+    - symbol: 전화 단자함
+      description: Intermediate Terminal Board
+    - symbol: 무선 OUTLET
+      description: 무선 OUTLET
+    - symbol: SYSTEM BOX(LAN) 2PORT
+      description: SYSTEM BOX(LAN) 2PORT
+    - symbol: SYSTEM BOX(LAN) 1PORT, (무) 1PORT
+      description: SYSTEM BOX(LAN) 1PORT, (무) 1PORT
+    - symbol: 무선 AP
+      description: 무선 AP
+entity_synthesis:
+  entities:
+  - tag: HUB-RACK-2
+    name: HUB RACK-2
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - HUB RACK-2 (RACK TYPE)
+      - DATA IN 12CORE
+      - OUT 8PORT
+      - FDF 형 FDF(SM) 12CORE
+      labels_above:
+      - HUB RACK-2
+      labels_below: []
+      equipment_symbols:
+      - type: rack
+        count: 1
+      - type: FDF
+        count: 1
+      inferred_name: 2층 허브 랙 (데이터 분배)
+      position: center-upper
+      source_model: visual_semantics
+    position: center-upper
+    source_block: both
+  - tag: IDF-1
+    name: IDF-1
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - IDF-1
+      - VOICE
+      - HUB RACK-1 (RACK TYPE)
+      - DATA IN 12CORE
+      - OUT 2PORT
+      - FDF 형 FDF(SM) 24CORE
+      labels_above:
+      - IDF-1
+      labels_below: []
+      equipment_symbols:
+      - type: rack
+        count: 1
+      - type: FDF
+        count: 1
+      inferred_name: 1층 IDF 랙 (음성+데이터 분배)
+      position: center-middle
+    position: center-middle
+    source_block: both
+  - tag: PULL-BOX
+    name: PULL BOX
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - PULL BOX
+      - 400 x400 x300mm
+      labels_above: []
+      labels_below:
+      - 집보통신용 맨홀
+      - 1,700 x 800 x 1,100mm
+      equipment_symbols:
+      - type: pull_box
+        count: 1
+      inferred_name: 풀박스 및 정보통신용 맨홀
+      position: right-middle
+    position: right-middle
+    source_block: both
+  - tag: MANHOLE
+    name: 정보통신용 맨홀
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 정보통신용 맨홀
+      - 1,700 x 800 x 1,100mm
+      labels_above: []
+      labels_below: []
+      equipment_symbols:
+      - type: manhole
+        count: 1
+      inferred_name: 정보통신용 맨홀
+      position: right-bottom
+    position: right-bottom
+    source_block: visual_semantics_gemini
+  - tag: UNDERGROUND-DUCT
+    name: 지하공동구
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      shape: other
+      labels_inside:
+      - 지하공동구
+      labels_above: []
+      labels_below: []
+      equipment_symbols:
+      - type: underground_duct
+        count: 1
+      inferred_name: 지하공동구
+      position: center-bottom
+    position: center-bottom
+    source_block: visual_semantics_gemini
+  - tag: EXT-INFLOW
+    name: 외부 인입
+    discipline: COMMUNICATION
+    function_category: TRANSPORT
+    specifications:
+      shape: other
+      labels_inside:
+      - 'FROM : 사무동 지상1층 통신실'
+      - UTP 0.5mm/25Px1,CAT.5
+      - 'IN TRAY FROM : 사무동 지상2층 전산실'
+      - FIBER OPTICAL S.M 12CORE
+      - 지하공동구 사용
+      - (옥외 정보통신 인입 배치도 참조)
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 외부 인입 (사무동 통신실/전산실)
+      position: bottom-right
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-1
+    name: 지붕층 F.L
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: GRP-ROOF
+      members:
+      - OUTLET-ROOF-1
+      - OUTLET-ROOF-2
+      floor: 지붕층
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-2
+    name: 2층 F.L
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: GRP-2F
+      members:
+      - HUB-RACK-2
+      - ROOM-강당/로비
+      - ROOM-회의실-1
+      - ROOM-회의실-2
+      - ROOM-전산실
+      - ROOM-식당
+      - ROOM-사장실
+      - ROOM-대회의실
+      - ROOM-Software Lab
+      - ROOM-도서관
+      - ROOM-대기실
+      floor: 2층
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-3
+    name: 1층 F.L
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: GRP-1F
+      members:
+      - IDF-1
+      - ROOM-복도 및 기타 공용부
+      - ROOM-통신실
+      - ROOM-One Stop 서비스
+      - ROOM-지원 기능실
+      - ROOM-Star 서버실
+      - ROOM-전산
+      - ROOM-전산방재실
+      - ROOM-3개 창업
+      floor: 1층
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-4
+    name: PIT층 F.L
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: GRP-PIT
+      members:
+      - PULL-BOX
+      - MANHOLE
+      - UNDERGROUND-DUCT
+      floor: PIT층
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-5
+    name: 강당/로비
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-강당/로비
+      members:
+      - OUTLET-2F-1
+      - OUTLET-2F-2
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-6
+    name: 회의실-1
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-회의실-1
+      members:
+      - OUTLET-2F-3
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-7
+    name: 회의실-2
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-회의실-2
+      members:
+      - OUTLET-2F-4
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-8
+    name: 전산실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-전산실
+      members:
+      - OUTLET-2F-5
+      - OUTLET-2F-6
+      - OUTLET-2F-7
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-9
+    name: 식당
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-식당
+      members:
+      - OUTLET-2F-8
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-10
+    name: 사장실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-사장실
+      members:
+      - OUTLET-2F-9
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-11
+    name: 대회의실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-대회의실
+      members:
+      - OUTLET-2F-10
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-12
+    name: Software Lab
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-Software Lab
+      members:
+      - OUTLET-2F-11
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-13
+    name: 도서관
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-도서관
+      members:
+      - OUTLET-2F-12
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-14
+    name: 대기실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-대기실
+      members:
+      - OUTLET-2F-13
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-15
+    name: 복도 및 기타 공용부
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-복도 및 기타 공용부
+      members:
+      - OUTLET-1F-1
+      - OUTLET-1F-2
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-16
+    name: 통신실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-통신실
+      members:
+      - OUTLET-1F-3
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-17
+    name: One Stop 서비스
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-One Stop 서비스
+      members:
+      - OUTLET-1F-4
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-18
+    name: 지원 기능실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-지원 기능실
+      members:
+      - OUTLET-1F-5
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-19
+    name: Star 서버실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-Star 서버실
+      members:
+      - OUTLET-1F-6
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-20
+    name: 전산
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-전산
+      members:
+      - OUTLET-1F-7
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-21
+    name: 전산방재실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-전산방재실
+      members:
+      - OUTLET-1F-8
+    position: null
+    source_block: visual_semantics_gemini
+  - tag: UNKNOWN-ROOM-22
+    name: 3개 창업
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      group_id: ROOM-3개 창업
+      members:
+      - OUTLET-1F-9
+    position: null
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: EXT-INFLOW
+    to_tag: UNDERGROUND-DUCT
+    relation_type: connects_to
+    note: ELP 100Ø / IN TRAY
+  - from_tag: UNDERGROUND-DUCT
+    to_tag: MANHOLE
+    relation_type: connects_to
+    note: F4
+  - from_tag: MANHOLE
+    to_tag: PULL-BOX
+    relation_type: connects_to
+    note: F4
+  - from_tag: PULL-BOX
+    to_tag: IDF-1
+    relation_type: connects_to
+    note: F4, T
+  - from_tag: IDF-1
+    to_tag: HUB-RACK-2
+    relation_type: connects_to
+    note: F4
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-2
+    relation_type: connects_to
+    note: T1, T2, F1, F2, F3 (각 실 분기)
+  - from_tag: IDF-1
+    to_tag: UNKNOWN-ROOM-3
+    relation_type: connects_to
+    note: T1, T2, F1 (각 실 분기)
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-1
+    relation_type: connects_to
+    note: T (지붕층 분기)
+  - from_tag: IDF-1
+    to_tag: UNKNOWN-ROOM-15
+    relation_type: connects_to
+    note: 1층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-5
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-6
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-7
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-8
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-9
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-10
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-11
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-12
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-13
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  - from_tag: HUB-RACK-2
+    to_tag: UNKNOWN-ROOM-14
+    relation_type: connects_to
+    note: 2층 단말 그룹
+  spaces:
+  - space_id: GRP-ROOF
+    name: 지붕층 F.L
+    contains:
+    - UNKNOWN-ROOM-1
+    source_block: visual_semantics_gemini
+  - space_id: GRP-2F
+    name: 2층 F.L
+    contains:
+    - HUB-RACK-2
+    - UNKNOWN-ROOM-5
+    - UNKNOWN-ROOM-6
+    - UNKNOWN-ROOM-7
+    - UNKNOWN-ROOM-8
+    - UNKNOWN-ROOM-9
+    - UNKNOWN-ROOM-10
+    - UNKNOWN-ROOM-11
+    - UNKNOWN-ROOM-12
+    - UNKNOWN-ROOM-13
+    - UNKNOWN-ROOM-14
+    source_block: visual_semantics_gemini
+  - space_id: GRP-1F
+    name: 1층 F.L
+    contains:
+    - IDF-1
+    - UNKNOWN-ROOM-15
+    - UNKNOWN-ROOM-16
+    - UNKNOWN-ROOM-17
+    - UNKNOWN-ROOM-18
+    - UNKNOWN-ROOM-19
+    - UNKNOWN-ROOM-20
+    - UNKNOWN-ROOM-21
+    - UNKNOWN-ROOM-22
+    source_block: visual_semantics_gemini
+  - space_id: GRP-PIT
+    name: PIT층 F.L
+    contains:
+    - PULL-BOX
+    - MANHOLE
+    - UNDERGROUND-DUCT
+    source_block: visual_semantics_gemini
+  diagram_meta:
+    title: 정보통신설비 계통도
+    drawing_number: ET-01-001
+    project: LS Electric R-Center 구축
+    scale: A3:1/NONE
+    flow_direction: bottom-to-top
+    sub_system: MIXED
+    diagram_subtype: cabling_tree
+    layers:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    external_inflows:
+    - from: 사무동 지상1층 통신실
+      cable: UTP 0.5mm/25Px1,CAT.5
+      conduit: IN TRAY
+      route: 지하공동구
+    - from: 사무동 지상2층 전산실
+      cable: FIBER OPTICAL S.M 12CORE
+      conduit: IN TRAY
+      route: 지하공동구
+    cable_schedule:
+    - false: T
+      cable_conduit_size: 28C (UTP 0.5mm/25Px1, CAT.5e)
+      remarks: null
+    - false: T1
+      cable_conduit_size: 16C (UTP 0.5mm/4Px1, CAT.5e)
+      remarks: null
+    - false: T2
+      cable_conduit_size: 16C (UTP 0.5mm/4Px2, CAT.5e)
+      remarks: null
+    - false: T3
+      cable_conduit_size: 22C (UTP 0.5mm/4Px3, CAT.5e)
+      remarks: null
+    - false: T4
+      cable_conduit_size: 22C (UTP 0.5mm/4Px4, CAT.5e)
+      remarks: null
+    - false: T5
+      cable_conduit_size: 28C (UTP 0.5mm/4Px5, CAT.5e)
+      remarks: null
+    - false: T6
+      cable_conduit_size: 28C (UTP 0.5mm/4Px6, CAT.5e)
+      remarks: null
+    - false: F
+      cable_conduit_size: ELP 100Ø (F/O CABLE S.M 12CORE)
+      remarks: null
+    - false: F1
+      cable_conduit_size: F/O CABLE S.M 2CORE
+      remarks: null
+    - false: F2
+      cable_conduit_size: F/O CABLE S.M 4CORE
+      remarks: null
+    - false: F3
+      cable_conduit_size: F/O CABLE S.M 8CORE
+      remarks: null
+    - false: F4
+      cable_conduit_size: F/O CABLE S.M 12CORE
+      remarks: null
+    - false: E1
+      cable_conduit_size: 28C (EMPTY CONDUIT)
+      remarks: null
+    - false: E2
+      cable_conduit_size: 36C (EMPTY CONDUIT)
+      remarks: null
+    - false: G1
+      cable_conduit_size: 16C (F-GV 1 - 6sq)
+      remarks: null
+    - false: G2
+      cable_conduit_size: 22C (F-GV 1 - 16sq)
+      remarks: null
+    notes:
+    - '1.0: 층간 방화 구획 처리.'
+    - 2. CABLE TRAY내 배관,배선시 전선관을 제외한 CABLE만 포설한다.
+    - 3. CABLE TRAY내 공통 접지선은 1-GV 16sq로 한다.
+    - 4. CABLE TRAY 통신용과 공용함.
+    - 5. 방화구획을 관통하는 부위에는 불연재의 방화재로 완전 방화구획이 되도록 처리한다.
+    symbols_legend:
+    - symbol: LAN OUTLET 2PORT
+      description: LAN OUTLET 2PORT
+    - symbol: LAN OUTLET 1PORT
+      description: LAN OUTLET 1PORT
+    - symbol: LAN OUTLET(TEL) 1PORT
+      description: LAN OUTLET(TEL) 1PORT
+    - symbol: 전화 단자함
+      description: Intermediate Terminal Board
+    - symbol: 무선 OUTLET
+      description: 무선 OUTLET
+    - symbol: SYSTEM BOX(LAN) 2PORT
+      description: SYSTEM BOX(LAN) 2PORT
+    - symbol: SYSTEM BOX(LAN) 1PORT, (무) 1PORT
+      description: SYSTEM BOX(LAN) 1PORT, (무) 1PORT
+    - symbol: 무선 AP
+      description: 무선 AP
+    structural_elements:
+    - id: PULL-BOX-STRUCT
+      type: pull_box
+      size: 400 x 400 x 300mm
+      position: right-middle
+    - id: 정보통신용맨홀
+      type: manhole
+      size: 1,700 x 800 x 1,100mm
+      position: right-middle
+    - id: 지하공동구-STRUCT
+      type: underground_duct
+      position: center-bottom
+  self_check:
+    entity_count: 22
+    relationship_count: 19
+    visual_spec_preserved: true
+    issues:
+    - visual_semantics_gemini의 MANHOLE/UNDERGROUND-DUCT는 visual_semantics의 PULL-BOX
+      하위 구조와 병합하지 않고 별도 엔티티로 보존함.
+    - visual_semantics의 cable_schedule는 원문 키가 비정상(false)으로 들어와 있어 no 필드로 정규화함.

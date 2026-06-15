@@ -1,0 +1,171 @@
+placement:
+  tag: EF-303
+  name: 옥탑층 유도등설비 평면도
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:EF-303
+    class_hint: TitleBlock
+    alternative_class_hints:
+    - DrawingTitle
+    - PlanTitle
+    - DrawingInformationEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX005
+    - AX022
+    - AX025
+    - AX026
+    applicable_constraints:
+    - CN003
+    - CN004
+    confirmed_class: dks:TitleBlock
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: TITLE'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: type
+          suggested_datatype: xsd:string
+          rationale: 원문 타입 표기 보존
+      - raw_text: 'function_category: EMERGENCY_LIGHTING'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 도면 메타 기능 분류 표기
+      - raw_text: 'specifications.drawing_number: EF-303'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: drawing_number
+          suggested_datatype: xsd:string
+          rationale: 도면 번호 표기
+      - raw_text: 'specifications.title: 옥탑층 유도등설비 평면도'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: title
+          suggested_datatype: xsd:string
+          rationale: 도면 제목 표기
+      - raw_text: 'specifications.scale_A1: 1/150'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: scale_A1
+          suggested_datatype: xsd:string
+          rationale: 축척 표기
+      - raw_text: 'specifications.scale_A3: 1/300'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: scale_A3
+          suggested_datatype: xsd:string
+          rationale: 축척 표기
+      - raw_text: 'ontology_hints.suggested_parent_class: Fan'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 원문 ontology hint 보존
+      - raw_text: 'ontology_hints.function_candidates: Smoke Exhaust'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: function_candidate
+          suggested_datatype: xsd:string
+          rationale: 원문 후보 기능 보존
+      - raw_text: 'ontology_hints.function_candidates: Ventilation'
+        source_page: 14
+        promotion_hint:
+          suggested_property_label: function_candidate
+          suggested_datatype: xsd:string
+          rationale: 원문 후보 기능 보존
+  provenance:
+    tag:
+      source_pages:
+      - 14
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 14
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 14
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 14
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 14
+      method: entity_detail.function_category
+    specifications.drawing_number:
+      source_pages:
+      - 14
+      method: entity_detail.specifications.drawing_number
+    specifications.title:
+      source_pages:
+      - 14
+      method: entity_detail.specifications.title
+    specifications.scale_A1:
+      source_pages:
+      - 14
+      method: entity_detail.specifications.scale_A1
+    specifications.scale_A3:
+      source_pages:
+      - 14
+      method: entity_detail.specifications.scale_A3
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 14
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.function_candidates:
+      source_pages:
+      - 14
+      method: entity_detail.ontology_hints.function_candidates
+    source_pages:
+      source_pages:
+      - 14
+      method: entity_detail.source_pages
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 14
+    reason: 관계 항목이 비어 있음
+    preservation_note: 추후 관계 추출 시 재검토
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: '[]'
+    source_page: 14
+    reason: 관찰 속성 없음
+    preservation_note: 원문 빈 배열 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 14
+    reason: 유사 설비 없음
+    preservation_note: 원문 빈 배열 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 TITLE이지만 name/title/specifications가 함께 존재하여 도면 메타 객체로 보이나, ontology_hints가
+      Fan/Smoke Exhaust/Ventilation을 제시해 실제 설비와 혼재된 흔적이 있음.
+    recommended_handling: 0-9c/0-9d에서 도면 제목 객체로 우선 처리하되, ontology_hints는 별도 힌트로 유지하고
+      실제 설비와의 혼동 여부를 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 도면 메타/표제란 객체를 DrawingInformationEntity 축으로 우선 배치
+    - title, drawing_number, scale_A1, scale_A3를 보존
+    deviations:
+    - ontology_hints.suggested_parent_class=Fan 및 function_candidates가 TITLE 객체와 충돌하여
+      class_hint를 Fan으로 따르지 않음
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:58:07.983715'
+  confidence: 0.93

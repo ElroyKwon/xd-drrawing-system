@@ -1,0 +1,92 @@
+entity_detail:
+  tag: HV PNL
+  type: panel
+  specs:
+  - key: voltage_level
+    value: 6.6kV
+    unit: kV
+    source: page 2
+    confidence: 0.97
+  - key: drawing_number
+    value: EE-01-006
+    unit: null
+    source: page 2
+    confidence: 0.97
+  - key: drawing_title
+    value: 6.6kV 변전설비 단선결선도 - R-Center 변전실
+    unit: null
+    source: page 2
+    confidence: 0.97
+  drawing_texts:
+  - source: page 2
+    page_number: 2
+    text: HV PNL
+  - source: page 2
+    page_number: 2
+    text: 6.6kV 변전설비 단선결선도 - R-Center 변전실
+  - source: page 2
+    page_number: 2
+    text: EE-01-006
+  requirements: []
+  connection_specs:
+  - key: connected_to
+    value: HV 1
+    unit: null
+    source: page 2
+    confidence: 0.95
+  - key: connected_to
+    value: HV 2
+    unit: null
+    source: page 2
+    confidence: 0.95
+  - key: connected_to
+    value: SPARE
+    unit: null
+    source: page 2
+    confidence: 0.95
+  ontology_hints:
+    observed_relations:
+    - relation_type: appears_in
+      partner_tag: R-Center 변전실
+      direction: within
+      source: page 2
+    observed_attributes:
+    - voltage_level
+    - drawing_number
+    - drawing_title
+    similar_equipment:
+    - LV PNL
+    - P-AC-4PP-1
+    - P-AC-4PP-2
+    - P-AC-4PP-3
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-3
+    - P-A-4PP-4
+    - P-A-4PP-5
+    - P-A-4PP-6
+    - P-A-4PP-7
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    - P-C-4PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    - P-E-3PP
+    - P-D-3PP
+    - P-AC-3PP
+    - P-A-3PP
+    - P-OAC-1
+    - P-OAC-2
+    - P-OAC-3
+    - P-F
+    suggested_parent_class: ElectricalPanel
+    cross_discipline: []
+  notes:
+  - 페이지 2의 분석 결과에서 HV PNL 자체의 상세 사양은 별도로 제시되지 않았음.
+  - read_page_image(page 2)에서 HV PNL 관련 피더 표기(HV 1, HV 2, SPARE)를 확인함.
+  - read_page_context(page_num=2) 확인 결과, HV PNL은 6.6kV 변전설비 단선결선도 내 패널로 표시되며, 별도 자체
+    spec은 확인되지 않음.
+  - read_entity_detail(tag='HV 1'), read_entity_detail(tag='HV 2'), read_entity_detail(tag='SPARE')
+    확인 결과, 해당 피더들은 개별 feeder로만 확인되며 HV PNL의 추가 자체 사양은 확인되지 않음.

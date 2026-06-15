@@ -1,0 +1,190 @@
+placement:
+  tag: ITB-CABINET
+  name: 정보통신용 맨홀
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:ITB-CABINET
+    class_hint: Manhole
+    alternative_class_hints:
+    - CableRouting
+    - UndergroundAccess
+    - CommunicationInfrastructure
+    related_assertions:
+    - type: connectedTo
+      target_hint: PULL-BOX
+      note: relation=cable, 정보통신용 맨홀 연결
+    applicable_axioms:
+    - AX029
+    applicable_constraints:
+    - CN016
+    confirmed_class: dks:Manhole
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 정보통신용 맨홀
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 라벨
+      - raw_text: 입보통신용 맨홀
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: labels_inside에 있는 원문 표기
+      - raw_text: 1,700 x 800 x 1,100mm
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: dimensions
+          suggested_datatype: xsd:string
+          rationale: 치수 문자열
+      - raw_text: 'equipment_symbols: type=manhole, count=1'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: visualSymbolType
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 관찰값
+      - raw_text: 'position: right-bottom'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag-based hint
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + function_category + name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 5
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 5
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 5
+      method: relations.annotation
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 5
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 5
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 5
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 5
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 5
+      method: position
+    unresolved:
+      source_pages:
+      - 5
+      method: full entity_detail scan
+    ambiguous:
+      source_pages:
+      - 5
+      method: classification review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 정보통신용 맨홀
+    source_page: 5
+    reason: 이미 name으로 반영되었으나 원문 보존 필요
+    preservation_note: labels_inside 원문 그대로 유지
+  - field_candidate: specs.labels_inside
+    raw_text: 입보통신용 맨홀
+    source_page: 5
+    reason: 표기 변형으로 보이나 외부 보정 금지
+    preservation_note: 원문 표기 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 1,700 x 800 x 1,100mm
+    source_page: 5
+    reason: 치수 문자열이지만 단위/형식 정규화는 다음 단계에서 처리
+    preservation_note: 문자열 그대로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CableRouting
+    source_page: 5
+    reason: 후보 기능이지만 확정 불가
+    preservation_note: class_hint 보조 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: UndergroundAccess
+    source_page: 5
+    reason: 후보 기능이지만 확정 불가
+    preservation_note: class_hint 보조 후보로만 유지
+  - field_candidate: relations.annotation
+    raw_text: 정보통신용 맨홀 연결
+    source_page: 5
+    reason: 관계 설명문 원문 보존
+    preservation_note: 관계 해석 보조 텍스트
+  - field_candidate: equipment_symbols
+    raw_text: 'type: manhole, count: 1'
+    source_page: 5
+    reason: 심볼 관찰값은 있으나 정식 속성화는 다음 단계
+    preservation_note: 시각 심볼 정보 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name은 맨홀로 명확하지만 ontology_hints의 suggested_parent_class가 CommunicationInfrastructure이고
+      function_candidates가 CableRouting/UndergroundAccess로 제시되어 상위 분류가 혼재함.
+    recommended_handling: 0-9c에서 Manhole 계열로 우선 검토하되, 공간/경로/인프라 혼합 가능성을 유지하고 관계 중심
+      검증을 수행
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 boundary/route 계열 엔티티를 CommunicationEquipment/SpatialEntity/CableAndPathway
+      축으로 검토
+    - relations의 cable 패턴을 관계 사실 원형으로 보존
+    - source_pages와 raw_labels/labels_inside/position/equipment_symbols를 모두 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:43:25.566879'
+  confidence: 0.86

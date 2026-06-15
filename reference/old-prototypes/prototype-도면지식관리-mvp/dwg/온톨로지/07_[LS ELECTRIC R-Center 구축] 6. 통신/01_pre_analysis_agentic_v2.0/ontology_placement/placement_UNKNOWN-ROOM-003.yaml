@@ -1,0 +1,112 @@
+placement:
+  tag: UNKNOWN-ROOM-003
+  name: 스마트룸 (회의실)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-003
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - MeetingRoom
+    - CommunicationSpaceEntity
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: 스피커 천정형 (3W)
+      note: specs.source_text에 포함된 장비 심볼
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 스마트룸 (회의실)
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기명 자체
+      - raw_text: 스피커 천정형 (3W)
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내부에 관찰된 장비 심볼 표기
+      - raw_text: MEETING_ROOM
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: entity_detail의 function_category 값
+      - raw_text: SPACE
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: entity_detail의 type 값
+  provenance:
+    name:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: classified from SPACE with standalone tag and own spec
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: derived from function_candidates and observed context
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 17
+      method: specs.source_text equipment_symbols
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 17
+      method: specs.source_text equipment_symbols
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 17
+      method: entity_detail.function_category
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 17
+      method: entity_detail.type
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 보이는 엔티티를 CommunicationSpace 계열로 배치
+    - equipment_symbols를 관계 사실 원형으로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:17.754936'
+  confidence: 0.93

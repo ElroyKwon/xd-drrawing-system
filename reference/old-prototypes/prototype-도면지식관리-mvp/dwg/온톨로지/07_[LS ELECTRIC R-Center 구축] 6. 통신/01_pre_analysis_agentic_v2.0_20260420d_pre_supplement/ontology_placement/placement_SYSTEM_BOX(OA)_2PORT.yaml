@@ -1,0 +1,141 @@
+placement:
+  tag: SYSTEM_BOX(OA)_2PORT
+  name: SYSTEM BOX(OA) 2PORT
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:SYSTEM_BOX_OA_2PORT
+    class_hint: CommunicationOutlet
+    alternative_class_hints:
+    - CommunicationEquipment
+    - OutletBox
+    - SystemBox
+    related_assertions:
+    - type: hasInstalledEquipment
+      target_hint: Floor Mounted Type
+      note: specs.mount_type_sonnet / mount_type_gemini에 바닥매입형으로 표시됨
+    - type: referencesLegend
+      target_hint: 좌측 범례
+      note: source에 좌측 범례, 통합배선설비 항목 명시
+    - type: belongsToSystem
+      target_hint: 통합배선설비
+      note: source에 통합배선설비 항목 명시
+    applicable_axioms:
+    - AX016
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationOutlet
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 바닥매입형 (Floor Mounted Type)
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식/형태를 나타내는 문자열
+      - raw_text: 바닥매입형으로 표시된 시스템 박스 심볼, OA 구분 및 2PORT 표기
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼의 시각적 설명과 표기 정보
+      - raw_text: 좌측 범례, 통합배선설비 항목
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: source
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/근거 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_symbol_and_spec
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: normalized_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 3
+      method: compiled_from_specs_and_source
+    specs.mount_type_sonnet:
+      source_pages:
+      - 3
+      method: direct
+    specs.mount_type_gemini:
+      source_pages:
+      - 3
+      method: direct
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: direct
+    specs.source:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+    plan_reference.guidance_applied:
+      source_pages:
+      - 3
+      method: applied_plan_focus_for_0_9b_placement
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: system_box, outlet_box, communication outlet, and communication equipment
+      interpretations overlap; the drawing provides a symbol and labels but no explicit
+      class confirmation.
+    recommended_handling: Keep as NamedIndividual with CommunicationOutlet as primary
+      class_hint; allow 0-9c to confirm class and 0-9d to resolve property mapping.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Use suggested_parent_class and observed_attributes to place the entity as a
+      communication outlet-like individual.
+    - Preserve symbol/legend/source information in notes rather than forcing unsupported
+      axioms.
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:46:53.772217'
+  confidence: 0.84

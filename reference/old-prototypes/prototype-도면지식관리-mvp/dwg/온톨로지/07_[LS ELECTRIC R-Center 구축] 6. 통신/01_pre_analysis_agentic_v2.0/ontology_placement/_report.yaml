@@ -1,0 +1,88 @@
+summary:
+  total_placements: 209
+  expected_total_tags: 209
+  owl_role_distribution:
+    NamedIndividual: 181
+    AnnotationOnly: 27
+    ObjectPropertyAssertion: 1
+  discipline_distribution:
+    communication: 209
+  ambiguous_count: 135
+  merge_candidate_count: 5
+  unresolved_entries: 830
+ambiguous_samples:
+- tag: 110BLOCK-IDF
+  reason: 110BLOCK-IDF는 단자/분배 성격의 설비로 보이지만, 단독 장비인지 랙 내부 부품인지 도면 원문만으로 확정 불가함. 또한
+    IN/OUT 표기가 관계인지 라벨인지 혼재됨.
+- tag: 110BLOCK-OUT-BACKBONE
+  reason: type은 equipment이지만 라벨이 '110BLOCK - OUT' 및 '(기존 예정 자재)'로만 구성되어 실제 독립 설비인지,
+    종단 블록의 표기/주석인지 경계가 다소 불명확함.
+- tag: 110BLOCK-OUT
+  reason: 110BLOCK-OUT는 독립 설비처럼 보이지만, 표기상 기존 예정 자재이며 Voice Distribution과 Cable Termination
+    해석이 모두 가능함.
+- tag: 2F-SPEAKER-LINE
+  reason: 배선 라인 자체는 독립 엔티티로 보이지만, 관계 사실(cable)과 라인 객체의 경계가 혼재되어 있고, 스피커 수량/심볼이 함께
+    기록되어 있어 개체성과 관계성이 동시에 강함.
+- tag: AMP-PANEL
+  reason: AMP-PANEL은 패널/단자함/제어반 성격과 설비 성격이 함께 보이며, name도 AMP로 단순화되어 있어 단일 하위 클래스 확정이
+    어려움
+- tag: CCTV-GRP-2F
+  reason: Entity is a terminal_group with surveillance function and multiple CCTV
+    symbols; it can be read as a grouped equipment instance rather than a single physical
+    device.
+- tag: COMM-ROOM-1F
+  reason: type이 equipment/space로 혼합되어 있고, name은 공간이지만 내부에 IDF RACK와 110 BLOCK 심볼이
+    함께 관찰됨
+- tag: DF-1-BOM
+  reason: BOM 자재표는 물리 설비 자체라기보다 설비 관련 문서/주석 성격이 강하지만, 내용상 IDF 단자함과 110 BLOCK의 자재 목록을
+    포함하여 설비 참조성과 문서성이 혼재함
+- tag: DF-1-FACE
+  reason: RACK, TERMINAL_BOX, 정면도(face detail), IDF 단자함이 동시에 관찰되어 물리 설비 본체와 상세도 표현이
+    혼재함
+- tag: EXT-INFLOW
+  reason: 외부 인입은 물리적 설비라기보다 연결/경로/출처 지점을 함께 나타내는 복합 엔티티로 보이며, equipment와 connection
+    entity 사이 경계가 불명확함.
+- tag: EXT-MDF-DATA
+  reason: 태그는 equipment로 입력되었으나 실제로는 외부 인입점/연결 주석 성격이 강하고, 물리 설비와 관계 사실이 혼재함
+- tag: EXT-MDF-VOICE
+  reason: 외부 인입점처럼 보이지만 type이 equipment이고, 관계 주 정보가 강하며, 물리 설비/연결점/주석 경계가 혼합되어 있음.
+- tag: EXT-OFFICE-2F
+  reason: 외부 연결점으로 보이지만, 물리적 종단점인지 단순 주석/표기인지와 class 세분화가 도면 원문만으로는 완전히 확정되지 않음
+- tag: EXT-RCENTER-EPS
+  reason: 외부 연결점이면서 목적지/인입점/장비성 요소가 혼재하고, raw_labels가 배선 규격과 참조 주석을 함께 포함함
+- tag: EXT-SOURCE-BROAD-1F
+  reason: 태그가 외부 인입 출처를 나타내는 placeholder인지, 실제 연결점/설비 개체인지 도면상 혼합적으로 보임
+- tag: EXT-SOURCE-CCTV-CTRL
+  reason: 태그는 외부 인입 출처처럼 보이지만 name과 function_category가 제어반/출처/placeholder 성격을 함께 가지며,
+    관계 사실이 주 정보인지 독립 설비인지 경계가 혼합됨.
+- tag: EXT-SOURCE-COMM-1F
+  reason: type=placeholder이면서 외부 인입 출처와 케이블 연결 사실을 동시에 가지므로, 물리 설비인지 표기용 출처점인지 경계가
+    모호함
+- tag: EXT-SOURCE-COMM-B1
+  reason: name과 specs가 외부 인입 출처를 가리키지만 type이 placeholder이고, 물리 실체/주석/관계 사실의 경계가 도면상
+    혼합적임
+- tag: EXT-SOURCE-SERVER-2F
+  reason: type은 placeholder이지만 name, from_label, cable_spec, cross_page_ref, relation이
+    함께 있어 단순 주석이 아니라 외부 인입 출처 개체로 보임. 다만 실제 물리 설비인지, 연결점/출처 표식인지 경계가 모호함.
+- tag: EXT-SOURCE-SERVER-B2
+  reason: type이 placeholder이고 name은 외부 인입 출처를 나타내지만, 물리 설비 자체인지 관계 사실의 표기인지 경계가 다소
+    혼합됨.
+merge_candidates:
+- tag: 110BLOCK-OUT
+  other_tag: 110BLOCK-IN
+  reason: 동일 계열의 IN/OUT 짝 표기이며 ontology_hints에 similar_equipment로 110BLOCK-IN이 제시됨.
+- tag: EXT-SOURCE-BROAD-1F
+  other_tag: EXT-SOURCE-BROAD-1F-B
+  reason: 태그 접미사 B가 붙은 유사 태그가 존재하여 스펠링/버전 변형 또는 중복 엔티티 가능성 있음
+- tag: HUB-RACK-2
+  other_tag: HUB-RACK-1
+  reason: Same naming pattern and closely related rack family; both are HUB-RACK variants
+    with similar function and relation patterns.
+- tag: SPACE-EL
+  other_tag: E/V
+  reason: ontology_hints.similar_equipment에 E/V가 명시되어 있어 표기 변형 또는 유사 태그 가능성이 있음.
+- tag: TRAY-EXISTING-DUCT
+  other_tag: TRAY-EXISTING-COMM
+  reason: 태그 접두 구조와 ontology_hints.similar_equipment, relations annotation에서 기존 통신
+    트레이와 매우 유사한 형식이 관찰됨
+generated_at: '2026-04-20T17:18:23.206955'

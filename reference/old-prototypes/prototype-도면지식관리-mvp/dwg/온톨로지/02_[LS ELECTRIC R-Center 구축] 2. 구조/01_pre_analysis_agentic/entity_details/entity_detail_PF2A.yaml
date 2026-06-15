@@ -1,0 +1,73 @@
+entity_detail:
+  tag: PF2A
+  type: foundation
+  specs:
+    size_page_32:
+      value: 2,000 x 2,600 x 900
+      unit: mm
+      source: page 32
+      confidence: 0.99
+    size_page_33:
+      value: 2,000 x 2,600 x 600
+      unit: mm
+      source: page 33
+      confidence: 0.99
+  drawing_texts:
+  - source: page 32
+    page_number: 32
+    text: MEMBER LIST에 PF1, PF1A, PF1B, PF1C, PF2, PF2A, PF3, PF21, WF1, MF1 기초부재와
+      PIT, Ø500 PHC PILE, Ø65 MICRO PILE 표기가 확인된다.
+  - source: page 32
+    page_number: 32
+    text: "PF2A\n    name: PF2A 기초부재\n    spec: 2,000 x 2,600 x 900\n    discipline:\
+      \ STRUCTURAL\n    function_category: BOUNDARY\n    location: null\n    confidence:\
+      \ 0.99"
+  - source: page 33
+    page_number: 33
+    text: "PF2A\n    name: 기초\n    spec: 2,000 x 2,600 x 600\n    discipline: STRUCTURAL\n\
+      \    function_category: BOUNDARY\n    location: 평면 내\n    confidence: 0.99"
+  requirements:
+  - text: Ø500 PHC PILE (R-Center) 지지력=1,200kN/ea
+    source: page 32
+    type: pile_requirement
+  - text: Ø65 MICRO PILE 압축, 인장 = 700kN/ea이상
+    source: page 32
+    type: pile_requirement
+  - text: Ø500 PHC PILE (지지력 1,200kN/ea, 예상길이 16.60m)
+    source: page 33
+    type: pile_requirement
+  - text: Ø65 MICRO PILE (압축/인장 700kN/ea 이상, 예상길이 11.00m)
+    source: page 33
+    type: pile_requirement
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: member_list_entry
+      partner_tag: PF2A
+      direction: self
+      source: page 32
+    - relation_type: member_list_entry
+      partner_tag: PF2A
+      direction: self
+      source: page 33
+    observed_attributes:
+    - size_page_32
+    - size_page_33
+    similar_equipment:
+    - PF1
+    - PF1A
+    - PF1B
+    - PF1C
+    - PF2
+    - PF3
+    - PF21
+    - WF1
+    - MF1
+    - MF2
+    - MF3
+    suggested_parent_class: StructuralFoundation
+    cross_discipline: []
+  notes:
+  - '페이지 32와 페이지 33에서 PF2A 기초 사양이 서로 다르게 표기됨 (page 32: 2,000 x 2,600 x 900, page 33:
+    2,000 x 2,600 x 600). 도면 간 불일치가 확인되며 추가 확인 필요.'
+tag: PF2A

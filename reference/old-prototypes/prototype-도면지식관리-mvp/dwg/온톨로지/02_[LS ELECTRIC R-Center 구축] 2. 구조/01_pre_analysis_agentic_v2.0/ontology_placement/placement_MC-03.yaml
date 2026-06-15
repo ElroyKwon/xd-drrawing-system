@@ -1,0 +1,102 @@
+placement:
+  tag: MC-03
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints:
+    - CN006
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 주석성 텍스트
+      - raw_text: MC-03
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 식별 태그
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: direct
+    discipline:
+      source_pages:
+      - 0
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: direct
+    name:
+      source_pages:
+      - 0
+      method: absent_in_entity_detail
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 문장 전체가 주석/안내 성격이며 물리 설비나 관계로 해석할 근거가 없음
+    preservation_note: 페이지 목록과 안내 문구를 원문 그대로 보존
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 name 필드가 제공되지 않음
+    preservation_note: 빈 값으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: MC-03은 설비 실체라기보다 페이지 안내/주석성 텍스트로 보이며, NoteOrLegend와 DocumentEntity 사이
+      해석이 가능함
+    recommended_handling: 후속 단계에서 문서 메타 또는 주석 엔티티로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타/주석성 텍스트를 우선 보존
+    - raw 텍스트를 free_notes와 unresolved에 원문 그대로 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:30.096234'
+  confidence: 0.86

@@ -1,0 +1,241 @@
+placement:
+  tag: PIPE-SC-100-NEW
+  name: 연결송수구배관
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PIPE-SC-100-NEW
+    class_hint: FireProtectionPipe
+    alternative_class_hints:
+    - PipingEntity
+    - DistributePipe
+    - ConnectionPipe
+    related_assertions:
+    - type: connects_to
+      target_hint: CONN-UP-100
+      note: 1층 소화 배관 컨넥터에 연결
+      confirmed_property: dks:connects_to
+      confirmed_target: dks:CONN-UP-100
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:16:22.421313'
+    - type: passes_through
+      target_hint: VALVE-AD-001
+      note: 20ø 자동배수밸브 설치
+      confirmed_property: dks:passes_through
+      confirmed_target: dks:VALVE-AD-001
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:16:22.421313'
+    - type: located_in
+      target_hint: SPACE-PIT-001
+      note: PIT 공간 내 위치
+      confirmed_property: dks:located_in
+      confirmed_target: dks:SPACE-PIT-001
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:16:22.421313'
+    applicable_axioms:
+    - AX022
+    - AX023
+    - AX039
+    - AX041
+    - AX042
+    - AX043
+    applicable_constraints:
+    - CN003
+    - CN004
+    - CN012
+    - CN016
+    - CN019
+    - CN020
+    confirmed_class: dks:FireProtectionPipe
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: DISTRIBUTE'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: entity_type
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 값 보존
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값 보존
+      - raw_text: 'specs.abbreviation: SC'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: abbreviation
+          suggested_datatype: xsd:string
+          rationale: 약어 값 보존
+      - raw_text: 'specs.system_type: 연결송수구배관'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: system_type
+          suggested_datatype: xsd:string
+          rationale: 시스템 유형 원문 보존
+      - raw_text: 'specs.nominal_diameter_A: 100'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: nominal_diameter_A
+          suggested_datatype: xsd:decimal
+          rationale: 호칭지름 수치 값 보존
+      - raw_text: 'specs.pipe_role: feed_main'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: pipe_role
+          suggested_datatype: xsd:string
+          rationale: 배관 역할 값 보존
+      - raw_text: 'specs.line_style: solid'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: line_style
+          suggested_datatype: xsd:string
+          rationale: 선형 스타일 값 보존
+      - raw_text: 'specs.note: 신설 배관'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 설명 메모 보존
+      - raw_text: 'relations[0].relation: connects_to / to: CONN-UP-100 / note: 1층
+          소화 배관 컨넥터에 연결'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: object_property
+          rationale: 명시된 연결 관계 보존
+      - raw_text: 'relations[1].relation: passes_through / to: VALVE-AD-001 / note:
+          20ø 자동배수밸브 설치'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: passes_through
+          suggested_datatype: object_property
+          rationale: 명시된 통과 관계 보존
+      - raw_text: 'relations[2].relation: located_in / to: SPACE-PIT-001'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: located_in
+          suggested_datatype: object_property
+          rationale: 공간 내 위치 관계 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: FireProtectionPipe'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.observed_attributes: abbreviation, system_type,
+          nominal_diameter_A, pipe_role, line_style, note'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: observed_attributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: FireDepartmentConnection, WaterSupply'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+  provenance:
+    name:
+      source_pages:
+      - 6
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 6
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 6
+      method: classification_by_observation
+    ontology_core.iri_hint:
+      source_pages:
+      - 6
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 6
+      method: ontology_hints.suggested_parent_class + specs
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 6
+      method: ontology_hints.function_candidates + tag_pattern
+    ontology_core.related_assertions:
+      source_pages:
+      - 6
+      method: relations
+    specs.abbreviation:
+      source_pages:
+      - 6
+      method: entity_detail.specs
+    specs.system_type:
+      source_pages:
+      - 6
+      method: entity_detail.specs
+    specs.nominal_diameter_A:
+      source_pages:
+      - 6
+      method: entity_detail.specs
+    specs.pipe_role:
+      source_pages:
+      - 6
+      method: entity_detail.specs
+    specs.line_style:
+      source_pages:
+      - 6
+      method: entity_detail.specs
+    specs.note:
+      source_pages:
+      - 6
+      method: entity_detail.specs
+    relations:
+      source_pages:
+      - 6
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 6
+      method: entity_detail.ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 6
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 6
+      method: entity_detail.ontology_hints
+    source_attribution:
+      source_pages:
+      - 6
+      method: entity_detail.source_attribution
+    confidence:
+      source_pages:
+      - 6
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관 계열로 보고 NamedIndividual로 배치
+    - connects_to, passes_through, located_in 관계 원형 보존
+    - specs 및 ontology_hints의 관찰값을 provenance와 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:04:19.129420'
+  confidence: 0.95

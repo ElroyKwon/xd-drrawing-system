@@ -1,0 +1,143 @@
+placement:
+  tag: SPACE-MECH
+  name: 기계실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-MECH
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationRoom
+    - EquipmentHousing
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: space'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 원문 type 필드 값
+      - raw_text: 'function_category: MECHANICAL_ROOM'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 function_category 값
+      - raw_text: 'shape: rectangle'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 속성 원문값
+      - raw_text: 'labels_inside: 기계실'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 라벨 텍스트
+      - raw_text: 'inferred_name: 기계실'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 원문
+      - raw_text: 'position: center-right'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 위치 정보 원문
+      - raw_text: 'suggested_parent_class: Space'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 부모 클래스 후보
+      - raw_text: 'similar_equipment: []'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 목록이 비어 있음
+      - raw_text: 'function_candidates: EquipmentHousing'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문
+      - raw_text: 'relations: []'
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: relations
+          suggested_datatype: xsd:string
+          rationale: 관계 없음이 원문으로 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 16
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 16
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 16
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 16
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 16
+      method: tag_as_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 16
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 16
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 16
+      method: field_scan
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 16
+      method: assessment
+    confidence:
+      source_pages:
+      - 16
+      method: assessment
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 기계실은 공간 엔티티로 보이지만, ontology_hints에 EquipmentHousing 기능 후보가 함께 있어 공간/설비
+      수용공간 해석이 혼재됨.
+    recommended_handling: 0-9c에서 Space 계열 우선 검토 후, 필요 시 CommunicationRoom 또는 EquipmentHousing
+      후보를 병행 검증.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 우선 축에 따라 공간 엔티티로 배치
+    - suggested_parent_class와 function_candidates를 후보로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:56.690979'
+  confidence: 0.86

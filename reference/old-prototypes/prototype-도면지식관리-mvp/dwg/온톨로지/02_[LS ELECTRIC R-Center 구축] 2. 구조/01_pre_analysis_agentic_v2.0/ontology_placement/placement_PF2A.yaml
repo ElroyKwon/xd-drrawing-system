@@ -1,0 +1,165 @@
+placement:
+  tag: PF2A
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PF2A
+    class_hint: MemberMark
+    alternative_class_hints:
+    - FoundationMemberMark
+    - StructuralMemberMark
+    related_assertions:
+    - type: located_in
+      target_hint: FOUNDATION-PLAN
+      note: 도면 내 기초 심볼
+      confirmed_property: dks:located_in
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-SCHEDULE-01
+      note: 부재 태그 → 일람표 치수 참조
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-SCHEDULE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX007
+    - AX010
+    - AX012
+    - AX013
+    applicable_constraints:
+    - CN001
+    - CN012
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 도면 내 기초 심볼
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 설명성 주석
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 부재 태그 → 일람표 치수 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 일람표 참조를 설명하는 관계 주석
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 32
+      - 33
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 32
+      - 33
+      method: copied_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 32
+      - 33
+      method: plan_guidance + relation_pattern
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 32
+      - 33
+      method: plan_guidance
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 32
+      method: relation_record
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 32
+      method: relation_record
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 32
+      method: relation_record
+    ontology_core.related_assertions[1].type:
+      source_pages:
+      - 33
+      method: relation_record
+    ontology_core.related_assertions[1].target_hint:
+      source_pages:
+      - 33
+      method: relation_record
+    ontology_core.related_assertions[1].note:
+      source_pages:
+      - 33
+      method: relation_record
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 32
+      method: relation_note
+    discipline_context.free_notes[0].promotion_hint.suggested_property_label:
+      source_pages:
+      - 32
+      method: inferred
+    discipline_context.free_notes[0].promotion_hint.suggested_datatype:
+      source_pages:
+      - 32
+      method: inferred
+    discipline_context.free_notes[0].promotion_hint.rationale:
+      source_pages:
+      - 32
+      method: inferred
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 33
+      method: relation_note
+    discipline_context.free_notes[1].promotion_hint.suggested_property_label:
+      source_pages:
+      - 33
+      method: inferred
+    discipline_context.free_notes[1].promotion_hint.suggested_datatype:
+      source_pages:
+      - 33
+      method: inferred
+    discipline_context.free_notes[1].promotion_hint.rationale:
+      source_pages:
+      - 33
+      method: inferred
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PF2A는 FOUNDATION-PLAN에 located_in 되고 UNKNOWN-SCHEDULE-01에 references 되는
+      부재 태그로 보이지만, supplement가 없어 sub_kind를 확정할 수 없다.
+    recommended_handling: 다음 단계에서 MemberMark 계열 후보로 유지하고, PF* 패턴과 FOUNDATION-PLAN
+      연결을 기준으로 정규화 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - schedule/list -> references -> member mark
+    - foundation_member_marks
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:49.794359'
+  confidence: 0.86

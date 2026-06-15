@@ -1,0 +1,146 @@
+placement:
+  tag: EXT-SOURCE-COMM-1F
+  name: 외부 인입 출처 - 사무동 지상1층 통신실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-SOURCE-COMM-1F
+    class_hint: ExternalInlet
+    alternative_class_hints:
+    - SignalSource
+    - CommunicationEquipment
+    related_assertions:
+    - type: originatesFrom
+      target_hint: 사무동 지상1층 통신실
+      note: labels_inside/raw_labels에 FROM 표기
+    - type: connectedTo
+      target_hint: UTP 0.5mm/25Px1, CAT.5
+      note: labels_inside에 케이블 규격 문자열 관찰
+    applicable_axioms:
+    - AX034
+    applicable_constraints: []
+    confirmed_class: dks:ExternalInlet
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상1층 통신실'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: originatesFrom
+          suggested_datatype: xsd:string
+          rationale: FROM 표기와 출처 장소 문자열이 직접 관찰됨
+      - raw_text: UTP 0.5mm/25Px1, CAT.5
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열이 함께 표기됨
+      - raw_text: 'panel_id: EXT-SOURCE-COMM-1F'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 패널/표식 식별자 문자열이 관찰됨
+      - raw_text: 'shape: other'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 분류값이 원문 그대로 존재
+      - raw_text: 'position: center-right'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보가 관찰됨
+      - raw_text: 'inferred_name: 외부 인입 출처 - 사무동 지상1층 통신실 (UTP)'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 문자열이 별도 존재
+      - raw_text: 'function_category: EXTERNAL_SOURCE'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주가 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class + observed text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 4
+      method: specs.labels_inside + specs.raw_labels
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+      method: specs + ontology_hints + entity_detail fields
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: UTP 0.5mm/25Px1, CAT.5
+    source_page: 4
+    reason: 케이블 규격 문자열이지만 이 단계에서 정식 속성으로 확정하지 않음
+    preservation_note: 0-9d에서 hasCableSpec 또는 cable_spec 관련 데이터로 승격 가능
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM : 사무동 지상1층 통신실'
+    source_page: 4
+    reason: 출처 표기이지만 관계의 확정 property IRI는 미정
+    preservation_note: originatesFrom 계열 관계 후보로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SignalSource; ExternalInlet
+    source_page: 4
+    reason: 후보 기능명이며 확정 class 아님
+    preservation_note: class_hint 후보로만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 인입 출처라는 문구와 통신실 FROM 표기가 함께 있어, 물리 설비(ExternalInlet)인지 주석성 표식인지 경계가
+      다소 혼합됨.
+    recommended_handling: NamedIndividual로 유지하되 0-9c에서 class 검증, 0-9d에서 originatesFrom/connectedTo
+      관계 검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - external source / originatesFrom 패턴을 관계 원형으로 보존
+    - function_category와 inferred_name, raw_labels, labels_inside, position, panel_id를
+      모두 스캔하여 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:38.095494'
+  confidence: 0.86

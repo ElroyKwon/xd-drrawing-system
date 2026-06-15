@@ -1,0 +1,15 @@
+tag: 1층 PQDrive 검증시험실 _ 신뢰성 검증실
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- 'specifications: 자체 사양 없음'
+missing_relations: []
+reason: 도면에서 확인되는 것은 공간명(room_name)이며, entity_detail의 type도 room_name으로 보이지만 specs에는
+  location만 있고 독립 설비 사양은 없다. page 20 context에서 SP-ROOM-07은 ARCHITECTURAL 공간으로 확인되며,
+  다른 설비의 부품이 아니라도 물리적 설비 엔티티로 온톨로지 진입할 수 있는 자체 사양이 부족하다. 관계는 P-G-3PP와의 location_for가
+  확인되지만, 이는 공간의 위치 관계일 뿐 독립 설비 사양을 보완하지 못한다.
+demoted_to: document_metadata
+target_entity: SP-ROOM-07
+preserved_info:
+  spec: 'location: 1층 PQDrive 검증시험실 / 신뢰성 검증실'
+  relation: location_for(P-G-3PP)

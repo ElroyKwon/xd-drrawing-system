@@ -1,0 +1,111 @@
+placement:
+  tag: OUTLET-GRP-OFFICE
+  name: 사무실 단말 아울렛 그룹
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: OUTLET-GRP-OFFICE
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - TerminalOutletGroup
+    - CommunicationConnectionEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 사무실 LAN/TEL OUTLET 그룹
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasRawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨로 보이며, 그룹의 표기 텍스트를 보존할 필요가 있음.
+      - raw_text: LAN_OUTLET_2PORT x8, LAN_OUTLET_TEL_1PORT x4, SYSTEM_BOX_2PORT x6
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasComponentCount
+          suggested_datatype: xsd:string
+          rationale: 구성 심볼과 수량 정보가 함께 관찰되며, 향후 구성요소/수량 속성으로 승격 가능.
+      - raw_text: 'symbol_type: LAN/TEL OUTLET GROUP'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasSymbolTypeText
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 유형 표기이므로 문자열 속성으로 보존 가능.
+      - raw_text: 'quantity: 18'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasQuantity
+          suggested_datatype: xsd:integer
+          rationale: 그룹 총 수량으로 해석 가능하나, 현재 단계에서는 원문 값 보존 우선.
+      - raw_text: 'position: right-center'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치 표기이므로 위치 문자열 속성 후보.
+      - raw_text: 'inferred_name: 사무실 단말 아울렛 그룹'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명으로 보이며, 명칭 보존이 필요함.
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: classification_by_observed_entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class + observed function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates + observed symbol_type
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: specs.raw_labels, specs.equipment_symbols, specs.inferred_name, specs.position,
+        specs.quantity, specs.symbol_type
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 8
+      method: single entity with clear group semantics
+    merge_info.is_merge_candidate:
+      source_pages:
+      - 8
+      method: no similar tag evidence provided
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 사무실 LAN/TEL OUTLET 그룹으로 명시되어 있고, 단말 아울렛 그룹이라는 물리적/기능적 실체가 관찰됨.
+    recommended_handling: NamedIndividual로 유지하고, 후속 단계에서 적절한 클래스 및 관계를 확정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/group/terminal-group 패턴을 고려해 단말/아울렛 그룹으로 배치
+    - raw_labels, equipment_symbols, inferred_name, position, quantity, symbol_type를
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:14:25.698641'
+  confidence: 0.93

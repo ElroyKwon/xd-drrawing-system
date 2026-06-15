@@ -1,0 +1,61 @@
+entity_detail:
+  tag: ACB
+  type: breaker
+  specs: {}
+  drawing_texts:
+  - source: page_002_context.yaml
+    page_number: 2
+    text: '6.6kV 변전설비 단선결선도로, R-Center 변전실 신설분과 A동 지하1층 변전실 이설분이 함께 표시되어 있다.
+
+
+      주요 설비는 TR #1~#3, TR-3204, IVR 1/2, GIPAM/GIMAC, VCB/ACB/MCCB, CT/PT/ZCT/GPT,
+
+      BATTERY/RECTIFIER/CAPACITOR,
+
+      각종 HV/LV 피더 및 패널이다.
+
+
+      표기된 주요 용량은 TR #1 2,000kVA, TR #2 2,000kVA, TR #3 2,000kVA, TR-3204 1,000kVA,
+      IVR
+
+      1 1,500kVA, IVR 2 300kVA이다.'
+  - source: page_002_context.yaml
+    page_number: 2
+    text: 차단기 3종 (VCB, ACB, MCCB)
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: co-listed_with
+      partner_tag: VCB
+      direction: same_page
+      source: page_002_context.yaml
+    - relation_type: co-listed_with
+      partner_tag: MCCB
+      direction: same_page
+      source: page_002_context.yaml
+    observed_attributes:
+    - name
+    - discipline
+    - function_category
+    - type
+    similar_equipment:
+    - VCB
+    - MCCB
+    suggested_parent_class: Breaker
+    cross_discipline: []
+  notes:
+  - specs에 도면에서 확인 가능한 ACB 고유 수치/사양은 없음.
+  - read_page_image(2) 실행 실패로 이미지 직접 확인 불가.
+  - read_page_image(2)에서 ACB는 page 2 우측 하단의 LV 계통 패널 내부 항목으로 보이며, 별도 정격 수치는 판독되지 않음.
+  - read_page_image(2)에서 ACB 관련 연결은 LV 계통 패널/피더 영역 내에 표시되나, 도면 해상도로 인해 개별 connection_specs를
+    확정할 수 없음.
+  - read_page_context(2), read_entity_detail(VCB), read_entity_detail(MCCB), read_entity_list,
+    read_page_image(2) 사용 후에도 ACB 고유 spec 및 명시적 connection_specs는 확인되지 않아 UNKNOWN/empty
+    유지.
+  - read_page_image(2)에서 ACB는 우측 하단 LV 계통 패널 내부의 차단기 항목으로 표시되며, 패널 표기와 함께 개별 정격은 판독되지
+    않음.
+  - read_page_image(2)에서 ACB는 MCCB가 포함된 LV PNL 영역과 같은 계통 블록 내에 배치되어 있음.
+  - read_page_context(2) 확인 결과, ACB는 6.6kV 변전설비 단선결선도(R-Center 변전실) 내의 공통 차단기 항목으로
+    VCB, MCCB와 함께 "차단기 3종 (VCB, ACB, MCCB)"로 표기됨.
+  - read_page_image(2) 확인 결과, ACB의 개별 정격/치수/마감 정보는 판독 불가하여 추가하지 않음.

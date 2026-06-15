@@ -1,0 +1,98 @@
+placement:
+  tag: GRID-X
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GRID-X
+    class_hint: GroupingEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DocumentEntity
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroupingEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 접근 가능 범위를 나타내는 값으로 보존 가능
+      - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserOfferText
+          suggested_datatype: xsd:string
+          rationale: 응답 문구로서 도면 실체 정보는 아니지만 원문 보존이 필요함
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_context_inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_context_inference
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+    ambiguous:
+      source_pages:
+      - 0
+      method: rule_based
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: plan_applied
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 도면 설비/관계/스펙이 아니라 대화형 안내 문구와 페이지 목록만 존재함
+    preservation_note: 문서 접근 범위 메타로 보존; 후속 단계에서 문서 메타 속성 후보로 승격 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명 GRID-X는 plan context상 grid 관련 그룹/시스템일 가능성이 있으나, entity_detail에는 실제
+      도면 객체 관계나 구조 정보가 없고 페이지 안내 문구만 존재함
+    recommended_handling: AnnotationOnly 또는 DocumentEntity 후보로 후속 검토하되, 현재 단계에서는 NamedIndividual로
+      보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타/미해결 구조 엔티티 가능성을 보수적으로 보존
+    - free_notes에 분류 불가 원문과 promotion_hint를 함께 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:18.228878'
+  confidence: 0.56

@@ -1,0 +1,393 @@
+placement:
+  tag: 1302A
+  name: HV 피더 VCB 패널 1302A
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:1302A
+    class_hint: SwitchgearPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - ProtectionAndControlDevice
+    - PowerDistributionEquipment
+    related_assertions:
+    - type: connects_to
+      target_hint: 1302B
+      note: '3.3kV HV BUS-1, source_page: 5'
+    - type: controls
+      target_hint: 1302B
+      note: 'INTER-LOCK, source_page: 5'
+      confirmed_property: dks:controls
+      confirmed_target: 1302B
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-17T13:26:18.776700'
+    - type: connects_to
+      target_hint: 1303A
+      note: '3.3kV HV BUS-1, source_page: 5'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SwitchgearPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: HV
+        source_page: 5
+      - raw_text: HV BUS-1
+        source_page: 5
+      - raw_text: INTER-LOCK
+        source_page: 5
+      free_notes:
+      - raw_text: 1302A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: panel_id
+          suggested_datatype: xsd:string
+          rationale: 패널 식별자 형태의 태그 표기
+      - raw_text: VCB 3P 24kV 600A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasVCBRating
+          suggested_datatype: xsd:string
+          rationale: 차단기 정격을 나타내는 전압/전류/극수 복합 표기
+      - raw_text: 750MVA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasBreakingCapacity
+          suggested_datatype: xsd:string
+          rationale: 차단 관련 용량으로 보이는 MVA 표기
+      - raw_text: 2×CT 75/5A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCTRatio
+          suggested_datatype: xsd:string
+          rationale: CT 개수와 비율이 함께 적힌 계측기 사양
+      - raw_text: ZCT 200mA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasZCTRating
+          suggested_datatype: xsd:string
+          rationale: ZCT 정격 전류 표기
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionRelayModel
+          suggested_datatype: xsd:string
+          rationale: 보호계전기 모델명 표기
+      - raw_text: 50/51
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionFunctions
+          suggested_datatype: xsd:string
+          rationale: 보호 기능 코드 표기
+      - raw_text: '67'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasProtectionFunctions
+          suggested_datatype: xsd:string
+          rationale: 보호 기능 코드 표기
+      - raw_text: SA 9kV 5kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasSurgeArresterRating
+          suggested_datatype: xsd:string
+          rationale: 서지어레스터 정격 전압/전류 표기
+      - raw_text: 1.5kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDischargeCurrent
+          suggested_datatype: xsd:decimal
+          rationale: 전류 단위(kA) 수치 표기
+      - raw_text: 'TO: 6301 HV'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: destination
+          suggested_datatype: xsd:string
+          rationale: 도면상 목적지/연결 대상 표기
+      - raw_text: U/T동 부속동력
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: load_name
+          suggested_datatype: xsd:string
+          rationale: 부하명으로 보이는 문자열
+      - raw_text: 6.6kV CV
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cable_type
+          suggested_datatype: xsd:string
+          rationale: 케이블 전압 등급/종류 표기
+      - raw_text: 100sq
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cable_size
+          suggested_datatype: xsd:string
+          rationale: 케이블 단면적 표기
+      - raw_text: 3C*1L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cable_cores
+          suggested_datatype: xsd:string
+          rationale: 케이블 심수/구성 표기
+      - raw_text: CABLE TRAY
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cable_routing
+          suggested_datatype: xsd:string
+          rationale: 케이블 포설 경로 표기
+      - raw_text: E1
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: grounding_mark
+          suggested_datatype: xsd:string
+          rationale: 접지 마크로 보이는 표기
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification_by_type_and_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + function/type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + observed_attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 5
+      method: raw_labels_and_relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels + specs + ontology_hints.observed_attributes
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.bus_section:
+      source_pages:
+      - 5
+      method: entity_detail.specs.bus_section
+    specs.vcb_rating:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_rating
+    specs.ct_ratio:
+      source_pages:
+      - 5
+      method: entity_detail.specs.ct_ratio
+    specs.zct_rating:
+      source_pages:
+      - 5
+      method: entity_detail.specs.zct_rating
+    specs.sa_rating:
+      source_pages:
+      - 5
+      method: entity_detail.specs.sa_rating
+    specs.protection_functions:
+      source_pages:
+      - 5
+      method: entity_detail.specs.protection_functions
+    specs.destination:
+      source_pages:
+      - 5
+      method: entity_detail.specs.destination
+    specs.interlock:
+      source_pages:
+      - 5
+      method: entity_detail.specs.interlock
+    specs.panel_id:
+      source_pages:
+      - 5
+      method: entity_detail.specs.panel_id
+    specs.voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_kV
+    specs.vcb_poles:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_poles
+    specs.vcb_rated_voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_rated_voltage_kV
+    specs.vcb_rated_current_A:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_rated_current_A
+    specs.vcb_breaking_capacity_MVA:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_breaking_capacity_MVA
+    specs.ct_count:
+      source_pages:
+      - 5
+      method: entity_detail.specs.ct_count
+    specs.ct_ratio_sonnet:
+      source_pages:
+      - 5
+      method: entity_detail.specs.ct_ratio_sonnet
+    specs.ct_ratio_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.ct_ratio_gemini
+    specs.zct_count:
+      source_pages:
+      - 5
+      method: entity_detail.specs.zct_count
+    specs.zct_rating_mA:
+      source_pages:
+      - 5
+      method: entity_detail.specs.zct_rating_mA
+    specs.zct_rating_secondary_mA_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.zct_rating_secondary_mA_gemini
+    specs.sa_voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.sa_voltage_kV
+    specs.sa_discharge_current_kA:
+      source_pages:
+      - 5
+      method: entity_detail.specs.sa_discharge_current_kA
+    specs.protection_relay_model:
+      source_pages:
+      - 5
+      method: entity_detail.specs.protection_relay_model
+    specs.protection_relay_indicators_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.protection_relay_indicators_gemini
+    specs.load_name:
+      source_pages:
+      - 5
+      method: entity_detail.specs.load_name
+    specs.cable_type:
+      source_pages:
+      - 5
+      method: entity_detail.specs.cable_type
+    specs.cable_size:
+      source_pages:
+      - 5
+      method: entity_detail.specs.cable_size
+    specs.cable_cores:
+      source_pages:
+      - 5
+      method: entity_detail.specs.cable_cores
+    specs.cable_routing:
+      source_pages:
+      - 5
+      method: entity_detail.specs.cable_routing
+    specs.has_interlock:
+      source_pages:
+      - 5
+      method: entity_detail.specs.has_interlock
+    specs.grounding_mark:
+      source_pages:
+      - 5
+      method: entity_detail.specs.grounding_mark
+    relations:
+      source_pages:
+      - 5
+      method: entity_detail.relations
+    collection_sources.cross_validated:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    ontology_hints:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints
+    equipment_symbols:
+      source_pages:
+      - 5
+      method: entity_detail.equipment_symbols
+  unresolved:
+  - field_candidate: specs.ct_ratio_gemini
+    raw_text: 200/5A
+    source_page: 5
+    reason: ct_ratio_sonnet(75/5A)와 상충
+    preservation_note: 이중 출처 값으로 보존
+  - field_candidate: specs.zct_rating_secondary_mA_gemini
+    raw_text: 1.5mA
+    source_page: 5
+    reason: zct_rating_mA(200mA)와 단위/값이 상충
+    preservation_note: OCR/추출 차이 가능성 보존
+  - field_candidate: specs.vcb_breaking_capacity_MVA
+    raw_text: 250MVA
+    source_page: 5
+    reason: 차단용량으로 보이나 단위가 MVA로 표기되어 원문 그대로 보존
+    preservation_note: 정규화 전 원문 유지
+  - field_candidate: specs.sa_discharge_current_kA
+    raw_text: 5kA
+    source_page: 5
+    reason: sa_rating의 일부로도 읽히며 별도 값인지 불명확
+    preservation_note: SA 정격 문자열과 함께 보존
+  - field_candidate: specs.protection_relay_indicators_gemini
+    raw_text: A
+    source_page: 5
+    reason: 단독 지시문자 의미 불명확
+    preservation_note: 계전기 표시등/상태표시 가능성 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: VCB 패널로 명확하지만, 일부 사양(ct_ratio, zct_rating, breaking_capacity, sa_discharge_current)에서
+      상충/혼재 값이 존재함.
+    recommended_handling: 0-9d에서 DataProperty 후보로 분리하되, 상충 값은 unresolved를 우선 참조하고
+      source_page 5 기준으로 교차검증할 것.
+  merge_info:
+    is_merge_candidate: true
+    other_tag: 1302B
+    reason: relations에 1302B와의 상호 연결 및 인터록이 있으며, 동일 HV BUS-1 계통의 인접 패널로 보이는 교차 참조가
+      존재함.
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:06:19.406298'
+  confidence: 0.95

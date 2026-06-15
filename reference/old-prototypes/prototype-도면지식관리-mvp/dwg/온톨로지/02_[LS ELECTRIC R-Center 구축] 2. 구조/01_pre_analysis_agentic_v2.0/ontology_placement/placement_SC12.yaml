@@ -1,0 +1,93 @@
+placement:
+  tag: SC12
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: availablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 번호 목록 형태의 메타 정보
+    - raw_text: 원하시면 특정 페이지의 내용을 확인해드릴게요.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내용이 아닌 안내 문구/주석
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided inference
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text preservation
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 내용을 확인해드릴게요.'
+    source_page: 0
+    reason: 실체 설비 정보가 아니라 페이지 안내 문구이며, OWL 클래스/관계로 직접 해석 불가
+    preservation_note: 문서 메타/안내 주석으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 SC12는 설비 실체라기보다 페이지 안내가 핵심이며, DocumentEntity/PlanOrView/ScheduleOrList/NoteOrLegend
+      중 어느 쪽인지 단정할 근거가 부족함
+    recommended_handling: 후속 단계에서 문서 메타 계층으로 우선 검토하고, 페이지 목록 관련 속성으로 승격 가능성 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 계열 및 문서 메타 계층 비중이 큼'
+    - 'predicted_ontology_structure: DocumentEntity / PlanOrView / ScheduleOrList
+      / NoteOrLegend 후보 반영'
+    - 'expected_data_properties: sourcePage, relationNote 성격의 메타 보존'
+    deviations:
+    - 관계 사실이 없어 related_assertions를 비워둠
+    - supplement가 없어 sub_kinds를 사용하지 않고 free_notes로만 보존
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:49.835617'
+  confidence: 0.86

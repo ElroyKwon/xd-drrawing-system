@@ -1,0 +1,175 @@
+page_12_entities:
+- tag: SM.1
+  name: 오수맨홀 SM.1
+  type: MANHOLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SM.2
+  name: 오수맨홀 SM.2
+  type: MANHOLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SM.3
+  name: 오수맨홀 SM.3
+  type: MANHOLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SM.4
+  name: 오수맨홀 SM.4
+  type: MANHOLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: SM.5
+  name: 오수맨홀 SM.5
+  type: MANHOLE
+  discipline: CIVIL
+  confidence: 0.98
+- tag: CP.1
+  name: 도근점 CP.1
+  type: CONTROL_POINT
+  discipline: CIVIL
+  confidence: 0.98
+- tag: CP.3
+  name: 도근점 CP.3
+  type: CONTROL_POINT
+  discipline: CIVIL
+  confidence: 0.98
+- tag: BLD-ICENTER
+  name: I-Center 1층
+  type: BUILDING
+  discipline: CIVIL
+  confidence: 0.98
+- tag: BLD-23
+  name: 23동 기존 건물
+  type: BUILDING
+  discipline: CIVIL
+  confidence: 0.98
+- tag: BLD-14
+  name: 14동 기존 건물
+  type: BUILDING
+  discipline: CIVIL
+  confidence: 0.98
+- tag: BLD-21
+  name: 21동 기존 건물
+  type: BUILDING
+  discipline: CIVIL
+  confidence: 0.98
+- tag: BLD-24
+  name: 24동 기존 건물
+  type: BUILDING
+  discipline: CIVIL
+  confidence: 0.98
+- tag: BLD-25
+  name: 25동 기존 건물
+  type: BUILDING
+  discipline: CIVIL
+  confidence: 0.98
+- tag: LEGEND-01
+  name: 범례 표
+  type: LEGEND
+  discipline: CIVIL
+  confidence: 0.98
+- tag: TITLE-01
+  name: 표제란
+  type: TITLE_BLOCK
+  discipline: CIVIL
+  confidence: 0.98
+- tag: EXISTING-SEWER-NORTH
+  name: 기존 오수관 (상단)
+  type: EXTERNAL_UTILITY
+  discipline: CIVIL
+  confidence: 0.98
+- tag: EXISTING-SEWER-WEST
+  name: 기존 오수관 (서측)
+  type: EXTERNAL_UTILITY
+  discipline: CIVIL
+  confidence: 0.98
+- tag: EXISTING-SEWER-SOUTH
+  name: 기존 오수관 (하단)
+  type: EXTERNAL_UTILITY
+  discipline: CIVIL
+  confidence: 0.98
+- tag: EXISTING-SEWER-EAST
+  name: 기존 오수관 (우측)
+  type: EXTERNAL_UTILITY
+  discipline: CIVIL
+  confidence: 0.98
+page_12_relations:
+- from: SM.1
+  to: EXISTING-SEWER-NORTH
+  relation: connects_to
+- from: SM.1
+  to: SM.2
+  relation: connects_to
+- from: SM.2
+  to: SM.3
+  relation: connects_to
+- from: SM.3
+  to: SM.4
+  relation: connects_to
+- from: SM.4
+  to: SM.5
+  relation: connects_to
+- from: SM.2
+  to: EXISTING-SEWER-WEST
+  relation: connects_to
+- from: SM.5
+  to: EXISTING-SEWER-SOUTH
+  relation: connects_to
+- from: SM.5
+  to: EXISTING-SEWER-EAST
+  relation: connects_to
+- from: BLD-ICENTER
+  to: SM.2
+  relation: connects_to
+- from: BLD-ICENTER
+  to: SM.1
+  relation: connects_to
+- from: SM.1
+  to: SM.2
+  relation: flows_to
+- from: SM.2
+  to: SM.3
+  relation: flows_to
+- from: SM.3
+  to: SM.4
+  relation: flows_to
+- from: SM.4
+  to: SM.5
+  relation: flows_to
+- from: CP.1
+  to: SM.5
+  relation: near
+- from: CP.3
+  to: SM.4
+  relation: near
+- from: SM.1
+  to: LEGEND-01
+  relation: referenced_by
+- from: SM.2
+  to: LEGEND-01
+  relation: referenced_by
+- from: SM.3
+  to: LEGEND-01
+  relation: referenced_by
+- from: SM.4
+  to: LEGEND-01
+  relation: referenced_by
+- from: SM.5
+  to: LEGEND-01
+  relation: referenced_by
+- from: SM.1
+  to: TITLE-01
+  relation: described_in
+- from: SM.2
+  to: TITLE-01
+  relation: described_in
+- from: SM.3
+  to: TITLE-01
+  relation: described_in
+- from: SM.4
+  to: TITLE-01
+  relation: described_in
+- from: SM.5
+  to: TITLE-01
+  relation: described_in

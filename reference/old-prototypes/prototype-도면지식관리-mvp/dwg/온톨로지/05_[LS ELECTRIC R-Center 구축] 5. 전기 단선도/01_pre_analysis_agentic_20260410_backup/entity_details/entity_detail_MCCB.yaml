@@ -1,0 +1,81 @@
+entity_detail:
+  tag: MCCB
+  type: breaker
+  name: 배선용 차단기
+  specs:
+    status:
+      value: UNKNOWN
+      source: page_002_context.yaml
+      page_number: 2
+      confidence: 0.95
+  drawing_texts:
+  - source: page_002_context.yaml
+    page_number: 2
+    text: 차단기 3종 (VCB, ACB, MCCB)
+  requirements: []
+  connection_specs:
+  - source: page 2 image
+    page_number: 2
+    relation_type: appears_in
+    partner_tag: LV PNL
+    direction: within
+    note: page 2 우측 하단 LV PNL 내부 차단기 항목으로 표시됨
+  - source: page_002_context.yaml
+    page_number: 2
+    relation_type: co-listed_with
+    partner_tag: VCB
+    direction: same_page
+    note: 6.6kV 변전설비 단선결선도(page 2)에서 차단기 3종으로 함께 표기됨
+  - source: page_002_context.yaml
+    page_number: 2
+    relation_type: co-listed_with
+    partner_tag: ACB
+    direction: same_page
+    note: 6.6kV 변전설비 단선결선도(page 2)에서 차단기 3종으로 함께 표기됨
+  ontology_hints:
+    observed_relations:
+    - relation_type: co-listed_with
+      partner_tag: VCB
+      direction: same_page
+      source: page_002_context.yaml
+    - relation_type: co-listed_with
+      partner_tag: ACB
+      direction: same_page
+      source: page_002_context.yaml
+    - relation_type: appears_in
+      partner_tag: LV PNL
+      direction: within
+      source: page 2 image
+    observed_attributes:
+    - status
+    - name
+    similar_equipment:
+    - VCB
+    - ACB
+    suggested_parent_class: Breaker
+    cross_discipline: []
+  notes:
+  - page_002_context.yaml에서 MCCB의 spec은 null로 확인됨.
+  - 도구 사용 실패로 인해 추가 정보를 확인할 수 없음.
+  - read_page_context(2), read_page_image(2), read_entity_detail(ACB), read_entity_detail(VCB),
+    read_entity_list 사용 후에도 MCCB 고유 spec 및 명시적 connection_specs는 확인되지 않아 UNKNOWN/empty
+    유지.
+  - read_page_context(2)에서 MCCB는 6.6kV 변전설비 단선결선도(page 2)의 주요 설비 목록에 VCB, ACB와 함께
+    "차단기 3종 (VCB, ACB, MCCB)"로 동시 표기됨.
+  - read_page_context(2)에서 MCCB의 개별 spec은 null로 확인됨.
+  - read_page_image(2)에서 MCCB는 우측 하단 LV 계통 패널 영역 내 차단기 항목으로 표시되며, 개별 정격 수치는 판독되지 않음.
+  - read_page_image(2)에서 MCCB는 LV PNL 영역과 같은 계통 블록 내에 배치되어 있으나, 명시적 connection_specs는
+    확인되지 않음.
+  - read_entity_detail(ACB), read_entity_detail(VCB) 확인 결과 MCCB와 동일 페이지 동시 표기 외의 MCCB
+    고유 연결 정보는 확인되지 않음.
+  - read_page_image(2) 확인 결과, MCCB는 page 2 우측 하단 LV PNL 내부의 차단기 항목으로 보이며, 개별 정격/치수/마감
+    정보는 판독 불가하여 추가하지 않음.
+  - read_page_image(2)에서 MCCB는 LV PNL 및 관련 피더 표와 같은 계통 블록 내에 배치되어 있으나, 도면 해상도로 인해
+    개별 connection_specs를 확정할 수 없음.
+  - read_page_image(2)에서 MCCB는 LV PNL 내부 항목으로 확인되며, 추가적인 정격/치수/마감 정보는 판독되지 않음.
+  - read_page_image(2) 및 read_entity_detail(LV PNL) 확인 결과, MCCB는 LV PNL과 같은 저압 계통
+    블록 내에 배치됨.
+  - read_page_image(2)에서 MCCB는 LV PNL 내부의 개별 차단기 항목으로 보이며, 독립 사양(정격/치수/마감)은 확인되지 않음.
+  - read_page_image(2)에서 MCCB의 추가 connection_specs나 인접 설비 연결선은 판독되지 않음.
+  - 사용 도구 기록: read_page_context(2), read_entity_detail(LV PNL), read_entity_detail(MCCB),
+    read_entity_list, read_page_image(2)

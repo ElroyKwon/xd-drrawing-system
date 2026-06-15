@@ -1,0 +1,100 @@
+placement:
+  tag: S02.01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: S02.01
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms:
+    - AX011
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 참조 가능성 있음.
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAnalysisAvailabilityNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아니라 응답 안내 문구로, 주석/메타 성격의 텍스트임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification by raw text only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag preserved as identifier
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate from document/meta-like tag
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: ontology plan predicted hierarchy
+    discipline_context.free_notes[0]:
+      source_pages:
+      - 0
+      method: raw text preservation
+    discipline_context.free_notes[1]:
+      source_pages:
+      - 0
+      method: raw text preservation
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 태그 S02.01 자체의 물리적/도면 설비 실체를 직접 지시하지 않고, 페이지 उपलब्ध 안내 문구만 포함함.
+    preservation_note: 문서 메타/안내 텍스트로 보존. 추후 시트/페이지 엔티티와의 연결 후보로 검토 가능.
+  - field_candidate: discipline
+    raw_text: unknown
+    source_page: 0
+    reason: 명시 discipline 정보 없음.
+    preservation_note: ontology_plan 상 unknown 다수이나 외부 보완 없이 유지.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 존재하지만 원문이 페이지 안내 문구만 포함하여, 도면 내 실체인지 문서 메타인지 단정 불가.
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 시트/페이지 메타 엔티티로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - document metadata / unresolved structural entities 문맥을 우선 고려
+    - raw only placeholder responses는 free_notes와 unresolved에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:27.984339'
+  confidence: 0.78

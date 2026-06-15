@@ -1,0 +1,168 @@
+placement:
+  tag: UNKNOWN-SPACE-02
+  name: A동 지하1층 변전실 이설분
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-SPACE-02
+    class_hint: ElectricalRoom
+    alternative_class_hints:
+    - Substation
+    - ElectricalSpace
+    related_assertions: []
+    applicable_axioms:
+    - AX001
+    - AX021
+    - AX022
+    - AX023
+    - AX024
+    applicable_constraints:
+    - CN001
+    - CN011
+    - CN012
+    - CN013
+    - CN014
+    - CN015
+    - CN016
+    - CN017
+    confirmed_class: dks:ElectricalRoom
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: A동 지하1층
+        source_page: 2
+      groups:
+      - raw_text: 변전실 이설분
+        source_page: 2
+      free_notes:
+      - raw_text: 'source_block: text'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSourceBlock
+          suggested_datatype: xsd:string
+          rationale: source_block 값이 텍스트로 관찰됨
+        promoted_to: dks:source_block
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 'function_category: SUBSTATION'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 표기가 명시되어 있음
+        promoted_to: dks:hasFunctionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 'suggested_parent_class: ElectricalRoom'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보를 보존
+        promoted_to: dks:hasSuggestedParentClass
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 'observed_attributes: source_block'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasObservedAttribute
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록이 존재함
+        promoted_to: dks:hasObservedAttributes
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 'similar_equipment: []'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 설비 목록이 비어 있음도 원문 보존 필요
+      - raw_text: 'function_candidates: Substation, ElectricalRoom'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 복수로 제시됨
+        promoted_to: dks:hasFunctionCandidate
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+  provenance:
+    name:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: rule_based_classification
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints_and_function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints_and_function_candidates
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 2
+      method: parsed_from_name
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 2
+      method: parsed_from_name
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: preserve_unclassified_fields
+    specs.source_block:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+    function_category:
+      source_pages:
+      - 2
+      method: direct_from_entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 SPACE이지만 이름에 '변전실 이설분'이 포함되어 ElectricalRoom/Substation/ElectricalSpace
+      해석이 모두 가능함. 물리 설비라기보다 공간 엔티티로 보이나 상위 분류가 단일하지 않음.
+    recommended_handling: 0-9c에서 공간 클래스 우선 검토 후, 필요 시 ElectricalRoom 또는 Substation
+      하위로 정리하고 ElectricalSpace와의 구분을 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - ElectricalSpace vs ElectricalEquipment 구분
+    - ElectricalRoom/Substation 계열의 상위 클래스 후보 보존
+    - raw_labels/주석성 텍스트를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T16:00:30.465728'
+  confidence: 0.86

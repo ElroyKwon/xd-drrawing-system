@@ -1,0 +1,46 @@
+tag: EXT-MDF-VOICE
+name: 기존 MDF VOICE에 연결
+type: connection_point
+discipline: COMMUNICATION
+function_category: DISTRIBUTION_FRAME
+source_pages:
+- 18
+specs:
+  raw_labels:
+  - 기존 MDF VOICE에 연결
+  inferred_name: 외부 인입 - 기존 MDF VOICE 연결점
+  position: top-right
+  shape: other
+  labels_inside:
+  - 기존 MDF VOICE에 연결
+relations:
+- from: EXT-MDF-VOICE
+  to: HUB-RACK-1
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: 110BLOCK - OUT (기존 예정 자재) → CAT.5e 25P CABLE → 110BLOCK - IN / OUT
+- from: EXT-MDF-VOICE
+  to: HUB-RACK-2
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: 110BLOCK - IN / OUT (우측)
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-right
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - inferred_name
+  - position
+  - shape
+  - labels_inside
+  similar_equipment: []
+  function_candidates:
+  - VoiceSignalDistribution
+  - ExternalConnection
+  - SignalTermination

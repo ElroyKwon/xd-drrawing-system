@@ -1,0 +1,100 @@
+entity_detail:
+  tag: MCCB-INDIVIDUAL-GROUP
+  type: Molded Cased Circuit Breaker
+  specs:
+    abbreviation:
+      value: M.C.C.B
+      unit: null
+      source: legend_data.yaml
+      confidence: 0.99
+    name_from_legend:
+      value: Molded Cased Circuit Breaker
+      unit: null
+      source: legend_data.yaml
+      confidence: 0.99
+    page_context_description:
+      value: 개별 분기 MCCB (각 패널보드별)
+      unit: null
+      source: page_021_context.yaml
+      confidence: 0.96
+    related_panelboards:
+      value: P-A-4PP-1 ~ P-A-4PP-6
+      unit: null
+      source: page_021_context.yaml
+      confidence: 0.96
+    panelboard_supply_voltage:
+      value: 3Ø 440V
+      unit: V
+      source: page_021_context.yaml
+      confidence: 0.85
+  drawing_texts:
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 각 패널보드에는 MAIN CB, MCCB, SPD 및 E3 접지 표기가 보이며
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 각 패널보드별 MAIN CB 및 분기 MCCB 표기가 다수 존재하나, 텍스트 추출만으로는 일부 판독이 불명확함
+  - source: page_021_context.yaml
+    page_number: 21
+    text: MCCB, 분기 회로 보호
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 'M.C.C.B: Molded Cased Circuit Breaker'
+  requirements:
+  - text: 분기 회로 보호
+    source: page_021_context.yaml
+    type: protection
+  - text: 각 패널보드별
+    source: page_021_context.yaml
+    type: application_scope
+  connection_specs:
+  - relation: protects
+    partner: 분전반 P-A-4PP-1 ~ P-A-4PP-6 내부 분기 회로
+    details:
+      source: page_021_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: protects
+      partner_tag: P-A-4PP-1
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    - relation_type: protects
+      partner_tag: P-A-4PP-2
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    - relation_type: protects
+      partner_tag: P-A-4PP-3
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    - relation_type: protects
+      partner_tag: P-A-4PP-4
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    - relation_type: protects
+      partner_tag: P-A-4PP-5
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    - relation_type: protects
+      partner_tag: P-A-4PP-6
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    observed_attributes:
+    - abbreviation
+    - name
+    - type
+    - page_context_description
+    - related_panelboards
+    - panelboard_supply_voltage
+    similar_equipment:
+    - MCCB-GROUP-1
+    - MCCB-GROUP-2
+    - MCCB-GROUP-3
+    - MCCB-GROUP-4
+    - MCCB-GROUP-5
+    - MCCB-GROUP-6
+    suggested_parent_class: CircuitBreaker
+    cross_discipline: []
+  notes:
+  - 도면에서 개별 분기 MCCB의 상세 정격/차단용량 수치는 확인되지 않음.
+  - 관계 방향은 도면 내 개별 from-to가 구조화되어 있지 않아 UNKNOWN으로 기록함.
+tag: MCCB-INDIVIDUAL-GROUP

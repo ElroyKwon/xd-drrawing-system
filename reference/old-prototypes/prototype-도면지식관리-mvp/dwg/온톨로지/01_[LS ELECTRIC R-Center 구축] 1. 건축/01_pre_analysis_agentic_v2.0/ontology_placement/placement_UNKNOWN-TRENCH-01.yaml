@@ -1,0 +1,128 @@
+placement:
+  tag: UNKNOWN-TRENCH-01
+  name: 트렌치 (550X250)
+  discipline: architectural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-TRENCH-01
+    class_hint: TRENCH
+    alternative_class_hints:
+    - DrainageElement
+    - ServiceNetworkElement
+    related_assertions:
+    - type: contains
+      target_hint: PLAN-1F
+      note: PLAN-1F -> UNKNOWN-TRENCH-01 contains 관계가 관찰됨
+      confirmed_property: dks:contained_in
+      confirmed_target: PLAN-1F
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN003
+    - CN005
+    - CN011
+    confirmed_class: dks:TRENCH
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: architectural
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: TRENCH'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주가 명시되어 있음
+        promoted_to: dks:hasFunctionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'name: 트렌치 (550X250)'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: hasName
+          suggested_datatype: xsd:string
+          rationale: 명칭과 치수 표기가 함께 존재함
+        promoted_to: dks:hasName
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'relations: partner=PLAN-1F, relation_type=contains, direction=incoming'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 컨테이너-피포함 관계로 해석 가능한 관계 기록
+      - raw_text: 'relations: from=PLAN-1F to=UNKNOWN-TRENCH-01, relation=contains,
+          origin=cross_validated, line_style=null, note=null'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 교차검증된 contains 관계의 원형 기록
+  provenance:
+    name:
+      source_pages:
+      - 60
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 60
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 60
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 60
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 60
+      method: entity_detail + ontology_plan
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 60
+      method: ontology_plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 60
+      method: entity_detail
+    discipline_context.free_notes:
+      source_pages:
+      - 60
+      method: entity_detail
+    merge_info:
+      source_pages:
+      - 60
+      method: entity_detail
+    plan_reference.guidance_applied:
+      source_pages:
+      - 60
+      method: ontology_plan
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: name, function_category, and contains relation to PLAN-1F are explicit.
+    recommended_handling: Keep as a NamedIndividual and allow later subclass refinement.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'architectural focus: contains'
+    - 'architectural focus: hasFunctionCategory'
+    - 'architectural focus: hasName'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:50.242178'
+  confidence: 0.93

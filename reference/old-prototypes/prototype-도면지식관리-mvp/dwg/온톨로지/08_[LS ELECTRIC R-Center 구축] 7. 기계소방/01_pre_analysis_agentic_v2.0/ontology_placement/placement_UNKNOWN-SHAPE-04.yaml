@@ -1,0 +1,174 @@
+placement:
+  tag: UNKNOWN-SHAPE-04
+  name: 체크밸브 심볼
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: ValveSymbol
+    alternative_class_hints:
+    - CheckValveSymbol
+    - Valve
+    related_assertions: []
+    applicable_axioms:
+    - AX015
+    - AX037
+    - AX038
+    - AX039
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN005
+    - CN006
+    - CN007
+    - CN013
+    confirmed_class: dks:ValveSymbol
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: shape'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 엔티티의 형태 분류 정보
+      - raw_text: 'function_category: CHECK_VALVE'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값이 명시됨
+      - raw_text: 'specs.count: 2'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: count
+          suggested_datatype: xsd:integer
+          rationale: 수량 값이 명시됨
+      - raw_text: 'ontology_hints.suggested_parent_class: Valve'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: parentClassHint
+          suggested_datatype: xsd:string
+          rationale: 상위 클래스 후보가 명시됨
+      - raw_text: 'ontology_hints.observed_attributes: count'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존 필요
+      - raw_text: 'ontology_hints.function_candidates: Backflow prevention'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'ontology_hints.function_candidates: Directional flow control'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: entitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 생성/합성 출처 플래그
+      - raw_text: 'relations: []'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: relations
+          suggested_datatype: xsd:string
+          rationale: 관계 없음도 원문 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail
+    name:
+      source_pages:
+      - 9
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints + name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints + name
+    discipline_context.free_notes:
+      source_pages:
+      - 9
+      method: verbatim_preservation
+    ambiguous:
+      source_pages:
+      - 9
+      method: assessment
+    merge_info:
+      source_pages:
+      - 9
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 9
+      method: plan_alignment
+  unresolved:
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Valve
+    source_page: 9
+    reason: 상위 클래스 후보이지만 확정 분류는 이 단계에서 금지됨
+    preservation_note: 0-9c에서 class hierarchy 후보로 재검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Backflow prevention; Directional flow control
+    source_page: 9
+    reason: 기능 후보는 있으나 단일 확정 기능으로 단정 불가
+    preservation_note: 기능 라벨 후보로 유지
+  - field_candidate: specs.count
+    raw_text: '2'
+    source_page: 9
+    reason: 수량은 관찰되나 OWL Core에서 DataPropertyValue로 단독 승격하지 않음
+    preservation_note: 후속 단계에서 데이터 속성화 가능
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 9
+    reason: 관계 배열이 비어 있어 관계 사실 추출 불가
+    preservation_note: 빈 배열 자체를 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 9
+    reason: 합성 출처 플래그의 의미는 있으나 도면 관찰 사실과 별도
+    preservation_note: 출처 메타데이터로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 체크밸브 심볼이라는 명칭과 function_category, ontology_hints가 일치하며 물리 설비가 아닌 심볼/주석
+      성격이 강함
+    recommended_handling: AnnotationOnly로 유지하고 0-9c에서 심볼 클래스 후보로 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'dominant_equipment_types: 밸브/조인트/배관부속 계열'
+    - 'expected_object_properties: has_symbol_definition'
+    - 'expected_data_properties: count, function_category, name, type'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:07:45.152589'
+  confidence: 0.91

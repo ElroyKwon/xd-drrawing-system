@@ -1,0 +1,181 @@
+placement:
+  tag: UNKNOWN-REFERENCE-005
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: UNKNOWN-REFERENCE-005
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - UnknownEntity
+    - DocumentEntity
+    - AnnotationEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN004
+    - CN005
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: UNKNOWN-REFERENCE-005
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 태그 문자열 자체가 식별 정보로 관찰됨
+        promoted_to: dks:hasTag
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePage
+          suggested_datatype: xsd:integer
+          rationale: 이 엔티티에 대해 사용 가능한 페이지 범위가 명시됨
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: entity_detail 원문에 name, specs, relations, connection_specs, requirements,
+          drawing_texts, ontology_hints, notes, source_pages, source_attribution,
+          position 필드가 제공되지 않음
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRelationNote
+          suggested_datatype: xsd:string
+          rationale: 원문에 구조화 필드 부재가 명시되어 후속 보강 필요
+      - raw_text: 태그 패턴상 UNKNOWN-REFERENCE-* 계열의 참조/주석/메타 엔티티로 보이나, 도면 내 실제 물리 실체
+          여부는 확인 불가
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 참조성 메타 엔티티 후보이나 확정 불가
+        promoted_to: dks:hasFunctionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 분야 supplement 없음
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasDiscipline
+          suggested_datatype: xsd:string
+          rationale: 분야 분류 근거가 부족함
+        promoted_to: dks:hasDiscipline
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: direct_input
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_tag_and_missing_physical_evidence
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: direct_input
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: preservation_of_unclassified_input
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: inferred
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: plan_applied
+  unresolved:
+  - field_candidate: entity_detail.specs
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 specs 필드가 없음
+    preservation_note: 추후 원본 상세가 확보되면 수치/문자열 속성으로 재검토
+  - field_candidate: entity_detail.relations
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 relations 필드가 없음
+    preservation_note: 참조 대상/관계 사실이 추가되면 ObjectPropertyAssertion 후보로 재분류
+  - field_candidate: entity_detail.connection_specs
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 connection_specs 필드가 없음
+    preservation_note: 연결 규격 정보가 확보되면 관계/데이터 속성으로 승격 가능
+  - field_candidate: entity_detail.requirements
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 requirements 필드가 없음
+    preservation_note: 요구사항 문구가 확보되면 주석 또는 데이터 속성으로 보존
+  - field_candidate: entity_detail.drawing_texts
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 drawing_texts 필드가 없음
+    preservation_note: 도면 표기/문구가 추가되면 AnnotationOnly 또는 free_notes로 재검토
+  - field_candidate: entity_detail.ontology_hints
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 ontology_hints 필드가 없음
+    preservation_note: 후속 온톨로지 힌트가 제공되면 class_hint 보강 가능
+  - field_candidate: entity_detail.notes
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 notes 필드가 없음
+    preservation_note: 주석성 텍스트가 확보되면 free_notes 또는 AnnotationOnly로 보존
+  - field_candidate: entity_detail.source_pages
+    raw_text: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120, 121, 122
+    source_page: 0
+    reason: 개별 엔티티별 source_pages가 아니라 사용 가능한 페이지 목록만 제공됨
+    preservation_note: 후속 원문에서 실제 관찰 페이지를 분리해 기록 필요
+  - field_candidate: entity_detail.source_attribution
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 source_attribution 필드가 없음
+    preservation_note: 출처 귀속 정보가 확보되면 provenance로 분리
+  - field_candidate: entity_detail.position
+    raw_text: 미제공
+    source_page: 0
+    reason: 원문 entity_detail에 position 필드가 없음
+    preservation_note: 도면 상 위치 정보가 확보되면 공간 관계 후보로 재검토
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그만 존재하고 실제 도면 관계/속성/주석 내용이 제공되지 않아 AnnotationOnly와 UnknownEntity 계열 사이
+      판정이 불완전함
+    recommended_handling: 후속 단계에서 원본 도면 텍스트 또는 관계 레코드가 확보되면 AnnotationOrReferenceEntity
+      여부를 재검토하고, 관계가 나타나면 ObjectPropertyAssertion 또는 NamedIndividual로 승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown symbol/note/reference entity로 보이는 태그는 AnnotationOrReferenceEntity 후보로
+      우선 배치
+    - free_notes에 분류 불가 정보와 promotion_hint를 보존
+    - provenance와 unresolved에 원문 부재/미제공 항목을 모두 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:28.070805'
+  confidence: 0.62

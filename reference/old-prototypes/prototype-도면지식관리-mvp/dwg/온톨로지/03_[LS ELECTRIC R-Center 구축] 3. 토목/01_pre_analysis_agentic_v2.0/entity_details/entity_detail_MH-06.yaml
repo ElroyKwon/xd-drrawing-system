@@ -1,0 +1,45 @@
+tag: MH-06
+name: 오수맨홀
+type: MANHOLE
+discipline: CIVIL
+function_category: MANHOLE
+source_pages:
+- 4
+specs:
+  type: 오수맨홀
+  nominal_diameter_mm: null
+  invert_level_m: null
+  ground_level_m: null
+  status: new
+  subsystem: sewage
+relations:
+- from: MH-05
+  to: MH-06
+  relation: pipe
+  source_page: 4
+  origin: visual_semantics
+  annotation: D150 오수관로(H:1,700) L:20M
+- from: MH-06
+  to: 기존오수관
+  relation: pipe
+  source_page: 4
+  origin: visual_semantics
+  annotation: 기존오수관로 연결
+collection_sources:
+  entity_synthesis: true
+ontology_hints:
+  suggested_parent_class: Manhole
+  observed_attributes:
+  - type
+  - nominal_diameter_mm
+  - invert_level_m
+  - ground_level_m
+  - status
+  - subsystem
+  similar_equipment:
+  - MH-05
+  function_candidates:
+  - sewage_collection
+  - inspection
+  - maintenance_access
+  - pipe_junction

@@ -1,0 +1,11 @@
+tag: STRAIGHT-CONNECTOR
+verdict: demoted
+confidence: 0.97
+missing_fields:
+- name
+- discipline
+- specifications
+missing_relations: []
+reason: entity_detail에 tag와 type은 있으나, specs가 비어 있고 drawing_texts/connection_specs/observed_relations도
+  모두 없음. read_page_context(3) 결과 해당 페이지는 범례/주기사항 페이지로 실제 설비 태그가 없다고 확인되어 독립 엔티티로 볼
+  수 없다. 따라서 온톨로지 진입 대상이 아니라 document_metadata 또는 비독립 항목으로 강등한다.

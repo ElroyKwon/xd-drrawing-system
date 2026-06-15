@@ -1,0 +1,71 @@
+tag: GP-BUS-VCB
+name: GP 버스 인입 VCB 패널
+type: SWITCHGEAR_PANEL
+discipline: ELECTRICAL
+function_category: SWITCHGEAR_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - VCB 3P
+  - 7.2kV 600A
+  - 250MVA
+  - 2×CT 100/5A
+  - GIPAM
+  - 50/51
+  - SA 9kV 5kA
+  - 6.6kV CNCV W 100SQ 1C×1LINE(CABLE TRAY)
+  bus_section: GP
+  vcb_rating: 3P 7.2kV 600A 250MVA
+  ct_ratio: 100/5A
+  sa_rating: 9kV 5kA
+  cable: 6.6kV CNCV W 100SQ 1C×1LINE(CABLE TRAY)
+  protection_functions:
+  - 50/51
+relations:
+- from: GEN-VCB
+  to: GP-BUS-VCB
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV FR 8 100SQ 1C×1LINE(CABLE TRAY)
+- from: GP-BUS-VCB
+  to: 1402A
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV GP BUS
+collection_sources:
+  cross_validated: true
+position: middle-left
+confidence: 0.6
+equipment_symbols:
+- type: VCB
+  count: 1
+- type: CT
+  count: 2
+- type: SA
+  count: 1
+- type: GIPAM
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: false
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - vcb_rating
+  - ct_ratio
+  - sa_rating
+  - cable
+  - protection_functions
+  similar_equipment: []
+  function_candidates:
+  - Incoming
+  - Protection
+  - Switching

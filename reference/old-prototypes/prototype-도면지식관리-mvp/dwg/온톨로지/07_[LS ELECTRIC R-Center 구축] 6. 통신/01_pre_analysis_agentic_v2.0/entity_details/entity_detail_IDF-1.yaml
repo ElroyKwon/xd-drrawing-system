@@ -1,0 +1,83 @@
+tag: IDF-1
+name: IDF-1
+type: communication_distribution_frame
+discipline: COMMUNICATION
+function_category: COMMUNICATION_DISTRIBUTION_FRAME
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - IDF-1
+  - VOICE
+  - HUB RACK-1 (RACK TYPE)
+  - DATA IN 12CORE
+  - OUT 2PORT
+  - FDF 형 FDF(SM) 24CORE
+  - VOICE 200P
+  - HUB RACK -1 (RACK TYPE)
+  - IN 12CORE
+  - DATA OUT 2PORT
+  shape: rectangle
+  labels_inside:
+  - IDF-1
+  - VOICE
+  - HUB RACK-1 (RACK TYPE)
+  - DATA IN 12CORE
+  - OUT 2PORT
+  - FDF 형 FDF(SM) 24CORE
+  labels_above:
+  - IDF-1
+  labels_below: []
+  equipment_symbols:
+  - type: rack
+    count: 1
+  - type: FDF
+    count: 1
+  inferred_name: 1층 IDF 랙 (음성+데이터 분배)
+  position: center-middle
+relations:
+- from: EXT-사무동1층통신실
+  to: IDF-1
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: UTP 0.5mm/25Px1,CAT.5 / FIBER OPTICAL S.M 12CORE / 지하공동구 경유
+- from: IDF-1
+  to: HUB-RACK-2
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: F/O CABLE S.M 12CORE (F4)
+- from: IDF-1
+  to: GRP-1층
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: UTP 0.5mm/4Px, CAT.5e 각 실 분기
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-middle
+equipment_symbols:
+- type: rack
+  count: 1
+- type: FDF
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  similar_equipment:
+  - HUB-RACK-2
+  function_candidates:
+  - Voice Distribution
+  - Data Distribution
+  - Fiber Termination

@@ -1,0 +1,548 @@
+placement:
+  tag: MCP-PANEL
+  name: 메인 제어 패널
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:MCP-PANEL
+    class_hint: ControlPanel
+    alternative_class_hints:
+    - PowerPanel
+    - ElectricalDistribution
+    - EquipmentMonitoringPanel
+    related_assertions:
+    - type: feeds
+      target_hint: MAIN-MCCB
+      note: MAIN-MCCB -> MCP-PANEL
+      confirmed_property: dks:feeds
+      confirmed_target: MAIN-MCCB
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T08:41:55.765988'
+    - type: supplies
+      target_hint: FEEDER-DCF1
+      note: MCP-PANEL -> FEEDER-DCF1
+      confirmed_property: dks:supplies
+      confirmed_target: FEEDER-DCF1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T08:41:55.765988'
+    - type: supplies
+      target_hint: FEEDER-DCF2
+      note: MCP-PANEL -> FEEDER-DCF2
+    - type: supplies
+      target_hint: FEEDER-DCF3
+      note: MCP-PANEL -> FEEDER-DCF3
+    - type: supplies
+      target_hint: FEEDER-DCF4
+      note: MCP-PANEL -> FEEDER-DCF4
+    - type: supplies
+      target_hint: FEEDER-DCF5
+      note: MCP-PANEL -> FEEDER-DCF5
+    - type: supplies
+      target_hint: FEEDER-EHP1
+      note: MCP-PANEL -> FEEDER-EHP1
+    - type: supplies
+      target_hint: FEEDER-EHP2
+      note: MCP-PANEL -> FEEDER-EHP2
+    - type: supplies
+      target_hint: FEEDER-EHP3
+      note: MCP-PANEL -> FEEDER-EHP3
+    - type: supplies
+      target_hint: FEEDER-EHP4
+      note: MCP-PANEL -> FEEDER-EHP4
+    - type: supplies
+      target_hint: FEEDER-EHP5
+      note: MCP-PANEL -> FEEDER-EHP5
+    - type: supplies
+      target_hint: FEEDER-CTRL-PWR1
+      note: MCP-PANEL -> FEEDER-CTRL-PWR1
+    - type: supplies
+      target_hint: FEEDER-CTRL-PWR2
+      note: MCP-PANEL -> FEEDER-CTRL-PWR2
+    - type: cable
+      target_hint: MAIN-MCCB
+      note: 3Ø4W 380V 60Hz
+    - type: cable
+      target_hint: FEEDER-DCF1
+      note: ELCR-1 EBC-13 3P/30AF/10A
+    - type: cable
+      target_hint: FEEDER-DCF2
+      note: ELCR-2 EBC-13 3P/30AF/10A
+    - type: cable
+      target_hint: FEEDER-DCF3
+      note: ELCR-3 EBC-13 3P/30AF/10A
+    - type: cable
+      target_hint: FEEDER-DCF4
+      note: ELCR-4 EBC-13 3P/30AF/10A
+    - type: cable
+      target_hint: FEEDER-DCF5
+      note: ELCR-5 EBC-13 3P/30AF/10A
+    - type: cable
+      target_hint: FEEDER-EHP1
+      note: ELB-1 EBC-13 2P/30AF/15A
+    - type: cable
+      target_hint: FEEDER-EHP2
+      note: ELB-2 EBC-13 2P/30AF/15A
+    - type: cable
+      target_hint: FEEDER-EHP3
+      note: ELB-3 EBC-13 2P/30AF/15A
+    - type: cable
+      target_hint: FEEDER-EHP4
+      note: ELB-4 EBC-13 2P/30AF/15A
+    - type: cable
+      target_hint: FEEDER-EHP5
+      note: ELB-5 EBC-13 2P/30AF/15A
+    - type: cable
+      target_hint: FEEDER-CTRL-PWR1
+      note: ELB-7 UMG30Ra 2P/30AF/10A FUSE-2 6A
+    - type: cable
+      target_hint: FEEDER-CTRL-PWR2
+      note: ELB-8 UMG30Ra 2P/30AF/10A
+    applicable_axioms:
+    - AX009
+    - AX008
+    - AX027
+    applicable_constraints:
+    - CN001
+    - CN007
+    - CN008
+    - CN019
+    - CN020
+    - CN021
+    - CN023
+    - CN031
+    - CN040
+    confirmed_class: dks:ControlPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: power_panel'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasPanelType
+          suggested_datatype: xsd:string
+          rationale: 패널 유형을 나타내는 원문 속성
+      - raw_text: 'function_category: CONTROL'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 표기
+      - raw_text: 'shape: dashed_box / panel_shape: dashed_box'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도면 상 형상 표기
+      - raw_text: 'labels_inside: MCP PANEL; 3Ø4W 380V 60Hz; MAIN MCCB ABS-34 4P/30AF/30A;
+          CT 100/5 5VA; V/M 0~600V; A/M 0~100A'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLabelText
+          suggested_datatype: xsd:string
+          rationale: 패널 내부 표기 문자열 보존
+      - raw_text: 'labels_above: 공기조화기(천정형) 감시반 POWER DIAGRAM; 메인입력 전기공사 3Ø4W 380V
+          60Hz (8.5Kw)'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLabelText
+          suggested_datatype: xsd:string
+          rationale: 상단 주석/설명 문자열 보존
+      - raw_text: 'equipment_symbols: MCCB 1, CT 1, Voltmeter 1, Ammeter 1'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasContainedSymbolCount
+          suggested_datatype: xsd:string
+          rationale: 패널 내부 기호 구성 보존
+      - raw_text: 'main_voltage_V: 380'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasVoltage_V
+          suggested_datatype: xsd:integer
+          rationale: 전압 수치
+      - raw_text: 'system_phase: 3Ø4W'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasPhaseSystem
+          suggested_datatype: xsd:string
+          rationale: 상/선식 표기
+      - raw_text: 'frequency_Hz: 60'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasFrequency_Hz
+          suggested_datatype: xsd:integer
+          rationale: 주파수 수치
+      - raw_text: 'total_capacity_kW: 8.5'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasCapacity_kW
+          suggested_datatype: xsd:decimal
+          rationale: 용량 수치
+      - raw_text: 'drawing_number: M22-204'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasDrawingNumber
+          suggested_datatype: xsd:string
+          rationale: 도면 번호
+      - raw_text: 'title: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasTitle
+          suggested_datatype: xsd:string
+          rationale: 도면 제목
+      - raw_text: 'drawing_genre: power_diagram'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasDrawingGenre
+          suggested_datatype: xsd:string
+          rationale: 도면 장르
+      - raw_text: 'mech_subsystem: hvac_power'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasSubsystem
+          suggested_datatype: xsd:string
+          rationale: 기계 하위 시스템 표기
+      - raw_text: 'flow_direction: top-to-bottom'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasFlowDirection
+          suggested_datatype: xsd:string
+          rationale: 흐름 방향 표기
+      - raw_text: 'load_categories: HVAC_FAN, EHP_INDOOR_UNIT, CONTROL_POWER'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLoadCategory
+          suggested_datatype: xsd:string
+          rationale: 부하 범주 목록
+      - raw_text: 'load_equipment_tags: DCF-1, DCF-2, DCF-3, DCF-4, DCF-5, EHP-1,
+          EHP-2, EHP-3, EHP-4, EHP-5, CONTROL POWER-1, CONTROL POWER-2'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLoadEquipmentTag
+          suggested_datatype: xsd:string
+          rationale: 연결된 부하 태그 목록
+      - raw_text: 'has_bas_interface: false'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasBASInterface
+          suggested_datatype: xsd:boolean
+          rationale: BAS 인터페이스 여부
+      - raw_text: 'bas_protocols: []'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasBASProtocol
+          suggested_datatype: xsd:string
+          rationale: 프로토콜 목록이 비어 있음
+      - raw_text: 'starter_types: DOL (적입기동)'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasStarterType
+          suggested_datatype: xsd:string
+          rationale: 기동 방식 표기
+      - raw_text: 'external_source_panels: 메인입력 전기공사'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasExternalSourcePanel
+          suggested_datatype: xsd:string
+          rationale: 외부 전원 स्रोत 패널 표기
+      - raw_text: 'has_load_schedule: true'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLoadSchedule
+          suggested_datatype: xsd:boolean
+          rationale: 부하표 존재 여부
+      - raw_text: 'schedule_columns: Feeder NO.; Item NO.; Feeder Name; Capacity HP;
+          Capacity Kw; STAB Connector; MCCB/ELCB/NFB AF/AT; CT /5A; A-Meter /A; MAGNETIC
+          CONTACTOR MCM(88); MAGNETIC CONTACTOR MCD(88); MAGNETIC CONTACTOR MCY(88);
+          EOCR/EMPR/OMPR; TRANS; V-Meter; Condenser uF; Wire Sq; Power I.B A; Sequence
+          Type; Remark'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasScheduleColumn
+          suggested_datatype: xsd:string
+          rationale: 부하표 컬럼명 보존
+      - raw_text: 'linked_schedule: SCHEDULE-TABLE'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: referencesSchedule
+          suggested_datatype: xsd:string
+          rationale: 연결된 스케줄 표 식별자
+      - raw_text: 'vendor_scope_boundary: 우측 경계 — EHP 실내기 제어반 내부는 장비업체 SCOPE'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasVendorScopeBoundary
+          suggested_datatype: xsd:string
+          rationale: 업체 범위 경계 설명
+      - raw_text: 'similar_equipment: MCC, LCP, DDC'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 후보
+      - raw_text: 'function_candidates: Power Distribution, HVAC Control, Circuit
+          Protection, Equipment Monitoring'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'position: center-left'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치
+      - raw_text: 'source_attribution: sonnet, gemini, mini'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처 기여 정보
+      - raw_text: 'collection_sources: cross_validated, visual_semantics, visual_semantics_gemini,
+          entity_synthesis'
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasCollectionSource
+          suggested_datatype: xsd:string
+          rationale: 수집/검증 출처
+      - raw_text: drawing_genre/title indicate power diagram for HVAC ceiling-type
+          air-conditioning unit control panel
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasDocumentContext
+          suggested_datatype: xsd:string
+          rationale: 문서 맥락 요약
+      - raw_text: load_equipment_tags include FEEDER- prefixed targets in relations
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLoadTarget
+          suggested_datatype: xsd:string
+          rationale: 부하 대상 태그 보존
+  provenance:
+    name:
+      source_pages:
+      - 25
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 25
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 25
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 25
+      method: ontology_hints.suggested_parent_class + specs/function context
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 25
+      method: ontology_hints.similar_equipment + plan_context
+    ontology_core.related_assertions:
+      source_pages:
+      - 25
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 25
+      method: preserve_unclassified_fields
+    specs.shape:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.labels_inside:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.labels_above:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.inferred_name:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.position:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.raw_labels:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.panel_shape:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.equipment_symbols:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.main_voltage_V:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.system_phase:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.frequency_Hz:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.total_capacity_kW:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.drawing_number:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.title:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.drawing_genre:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.mech_subsystem:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.flow_direction:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.load_categories:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.load_equipment_tags:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.has_bas_interface:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.bas_protocols:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.starter_types:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.external_source_panels:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.has_load_schedule:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.schedule_columns:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.linked_schedule:
+      source_pages:
+      - 25
+      method: direct_observation
+    specs.vendor_scope_boundary:
+      source_pages:
+      - 25
+      method: direct_observation
+    relations:
+      source_pages:
+      - 25
+      method: cross_validated_and_visual_semantics
+    source_attribution:
+      source_pages:
+      - 25
+      method: direct_observation
+    position:
+      source_pages:
+      - 25
+      method: direct_observation
+    ontology_hints:
+      source_pages:
+      - 25
+      method: direct_observation
+    collection_sources:
+      source_pages:
+      - 25
+      method: direct_observation
+  unresolved:
+  - field_candidate: relations.to
+    raw_text: FEEDER-DCF1, FEEDER-DCF2, FEEDER-DCF3, FEEDER-DCF4, FEEDER-DCF5, FEEDER-EHP1,
+      FEEDER-EHP2, FEEDER-EHP3, FEEDER-EHP4, FEEDER-EHP5, FEEDER-CTRL-PWR1, FEEDER-CTRL-PWR2
+    source_page: 25
+    reason: 관계 대상이 FEEDER- 접두의 중간 노드로 보이며, 실제 물리 장비 태그와의 1:1 대응이 이 입력만으로는 확정되지 않음
+    preservation_note: 0-9d에서 feeder/load 계층을 별도 객체로 정리 가능
+  - field_candidate: specs.labels_inside
+    raw_text: MAIN MCCB ABS-34 4P/30AF/30A; CT 100/5 5VA; V/M 0~600V; A/M 0~100A
+    source_page: 25
+    reason: 장치 구성요소/정격/계측기 표기가 혼재되어 있어 개별 속성으로 분해하지 않음
+    preservation_note: 원문 문자열 그대로 유지
+  - field_candidate: specs.labels_above
+    raw_text: 공기조화기(천정형) 감시반 POWER DIAGRAM; 메인입력 전기공사 3Ø4W 380V 60Hz (8.5Kw)
+    source_page: 25
+    reason: 도면 제목과 주석이 함께 있어 단일 필드로 분해하지 않음
+    preservation_note: 문서 맥락과 전원 조건을 함께 보존
+  - field_candidate: specs.vendor_scope_boundary
+    raw_text: 우측 경계 — EHP 실내기 제어반 내부는 장비업체 SCOPE
+    source_page: 25
+    reason: 범위 경계 설명이 서술형이며 구조화 기준이 없음
+    preservation_note: 향후 scope boundary annotation으로 승격 가능
+  - field_candidate: specs.schedule_columns
+    raw_text: Feeder NO.; Item NO.; Feeder Name; Capacity HP; Capacity Kw; STAB Connector;
+      MCCB/ELCB/NFB AF/AT; CT /5A; A-Meter /A; MAGNETIC CONTACTOR MCM(88); MAGNETIC
+      CONTACTOR MCD(88); MAGNETIC CONTACTOR MCY(88); EOCR/EMPR/OMPR; TRANS; V-Meter;
+      Condenser uF; Wire Sq; Power I.B A; Sequence Type; Remark
+    source_page: 25
+    reason: 표 컬럼명 목록으로 구조화는 가능하나 현재 단계에서는 원문 보존 우선
+    preservation_note: 부하표 스키마 후보
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: MCC, LCP, DDC
+    source_page: 25
+    reason: 유사 장비 후보이지만 동일성/병합 여부는 확정 불가
+    preservation_note: merge 후보 비교 참고
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Power Distribution, HVAC Control, Circuit Protection, Equipment Monitoring
+    source_page: 25
+    reason: 기능 후보가 복수이며 단일 확정 불가
+    preservation_note: class refinement 참고
+  - field_candidate: specs.load_equipment_tags
+    raw_text: CONTROL POWER-1, CONTROL POWER-2
+    source_page: 25
+    reason: 공백 포함 태그로 표기되어 원형 보존 필요
+    preservation_note: 태그 정규화 전 원문 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: MCP-PANEL은 물리적 패널이지만 도면 맥락상 전력 분배, HVAC 제어, 계측, 보호 기능이 함께 나타나 단일 세부 클래스
+      확정이 어려움
+    recommended_handling: NamedIndividual로 유지하고 class_hint는 ControlPanel 우선, 0-9c에서
+      ElectricalDistribution/HVACControl 계열로 세분 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - LOAD-* 태그를 기계 장비가 아닌 전기 부하(ElectricalLoad)로 정확히 식별
+    deviations:
+    - plan의 expected_owl_role_distribution는 참고했으나, 본 태그는 패널 실체이므로 AnnotationOnly/DataPropertyValue가
+      아니라 NamedIndividual로 판정
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:01.484323'
+  confidence: 0.95

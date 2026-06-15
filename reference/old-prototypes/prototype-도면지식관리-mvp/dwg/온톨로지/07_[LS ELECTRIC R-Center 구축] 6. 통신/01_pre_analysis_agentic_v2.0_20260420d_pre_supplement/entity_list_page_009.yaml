@@ -1,0 +1,86 @@
+page_9_entities:
+- tag: TRAY-GONGDONG
+  name: 기존 공동구 통신 CABLE TRAY
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: TRAY-EXISTING
+  name: 기존 통신 TRAY
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: ROUTE-TO-RCENTER
+  name: 'TO : R-Conter EPS/TPS'
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: ROUTE-TO-2F-SERVER
+  name: TO.사무동 지상2층 전산실
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: ROUTE-TO-1F-COMM
+  name: 'TO : 사무동 지상1층 통신실'
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: TITLE-BLOCK
+  name: 도면 표제란
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: FLOOR-B1
+  name: 사무동 지하1층 평면 전체 구역
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: UNKNOWN-SPACE-01
+  name: 기존 지하공동구 통신 케이블 트레이 구간
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: UNKNOWN-SPACE-02
+  name: 기존 통신 트레이 구간
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: UNKNOWN-SPACE-03
+  name: R-Center EPS/TPS 방향 인출 경로
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: UNKNOWN-SPACE-04
+  name: 지상2층 전산실 방향 광케이블 경로
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+- tag: UNKNOWN-SPACE-05
+  name: 지상1층 통신실 방향 UTP 케이블 경로
+  type: entity
+  discipline: COMMUNICATION
+  confidence: 1.0
+page_9_relations:
+- from: TRAY-GONGDONG
+  to: ROUTE-TO-RCENTER
+  relation: connects_to
+- from: TRAY-EXISTING
+  to: ROUTE-TO-2F-SERVER
+  relation: connects_to
+- from: TRAY-EXISTING
+  to: ROUTE-TO-1F-COMM
+  relation: connects_to
+- from: TRAY-GONGDONG
+  to: TRAY-EXISTING
+  relation: connects_to
+- from: UNKNOWN-SPACE-01
+  to: UNKNOWN-SPACE-02
+  relation: connects_to
+- from: UNKNOWN-SPACE-01
+  to: UNKNOWN-SPACE-03
+  relation: connects_to
+- from: UNKNOWN-SPACE-02
+  to: UNKNOWN-SPACE-04
+  relation: connects_to
+- from: UNKNOWN-SPACE-02
+  to: UNKNOWN-SPACE-05
+  relation: connects_to

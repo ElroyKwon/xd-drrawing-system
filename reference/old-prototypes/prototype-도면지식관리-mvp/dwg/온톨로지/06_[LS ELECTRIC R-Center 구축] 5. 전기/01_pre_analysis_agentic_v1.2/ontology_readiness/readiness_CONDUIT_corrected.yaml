@@ -1,0 +1,15 @@
+verdict: demoted
+confidence: 0.9
+reason: "이전 평가 결과를 재검토하였으나, 독립 엔티티 기준 미충족 판단을 유지한다.\n[Page 3 근거의 한계] line_type_1~6은\
+  \ 도면 범례(legend) 정의로서, 배선 선종을 기호로 구분하기 위한 도식 규약이다. 이는 설비 자체의 사양이 아니라 도면 표기 체계에 해당하므로\
+  \ 독립 엔티티 근거로 인정하기 어렵다.\n[Page 4 물리적 스펙의 재검토] manhole_spec(2,000×2,000×2,000mm),\
+  \ pull_box_spec(400×400×300mm), CONCRETE DUCT BANK, ELP100 등은 실체 있는 설치물이나, 이들은 CONDUIT\
+  \ 태그 하위의 경로 구성 요소(routing infrastructure)이지 CONDUIT 자체가 독립 설비임을 증명하지 않는다. 맨홀·풀박스는\
+  \ 별도 태그로 분리 가능한 하위 엔티티이며, CONCRETE DUCT BANK와 ELP100은 전력 케이블 인입 경로의 토목/배관 매체이다.\n\
+  [connection_specs의 성격] connection_specs의 relation이 '배선 선종', '전력 인입 경로'로 구성되어 있어,\
+  \ CONDUIT가 설비 간 연결을 매개하는 routing medium임을 재확인한다. R-Center → CONCRETE DUCT BANK →\
+  \ UT동 1층 변전실 경로 역시 케이블 설비의 경로 속성으로 귀속되는 정보다.\n[독립 엔티티 판단 기준 적용] - 고유 식별 Tag(예: C-001\
+  \ 등) 없음 - 설비 단독의 전기적·기계적 정격 사양 없음 - 범례·경로 표기·부속 설치물의 집합으로 구성됨 - 따라서 독립 엔티티보다 배선\
+  \ 시스템 경로 표현 및 관련 부속물 기술 엔티티에\n  해당하여 demoted 판정을 유지한다.\n\n[이전 대비 confidence 소폭 하향\
+  \ 사유] page 4의 물리적 치수 스펙(맨홀, 풀박스)이 일부 독립 설비 성격을 내포하여 불확실성이 존재하므로 0.97 → 0.90으로 조정한다."
+tag: CONDUIT

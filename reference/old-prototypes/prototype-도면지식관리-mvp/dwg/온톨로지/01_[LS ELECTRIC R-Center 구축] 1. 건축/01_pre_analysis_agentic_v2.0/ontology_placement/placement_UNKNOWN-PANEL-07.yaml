@@ -1,0 +1,104 @@
+placement:
+  tag: UNKNOWN-PANEL-07
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:UNKNOWN-PANEL-07
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - UnknownEntity
+    - DocumentEntity
+    - PlanOrPanelContainer
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 출처 정보이며, 엔티티 자체의 관찰 가능 페이지 범위를 보존할 필요가 있음.
+    - raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 정보가 아니라 사용자 안내 문구로 보이며, 주석성 텍스트로 보존 가능.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guidance_alignment
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guidance_alignment
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 읽어드리겠습니다.'
+    source_page: 0
+    reason: 태그 자체의 설비/객체 의미를 직접 설명하지 않고, 접근 가능한 페이지 목록과 안내 문구만 포함함.
+    preservation_note: 페이지 범위 정보는 free_notes로 보존했고, 원문은 그대로 유지함.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 PANEL이지만 원문에는 패널의 물리적 기능, 포함 관계, 관계 사실이 없고 단지 확인 가능한 페이지 목록만 제시됨.
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 페이지 1,2,3,4,5,60,61,62,63,64,118,119,120,121,122의
+      실제 도면 문맥을 확인해 DocumentEntity 또는 PlanOrPanelContainer 후보로 재평가.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown_symbol_note_table_reference_entities
+    - plan_or_panel_container_entities
+    - DocumentEntity vs AnnotationOrReferenceEntity 분리
+    deviations:
+    - 태그명에 PANEL이 있으나, entity_detail.raw에 물리적 패널/컨테이너 관계가 없어 AnnotationOnly로 보존함.
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:08.013544'
+  confidence: 0.74

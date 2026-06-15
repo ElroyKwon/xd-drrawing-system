@@ -1,0 +1,86 @@
+tag: BLK-LA1
+name: 피뢰기 LA1/LA2
+type: SURGE_PROTECTION
+discipline: ELECTRICAL
+function_category: SURGE_PROTECTION
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - LA1
+  - LA2
+  - 2.9kA
+  - CABLE TRAY(M)(P)-250m 이하
+  - G/S
+  - 25.8kV
+  - 630A
+  - E1
+  - LAx3
+  - 18kV 2.5kA
+  discharge_current: 2.9kA
+  routing: CABLE TRAY(M)(P)-250m 이하
+  equipment_type: Lightning Arrester
+  count: 3
+  voltage_rating_kV: 18
+  discharge_current_kA: 2.5
+  voltage_rating_kV_gemini: 25.8
+  current_rating_A_gemini: 630
+  grounding_mark: E1
+relations:
+- from: BLK-22KV-ACSR
+  to: BLK-LA1
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV 가공 인입 → LA
+- from: BLK-LA1
+  to: '1104'
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV → SHV VCB 1104
+- from: BLK-22KV-ACSR
+  to: BLK-LA1
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV 가공 인입 → LA
+- from: BLK-LA1
+  to: BLK-1104
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV → SHV VCB 1104
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-right
+confidence: 0.95
+equipment_symbols:
+- type: lightning_arrester
+  count: 2
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: SurgeProtectionDevice
+  observed_attributes:
+  - raw_labels
+  - discharge_current
+  - routing
+  - equipment_type
+  - count
+  - voltage_rating_kV
+  - discharge_current_kA
+  - voltage_rating_kV_gemini
+  - current_rating_A_gemini
+  - grounding_mark
+  similar_equipment: []
+  function_candidates:
+  - LightningProtection
+  - OvervoltageProtection

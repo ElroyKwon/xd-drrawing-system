@@ -1,0 +1,87 @@
+placement:
+  tag: '215'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:215
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasAvailablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 메타 정보이며, 도면/문서 탐색에 유용한 참조 정보
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasUserInstruction
+        suggested_datatype: xsd:string
+        rationale: 대화형 안내 문구로서 주석/메타 텍스트 성격
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/객체의 물리적 의미가 아니라 안내 문구로만 구성됨
+    preservation_note: AnnotationOnly로 보존하고, 페이지 목록은 free_notes로 승격 후보 기록
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 215의 원문이 설비/구성요소가 아니라 사용 가능한 페이지 안내 문구만 포함함. 물리 실체 여부가 불명확함.
+    recommended_handling: 주석/메타 엔티티로 유지하고, 후속 단계에서 문서 참조 노드인지 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그의 메타/주석/참조 계열 가능성을 우선 고려
+    - 도면에서 관찰된 것만 보존하고, 해석 불가 정보는 free_notes/unresolved에 원문 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:10.492553'
+  confidence: 0.86

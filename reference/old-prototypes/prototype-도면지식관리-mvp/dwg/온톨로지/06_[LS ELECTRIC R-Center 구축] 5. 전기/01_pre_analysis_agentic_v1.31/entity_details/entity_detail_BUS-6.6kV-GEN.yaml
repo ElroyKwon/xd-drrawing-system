@@ -1,0 +1,80 @@
+entity_detail:
+  tag: BUS-6.6kV-GEN
+  name: 6.6kV GEN Bus
+  type: bus
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page_005_context.yaml
+      confidence: 1.0
+    location:
+      value: ROOM-UT-MR-01
+      source: search_entity_by_tag(BUS-6.6kV-GEN)
+      confidence: 1.0
+    members:
+      value:
+      - PNL-GEN
+      - PNL-1402A
+      source: search_entity_by_tag(BUS-6.6kV-GEN)
+      confidence: 1.0
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: '도면상 22.9kV, 6.6kV, 440V 전압 표기가 보이며, TR #1~#4와 다수의 VCB/배전반 베이, 비상·동력 부하
+      계통이 함께 표시된다.'
+  - source: search_entity_by_tag(BUS-6.6kV-GEN)
+    page_number: 5
+    text: 'bus_id: BUS-6.6kV-GEN
+
+      voltage: 6.6kV
+
+      members:
+
+      - PNL-GEN'
+  - source: search_entity_by_tag(BUS-6.6kV-GEN)
+    page_number: 5
+    text: 'bus_id: BUS-6.6kV-GEN
+
+      voltage: 6.6kV
+
+      members:
+
+      - PNL-1402A'
+  requirements:
+  - text: 6.6kV
+    source: page_005_context.yaml
+    type: voltage_requirement
+  connection_specs:
+  - relation: feeds
+    partner: PNL-GEN
+    details:
+      source: search_entity_by_tag(BUS-6.6kV-GEN)
+  - relation: feeds
+    partner: PNL-1402A
+    details:
+      source: search_entity_by_tag(BUS-6.6kV-GEN)
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-GEN
+      direction: BUS-6.6kV-GEN -> PNL-GEN
+      source: search_entity_by_tag(BUS-6.6kV-GEN)
+    - relation_type: feeds
+      partner_tag: PNL-1402A
+      direction: BUS-6.6kV-GEN -> PNL-1402A
+      source: search_entity_by_tag(BUS-6.6kV-GEN)
+    observed_attributes:
+    - bus_id
+    - voltage
+    - members
+    - located_in
+    similar_equipment: []
+    suggested_parent_class: ElectricalBus
+    cross_discipline: []
+  notes:
+  - 페이지 5의 분석 결과와 태그 검색 결과에서 확인 가능한 정보만 기록함.
+  - name은 태그 구조(BUS-6.6kV-GEN)와 페이지 5 장비 목록의 GEN(Generator) 표기를 기반으로 도출함. 신뢰도 0.7.
+  - location(ROOM-UT-MR-01)은 search_entity_by_tag 결과에서 확인됨.
+  - 추가 전기 사양(정격전류, 모선 구성 등)은 도구 검색 범위 내에서 확인 불가.
+tag: BUS-6.6kV-GEN

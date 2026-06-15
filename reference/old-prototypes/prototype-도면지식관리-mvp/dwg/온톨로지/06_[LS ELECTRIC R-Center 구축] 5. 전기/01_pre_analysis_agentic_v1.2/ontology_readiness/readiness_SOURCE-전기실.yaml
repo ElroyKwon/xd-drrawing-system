@@ -1,0 +1,11 @@
+tag: SOURCE-전기실
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- name
+missing_relations: []
+reason: tag와 type은 있으나, entity_detail과 page 22 context에서 확인되는 것은 전기실(Source) 자체가 아니라
+  분전반 결선도 상의 전원 공급원/도면 메타 및 연결 관계이다. drawing_number, title, classification, discipline,
+  project_number는 도면 메타데이터로 물리적 설비의 독립 사양이 아니며, panel_cover_type, mccb_spec, spd_spec는
+  페이지 내 분전반들의 사양으로 보인다. 또한 observed_relations는 분전반들로의 공급 관계 6개가 확인되지만, 이는 SOURCE-전기실의
+  독립 설비 사양을 입증하지 못한다. 따라서 독립 엔티티가 아니라 도면 메타/전원 소스 표기로 강등한다.

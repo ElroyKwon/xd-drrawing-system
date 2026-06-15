@@ -1,0 +1,135 @@
+entity_detail:
+  tag: 지하공동구
+  type: named_space
+  specs:
+    source_pages:
+    - page: 4
+      source: page_004_context.yaml
+      confidence: 0.95
+    - page: 23
+      source: page_023_context.yaml
+      confidence: 0.95
+    related_cable_spec:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+      unit: null
+      source: 4
+      confidence: 0.95
+    related_cable_spec_tray:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+      unit: null
+      source: 4
+      confidence: 0.95
+    related_cable_spec_elp100:
+      value: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+      unit: null
+      source: 4
+      confidence: 0.95
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: 23
+      confidence: 0.96
+  drawing_texts:
+  - source: page_004_context.yaml
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입이 구성되어
+      있다.
+
+
+      주요 설비는 전력용 맨홀 2개, PULL BOX 2개, EMPTY PIPE(ELP100), CONCRETE DUCT BANK, SPACER,
+      지중선표시기이며, 6.6kV 고압 케이블 사양이 표기되어 있다.
+
+
+      우측 상단에 SECTION 1, SECTION 2 단면 상세와 우측 중단의 지하공동구 현황 사진이 함께 배치되어 있다.'
+  - source: page_004_context.yaml
+    page_number: 4
+    text: 공동구
+  - source: page_004_context.yaml
+    page_number: 4
+    text: 지하공동구 현황 사진
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 'FROM: UT동 전기실 및 지하공동구 사용'
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 지하공동구
+  requirements:
+  - text: 'FROM: UT동 전기실 및 지하공동구 사용'
+    source: page_023_context.yaml
+    type: connection/source_note
+  - text: 옥외 전력간선설비 인입 배치도
+    source: page_004_context.yaml
+    type: drawing_title
+  - text: 공동구/덕트뱅크 경로를 따라 전력 인입
+    source: page_004_context.yaml
+    type: routing_condition
+  connection_specs:
+  - relation: 전력 인입 경로 포함
+    partner: R-Center 변전실
+    details:
+      source: page_004_context.yaml
+      text: R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입이 구성되어 있다.
+  - relation: 전력 인입 경로 포함
+    partner: UT동 1층 변전실
+    details:
+      source: page_004_context.yaml
+      text: R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입이 구성되어 있다.
+  - relation: 관련 경로
+    partner: CONCRETE DUCT BANK
+    details:
+      source: page_004_context.yaml
+      text: R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입이 구성되어 있다.
+  - relation: 관련 경로
+    partner: EMPTY PIPE (ELP100)
+    details:
+      source: page_004_context.yaml
+      text: EMPTY PIPE(ELP100)
+  - relation: 관련 경로
+    partner: PULL BOX
+    details:
+      source: page_004_context.yaml
+      text: PULL BOX 2개
+  - relation: 관련 경로
+    partner: 전력용 맨홀
+    details:
+      source: page_004_context.yaml
+      text: 전력용 맨홀 2개
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in_or_related_to
+      partner_tag: 공동구
+      direction: UNKNOWN
+      source: page_004_context.yaml
+    - relation_type: mentioned_in_connection_note
+      partner_tag: UT동 전기실
+      direction: UNKNOWN
+      source: page_023_context.yaml
+    - relation_type: mentioned_in_connection_note
+      partner_tag: R-Center 변전실
+      direction: UNKNOWN
+      source: page_004_context.yaml
+    - relation_type: mentioned_in_connection_note
+      partner_tag: CONCRETE DUCT BANK
+      direction: UNKNOWN
+      source: page_004_context.yaml
+    - relation_type: mentioned_in_connection_note
+      partner_tag: EMPTY PIPE (ELP100)
+      direction: UNKNOWN
+      source: page_004_context.yaml
+    observed_attributes:
+    - 공동구
+    - 지하공동구 현황 사진
+    - 6.6kV
+    - 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L
+    - IN TRAY
+    - ELP100
+    similar_equipment:
+    - 공동구
+    suggested_parent_class: utility_tunnel
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - page 4와 page 23에서 지하공동구가 명시적으로 확인됨.
+  - 연결 방향은 도면 텍스트에서 명시된 범위만 기록했으며, 방향이 불명확한 항목은 UNKNOWN으로 유지함.
+tag: 지하공동구

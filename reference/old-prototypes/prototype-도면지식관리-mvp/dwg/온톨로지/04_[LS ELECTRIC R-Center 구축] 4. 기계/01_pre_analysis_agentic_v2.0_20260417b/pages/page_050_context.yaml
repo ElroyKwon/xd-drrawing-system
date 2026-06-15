@@ -1,0 +1,442 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: small symbol/key box for cable/line notation
+  discipline: MECHANICAL
+  classification: FIRE_DAMPER_CONTROL_PLAN
+  drawing_genre: fire_damper_control
+  title_block:
+    drawing_number: M92-101
+    title: PIT층 스마트 방화댐퍼(SMFD) 제어 평면도
+    revision: null
+  visible_tags:
+  - tag: PIT
+    type: structural_element_or_space_label
+    source: both
+  complexity:
+    symbol_density: LOW
+    has_connections: true
+    estimated_entity_count: 1
+  next_step_hints:
+  - 도면 중앙 우하단에 작은 범례/키 박스가 보이며, '전선 및 전선관'과 케이블 규격 표기가 있음
+  - 도면 본체는 PIT 영역과 제어 관련 표기만 일부 보이고, 설비 태그는 거의 보이지 않음
+  - 도면번호 접두사 M이 표제란에 명확히 보여 MECHANICAL로 우선 판정
+  confidence: 0.95
+  note: '표제란 도면번호 M92-101(시각적 근거: 우하단 표제란)과 제목 ''PIT층 스마트 방화댐퍼(SMFD) 제어 평면도''를 근거로
+    MECHANICAL로 판정. 중앙 하단의 작은 키 박스에 ''전선 및 전선관'', ''CV 2.5 3C'', ''CV 2.5 2P'', ''UTP
+    0.6 4P'' 표기가 있어 범례/키 성격이 일부 존재하나, 범례 전용 페이지는 아님.'
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_fire_damper_control/supplement_p4_05.yaml
+    P-10: null
+  routing_confidence: 0.88
+  routing_reason: 도면번호 M92-101과 제목이 방화댐퍼 제어 평면도이므로 mechanical/fire_damper_control에
+    정확히 대응하며, 카탈로그에는 P-4.5의 genre_fire_damper_control만 존재하고 P-10에는 해당 genre가 없어 fallback
+    불가.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: PIT_AREA
+    shape: rectangle
+    primary_label: PIT
+    position: center-right
+    labels_near:
+    - PIT
+    - UP
+    - 300x150(EA)
+  - panel_id: LEGEND_BOX
+    shape: rectangle
+    primary_label: 전선 및 전선관
+    position: bottom-right
+    labels_near:
+    - KEY
+    - CV 2.5 x 3C
+    - C3052 x 2P
+    - UTP 0.6 x 4P
+    - (22C)
+    - (16C)
+  connections:
+  - from: PIT_AREA
+    to: LEGEND_BOX
+    line_style: dashed
+    annotation: 제어 배선/배관 사양 참조
+  notable_shapes:
+  - shape: circle
+    label: A
+    note: PIT 구역 내 배선 분기점 또는 기기 위치를 나타내는 원형 심볼
+  - shape: rectangle
+    label: SMFD
+    note: PIT 구역 내 작은 사각형으로 표현된 스마트 방화댐퍼 위치
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.95
+  note: 도면 우하단에 '전선 및 전선관'이라는 제목의 케이블 규격 및 배관 정보를 담은 작은 범례 표가 명확히 존재함.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: fire_damper_control
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 M92-101의 접두사 M과 제목 'PIT층 스마트 방화댐퍼(SMFD) 제어 평면도'가 일치하며, 카탈로그에서
+    mechanical/fire_damper_control 장르에 해당하는 P-4.5 경로를 정확히 매칭함.
+classification: FIRE_DAMPER_CONTROL_PLAN
+discipline: MECHANICAL
+key_elements_from_text:
+- PIT층 스마트 방화댐퍼(SMFD) 제어 평면도
+- '도면번호: M92-101'
+- '프로젝트명: LS Electric / R-Center 구축'
+- '건물명: R-Center'
+- '축척: A1 1/200, A3 1/400'
+- '축척 표기: 1/400'
+- '그리드 표기: 1, 2, 3, 4, 5, 6, 7 / A, B, C, D'
+- PIT
+- UP
+- 전선 및 전선관
+- '케이블/전선관 규격 표기: (22C), (16C)'
+- '케이블 표기: CV 2.5 3C, CV 2.5 2P, UTP 0.6 4P'
+- FC FC
+title_block:
+  drawing_number: M92-101
+  title: PIT층 스마트 방화댐퍼(SMFD) 제어 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 MECHANICAL / FIRE_DAMPER_CONTROL 판정과 일치함. 근거는 우하단 표제란의 도면번호 M92-101,
+  제목 'PIT층 스마트 방화댐퍼(SMFD) 제어 평면도', 그리고 우하단 작은 범례 박스의 '전선 및 전선관' 및 케이블 규격 표기. 페이지는
+  범례 전용이 아니라 평면도이며, 중앙 도면 본체에 PIT 영역과 제어 배선 관련 표기가 보임.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - PIT
+    labels_above: []
+    labels_below: []
+    labels_right:
+    - UP
+    equipment_symbols:
+    - type: smfd_damper
+      count: 2
+    - type: circle_symbol_A
+      count: 2
+    inferred_name: PIT층 스마트 방화댐퍼(SMFD) 설치 구역
+    position: center-right
+    notes:
+    - PIT 구역 내 계단(UP 표기) 인접 위치에 SMFD 심볼 2개 배치
+    - 원형 심볼 A가 2개 표기됨 — 배선 분기점 또는 SMFD 제어기 위치 추정
+    - 300x150(EA) 또는 유사 사이즈 표기가 SMFD 심볼 옆에 있을 가능성
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 전선 및 전선관
+    - K
+    - Y
+    - CV 2.5 3C
+    - CV 2.5 2P
+    - UTP 0.6 4P
+    - (22C)
+    - (16C)
+    - U·P
+    - '0.6'
+    - 4P
+    labels_above:
+    - 전선 및 전선관
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 케이블 및 전선관 범례 박스 (Cable & Conduit Legend)
+    position: bottom-right
+    notes:
+    - 'K 행: CV 2.5 3C / (22C) — 전력 케이블 3심, 22mm 전선관'
+    - 'Y 행: CV 2.5 2P / (16C) — 전력 케이블 2심 페어, 16mm 전선관'
+    - '원형 심볼 행: UTP 0.6 4P — 통신/신호 케이블 4페어'
+    - U·P 0.6 4P — UTP 케이블 규격
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 그리드 1~7 (수평)
+    - 그리드 A~D (수직)
+    - 12,000 / 12,000 / 12,000 / 14,000 / 11,000 / 10,000 (스팬 치수)
+    - 71,000 (전체 폭)
+    - 13,000 / 17,900 / 43,000 / 13,000 (수직 치수)
+    labels_above: []
+    labels_below:
+    - PIT층 스마트 방화댐퍼(SMFD) 제어 평면도
+    - 축척 1/400
+    equipment_symbols: []
+    inferred_name: PIT층 건물 평면 그리드 (구조 그리드 배경)
+    position: center
+    notes:
+    - 구조 그리드 1~7 (X축), A~D (Y축)
+    - 전체 건물 폭 71,000mm, 수직 방향 43,000mm
+    - SMFD 설비는 그리드 5~6 / B~C 교차 구역에 집중
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - □ □ (하단 좌측)
+    - □ □ (하단 우측)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: unknown_small_rectangle
+      count: 4
+    inferred_name: 도면 하단 미상 심볼 (범례 미확인 — 장비 기초 또는 기타 표기 추정)
+    position: bottom-center
+    notes:
+    - 도면 하단에 소형 사각형 심볼 4개가 2쌍으로 배치됨
+    - 범례에서 해당 심볼 정의 미확인 — null 처리
+  connections:
+  - from: BLK-M01
+    to: BLK-M02
+    line_type: cable
+    line_style: solid
+    annotation: CV 2.5 3C (22C) / CV 2.5 2P (16C) / UTP 0.6 4P — SMFD 제어 배선
+    flow_direction: BLK-M01 → BLK-M02 (범례 참조)
+  groups:
+  - group_id: GRP-SMFD-PIT
+    label: PIT층 SMFD 제어 구역
+    members:
+    - BLK-M01
+    floor: PIT
+    smfd_count: 2
+    notes:
+    - 그리드 5~6 / B~C 구역에 SMFD 2개 집중 배치
+    - UP(계단) 인접 위치
+  - group_id: GRP-LEGEND
+    label: 전선 및 전선관 범례
+    members:
+    - BLK-M02
+    notes:
+    - 케이블 종류별 선형 표기 및 전선관 규격 포함
+  legend_references:
+  - text: CV 2.5 3C (22C)
+    linked_to: BLK-M02
+    cable_type: power
+    cable_spec: CV 2.5mm² 3심
+    conduit_size: 22C
+    usage: SMFD 전원 공급선 추정
+  - text: CV 2.5 2P (16C)
+    linked_to: BLK-M02
+    cable_type: power_pair
+    cable_spec: CV 2.5mm² 2심 페어
+    conduit_size: 16C
+    usage: SMFD 제어 신호선 추정
+  - text: UTP 0.6 4P
+    linked_to: BLK-M02
+    cable_type: signal
+    cable_spec: UTP 0.6mm 4페어
+    conduit_size: null
+    usage: SMFD 통신/데이터 배선 추정 (RS485 또는 BACnet)
+  diagram_meta:
+    title: PIT층 스마트 방화댐퍼(SMFD) 제어 평면도
+    drawing_number: M92-101
+    project: LS Electric R-Center 구축
+    building: R-Center
+    floor_label: PIT
+    scale: A1:1/200, A3:1/400
+    discipline: MECHANICAL
+    mech_subsystem: fire_damper_control
+    smfd_subtype: smfd_control_plan
+    view_type: plan
+    flow_direction: UNKNOWN
+    has_equipment_list: false
+    has_emergency_power_source: null
+    control_protocol: UNKNOWN
+    smfd_count_by_floor:
+      PIT: 2
+    fluid_types_present: []
+    grid_axes:
+      x:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      y:
+      - A
+      - B
+      - C
+      - D
+    grid_spans_mm:
+      x:
+      - 12000
+      - 12000
+      - 12000
+      - 14000
+      - 11000
+      - 10000
+      total_width: 71000
+      y_partial:
+      - 13000
+      - 17900
+      - 13000
+      total_height_approx: 43000
+    smfd_location_grid: 5~6 / B~C
+    cable_specs_present:
+    - CV 2.5 3C (22C)
+    - CV 2.5 2P (16C)
+    - UTP 0.6 4P
+    notes:
+    - 도면 본체에 SMFD 심볼 밀도가 매우 낮음 (PIT층 특성상 설비 최소화)
+    - 원형 심볼 A 2개는 배선 분기점 또는 SMFD 로컬 컨트롤러 위치로 추정
+    - 도면 하단 소형 사각형 4개(2쌍)는 범례 미확인 — 장비 기초 또는 기타 표기 가능성
+    - UP 표기는 계단 또는 수직 배관 상승 방향을 나타냄
+    - 'cross_discipline_ref: 환기덕트 평면도(ventilation_duct)의 물리적 방화댐퍼와 동일 객체 가능성'
+    cross_discipline_ref:
+    - discipline: MECHANICAL/ventilation_duct
+      note: 물리적 방화댐퍼 엔티티는 환기덕트 평면도에서 원천 정의
+    - discipline: ELECTRICAL/fire_alarm
+      note: 소방 수신기 인터록 연결 — 전기소방 도면 참조 필요
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - PIT
+    - 300x150(EA)
+    - 300x150(EA)
+    labels_above: []
+    labels_below: []
+    labels_right:
+    - UP
+    equipment_symbols:
+    - type: smfd_damper
+      count: 2
+      description: Rectangular symbol with 'S' inside, representing Smart Fire Damper
+    - type: control_module_or_junction_box
+      count: 2
+      description: Circle with 'A' inside, likely a local control module or junction
+        box for SMFDs
+    - type: unknown_device
+      count: 1
+      description: Small rectangle with 'X' inside at the bottom of the PIT area
+    inferred_name: PIT층 SMFD 설치 구역
+    position: center
+    notes:
+    - 그리드 5-6열, B-C행 사이에 위치한 PIT 공간.
+    - UP 화살표는 계단 또는 수직 이동 방향을 지시.
+    - 300x150(EA)는 SMFD의 규격(가로x세로)으로 추정됨.
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 전선 및 전선관
+    - KEY
+    - K
+    - Y
+    - A
+    - CV 2.5 x 3C
+    - (22C)
+    - CV 2.5 x 2P
+    - (16C)
+    - UTP 0.6 x 4P
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: cable_legend_symbol_k
+      count: 1
+      description: Line symbol for K type cable
+    - type: cable_legend_symbol_y
+      count: 1
+      description: Line symbol for Y type cable
+    - type: cable_legend_symbol_a
+      count: 1
+      description: Line symbol for A type cable (with circle A)
+    inferred_name: 전선 및 전선관 범례 (Cable & Conduit Legend)
+    position: bottom-right
+    notes:
+    - 'K: CV 2.5sq 3C 케이블, 22C 전선관 (전원용 추정)'
+    - 'Y: CV 2.5sq 2P 케이블, 16C 전선관 (제어/신호용 추정)'
+    - 'A: UTP 0.6mm 4P 케이블 (통신용 추정)'
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - A
+    - B
+    - C
+    - D
+    - 12,000
+    - 12,000
+    - 12,000
+    - 14,000
+    - 11,000
+    - 10,000
+    - 71,000
+    - 13,000
+    - 17,900
+    - 13,000
+    - 43,000
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건축 평면 그리드 및 치수
+    position: center
+    notes:
+    - 'X축 그리드: 1~7, Y축 그리드: A~D'
+    - '전체 치수: 71,000mm x 43,000mm'
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: unknown_square_symbol
+      count: 4
+      description: Small empty squares at the bottom of the drawing
+    inferred_name: 미상 심볼 (Unknown Symbols)
+    position: bottom-center
+    notes:
+    - 도면 하단에 위치한 4개의 작은 사각형 심볼. 범례에 설명이 없어 용도 불명.
+  connections:
+  - from: BLK-M01
+    to: BLK-M02
+    line_type: reference
+    line_style: dashed
+    annotation: 배선 사양 참조
+    notes: PIT 구역 내 SMFD 및 관련 기기의 배선은 범례(BLK-M02)의 사양을 따름을 나타내는 논리적 연결.
+  groups:
+  - group_id: GRP-PIT-SMFD
+    label: PIT층 SMFD 시스템
+    members:
+    - BLK-M01
+    notes: PIT층에 설치된 스마트 방화댐퍼 및 관련 제어 기기 그룹.
+  legend_references:
+  - text: CV 2.5 x 3C (22C)
+    linked_to: BLK-M01
+    notes: SMFD 전원 공급용 케이블 및 전선관 사양 (범례 K 참조)
+  - text: CV 2.5 x 2P (16C)
+    linked_to: BLK-M01
+    notes: SMFD 제어 신호용 케이블 및 전선관 사양 (범례 Y 참조)
+  - text: UTP 0.6 x 4P
+    linked_to: BLK-M01
+    notes: SMFD 통신용 케이블 사양 (범례 A 참조)
+  diagram_meta:
+    title: PIT층 스마트 방화댐퍼(SMFD) 제어 평면도
+    drawing_number: M92-101
+    project_name: LS Electric R-Center 구축
+    building_name: R-Center
+    scale: A1:1/200, A3:1/400
+    discipline: MECHANICAL
+    mech_subsystem: fire_damper_control
+    view_type: plan
+    floor_label: PIT
+    smfd_count_by_floor:
+      PIT: 2
+    other_devices_count:
+      control_module_A: 2
+      unknown_device_X: 1
+    flow_direction: UNKNOWN
+    notes:
+    - 이 도면은 SMFD의 물리적 위치와 제어 배선 사양을 보여주는 평면도임.
+    - 실제 배선 경로는 표시되지 않았으며, 범례를 통해 케이블 규격만 정의됨.
+    - SMFD의 상세한 제어 계통은 별도의 계통도(M92-102 등)를 참조해야 함.

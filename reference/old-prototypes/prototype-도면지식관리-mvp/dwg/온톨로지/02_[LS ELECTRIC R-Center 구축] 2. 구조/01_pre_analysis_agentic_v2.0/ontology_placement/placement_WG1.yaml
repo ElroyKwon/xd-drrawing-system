@@ -1,0 +1,142 @@
+placement:
+  tag: WG1
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms:
+    - AX008
+    - AX009
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+        63, 64, 65'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: sourcePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 메타 정보이며, 엔티티 자체의 주석/가용 페이지 안내로 보임
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: relationNote
+        suggested_datatype: xsd:string
+        rationale: 분석 안내 문구로, 도면 실체 정보가 아닌 주석성 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_annotation_text
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred_from_raw_annotation_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: inferred_from_raw_annotation_text
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: verbatim_capture
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: verbatim_capture
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 0
+    reason: 태그 WG1 자체의 물리 설비/부재 실체를 직접 지시하지 않고, 페이지 안내 문구만 존재함
+    preservation_note: 주석/안내 텍스트로 보존; 후속 단계에서 페이지별 분석 결과와 연결 가능성 검토
+  - field_candidate: name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 name 필드 없음
+    preservation_note: 빈 값 유지
+  - field_candidate: relations
+    raw_text: ''
+    source_page: 0
+    reason: 관계 정보 없음
+    preservation_note: 관계 부재 자체를 보존
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 0
+    reason: specs 정보 없음
+    preservation_note: 명시 스펙 없음
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: connection_specs 정보 없음
+    preservation_note: 명시 연결 스펙 없음
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 0
+    reason: requirements 정보 없음
+    preservation_note: 명시 요구사항 없음
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: drawing_texts 정보 없음
+    preservation_note: 도면 텍스트 추출 없음
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: ontology_hints 정보 없음
+    preservation_note: 힌트 없음
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 0
+    reason: notes 정보 없음
+    preservation_note: 노트 없음
+  - field_candidate: source_pages
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 source_pages 필드 없음
+    preservation_note: raw 전체를 source_page 0으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: WG1은 실체 설비인지, 페이지 안내용 주석인지 단독으로 확정하기 어려우며, 제공된 원문은 페이지 목록과 안내 문구만 포함함
+    recommended_handling: 후속 단계에서 페이지 1/2/3/4/5/31/32/33/34/35/61/62/63/64/65의 실제
+      도면 컨텍스트를 확인해 문서 메타/주석 여부를 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline로 남기되, raw only placeholder responses 및 unresolved notes/schedules/material
+      legends 성격으로 보존
+    - 도면에서 관찰된 것만 기록하고, 해석 불가 텍스트는 free_notes/unresolved에 원문 그대로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:18.799270'
+  confidence: 0.86

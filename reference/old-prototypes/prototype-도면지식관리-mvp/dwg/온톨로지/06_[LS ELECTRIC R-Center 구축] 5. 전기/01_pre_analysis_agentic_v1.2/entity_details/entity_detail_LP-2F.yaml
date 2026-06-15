@@ -1,0 +1,49 @@
+entity_detail:
+  tag: LP-2F
+  type: panel
+  specs:
+    voltage:
+      value: 220V 3Ф 3W
+      unit: V
+      source: page 23 / cable_schedule_row_9
+      confidence: 0.95
+    cable_spec:
+      value: F-CV 35㎟ -3C x 1, E-25㎟ (54C)
+      unit: cable
+      source: page 23 / cable_schedule_row_9
+      confidence: 0.95
+  drawing_texts:
+  - source: 'page 23 / search_entity_by_tag: LP-2F'
+    page_number: 23
+    text: "from: LP-1F\n    to: LP-2F\n    relation: feeds\n    medium: power_cable\n\
+      \    direction: downstream\n...\n    spec: F-CV 35㎟ -3C x 1, E-25㎟ (54C)\n \
+      \   from: LP-1F\n    to: LP-2F\n    voltage: 220V 3Ф 3W\n    source: cable_schedule_row_9\n\
+      \    confidence: 0.95\n...\n    - S/S R-Center\n    - LP-1F\n    - LP-2F"
+  requirements: []
+  connection_specs:
+  - relation: feeds
+    partner: LP-1F
+    details:
+      source: 'page 23 / search_entity_by_tag: LP-2F'
+      medium: power_cable
+      direction: downstream
+      spec: F-CV 35㎟ -3C x 1, E-25㎟ (54C)
+      voltage: 220V 3Ф 3W
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: LP-1F
+      direction: LP-1F -> LP-2F
+      source: 'page 23 / search_entity_by_tag: LP-2F'
+    observed_attributes:
+    - voltage
+    - cable_spec
+    - feeds
+    - medium
+    - direction
+    similar_equipment: []
+    suggested_parent_class: panel
+    cross_discipline: []
+  notes:
+  - page 23 분석 결과에서 LP-2F의 직접 항목은 확인되지 않았고, 검색 결과에서 연결 정보만 확인됨.
+tag: LP-2F

@@ -1,0 +1,87 @@
+tag: BLK-MOF
+name: 계기용 변성기(MOF)
+type: METERING_DEVICE
+discipline: ELECTRICAL
+function_category: METERING_DEVICE
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - MOF
+  - 22.9kV-Y/110V
+  - 계기용 변성기
+  voltage_ratio: 22.9kV-Y/110V
+  equipment_type: Metering Out Fit
+  primary_voltage_kV: 22.9
+  primary_voltage_phase: Y
+  secondary_voltage_V: 110
+  mof_type_gemini: OIL TYPE
+  ct_ratio_gemini: 400/5A
+  pt_ratio_gemini: 13.2kV/110V
+  has_demand_controller: true
+  demand_controller_type: PEAK CUT 제어기능
+  demand_controller_name: 최대수요전력제어기
+  communication: RS-485 통신 케이블
+  communication_destination: 중앙감시실
+relations:
+- from: BLK-LH1
+  to: BLK-MOF
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV 계량 회로
+- from: BLK-MOF
+  to: '1101'
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV → SHV VCB 1101
+- from: BLK-LH1
+  to: BLK-MOF
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV 계량 회로
+- from: BLK-MOF
+  to: BLK-1101
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV → SHV VCB 1101
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-center
+confidence: 0.95
+equipment_symbols:
+- type: metering_outfit
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: MeteringDevice
+  observed_attributes:
+  - raw_labels
+  - voltage_ratio
+  - equipment_type
+  - primary_voltage_kV
+  - primary_voltage_phase
+  - secondary_voltage_V
+  - mof_type_gemini
+  - ct_ratio_gemini
+  - pt_ratio_gemini
+  - has_demand_controller
+  - demand_controller_type
+  - demand_controller_name
+  - communication
+  - communication_destination
+  similar_equipment: []
+  function_candidates:
+  - METERING
+  - VOLTAGE_TRANSFORMATION
+  - CURRENT_TRANSFORMATION

@@ -1,0 +1,71 @@
+entity_detail:
+  tag: 전력용 맨홀
+  type: structural_element
+  specs:
+    size:
+      value: 2,000 x 2,000 x 2,000
+      unit: mm
+      source: page 4
+      confidence: 0.98
+    quantity:
+      value: 2
+      unit: ea
+      source: page 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page 4 executive_summary
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와
+      지중 인입 경로를 보여준다.
+
+      공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개, 지중선표시기,
+      SECTION 1·2 단면 상세가 포함된다.
+
+      우측에는 지하공동구 현황도 사진 1장이 있으며, A동 지상1층 인버터 시험센타와 A동 지하1층 전기실 방향의 연결도 함께 보인다.'
+  - source: page 4 equipment
+    page_number: 4
+    text: 'tag: MH-001 name: 전력용 맨홀 spec: 2,000 x 2,000 x 2,000mm discipline: STRUCTURAL
+      function_category: BOUNDARY location: 평면도 좌측 상단 confidence: 0.98'
+  - source: page 4 equipment
+    page_number: 4
+    text: 'tag: MH-002 name: 전력용 맨홀 spec: 2,000 x 2,000 x 2,000mm discipline: STRUCTURAL
+      function_category: BOUNDARY location: 평면도 중앙 confidence: 0.98'
+  requirements:
+  - text: 전력용 맨홀 2개
+    source: page 4 executive_summary
+    type: quantity_requirement
+  - text: 2,000 x 2,000 x 2,000mm
+    source: page 4 equipment / MH-001, MH-002
+    type: dimension_requirement
+  connection_specs:
+  - relation: 전력케이블 경로 관련
+    partner: MH-001
+    details:
+      source: page 4 relationships
+  - relation: 전력케이블 경로 관련
+    partner: MH-002
+    details:
+      source: page 4 relationships
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_cable_path
+      partner_tag: MH-001
+      direction: UNKNOWN
+      source: page 4 relationships
+    - relation_type: power_cable_path
+      partner_tag: MH-002
+      direction: UNKNOWN
+      source: page 4 relationships
+    observed_attributes:
+    - size
+    - quantity
+    - location
+    - discipline
+    - function_category
+    similar_equipment:
+    - MH-002
+    suggested_parent_class: structural_element
+    cross_discipline:
+    - STRUCTURAL
+  notes: []
+tag: 전력용 맨홀

@@ -1,0 +1,187 @@
+placement:
+  tag: ROOM-R-CENTER-001
+  name: R-Center 변전실
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ROOM-R-CENTER-001
+    class_hint: ElectricalSpace
+    alternative_class_hints:
+    - ElectricalRoom
+    - PowerDistributionSpace
+    - VoltageTransformationSpace
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: R-Center
+        source_page: 4
+      free_notes:
+      - raw_text: 'status: 신설'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasStatus
+          suggested_datatype: xsd:string
+          rationale: 공간의 상태를 나타내는 문자열 표기
+      - raw_text: 'room_type: electrical_room'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasRoomType
+          suggested_datatype: xsd:string
+          rationale: 공간 유형을 나타내는 문자열 표기
+      - raw_text: 'voltage_class: 6.6kV'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasVoltageClass
+          suggested_datatype: xsd:string
+          rationale: 전압 등급 표기
+      - raw_text: 'cross_reference_drawing: EE-01-007'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasCrossReferenceDrawing
+          suggested_datatype: xsd:string
+          rationale: 연관 도면 번호 표기
+      - raw_text: 'description: 6.6KV R-Center 변전실 전력간선 확대 설비 평면도-1'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 설명 문구
+      - raw_text: 'function_category: ELECTRICAL_ROOM'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'ontology_hints.suggested_parent_class: ElectricalSpace'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스
+      - raw_text: 'ontology_hints.observed_attributes: status, room_type, voltage_class,
+          cross_reference_drawing, description'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasObservedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰된 속성 목록을 문자열로 보존
+      - raw_text: 'ontology_hints.function_candidates: POWER_DISTRIBUTION, VOLTAGE_TRANSFORMATION'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: isEntitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 합성 생성 여부를 나타내는 불리언 표기
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates + entity_detail.type
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 4
+      method: name parsing
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+      method: entity_detail.specs + ontology_hints + collection_sources
+  unresolved:
+  - field_candidate: specs.status
+    raw_text: 신설
+    source_page: 4
+    reason: 표준화된 코드 체계가 제시되지 않음
+    preservation_note: 공간 상태 문자열로 보존
+  - field_candidate: specs.room_type
+    raw_text: electrical_room
+    source_page: 4
+    reason: 도면 원문 값은 이해되나 상위 분류로 승격 여부는 후속 단계 필요
+    preservation_note: 전기실 유형 표기
+  - field_candidate: specs.voltage_class
+    raw_text: 6.6kV
+    source_page: 4
+    reason: 문자열 전압 등급으로만 제시됨
+    preservation_note: 전압 등급 표기 보존
+  - field_candidate: specs.cross_reference_drawing
+    raw_text: EE-01-007
+    source_page: 4
+    reason: 참조 도면 번호이지만 관계 타입 미확정
+    preservation_note: 연관 도면 식별자 보존
+  - field_candidate: specs.description
+    raw_text: 6.6KV R-Center 변전실 전력간선 확대 설비 평면도-1
+    source_page: 4
+    reason: 설명문은 해석 가능하나 구조화된 속성으로 확정하지 않음
+    preservation_note: 도면 설명 원문 보존
+  - field_candidate: function_category
+    raw_text: ELECTRICAL_ROOM
+    source_page: 4
+    reason: 기능 분류 값이 있으나 supplement sub_kind로 직접 승격하지 않음
+    preservation_note: 기능 카테고리 문자열 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ElectricalSpace
+    source_page: 4
+    reason: 힌트 값이므로 확정 클래스 아님
+    preservation_note: 상위 클래스 후보로만 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: POWER_DISTRIBUTION, VOLTAGE_TRANSFORMATION
+    source_page: 4
+    reason: 후보 기능 목록이며 단일 확정 불가
+    preservation_note: 기능 후보 목록 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 4
+    reason: 생성 출처 메타데이터로 해석 필요
+    preservation_note: 합성 생성 플래그 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:12:52.496408'
+  confidence: 0.92

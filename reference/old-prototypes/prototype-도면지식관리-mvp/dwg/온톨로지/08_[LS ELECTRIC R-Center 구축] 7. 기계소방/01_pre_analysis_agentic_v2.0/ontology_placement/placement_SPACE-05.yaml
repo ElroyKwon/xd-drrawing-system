@@ -1,0 +1,214 @@
+placement:
+  tag: SPACE-05
+  name: 전기/항온항습실
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-05
+    class_hint: Space
+    alternative_class_hints:
+    - ElectricalRoom
+    - ConstantTemperatureAndHumidityRoom
+    related_assertions:
+    - type: connects_to
+      target_hint: SPACE-20
+      note: page 7, solid line connection
+    applicable_axioms:
+    - AX001
+    - AX037
+    - AX040
+    - AX041
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: SPACE'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 엔티티 유형 표기
+      - raw_text: 'function_category: SPACE'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'specs.shape: rectangle'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'specs.labels_inside: 전기/항온항습실'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트
+      - raw_text: 'specs.sonnet_inferred_name: 전기항온항습실'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭 보존
+      - raw_text: 'relations: from SPACE-20 to SPACE-05 relation connects_to origin
+          cross_validated line_style solid note null'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: connectsTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간 간 연결 관계
+      - raw_text: 'position: top-center'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: 'confidence: 0.95'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 값
+      - raw_text: 'source_attribution: sonnet true, gemini true, mini true'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: sourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처/모델 귀속 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.observed_attributes: shape, labels_inside, sonnet_inferred_name'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: ElectricalRoom, ConstantTemperatureAndHumidityRoom'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+  provenance:
+    name:
+      source_pages:
+      - 7
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 7
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 7
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 7
+      method: ontology_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 7
+      method: ontology_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 7
+      method: relation_extraction
+    discipline_context.free_notes:
+      source_pages:
+      - 7
+      method: preservation
+    position:
+      source_pages:
+      - 7
+      method: direct
+    confidence:
+      source_pages:
+      - 7
+      method: direct
+    source_attribution:
+      source_pages:
+      - 7
+      method: direct
+    collection_sources.cross_validated:
+      source_pages:
+      - 7
+      method: direct
+    specs.shape:
+      source_pages:
+      - 7
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 7
+      method: direct
+    specs.sonnet_inferred_name:
+      source_pages:
+      - 7
+      method: direct
+    relations:
+      source_pages:
+      - 7
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 7
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 7
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 7
+      method: direct
+  unresolved:
+  - field_candidate: collection_sources.cross_validated
+    raw_text: 'true'
+    source_page: 7
+    reason: 보존은 가능하나 OWL 핵심/도메인 속성으로 직접 승격하지 않음
+    preservation_note: 출처 검증 플래그로 유지
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: true, mini: true'
+    source_page: 7
+    reason: 귀속 정보는 구조화된 표준 속성으로 확정하지 않음
+    preservation_note: 모델/출처 메타로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: ElectricalRoom, ConstantTemperatureAndHumidityRoom
+    source_page: 7
+    reason: 후보 기능명이며 확정 불가
+    preservation_note: alternative_class_hints로도 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SPACE 태그이지만 labels_inside와 function_candidates가 전기실/항온항습실 두 방향으로 해석 가능함.
+    recommended_handling: 다음 단계에서 공간 클래스 확정 시 ElectricalRoom과 ConstantTemperatureAndHumidityRoom
+      후보를 함께 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간 엔티티로 분류
+    - 관계(connects_to) 원형 보존
+    - ontology_hints의 후보 클래스 보존
+    - 분류 불가 정보는 free_notes로 승격 후보와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:05:57.057691'
+  confidence: 0.95

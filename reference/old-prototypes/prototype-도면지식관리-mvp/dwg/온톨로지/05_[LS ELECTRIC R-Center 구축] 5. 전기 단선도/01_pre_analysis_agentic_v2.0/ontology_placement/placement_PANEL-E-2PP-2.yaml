@@ -1,0 +1,199 @@
+placement:
+  tag: PANEL-E-2PP-2
+  name: 220V 분전반 P-E-2PP-2
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PANEL-E-2PP-2
+    class_hint: DistributionBoard
+    alternative_class_hints:
+    - DistributionPanel
+    - ElectricalPanel
+    - MCCBPanel
+    related_assertions:
+    - type: feeds
+      target_hint: IVR-1
+      note: IVR-1에서 본 태그로 공급됨
+      confirmed_property: dks:feeds
+      confirmed_target: dks:IVR-1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: IVR-1
+      note: visual_semantics 기반 연결
+      confirmed_property: dks:cable
+      confirmed_target: dks:IVR-1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX011
+    - AX024
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN024
+    - CN025
+    - CN011
+    - CN012
+    confirmed_class: dks:DistributionBoard
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 220V 분전반 P-E-2PP-2
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 표기 220V가 명시됨
+      - raw_text: MCCB 3P
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasBreakerType
+          suggested_datatype: xsd:string
+          rationale: MCCB와 3P가 장비 구성/형식 표기로 관찰됨
+      - raw_text: 220V~550V 피더
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasInputVoltageRange
+          suggested_datatype: xsd:string
+          rationale: 피더 설명에 전압 범위 문자열이 포함됨
+      - raw_text: P-E-2PP-2
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨 보존 필요
+      - raw_text: 220V
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: specs 및 raw_labels에 반복되는 전압 표기
+      - raw_text: MCCB
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols 및 type 필드와 일치하는 장비 형식 표기
+      - raw_text: 3P
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasPoles
+          suggested_datatype: xsd:integer
+          rationale: 극수 표기와 대응 가능
+      - raw_text: bottom-center
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: locatedInPageRegion
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: MCCB
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols.type에 MCCB 심볼이 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 2
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: placement_inference
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: plan_guidance + observed_attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: entity_detail.specs + relations + position + equipment_symbols + raw_labels
+    specs.rated_voltage_V:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.rated_current_A:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.frame_A:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.poles:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.raw_labels:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    relations:
+      source_pages:
+      - 2
+      method: entity_detail.relations
+    position:
+      source_pages:
+      - 2
+      method: entity_detail.position
+    equipment_symbols:
+      source_pages:
+      - 2
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 2
+      method: entity_detail.source_attribution
+    confidence:
+      source_pages:
+      - 2
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - MCCB 기반 PANEL-* 개체를 DistributionBoard/DistributionPanel/ElectricalPanel 계열로
+      두는 guidance
+    - feeds, cable 관계를 관계 사실 원형으로 보존하는 guidance
+    - raw_labels와 note/annotation을 별도 보존하는 guidance
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T15:59:55.362870'
+  confidence: 0.95

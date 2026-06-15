@@ -1,0 +1,294 @@
+placement:
+  tag: LV-R
+  name: 440V 저압 ACB 피더 LV-R (예비)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:LV-R
+    class_hint: CircuitBreaker
+    alternative_class_hints:
+    - ACB
+    - Feeder
+    - PowerDistributionEquipment
+    related_assertions:
+    - type: feeds
+      target_hint: RECTIFIER-01
+      note: AC 440V 입력
+      confirmed_property: dks:feeds
+      confirmed_target: dks:RECTIFIER-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: feeds
+      target_hint: MG-01
+      note: null
+      confirmed_property: dks:feeds
+      confirmed_target: dks:MG-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: feeds
+      target_hint: ELD-01
+      note: null
+      confirmed_property: dks:feeds
+      confirmed_target: dks:ELD-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: supplies
+      target_hint: LV-8
+      note: 440V BUS
+      confirmed_property: dks:supplies
+      confirmed_target: dks:LV-8
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: bus_bar
+      target_hint: LV-8
+      note: 440V BUS
+      confirmed_property: dks:bus_bar
+      confirmed_target: dks:LV-8
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: RECTIFIER-01
+      note: AC 440V 입력
+      confirmed_property: dks:cable
+      confirmed_target: dks:RECTIFIER-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX005
+    - AX007
+    - AX022
+    - AX025
+    - AX026
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN010
+    - CN032
+    - CN033
+    - CN011
+    - CN012
+    confirmed_class: dks:ACB
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 예비
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasOperationalState
+          suggested_datatype: xsd:string
+          rationale: 태그명에 예비 상태 표기가 포함됨
+      - raw_text: 440V
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 값 표기
+      - raw_text: ACB 3P
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentTypeLabel
+          suggested_datatype: xsd:string
+          rationale: 장비 종류와 극수 표기
+      - raw_text: GIMAC
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRelayModel
+          suggested_datatype: xsd:string
+          rationale: 보호계전기 모델명 표기
+      - raw_text: 50/51
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRelayNumber
+          suggested_datatype: xsd:string
+          rationale: 계전기 번호 표기
+      - raw_text: 50/51N
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRelayNumber
+          suggested_datatype: xsd:string
+          rationale: 계전기 번호 표기
+      - raw_text: R LV
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 라벨 보존
+      - raw_text: LV R
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 라벨 보존
+      - raw_text: CTT
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 라벨 보존
+      - raw_text: 440V BUS
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasBusLabel
+          suggested_datatype: xsd:string
+          rationale: 버스 표기 문구
+      - raw_text: AC 440V 입력
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasInputLabel
+          suggested_datatype: xsd:string
+          rationale: 입력 측 주석 문구
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 2
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints.function_candidates + observed_attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: specs + relations + raw_labels + ontology_hints
+    specs.bus_section:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.rated_voltage_V:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.poles:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.rated_current_A:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.interrupting_capacity_kA:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.ct_ratio:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.relay_model:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.relay_number:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    specs.raw_labels:
+      source_pages:
+      - 2
+      method: entity_detail.specs
+    relations:
+      source_pages:
+      - 2
+      method: entity_detail.relations
+    position:
+      source_pages:
+      - 2
+      method: entity_detail.position
+    equipment_symbols:
+      source_pages:
+      - 2
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 2
+      method: entity_detail.source_attribution
+    confidence:
+      source_pages:
+      - 2
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.bus_section
+    raw_text: LV
+    source_page: 2
+    reason: 값 자체는 읽히나 상위 분류/속성 승격 여부는 후속 단계에서 결정
+    preservation_note: 버스 섹션 표기 보존
+  - field_candidate: specs.ct_ratio
+    raw_text: 1600/5A
+    source_page: 2
+    reason: 문자열 형태의 CT 비율로, 정규 수치 분해를 여기서 확정하지 않음
+    preservation_note: 원문 문자열 그대로 보존
+  - field_candidate: specs.relay_number
+    raw_text: 50/51, 50/51N
+    source_page: 2
+    reason: 배열 값이지만 정규 속성 확정은 후속 단계에서 처리
+    preservation_note: 계전기 번호 목록 보존
+  - field_candidate: relations.note
+    raw_text: 'null'
+    source_page: 2
+    reason: 관계 주석이 비어 있음
+    preservation_note: 빈 주석도 관계 맥락으로 보존
+  - field_candidate: equipment_symbols
+    raw_text: ACB x1, CT x3, protection_relay x1
+    source_page: 2
+    reason: 심볼 배열은 읽히나 개별 심볼의 정규 속성화는 후속 단계에서 처리
+    preservation_note: 도면 심볼 수량 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'expected_object_properties: feeds'
+    - 'expected_object_properties: supplies'
+    - 'expected_object_properties: cable'
+    - 'expected_object_properties: bus_bar'
+    - 'expected_data_properties: rated_voltage_V'
+    - 'expected_data_properties: rated_current_A'
+    - 'expected_data_properties: interrupting_capacity_kA'
+    - 'expected_data_properties: poles'
+    - 'expected_data_properties: ct_ratio'
+    - 'expected_data_properties: relay_model'
+    - 'expected_data_properties: relay_number'
+    - 'expected_data_properties: raw_labels'
+    - 'expected_data_properties: position'
+    - 'expected_axioms: SubClassOf (CircuitBreaker 계열)'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T15:59:17.827108'
+  confidence: 0.95

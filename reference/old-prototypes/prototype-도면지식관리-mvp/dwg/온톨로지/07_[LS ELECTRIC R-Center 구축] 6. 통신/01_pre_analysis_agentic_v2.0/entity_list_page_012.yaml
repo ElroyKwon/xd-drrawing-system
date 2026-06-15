@@ -1,0 +1,163 @@
+page_12_entities:
+- tag: SCHEDULE-01
+  name: 방송용 CABLE SCHEDULE
+  type: METADATA
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: EXT-사무동방송실
+  name: 외부 인입 소스
+  type: SOURCE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: 정보통신용-맨홀
+  name: 정보통신용 맨홀
+  type: BOUNDARY
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: PULL-BOX
+  name: PULL BOX
+  type: BOUNDARY
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: AMP-PANEL
+  name: AMP
+  type: CONTROL
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SKS-P1-10P
+  name: Speaker Terminal Board
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SKS-P2-10P-ROOF
+  name: Speaker Terminal Board
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SKS-P2-10P-2F
+  name: Speaker Terminal Board
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: 2F-SPEAKER-LINE
+  name: 2층 스피커 배선 라인
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: MANHOLE-01
+  name: 정보통신용 맨홀
+  type: BOUNDARY
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: EXT-SOURCE
+  name: 외부 인입 소스
+  type: SOURCE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: PULL-BOX-01
+  name: PULL BOX
+  type: BOUNDARY
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPLIT-POINT-1F
+  name: 1층 메인 분기점
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SKS-P1-10P-1F
+  name: Speaker Terminal Board (1층)
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SKS-P2-10P-ROOF
+  name: Speaker Terminal Board (지붕층)
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SKS-P2-10P-2F
+  name: Speaker Terminal Board (2층)
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPEAKER-LINE-2F-S2
+  name: 2층 S2 라인 스피커 그룹
+  type: SENSE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-STRUCTURAL-1
+  name: 지하공동구
+  type: BOUNDARY
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-LEVEL-1
+  name: 지붕층 F.L
+  type: LEVEL_MARKER
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-LEVEL-2
+  name: 2층 F.L
+  type: LEVEL_MARKER
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-LEVEL-3
+  name: 1층 F.L
+  type: LEVEL_MARKER
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: UNKNOWN-LEVEL-4
+  name: PIT층 F.L
+  type: LEVEL_MARKER
+  discipline: COMMUNICATION
+  confidence: 0.98
+page_12_relations:
+- from: EXT-사무동방송실
+  to: 정보통신용-맨홀
+  relation: connects_to
+- from: 정보통신용-맨홀
+  to: PULL-BOX
+  relation: connects_to
+- from: PULL-BOX
+  to: AMP-PANEL
+  relation: feeds
+- from: AMP-PANEL
+  to: SKS-P1-10P
+  relation: feeds
+- from: AMP-PANEL
+  to: SKS-P2-10P-2F
+  relation: feeds
+- from: AMP-PANEL
+  to: SKS-P2-10P-ROOF
+  relation: feeds
+- from: AMP-PANEL
+  to: 2F-SPEAKER-LINE
+  relation: feeds
+- from: SKS-P1-10P
+  to: SKS-P1-10P
+  relation: connects_to
+- from: SKS-P2-10P-ROOF
+  to: SKS-P2-10P-ROOF
+  relation: connects_to
+- from: SKS-P2-10P-2F
+  to: SKS-P2-10P-2F
+  relation: connects_to
+- from: EXT-SOURCE
+  to: MANHOLE-01
+  relation: connects_to
+- from: MANHOLE-01
+  to: PULL-BOX-01
+  relation: connects_to
+- from: PULL-BOX-01
+  to: SPLIT-POINT-1F
+  relation: feeds
+- from: SPLIT-POINT-1F
+  to: SKS-P1-10P-1F
+  relation: feeds
+- from: SPLIT-POINT-1F
+  to: SKS-P2-10P-2F
+  relation: feeds
+- from: SPLIT-POINT-1F
+  to: SKS-P2-10P-ROOF
+  relation: feeds
+- from: SPLIT-POINT-1F
+  to: SPEAKER-LINE-2F-S2
+  relation: feeds

@@ -1,0 +1,9 @@
+tag: SP-04
+verdict: demoted
+confidence: 0.98
+missing_fields: []
+missing_relations: []
+reason: tag와 type은 확인되지만, entity_detail의 specs에 있는 drawing_number/title/space_name/parent는
+  도면 메타데이터 및 공간 식별 정보로서 물리적 설비의 독립 사양이 아니다. SP-04는 named_space / electrical_room으로
+  다른 설비의 부품이 아니라 공간 엔티티이지만, 독립 설비로서 전환 가능한 자체 spec은 확인되지 않았다. 관계는 공동구와의 연결 및 flow_path가
+  확인되며, relation 누락은 확인되지 않았다. 따라서 독립 설비가 아닌 공간/메타데이터 성격으로 강등한다.

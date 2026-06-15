@@ -1,0 +1,179 @@
+placement:
+  tag: EXT-HV-SOURCE
+  name: 외부 6.6kV 인입 전원 (지하1층 변전실)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-HV-SOURCE
+    class_hint: PowerSource
+    alternative_class_hints:
+    - Incoming Feed
+    - ExternalSource
+    related_assertions:
+    - type: feeds
+      target_hint: INCOMING-01
+      note: 6.6kV 3Φ 60Hz 인입
+      confirmed_property: dks:feeds
+      confirmed_target: dks:INCOMING-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: INCOMING-01
+      note: 6.6kV 3Φ 60Hz 인입
+      confirmed_property: dks:cable
+      confirmed_target: dks:INCOMING-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX002
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN009
+    - CN011
+    - CN012
+    confirmed_class: dks:PowerSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: INCOMING FROM 지 S (지하1층 변전실)
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSourceText
+          suggested_datatype: xsd:string
+          rationale: 인입 출처/위치 설명 문자열
+        promoted_to: dks:raw_labels
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 6.6kV 3Φ 60Hz
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRatedVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 값과 주파수/상(phase) 표기가 함께 있는 전원 사양 문자열
+        promoted_to: dks:hasVoltageText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: INCOMING
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 라벨 원문 보존
+        promoted_to: dks:raw_labels
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 지하1층 변전실
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: locatedInSpace
+          suggested_datatype: xsd:string
+          rationale: 공간 위치 표기
+      - raw_text: 3Φ
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasPhase
+          suggested_datatype: xsd:string
+          rationale: 상(phase) 표기
+        promoted_to: dks:phase
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+      - raw_text: 60Hz
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRatedFrequency
+          suggested_datatype: xsd:decimal
+          rationale: 정격 주파수 표기
+        promoted_to: dks:frequency_Hz
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-21T16:10:28.283834'
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail
+    name:
+      source_pages:
+      - 2
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: inferred_from_entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 2
+      method: relations
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 2
+      method: relations
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 2
+      method: specs.source_text
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 2
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 2
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 2
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 2
+      method: specs.phase
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 2
+      method: specs.frequency_Hz
+    provenance:
+      source_pages:
+      - 2
+      method: entity_detail
+    unresolved: []
+    orphan_relations: []
+    ambiguous:
+      is_ambiguous: false
+      reason: ''
+      recommended_handling: ''
+    merge_info:
+      is_merge_candidate: false
+      other_tag: ''
+      reason: ''
+    plan_reference:
+      guidance_applied:
+      - 'expected_object_properties: feeds'
+      - 'expected_object_properties: cable'
+      - 'expected_data_properties: rated_voltage_kV'
+      - 'expected_data_properties: phase'
+      - 'expected_data_properties: frequency_Hz'
+      - 'predicted_ontology_structure: PowerSource'
+      deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T15:58:30.839700'
+  confidence: 0.85

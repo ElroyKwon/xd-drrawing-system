@@ -1,0 +1,151 @@
+tag: FD-1A
+name: 방화셔터 연동제어반 FD-1A
+type: CONTROL
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+- 7
+- 9
+specs:
+  inferred_name: 소방 분배반/단자함 FD-1A
+  labels_inside:
+  - FD-1A
+  shape: circle
+  floor: 1층
+  raw_labels:
+  - FD-1A
+  labels_above: []
+  labels_below: []
+  position: top-left (진동시험실 인근)
+  equipment_symbols:
+  - type: fire_alarm_distribution_panel
+    count: 1
+relations:
+- from: RISER-MAIN
+  to: FD-1A
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 1층 FD-1A 분기
+- from: FACP-MAIN
+  to: FD-1A
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: ②
+- from: RISER-MAIN
+  to: FD-1A
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 1층 FD-1A 분기
+- from: FD-1A
+  to: FA-1D
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선
+- from: FD-1A
+  to: FA-1C
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선 (Sonnet Star Topology)
+- from: FD-1A
+  to: FA-1B
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선 (Sonnet Star Topology)
+- from: FD-1A
+  to: FA-1E
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선 (Sonnet Star Topology)
+- from: FA-1E
+  to: FD-1A
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선 (Gemini Loop Topology)
+- from: FD-1A
+  to: FA-1D
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 소방간선 배선
+- from: FD-1A
+  to: FA-1C
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 소방간선 배선
+- from: FD-1A
+  to: FA-1B
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 소방간선 배선
+- from: FD-1A
+  to: FA-1E
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 소방간선 배선
+- from: FD-1A
+  to: ZONE-진동시험실
+  relation: connects_to
+  source_page: 9
+  origin: cross_validated
+  line_style: solid
+  note: 방화셔터 연동 신호선
+- from: FD-1A
+  to: ZONE-진동시험실
+  relation: signal
+  source_page: 9
+  origin: visual_semantics
+  annotation: 방화셔터 연동 신호선
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+  visual_semantics_gemini: true
+position: top-left
+confidence: 0.95
+equipment_symbols:
+- type: 방화셔터 연동제어반
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionControlPanel
+  observed_attributes:
+  - inferred_name
+  - labels_inside
+  - shape
+  - floor
+  - raw_labels
+  - labels_above
+  - labels_below
+  - position
+  - equipment_symbols
+  similar_equipment:
+  - FA-1B
+  - FA-1C
+  - FA-1D
+  - FA-1E
+  function_candidates:
+  - FireShutterControl
+  - SignalDistribution
+  - InterlockingControl

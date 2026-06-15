@@ -1,0 +1,67 @@
+entity_detail:
+  tag: BUS-6.6kV-2
+  type: bus
+  name: UNKNOWN
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    bus_id:
+      value: BUS-6.6kV-2
+      unit: null
+      source: page 5
+      confidence: 0.95
+    members:
+      value:
+      - PNL-HV-1309
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "bus_id: BUS-6.6kV-2\nvoltage: 6.6kV\nmembers:\n- PNL-HV-1309\n...\nannotation:\
+      \ ''\n- from: PNL-1309\n  to: BUS-6.6kV-2\n  line_type: power_cable\n  line_style:\
+      \ solid\n  annotation: ''\n...\nline_style: solid\nannotation: INTER-LOCK\n\
+      - from: BUS-6.6kV-2\n  to: PNL-BUS-TIE\n  line_type: power_cable\n  line_style:\
+      \ solid"
+  requirements: []
+  connection_specs:
+  - relation: feeds
+    partner: PNL-BUS-TIE
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+  - relation: feeds
+    partner: PNL-HV-1309
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-BUS-TIE
+      direction: BUS-6.6kV-2 -> PNL-BUS-TIE
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1309
+      direction: PNL-1309 -> BUS-6.6kV-2
+      source: page 5
+    observed_attributes:
+    - bus_id
+    - voltage
+    - members
+    similar_equipment: []
+    suggested_parent_class: ElectricalBus
+    cross_discipline: []
+  notes:
+  - 페이지 5의 검색 결과와 페이지 컨텍스트에서 확인된 정보만 기록함.
+  - name 필드: search_entity_by_tag('BUS-6.6kV-2')와 read_page_context(5) 도구 결과에서 명시적
+      이름을 찾을 수 없음. 도면에는 bus_id와 voltage만 표기되어 있음.
+  - specs 필드: voltage, bus_id, members 세 가지 속성이 page 5에서 확인되었으며, 추가 사양(정격전류, 단락용량
+      등)은 도구 결과에 없음.
+tag: BUS-6.6kV-2

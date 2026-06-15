@@ -1,0 +1,160 @@
+placement:
+  tag: SPACE-ANNEX
+  name: 안경부
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-ANNEX
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - SpatialEntity
+    - CommunicationRoom
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 type 값 보존
+      - raw_text: 'function_category: COMMUNICATION_SPACE'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 function_category 값 보존
+      - raw_text: 'raw_labels: 안경부'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존
+      - raw_text: 'labels_inside: 안경부'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 내부 표기 라벨 보존
+      - raw_text: 'equipment_symbols: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: equipmentSymbols
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 부재 정보도 보존 필요
+      - raw_text: 'inferred_name: 안경부 (부속 공간)'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 보존
+      - raw_text: 'position: right-bottom'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보 보존
+      - raw_text: 'shape: rectangle'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보 보존
+      - raw_text: 'suggested_parent_class: CommunicationSpace'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스 보존
+      - raw_text: 'function_candidates: Optical fiber connection; Cable routing'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보를 원문 그대로 보존
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: inferred_from_type_and_visual_semantics
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: direct_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: inferred_from_context
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: direct_preservation
+    specs.raw_labels:
+      source_pages:
+      - 8
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 8
+      method: direct
+    specs.position:
+      source_pages:
+      - 8
+      method: direct
+    specs.shape:
+      source_pages:
+      - 8
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 space이지만 name이 부속 공간을 뜻하는 일반명사성 표기이며, ontology_hints는 CommunicationSpace를
+      제안하고 function_candidates는 Optical fiber connection / Cable routing으로 공간과 기능이
+      혼재한다.
+    recommended_handling: 다음 단계에서 SpatialEntity 계열로 우선 유지하되, CommunicationSpace vs
+      CommunicationRoom vs 부속 공간 여부를 관계/주변 엔티티와 함께 재검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 엔티티로서 CommunicationSpace 후보를 우선 반영
+    - source_pages와 원문 라벨/추론명/위치/도형 정보를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:37.716048'
+  confidence: 0.86

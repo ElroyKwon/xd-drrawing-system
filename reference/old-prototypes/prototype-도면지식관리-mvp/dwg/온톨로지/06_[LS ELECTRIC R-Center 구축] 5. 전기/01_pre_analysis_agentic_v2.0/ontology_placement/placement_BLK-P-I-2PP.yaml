@@ -1,0 +1,208 @@
+placement:
+  tag: BLK-P-I-2PP
+  name: P-I-2PP (2층 I구역 동력분전반)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: BLK-P-I-2PP
+    class_hint: DistributionPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - PowerDistributionEquipment
+    related_assertions:
+    - type: feeds
+      target_hint: BLK-SS-RCENTER
+      note: BLK-SS-RCENTER에서 본 태그로 전원 공급 관계가 관찰됨
+    - type: cable
+      target_hint: BLK-SS-RCENTER
+      note: A10 3Ø 3W 220V / F-CV 50㎟ -1C x3, E-25㎟ (54C) 케이블 표기와 함께 연결됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DistributionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: 2층 I구역
+        source_page: 23
+      free_notes:
+      - raw_text: P-I-2PP
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasPanelIdentifier
+          suggested_datatype: xsd:string
+          rationale: 패널 식별자 형식의 태그 표기
+      - raw_text: 동력분전반
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 설비 기능을 나타내는 명칭
+      - raw_text: A10
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasScheduleNumber
+          suggested_datatype: xsd:string
+          rationale: labels_above 및 schedule_no로 반복 표기된 도면 참조 번호
+      - raw_text: 3Ø 3W 220V
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 및 상/선식 표기
+      - raw_text: F-CV 50㎟ -1C x3, E-25㎟
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 및 접지선 규격 표기
+      - raw_text: 54C
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasConduitSpecification
+          suggested_datatype: xsd:string
+          rationale: 전선관 규격 표기
+      - raw_text: MCCB
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: containsProtectionDevice
+          suggested_datatype: xsd:string
+          rationale: 설비 내부에 MCCB 1개가 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 23
+      method: direct
+    name:
+      source_pages:
+      - 23
+      method: direct
+    discipline:
+      source_pages:
+      - 23
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 23
+      method: inferred_from_equipment_type
+    ontology_core.class_hint:
+      source_pages:
+      - 23
+      method: inferred_from_type_and_function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 23
+      method: inferred
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 23
+      method: cross_validated
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 23
+      method: visual_semantics
+    discipline_context.sub_kinds.groups[0]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 23
+      method: direct
+    discipline_context.sub_kinds.free_notes[6]:
+      source_pages:
+      - 23
+      method: direct
+    source_attribution:
+      source_pages:
+      - 23
+      method: direct
+    position:
+      source_pages:
+      - 23
+      method: direct
+    confidence:
+      source_pages:
+      - 23
+      method: direct
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: P-I-2PP
+    source_page: 23
+    reason: 라벨 자체는 관찰되지만 별도 구조화 속성으로 확정하지 않음
+    preservation_note: 패널 식별 문자열로 보존
+  - field_candidate: specs.labels_above
+    raw_text: A10
+    source_page: 23
+    reason: 도면 참조/스케줄 번호로 보이나 정식 속성 미확정
+    preservation_note: schedule_no와 함께 반복 표기됨
+  - field_candidate: specs.schedule_no
+    raw_text: A10
+    source_page: 23
+    reason: 스케줄 번호로 보이나 상위 단계에서 확정 필요
+    preservation_note: labels_above와 동일 값
+  - field_candidate: specs.voltage
+    raw_text: 3Ø 3W 220V
+    source_page: 23
+    reason: 전압 표기이지만 데이터 속성으로 승격하지 않고 원문 보존
+    preservation_note: 상/선식 포함 전압 표기
+  - field_candidate: specs.cable
+    raw_text: F-CV 50㎟ -1C x3, E-25㎟
+    source_page: 23
+    reason: 케이블 규격 문자열이 복합적이며 세부 분해 미실시
+    preservation_note: 전원 케이블 및 접지선 규격 포함
+  - field_candidate: specs.conduit
+    raw_text: 54C
+    source_page: 23
+    reason: 전선관 규격으로 보이나 단위/형식 확정 불필요
+    preservation_note: 관경/관수 표기 가능성
+  - field_candidate: equipment_symbols
+    raw_text: MCCB x1
+    source_page: 23
+    reason: 내부 구성요소로 관찰되나 별도 관계/부품 구조 확정 전
+    preservation_note: 패널 내부 차단기 존재 보존
+  - field_candidate: relations.cable
+    raw_text: A10 3Ø 3W 220V / F-CV 50㎟ -1C x3, E-25㎟ (54C)
+    source_page: 23
+    reason: 관계 타입이 cable로 기록되어 있으나 정식 OWL property 미확정
+    preservation_note: 전원/배선 연결의 원형 사실로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:08:29.470559'
+  confidence: 0.98

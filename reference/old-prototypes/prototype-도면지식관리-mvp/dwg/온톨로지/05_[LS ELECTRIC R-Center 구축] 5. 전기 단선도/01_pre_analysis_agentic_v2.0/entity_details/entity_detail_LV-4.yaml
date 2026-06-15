@@ -1,0 +1,128 @@
+tag: LV-4
+name: 440V 저압 ACB 피더 LV-4
+type: ACB
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  bus_section: LV
+  rated_voltage_V: 440
+  poles: 3
+  rated_current_A: 1600
+  interrupting_capacity_kA: 65
+  ct_ratio: 1600/5A
+  relay_model: GIMAC 1000
+  relay_number:
+  - 50/51
+  - 50/51N
+  raw_labels:
+  - 4 LV
+  - ACB 3P
+  - 440V
+  - GIMAC
+  - 50/51
+  - CTT
+  - LV 4
+relations:
+- from: LV-3L
+  to: LV-4
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V BUS
+- from: LV-4
+  to: LV-5
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V BUS
+- from: LV-4
+  to: PANEL-4PP-A5
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: LV-4
+  to: PANEL-4PP-A6
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: LV-4
+  to: PANEL-4PP-A7
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: LV-3L
+  to: LV-4
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V BUS
+- from: LV-4
+  to: LV-5
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V BUS
+- from: LV-4
+  to: PANEL-4PP-A5
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+- from: LV-4
+  to: PANEL-4PP-A6
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+- from: LV-4
+  to: PANEL-4PP-A7
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: middle-right
+confidence: 0.95
+equipment_symbols:
+- type: ACB
+  count: 1
+- type: CT
+  count: 3
+- type: protection_relay
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: CircuitBreaker
+  observed_attributes:
+  - bus_section
+  - rated_voltage_V
+  - poles
+  - rated_current_A
+  - interrupting_capacity_kA
+  - ct_ratio
+  - relay_model
+  - relay_number
+  - raw_labels
+  similar_equipment:
+  - LV-3L
+  - LV-5
+  function_candidates:
+  - CircuitProtection
+  - PowerDistribution
+  - OvercurrentProtection

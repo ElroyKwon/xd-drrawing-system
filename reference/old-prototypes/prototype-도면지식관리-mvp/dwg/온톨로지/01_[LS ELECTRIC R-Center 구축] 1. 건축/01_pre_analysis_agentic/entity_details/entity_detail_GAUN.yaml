@@ -1,0 +1,187 @@
+entity_detail:
+  tag: GAUN
+  type: consultant
+  specs:
+    consultant_name:
+      value: 가운건축
+      unit: null
+      source:
+      - 2
+      - 62
+      - 118
+      confidence: 0.99
+    consultant_english_name:
+      value: GAUN Architects & Engineers
+      unit: null
+      source:
+      - 2
+      - 62
+      - 118
+      confidence: 0.98
+    discipline:
+      value: ARCHITECTURAL
+      unit: null
+      source:
+      - 2
+      - 62
+      - 118
+      confidence: 0.99
+    project_name:
+      value: LS Electric R-Center 구축
+      unit: null
+      source:
+      - 2
+      - 62
+      - 118
+      confidence: 0.99
+    project_number:
+      value: '224001'
+      unit: null
+      source:
+      - 2
+      - 62
+      - 118
+      confidence: 0.99
+    drawing_number:
+      value: G01.01
+      unit: null
+      source:
+      - 2
+      confidence: 0.99
+    drawing_title:
+      value: 도면목록표-1
+      unit: null
+      source:
+      - 2
+      confidence: 0.99
+    issue_date:
+      value: 24.05.17
+      unit: null
+      source:
+      - 2
+      - 118
+      confidence: 0.98
+    office_address:
+      value: 서울시 강남구 언주로 609, 10층 (논현동, 팍스타워)
+      unit: null
+      source:
+      - 118
+      confidence: 0.98
+    website:
+      value: www.gaun.co.kr
+      unit: null
+      source:
+      - 118
+      confidence: 0.98
+    tel:
+      value: 82-2-3443-7799
+      unit: null
+      source:
+      - 118
+      confidence: 0.98
+    fax:
+      value: 82-2-3443-3807
+      unit: null
+      source:
+      - 118
+      confidence: 0.98
+    revision:
+      value: '0'
+      unit: null
+      source:
+      - 118
+      confidence: 0.98
+    scale:
+      value: A1:1/200, A3:1/400
+      unit: null
+      source:
+      - 118
+      confidence: 0.98
+  drawing_texts:
+  - source: page 2
+    page_number: 2
+    text: 우측 표제란에 프로젝트명 LS Electric R-Center 구축, 프로젝트번호 224001, 설계사 가운건축(GAUN), 도면번호
+      G01.01, 도면명 도면목록표-1, 발행일 24.05.17이 보인다.
+  - source: page 62
+    page_number: 62
+    text: '설계사: 가운건축 (GAUN Architects & Engineers)'
+  - source: page 118
+    page_number: 118
+    text: 'DESIGN CONSULTANT
+
+      가 운 건 축
+
+      GAUN
+
+      서울시 강남구 언주로 609, 10층 (논현동, 팍스타워)
+
+      www.gaun.co.kr
+
+      Tel:82-2-3443-7799
+
+      Fax:82-2-3443-3807
+
+      l Architects & Engineers'
+  requirements:
+  - text: '설계사: 가운건축 (GAUN Architects & Engineers)'
+    source: page 62
+    type: consultant_identification
+  - text: DESIGN CONSULTANT
+    source: page 118
+    type: consultant_role
+  - text: 실 실시계 도서 제출
+    source: page 118
+    type: document_status
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: consultant_of
+      partner_tag: PROJECT-224001
+      direction: GAUN -> PROJECT-224001
+      source:
+      - 2
+      - 62
+      - 118
+    - relation_type: appears_on_drawing
+      partner_tag: G01.01
+      direction: GAUN -> G01.01
+      source:
+      - 2
+    - relation_type: appears_on_drawing
+      partner_tag: A04.03
+      direction: GAUN -> A04.03
+      source:
+      - 62
+    - relation_type: appears_on_drawing
+      partner_tag: A12.24
+      direction: GAUN -> A12.24
+      source:
+      - 118
+    observed_attributes:
+    - consultant_name
+    - consultant_english_name
+    - discipline
+    - project_name
+    - project_number
+    - drawing_number
+    - drawing_title
+    - issue_date
+    - office_address
+    - website
+    - tel
+    - fax
+    - revision
+    - scale
+    similar_equipment: []
+    suggested_parent_class: consultant
+    cross_discipline: []
+  notes:
+  - 페이지 2, 62, 118에서 GAUN이 설계사/Design Consultant로 확인됨.
+  - 페이지 118의 표제란 원문 텍스트를 최대한 보존함.
+  - read_page_context 확인 결과, page 2에서 PROJECT-224001 및 G01.01이 GAUN과 함께 확인됨.
+  - read_entity_detail 확인 결과, PROJECT-224001의 project/designer 정보와 G01.01의 drawing_list
+    정보가 page 2에서 확인됨.
+  - read_page_context 확인 결과, page 62는 A04.03 확대평면도-3이며 설계사로 GAUN이 확인됨.
+  - read_page_context 확인 결과, page 118은 A12.24 부위별 면적 산출 및 계산서-4이며 DESIGN CONSULTANT로
+    GAUN이 확인됨.
+tag: GAUN

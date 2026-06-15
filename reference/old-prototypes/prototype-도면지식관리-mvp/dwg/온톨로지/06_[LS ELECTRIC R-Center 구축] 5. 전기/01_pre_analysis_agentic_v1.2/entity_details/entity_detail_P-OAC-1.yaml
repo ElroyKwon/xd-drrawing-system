@@ -1,0 +1,82 @@
+entity_detail:
+  tag: P-OAC-1
+  type: panel
+  specs:
+    voltage:
+      value: 380/220V 3Ф 4W
+      unit: V
+      source: page 23 / cable_schedule_row_4
+      confidence: 0.95
+    cable_spec:
+      value: F-CV 185㎟ -1C x 4, E-95㎟ (104C)
+      unit: cable
+      source: page 23 / cable_schedule_row_4
+      confidence: 0.95
+  drawing_texts:
+  - source: page 23 / search_entity_by_tag(P-OAC-1)
+    page_number: 23
+    text: 'from: S/S R-Center
+
+      to: P-OAC-1
+
+      relation: feeds
+
+      medium: power_cable
+
+      direction: downstream
+
+      ...
+
+      spec: F-CV 185㎟ -1C x 4, E-95㎟ (104C)
+
+      from: S/S R-Center
+
+      to: P-OAC-1
+
+      voltage: 380/220V 3Ф 4W
+
+      source: cable_schedule_row_4
+
+      confidence: 0.95'
+  requirements:
+  - text: 'FROM: UT동 전기실 및 지하공동구 사용'
+    source: page 23 / executive_summary
+    type: source_condition
+  connection_specs:
+  - relation: feeds
+    partner: S/S R-Center
+    details:
+      source: page 23 / search_entity_by_tag(P-OAC-1)
+  - relation: power_cable
+    partner: S/S R-Center
+    details:
+      source: page 23 / search_entity_by_tag(P-OAC-1)
+  - relation: voltage_supply
+    partner: S/S R-Center
+    details:
+      source: page 23 / search_entity_by_tag(P-OAC-1)
+      value: 380/220V 3Ф 4W
+  - relation: cable_spec
+    partner: S/S R-Center
+    details:
+      source: page 23 / search_entity_by_tag(P-OAC-1)
+      value: F-CV 185㎟ -1C x 4, E-95㎟ (104C)
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: S/S R-Center
+      direction: downstream
+      source: page 23 / search_entity_by_tag(P-OAC-1)
+    observed_attributes:
+    - voltage
+    - cable_spec
+    - medium
+    - direction
+    - relation
+    similar_equipment: []
+    suggested_parent_class: panel
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 P-OAC-1에 대해 확인된 정보만 기록함.
+  - 관계 방향은 제공된 검색 결과의 downstream 표기를 따름.
+tag: P-OAC-1

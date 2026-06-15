@@ -1,0 +1,1495 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: detail
+  drawing_genre: detail
+  title_block:
+    drawing_number: C10-203
+    title: 연결관 상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 12
+  next_step_hints:
+  - 도면 본문은 연결관 상세도와 시공순서/치수표로 구성됨
+  - 표제란에 도면번호 C10-203, 제목 연결관 상세도 확인됨
+  - 페이지 내 텍스트는 주로 부재 명칭/치수/시공순서이며 설비 태그는 식별되지 않음
+  confidence: 0.93
+  note: 표제란 도면번호가 C10-203으로 보이나 C 접두사만으로 discipline을 단정하기 어려움. 시각적 내용은 연결관 상세도이며 범례
+    전용 페이지는 아님.
+  recommended_supplements: &id001
+    P-4.5: discipline/civil/genre_detail/supplement_p4_05.yaml
+  routing_confidence: 0.0
+  routing_reason: 도면은 상세도이지만 available_supplements_catalog에 communication P-4.5/P-10의
+    genre_detail이 없어 매칭 불가.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: DETAIL-01
+    shape: rectangle
+    primary_label: 이중벽 주름관
+    position: top-left
+    labels_near:
+    - PIPE
+    - '"A" 상세도'
+    - 소켓 고무링
+    - A-A 단면도
+    - 소켓식 연결
+  - panel_id: DETAIL-02
+    shape: rectangle
+    primary_label: 연결소켓 (사출/PVC 가공)
+    position: middle-left
+    labels_near:
+    - 투명 & 유색 PVC사용
+  - panel_id: DETAIL-03
+    shape: rectangle
+    primary_label: 모래 기초(90°)
+    position: bottom-left
+    labels_near:
+    - 연성관 PVC이중벽관
+    - 막모래
+    - '1 : 0.3 (토사구간)'
+    - '1 : 0.1 (암 구간)'
+  - panel_id: TABLE-01
+    shape: rectangle
+    primary_label: 치수표 (PVC 이중벽관)
+    position: middle-center
+    labels_near:
+    - 규격 150~300
+    - 최소두께(t)
+  - panel_id: TABLE-02
+    shape: rectangle
+    primary_label: 치수표 (단위:mm)
+    position: bottom-center
+    labels_near:
+    - 내경 300~800
+    - 기초폭 Bd
+    - 터파기량
+  - panel_id: PROCEDURE-01
+    shape: rectangle
+    primary_label: 소켓식 연결 시공순서
+    position: top-right
+    labels_near:
+    - 고무링
+    - 윤활제
+    - 침목
+    - 순서 1~6
+  - panel_id: NOTES-01
+    shape: rectangle
+    primary_label: ※ 시공순서 ※
+    position: bottom-right
+    labels_near:
+    - 1. 연결하고자 하는 파이프 밑에 침목을 댄다.
+    - 6. 파이프와 소켓이 완전히 밀착할 수 있도록 지구로서 조인다.
+  connections:
+  - from: DETAIL-01
+    to: PROCEDURE-01
+    line_style: dashed
+    annotation: 시공 상세 참조
+  - from: TABLE-01
+    to: DETAIL-01
+    line_style: dashed
+    annotation: 규격 적용
+  - from: TABLE-02
+    to: DETAIL-03
+    line_style: dashed
+    annotation: 치수 적용
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 시공 순서 번호
+  - shape: circle
+    label: '90'
+    note: 모래 기초 각도
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지는 연결관 상세도, 치수표, 시공순서로 구성되어 있으며 범례 섹션은 없음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: detail
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 C10-203(C 접두사)과 제목 '연결관 상세도', 내용물(PVC 이중벽관, 모래기초, 터파기량)이 토목
+    배수 구조물 상세임을 명확히 지시함. 토목 도면 오판 방지 원칙 B에 따라 CIVIL/detail로 확정. 기존 UNKNOWN에서 갱신.
+classification: DETAIL_DRAWING
+discipline: CIVIL
+key_elements_from_text:
+- 이중벽 주름관
+- '"A" 상세도'
+- 소켓식 연결
+- 연결소켓 (사출)
+- 연결소켓 (PVC 가공)
+- 치수표
+- 모래 기초(90°)
+- 소켓식 연결 시공순서
+- 시공순서 ※
+- 연결관 상세도
+title_block:
+  drawing_number: C10-203
+  title: 연결관 상세도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 CIVIL/detail 및 도면번호 C10-203, 제목 연결관 상세도와 일치함. 페이지 시각 근거상 배수용 연결관 상세,
+  치수표, 시공순서로 구성되어 있으며 범례 전용 페이지는 아님. 표제란 하단에 도면번호 C10-203, 제목 연결관 상세도, 축척 NONE, 날짜
+  2024.05가 보이나 리비전 값은 확인되지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PIPE-DTL-01
+    shape: rectangle
+    labels_above:
+    - 이중벽 주름관
+    labels_inside:
+    - PIPE
+    - Lo (관 길이)
+    - d (내경)
+    - D (외경)
+    - 소켓식 연결
+    labels_below: []
+    equipment_symbols:
+    - type: 이중벽 주름관 단면 심볼
+      count: 1
+    - type: 소켓 연결부 단면
+      count: 1
+    inferred_name: 이중벽 PVC 주름관 본체 상세
+    position: top-left
+  - panel_id: PIPE-DTL-02
+    shape: rectangle
+    labels_above:
+    - '"A" 상세도'
+    labels_inside:
+    - Pc (소켓 외경)
+    - 소켓 고무링
+    - A-A 단면도
+    - 원형 단면 심볼 (소켓 고무링 위치)
+    labels_below: []
+    equipment_symbols:
+    - type: 소켓 상세 단면도
+      count: 1
+    - type: 원형 단면 심볼
+      count: 1
+    inferred_name: 소켓 'A' 부위 상세 및 A-A 단면도
+    position: top-center-left
+  - panel_id: SOCKET-DTL-01
+    shape: rectangle
+    labels_above:
+    - 연결소켓 (사출)
+    labels_inside:
+    - 투명 & 유색 PVC사용
+    - L (소켓 전체 길이)
+    - Z (삽입 깊이)
+    labels_below: []
+    equipment_symbols:
+    - type: 연결소켓 단면 심볼 (사출품)
+      count: 1
+    inferred_name: 연결소켓 사출품 상세
+    position: middle-left
+  - panel_id: SOCKET-DTL-02
+    shape: rectangle
+    labels_above:
+    - 연결소켓 (PVC 가공)
+    labels_inside:
+    - 투명 & 유색 PVC사용
+    - Ls (소켓 길이)
+    labels_below: []
+    equipment_symbols:
+    - type: 연결소켓 단면 심볼 (PVC 가공품)
+      count: 1
+    inferred_name: 연결소켓 PVC 가공품 상세
+    position: middle-center-left
+  - panel_id: TABLE-PVC-01
+    shape: rectangle
+    labels_above:
+    - 치 수 표
+    labels_inside:
+    - PVC 이중벽관
+    - '규격 D: 150, 200, 250, 300'
+    - 평균바깥지름 Pc
+    - 허용오차 ±0.90 ~ ±1.35
+    - '링간단시료 D0: 160, 210, 260, 310'
+    - '종 길이 Lo: 6000'
+    - 벽 관 최소두께(t)
+    - 't1: 0.7 ~ 1.3'
+    - 't2: 1.0 ~ 1.7'
+    - 't3: 1.4 ~ 2.2'
+    - '피치 Pc(최대): 13.0 ~ 27.0'
+    - '비중오차: -0, +5%'
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: PVC 이중벽관 치수표 (규격 150~300)
+    position: middle-center
+  - panel_id: FOUNDATION-DTL-01
+    shape: rectangle
+    labels_above:
+    - 모래 기초(90°)
+    labels_inside:
+    - 연성관 PVC이중벽관
+    - 막모래
+    - 90° (기초 각도)
+    - '1 : 0.3 (토사구간)'
+    - '1 : 0.1 (암 구간)'
+    - H (매설 깊이)
+    - h1 (관 상부 복토)
+    - h2 (기초 두께)
+    - Bd = D+2T+터파기여유폭
+    - D (관 내경)
+    - T (관 두께)
+    labels_below: []
+    equipment_symbols:
+    - type: 모래 기초 횡단면 심볼
+      count: 1
+    inferred_name: 모래 기초(90°) 상세 단면
+    position: bottom-left
+  - panel_id: TABLE-FOUND-01
+    shape: rectangle
+    labels_above:
+    - 치 수 표
+    labels_inside:
+    - '단위: mm'
+    - '내경 D: 300, 350, 400, 450, 500, 600, 700, 800'
+    - 'T (관 두께): 30, 32, 35, 38, 42, 50, 58, 66'
+    - '관두께 Bc: 360, 414, 470, 526, 584, 700, 816, 932'
+    - '관폭 Bd: 960, 1,014, 1,070, 1,126, 1,184, 1,300, 1,418, 1,532'
+    - '기초폭 v: 253, 261, 269, 277, 286, 303, 320, 337'
+    - 'h1: 53, 61, 69, 77, 86, 103, 126, 137'
+    - 'h2: 200, 200, 200, 200, 200, 200, 200, 200'
+    - '터파기량 탄시(1:0.3): 0.253 ~ 0.488'
+    - '터파기량 탄시(1:0.1): 0.240 ~ 0.465'
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 모래 기초 치수표 (내경 300~800mm)
+    position: bottom-center
+  - panel_id: PROC-SEQ-01
+    shape: rectangle
+    labels_above:
+    - 소켓식 연결 시공순서
+    labels_inside:
+    - ① 파이프 준비 (고무링 장착 전)
+    - ② 고무링 장착
+    - ③ 윤활제 도포
+    - ④ 소켓 삽입 시작
+    - ⑤ 침목 위 파이프 정렬
+    - ⑥ 완전 삽입 완료
+    - 고무링
+    - 윤활제
+    - 침목
+    labels_below: []
+    equipment_symbols:
+    - type: 소켓 연결 시공 단계별 단면 심볼
+      count: 6
+    inferred_name: 소켓식 연결 시공순서 상세 (6단계)
+    position: top-right
+  - panel_id: NOTES-01
+    shape: rectangle
+    labels_above:
+    - ※ 시공순서 ※
+    labels_inside:
+    - ① 연결하고자 하는 파이프 밑에 침목을 댄다.
+    - ② 고무링을 2번째 골에 끼워 올린다.
+    - ③ 윤활제를 바른다.
+    - ④ 소켓과 파이프 사이에 넣고 당겨이음을 로프로 연결한다.
+    - ⑤ 연결된 로프에 조임 지구를 장착한다.
+    - ⑥ 파이프와 소켓이 완전히 밀착할 수 있도록 지구로서 조인다.
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 소켓식 연결 시공 주의사항 및 순서 텍스트
+    position: bottom-right
+  connections:
+  - from: PIPE-DTL-01
+    to: PIPE-DTL-02
+    line_type: other
+    line_style: dashed
+    annotation: '''A'' 부위 상세 참조 화살표'
+  - from: TABLE-PVC-01
+    to: PIPE-DTL-01
+    line_type: other
+    line_style: dashed
+    annotation: 치수 적용 (규격 150~300)
+  - from: TABLE-FOUND-01
+    to: FOUNDATION-DTL-01
+    line_type: other
+    line_style: dashed
+    annotation: 기초 치수 적용 (내경 300~800)
+  - from: PROC-SEQ-01
+    to: NOTES-01
+    line_type: other
+    line_style: solid
+    annotation: 시공순서 그림-텍스트 대응
+  groups:
+  - group_id: GRP-PIPE-DETAIL
+    label: 이중벽 주름관 본체 상세 그룹
+    members:
+    - PIPE-DTL-01
+    - PIPE-DTL-02
+    - TABLE-PVC-01
+  - group_id: GRP-SOCKET-DETAIL
+    label: 연결소켓 상세 그룹
+    members:
+    - SOCKET-DTL-01
+    - SOCKET-DTL-02
+  - group_id: GRP-FOUNDATION
+    label: 모래 기초 상세 그룹
+    members:
+    - FOUNDATION-DTL-01
+    - TABLE-FOUND-01
+  - group_id: GRP-PROCEDURE
+    label: 소켓식 연결 시공순서 그룹
+    members:
+    - PROC-SEQ-01
+    - NOTES-01
+  legend_references: []
+  diagram_meta:
+    title: 연결관 상세도
+    drawing_number: C10-203
+    discipline: CIVIL
+    drawing_genre: detail
+    sub_genre: drainage_pipe_detail
+    scale_primary: NONE
+    date: '2024.05'
+    revision: null
+    project: LS Electric R-Center 구축
+    client: LS Electric
+    designer: 가운건축 (GAUN Architects & Engineers)
+    flow_direction: UNKNOWN
+    is_reference_only: false
+    coordinate_system: null
+    notes:
+    - 'PVC 이중벽관 규격: φ150 ~ φ300 (치수표 TABLE-PVC-01 참조)'
+    - '모래 기초 적용 관경: φ300 ~ φ800 (치수표 TABLE-FOUND-01 참조)'
+    - '기초 각도: 90°'
+    - '터파기 경사: 토사구간 1:0.3, 암구간 1:0.1'
+    - 소켓 연결 시 고무링 2번째 골 장착, 윤활제 도포 필수
+    - Bd = D + 2T + 터파기여유폭
+    entities:
+    - entity_id: PVC-PIPE-150
+      type: 이중벽 PVC 주름관
+      nominal_diameter_mm: 150
+      material: PVC
+      status: new
+    - entity_id: PVC-PIPE-200
+      type: 이중벽 PVC 주름관
+      nominal_diameter_mm: 200
+      material: PVC
+      status: new
+    - entity_id: PVC-PIPE-250
+      type: 이중벽 PVC 주름관
+      nominal_diameter_mm: 250
+      material: PVC
+      status: new
+    - entity_id: PVC-PIPE-300
+      type: 이중벽 PVC 주름관
+      nominal_diameter_mm: 300
+      material: PVC
+      status: new
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PIPE-MAIN-DTL
+    shape: rectangle
+    labels_above:
+    - 이중벽 주름관
+    labels_inside:
+    - PIPE
+    - D
+    - D0
+    - Lp
+    - 소켓식 연결
+    - '"A"'
+    equipment_symbols:
+    - type: 이중벽 주름관 단면 및 측면도
+      count: 1
+    inferred_name: 이중벽 주름관 본체 및 소켓 연결부 상세
+    position: top-left
+  - panel_id: PIPE-DETAIL-A
+    shape: circle
+    labels_above:
+    - '"A" 상세도'
+    labels_inside:
+    - Pc
+    - t1
+    - t2
+    - t3
+    - 소켓 고무링
+    - A-A 단면도
+    equipment_symbols:
+    - type: 소켓부 상세 단면도
+      count: 1
+    - type: A-A 단면선
+      count: 1
+    inferred_name: 소켓부 'A' 상세 및 A-A 단면
+    position: top-center-left
+  - panel_id: SOCKET-INJ-DTL
+    shape: rectangle
+    labels_above:
+    - 연결소켓
+    - (사출)
+    labels_inside:
+    - 투명 & 유색 PVC사용
+    - Z
+    - L
+    equipment_symbols:
+    - type: 사출 소켓 단면도
+      count: 1
+    inferred_name: 연결소켓 (사출) 상세
+    position: middle-left
+  - panel_id: SOCKET-MACH-DTL
+    shape: rectangle
+    labels_above:
+    - 연결소켓
+    - (PVC 가공)
+    labels_inside:
+    - Ls
+    equipment_symbols:
+    - type: PVC 가공 소켓 단면도
+      count: 1
+    inferred_name: 연결소켓 (PVC 가공) 상세
+    position: middle-center-left
+  - panel_id: TABLE-PVC-DIM
+    shape: rectangle
+    labels_above:
+    - 치 수 표
+    labels_inside:
+    - 구 분
+    - PVC 이 중 벽 관
+    - 규 격
+    - 평균바깥지름 D
+    - 허용오차
+    - 평균안지름 D0
+    - 1본 Lp
+    - 최소두께(t)
+    - t1
+    - t2
+    - t3
+    - 피치 Pc (최대)
+    - '150'
+    - '181'
+    - ±0.90
+    - '160'
+    - '6000'
+    - '0.7'
+    - '1.0'
+    - '1.4'
+    - '13.0'
+    - '200'
+    - '239'
+    - ±0.90
+    - '210'
+    - '6000'
+    - '0.9'
+    - '1.1'
+    - '1.6'
+    - '14.5'
+    - '250'
+    - '296'
+    - ±1.20
+    - '260'
+    - '6000'
+    - '1.0'
+    - '1.5'
+    - '2.0'
+    - '19.5'
+    - '300'
+    - '356'
+    - ±1.35
+    - '310'
+    - '6000'
+    - '1.3'
+    - '1.7'
+    - '2.2'
+    - '27.0'
+    - 허용오차 -0,+5%
+    inferred_name: PVC 이중벽관 치수표
+    position: middle-center
+  - panel_id: FOUNDATION-DTL
+    shape: rectangle
+    labels_above:
+    - 모래 기초(90°)
+    labels_inside:
+    - 연성관
+    - PVC이중벽관
+    - 막모래
+    - '90'
+    - Bc
+    - D
+    - T
+    - H
+    - h1
+    - h2
+    - 1: 0.3 (토사구간)
+    - 1: 0.1 (암 구간)
+    - Bd = D+2T+터파기여유폭
+    equipment_symbols:
+    - type: 모래 기초 매설 단면도
+      count: 1
+    inferred_name: 모래 기초(90°) 단면 상세
+    position: bottom-left
+  - panel_id: TABLE-FOUND-DIM
+    shape: rectangle
+    labels_above:
+    - 치 수 표
+    labels_inside:
+    - (단위:mm)
+    - 내 경 D
+    - 관두께 T
+    - 관외경 Bc
+    - 기초폭 Bd
+    - 기 초 두 께 H
+    - h1
+    - h2
+    - 막모래 또는 스크리닝(m/본당)
+    - 토사(1:0.3)
+    - 암(1:0.1)
+    - '300'
+    - '30'
+    - '360'
+    - '960'
+    - '253'
+    - '53'
+    - '200'
+    - '0.253'
+    - '0.240'
+    - '350'
+    - '32'
+    - '414'
+    - 1,014
+    - '261'
+    - '61'
+    - '200'
+    - '0.272'
+    - '0.259'
+    - '400'
+    - '35'
+    - '470'
+    - 1,070
+    - '269'
+    - '69'
+    - '200'
+    - '0.294'
+    - '0.279'
+    - '450'
+    - '38'
+    - '526'
+    - 1,126
+    - '277'
+    - '77'
+    - '200'
+    - '0.315'
+    - '0.300'
+    - '500'
+    - '42'
+    - '584'
+    - 1,184
+    - '286'
+    - '86'
+    - '200'
+    - '0.338'
+    - '0.322'
+    - '600'
+    - '50'
+    - '700'
+    - 1,300
+    - '303'
+    - '103'
+    - '200'
+    - '0.386'
+    - '0.367'
+    - '700'
+    - '58'
+    - '816'
+    - 1,416
+    - '320'
+    - '120'
+    - '200'
+    - '0.436'
+    - '0.415'
+    - '800'
+    - '66'
+    - '932'
+    - 1,532
+    - '337'
+    - '137'
+    - '200'
+    - '0.488'
+    - '0.465'
+    inferred_name: 모래 기초 치수표
+    position: bottom-center
+  - panel_id: PROC-STEP-1
+    shape: rectangle
+    labels_inside:
+    - ①
+    - 침목
+    equipment_symbols:
+    - type: 시공순서도 1단계
+      count: 1
+    inferred_name: 시공순서 1 (침목 설치)
+    position: top-right
+  - panel_id: PROC-STEP-2-3
+    shape: rectangle
+    labels_inside:
+    - ②
+    - ③
+    - 고무링
+    - 윤활제
+    - 침목
+    equipment_symbols:
+    - type: 시공순서도 2,3단계
+      count: 1
+    inferred_name: 시공순서 2,3 (고무링/윤활제)
+    position: top-right
+  - panel_id: PROC-STEP-4
+    shape: rectangle
+    labels_inside:
+    - ④
+    - 침목
+    equipment_symbols:
+    - type: 시공순서도 4단계
+      count: 1
+    inferred_name: 시공순서 4 (소켓 삽입 시작)
+    position: middle-right
+  - panel_id: PROC-STEP-5-6
+    shape: rectangle
+    labels_inside:
+    - ⑤
+    - ⑥
+    - 침목
+    equipment_symbols:
+    - type: 시공순서도 5,6단계
+      count: 1
+    inferred_name: 시공순서 5,6 (조임 및 완료)
+    position: middle-right
+  - panel_id: PROC-NOTES
+    shape: rectangle
+    labels_above:
+    - ※ 시공순서 ※
+    labels_inside:
+    - ① 연결하고자 하는 파이프 밑에 침목을 댄다.
+    - ② 고무링을 2번째 골에 끼운다.
+    - ③ 윤활제를 바른다.
+    - ④ 소켓을 파이프와 파이프 사이에 넣고 당겨이음을 로프로 연결한다.
+    - ⑤ 연결된 로프에 조임 치구를 장착한다.
+    - ⑥ 파이프와 소켓이 완전히 밀착할 수 있도록 치구로서 조인다.
+    inferred_name: 시공순서 텍스트
+    position: bottom-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 연결관 상세도
+    - '2024.05'
+    - C10 - 203
+    - A1: NONE
+    - A3: NONE
+    inferred_name: 표제란
+    position: bottom-right
+  connections:
+  - from: PIPE-MAIN-DTL
+    to: PIPE-DETAIL-A
+    line_type: other
+    line_style: solid
+    annotation: '"A" 상세 지시선'
+  - from: TABLE-PVC-DIM
+    to: PIPE-MAIN-DTL
+    line_type: other
+    line_style: dashed
+    annotation: 치수 참조
+  - from: TABLE-PVC-DIM
+    to: PIPE-DETAIL-A
+    line_type: other
+    line_style: dashed
+    annotation: 치수 참조
+  - from: TABLE-FOUND-DIM
+    to: FOUNDATION-DTL
+    line_type: other
+    line_style: dashed
+    annotation: 치수 참조
+  groups:
+  - group_id: GRP-PIPE-DETAILS
+    label: 이중벽 주름관 및 소켓 상세
+    members:
+    - PIPE-MAIN-DTL
+    - PIPE-DETAIL-A
+    - SOCKET-INJ-DTL
+    - SOCKET-MACH-DTL
+    - TABLE-PVC-DIM
+  - group_id: GRP-FOUNDATION-DETAILS
+    label: 모래 기초 상세
+    members:
+    - FOUNDATION-DTL
+    - TABLE-FOUND-DIM
+  - group_id: GRP-INSTALL-PROC
+    label: 소켓식 연결 시공순서
+    members:
+    - PROC-STEP-1
+    - PROC-STEP-2-3
+    - PROC-STEP-4
+    - PROC-STEP-5-6
+    - PROC-NOTES
+  legend_references: []
+  diagram_meta:
+    title: 연결관 상세도
+    drawing_number: C10 - 203
+    discipline: CIVIL
+    drawing_genre: detail
+    project: LS Electric R-Center 구축
+    client: LS Electric
+    designer: 가운건축
+    date: '2024.05'
+    scale_primary: NONE
+    scale_secondary: NONE
+    flow_direction: UNKNOWN
+    notes:
+    - PVC 이중벽관 규격: D150, D200, D250, D300
+    - 모래기초 적용 관경: D300 ~ D800
+    - 기초 각도: 90°
+    - 터파기 경사: 토사 1:0.3, 암 1:0.1
+    - 시공순서: 침목설치 -> 고무링(2번째 골) -> 윤활제 -> 소켓삽입 -> 조임치구 -> 완료
+entity_synthesis:
+  entities:
+  - tag: PIPE-DTL-01
+    name: 이중벽 PVC 주름관 본체 상세
+    discipline: CIVIL
+    function_category: PIPE_DETAIL
+    specifications:
+      labels_above:
+      - 이중벽 주름관
+      labels_inside:
+      - PIPE
+      - Lo (관 길이)
+      - d (내경)
+      - D (외경)
+      - 소켓식 연결
+      equipment_symbols:
+      - type: 이중벽 PVC 주름관 단면 심볼
+        count: 1
+      - type: 소켓 연결부 단면
+        count: 1
+      inferred_name: 이중벽 PVC 주름관 본체 상세
+      position: top-left
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-left
+    source_block: visual_semantics
+  - tag: PIPE-DTL-02
+    name: 소켓 'A' 부위 상세 및 A-A 단면도
+    discipline: CIVIL
+    function_category: PIPE_DETAIL
+    specifications:
+      labels_above:
+      - '"A" 상세도'
+      labels_inside:
+      - Pc (소켓 외경)
+      - 소켓 고무링
+      - A-A 단면도
+      - 원형 단면 심볼 (소켓 고무링 위치)
+      equipment_symbols:
+      - type: 소켓 상세 단면도
+        count: 1
+      - type: 원형 단면 심볼
+        count: 1
+      inferred_name: 소켓 'A' 부위 상세 및 A-A 단면도
+      position: top-center-left
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-center-left
+    source_block: visual_semantics
+  - tag: SOCKET-DTL-01
+    name: 연결소켓 사출품 상세
+    discipline: CIVIL
+    function_category: SOCKET_DETAIL
+    specifications:
+      labels_above:
+      - 연결소켓 (사출)
+      labels_inside:
+      - 투명 & 유색 PVC사용
+      - L (소켓 전체 길이)
+      - Z (삽입 깊이)
+      equipment_symbols:
+      - type: 연결소켓 단면 심볼 (사출품)
+        count: 1
+      inferred_name: 연결소켓 사출품 상세
+      position: middle-left
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-left
+    source_block: visual_semantics
+  - tag: SOCKET-DTL-02
+    name: 연결소켓 PVC 가공품 상세
+    discipline: CIVIL
+    function_category: SOCKET_DETAIL
+    specifications:
+      labels_above:
+      - 연결소켓 (PVC 가공)
+      labels_inside:
+      - 투명 & 유색 PVC사용
+      - Ls (소켓 길이)
+      equipment_symbols:
+      - type: 연결소켓 단면 심볼 (PVC 가공품)
+        count: 1
+      inferred_name: 연결소켓 PVC 가공품 상세
+      position: middle-center-left
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-center-left
+    source_block: visual_semantics
+  - tag: TABLE-PVC-01
+    name: PVC 이중벽관 치수표 (규격 150~300)
+    discipline: CIVIL
+    function_category: TABLE
+    specifications:
+      labels_above:
+      - 치 수 표
+      labels_inside:
+      - PVC 이중벽관
+      - '규격 D: 150, 200, 250, 300'
+      - 평균바깥지름 Pc
+      - 허용오차 ±0.90 ~ ±1.35
+      - '링간단시료 D0: 160, 210, 260, 310'
+      - '종 길이 Lo: 6000'
+      - 벽 관 최소두께(t)
+      - 't1: 0.7 ~ 1.3'
+      - 't2: 1.0 ~ 1.7'
+      - 't3: 1.4 ~ 2.2'
+      - '피치 Pc(최대): 13.0 ~ 27.0'
+      - '비중오차: -0, +5%'
+      inferred_name: PVC 이중벽관 치수표 (규격 150~300)
+      position: middle-center
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-center
+    source_block: visual_semantics
+  - tag: FOUNDATION-DTL-01
+    name: 모래 기초(90°) 상세 단면
+    discipline: CIVIL
+    function_category: FOUNDATION_DETAIL
+    specifications:
+      labels_above:
+      - 모래 기초(90°)
+      labels_inside:
+      - 연성관 PVC이중벽관
+      - 막모래
+      - 90° (기초 각도)
+      - '1 : 0.3 (토사구간)'
+      - '1 : 0.1 (암 구간)'
+      - H (매설 깊이)
+      - h1 (관 상부 복토)
+      - h2 (기초 두께)
+      - Bd = D+2T+터파기여유폭
+      - D (관 내경)
+      - T (관 두께)
+      equipment_symbols:
+      - type: 모래 기초 횡단면 심볼
+        count: 1
+      inferred_name: 모래 기초(90°) 상세 단면
+      position: bottom-left
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-left
+    source_block: visual_semantics
+  - tag: TABLE-FOUND-01
+    name: 모래 기초 치수표 (내경 300~800mm)
+    discipline: CIVIL
+    function_category: TABLE
+    specifications:
+      labels_above:
+      - 치 수 표
+      labels_inside:
+      - '단위: mm'
+      - '내경 D: 300, 350, 400, 450, 500, 600, 700, 800'
+      - 'T (관 두께): 30, 32, 35, 38, 42, 50, 58, 66'
+      - '관두께 Bc: 360, 414, 470, 526, 584, 700, 816, 932'
+      - '관폭 Bd: 960, 1,014, 1,070, 1,126, 1,184, 1,300, 1,418, 1,532'
+      - '기초폭 v: 253, 261, 269, 277, 286, 303, 320, 337'
+      - 'h1: 53, 61, 69, 77, 86, 103, 126, 137'
+      - 'h2: 200, 200, 200, 200, 200, 200, 200, 200'
+      - '터파기량 탄시(1:0.3): 0.253 ~ 0.488'
+      - '터파기량 탄시(1:0.1): 0.240 ~ 0.465'
+      inferred_name: 모래 기초 치수표 (내경 300~800mm)
+      position: bottom-center
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-center
+    source_block: visual_semantics
+  - tag: PROC-SEQ-01
+    name: 소켓식 연결 시공순서 상세 (6단계)
+    discipline: CIVIL
+    function_category: PROCEDURE
+    specifications:
+      labels_above:
+      - 소켓식 연결 시공순서
+      labels_inside:
+      - ① 파이프 준비 (고무링 장착 전)
+      - ② 고무링 장착
+      - ③ 윤활제 도포
+      - ④ 소켓 삽입 시작
+      - ⑤ 침목 위 파이프 정렬
+      - ⑥ 완전 삽입 완료
+      - 고무링
+      - 윤활제
+      - 침목
+      equipment_symbols:
+      - type: 소켓 연결 시공 단계별 단면 심볼
+        count: 6
+      inferred_name: 소켓식 연결 시공순서 상세 (6단계)
+      position: top-right
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-right
+    source_block: visual_semantics
+  - tag: NOTES-01
+    name: 소켓식 연결 시공 주의사항 및 순서 텍스트
+    discipline: CIVIL
+    function_category: NOTES
+    specifications:
+      labels_above:
+      - ※ 시공순서 ※
+      labels_inside:
+      - ① 연결하고자 하는 파이프 밑에 침목을 댄다.
+      - ② 고무링을 2번째 골에 끼워 올린다.
+      - ③ 윤활제를 바른다.
+      - ④ 소켓과 파이프 사이에 넣고 당겨이음을 로프로 연결한다.
+      - ⑤ 연결된 로프에 조임 지구를 장착한다.
+      - ⑥ 파이프와 소켓이 완전히 밀착할 수 있도록 지구로서 조인다.
+      inferred_name: 소켓식 연결 시공 주의사항 및 순서 텍스트
+      position: bottom-right
+      shape: rectangle
+      source_model: visual_semantics
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-right
+    source_block: visual_semantics
+  - tag: PIPE-MAIN-DTL
+    name: 이중벽 주름관 본체 및 소켓 연결부 상세
+    discipline: CIVIL
+    function_category: PIPE_DETAIL
+    specifications:
+      labels_above:
+      - 이중벽 주름관
+      labels_inside:
+      - PIPE
+      - D
+      - D0
+      - Lp
+      - 소켓식 연결
+      - '"A"'
+      equipment_symbols:
+      - type: 이중벽 주름관 단면 및 측면도
+        count: 1
+      inferred_name: 이중벽 주름관 본체 및 소켓 연결부 상세
+      position: top-left
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-left
+    source_block: visual_semantics_gemini
+  - tag: PIPE-DETAIL-A
+    name: 소켓부 'A' 상세 및 A-A 단면
+    discipline: CIVIL
+    function_category: PIPE_DETAIL
+    specifications:
+      labels_above:
+      - '"A" 상세도'
+      labels_inside:
+      - Pc
+      - t1
+      - t2
+      - t3
+      - 소켓 고무링
+      - A-A 단면도
+      equipment_symbols:
+      - type: 소켓부 상세 단면도
+        count: 1
+      - type: A-A 단면선
+        count: 1
+      inferred_name: 소켓부 'A' 상세 및 A-A 단면
+      position: top-center-left
+      shape: circle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-center-left
+    source_block: visual_semantics_gemini
+  - tag: SOCKET-INJ-DTL
+    name: 연결소켓 (사출) 상세
+    discipline: CIVIL
+    function_category: SOCKET_DETAIL
+    specifications:
+      labels_above:
+      - 연결소켓
+      - (사출)
+      labels_inside:
+      - 투명 & 유색 PVC사용
+      - Z
+      - L
+      equipment_symbols:
+      - type: 사출 소켓 단면도
+        count: 1
+      inferred_name: 연결소켓 (사출) 상세
+      position: middle-left
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-left
+    source_block: visual_semantics_gemini
+  - tag: SOCKET-MACH-DTL
+    name: 연결소켓 (PVC 가공) 상세
+    discipline: CIVIL
+    function_category: SOCKET_DETAIL
+    specifications:
+      labels_above:
+      - 연결소켓
+      - (PVC 가공)
+      labels_inside:
+      - Ls
+      equipment_symbols:
+      - type: PVC 가공 소켓 단면도
+        count: 1
+      inferred_name: 연결소켓 (PVC 가공) 상세
+      position: middle-center-left
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-center-left
+    source_block: visual_semantics_gemini
+  - tag: TABLE-PVC-DIM
+    name: PVC 이중벽관 치수표
+    discipline: CIVIL
+    function_category: TABLE
+    specifications:
+      labels_above:
+      - 치 수 표
+      labels_inside:
+      - 구 분
+      - PVC 이 중 벽 관
+      - 규 격
+      - 평균바깥지름 D
+      - 허용오차
+      - 평균안지름 D0
+      - 1본 Lp
+      - 최소두께(t)
+      - t1
+      - t2
+      - t3
+      - 피치 Pc (최대)
+      - '150'
+      - '181'
+      - ±0.90
+      - '160'
+      - '6000'
+      - '0.7'
+      - '1.0'
+      - '1.4'
+      - '13.0'
+      - '200'
+      - '239'
+      - ±0.90
+      - '210'
+      - '6000'
+      - '0.9'
+      - '1.1'
+      - '1.6'
+      - '14.5'
+      - '250'
+      - '296'
+      - ±1.20
+      - '260'
+      - '6000'
+      - '1.0'
+      - '1.5'
+      - '2.0'
+      - '19.5'
+      - '300'
+      - '356'
+      - ±1.35
+      - '310'
+      - '6000'
+      - '1.3'
+      - '1.7'
+      - '2.2'
+      - '27.0'
+      - 허용오차 -0,+5%
+      inferred_name: PVC 이중벽관 치수표
+      position: middle-center
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-center
+    source_block: visual_semantics_gemini
+  - tag: FOUNDATION-DTL
+    name: 모래 기초(90°) 단면 상세
+    discipline: CIVIL
+    function_category: FOUNDATION_DETAIL
+    specifications:
+      labels_above:
+      - 모래 기초(90°)
+      labels_inside:
+      - 연성관
+      - PVC이중벽관
+      - 막모래
+      - '90'
+      - Bc
+      - D
+      - T
+      - H
+      - h1
+      - h2
+      - '1: 0.3 (토사구간)'
+      - '1: 0.1 (암 구간)'
+      - Bd = D+2T+터파기여유폭
+      equipment_symbols:
+      - type: 모래 기초 매설 단면도
+        count: 1
+      inferred_name: 모래 기초(90°) 단면 상세
+      position: bottom-left
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-left
+    source_block: visual_semantics_gemini
+  - tag: TABLE-FOUND-DIM
+    name: 모래 기초 치수표
+    discipline: CIVIL
+    function_category: TABLE
+    specifications:
+      labels_above:
+      - 치 수 표
+      labels_inside:
+      - (단위:mm)
+      - 내 경 D
+      - 관두께 T
+      - 관외경 Bc
+      - 기초폭 Bd
+      - 기 초 두 께 H
+      - h1
+      - h2
+      - 막모래 또는 스크리닝(m/본당)
+      - 토사(1:0.3)
+      - 암(1:0.1)
+      - '300'
+      - '30'
+      - '360'
+      - '960'
+      - '253'
+      - '53'
+      - '200'
+      - '0.253'
+      - '0.240'
+      - '350'
+      - '32'
+      - '414'
+      - 1,014
+      - '261'
+      - '61'
+      - '200'
+      - '0.272'
+      - '0.259'
+      - '400'
+      - '35'
+      - '470'
+      - 1,070
+      - '269'
+      - '69'
+      - '200'
+      - '0.294'
+      - '0.279'
+      - '450'
+      - '38'
+      - '526'
+      - 1,126
+      - '277'
+      - '77'
+      - '200'
+      - '0.315'
+      - '0.300'
+      - '500'
+      - '42'
+      - '584'
+      - 1,184
+      - '286'
+      - '86'
+      - '200'
+      - '0.338'
+      - '0.322'
+      - '600'
+      - '50'
+      - '700'
+      - 1,300
+      - '303'
+      - '103'
+      - '200'
+      - '0.386'
+      - '0.367'
+      - '700'
+      - '58'
+      - '816'
+      - 1,416
+      - '320'
+      - '120'
+      - '200'
+      - '0.436'
+      - '0.415'
+      - '800'
+      - '66'
+      - '932'
+      - 1,532
+      - '337'
+      - '137'
+      - '200'
+      - '0.488'
+      - '0.465'
+      inferred_name: 모래 기초 치수표
+      position: bottom-center
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-center
+    source_block: visual_semantics_gemini
+  - tag: PROC-STEP-1
+    name: 시공순서 1 (침목 설치)
+    discipline: CIVIL
+    function_category: PROCEDURE_STEP
+    specifications:
+      labels_inside:
+      - ①
+      - 침목
+      equipment_symbols:
+      - type: 시공순서도 1단계
+        count: 1
+      inferred_name: 시공순서 1 (침목 설치)
+      position: top-right
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-right
+    source_block: visual_semantics_gemini
+  - tag: PROC-STEP-2-3
+    name: 시공순서 2,3 (고무링/윤활제)
+    discipline: CIVIL
+    function_category: PROCEDURE_STEP
+    specifications:
+      labels_inside:
+      - ②
+      - ③
+      - 고무링
+      - 윤활제
+      - 침목
+      equipment_symbols:
+      - type: 시공순서도 2,3단계
+        count: 1
+      inferred_name: 시공순서 2,3 (고무링/윤활제)
+      position: top-right
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: top-right
+    source_block: visual_semantics_gemini
+  - tag: PROC-STEP-4
+    name: 시공순서 4 (소켓 삽입 시작)
+    discipline: CIVIL
+    function_category: PROCEDURE_STEP
+    specifications:
+      labels_inside:
+      - ④
+      - 침목
+      equipment_symbols:
+      - type: 시공순서도 4단계
+        count: 1
+      inferred_name: 시공순서 4 (소켓 삽입 시작)
+      position: middle-right
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-right
+    source_block: visual_semantics_gemini
+  - tag: PROC-STEP-5-6
+    name: 시공순서 5,6 (조임 및 완료)
+    discipline: CIVIL
+    function_category: PROCEDURE_STEP
+    specifications:
+      labels_inside:
+      - ⑤
+      - ⑥
+      - 침목
+      equipment_symbols:
+      - type: 시공순서도 5,6단계
+        count: 1
+      inferred_name: 시공순서 5,6 (조임 및 완료)
+      position: middle-right
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: middle-right
+    source_block: visual_semantics_gemini
+  - tag: PROC-NOTES
+    name: 시공순서 텍스트
+    discipline: CIVIL
+    function_category: NOTES
+    specifications:
+      labels_above:
+      - ※ 시공순서 ※
+      labels_inside:
+      - ① 연결하고자 하는 파이프 밑에 침목을 댄다.
+      - ② 고무링을 2번째 골에 끼운다.
+      - ③ 윤활제를 바른다.
+      - ④ 소켓을 파이프와 파이프 사이에 넣고 당겨이음을 로프로 연결한다.
+      - ⑤ 연결된 로프에 조임 치구를 장착한다.
+      - ⑥ 파이프와 소켓이 완전히 밀착할 수 있도록 치구로서 조인다.
+      inferred_name: 시공순서 텍스트
+      position: bottom-right
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  - tag: TITLE-BLOCK
+    name: 표제란
+    discipline: CIVIL
+    function_category: TITLE_BLOCK
+    specifications:
+      labels_inside:
+      - LS Electric R-Center 구축
+      - '224001'
+      - 가운건축
+      - GAUN Architects & Engineers
+      - 연결관 상세도
+      - '2024.05'
+      - C10 - 203
+      - 'A1: NONE'
+      - 'A3: NONE'
+      inferred_name: 표제란
+      position: bottom-right
+      shape: rectangle
+      source_model: visual_semantics_gemini
+      drawing_genre: detail
+      sub_genre: drainage_pipe_detail
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: PIPE-DTL-01
+    to_tag: PIPE-DTL-02
+    relation_type: connects_to
+    note: '''A'' 부위 상세 참조 화살표'
+    source_block: visual_semantics
+  - from_tag: TABLE-PVC-01
+    to_tag: PIPE-DTL-01
+    relation_type: applies_to
+    note: 치수 적용 (규격 150~300)
+    source_block: visual_semantics
+  - from_tag: TABLE-FOUND-01
+    to_tag: FOUNDATION-DTL-01
+    relation_type: applies_to
+    note: 기초 치수 적용 (내경 300~800)
+    source_block: visual_semantics
+  - from_tag: PROC-SEQ-01
+    to_tag: NOTES-01
+    relation_type: corresponds_to
+    note: 시공순서 그림-텍스트 대응
+    source_block: visual_semantics
+  - from_tag: PIPE-MAIN-DTL
+    to_tag: PIPE-DETAIL-A
+    relation_type: connects_to
+    note: '"A" 상세 지시선'
+    source_block: visual_semantics_gemini
+  - from_tag: TABLE-PVC-DIM
+    to_tag: PIPE-MAIN-DTL
+    relation_type: applies_to
+    note: 치수 참조
+    source_block: visual_semantics_gemini
+  - from_tag: TABLE-PVC-DIM
+    to_tag: PIPE-DETAIL-A
+    relation_type: applies_to
+    note: 치수 참조
+    source_block: visual_semantics_gemini
+  - from_tag: TABLE-FOUND-DIM
+    to_tag: FOUNDATION-DTL
+    relation_type: applies_to
+    note: 치수 참조
+    source_block: visual_semantics_gemini
+  - from_tag: DETAIL-01
+    to_tag: PROCEDURE-01
+    relation_type: references
+    note: 시공 상세 참조
+    source_block: visual_semantics_gemini
+  - from_tag: TABLE-01
+    to_tag: DETAIL-01
+    relation_type: applies_to
+    note: 규격 적용
+    source_block: visual_semantics_gemini
+  - from_tag: TABLE-02
+    to_tag: DETAIL-03
+    relation_type: applies_to
+    note: 치수 적용
+    source_block: visual_semantics_gemini
+  spaces:
+  - space_id: PAGE-11
+    name: 연결관 상세도 페이지
+    contains:
+    - PIPE-DTL-01
+    - PIPE-DTL-02
+    - SOCKET-DTL-01
+    - SOCKET-DTL-02
+    - TABLE-PVC-01
+    - FOUNDATION-DTL-01
+    - TABLE-FOUND-01
+    - PROC-SEQ-01
+    - NOTES-01
+    - PIPE-MAIN-DTL
+    - PIPE-DETAIL-A
+    - SOCKET-INJ-DTL
+    - SOCKET-MACH-DTL
+    - TABLE-PVC-DIM
+    - FOUNDATION-DTL
+    - TABLE-FOUND-DIM
+    - PROC-STEP-1
+    - PROC-STEP-2-3
+    - PROC-STEP-4
+    - PROC-STEP-5-6
+    - PROC-NOTES
+    - TITLE-BLOCK
+  self_check:
+    entity_count: 21
+    relationship_count: 11
+    visual_spec_preserved: true
+    issues:
+    - visual_semantics_gemini의 TABLE-01/TABLE-02/DETAIL-01/DETAIL-03/PROCEDURE-01은
+      원문 태그가 아닌 스케치 태그이므로, 실제 병합 엔티티는 visual_semantics의 대응 태그와 함께 보존함.
+    - visual_semantics와 visual_semantics_gemini 간 일부 태그명이 상이하여, 더 구체적인 스펙을 우선 채택하고
+      source_block으로 출처를 분리 기록함.

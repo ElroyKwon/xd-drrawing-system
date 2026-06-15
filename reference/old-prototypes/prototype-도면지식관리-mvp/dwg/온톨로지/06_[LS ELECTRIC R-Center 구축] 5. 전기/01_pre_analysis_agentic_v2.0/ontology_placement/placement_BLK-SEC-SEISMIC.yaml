@@ -1,0 +1,147 @@
+placement:
+  tag: BLK-SEC-SEISMIC
+  name: 내진설비 섹션
+  discipline: electrical
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:BLK-SEC-SEISMIC
+    class_hint: DocumentSection
+    alternative_class_hints:
+    - ElectricalPanel
+    - DocumentMetadata
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DrawingSection
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      references:
+      - raw: 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+        source_page: 2
+      free_notes:
+      - raw_text: 내 진 설 비
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSectionLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 섹션 표기 문자열로 보이며, 물리 설비 속성이라기보다 섹션 라벨 정보에 해당함
+      - raw_text: 'labels_inside: 내 진 설 비'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSectionLabel
+          suggested_datatype: xsd:string
+          rationale: 패널 내부 표기 텍스트로 보이는 문자열 정보
+      - raw_text: 'raw_labels: 내 진 설 비'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSectionLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 문자열 보존 필요
+      - raw_text: 'function_candidates: SEISMIC_PROTECTION, POWER_DISTRIBUTION'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록이지만 확정 기능이 아니므로 원문 보존이 필요함
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 2
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: placement
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class + placement
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.references:
+      source_pages:
+      - 2
+      method: specs.labels_inside/raw_labels
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: specs.labels_inside/raw_labels/ontology_hints.function_candidates
+    source_pages:
+      source_pages:
+      - 2
+      method: entity_detail.source_pages
+    source_attribution:
+      source_pages:
+      - 2
+      method: entity_detail.source_attribution
+    position:
+      source_pages:
+      - 2
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 2
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 내 진 설 비
+    source_page: 2
+    reason: 섹션 제목/라벨로 보이나 정확한 표준 분류는 이 단계에서 확정 불가
+    preservation_note: 원문 띄어쓰기 포함 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+    source_page: 2
+    reason: 도면 참조 문자열과 제목이 혼합된 형태로, 개별 필드 분해를 확정할 수 없음
+    preservation_note: 참조번호와 제목 문자열을 함께 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 내 진 설 비
+    source_page: 2
+    reason: 원문 라벨이지만 의미상 섹션명 외 추가 해석 불가
+    preservation_note: labels_inside와 동일 원문
+  - field_candidate: specs.raw_labels
+    raw_text: 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+    source_page: 2
+    reason: 원문 라벨의 구조적 분해 기준이 없음
+    preservation_note: 참조 문자열 원형 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SEISMIC_PROTECTION, POWER_DISTRIBUTION
+    source_page: 2
+    reason: 기능 후보가 복수이며 확정 불가
+    preservation_note: 후속 단계에서 기능 분류 후보로 활용 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 내진설비 섹션으로 보이지만, ontology_hints에는 ElectricalPanel 후보와 기능 후보(SEISMIC_PROTECTION,
+      POWER_DISTRIBUTION)가 함께 존재하여 물리 설비인지 도면 섹션/주석인지 경계가 불명확함
+    recommended_handling: AnnotationOnly로 보존하되, 0-9c에서 DocumentMetadata 또는 Section
+      계열과의 정합성을 재검토하고, 필요 시 패널 실체와 분리된 섹션 엔티티로 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 도면 정보(섹션/라벨) 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:08:44.589502'
+  confidence: 0.9

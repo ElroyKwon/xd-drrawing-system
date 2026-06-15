@@ -1,0 +1,134 @@
+placement:
+  tag: UNKNOWN-TELEPHONEOUTLET-01
+  name: 전화 OUTLET(유선) 1PORT
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-TELEPHONEOUTLET-01
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationOutlet
+    - TelephoneOutlet
+    - VoiceCommunicationConnection
+    - SignalTermination
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 벽매입형 전화 아울렛 심볼, 1PORT 표기
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼의 외형 설명과 포트 수 표기가 함께 관찰됨
+      - raw_text: 벽매입형 (Fuse Mounted Type)
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountingType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 표현으로 보이는 문자열
+      - raw_text: 좌측 범례, 통합배선설비 항목
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: source
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/범례 위치 정보
+      - raw_text: telephone_outlet
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 원문 type 값 보존
+      - raw_text: COMMUNICATION_OUTLET
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 function_category 값 보존
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints_and_name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 3
+      method: preserved_raw_text
+  unresolved:
+  - field_candidate: specs.visual_description
+    raw_text: 벽매입형 전화 아울렛 심볼, 1PORT 표기
+    source_page: 3
+    reason: 정규 sub_kind가 없어 free_notes로 보존
+    preservation_note: 심볼 외형과 포트 수를 함께 포함
+  - field_candidate: specs.mounting_type
+    raw_text: 벽매입형 (Fuse Mounted Type)
+    source_page: 3
+    reason: 정규 sub_kind가 없어 free_notes로 보존
+    preservation_note: 설치 방식 표현
+  - field_candidate: specs.source
+    raw_text: 좌측 범례, 통합배선설비 항목
+    source_page: 3
+    reason: 출처/범례 정보는 관계가 아니라 설명 텍스트로 관찰됨
+    preservation_note: 도면 내 위치/출처 단서
+  - field_candidate: type
+    raw_text: telephone_outlet
+    source_page: 3
+    reason: 원문 타입 값이지만 확정 class로 승격하지 않음
+    preservation_note: 후속 단계에서 class mapping 후보
+  - field_candidate: function_category
+    raw_text: COMMUNICATION_OUTLET
+    source_page: 3
+    reason: 원문 기능 분류 값이지만 확정 class로 승격하지 않음
+    preservation_note: 후속 단계에서 class mapping 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 전화 아울렛은 물리 설비로 보이지만, 현재 입력에는 관계가 없고 범례 심볼 성격도 함께 보여 class 경계가 다소 혼합적임
+    recommended_handling: 0-9c에서 CommunicationEquipment / CommunicationOutlet / TelephoneOutlet
+      후보를 검토하고, 0-9d에서 연결 관계가 있으면 ObjectProperty로 보강
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 장비/아울렛 계열로 보고 NamedIndividual 우선 배치
+    - ontology_hints의 suggested_parent_class와 function_candidates를 후보 class_hint로
+      보존
+    - specs의 visual_description, mounting_type, source를 free_notes와 unresolved에 원문
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:18:08.203857'
+  confidence: 0.86

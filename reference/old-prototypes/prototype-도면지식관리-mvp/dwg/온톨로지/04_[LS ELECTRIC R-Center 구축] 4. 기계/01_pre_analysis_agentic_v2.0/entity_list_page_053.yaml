@@ -1,0 +1,77 @@
+page_53_entities:
+- tag: SMFD-01
+  name: 스마트 방화댐퍼
+  type: entity
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: SMFD-02
+  name: 스마트 방화댐퍼
+  type: entity
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: PANEL-ROOF-PLAN
+  name: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+  type: plan
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: LEGEND-CABLE
+  name: 전선 및 전선관 범례
+  type: legend
+  discipline: MECHANICAL
+  confidence: 0.95
+- tag: SPACE-GRID-1
+  name: 구조 그리드
+  type: space
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: SPACE-MECH-ROOM-ROOF
+  name: 지붕층 기계실 또는 설비 구획
+  type: space
+  discipline: MECHANICAL
+  confidence: 0.85
+- tag: SPACE-EPS-TPS
+  name: EPS/TPS
+  type: space
+  discipline: MECHANICAL
+  confidence: 0.85
+- tag: UNKNOWN-STAIRCASE-1
+  name: 계단
+  type: space
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: UNKNOWN-PS-1
+  name: PS
+  type: entity
+  discipline: MECHANICAL
+  confidence: 0.6
+page_53_relations:
+- from: SMFD-01
+  to: SMFD-02
+  relation: connects_to
+- from: SMFD-01
+  to: LEGEND-CABLE
+  relation: references
+- from: SMFD-02
+  to: LEGEND-CABLE
+  relation: references
+- from: PANEL-ROOF-PLAN
+  to: SMFD-01
+  relation: contains
+- from: PANEL-ROOF-PLAN
+  to: SMFD-02
+  relation: contains
+- from: PANEL-ROOF-PLAN
+  to: SPACE-MECH-ROOM-ROOF
+  relation: contains
+- from: PANEL-ROOF-PLAN
+  to: SPACE-EPS-TPS
+  relation: contains
+- from: PANEL-ROOF-PLAN
+  to: SPACE-GRID-1
+  relation: contains
+- from: PANEL-ROOF-PLAN
+  to: UNKNOWN-STAIRCASE-1
+  relation: contains
+- from: PANEL-ROOF-PLAN
+  to: UNKNOWN-PS-1
+  relation: contains

@@ -1,0 +1,67 @@
+tag: GPT-01
+name: 접지형 계기용 변압기 (GPT)
+type: PT
+discipline: ELECTRICAL
+function_category: SENSE
+source_pages:
+- 2
+specs:
+  primary_voltage_kV: 6.6
+  secondary_voltage_V: 110
+  voltage_ratio: 6.6kV/√3 / 110V/√3 / 190V/3
+  relay_model: GIPAM 2000
+  relay_number:
+  - '64'
+  - '59'
+  - '27'
+  raw_labels:
+  - G.P.T
+  - 6.6kV/110V
+  - PTT
+  label: PTT
+relations:
+- from: HV-1
+  to: GPT-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV GPT 접속
+- from: HV-1
+  to: GPT-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV GPT 접속
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-left
+confidence: 0.95
+equipment_symbols:
+- type: grounding_potential_transformer
+  count: 1
+- type: PT
+  count: 3
+- type: fuse
+  count: 3
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: InstrumentTransformer
+  observed_attributes:
+  - primary_voltage_kV
+  - secondary_voltage_V
+  - voltage_ratio
+  - relay_model
+  - relay_number
+  - raw_labels
+  - label
+  similar_equipment: []
+  function_candidates:
+  - VoltageMeasurement
+  - GroundFaultDetection
+  - ProtectionSensing

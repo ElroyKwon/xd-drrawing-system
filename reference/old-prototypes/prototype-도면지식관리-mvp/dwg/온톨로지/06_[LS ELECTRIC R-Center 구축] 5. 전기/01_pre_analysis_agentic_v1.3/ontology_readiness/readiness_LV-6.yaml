@@ -1,0 +1,16 @@
+tag: LV-6
+verdict: demoted
+confidence: 0.93
+missing_fields:
+- name
+- specifications
+missing_relations: []
+reason: LV-6는 type은 있으나, entity_detail에서 확인되는 실질 사양은 도면 메타데이터(drawing_number, title,
+  classification, discipline)뿐이다. 독립 설비로 판단할 자체 사양이 확인되지 않았고, observed_relations도
+  appears_on 1개만 있어 관계 기반 독립성도 입증되지 않는다. 따라서 물리적 설비가 아닌 문서/도면 표기 성격으로 강등한다.
+demoted_to: document_metadata
+target_entity: LV-6
+preserved_info:
+  spec: drawing_number=EE-02-001; title=R-Center 전력간선설비 계통도; classification=CABLE_SCHEDULE_AND_RISER_DIAGRAM;
+    discipline=ELECTRICAL
+  relation: appears_on

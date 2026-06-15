@@ -1,0 +1,84 @@
+tag: GND-ELEC-001
+name: 토양매설 기초접지극
+type: GROUNDING
+discipline: ELECTRICAL
+function_category: GROUNDING
+source_pages:
+- 39
+specs:
+  conductor_type: 나동선
+  connection_method: 슬리브 접속
+  soil_treatment: 흙+저감제 1포
+  terminal_type: 동관단자 2HOLE
+  note: 안정적인 접지효과를 위해 저감제를 추가 투입한다.
+  installation_method: 토양매설 또는 콘크리트 기초 매립
+relations:
+- from: GND-TERM-BOX-002
+  to: GND-ELEC-001
+  relation: grounds_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: F-GV 50㎟ (HI-PVC 28C) 기초접지극과 연결
+- from: GND-TERM-BOX-003
+  to: GND-ELEC-001
+  relation: grounds_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 전력 계통의 F-GV 기초접지극과 연결
+- from: GND-TERM-BOX-004
+  to: GND-ELEC-001
+  relation: grounds_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: F-GV 50㎟ (HI-PVC 28C) 기초접지극과 연결
+- from: GND-TERM-BOX-001
+  to: GND-ELEC-001
+  relation: connects_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 나동선(토양매설 기초접지극) 연결
+- from: GND-ACC-001
+  to: GND-ELEC-001
+  relation: protects
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 수막처리봉 설치 후 슬리브 접속
+- from: GND-ELEC-001
+  to: GND-PLATE-001
+  relation: connects_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: STS 316 접지판과 슬리브 접속
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: top-center-left
+confidence: 0.95
+equipment_symbols:
+- type: 단면 상세도 (콘크리트 음영, 토양 해칭)
+  count: 1
+- type: 슬리브 접속 심볼
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingEquipment
+  observed_attributes:
+  - conductor_type
+  - connection_method
+  - soil_treatment
+  - terminal_type
+  - note
+  - installation_method
+  similar_equipment: []
+  function_candidates:
+  - DissipateFaultCurrent
+  - ProvideReferencePotential

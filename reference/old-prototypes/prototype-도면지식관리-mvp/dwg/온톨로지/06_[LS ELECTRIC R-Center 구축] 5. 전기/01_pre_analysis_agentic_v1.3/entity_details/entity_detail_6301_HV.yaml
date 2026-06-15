@@ -1,0 +1,99 @@
+entity_detail:
+  tag: 6301/HV
+  type: source_reference
+  specs:
+    drawing_number:
+      value: EE-01-001
+      unit: null
+      source: page 5
+      confidence: 0.96
+    title:
+      value: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+      unit: null
+      source: page 5
+      confidence: 0.96
+    discipline:
+      value: ELECTRICAL
+      unit: null
+      source: page 5
+      confidence: 0.96
+    voltage_levels:
+      value:
+      - 22.9kV
+      - 6.6kV
+      - 440V
+      unit: null
+      source: page 5
+      confidence: 0.96
+    generator_emergency_output:
+      value: 1,250kVA / 1,000KW
+      unit: null
+      source: page 5
+      confidence: 0.98
+    generator_continuous_output:
+      value: 1,125kVA / 900KW
+      unit: null
+      source: page 5
+      confidence: 0.98
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+  - source: page 5
+    page_number: 5
+    text: 도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.
+  - source: page_005_context.yaml search result
+    page_number: 5
+    text: 'note: TO:6301/HV'
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도
+    source: page 5
+    type: design_condition
+  - text: 22.9kV, 6.6kV, 440V
+    source: page 5
+    type: operating_condition
+  - text: 비상출력 1,250kVA / 1,000KW
+    source: page 5
+    type: performance_requirement
+  - text: 연속출력 1,125kVA / 900KW
+    source: page 5
+    type: performance_requirement
+  connection_specs:
+  - relation: connected_to
+    partner: 'TO: 6301/HV'
+    details:
+      source: page_005_context.yaml search result
+  - relation: connected_to
+    partner: 6301/HV
+    details:
+      source: page_005_context.yaml search result
+  - relation: connected_to
+    partner: HV-UT동부속동력
+    details:
+      source: page_005_context.yaml search result
+  ontology_hints:
+    observed_relations:
+    - relation_type: source_reference
+      partner_tag: 6301/HV
+      direction: UNKNOWN
+      source: page_005_context.yaml search result
+    - relation_type: destination_note
+      partner_tag: 'TO: 6301/HV'
+      direction: UNKNOWN
+      source: page_005_context.yaml search result
+    observed_attributes:
+    - drawing_number
+    - title
+    - discipline
+    - voltage_levels
+    - generator_emergency_output
+    - generator_continuous_output
+    similar_equipment:
+    - 4301/HV
+    suggested_parent_class: ElectricalSourceReference
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 확인 가능한 정보만 기록함.
+  - 6301/HV는 source_reference로만 확인되며, 상세 사양은 직접 표기되지 않음.
+tag: 6301/HV

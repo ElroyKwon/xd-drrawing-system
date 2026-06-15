@@ -1,0 +1,136 @@
+placement:
+  tag: ERV-800CMH
+  name: 전열교환 환기장치
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ERV-800CMH
+    class_hint: EnergyRecoveryVentilator
+    alternative_class_hints:
+    - VentilationEquipment
+    - HVACEquipment
+    related_assertions: []
+    applicable_axioms:
+    - AX004
+    - AX001
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:VentilationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_candidates: Ventilation, Energy Recovery, Air Exchange'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록이 명시되어 있으나 supplement 정의 sub_kind가 없어 보존 필요
+      - raw_text: 'suggested_parent_class: EnergyRecoveryVentilator'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보를 보존하기 위한 메타 정보
+      - raw_text: 'observed_attributes: []'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 없음 자체를 기록하기 위한 보존 항목
+      - raw_text: 'similar_equipment: []'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 정보 없음 자체를 기록하기 위한 보존 항목
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: direct
+    name:
+      source_pages:
+      - 5
+      method: direct
+    discipline:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_catalog_tag_and_equipment_name
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: from_ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: from_ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 5
+      method: direct
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 5
+      method: direct
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 5
+      method: direct
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 5
+      method: direct
+  unresolved:
+  - field_candidate: function_category
+    raw_text: UNKNOWN
+    source_page: 5
+    reason: 도면 원문에서 구체 기능 범주가 확정되지 않음
+    preservation_note: 태그명과 ontology_hints로는 환기/열회수 장비로 보이나, 원문 값은 UNKNOWN 그대로 보존
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 5
+    reason: 관계 항목이 비어 있음
+    preservation_note: 추후 인근 태그와의 연결 관계가 발견되면 ObjectPropertyAssertion으로 승격 가능
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: '[]'
+    source_page: 5
+    reason: 관찰 속성 없음
+    preservation_note: 빈 배열 자체를 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 5
+    reason: 유사 장비 없음
+    preservation_note: 빈 배열 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 태그명 ERV-800CMH와 name 전열교환 환기장치, ontology_hints의 suggested_parent_class
+      및 function_candidates가 일치하여 장비 개체로 분류 가능
+    recommended_handling: NamedIndividual로 유지하고, 0-9c에서 EnergyRecoveryVentilator 계열로
+      세분화 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - 카탈로그 스펙(raw_row 등)이 누락되지 않도록 DataProperty로 충실히 변환할 것
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:36:16.354248'
+  confidence: 0.92

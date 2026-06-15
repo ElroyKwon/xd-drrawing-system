@@ -1,0 +1,177 @@
+placement:
+  tag: 홈런_to_Panelboard
+  name: 홈런 to Panelboard
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: WiringPath
+    alternative_class_hints:
+    - SignalTransmission
+    - CircuitConnection
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:WiringPath
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: home_run
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: type 필드 값으로 관찰됨
+      - raw_text: Homerun to Panelboard
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: englishName
+          suggested_datatype: xsd:string
+          rationale: specs의 영어명 표기
+      - raw_text: 화살표 형태의 선형 심볼
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면에서 관찰된 시각적 설명
+      - raw_text: 우측 범례, 공통사항 항목
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: source
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/근거 위치 설명
+      - raw_text: TRANSPORT
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: entity_detail의 function_category 값
+      - raw_text: SignalTransmission
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates 값
+      - raw_text: CircuitConnection
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates 값
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_visual_symbol_and_label
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: from_ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: from_ontology_hints.function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: preserved_raw_text
+    specs.english_name_sonnet:
+      source_pages:
+      - 3
+      method: direct
+    specs.english_name_gemini:
+      source_pages:
+      - 3
+      method: direct
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: direct
+    specs.source:
+      source_pages:
+      - 3
+      method: direct
+    type:
+      source_pages:
+      - 3
+      method: direct
+    function_category:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+    source_pages:
+      source_pages:
+      - 3
+      method: direct
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 3
+    reason: 관계 항목이 비어 있음
+    preservation_note: 관계 사실 없음으로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 3
+    reason: 보존은 가능하나 별도 분류 레이어에 적합하지 않음
+    preservation_note: 생성/합성 출처 메타정보로 유지
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 3
+    reason: 유사 장비 목록이 비어 있음
+    preservation_note: 비어 있음 자체를 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: WiringPath
+    source_page: 3
+    reason: 상위 클래스 후보이지만 확정 불가
+    preservation_note: class_hint로만 반영
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SignalTransmission, CircuitConnection
+    source_page: 3
+    reason: 후보 기능명이며 확정 분류 아님
+    preservation_note: alternative_class_hints 및 free_notes로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 범례/공통사항의 화살표 형태 선형 심볼로 보이며 물리 설비인지 주석성 표기인지 경계가 모호함
+    recommended_handling: 0-9c에서 AnnotationOnly 우선 검토 후, 필요 시 WiringPath 계열로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - suggested_parent_class=WiringPath 반영
+    - function_candidates를 후보로 보존
+    - 범례/공통사항 출처를 provenance와 free_notes에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:48:07.187854'
+  confidence: 0.78

@@ -1,0 +1,139 @@
+ontology_readiness:
+  tag: GND-PLATE-001
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 5
+    reason: 고유 tag가 있으며 specs에 material, dimensions_mm, thickness_mm, reinforcement,
+      note가 존재한다. 다른 설비의 부품으로만 식별되지 않고 STS 316 접지판 자체를 나타내는 독립 엔티티로 확인된다.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 5
+    convertible: 4
+    ambiguous_attributes:
+    - key: note
+      value: 현장 여건에 따라 기초접지극은 토양매설 또는 콘크리트 기초 매립으로 시공
+      reason: 시공 조건/설명 문장으로서 단일 온톨로지 속성으로 직접 정규화하기보다 annotation/comment로 보존하는 것이 적절함
+    auxiliary_attributes:
+    - material
+    - dimensions_mm
+    - thickness_mm
+    - reinforcement
+    - note
+    - equipment_symbols
+    - function_candidates
+    requirement_attributes: []
+    extracted_attributes:
+    - STS 316 접지판 상세도
+    - 500 ㎜ x 500 ㎜
+    - 'Material : STS 316'
+    - X자 보강재 포함 사각판
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: GroundingEquipment
+    alternative_parent_classes:
+    - GroundingPlate
+    - EarthingEquipment
+  spatial_context:
+    position: top-left
+    source_pages:
+    - 39
+    room_or_zone: 기초 영역
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      material: STS 316
+      dimensions_mm: 500 x 500
+      thickness_mm: 70
+      reinforcement: X자 보강재
+      note: 현장 여건에 따라 기초접지극은 토양매설 또는 콘크리트 기초 매립으로 시공
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - equipment_symbols
+  - read_page_context.cross_validated.entities
+  - read_page_context.cross_validated.relationships
+  - read_page_context.spaces
+  - read_page_context.diagram_spec
+  - read_page_context.visual_semantics
+  - read_page_context.visual_semantics_gemini
+  - read_page_context.entity_synthesis
+  skipped_fields:
+  - requirements (not present)
+  - drawing_texts (not present)
+  - notes (not present as top-level field)
+  - ontology_hints.observed_relations (not present)
+  - ontology_hints.cross_discipline (not present)
+  - ambiguous_attributes (not present)
+  - source_attribution.*_sonnet/*_gemini/*_mini beyond boolean provenance (no conflicting
+    values present)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :GroundingEquipment
+    annotations_to_emit:
+    - specs_full
+    - source_attribution
+    - collection_sources
+    - note
+    - equipment_symbols
+    - confidence
+    - position
+    - source_pages
+    relations_to_emit:
+    - connects_to(GND-ELEC-001)
+    needs_human_review: false
+tag: GND-PLATE-001
+discovered_relations: 1

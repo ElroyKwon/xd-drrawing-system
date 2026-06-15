@@ -1,0 +1,98 @@
+entity_detail:
+  tag: 공동구
+  type: room_or_space
+  specs:
+    usage:
+      value: 기존 TRAY 사용
+      source: 4
+      confidence: 0.98
+    cable_route:
+      value: 공동구:CABLE TRAY&ELP
+      source: 5
+      confidence: 0.98
+    floor_note:
+      value: 지하공동구 사용
+      source: 23
+      confidence: 0.95
+  drawing_texts:
+  - source: page_004_context.yaml
+    page_number: 4
+    text: 공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개,
+      지중선표시기, SECTION 1·2 단면 상세가 포함된다.
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 3Ø 4W 22.9kV-Y 60Hz, 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m, 22.9kV-Y
+      CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음
+  - source: page_023_context.yaml
+    page_number: 23
+    text: '층 표기: 1층 F.L, 2층 F.L, 지붕층 F.L, 지하공동구 사용'
+  requirements:
+  - text: 기존 TRAY 사용
+    source: page 4
+    type: operation_condition
+  - text: 공동구:CABLE TRAY&ELP
+    source: page 5
+    type: routing_condition
+  - text: 지하공동구 사용
+    source: page 23
+    type: space_note
+  connection_specs:
+  - relation: 전력케이블 경로
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+  - relation: 전력케이블 경로
+    partner: R-Center 변전실
+    details:
+      source: page 4
+  - relation: 전력간선 경로
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+  - relation: 전력간선 경로
+    partner: R-Center 변전실
+    details:
+      source: page 4
+  - relation: 케이블 경로
+    partner: 3Ø 4W 22.9kV-Y 60Hz, 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m, 22.9kV-Y
+      CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE)
+    details:
+      source: page 5
+  - relation: 케이블 경로
+    partner: CABLE TRAY&ELP
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: contains_route
+      partner_tag: CABLE-001
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains_route
+      partner_tag: CABLE-002
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: adjacent_to
+      partner_tag: SP-UT-PS
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: adjacent_to
+      partner_tag: SP-RCENTER-PS
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - 기존 TRAY 사용
+    - CABLE TRAY&ELP
+    - 지하공동구 사용
+    similar_equipment:
+    - SP-COMMON-DUCT-1
+    - SP-COMMON-DUCT-2
+    - SP-COMMON-DUCT-3
+    suggested_parent_class: Space
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - 페이지 4, 5, 23에서 공동구 관련 표기를 확인함.
+  - 공동구 자체의 치수/면적 정보는 확인되지 않음.
+tag: 공동구

@@ -1,0 +1,96 @@
+entity_detail:
+  tag: EQ-E43
+  type: Safety Switch
+  specs:
+    symbol_id:
+      value: SYM-043
+      unit: null
+      source: page 3 legend_data.yaml
+      confidence: 0.99
+    visual_description:
+      value: ㄴ자 형태의 스위치 심볼
+      unit: null
+      source: page 3 legend_data.yaml
+      confidence: 0.99
+  drawing_texts:
+  - source: page 3 page_003_context.yaml
+    page_number: 3
+    text: 'tag: EQ-E43
+
+      name: Safety Switch
+
+      spec: null
+
+      discipline: ELECTRICAL
+
+      function_category: CONTROL
+
+      location: null
+
+      confidence: 0.99'
+  - source: page 3 legend_data.yaml
+    page_number: 3
+    text: 'symbol_id: SYM-043
+
+      name: Safety Switch
+
+      abbreviation: null
+
+      discipline: ELECTRICAL
+
+      function_category: CONTROL
+
+      visual_description: ㄴ자 형태의 스위치 심볼'
+  - source: page 3 page_003_context.yaml
+    page_number: 3
+    text: 'source: page 3 우측 중단 공통 사항의 Homerun to Panelboard'
+  - source: page 3 page_003_context.yaml
+    page_number: 3
+    text: 'located_in: ZONE-004'
+  - source: page 3 page_003_context.yaml
+    page_number: 3
+    text: 'source: page 3 우측 중단 공통 사항의 Slab Embed or Ceiling Concealed Conduit & Wiring'
+  requirements:
+  - text: Homerun to Panelboard
+    source: page 3 page_003_context.yaml
+    type: connection_note
+  - text: Slab Embed or Ceiling Concealed Conduit & Wiring
+    source: page 3 page_003_context.yaml
+    type: installation_note
+  connection_specs:
+  - relation: homerun_to_panelboard
+    partner: Panelboard
+    details:
+      source: page 3 page_003_context.yaml
+  - relation: installed_with_conduit_wiring
+    partner: null
+    details:
+      source: page 3 page_003_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: ZONE-004
+      direction: UNKNOWN
+      source: page 3 page_003_context.yaml
+    observed_attributes:
+    - tag
+    - name
+    - type
+    - discipline
+    - function_category
+    - location
+    - confidence
+    - symbol_id
+    - visual_description
+    similar_equipment:
+    - EQ-E44
+    suggested_parent_class: Electrical Control Device
+    cross_discipline: []
+  notes:
+  - spec 값은 도면에서 null로 확인됨.
+  - 연결 방향은 도면 텍스트만으로 확정 불가하여 UNKNOWN 처리.
+  - 강등(demoted) 유지: 자체 spec이 null이며, 범례/주기사항 페이지의 표기 성격 엔티티로 독립 엔티티 진입 대상이 아님.
+  - 누락 관계 보완 불가: 도구 결과에서 homerun_to_panelboard -> Panelboard, installed_with_conduit_wiring
+      -> conduit/wiring의 ontology 반영 여부를 추가로 확인할 수 없었음.
+  - 사용한 도구: search_entity_by_tag, read_page_context, read_legend_data
+tag: EQ-E43

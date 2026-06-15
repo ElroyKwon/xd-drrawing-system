@@ -1,0 +1,159 @@
+placement:
+  tag: PF3
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PF3
+    class_hint: MemberMark
+    alternative_class_hints:
+    - FoundationMemberMark
+    - StructuralMemberMark
+    related_assertions:
+    - type: located_in
+      target_hint: FOUNDATION-PLAN
+      note: 도면 내 기초 심볼
+      confirmed_property: dks:located_in
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-SCHEDULE-01
+      note: 부재 태그 → 일람표 치수 참조
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-SCHEDULE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX007
+    - AX010
+    - AX012
+    - AX013
+    applicable_constraints:
+    - CN001
+    - CN012
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 도면 내 기초 심볼
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 보이는 서술 텍스트
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 부재 태그 → 일람표 치수 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 참조 관계의 설명 문구
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: located_in -> FOUNDATION-PLAN
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: located_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실이 명시됨
+      - raw_text: references -> UNKNOWN-SCHEDULE-01
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: owl:ObjectProperty
+          rationale: 일람표 참조 관계가 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail.tag
+    owl_role:
+      source_pages:
+      - 32
+      - 33
+      method: relation_pattern_inference
+    iri_hint:
+      source_pages:
+      - 32
+      - 33
+      method: same_as_tag
+    class_hint:
+      source_pages:
+      - 32
+      - 33
+      method: plan_guidance_inference
+    alternative_class_hints:
+      source_pages:
+      - 32
+      - 33
+      method: plan_guidance_inference
+    related_assertions:
+      source_pages:
+      - 32
+      - 33
+      method: cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 32
+      - 33
+      method: preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 32
+      - 33
+      method: assessment
+    confidence:
+      source_pages:
+      - 32
+      - 33
+      method: heuristic
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 name 필드 없음
+    preservation_note: 추후 원문에서 name 발견 시 보완
+  - field_candidate: discipline
+    raw_text: unknown
+    source_page: 0
+    reason: 명시 discipline 없음
+    preservation_note: plan 상 structural 문맥 가능성은 있으나 외부 보완 금지
+  - field_candidate: related_assertions.type
+    raw_text: located_in
+    source_page: 32
+    reason: 확정 property IRI 미부여
+    preservation_note: 0-9d에서 정식 object property로 정규화 가능
+  - field_candidate: related_assertions.type
+    raw_text: references
+    source_page: 33
+    reason: 확정 property IRI 미부여
+    preservation_note: 0-9d에서 정식 object property로 정규화 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 관계가 2개 모두 명시되어 있고 PF3는 독립 태그로 관찰됨
+    recommended_handling: NamedIndividual로 유지하고 후속 단계에서 class/property 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - PF/WF/MF 계열을 member mark로 보는 guidance
+    - located_in 관계를 member mark -> plan 패턴으로 보는 guidance
+    - references 관계를 schedule/list -> member mark 패턴으로 보는 guidance
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:50.187316'
+  confidence: 0.86

@@ -1,0 +1,77 @@
+tag: '1103'
+name: SHV PT 패널 1103
+type: METERING_PANEL
+discipline: ELECTRICAL
+function_category: METERING_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - '1103'
+  - SHV
+  - PT×3
+  - PT0 30VA
+  - 13.2kV/110/110V
+  bus_section: SHV
+  pt_ratio: 13.2kV/110/110V
+  pt_capacity: 30VA
+  panel_id: '1103'
+  voltage_kV: 22.9
+  pt_count: 3
+  pt_capacity_VA_sonnet: 30
+  pt_ratio_sonnet: 13.2kV/110/110V
+  pt_capacity_VA_gemini: 50
+  pt_ratio_gemini: 13.2kV/110V
+  pf_count_gemini: 3
+  pf_voltage_kV_gemini: 25.8
+  pf_current_AF_gemini: 200
+  pf_fuse_A_gemini: 1
+relations:
+- from: '1102'
+  to: '1103'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+- from: '1103'
+  to: '1104'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: top-right
+confidence: 0.95
+equipment_symbols:
+- type: PT
+  count: 3
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: MeteringPanel
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - pt_ratio
+  - pt_capacity
+  - panel_id
+  - voltage_kV
+  - pt_count
+  - pt_capacity_VA_sonnet
+  - pt_ratio_sonnet
+  - pt_capacity_VA_gemini
+  - pt_ratio_gemini
+  - pf_count_gemini
+  - pf_voltage_kV_gemini
+  - pf_current_AF_gemini
+  - pf_fuse_A_gemini
+  similar_equipment: []
+  function_candidates:
+  - VoltageMeasurement
+  - Protection

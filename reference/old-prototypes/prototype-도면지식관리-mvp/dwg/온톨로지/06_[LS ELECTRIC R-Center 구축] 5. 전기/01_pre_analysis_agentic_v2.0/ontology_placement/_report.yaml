@@ -1,0 +1,209 @@
+summary:
+  total_placements: 283
+  expected_total_tags: 283
+  owl_role_distribution:
+    NamedIndividual: 215
+    PartOf: 28
+    AnnotationOnly: 38
+    ObjectPropertyAssertion: 2
+  discipline_distribution:
+    electrical: 263
+    structural: 16
+    mechanical: 3
+    architectural: 1
+  ambiguous_count: 79
+  merge_candidate_count: 35
+  unresolved_entries: 1860
+ambiguous_samples:
+- tag: '1101'
+  reason: 동일 태그에 대해 ct_ratio, ct_breaking_capacity 등 일부 사양이 sonnet/gemini 출처 간 상이하며,
+    520MVA 및 12.5kV 15kA 표기의 정확한 해석을 이 단계에서 확정할 수 없음.
+- tag: '1102'
+  reason: MOF 계량 패널로 명확하지만, CT/PT/LA/제어기/통신/접지 정보가 함께 있어 단일 핵심 클래스 외에 부가 설비 속성이 혼재함.
+    또한 CT ratio 소스 간 값이 상충함.
+- tag: '1104'
+  reason: 같은 태그 내에서 CT 비율과 CT 차단/정격 관련 값이 source별로 상이하며, vcb_breaking_capacity 표기도
+    MVA/kA가 혼재함.
+- tag: '1106'
+  reason: 패널 자체는 명확한 NamedIndividual로 보이지만, specs에 ct_ratio_sonnet/ct_ratio_gemini처럼
+    상충 값이 존재하고 SA 관련 항목의 의미도 도면 외부 지식 없이 확정하기 어렵다.
+- tag: '1107'
+  reason: JUNCTION_PANEL이 물리 패널인지 접속점/분기점인지 도면상 혼재되어 있으며, ontology_hints도 JunctionBox/ConnectionPoint/DistributionPoint로
+    분산됨
+- tag: 1301B
+  reason: HV 피더 VCB 패널로 명확한 SwitchgearPanel이지만, raw_labels와 specs에 복합 정격/보호정보가 혼재하고
+    SPARE/load_name, E1 grounding_mark, 1.5kA의 의미가 완전히 분리되지 않음.
+- tag: 1302A
+  reason: VCB 패널로 명확하지만, 일부 사양(ct_ratio, zct_rating, breaking_capacity, sa_discharge_current)에서
+    상충/혼재 값이 존재함.
+- tag: 1302B
+  reason: ct_ratio와 zct 관련 값에 상충/혼재가 있으며, 1.5kA 및 A 표기처럼 대상이 불명확한 정격 표기가 존재함
+- tag: 1303B
+  reason: ZCT 정격 표기에서 200mA와 1.5kA가 동시에 나타나며, 동일 항목의 상충 가능성이 있음. 또한 GIPAM 표시기 'A'의
+    의미가 불명확함.
+- tag: 1304A
+  reason: 패널 자체는 명확한 NamedIndividual이지만, ct_ratio/zct_rating/load_name 등에서 상충·복합 표기가
+    존재함
+- tag: 1304B
+  reason: '패널 자체는 명확하나 destination(TO: 4301 HV), load_name(냉동기 4호기), grounding_mark(E1),
+    보호계전기 표시문자(A)의 의미 연결이 도면 내에서 완전히 확정되지 않음'
+- tag: 1305A
+  reason: 동일 태그에 대해 ct_ratio_sonnet(75/5A)와 ct_ratio_gemini(150/5A), zct 관련 수치가 상이하며,
+    load_name_gemini와 destination이 혼재되어 있어 일부 사양의 확정이 어려움
+- tag: 1305B
+  reason: 패널 자체는 명확하나, specs에 상충하는 이중 출처 값(ct_ratio, zct_rating, load_name, protection
+    indicators)이 존재함
+- tag: '1309'
+  reason: HV 피더 VCB 패널로서 독립 패널(NamedIndividual) 성격이 강하지만, 내부에 CT/ZCT/SA/GIPAM 및 인터록
+    관계가 함께 관찰되어 PartOf 또는 관계 중심(ObjectPropertyAssertion) 해석도 일부 가능함.
+- tag: 1310A
+  reason: 패널 자체는 명확한 독립 설비이지만, ct_ratio와 zct_rating에 대해 상충/혼재된 출처 값이 존재하고 destination/load_name
+    표기가 병존함.
+- tag: 1319A
+  reason: 패널 자체는 명확한 SwitchgearPanel로 보이지만, CT 비율과 일부 정격 표기가 상충하거나 복합 표기여서 세부 속성 확정이
+    어려움
+- tag: 1319B
+  reason: ct_ratio_sonnet(75/5A)와 ct_ratio_gemini(200/5A)가 상이하고, load_name SPARE의
+    의미도 설비/상태 중 단정이 어려움
+- tag: 1402B
+  reason: 패널 자체는 명확한 독립 설비이지만, destination/load_name/grounding_mark가 함께 존재하여 전원 공급
+    대상과 접지 표기가 혼재됨
+- tag: BLK-LA1
+  reason: 피뢰기 LA1/LA2로 표기되지만 specs.count=3, equipment_symbols.count=2, 전압/전류 정격 값이
+    복수로 관찰되어 단일 장비인지 복수 장비 묶음인지 불명확함
+- tag: BLK-MCOB
+  reason: 태그는 보호장치 계열이지만 이름에 '계량용'과 PT 회로가 함께 있어 MCCB 단독 장비인지 계량 회로 묶음인지 경계가 다소 모호함
+merge_candidates:
+- tag: '1106'
+  other_tag: 1105, 1107
+  reason: relations에서 1105 및 1107과 동일 버스 구간(22.9kV SHV BUS-1)으로 연결되며, ontology_hints.similar_equipment에도
+    인접 태그가 제시됨. 동일 계통 내 유사 패널 후보로 보존 필요.
+- tag: 1301B
+  other_tag: 1301A
+  reason: relations에 1301A와의 cross_validated connects_to가 있으며, 동일 BUS-1 계통의 인접 패널로
+    보이는 관계가 존재함. 동일 태그 병합이 아니라 관계 기반 중복/연결 후보로 보존 필요.
+- tag: 1302A
+  other_tag: 1302B
+  reason: relations에 1302B와의 상호 연결 및 인터록이 있으며, 동일 HV BUS-1 계통의 인접 패널로 보이는 교차 참조가 존재함.
+- tag: 1302B
+  other_tag: 1302A
+  reason: ontology_hints.similar_equipment에 1302A가 포함되어 있고, 동일 HV BUS-1 계열 패널로 보이는
+    유사 태그임
+- tag: 1303A
+  other_tag: 1303B
+  reason: ontology_hints.similar_equipment에 1303B가 명시되어 있으며, 동일 계통(HV BUS-1) 상 유사
+    패널로 보임
+- tag: 1303B
+  other_tag: 1303A
+  reason: ontology_hints.similar_equipment에 1303A가 명시되어 있고, 동일 계통(HV BUS-1)에서 연결되는
+    유사 패널로 보임. 다만 현재 태그는 별도 Individual로 존속시킴.
+- tag: 1304B
+  other_tag: 1304A
+  reason: 인근 태그이며 동일 계통(HV BUS-1)에서 상호 연결된 유사 패널로 보임. 사양 차이는 있으나 교차 검증된 연결 관계가 있어
+    병합 후보로 보존
+- tag: 1305A
+  other_tag: 1305B
+  reason: ontology_hints.similar_equipment에 1305B가 명시되어 있으며, 동일 계열 HV 피더 VCB 패널로 보이는
+    유사 태그
+- tag: '1309'
+  other_tag: '1310'
+  reason: ontology_hints.similar_equipment에 1310이 포함되어 있으며, 동일 계열 패널로 보이는 인접 태그와의
+    중복/유사성 검토가 필요함.
+- tag: 1310A
+  other_tag: 1310B
+  reason: ontology_hints.similar_equipment에 1310B가 명시되어 있고, 동일 HV BUS-2 계통의 인접 패널로
+    보임.
+- tag: 1310B
+  other_tag: 1310A
+  reason: 동일 계통의 인접 패널로 보이며, relations에 1310A와의 직접 연결이 있고 동일한 HV BUS-2 주석을 공유함
+- tag: 1312B
+  other_tag: 1312A
+  reason: 인근 태그 1312A와 동일한 HV BUS-2 계통에 연결되며, 유사한 패널 구조를 가진 교차 검증 관계가 존재함
+- tag: 1319A
+  other_tag: 1319B
+  reason: ontology_hints.similar_equipment에 1319B가 명시되어 있고, relations에도 1319B와의 연결이
+    있어 유사/대응 패널 후보로 보임
+- tag: 1319B
+  other_tag: 1319A
+  reason: 인근 태그이며 동일 버스 구간(3.3kV HV BUS-1)에서 연결 관계가 교차 검증됨. 동일 계통의 대응 패널일 가능성 존재
+- tag: 1402A
+  other_tag: 1402B
+  reason: ontology_hints.similar_equipment 및 relations에 1402B가 함께 나타나며, 동일 GP BUS
+    계열 패널의 인접/유사 태그로 보임
+- tag: 1402B
+  other_tag: 1402A
+  reason: relations에 1402A와의 connects_to가 cross_validated로 존재하며, 동일 GP BUS 계통의 인접
+    패널로 보이는 병합 검토 후보
+- tag: 1403B
+  other_tag: 1403A
+  reason: 동일 GP BUS 계통의 인접 패널로 보이며 relations에 1403A와 connects_to가 명시되어 있어 동일 계통 병합
+    검토 후보
+- tag: 1404B
+  other_tag: 1404A
+  reason: relations에 1404A와의 connects_to가 있으며, 동일 GP BUS 계통의 인접 패널로 보이는 연결 관계가 확인됨
+- tag: BLK-SEC-GENERAL
+  other_tag: BLK-TOC-MAIN
+  reason: 둘 다 도면 목록/목차 성격의 정보 섹션일 가능성이 있어 구조적으로 유사함. 단, 현재 태그는 일반사항 섹션으로 명시되어 있어 확정
+    병합은 보류
+- tag: BRANCH-P-P-4PP
+  other_tag: BRANCH-P-A-4PP-7
+  reason: 유사 태그 패턴 BRANCH-P-*-4PP 계열과 동일한 분기회로 구조를 공유하며, similar_equipment 목록에 포함됨
+- tag: EXT-전기실
+  other_tag: 전기실
+  reason: 태그가 EXT-전기실로 외부 전원 노드를 나타내며, 동일 명칭 '전기실'과 병기되어 중복/동일 노드 병합 후보로 보임
+- tag: GND-E3-A
+  other_tag: GND-E3-AC
+  reason: ontology_hints.similar_equipment에 동일한 E3 계통으로 보이는 유사 태그가 제시됨. 동일 접지 네트워크의
+    변형 태그일 가능성이 있음.
+- tag: GND-E3-D
+  other_tag: GND-E3-A
+  reason: same grounding network pattern 'GND-E3-*' and similar equipment list indicates
+    likely duplicate logical node across related tags
+- tag: GND-E3-E
+  other_tag: GND-E3-A
+  reason: E3 접지 계통의 유사 태그군(GND-E3-A, GND-E3-AC, GND-E3-D, GND-E3-F, GND-E3-G, GND-E3-I)과
+    동일 계통 노드일 가능성이 높음
+- tag: GND-E3-I
+  other_tag: GND-E3-*
+  reason: E3 접지 계통의 인근 태그 패턴(GND-E3-A, GND-E3-AC, GND-E3-D, GND-E3-E, GND-E3-F, GND-E3-G)과
+    동일 계통 노드로 보이며, 태그 변형 가능성이 있음
+- tag: GND-ELEC-TEST-002
+  other_tag: GND-ELEC-TEST-003
+  reason: ontology_hints.similar_equipment에 동일 계열의 유사 장비가 명시되어 있으며, 관계도 대칭적으로 인접 태그와
+    연결됨
+- tag: GND-ELEC-TEST-003
+  other_tag: GND-ELEC-TEST-001
+  reason: ontology_hints.similar_equipment에 GND-ELEC-TEST-001이 명시되어 있고, 동일한 보조극 계열로
+    보이는 관계가 존재함
+- tag: HV-VCB-TR2
+  other_tag: HV-VCB-TR1
+  reason: ontology_hints.similar_equipment에 HV-VCB-TR1이 명시되어 있고, 동일 계열 VCB 패널로 보이는
+    유사 태그이므로 병합 검토 후보임.
+- tag: P-A-4PP-2
+  other_tag: P-A-4PP-1
+  reason: 동일한 분전반 계열(P-A-4PP-*)로 보이며, 인접 태그 요약에 유사 장비가 존재함. 다만 본 태그는 고유 식별자와 독립 사양을
+    가지므로 우선 별도 Individual로 보존.
+- tag: P-A-4PP-3
+  other_tag: P-A-4PP-1
+  reason: 동일 계열의 분전반으로 보이며, 태그 패턴과 유사 장비 목록(P-A-4PP-1, P-A-4PP-2) 존재. 다만 본 태그는 고유
+    식별이 있으므로 현재는 병합 보류
+- tag: P-A-4PP-6
+  other_tag: P-A-4PP-1
+  reason: 동일한 패턴의 분전반 시리즈(P-A-4PP-1~6)로 보이며, 태그 형식과 설비 유형이 매우 유사함. 다만 번호가 달라 별도 Individual로
+    우선 존속.
+- tag: P-F-2PP
+  other_tag: EARTH-E3
+  reason: P-F-2PP의 grounds_to/cable 관계에서 E3가 EARTH-E3와 동일 접지 계통으로 보이며, 도면 내 축약/확장
+    표기 차이 가능성이 높음
+- tag: P-P-4PP
+  other_tag: SPD-P-P-4PP
+  reason: 패널과 동일 접두어를 공유하는 SPD 태그로, 패널 내 종속 설비일 가능성이 높음. 별도 인스턴스로 유지하되 후속 단계에서 contains/protects
+    관계 검토 필요.
+- tag: UNKNOWN-LIGHTNING-ROD-001
+  other_tag: UNKNOWN-LIGHTNING-ROD-01
+  reason: 태그 패턴상 도면 번호 차이로 인한 중복 가능성이 있으며, 동일한 피뢰침 계열 객체로 보임
+- tag: UNKNOWN-LIGHTNING-ROD-01
+  other_tag: UNKNOWN-LIGHTNING-ROD-001
+  reason: ontology plan의 merge_candidates_hint에 동일 계열 중복 태그 가능성이 명시되어 있으며, 태그 형식 차이만
+    있는 유사 항목으로 보임
+generated_at: '2026-04-17T13:15:36.101366'

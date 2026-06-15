@@ -1,0 +1,15 @@
+tag: STRUCT-CONC-002
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- discipline
+- specifications
+missing_relations: []
+reason: entity_detail에는 tag와 name은 있으나, 자체 사양(specs)은 name 1개뿐이고 connection_specs/observed_relations도
+  없다. page 39 context에서 '버림콘크리트'는 구조물 상세의 구성요소로 보이며 독립 설비가 아니라 상위 구조 상세에 귀속되는 항목이다.
+  따라서 독립 엔티티로 qualified할 수 없고 component_of로 강등한다.
+demoted_to: component_of
+target_entity: 기초 콘크리트
+preserved_info:
+  spec: 버림콘크리트
+  relation: structural_component_of

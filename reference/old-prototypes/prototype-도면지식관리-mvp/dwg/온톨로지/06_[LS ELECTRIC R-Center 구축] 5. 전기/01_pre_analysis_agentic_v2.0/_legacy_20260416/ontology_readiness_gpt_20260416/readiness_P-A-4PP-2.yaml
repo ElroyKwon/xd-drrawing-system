@@ -1,0 +1,378 @@
+ontology_readiness:
+  tag: P-A-4PP-2
+  verdict: qualified
+  confidence: 0.98
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 24
+    reason: 고유 tag(P-A-4PP-2)가 있고, 440V/400AF/300AT/MCCB/SPD/branch circuits 등 자체
+      사양이 충분히 존재하는 전기 분전반이다. 도면 메타데이터가 아니며, 다른 설비의 부품으로만 보이지 않는다.
+  relation_completeness:
+    declared_relations: 5
+    discovered_relations: 5
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 24
+    convertible: 20
+    ambiguous_attributes:
+    - key: box_size
+      value: —
+      reason: 값이 비어 있어 온톨로지 속성으로 변환 불가
+    - key: labels_above
+      value:
+      - 'PANEL BOARD: P-A-4PP-2'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      reason: 라벨 원문 목록으로, 개별 속성으로 분해 가능하나 원문 보존 필요
+    - key: labels_inside
+      value:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - CCM NO TYPE P AF AT
+      - 40 50 3 MCCB MP
+      - 30 50 3 MCCB KFG
+      - 475 100 3 MCCB (해당부하)
+      - SP MCCB 3 125 100
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      reason: 원문 텍스트 묶음으로 보존 필요
+    - key: labels_below
+      value:
+      - E3
+      reason: 단독 라벨로 의미가 불충분
+    - key: equipment_symbols
+      value:
+      - type: MCCB
+        count: 6
+      - type: SPD
+        count: 1
+      - type: CT
+        count: 1
+      reason: 심볼 집계 정보로 속성화 가능하지만 원문 보존 필요
+    - key: connections_internal
+      value:
+      - circuit: MAIN
+        spec: MCCB 3P 30/20AT
+        annotation: MAIN FEEDER FROM 전기실
+      - circuit: '1'
+        breaker: MCCB 3P 40/50A
+        annotation: MP
+        status: active
+      - circuit: '2'
+        breaker: MCCB 3P 30/50A
+        annotation: KFG
+        status: active
+      - circuit: '3'
+        breaker: MCCB 3P 475/100A
+        annotation: 해당부하
+        status: active
+      - circuit: '4'
+        breaker: MCCB 3P 125/100A
+        annotation: SP
+        status: spare
+      - circuit: '5'
+        breaker: MCCB 3P 125/75A
+        annotation: SP
+        status: spare
+      reason: 회로별 내부 연결 정보는 관계/속성 양쪽 성격을 가짐
+    - key: raw_labels
+      value:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - CCM NO TYPE P AF AT
+      - 40 50 3 MCCB MP
+      - 30 50 3 MCCB KFG
+      - 475 100 3 MCCB (해당부하)
+      - SP MCCB 3 125 100
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      - 'PANEL BOARD: P-A-4PP-2'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      - 'CKT#: 3P 400 AF / 300 AT'
+      - AT AF P TYPE NO CKT#
+      - 100 100 3 MCCB
+      - 40 50 3 MCCB
+      - 30 50 3 MCCB
+      - 150 225 3 MCCB 시험용
+      - 75 125 3 MCCB SP
+      - CKT# NO TYPE P AF AT
+      - None
+      reason: 원문 전체 보존 필요
+    - key: grounding
+      value: E3
+      reason: 접지 식별자이지만 단독 속성으로는 맥락 의존적
+    auxiliary_attributes:
+    - panel_board
+    - cover_type
+    - panel_location
+    - box_size
+    - source
+    - volt
+    - voltage_V
+    - main_cb
+    - spd_capacity_kA
+    - labels_above
+    - labels_inside
+    - labels_below
+    - equipment_symbols
+    - connections_internal
+    - raw_labels
+    - rated_voltage_V
+    - main_cb_type
+    - main_cb_poles
+    - main_cb_af_A
+    - main_cb_at_A
+    - spd_spec
+    - spd_protection_mccb
+    - branch_circuits
+    - grounding
+    requirement_attributes: []
+    extracted_attributes:
+    - 'PANEL BOARD: P-A-4PP-2'
+    - 'COVER TYPE: 노출형(STEEL)'
+    - 'PANEL LOCATION: 1층 Drive 시험실'
+    - 'SOURCE: 전기실'
+    - 'VOLT: 440V'
+    - 'MAIN C.B: MCCB'
+    - MCCB 3P 30/20AT
+    - 3Ø S.P.D 40KA/mode
+    - 'FROM: 전기실 (R S T)'
+    - 'CKT#: 3P 400 AF / 300 AT'
+    - E3 (접지)
+    provenance_attributes: []
+    conflicts: []
+  duplicate_candidates:
+  - P-A-4PP-1
+  - P-A-4PP-3
+  cross_discipline:
+    links_found:
+    - from: 전기실
+      to: P-A-4PP-2
+      relation: feeds
+    - from: P-A-4PP-2
+      to: E3
+      relation: grounds_to
+    - from: P-A-4PP-2
+      to: UNKNOWN-SPD-02
+      relation: contains
+    - from: 전기실
+      to: P-A-4PP-2
+      relation: cable
+    - from: P-A-4PP-2
+      to: E3
+      relation: cable
+    hints_added:
+    - 전기실에서 공급되는 3상 440V 분전반
+    - 접지 E3 연결
+    - SPD 포함
+  ontology_class_hint:
+    suggested_parent_class: ElectricalDistributionEquipment
+    alternative_parent_classes:
+    - DistributionPanel
+    - PowerDistributionPanel
+    - ElectricalPanel
+  spatial_context:
+    position: top-center
+    source_pages:
+    - 21
+    room_or_zone: 1층 Drive 시험실
+    floor: 1층
+  preserved_auxiliary:
+    specs_full:
+      panel_board: P-A-4PP-2
+      cover_type: 노출형(STEEL)
+      panel_location: 1층 Drive 시험실
+      box_size: —
+      source: 전기실
+      volt: 440V
+      voltage_V: 440
+      main_cb: MCCB
+      spd_capacity_kA: 40
+      labels_above:
+      - 'PANEL BOARD: P-A-4PP-2'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 Drive 시험실'
+      - 'BOX SIZE: —'
+      labels_inside:
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B: MCCB'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'FROM: 전기실 (R S T)'
+      - CCM NO TYPE P AF AT
+      - 40 50 3 MCCB MP
+      - 30 50 3 MCCB KFG
+      - 475 100 3 MCCB (해당부하)
+      - SP MCCB 3 125 100
+      - SP MCCB 3 125 75
+      - E3 (접지)
+      labels_below:
+      - E3
+      equipment_symbols:
+      - type: MCCB
+        count: 6
+      - type: SPD
+        count: 1
+      - type: CT
+        count: 1
+      connections_internal:
+      - circuit: MAIN
+        spec: MCCB 3P 30/20AT
+        annotation: MAIN FEEDER FROM 전기실
+      - circuit: '1'
+        breaker: MCCB 3P 40/50A
+        annotation: MP
+        status: active
+      - circuit: '2'
+        breaker: MCCB 3P 30/50A
+        annotation: KFG
+        status: active
+      - circuit: '3'
+        breaker: MCCB 3P 475/100A
+        annotation: 해당부하
+        status: active
+      - circuit: '4'
+        breaker: MCCB 3P 125/100A
+        annotation: SP
+        status: spare
+      - circuit: '5'
+        breaker: MCCB 3P 125/75A
+        annotation: SP
+        status: spare
+      grounding: E3
+      rated_voltage_V: 440
+      main_cb_type: MCCB
+      main_cb_poles: 3
+      main_cb_af_A: 400
+      main_cb_at_A: 300
+      spd_spec: 3Ø S.P.D 40KA/mode
+      spd_protection_mccb: MCCB 3P 30/20AT
+      branch_circuits:
+      - circuit_no: 1
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 100
+        breaker_at_A: 100
+        annotation: null
+        status: active
+      - circuit_no: 2
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 40
+        breaker_at_A: 50
+        annotation: null
+        status: active
+      - circuit_no: 3
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 30
+        breaker_at_A: 50
+        annotation: null
+        status: active
+      - circuit_no: 4
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 150
+        breaker_at_A: 225
+        annotation: 시험용
+        status: active
+      - circuit_no: 5
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 75
+        breaker_at_A: 125
+        annotation: SP
+        status: spare
+      - circuit_no: 6
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 125
+        breaker_at_A: 75
+        annotation: SP
+        status: spare
+      - circuit_no: 7
+        breaker_type: MCCB
+        breaker_poles: 3
+        breaker_af_A: 125
+        breaker_at_A: 75
+        annotation: SP
+        status: spare
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - equipment_symbols
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements
+  - drawing_texts
+  - notes
+  - ontology_hints.observed_relations
+  - ontology_hints.cross_discipline
+  - ontology_hints.similar_equipment
+  - connection_specs
+  - source_attribution.*_sonnet/*_gemini/*_mini detailed subfields not present
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: ElectricalDistributionEquipment
+    annotations_to_emit:
+    - specs_full
+    - ambiguous_attributes
+    - auxiliary_attributes
+    - provenance_attributes
+    - conflicts
+    - source_attribution
+    - collection_sources
+    - spatial_context
+    relations_to_emit:
+    - feeds
+    - grounds_to
+    - contains
+    - cable
+    needs_human_review: false
+tag: P-A-4PP-2
+discovered_relations: 5

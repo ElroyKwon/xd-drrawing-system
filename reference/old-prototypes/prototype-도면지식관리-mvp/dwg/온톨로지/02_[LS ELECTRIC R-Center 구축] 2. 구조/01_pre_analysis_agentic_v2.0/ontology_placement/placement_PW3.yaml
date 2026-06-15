@@ -1,0 +1,164 @@
+placement:
+  tag: PW3
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PW3
+    class_hint: PitWallMark
+    alternative_class_hints:
+    - MemberMark
+    - GroupingEntity
+    related_assertions:
+    - type: contains
+      target_hint: GRP-PIT-WALL
+      note: GRP-PIT-WALL contains PW3
+      confirmed_property: dks:isContainedIn
+      confirmed_target: dks:GRP-PIT-WALL
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: linked_to
+      target_hint: PLAN-PIT
+      note: PW3 linked_to PLAN-PIT
+      confirmed_property: dks:linked_to
+      confirmed_target: dks:PLAN-PIT
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX001
+    - AX012
+    - AX014
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN013
+    - CN015
+    confirmed_class: dks:PitWallMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'relations: GRP-PIT-WALL contains PW3; PW3 linked_to PLAN-PIT'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실이 명시되어 있으며 그룹 포함 및 플랜 연결 문맥이 반복 관찰됨
+      - raw_text: 'tag: PW3'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 태그 문자열 자체가 엔티티 식별 정보로 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 34
+      method: direct
+    name:
+      source_pages:
+      - 34
+      method: not_observed
+    discipline:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 34
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 34
+      method: inferred_from_plan_context
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 34
+      method: inferred_from_plan_context
+    ontology_core.related_assertions:
+      source_pages:
+      - 34
+      method: direct
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 34
+      method: direct
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 name 필드가 없음
+    preservation_note: 추후 동일 태그의 다른 페이지/레코드에서 name 존재 여부 확인
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 specs 필드가 없음
+    preservation_note: 현재 태그는 관계 중심으로만 관찰됨
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 connection_specs 필드가 없음
+    preservation_note: 관계 방향/연결 상세는 relations에서만 확인됨
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 requirements 필드가 없음
+    preservation_note: 요구사항 정보 미관찰
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 drawing_texts 필드가 없음
+    preservation_note: 도면 주석 원문은 제공되지 않음
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 ontology_hints 필드가 없음
+    preservation_note: plan 기반 추론만 사용
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 notes 필드가 없음
+    preservation_note: 추가 설명 없음
+  - field_candidate: source_pages
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail 최상위 source_pages 필드가 없음
+    preservation_note: 관계 레코드의 source_page만 존재
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 source_attribution 필드가 없음
+    preservation_note: cross_validated만 relations에 표시됨
+  - field_candidate: position
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 position 필드가 없음
+    preservation_note: 도면 상 위치 정보 미제공
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: PW3는 GRP-PIT-WALL에 포함되고 PLAN-PIT에 연결되는 개별 마크로 관찰되어 NamedIndividual로 배치
+      가능
+    recommended_handling: 후속 단계에서 class 확정 및 관계 property 정규화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - group -> contains -> member mark
+    - plan/pit linked_to member mark
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:57.307749'
+  confidence: 0.86

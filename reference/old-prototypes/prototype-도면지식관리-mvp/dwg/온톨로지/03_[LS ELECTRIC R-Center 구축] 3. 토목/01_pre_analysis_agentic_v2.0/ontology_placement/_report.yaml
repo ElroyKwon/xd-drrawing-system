@@ -1,0 +1,135 @@
+summary:
+  total_placements: 173
+  expected_total_tags: 173
+  owl_role_distribution:
+    NamedIndividual: 88
+    AnnotationOnly: 85
+  discipline_distribution:
+    civil: 173
+  ambiguous_count: 68
+  merge_candidate_count: 20
+  unresolved_entries: 837
+ambiguous_samples:
+- tag: BLDG-03
+  reason: 차량막은 existing_structure로 명시되었으나, ontology_hints의 후보가 Vehicle Shelter / Vehicle
+    Barrier / Existing Structure로 분산되어 단일 클래스 확정이 어려움
+- tag: BLDG-04
+  reason: existing_structure이면서 name이 우수함수조이고 function_category가 RAINWATER_STORAGE_TANK로
+    제시되어 물리 구조물/기능 분류/상위 클래스 후보가 혼재함
+- tag: BUILDING-SECTION-LEFT
+  reason: BUILDING_OUTLINE이며 건물 단면/구조 경계/단면도 요소로 해석 가능하나, 물리적 설비 실체보다는 도면상의 구간 표기
+    성격이 강함.
+- tag: BUILDING-SECTION-RIGHT
+  reason: BUILDING_OUTLINE 유형이면서 name이 건물 단면으로 제시되어 물리적 구조물인지 도면 단면 요소인지 경계가 다소 모호함
+- tag: CP-4
+  reason: 도근점으로 보이는 단일 기준점이지만 elevation_m와 coordinates가 null이며, SurveyControlPoint
+    계열의 정확한 클래스 확정은 이 단계에서 불가
+- tag: DIM-2810
+  reason: DIMENSION 태그로 보이나, 굴착 폭/구간 치수/일반 측정 중 어느 기능인지 entity_detail만으로 확정 불가
+- tag: DIM-379
+  reason: 치수 표기라는 주석성 요소로 보이지만, 숫자 '379'가 실제 치수값인지 식별 라벨인지 단독으로는 판정이 어렵다.
+- tag: DIM-90
+  reason: DIMENSION 주석은 물리 설비가 아니라 도면상의 치수 표기/주석으로 보이며, MeasurementIndication과 DistanceIndication
+    후보가 동시에 존재함
+- tag: DTL-RUNG
+  reason: 태그는 상세도/주석 성격이 강하지만, 실제 물리 부재(디딤쇠) 자체를 설명하는 도면 요소이기도 하여 AnnotationOnly와
+    NamedIndividual 경계가 모호함.
+- tag: EXC-LEVEL-CENTER
+  reason: 도면 주석/표식으로 보이며 물리적 설비 실체인지, 단순 레벨 마커인지 경계가 모호함. 또한 final excavation elevation과
+    marks excavation level 두 기능 후보가 함께 존재함.
+- tag: EXC-LEVEL-LEFT
+  reason: 도면 주석/표기 성격이 강하지만, EXCAVATION_LEVEL이라는 type과 suggested_parent_class ExcavationLevel이
+    있어 물리적 기준점/레벨 표기 중 어느 쪽으로 상위 분류할지 0.9c에서 확정 필요함.
+- tag: EXC-LEVEL-RIGHT
+  reason: 굴착 완료 레벨을 나타내는 도면 주석/표식으로 보이며, 물리 설비 실체인지 단순 주석인지 경계가 있으나 현재 입력은 레벨 표기와
+    박스형 주석 중심이다.
+- tag: EXISTING-SEWER-WEST
+  reason: 태그는 독립 관로처럼 보이지만, relation이 SM-02와의 연결 사실을 강하게 포함하고 있어 NamedIndividual와
+    ObjectPropertyAssertion 경계가 다소 모호함
+- tag: FOUNDATION-DTL-01
+  reason: 상세 단면(detail) 도면으로 보이지만 물리적 설비 자체인지, 주석/도면 요소인지 경계가 모호하며, 관계도 TABLE-FOUND-01과의
+    적용 관계만 확인됨.
+- tag: GRADE-LEVEL-3
+  reason: 지반 레벨 표기라는 주석성 요소로 보이지만, EL 수치가 포함되어 있어 단순 AnnotationOnly와 DataPropertyValue
+    경계가 모호함
+- tag: GRID-COL-2
+  reason: GRID_MARKER는 물리 설비라기보다 도면상의 기준/주석 요소로 보이며, AnnotationOnly와 NamedIndividual
+    사이 해석 여지가 있음.
+- tag: GRID-COL-3
+  reason: GRID_MARKER는 물리 설비라기보다 도면상의 기준/주석 요소로 보이며, function_candidates에 Structural
+    Grid, Reference Marker, Column Axis가 함께 제시되어 단일 물리 클래스 확정이 어려움.
+- tag: GRID-COL-7
+  reason: GRID_MARKER는 물리 설비라기보다 도면상의 구조 그리드 표식으로 보이며, class_hint는 GridMarker로 추정되지만
+    실제 온톨로지 확정은 불가함.
+- tag: LEGEND-01
+  reason: 범례 표는 AnnotationOnly가 우세하지만, 내부에 오수맨홀/오수관로/철거 항목 등 물리 객체와 재료·철거 목록이 혼재함
+- tag: PHOTO-CP3
+  reason: REFERENCE_PHOTO로 보이는 주석성 엔티티이며, 도근점 CP.3를 참조하는 사진인지 단순 캡션인지 경계가 다소 모호함.
+merge_candidates:
+- tag: CP-1
+  other_tag: CP.1
+  reason: 인근 태그 요약에 CP.1이 존재하며, CP-1과 동일한 도근점 표기 변형 가능성이 있음.
+- tag: CP-4
+  other_tag: CP-1
+  reason: CP.* 계열의 표기 변형 가능성이 있으며, 인근 태그 요약과 merge_candidates_hint에서 동일 도근점 표기 변형
+    가능성이 제시됨
+- tag: CP.1
+  other_tag: CP-1
+  reason: 인근 태그 요약에 CP-1이 존재하며, CP.* vs CP-* 표기 변형의 merge 후보로 제시됨.
+- tag: CP.2
+  other_tag: CP-2
+  reason: 인근 태그 요약 및 ontology plan에서 CP.* vs CP-*가 동일 도근점 표기 변형으로 제시됨
+- tag: CP.3
+  other_tag: CP-1
+  reason: ontology_hints.similar_equipment 및 plan의 merge_candidates_hint에서 CP.* vs
+    CP-* 표기 변형 가능성이 제시됨
+- tag: EXC-LEVEL-RIGHT
+  other_tag: EXC-LEVEL-LEFT
+  reason: 동일 계열의 좌/우 변형 태그로 보이며, ontology_hints에 similar_equipment로 명시됨
+- tag: GRADE-LEVEL-3
+  other_tag: GRADE-LEVEL-1
+  reason: 동일 계열의 GRADE-LEVEL-* 태그이며 유사 태그로 명시됨
+- tag: GRID-COL-3
+  other_tag: GRID-COL-1 / GRID-COL-2 / GRID-COL-4 / GRID-COL-5
+  reason: 동일 패턴의 그리드 열 태그가 인근에 다수 존재하며, 연속 축 표기의 일부일 가능성이 있어 표기 변형/동일 체계 후보로 보존 필요
+- tag: GRID-COL-5
+  other_tag: GRID-COL-*
+  reason: 인근 태그 요약에 GRID-COL-1~4가 존재하며, 동일 패턴의 열 마커로 보이는 변형 후보임
+- tag: LEGEND-01
+  other_tag: LEGEND
+  reason: 태그가 범례를 직접 지시하며, 명칭도 '도면 범례 표'로 일반 범례 태그와 중복 가능성이 있음
+- tag: PAVE-ASCON-RESTORE
+  other_tag: PAVE-ASCON-NEW
+  reason: ontology_hints.similar_equipment에 제시된 유사 태그이며, 동일 포장 계열의 상태 차이(restore/new)
+    가능성이 있어 비교 필요
+- tag: PIPE-DTL-02
+  other_tag: PIPE-DTL-01
+  reason: ontology_hints.similar_equipment에 PIPE-DTL-01이 명시되어 있고, 둘 다 PIPE-DTL 상세도
+    계열로 보이는 유사 태그임
+- tag: SLOPE-LEFT
+  other_tag: SLOPE-RIGHT
+  reason: 좌/우 대칭 표기이며 동일한 경사비 주석 계열로 보이는 유사 태그가 존재함.
+- tag: SLOPE-RIGHT
+  other_tag: SLOPE-LEFT
+  reason: 동일한 경사비 표기 계열로 보이며 좌/우 방향만 다른 대응 태그로 추정됨
+- tag: SM.5
+  other_tag: SM.4
+  reason: ontology_hints.similar_equipment에 SM.4가 명시되어 있고, relations에서도 SM.4 -> SM.5
+    연결이 관찰되어 인접 맨홀 간 유사/연속 태그 가능성이 있음
+- tag: SOCKET-MACH-DTL
+  other_tag: SOCKET-DTL-01
+  reason: 태그 패턴과 명칭이 유사하며, 동일 계열 상세도 변형 가능성이 있음
+- tag: T.B.M
+  other_tag: B.M
+  reason: ontology_hints.similar_equipment에 B.M이 명시되어 있으며, 표고점/기준점 계열의 표기 변형 가능성이
+    있음
+- tag: TABLE-FOUND-01
+  other_tag: TABLE-FOUND-DIM
+  reason: ontology_plan의 merge_candidates_hint에 동일 페이지(page_011) 중복 테이블 엔티티 가능성이 제시됨
+- tag: TABLE-FOUND-DIM
+  other_tag: TABLE-FOUND-01
+  reason: ontology_plan의 merge_candidates_hint에 동일 페이지(page_011) 중복 테이블 엔티티 가능성이 제시됨
+- tag: UNKNOWN-CURB-01
+  other_tag: UNKNOWN-CURB-02
+  reason: 동일 계열 CURB 태그이며, 좌/우 또는 유사 단면 상세의 표기 변형 가능성이 있음
+generated_at: '2026-04-20T12:44:47.758265'

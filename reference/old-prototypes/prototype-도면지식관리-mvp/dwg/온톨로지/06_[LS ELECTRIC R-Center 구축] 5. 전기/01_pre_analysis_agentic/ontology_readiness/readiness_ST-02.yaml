@@ -1,0 +1,11 @@
+tag: ST-02
+verdict: demoted
+confidence: 0.98
+missing_fields: []
+missing_relations: []
+reason: entity_detail과 page 4 context에서 ST-02는 PULL BOX 400 x 400 x 300mm로 확인되며 자체
+  사양(size)이 1개 이상 존재한다. 다만 이는 독립 설비라기보다 옥외 전력간선설비 인입 배치도에서 공동구-맨홀-풀박스-덕트뱅크-빈관으로 이어지는
+  연결 경로상의 구조물/부속 요소로 보이며, 독립 엔티티로 온톨로지 진입시키기보다 구조물 구성요소로 강등하는 것이 적절하다. 관계는 page 4에서
+  전력용 맨홀 → PULL BOX, PULL BOX → CONCRETE DUCT BANK가 확인되지만 entity_detail의 connection_specs는
+  비어 있어 누락 관계를 별도로 산정할 수 없다. 필수 필드(tag, type, specifications)는 확인되나 독립 엔티티 기준을 충족하지
+  않아 demoted 처리한다.

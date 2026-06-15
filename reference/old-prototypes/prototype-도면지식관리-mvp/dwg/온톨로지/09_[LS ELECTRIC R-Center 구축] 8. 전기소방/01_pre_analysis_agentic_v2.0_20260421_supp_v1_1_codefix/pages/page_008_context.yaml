@@ -1,0 +1,597 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_PROTECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF - 103
+    title: 2층 소방간선설비 평면도
+    revision: null
+  visible_tags:
+  - tag: FD-2A
+    type: fire_door
+    source: both
+  - tag: FA-2B
+    type: fire_alarm_device
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 2
+  next_step_hints:
+  - 도면 제목과 표제란에 '2층 소방간선설비 평면도'가 보이며, 소방 관련 배선/간선 경로가 평면 형태로 표현됨
+  - '표제란 도면번호 EF-103의 접두사 E와 시각적 소방 내용이 충돌함: 접두사 우선 규칙에 따라 FIRE_PROTECTION으로 판정'
+  - 실명으로 보이는 공간 표기가 다수 있으나, 설비 태그로 확실히 읽히는 것은 FD-2A, FA-2B 정도
+  confidence: 0.96
+  note: 도면번호 EF-103은 접두사 E가 포함되어 있으나, 제목 '소방간선설비 평면도' 및 시각적 내용이 소방 계통이므로 접두사 우선 규칙
+    적용 시 FIRE_PROTECTION으로 분류함. legend_data.yaml은 조회했으나 존재하지 않음.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_electrical_alarm/supplement_p10.yaml
+  routing_confidence: 0.74
+  routing_reason: 소방 평면도이며 카탈로그에 fire_protection/P-4.5 genre_mechanical, P-10 genre_mechanical
+    보조프롬프트가 존재해 해당 경로로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 2층 평면도
+    position: center
+    labels_near:
+    - Software lab
+    - 중회의실
+    - 사무실
+    - 검증시스템 컨트롤실
+    - 자료실
+    - 소회의실
+    - 라운지
+    - 세미나/다목적실
+    - 센터장실
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 2층 소방간선설비 평면도
+    - EF - 103
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: TITLE_BLOCK
+    line_style: none
+    annotation: 참조 관계
+  notable_shapes:
+  - shape: dashed_box
+    label: FD-2A
+    note: 평면도 내 방화문(Fire Door) 위치 표시
+  - shape: dashed_box
+    label: FA-2B
+    note: 평면도 내 소방 경보 장치(Fire Alarm) 위치 표시
+  - shape: dashed_box
+    label: FA-2A
+    note: 평면도 하단 소방 경보 장치 위치 표시
+  - shape: dashed_box
+    label: FD-2B
+    note: 평면도 최하단 방화문 위치 표시
+  - shape: circle
+    label: 2층 소방간선설비 평면도
+    note: 도면 제목 및 축척 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.0
+  note: 페이지 전체가 평면도로 구성되어 있으며, 범례 섹션이 존재하지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '2층 소방간선설비 평면도' 및 도면번호 접두사 'EF'를 통해 전기소방(Electrical Fire)
+    분야의 평면도임을 확정함. 0-0의 FIRE_PROTECTION 판정은 유지하되, 카탈로그에 genre_floor_plan 경로가 존재하므로
+    P-4.5 경로를 구체화하여 갱신함. P-10은 전기소방 서브시스템에 맞춰 genre_electrical_alarm 경로를 채택함.
+classification: FIRE_PROTECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: 2층 소방간선설비 평면도'
+- '도면 번호: EF - 103'
+- '프로젝트 제목: LS Electric R-Center 구축'
+- '건물명: R-Center'
+- '축척: A3 1/300, A1 1/150'
+- '공간 표기: Software Lab'
+- '공간 표기: 검증시스템 컨트롤실'
+- '공간 표기: 자료실'
+- '공간 표기: 세미나/다목적실'
+- '공간 표기: 라운지'
+- '공간 표기: 소회의실-1'
+- '공간 표기: 센터장실'
+- '공간 표기: 사무실'
+- '공간 표기: 중회의실'
+- '공간 표기: 휴게공간'
+- '공간 표기: 소회의실-2'
+- '설비 태그: FD-2A'
+- '설비 태그: FA-2B'
+- '설비 태그: FA-2A'
+- '설비 태그: FD-2B'
+title_block:
+  drawing_number: EF - 103
+  title: 2층 소방간선설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 FIRE_PROTECTION / floor plan 판정과 일치함. 표제란에서 도면번호 EF-103, 제목 2층 소방간선설비
+  평면도, 프로젝트 LS Electric R-Center 구축, 건물명 R-Center가 보임. 페이지 내 시각적 표기와 텍스트에 FD-2A, FA-2B,
+  FA-2A, FD-2B가 확인됨. 기존 visible_tags의 FD-2A, FA-2B는 보이지만 FA-2A, FD-2B도 추가로 보임. 리비전은
+  확인 불가.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ROOM-SOFTWARE-LAB
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 소프트웨어 랩 (2층 좌상단 대형 공간)
+    position: top-left
+  - panel_id: ROOM-SEMINAR
+    shape: rectangle
+    labels_inside:
+    - 세미나/다목적실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 세미나/다목적실 (2층 하단 중앙)
+    position: bottom-center
+  - panel_id: ROOM-LOUNGE
+    shape: rectangle
+    labels_inside:
+    - 라운지
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 라운지 (2층 우측 상단)
+    position: top-right
+  - panel_id: ROOM-CONTROL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 검증시스템 컨트롤실 (2층 중앙)
+    position: center
+  - panel_id: ROOM-ARCHIVE
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 자료실 (2층 중앙 하단)
+    position: center-left
+  - panel_id: ROOM-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사무실 (2층 우측)
+    position: right
+  - panel_id: ROOM-CONF-SMALL-1
+    shape: rectangle
+    labels_inside:
+    - 소회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 소회의실-1 (2층 우측 중단)
+    position: center-right
+  - panel_id: ROOM-CONF-SMALL-2
+    shape: rectangle
+    labels_inside:
+    - 소회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 소회의실-2 (2층 우측 하단)
+    position: bottom-right
+  - panel_id: ROOM-CENTER-DIRECTOR
+    shape: rectangle
+    labels_inside:
+    - 센터장실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 센터장실 (2층 우측)
+    position: right
+  - panel_id: ROOM-REST
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 휴게공간 (2층 우측 상단)
+    position: top-right
+  - panel_id: ROOM-CONF-MID
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 중회의실 (2층 우측)
+    position: right
+  - panel_id: FD-2A-UPPER
+    shape: dashed_box
+    labels_inside:
+    - FD-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화문 (Fire Door)
+      count: 1
+    inferred_name: 방화문 FD-2A (2층 중앙부 상단)
+    position: center
+  - panel_id: FA-2B
+    shape: dashed_box
+    labels_inside:
+    - FA-2B
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방간선 분기 구역 (Fire Alarm backbone zone)
+      count: 1
+    inferred_name: 소방간선 구역 FA-2B (2층 중앙 우측)
+    position: center-right
+  - panel_id: FA-2A
+    shape: dashed_box
+    labels_inside:
+    - FA-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 소방간선 분기 구역 (Fire Alarm backbone zone)
+      count: 1
+    inferred_name: 소방간선 구역 FA-2A (2층 하단)
+    position: bottom-center
+  - panel_id: FD-2B
+    shape: dashed_box
+    labels_inside:
+    - FD-2B
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화문 (Fire Door)
+      count: 1
+    inferred_name: 방화문 FD-2B (2층 최하단)
+    position: bottom-center
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - R-Center
+    - 2층 소방간선설비 평면도
+    - EF - 103
+    - A3:1/300
+    - 'SCALE: 1/300(A3)'
+    - 'SCALE: 1/150(A1)'
+    - 안동식
+    - 이은전
+    - 정용재
+    - '2024.01'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  - panel_id: ENGINEER-BLOCK
+    shape: rectangle
+    labels_inside:
+    - (주)정연엔지니어링
+    - 소방설비기술사 등 각 분야 전문 소방설비설계업 등록
+    - 경기도 안양시 동안구 흥안대로 415, 1115호, 1116호
+    - (031) 458-9666
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설계사 정보 블록 (정연엔지니어링)
+    position: bottom-center
+  connections:
+  - from: FA-2B
+    to: FA-2A
+    line_type: cable
+    line_style: dashed
+    annotation: 소방간선 배선 경로 (수직 방향)
+  - from: FD-2A-UPPER
+    to: FA-2B
+    line_type: cable
+    line_style: dashed
+    annotation: 소방간선 연결 (방화문 구역 경유)
+  - from: FA-2A
+    to: FD-2B
+    line_type: cable
+    line_style: dashed
+    annotation: 소방간선 하단 연결
+  groups:
+  - group_id: GRP-FIRE-ZONE-2F
+    label: 2층 소방간선 구역 (FA-2A / FA-2B)
+    members:
+    - FA-2A
+    - FA-2B
+  - group_id: GRP-FIRE-DOOR-2F
+    label: 2층 방화문 구역 (FD-2A / FD-2B)
+    members:
+    - FD-2A-UPPER
+    - FD-2B
+  - group_id: GRP-ROOMS-2F
+    label: 2층 실 구획
+    members:
+    - ROOM-SOFTWARE-LAB
+    - ROOM-SEMINAR
+    - ROOM-LOUNGE
+    - ROOM-CONTROL
+    - ROOM-ARCHIVE
+    - ROOM-OFFICE
+    - ROOM-CONF-SMALL-1
+    - ROOM-CONF-SMALL-2
+    - ROOM-CENTER-DIRECTOR
+    - ROOM-REST
+    - ROOM-CONF-MID
+  legend_references:
+  - text: FD (Fire Door) — 방화문
+    linked_to: FD-2A-UPPER
+  - text: FD (Fire Door) — 방화문
+    linked_to: FD-2B
+  - text: FA — 소방간선 구역 (Fire Alarm backbone zone)
+    linked_to: FA-2B
+  - text: FA — 소방간선 구역 (Fire Alarm backbone zone)
+    linked_to: FA-2A
+  - text: 감지기용 배관배선 (F)
+    linked_to: FA-2B
+  - text: 유도등용 배관배선 (EX)
+    linked_to: FA-2A
+  - text: 천정 노출 및 은폐 배관배선 (점선)
+    linked_to: FA-2B
+  diagram_meta:
+    title: 2층 소방간선설비 평면도
+    drawing_number: EF-103
+    project: LS Electric R-Center 구축
+    building: R-Center
+    floor: 2층
+    scale_a3: 1/300
+    scale_a1: 1/150
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 EF-103 접두사 'EF'(Electrical Fire) + 제목 '2층 소방간선설비
+      평면도' 두 단서 근거로 FIRE_PROTECTION 확정
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: top-to-bottom
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineer_firm: (주)정연엔지니어링
+    date: '2024.01'
+    drawn_by: 안동식
+    checked_by: 이은전
+    approved_by: 정용재
+    project_number: '224001'
+    notes:
+    - 2층 전체 평면에 소방간선 배선 경로(FA-2A, FA-2B 구역)와 방화문(FD-2A, FD-2B) 위치가 점선 박스로 표시됨
+    - 소방간선 배선은 점선(천정 노출 및 은폐 배관배선) 형태로 평면 전체에 걸쳐 수직·수평 경로로 표현됨
+    - FA-2A, FA-2B는 소방간선 분기 구역을 나타내며, 각각 점선 박스로 구획됨
+    - FD-2A, FD-2B는 방화문 위치를 나타내며, 소방간선 경로와 연계됨
+    - 평면도 좌측 대형 공간(Software Lab)은 소방간선 배선이 통과하는 주요 경로임
+    - 세미나/다목적실, 검증시스템 컨트롤실 등 주요 실에 소방간선 배선이 분기됨
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    inferred_name: 소프트웨어 랩
+    position: top-center
+  - panel_id: P02
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    inferred_name: 휴게공간
+    position: top-right
+  - panel_id: P03
+    shape: rectangle
+    labels_inside:
+    - 라운지
+    inferred_name: 라운지
+    position: top-right
+  - panel_id: P04
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    inferred_name: 검증시스템 컨트롤실
+    position: center
+  - panel_id: P05
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    inferred_name: 자료실
+    position: center-left
+  - panel_id: P06
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    inferred_name: 사무실
+    position: right
+  - panel_id: P07
+    shape: rectangle
+    labels_inside:
+    - 소회의실
+    inferred_name: 소회의실 1
+    position: center-right
+  - panel_id: P08
+    shape: rectangle
+    labels_inside:
+    - 소회의실
+    inferred_name: 소회의실 2
+    position: bottom-right
+  - panel_id: P09
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    inferred_name: 중회의실
+    position: center-right
+  - panel_id: P10
+    shape: rectangle
+    labels_inside:
+    - 센터장실
+    inferred_name: 센터장실
+    position: center-right
+  - panel_id: P11
+    shape: rectangle
+    labels_inside:
+    - 세미나/다목적실
+    inferred_name: 세미나/다목적실
+    position: bottom-center
+  - panel_id: P12
+    shape: rectangle
+    labels_inside:
+    - 복도
+    inferred_name: 복도
+    position: center
+  - panel_id: P13
+    shape: rectangle
+    labels_inside:
+    - UP
+    - DN
+    inferred_name: 계단실/엘리베이터 홀
+    position: center
+  - panel_id: P14
+    shape: dashed_box
+    labels_inside:
+    - FD-2A
+    inferred_name: 방화문 구역 FD-2A
+    position: center
+  - panel_id: P15
+    shape: dashed_box
+    labels_inside:
+    - FA-2B
+    inferred_name: 소방간선 구역 FA-2B
+    position: center
+  - panel_id: P16
+    shape: dashed_box
+    labels_inside:
+    - FA-2A
+    inferred_name: 소방간선 구역 FA-2A
+    position: bottom-right
+  - panel_id: P17
+    shape: dashed_box
+    labels_inside:
+    - FD-2B
+    inferred_name: 방화문 구역 FD-2B
+    position: bottom-center
+  - panel_id: P18
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - R-Center
+    - 2층 소방간선설비 평면도
+    - EF - 103
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    - '2024.01'
+    inferred_name: 표제란
+    position: bottom-right
+  - panel_id: P19
+    shape: rectangle
+    labels_inside:
+    - (주)정연엔지니어링
+    - 소방설비기술사 등 각 분야 전문 소방설비설계업 등록
+    inferred_name: 설계사 정보
+    position: bottom-center
+  - panel_id: P20
+    shape: circle
+    labels_inside:
+    - 2층 소방간선설비 평면도
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    inferred_name: 도면 제목 및 축척
+    position: bottom-left
+  connections:
+  - from: P15
+    to: P14
+    line_type: cable
+    line_style: solid
+    annotation: 소방간선
+  - from: P15
+    to: P16
+    line_type: cable
+    line_style: solid
+    annotation: 소방간선
+  - from: P16
+    to: P17
+    line_type: cable
+    line_style: solid
+    annotation: 소방간선
+  - from: P15
+    to: P13
+    line_type: cable
+    line_style: solid
+    annotation: 입상/입하 (Riser)
+    equipment_symbols:
+    - type: riser_symbol
+      count: 2
+  groups:
+  - group_id: GRP-ROOMS
+    label: 실 구획
+    members:
+    - P01
+    - P02
+    - P03
+    - P04
+    - P05
+    - P06
+    - P07
+    - P08
+    - P09
+    - P10
+    - P11
+    - P12
+    - P13
+  - group_id: GRP-FP-ZONES
+    label: 소방 구역
+    members:
+    - P14
+    - P15
+    - P16
+    - P17
+  diagram_meta:
+    title: 2층 소방간선설비 평면도
+    drawing_number: EF - 103
+    project: LS Electric R-Center 구축
+    building: R-Center
+    floor: 2층
+    scale_a3: 1/300
+    scale_a1: 1/150
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineer_firm: (주)정연엔지니어링
+    date: '2024.01'
+    project_number: '224001'
+    flow_direction: UNKNOWN

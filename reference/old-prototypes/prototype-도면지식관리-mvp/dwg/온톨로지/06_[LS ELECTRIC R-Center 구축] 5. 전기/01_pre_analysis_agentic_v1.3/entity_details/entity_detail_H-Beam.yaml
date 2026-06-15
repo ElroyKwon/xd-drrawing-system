@@ -1,0 +1,71 @@
+entity_detail:
+  tag: H-Beam
+  type: structural_element
+  specs:
+    spec:
+      value: H-Beam
+      source: 40
+      confidence: 0.9
+  drawing_texts:
+  - source: page_039_context.yaml
+    page_number: 39
+    text: 중단 상세도에 H-Beam/Steel Plate 접속 상세가 보임
+  - source: page_040_context.yaml
+    page_number: 40
+    text: 'tag: LP-COMP-019
+
+      name: H-Beam
+
+      spec: H-Beam
+
+      discipline: STRUCTURAL
+
+      function_category: BOUNDARY
+
+      location: 수뢰부 설치 상세도
+
+      confidence: 0.9'
+  - source: page_040_context.yaml
+    page_number: 40
+    text: 'Steel Plate -> H-Beam
+
+      relation: 용접/부착
+
+      medium: 실선
+
+      direction: Steel Plate -> H-Beam'
+  requirements:
+  - text: Steel Plate와 H-Beam은 용접/부착 관계로 표시됨
+    source: page_040_context.yaml
+    type: connection_requirement
+  connection_specs:
+  - relation: 용접/부착
+    partner: Steel Plate
+    details:
+      source: page_040_context.yaml
+      text: 'Steel Plate -> H-Beam
+
+        relation: 용접/부착
+
+        medium: 실선
+
+        direction: Steel Plate -> H-Beam'
+  ontology_hints:
+    observed_relations:
+    - relation_type: 용접/부착
+      partner_tag: LP-COMP-016
+      direction: Steel Plate -> H-Beam
+      source: page_040_context.yaml
+    observed_attributes:
+    - spec
+    - discipline
+    - function_category
+    - location
+    similar_equipment:
+    - LP-COMP-019
+    suggested_parent_class: structural_element
+    cross_discipline: []
+  notes:
+  - page 39 context mentions H-Beam in a structural connection detail.
+  - page 40 context explicitly lists H-Beam as LP-COMP-019 with spec 'H-Beam'.
+tag: H-Beam

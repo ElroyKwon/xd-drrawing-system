@@ -1,0 +1,46 @@
+tag: MG-01
+name: 모터-발전기 세트
+type: MOTOR_GENERATOR
+discipline: ELECTRICAL
+function_category: CONVERT
+source_pages:
+- 2
+specs:
+  input_voltage_V: 440
+  output_voltage_V: 220
+  capacity_kVA: 10
+  raw_labels:
+  - MG
+  - 440V / 220V
+relations:
+- from: LV-R
+  to: MG-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: null
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: middle-left
+confidence: 0.95
+equipment_symbols:
+- type: motor_generator
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - input_voltage_V
+  - output_voltage_V
+  - capacity_kVA
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - VoltageConversion
+  - PowerGeneration

@@ -1,0 +1,227 @@
+placement:
+  tag: EXT-UNDERGROUND
+  name: 지하공동구
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-UNDERGROUND
+    class_hint: CableAndPathway
+    alternative_class_hints:
+    - InfrastructureElement
+    - ExternalCableEntry
+    - UndergroundRouting
+    related_assertions:
+    - type: connectedTo
+      target_hint: PULL-BOX
+      note: 지하공동구 → PULL BOX 인입
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CableAndPathway
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 지하공동구
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 라벨
+      - raw_text: 지하공동구
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기
+      - raw_text: 지하공동구
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_above
+          suggested_datatype: xsd:string
+          rationale: 도면 상부 표기
+      - raw_text: 지하공동구 (외부 인입 경로)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭
+      - raw_text: bottom-right
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: BOUNDARY
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 원문 type 값
+      - raw_text: CABLE_PATHWAY
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 function_category 값
+      - raw_text: ExternalCableEntry
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스
+      - raw_text: UndergroundRouting
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보
+      - raw_text: cable
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: relation
+          suggested_datatype: xsd:string
+          rationale: 관계 원문
+      - raw_text: PULL BOX 인입
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: annotation
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 원문
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints + function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: preservation
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    unresolved:
+      source_pages:
+      - 5
+      method: scan_all_fields
+    orphan_relations:
+      source_pages:
+      - 5
+      method: relations_scan
+    ambiguous:
+      source_pages:
+      - 5
+      method: classification_review
+    merge_info:
+      source_pages:
+      - 5
+      method: tag_similarity_check
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: ontology_plan.review
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 지하공동구
+    source_page: 5
+    reason: 원문 라벨이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: label 계열로 재해석 가능
+  - field_candidate: specs.labels_inside
+    raw_text: 지하공동구
+    source_page: 5
+    reason: 원문 라벨이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: label 계열로 재해석 가능
+  - field_candidate: specs.labels_above
+    raw_text: 지하공동구
+    source_page: 5
+    reason: 원문 라벨이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: label 계열로 재해석 가능
+  - field_candidate: specs.inferred_name
+    raw_text: 지하공동구 (외부 인입 경로)
+    source_page: 5
+    reason: 추론명은 보존하되 확정 속성으로 단정하지 않음
+    preservation_note: 후속 단계에서 name/inferredName 분리 검토
+  - field_candidate: specs.position
+    raw_text: bottom-right
+    source_page: 5
+    reason: 위치 정보는 있으나 별도 구조화 여부 미확정
+    preservation_note: position 속성 후보
+  - field_candidate: relations[0].relation
+    raw_text: cable
+    source_page: 5
+    reason: 관계 유형은 관찰되나 확정 property IRI 미지정
+    preservation_note: connectedTo 또는 routesThrough 후보
+  - field_candidate: relations[0].annotation
+    raw_text: 지하공동구 → PULL BOX 인입
+    source_page: 5
+    reason: 관계 주석은 의미 보존만 수행
+    preservation_note: 관계 방향성과 인입 의미 유지
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: InfrastructureElement
+    source_page: 5
+    reason: 상위 클래스 후보이나 확정 불가
+    preservation_note: physical infrastructure 계열 후보
+  - field_candidate: ontology_hints.function_candidates[0]
+    raw_text: ExternalCableEntry
+    source_page: 5
+    reason: 기능 후보
+    preservation_note: 외부 인입 경로 의미
+  - field_candidate: ontology_hints.function_candidates[1]
+    raw_text: UndergroundRouting
+    source_page: 5
+    reason: 기능 후보
+    preservation_note: 지하 경로 의미
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: BOUNDARY 타입이면서 CABLE_PATHWAY 기능을 가지며, 물리 경계/경로/인입구 중 어느 축으로 볼지 단일 확정이
+      어려움.
+    recommended_handling: 0-9c에서 공간/경로/설비 중 실제 연결 맥락을 확인하고, 0-9d에서 connectedTo 또는
+      routesThrough 계열로 정식화 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - expected_object_properties.connectedTo
+    - expected_object_properties.routesThrough
+    - expected_data_properties.position
+    - expected_data_properties.rawLabel
+    - expected_data_properties.inferredName
+    - predicted_ontology_structure.CableAndPathway
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:42.267150'
+  confidence: 0.84

@@ -1,0 +1,89 @@
+page_10_entities:
+- tag: UNKNOWN-STRUCTURE-01
+  name: 집수정
+  type: entity
+  discipline: CIVIL
+  confidence: 0.99
+- tag: PLAN-VIEW
+  name: 집수정 평면도 (500x500)
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: SECTION-AA
+  name: 집수정 A-A 단면도
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: SECTION-BB
+  name: 집수정 B-B 단면도
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: DETAIL-A
+  name: 스틸그레이팅 앵커 상세 A
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: GRATING-PLAN
+  name: 스틸그레이팅 평면도
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: GRATING-ISO
+  name: 스틸그레이팅 등각도
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: GRATING-DETAIL
+  name: 스틸그레이팅 단면 상세
+  type: panel
+  discipline: CIVIL
+  confidence: 0.99
+- tag: QUANTITY-TABLE
+  name: 집수정 수량표 (Bill of Materials)
+  type: table
+  discipline: CIVIL
+  confidence: 0.99
+page_10_relations:
+- from: UNKNOWN-STRUCTURE-01
+  to: PLAN-VIEW
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: SECTION-AA
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: SECTION-BB
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: DETAIL-A
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: GRATING-PLAN
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: GRATING-ISO
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: GRATING-DETAIL
+  relation: has_panel
+- from: UNKNOWN-STRUCTURE-01
+  to: QUANTITY-TABLE
+  relation: has_panel
+- from: PLAN-VIEW
+  to: SECTION-AA
+  relation: connects_to
+- from: PLAN-VIEW
+  to: SECTION-BB
+  relation: connects_to
+- from: SECTION-BB
+  to: DETAIL-A
+  relation: connects_to
+- from: SECTION-BB
+  to: UNKNOWN-STRUCTURE-01
+  relation: contains
+- from: GRATING-PLAN
+  to: GRATING-ISO
+  relation: same_system
+- from: GRATING-ISO
+  to: GRATING-DETAIL
+  relation: same_system

@@ -1,0 +1,131 @@
+entity_detail:
+  tag: P005-GENERATOR
+  type: equipment
+  specs:
+    rated_capacity:
+      unit: null
+      source: not found in provided page contexts
+      confidence: 0.0
+    voltage:
+      unit: null
+      source: not found in provided page contexts
+      confidence: 0.0
+  drawing_texts:
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PANEL BOARD: P-G-2PP'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: COVER TYPE 노출형(STEEL)
+  - source: page_019_context.yaml
+    page_number: 19
+    text: MAIN
+  - source: page_019_context.yaml
+    page_number: 19
+    text: MCCB
+  - source: page_019_context.yaml
+    page_number: 19
+    text: SPD
+  - source: page_019_context.yaml
+    page_number: 19
+    text: E3
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+  - source: page_023_context.yaml
+    page_number: 23
+    text: P-G-3PP
+  - source: page_023_context.yaml
+    page_number: 23
+    text: P-G-2PP
+  - source: page_023_context.yaml
+    page_number: 23
+    text: P-G-3PP
+  requirements:
+  - text: COVER TYPE 노출형(STEEL)
+    source: page_019_context.yaml
+    type: cover_type
+  - text: MCCB
+    source: page_019_context.yaml
+    type: protection
+  - text: SPD
+    source: page_019_context.yaml
+    type: protection
+  - text: E3
+    source: page_019_context.yaml
+    type: grounding
+  - text: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+    source: page_019_context.yaml
+    type: breaker_rating_table
+  connection_specs:
+  - relation: feeds
+    partner: MAIN
+    details:
+      source: page_019_context.yaml
+  - relation: protection
+    partner: MCCB
+    details:
+      source: page_019_context.yaml
+  - relation: surge_protection
+    partner: SPD
+    details:
+      source: page_019_context.yaml
+  - relation: grounding
+    partner: E3
+    details:
+      source: page_019_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: MAIN
+      direction: UNKNOWN
+      source: page_019_context.yaml
+    - relation_type: protection
+      partner_tag: MCCB
+      direction: inline
+      source: page_019_context.yaml
+    - relation_type: surge_protection_to_ground
+      partner_tag: ground
+      direction: to ground
+      source: page_019_context.yaml
+    - relation_type: grounding
+      partner_tag: ground
+      direction: to ground
+      source: page_019_context.yaml
+    observed_attributes:
+    - PANEL BOARD
+    - PANEL LOCATION
+    - COVER TYPE
+    - BOX SIZE
+    - MAIN
+    - MCCB
+    - SPD
+    - E3
+    - 30AF
+    - 50AF
+    - 100AF
+    - 125AF
+    - 250AF
+    - 400AF
+    - 600AF
+    similar_equipment:
+    - P-EA-2PP
+    - P-F-2PP
+    - P-I-2PP
+    - P-G-3PP
+    - P-A-3PP
+    - P-AC-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-I-3PP
+    suggested_parent_class: panel_board
+    cross_discipline: []
+  notes:
+  - Provided page contexts do not contain a distinct equipment tag 'P005-GENERATOR';
+    closest matching visible equipment tag is 'P-G-2PP' on page 19.
+  - No generator-specific capacity or voltage was found in the provided contexts.
+tag: P005-GENERATOR

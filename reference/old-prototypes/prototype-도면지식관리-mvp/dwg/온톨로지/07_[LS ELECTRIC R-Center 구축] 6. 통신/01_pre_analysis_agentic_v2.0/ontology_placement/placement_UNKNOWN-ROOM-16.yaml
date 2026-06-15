@@ -1,0 +1,147 @@
+placement:
+  tag: UNKNOWN-ROOM-16
+  name: 통신실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-16
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationRoom
+    - CommunicationSpaceEntity
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-1F-3
+      note: specs.members에 포함된 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: ROOM-통신실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별 문자열
+      - raw_text: 'members: OUTLET-1F-3'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: xsd:string
+          rationale: 공간 그룹의 구성원 표기
+      - raw_text: 'function_category: COMMUNICATION_ROOM'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationSpace'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트의 상위 클래스 제안
+      - raw_text: 'ontology_hints.observed_attributes: group_id, members'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: Communication equipment housing;
+          Network signal distribution'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 합성 생성 여부 표시
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + entity_detail.type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: inferred from name/type/function_category
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 5
+      method: specs.members
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 5
+      method: specs.members
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 5
+      method: specs.members
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 5
+      method: specs.group_id
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 5
+      method: specs.members
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 5
+      method: function_category
+    discipline_context.free_notes[3].raw_text:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class
+    discipline_context.free_notes[4].raw_text:
+      source_pages:
+      - 5
+      method: ontology_hints.observed_attributes
+    discipline_context.free_notes[5].raw_text:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes[6].raw_text:
+      source_pages:
+      - 5
+      method: collection_sources.entity_synthesis
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 배치
+    - locatedIn/hasMember 계열 관계 가능성 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:34.760423'
+  confidence: 0.93

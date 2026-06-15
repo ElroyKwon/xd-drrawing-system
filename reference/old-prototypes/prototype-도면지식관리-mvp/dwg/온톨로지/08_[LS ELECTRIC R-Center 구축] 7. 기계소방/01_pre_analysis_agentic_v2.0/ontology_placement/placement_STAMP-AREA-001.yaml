@@ -1,0 +1,163 @@
+placement:
+  tag: STAMP-AREA-001
+  name: 우상단 도장/인장 표식 (설계사 날인 영역)
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:STAMP-AREA-001
+    class_hint: DrawingAnnotation
+    alternative_class_hints:
+    - DocumentControlElement
+    - StampArea
+    - ApprovalStamp
+    - DesignerSeal
+    related_assertions: []
+    applicable_axioms:
+    - AX037
+    - AX038
+    - AX039
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN005
+    - CN006
+    - CN007
+    - CN013
+    confirmed_class: dks:DrawingAnnotation
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: STAMP_AREA'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: entity_type
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기
+      - raw_text: 'function_category: DOCUMENT_CONTROL_ELEMENT'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 문서 제어 요소로 분류된 원문 값
+      - raw_text: 'ontology_hints.suggested_parent_class: DrawingAnnotation'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: DesignerSeal, ApprovalStamp'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록 보존
+      - raw_text: 'specs: UNKNOWN'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: specs
+          suggested_datatype: xsd:string
+          rationale: 해석 불가한 원문 스펙 값
+      - raw_text: 'tool_usage.functions.search_entity_by_tag: STAMP-AREA-001 (결과 없음)'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: tool_usage
+          suggested_datatype: xsd:string
+          rationale: 탐색 결과 없음 기록
+      - raw_text: 'source_pages: [1]'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: source_pages
+          suggested_datatype: xsd:integer
+          rationale: 출처 페이지 보존
+      - raw_text: 'relations: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: relations
+          suggested_datatype: xsd:string
+          rationale: 관계 없음의 원문 상태 보존
+  provenance:
+    tag:
+      source_pages:
+      - 1
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 1
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 1
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 1
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 1
+      method: entity_detail.function_category
+    specs:
+      source_pages:
+      - 1
+      method: entity_detail.specs
+    source_pages:
+      source_pages:
+      - 1
+      method: entity_detail.source_pages
+    relations:
+      source_pages:
+      - 1
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 1
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 1
+      method: entity_detail.ontology_hints
+    tool_usage.functions.search_entity_by_tag:
+      source_pages:
+      - 1
+      method: entity_detail.tool_usage
+  unresolved:
+  - field_candidate: specs
+    raw_text: UNKNOWN
+    source_page: 1
+    reason: 구체 값이 없고 의미를 확정할 수 없음
+    preservation_note: 원문 UNKNOWN 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: DesignerSeal, ApprovalStamp
+    source_page: 1
+    reason: 후보 기능은 있으나 확정 불가
+    preservation_note: 후속 단계에서 기능/클래스 후보 검증 가능
+  - field_candidate: tool_usage.functions.search_entity_by_tag
+    raw_text: STAMP-AREA-001 (결과 없음)
+    source_page: 1
+    reason: 검색 실패 결과 자체는 의미 있으나 실체 판정에 직접 사용 불가
+    preservation_note: 중복/미등록 태그 검토 시 참고
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 도면상의 인장/날인 표식은 물리 설비가 아니라 문서 제어용 주석/표식으로 보이나, 설계사 날인 영역인지 승인 도장인지 기능 후보가
+      복수로 제시됨.
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 DrawingAnnotation 하위의 문서 제어
+      요소로 세분 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서/표제란/범례/스케줄 계열을 별도 문서성 엔티티로 보는 방향
+    - AnnotationEntity 계열로 분리하는 방향
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:06:20.034350'
+  confidence: 0.91

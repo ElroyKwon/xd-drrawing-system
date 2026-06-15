@@ -1,0 +1,130 @@
+placement:
+  tag: UNKNOWN-ROOM-006
+  name: COO실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-006
+    class_hint: Room
+    alternative_class_hints:
+    - Space
+    - Office
+    - CommunicationSpace
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: 스피커 천정형 (3W)
+      note: specs.source_text에 함께 기록된 equipment_symbols
+    applicable_axioms:
+    - AX002
+    applicable_constraints: []
+    confirmed_class: dks:Room
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 스피커 천정형 (3W)
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간에 포함된 설비 심볼 표기이며, 정량값 3W가 함께 붙은 장비 표기
+      - raw_text: COO실
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 상 공간명 원문
+      - raw_text: 'source_text: COO실'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: sourceText
+          suggested_datatype: xsd:string
+          rationale: specs 내 원문 텍스트 보존
+      - raw_text: 'equipment_symbols: 스피커 천정형 (3W)'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간과 연관된 장비 심볼 목록
+  provenance:
+    tag:
+      source_pages:
+      - 17
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 17
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: inferred from SPACE with own name/specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: derived from observed type/name
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 17
+      method: specs.source_text
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이나 ontology_hints는 Room을 제안하고, name은 COO실로 공간/실 표기이며 equipment_symbols가
+      함께 있어 공간인지 공간 내 표기인지 경계가 다소 혼합됨.
+    recommended_handling: 0-9c에서 Room/Space 계열로 검토하고, 0-9d에서 hasEquipmentSymbol 관계
+      여부를 확인해 공간 Individual로 유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴을 우선 고려
+    - equipment_symbols를 관계 사실 원형으로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:21.075972'
+  confidence: 0.86

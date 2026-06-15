@@ -1,0 +1,247 @@
+placement:
+  tag: EXT-INTAKE
+  name: 외부 인입 정보
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:EXT-INTAKE
+    class_hint: CommunicationInfrastructure
+    alternative_class_hints:
+    - InformationEntity
+    - CommunicationConnectionNote
+    - CableRouteNote
+    related_assertions:
+    - type: referencesDocumentSection
+      target_hint: 옥외 정보통신 인입 배치도
+      note: 괄호 주석으로 참조 문서가 명시됨
+      confirmed_property: dks:referencesDocumentSection
+      confirmed_target: 옥외 정보통신 인입 배치도
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: originatesFrom
+      target_hint: 사무동 지상1층 통신실
+      note: raw_labels/labels_inside에 FROM 표기
+      confirmed_property: dks:originatesFrom
+      confirmed_target: 사무동 지상1층 통신실
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: originatesFrom
+      target_hint: 사무동 지상2층 전산실
+      note: raw_labels/labels_inside에 FROM 표기
+      confirmed_property: dks:originatesFrom
+      confirmed_target: 사무동 지상2층 전산실
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: routesThrough
+      target_hint: 지하공동구
+      note: 사용 경로로 명시됨
+      confirmed_property: dks:routesThrough
+      confirmed_target: 지하공동구
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: connectedTo
+      target_hint: ELP 50 /IN TRAY
+      note: 인입 트레이 표기
+    - type: hasCableSpec
+      target_hint: UTP 0.5mm/25Px1,CAT.5
+      note: 인입 관련 케이블 규격 표기
+    - type: hasCableSpec
+      target_hint: FIBER OPTICAL S.M 12CORE
+      note: 인입 관련 광케이블 규격 표기
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationInfrastructure
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: ELP 50 /IN TRAY
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRouteOrIntakePath
+          suggested_datatype: xsd:string
+          rationale: 인입 트레이 경로/방식 표기
+      - raw_text: 'FROM : 사무동 지상1층 통신실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: originatesFrom
+          suggested_datatype: xsd:string
+          rationale: 출발지 공간 표기
+      - raw_text: UTP 0.5mm/25Px1,CAT.5
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열
+      - raw_text: 'FROM : 사무동 지상2층 전산실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: originatesFrom
+          suggested_datatype: xsd:string
+          rationale: 출발지 공간 표기
+      - raw_text: FIBER OPTICAL S.M 12CORE
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 광케이블 규격 문자열
+      - raw_text: 지하공동구 사용
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: routesThrough
+          suggested_datatype: xsd:string
+          rationale: 경유 경로/방식 표기
+      - raw_text: (옥외 정보통신 인입 배치도 참조)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: referencesDocumentSection
+          suggested_datatype: xsd:string
+          rationale: 참조 도면/문서 표기
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification from observed text-only note entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: analysis
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: scan specs.raw_labels and labels_inside
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: preserve all raw labels
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 5
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: ELP 50 /IN TRAY
+    source_page: 5
+    reason: 정확한 표준 의미를 도면 외부 지식 없이 확정할 수 없음
+    preservation_note: 인입 트레이/경로 표기로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM : 사무동 지상1층 통신실'
+    source_page: 5
+    reason: 관계 방향은 읽히나 정식 관계명 확정 불가
+    preservation_note: origin source 후보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: UTP 0.5mm/25Px1,CAT.5
+    source_page: 5
+    reason: 케이블 규격 문자열이지만 세부 파라미터 분해는 보류
+    preservation_note: 케이블 스펙 원문 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM : 사무동 지상2층 전산실'
+    source_page: 5
+    reason: 관계 방향은 읽히나 정식 관계명 확정 불가
+    preservation_note: origin source 후보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: FIBER OPTICAL S.M 12CORE
+    source_page: 5
+    reason: 케이블 규격 문자열이지만 세부 파라미터 분해는 보류
+    preservation_note: 광케이블 스펙 원문 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 지하공동구 사용
+    source_page: 5
+    reason: 경유/사용 방식 표현이나 정식 관계명 확정 불가
+    preservation_note: route-through 후보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: (옥외 정보통신 인입 배치도 참조)
+    source_page: 5
+    reason: 참조 대상은 명시되나 문서 엔티티 여부 미확정
+    preservation_note: reference note로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: ELP 50 /IN TRAY
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 'FROM : 사무동 지상1층 통신실'
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: UTP 0.5mm/25Px1,CAT.5
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 'FROM : 사무동 지상2층 전산실'
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: FIBER OPTICAL S.M 12CORE
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 지하공동구 사용
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: (옥외 정보통신 인입 배치도 참조)
+    source_page: 5
+    reason: raw_labels와 동일 내용 반복
+    preservation_note: 중복이지만 원문 보존
+  - field_candidate: specs.inferred_name
+    raw_text: 외부 인입 정보
+    source_page: 5
+    reason: 명칭은 있으나 물리 설비 실체보다 주석/메타 성격이 강함
+    preservation_note: entity name으로 보존
+  - field_candidate: specs.position
+    raw_text: bottom-center
+    source_page: 5
+    reason: 위치 정보는 있으나 의미 해석 대상 아님
+    preservation_note: 레이아웃 메타데이터로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 인입 경로, 케이블 규격, 출발지 공간, 참조 문서가 함께 적힌 메타/주석성 엔티티로 보이며 물리 설비 단독인지 관계 사실
+      집합인지 경계가 불명확함
+    recommended_handling: AnnotationOnly로 우선 보존하고, 0-9d에서 관계/속성 승격 여부를 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 Metadata/Legend/Reference 계열을 별도 보존
+    - locatedOnPage 및 raw label 기반 추적성 유지
+    - 외부 인입(originatesFrom), routesThrough, hasCableSpec 후보를 원형 관계로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:33.658333'
+  confidence: 0.86

@@ -1,0 +1,129 @@
+entity_detail:
+  tag: P-AC-4PP-1
+  type: equipment
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: 22
+      confidence: 0.98
+    box_size:
+      value: —
+      unit: null
+      source: 22
+      confidence: 0.98
+    panel_voltage:
+      value: 3Ø 440V
+      unit: V
+      source: 22
+      confidence: 0.95
+    breaker_spec:
+      value: MCB P 80/40T
+      unit: null
+      source: 22
+      confidence: 0.95
+    surge_protective_device_spec:
+      value: 30 SPD 40KA/mode
+      unit: null
+      source: 22
+      confidence: 0.95
+    grounding:
+      value: E3
+      unit: null
+      source: 22
+      confidence: 0.9
+  drawing_texts:
+  - source: page 22
+    page_number: 22
+    text: P-AC-4PP-1
+  - source: page 22
+    page_number: 22
+    text: 분전반 P-AC-4PP-1
+  - source: page 22
+    page_number: 22
+    text: 'COVER TYPE: 노출형(STEEL), BOX SIZE: —'
+  - source: page 22
+    page_number: 22
+    text: MCB P 80/40T
+  - source: page 22
+    page_number: 22
+    text: 30 SPD 40KA/mode
+  - source: page 22
+    page_number: 22
+    text: E3
+  - source: page 22
+    page_number: 22
+    text: 3Ø 440V
+  - source: page 22
+    page_number: 22
+    text: 생산동력(3Ø 440V) 분전반 결선도-2
+  requirements:
+  - text: 노출형(STEEL)
+    source: page 22
+    type: installation_condition
+  - text: E3
+    source: page 22
+    type: grounding_requirement
+  - text: 30 SPD 40KA/mode
+    source: page 22
+    type: protection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: PWR-3PH-440V
+    details:
+      source: page 22
+      medium: R/S/T
+      direction: input_to_panel
+      text: 3Ø 440V, R/S/T
+  - relation: monitors
+    partner: SPD-PAC-4PP-1
+    details:
+      source: page 22
+      text: 30 SPD 40KA/mode
+  - relation: control_relation
+    partner: MCCB-PAC-4PP-1
+    details:
+      source: page 22
+      text: MCB P 80/40T
+  - relation: grounding
+    partner: GND-E3-PAC-4PP-1
+    details:
+      source: page 22
+      text: E3
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PWR-3PH-440V
+      direction: source_to_target
+      source: page 22
+    - relation_type: installed_on
+      partner_tag: MCCB-PAC-4PP-1
+      direction: to_entity
+      source: page 22
+    - relation_type: installed_on
+      partner_tag: SPD-PAC-4PP-1
+      direction: to_entity
+      source: page 22
+    - relation_type: ground_to_panel
+      partner_tag: GND-E3-PAC-4PP-1
+      direction: to_entity
+      source: page 22
+    observed_attributes:
+    - cover_type
+    - box_size
+    - panel_voltage
+    - breaker_spec
+    - surge_protective_device_spec
+    - grounding
+    similar_equipment:
+    - P-A-4PP-7
+    - P-C-4PP
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: 분전반
+    cross_discipline: []
+  notes:
+  - 페이지 22의 분석 결과에서 해당 설비의 사양과 연결 정보를 수집함.
+  - 페이지 23에는 P-AC-4PP-1이 목록에 보이나, 해당 설비의 상세 사양은 제공된 분석 결과에 없음.
+tag: P-AC-4PP-1

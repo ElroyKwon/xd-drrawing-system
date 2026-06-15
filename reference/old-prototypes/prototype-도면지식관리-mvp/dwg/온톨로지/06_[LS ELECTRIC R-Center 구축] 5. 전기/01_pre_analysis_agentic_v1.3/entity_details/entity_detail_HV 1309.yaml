@@ -1,0 +1,172 @@
+entity_detail:
+  tag: HV 1309
+  type: high_voltage_feeder
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: 5
+      confidence: 0.93
+    feeder_id:
+      value: '1309'
+      unit: null
+      source: 5
+      confidence: 0.95
+    breaker_spec:
+      value: VCB 3P 7.2kV 600A 25kA/3sec
+      unit: null
+      source: 5
+      confidence: 0.92
+    relay_setting:
+      value: 50/51
+      unit: null
+      source: 5
+      confidence: 0.9
+    ct_spec:
+      value: 2xCT 300/5A
+      unit: null
+      source: 5
+      confidence: 0.92
+    pt_spec:
+      value: 3-G.P.T 6.6kV/110V/110V
+      unit: null
+      source: 5
+      confidence: 0.9
+    cable_spec:
+      value: 6.6kV CV 100sq 3C 1L
+      unit: null
+      source: 5
+      confidence: 0.9
+    cable_tray:
+      value: CABLE TRAY
+      unit: null
+      source: 5
+      confidence: 0.88
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: '1309
+
+      HV
+
+      VCB 3P
+
+      7.2kV 600A
+
+      25kA/3sec
+
+      2xCT
+
+      300/5A
+
+      GIPAM
+
+      50/51
+
+      3-G.P.T
+
+      6.6kV/110V/110V
+
+      INTER-LOCK
+
+      BUS TIE
+
+      TO 1310A
+
+      6.6kV CV 100sq 3C 1L
+
+      CABLE TRAY'
+  requirements:
+  - text: INTER-LOCK
+    source: page 5
+    type: operation_condition
+  - text: 25kA/3sec
+    source: page 5
+    type: short_circuit_rating
+  - text: 50/51
+    source: page 5
+    type: protection_setting
+  connection_specs:
+  - relation: feeds
+    partner: BUS TIE
+    details:
+      source: page 5
+      text: TO 1310A
+  - relation: connected_to
+    partner: GIPAM
+    details:
+      source: page 5
+      text: GIPAM
+  - relation: connected_to
+    partner: VCB
+    details:
+      source: page 5
+      text: VCB 3P 7.2kV 600A 25kA/3sec
+  - relation: connected_to
+    partner: CT
+    details:
+      source: page 5
+      text: 2xCT 300/5A
+  - relation: connected_to
+    partner: PT
+    details:
+      source: page 5
+      text: 3-G.P.T 6.6kV/110V/110V
+  - relation: connected_to
+    partner: cable
+    details:
+      source: page 5
+      text: 6.6kV CV 100sq 3C 1L
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 1310A
+      direction: HV 1309 -> 1310A
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: GIPAM
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: VCB
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: CT
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: PT
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - feeder_id
+    - voltage
+    - breaker_spec
+    - relay_setting
+    - ct_spec
+    - pt_spec
+    - cable_spec
+    - cable_tray
+    - inter-lock
+    similar_equipment:
+    - 1301A
+    - 1301B
+    - 1302A
+    - 1302B
+    - 1303A
+    - 1303B
+    - 1304A
+    - 1304B
+    - 1305A
+    - 1305B
+    - '1306'
+    - '1310'
+    - 1311A
+    - 1311B
+    suggested_parent_class: ElectricalFeeder
+    cross_discipline: []
+  notes:
+  - 도면에서 HV 1309는 하단 피더 계통의 하나로 보이며, BUS TIE 및 1310A와의 연결 표기가 확인됨.
+  - read_page_image(page 5)로 이미지 확인함.
+tag: HV 1309

@@ -1,0 +1,148 @@
+placement:
+  tag: W1
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:W1
+    class_hint: MemberMark
+    alternative_class_hints:
+    - PitWallMark
+    - GroupingEntity
+    related_assertions:
+    - type: contains
+      target_hint: GRP-GENERAL-WALL
+      note: 'incoming relation: GRP-GENERAL-WALL contains W1'
+      confirmed_property: dks:isContainedIn
+      confirmed_target: dks:GRP-GENERAL-WALL
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: linked_to
+      target_hint: PLAN-PIT
+      note: W1 linked_to PLAN-PIT
+      confirmed_property: dks:linked_to
+      confirmed_target: dks:PLAN-PIT
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX010
+    - AX011
+    - AX014
+    - AX015
+    applicable_constraints:
+    - CN001
+    - CN013
+    - CN015
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: GRP-GENERAL-WALL contains W1
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: isContainedIn
+          suggested_datatype: owl:ObjectProperty
+          rationale: group containment relation observed in drawing relation record
+      - raw_text: W1 linked_to PLAN-PIT
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: hasLinkedMember
+          suggested_datatype: owl:ObjectProperty
+          rationale: explicit linked_to relation between member mark and plan observed
+      - raw_text: 'tag: W1'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: entity identifier present as tag
+      - raw_text: 'partner: GRP-GENERAL-WALL; relation_type: contains; direction:
+          incoming'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: incoming containment relation recorded in relation summary
+  provenance:
+    tag:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 34
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 34
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 34
+      method: plan_guided_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 34
+      method: plan_guided_candidate
+    ontology_core.related_assertions:
+      source_pages:
+      - 34
+      method: cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 34
+      method: preservation
+    plan_reference.guidance_applied:
+      source_pages:
+      - 34
+      method: plan_applied
+  unresolved:
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 34
+    reason: name field not provided in entity_detail
+    preservation_note: keep empty unless later source supplies explicit name
+  - field_candidate: relations.partner
+    raw_text: GRP-GENERAL-WALL
+    source_page: 34
+    reason: partner is known, but exact normalized property IRI is not fixed at this
+      stage
+    preservation_note: normalize in later step 0-9d
+  - field_candidate: relations.relation_type
+    raw_text: contains
+    source_page: 34
+    reason: relation type observed, but property IRI not yet assigned
+    preservation_note: candidate object property for later normalization
+  - field_candidate: relations.relation
+    raw_text: linked_to
+    source_page: 34
+    reason: relation type observed, but property IRI not yet assigned
+    preservation_note: candidate object property for later normalization
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: W1 behaves as a member mark in the plan guidance, but the available relations
+      also show containment by a group and linkage to PLAN-PIT; exact subclass placement
+      cannot be confirmed from this record alone.
+    recommended_handling: Keep as NamedIndividual with MemberMark as candidate class;
+      defer final class confirmation to later normalization.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - group -> contains -> member mark
+    - schedule/list -> references -> member mark
+    deviations:
+    - Used contains and linked_to as observed raw relation forms rather than normalized
+      property IRIs.
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:13.192520'
+  confidence: 0.84

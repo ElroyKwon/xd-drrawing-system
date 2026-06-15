@@ -1,0 +1,212 @@
+executive_summary:
+  drawing_number: 624001 / EE-01-015
+  title: 생산동력(3Ø 220V) 분전반 결선도-2
+  classification: 분전반 결선도
+  discipline: 전기
+  confidence: 0.75
+  summary: '1층 중앙실(F1-CENTRAL)에 Panel Board 4대(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)가
+    배치된 생산동력(3Ø 220V) 분전반 결선도이다.
+
+    각 패널보드 상단에 MCS 2P 600V가 표시되어 있으며, 도면 중앙의 MAIN 수직 배선으로 4개 패널이 연결되는 구조가 보인다.
+
+    패널 내부에는 M.C.C.B 및 UNIT/회로 번호/차단기 용량 표기가 있으나, 본 취합본에는 상세 회로값이 미포함되어 있다.
+
+    '
+  equipment:
+  - tag: P-EA-2PP
+    name: Panel Board
+    spec: null
+    discipline: 전기
+    function_category: 분전반
+    location: F1-CENTRAL / 1층 중앙실
+    confidence: 0.85
+  - tag: P-F-2PP
+    name: Panel Board
+    spec: null
+    discipline: 전기
+    function_category: 분전반
+    location: F1-CENTRAL / 1층 중앙실
+    confidence: 0.85
+  - tag: P-G-2PP
+    name: Panel Board
+    spec: null
+    discipline: 전기
+    function_category: 분전반
+    location: F1-CENTRAL / 1층 중앙실
+    confidence: 0.85
+  - tag: P-I-2PP
+    name: Panel Board
+    spec: null
+    discipline: 전기
+    function_category: 분전반
+    location: F1-CENTRAL / 1층 중앙실
+    confidence: 0.85
+  - tag: MCS
+    name: Main Circuit Switch
+    spec: 2P 600V
+    discipline: 전기
+    function_category: 차단/개폐
+    location: 각 Panel Board 상단
+    confidence: 0.9
+  - tag: MCB
+    name: Molded Case Circuit Breaker
+    spec: M.C.C.B
+    discipline: 전기
+    function_category: 차단기
+    location: 각 Panel Board 내부
+    confidence: 0.85
+  relationships:
+  - from: MCS
+    to: P-EA-2PP
+    relation: 상위/하위 관계
+    medium: 전기
+    direction: 상위→하위
+    confidence: 0.9
+  - from: MCS
+    to: P-F-2PP
+    relation: 상위/하위 관계
+    medium: 전기
+    direction: 상위→하위
+    confidence: 0.9
+  - from: MCS
+    to: P-G-2PP
+    relation: 상위/하위 관계
+    medium: 전기
+    direction: 상위→하위
+    confidence: 0.9
+  - from: MCS
+    to: P-I-2PP
+    relation: 상위/하위 관계
+    medium: 전기
+    direction: 상위→하위
+    confidence: 0.9
+  - from: P-EA-2PP
+    to: P-F-2PP
+    relation: MAIN 배선 연결
+    medium: 배선
+    direction: 양방향/미상
+    confidence: 0.88
+  - from: P-F-2PP
+    to: P-G-2PP
+    relation: MAIN 배선 연결
+    medium: 배선
+    direction: 양방향/미상
+    confidence: 0.88
+  - from: P-G-2PP
+    to: P-I-2PP
+    relation: MAIN 배선 연결
+    medium: 배선
+    direction: 양방향/미상
+    confidence: 0.88
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric 천안 R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: R-Center 구축
+    parent: SITE-001
+  - space_id: F1-CENTRAL
+    type: room
+    name: 1층 중앙실
+    parent: BLDG-001
+  flow_paths:
+  - - MCS
+    - P-EA-2PP
+  - - MCS
+    - P-F-2PP
+  - - MCS
+    - P-G-2PP
+  - - MCS
+    - P-I-2PP
+  top_equipment:
+  - Panel Board 4대 (P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)
+  - MCS 4대 (2P 600V)
+  - M.C.C.B 다수(패널 내부)
+  - MAIN 수직 배선 1식
+  stats:
+    equipment: 6
+    relationships: 7
+    spaces: 3
+    flow_paths: 4
+  uncertainties:
+  - Panel Board 내부의 UNIT, 회로 번호, 차단기 용량 등 상세 사양은 제공된 분석 결과에 없음
+  - 도면 상의 구체적 설치 위치(벽면, 높이 등)는 F1-CENTRAL 수준까지만 확인됨
+  - MAIN 배선의 정확한 방향성 및 세부 연결 순서는 제공된 결과만으로 확정 불가
+  - MCS와 Panel Board의 관계는 상위/하위로 정리했으나, 원문 분석에는 명시적 관계 정의가 부족함
+  - 도면 제목/번호는 분석 결과와 검증 메모를 종합해 기재했으며, 원본 시각 근거는 제공되지 않음
+  related_pages:
+  - 19
+spaces:
+- space_id: SITE-001
+  type: site
+  name: LS Electric 천안 R-Center
+  parent: null
+- space_id: BLDG-001
+  type: building
+  name: R-Center 구축
+  parent: SITE-001
+- space_id: F1-CENTRAL
+  type: room
+  name: 1층 중앙실
+  parent: BLDG-001
+equipment_placement:
+- tag: P-EA-2PP
+  located_in: F1-CENTRAL
+  confidence: 0.85
+  note: Panel Board, 1층 중앙실 위치
+- tag: P-F-2PP
+  located_in: F1-CENTRAL
+  confidence: 0.85
+  note: Panel Board, 1층 중앙실 위치
+- tag: P-G-2PP
+  located_in: F1-CENTRAL
+  confidence: 0.85
+  note: Panel Board, 1층 중앙실 위치
+- tag: P-I-2PP
+  located_in: F1-CENTRAL
+  confidence: 0.85
+  note: Panel Board, 1층 중앙실 위치
+pass4_검증:
+  corrections: []
+  missing_entities:
+  - tag: MCS (Main Circuit Switch)
+    name: Main Circuit Switch
+    evidence: 도면 상단 각 패널보드 상단에 'MCS 2P 600V' 표기 확인. 4개 패널보드 각각에 MCS가 존재하나 equipment_placement에
+      미포함
+    confidence: 0.9
+  - tag: MCB (Molded Case Circuit Breaker)
+    name: Molded Case Circuit Breaker
+    evidence: 도면 내 각 패널보드의 회로 차단기 표기. 범례에 M.C.C.B로 정의되어 있으나 개별 설비로 미포함
+    confidence: 0.85
+  - tag: Distribution Lines/Conduits
+    name: 배선 및 배관
+    evidence: 패널보드 간 연결선 및 MAIN 표기된 수직 배선이 도면에 명확히 표시되어 있으나 conduit 정보 미포함
+    confidence: 0.88
+  relationship_issues:
+  - issue: Panel Board 간 연결 관계 미정의
+    recommendation: P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP 간의 MAIN 배선 연결 관계를 topology에
+      추가
+    evidence: 도면 중앙의 수직 MAIN 배선이 4개 패널을 연결하는 구조 표시
+  - issue: MCS와 Panel Board의 관계 미정의
+    recommendation: 각 Panel Board 상단의 MCS 2P 600V를 별도 설비로 등록하고 Panel Board와의 상위/하위
+      관계 정의
+    evidence: 도면 상단 각 패널보드 위의 MCS 표기
+  consistency_check:
+    entity_count_before: 4
+    entity_count_after: 4
+    relation_count_before: 0
+    relation_count_before_note: equipment_placement는 위치 정보이며 관계(relationship)가 아님
+    relation_count_after: 0
+    relation_count_after_note: Panel Board 간 연결 관계 및 MCS-Panel 관계 추가 필요
+    space_hierarchy_issue: 'F1-CENTRAL 공간이 정의되었으나, 도면 상의 구체적 위치(예: 1층 중앙실의 어느 벽면,
+      어느 높이)가 미상세'
+  overall_confidence: 0.75
+  validation_notes:
+  - 분석 결과는 4개 Panel Board의 위치 정보만 포함하고 있으며, 도면에 명확히 표시된 MCS, 배선 연결, 회로 차단기 등의 상세 설비
+    및 관계가 누락됨
+  - 도면 제목 '생산동력(3Ø 220V) 분전반 결선도-2'와 우측 범례 '가운건축' 정보가 분석 결과에 미반영
+  - 도면 우측 상단의 '624001' 도면번호와 'EE-01-015' 도면 ID가 분석 결과에 미포함
+  - 각 Panel Board 내부의 회로 구성(UNIT, 회로 번호, 차단기 용량 등)이 도면에 표시되어 있으나 상세 분석 미실시
+  - confidence 0.85는 과도하게 높음. 누락된 설비와 관계를 고려하면 0.60-0.70 수준이 적절

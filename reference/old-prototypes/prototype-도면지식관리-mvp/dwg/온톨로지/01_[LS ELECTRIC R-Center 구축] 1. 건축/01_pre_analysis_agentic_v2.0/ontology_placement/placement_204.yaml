@@ -1,0 +1,102 @@
+placement:
+  tag: '204'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:204
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX035
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePage
+        suggested_datatype: xsd:integer
+        rationale: 페이지 목록 형태의 출처 정보이며, 엔티티의 관찰 가능 페이지 범위를 보존할 수 있음
+    - raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내용이 아니라 응답 안내 문구로, 주석성 텍스트로 보존 가능
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: input_header
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guidance_alignment
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guidance_alignment
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: verbatim
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: verbatim
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 읽어드리겠습니다.'
+    source_page: 0
+    reason: 설비/관계/수치가 아니라 페이지 안내 문구와 응답 제안만 포함
+    preservation_note: 페이지 번호 목록은 free_notes로 보존했고, 원문 전체는 그대로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 204는 실체 설비라기보다 페이지 안내성 텍스트만 포함하여 물리 객체 여부가 불명확함
+    recommended_handling: 후속 단계에서 AnnotationOnly 문서성 엔티티로 유지하되, 실제 도면 페이지와의 연결이 확인되면
+      DocumentEntity 계열로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야에서 raw-only, 주석/참조성 텍스트를 AnnotationOnly로 보존
+    - 페이지 범위 정보를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:06.474963'
+  confidence: 0.93

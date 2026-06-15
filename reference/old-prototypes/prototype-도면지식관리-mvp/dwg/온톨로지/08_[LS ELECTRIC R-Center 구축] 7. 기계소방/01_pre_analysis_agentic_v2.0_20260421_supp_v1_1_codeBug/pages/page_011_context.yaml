@@ -1,0 +1,709 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: sanitary_piping
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-102
+    title: PIT 소화 내진 평면도
+    revision: null
+  visible_tags:
+  - tag: PIT
+    type: structural_element
+    source: image
+  - tag: MF-102
+    type: drawing_number
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 도면 중앙~우하단에 PIT 소화 배관/내진 상세가 집중되어 있음
+  - 좌하단에 지진분리장치 상세 박스가 별도로 포함됨
+  - 표제란 도면번호 접두사 MF와 제목 내용이 일치함
+  confidence: 0.93
+  note: null
+  recommended_supplements: &id001
+    P-0.5: discipline/fire_protection/_general/supplement_p0.5.yaml
+    P-4.5: discipline/fire_protection/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.96
+  routing_reason: 표제란 도면번호 MF-102와 제목 'PIT 소화 내진 평면도'가 보이며, 기계 분야의 sanitary_piping
+    장르로 분류 가능하고 카탈로그에 해당 genre 보조자료가 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN
+    shape: rectangle
+    primary_label: PIT 소화 내진 평면도
+    position: center
+    labels_near:
+    - PIT
+    - H 100
+    - SP 150
+    - 지진분리장치
+  - panel_id: DETAIL_SEISMIC
+    shape: rectangle
+    primary_label: 지진분리장치 설치기준
+    position: bottom-left
+    labels_near:
+    - 4방향 버팀대
+    - 후렉시블 조인트
+  - panel_id: SCHEDULE_BRACING
+    shape: rectangle
+    primary_label: 버팀대 수량표
+    position: center-right
+    labels_near:
+    - 종방향
+    - 횡방향
+  - panel_id: NOTES_LEGEND
+    shape: rectangle
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+  connections:
+  - from: FLOOR_PLAN
+    to: DETAIL_SEISMIC
+    line_style: dashed
+    annotation: 상세 참조
+  - from: FLOOR_PLAN
+    to: SCHEDULE_BRACING
+    line_style: dashed
+    annotation: 수량 집계
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 그리드 열 번호
+  - shape: circle
+    label: A
+    note: 그리드 행 알파벳
+  - shape: shaded_box
+    label: PIT층-H-횡07
+    note: 내진 버팀대 식별 태그
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.95
+  note: 우상단 '주 기' 섹션 내 '6. 범례' 항목에 배관 선 종류(신설/기존) 구분이 포함되어 있음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 접두사 MF(Mechanical Fire)와 제목 '소화 내진 평면도'의 '소화' 키워드, 그리고 본문의
+    소화 배관(H, SP) 및 내진 상세를 종합하여 FIRE_PROTECTION 분야로 확정. 장르는 평면도이므로 floor_plan 지정. 카탈로그에서
+    해당 분야/장르/서브시스템(mechanical) 보조자료 경로 추출.
+classification: FIRE_PROTECTION_FLOOR_PLAN
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '표제란 도면번호: MF-102'
+- '표제란 제목: PIT 소화 내진 평면도'
+- '축선 표기: 1, 2, 3, 4, 5, 5A, 5B, 6, 7'
+- '축선 표기: A, B, B1, B2, C, D'
+- '범례/주기 섹션: 우상단 ''주 기'' 및 ''6. 범례'''
+- '배관 표기: H'
+- '배관 표기: SP'
+- 지진분리장치 상세
+- 버팀대 수량표
+- '내역표: 네트워크 수량표'
+- LS Electric / R-Center 구축
+title_block:
+  drawing_number: MF-102
+  title: PIT 소화 내진 평면도
+  revision: UNKNOWN
+confidence: 0.97
+note: '기존 판정의 classification=sanitary_piping는 도면 표제와 본문 표기(H, SP, 소화, 지진분리장치)와 불일치함.
+  시각 근거상 이 페이지는 소화설비의 PIT 내진 평면도이며, 우상단 주기 내 ''6. 범례''는 존재하지만 별도 범례 전용 페이지는 아님. 근거:
+  페이지 11 이미지의 표제란(우하단), 중앙 하단 제목, 우상단 주기, 중앙 우측 배관/내진 상세, 좌하단 지진분리장치 상세.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: FLOOR-PLAN-PIT
+    shape: rectangle
+    labels_inside:
+    - MF PIT 소화 내진 평면도
+    - 'SCALE : 1:200'
+    - H 100
+    - SP 150
+    - PIT층-H-횡07
+    - PIT층-H-횡08
+    - PIT층-H-횡09
+    - PIT층-H-종01
+    - PIT층-H-종02
+    - PIT층-H-종03
+    - PIT층-SP-횡01
+    - PIT층-SP-횡02
+    - PIT층-SP-종01
+    - 2개사동배수밸브
+    - 1층 소화 배관 평면도에 연결
+    - 지(종)배관(이음소,31,4m)
+    - 기존 배관에 연결 (옥내소화전)
+    - 기존 배관에 연결 (스프링클러)
+    - H=100
+    - UP 100m
+    labels_above: []
+    labels_below:
+    - MF PIT 소화 내진 평면도
+    - 'SCALE : 1:200'
+    equipment_symbols:
+    - type: 게이트밸브
+      count: 4
+    - type: 후렉시블 조인트
+      count: 6
+    - type: 체크밸브
+      count: 2
+    - type: 내진 버팀대 (횡방향)
+      count: 5
+    - type: 내진 버팀대 (종방향)
+      count: 4
+    - type: 배수밸브
+      count: 2
+    inferred_name: PIT층 소화설비 내진 배관 평면도
+    position: center
+    grid_axes:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - 5A
+      - 5B
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - B1
+      - B2
+      - C
+      - D
+    pipe_lines:
+    - fluid_type: H
+      name: 옥내소화전배관
+      nominal_diameter_A: '100'
+      line_style: solid
+    - fluid_type: SP
+      name: 스프링클러배관
+      nominal_diameter_A: '150'
+      line_style: solid
+  - panel_id: DETAIL-SEISMIC
+    shape: dashed_box
+    labels_inside:
+    - 지진분리장치 (4열보 - 블록시블관 이용 적용 시)
+    - 4방향 버팀대
+    - 후렉시블 조인트
+    - 1,800 이내
+    - 1,800 이내
+    - '[ 지진분리장치 설치기준 ]'
+    - 진축부와 일반부의 연결부 수평을 유지도록 설치하여야 한다.
+    - 지진분리장치 1.8m 이내에는 4방향 버팀대를 설치하여야 한다.
+    - 4방향 버팀대 길이 50MM 이내 설치.
+    - 버팀대는 지진분리장치 자체에 설치할 수 없다.
+    labels_above:
+    - ●지진분리장치
+    labels_below: []
+    equipment_symbols:
+    - type: 4방향 버팀대
+      count: 1
+    - type: 후렉시블 조인트
+      count: 2
+    inferred_name: 지진분리장치 상세 및 설치기준
+    position: bottom-left
+  - panel_id: SCHEDULE-BRACING
+    shape: rectangle
+    labels_inside:
+    - 버팀대 수량표
+    - 관 경
+    - 100(4")
+    - 150(6")
+    - 계
+    - 횡방향
+    - '2'
+    - '2'
+    - '4'
+    - 종방향
+    - '5'
+    - '2'
+    - '7'
+    - 총계
+    - '7'
+    - '4'
+    - '11'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 내진 버팀대 수량 집계표
+    position: center-right
+  - panel_id: NOTES-LEGEND
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면의 설계된 재료(시스템 파이프)본 설계 재료 또는 동등 이상의 재료로 시공한다.
+    - 2. 날개 도면이 상이한 곳 무에는 현장관리인 및 설계사무소의 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거 후 재설치 할 것.
+    - 4. 발주자의 요구에 의해 설계기간 변경이 있을 수 있으며, 그에 따른 물량표와 변경이 발생하여 감독관의 승인을 득한 후 시공한다.
+    - 5. 배관 위치 철물은 기존 세시사항.
+    - 6. 범례
+    - 신설 배관 (실선)
+    - 기존 배관 (파선)
+    - '7. 기존배관 자재 : 백강관'
+    - 8. 통과우려가 있는 배관 통과방화벽선 설치 후 감독관에 통보한다.
+    - 9. 기존 스임용접부(IT등)는 변경 없음.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주기 및 범례 설명
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - 'PROJECT NO: 224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - (주)정연엔지니어링
+    - R-Center
+    - PIT 소화 내진 평면도
+    - MF-102
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.01'
+    - 오 다 일
+    - 연 동 식
+    - 이 은 진
+    - 정 용 재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: FLOOR-PLAN-PIT
+    to: DETAIL-SEISMIC
+    line_type: other
+    line_style: dashed
+    annotation: 지진분리장치 상세 참조
+  - from: FLOOR-PLAN-PIT
+    to: SCHEDULE-BRACING
+    line_type: other
+    line_style: dashed
+    annotation: 버팀대 수량 집계
+  - from: FLOOR-PLAN-PIT
+    to: NOTES-LEGEND
+    line_type: signal
+    line_style: dashed
+    annotation: 주기 및 범례 참조
+  - from: FLOOR-PLAN-PIT
+    to: FLOOR-PLAN-PIT
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 소화 배관 평면도에 연결 (H 100 상향)
+    flow_direction: upward
+  - from: FLOOR-PLAN-PIT
+    to: FLOOR-PLAN-PIT
+    line_type: pipe
+    line_style: solid
+    annotation: 기존 배관에 연결 (옥내소화전)
+    flow_direction: to_existing
+  - from: FLOOR-PLAN-PIT
+    to: FLOOR-PLAN-PIT
+    line_type: pipe
+    line_style: solid
+    annotation: 기존 배관에 연결 (스프링클러)
+    flow_direction: to_existing
+  groups:
+  - group_id: GRP-SEISMIC-BRACE
+    label: 내진 버팀대 그룹 (PIT층)
+    members:
+    - FLOOR-PLAN-PIT
+    - SCHEDULE-BRACING
+    - DETAIL-SEISMIC
+  - group_id: GRP-PIPE-H
+    label: 옥내소화전배관 계통 (H 100A)
+    members:
+    - FLOOR-PLAN-PIT
+  - group_id: GRP-PIPE-SP
+    label: 스프링클러배관 계통 (SP 150A)
+    members:
+    - FLOOR-PLAN-PIT
+  legend_references:
+  - text: 신설 배관 (실선)
+    linked_to: FLOOR-PLAN-PIT
+  - text: 기존 배관 (파선)
+    linked_to: FLOOR-PLAN-PIT
+  - text: H - 옥내소화전배관
+    linked_to: FLOOR-PLAN-PIT
+  - text: SP - 스프링클러배관
+    linked_to: FLOOR-PLAN-PIT
+  - text: 후렉시블 조인트
+    linked_to: DETAIL-SEISMIC
+  - text: 게이트밸브
+    linked_to: FLOOR-PLAN-PIT
+  diagram_meta:
+    title: PIT 소화 내진 평면도
+    drawing_number: MF-102
+    project: LS Electric R-Center 구축
+    scale: 1:200 (A1) / 1:400 (A3)
+    date: '2024.01'
+    discipline: FIRE_PROTECTION
+    mech_subsystem: fire_suppression_seismic
+    view_type: plan
+    floor_label: PIT층
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - fluid_type: H
+      name: 옥내소화전배관
+      nominal_diameter_A: '100'
+    - fluid_type: SP
+      name: 스프링클러배관
+      nominal_diameter_A: '150'
+    has_equipment_list: false
+    has_seismic_detail: true
+    has_bracing_schedule: true
+    seismic_bracing_summary:
+      pipe_100A:
+        lateral: 2
+        longitudinal: 5
+        total: 7
+      pipe_150A:
+        lateral: 2
+        longitudinal: 2
+        total: 4
+      grand_total: 11
+    grid_columns:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - 5A
+    - 5B
+    - '6'
+    - '7'
+    grid_rows:
+    - A
+    - B
+    - B1
+    - B2
+    - C
+    - D
+    notes:
+    - '기존 배관 자재: 백강관'
+    - '신설 배관: 실선 표기'
+    - '기존 배관: 파선 표기'
+    - 지진분리장치 1.8m 이내 4방향 버팀대 설치 필수
+    - 1층 소화 배관 평면도와 연결됨
+    classification_correction:
+      previous: sanitary_piping
+      corrected: fire_suppression_seismic_plan
+      reason: 도면 제목 'PIT 소화 내진 평면도', 배관 표기 H(옥내소화전)/SP(스프링클러), 내진 버팅대 수량표 등 소화설비 내진
+        도면임이 명확함
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FLOOR-PLAN-PIT
+    shape: rectangle
+    labels_inside:
+    - MF PIT 소화 내진 평면도
+    - 'SCALE : 1:200'
+    - H 100
+    - SP 150
+    - PIT층-H-횡07
+    - PIT층-H-횡08
+    - PIT층-H-횡09
+    - PIT층-H-종01
+    - PIT층-H-종02
+    - PIT층-H-종03
+    - PIT층-SP-횡01
+    - PIT층-SP-횡02
+    - PIT층-SP-종01
+    - 20ø자동배수밸브
+    - 1층 소화 배관 평면도에 연결
+    - 지(종)배관(이음소,31.6m)
+    - 기존 배관에 연결 (옥내소화전)
+    - 기존 배관에 연결 (스프링클러)
+    - H=100
+    - UP 100ø
+    - 1
+    - H
+    - 100ø
+    labels_above: []
+    labels_below:
+    - MF PIT 소화 내진 평면도
+    - 'SCALE : 1:200'
+    equipment_symbols:
+    - type: 게이트밸브
+      count: 4
+    - type: 후렉시블 조인트
+      count: 6
+    - type: 체크밸브
+      count: 2
+    - type: 내진 버팀대 (횡방향)
+      count: 5
+    - type: 내진 버팀대 (종방향)
+      count: 4
+    - type: 자동배수밸브
+      count: 1
+    inferred_name: PIT층 소화설비 내진 배관 평면도
+    position: center
+    grid_axes:
+      columns:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - 5A
+      - 5B
+      - '6'
+      - '7'
+      rows:
+      - A
+      - B
+      - B1
+      - B2
+      - C
+      - D
+    pipe_lines:
+    - fluid_type: H
+      name: 옥내소화전배관
+      nominal_diameter_A: '100'
+      line_style: solid
+    - fluid_type: SP
+      name: 스프링클러배관
+      nominal_diameter_A: '150'
+      line_style: solid
+    - fluid_type: H
+      name: 기존 옥내소화전배관
+      nominal_diameter_A: '100'
+      line_style: dashed
+    - fluid_type: SP
+      name: 기존 스프링클러배관
+      nominal_diameter_A: '150'
+      line_style: dashed
+  - panel_id: DETAIL-SEISMIC
+    shape: dashed_box
+    labels_inside:
+    - ●지진분리장치
+    - (4엘보 - 블록시블관 이용 적용 시)
+    - 4방향 버팀대
+    - 후렉시블 조인트
+    - 1,800 이내
+    - 1,800 이내
+    - '[ 지진분리장치 설치기준 ]'
+    - 전후좌우 방향의 변위를 수용할 수 있도록 설치되어야한다.
+    - 지진분리장치 1.8m 이내에는 4방향 버팀대를 설치하여야 한다.
+    - 4방향 버팀대 간격 50MM 이내 설치.
+    - 버팀대는 지진분리장치 자체에 설치할 수 없다.
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 4방향 버팀대
+      count: 2
+    - type: 후렉시블 조인트
+      count: 2
+    inferred_name: 지진분리장치 상세 및 설치기준
+    position: bottom-left
+  - panel_id: SCHEDULE-BRACING
+    shape: rectangle
+    labels_inside:
+    - 버팀대 수량표
+    - 관 경
+    - 100(4")
+    - 150(6")
+    - 계
+    - 횡방향
+    - '2'
+    - '2'
+    - '4'
+    - 종방향
+    - '5'
+    - '2'
+    - '7'
+    - 총계
+    - '7'
+    - '4'
+    - '11'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 내진 버팀대 수량 집계표
+    position: center-right
+  - panel_id: NOTES-LEGEND
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면에 설치된 제품(시스템 공법등)은 상기 제품 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 설계 도면과 상이한 경우에는 현장여건에 맞게 시공하되 감독관의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 파손이 되지 않게 주의하여 철거 후 재설치 할 것.
+    - 4. 발주자의 요구에 의해 경미한 변경이 있을 수 있으며, 그에 따른 물량등의 변경이 있을경우 감독관의 승인을 득한 후 시공할 것.
+    - 5. 배관 지지 철물은 기존 재사용.
+    - 6. 범례
+    - 신설 배관 (실선)
+    - 기존 배관 (파선)
+    - '7. 기존배관 자재 : 백강관'
+    - 8. 동파우려가 있는 배관은 동파방지열선 설치후 보온 한다.
+    - 9. 기존 소화용펌프(UT동)는 변경 없음.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주기 및 범례 설명
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - 'PROJECT NO: 224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - (주)정연엔지니어링
+    - R-Center
+    - PIT 소화 내진 평면도
+    - MF-102
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.01'
+    - 오 다 일
+    - 연 동 식
+    - 이 은 진
+    - 정 용 재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: FLOOR-PLAN-PIT
+    to: DETAIL-SEISMIC
+    line_type: other
+    line_style: dashed
+    annotation: 지진분리장치 상세 참조
+  - from: FLOOR-PLAN-PIT
+    to: SCHEDULE-BRACING
+    line_type: other
+    line_style: dashed
+    annotation: 버팀대 수량 집계
+  - from: FLOOR-PLAN-PIT
+    to: NOTES-LEGEND
+    line_type: signal
+    line_style: dashed
+    annotation: 주기 및 범례 참조
+  - from: FLOOR-PLAN-PIT
+    to: FLOOR-PLAN-PIT
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 소화 배관 평면도에 연결 (H 100 상향)
+    flow_direction: upward
+  - from: FLOOR-PLAN-PIT
+    to: FLOOR-PLAN-PIT
+    line_type: pipe
+    line_style: solid
+    annotation: 기존 배관에 연결 (옥내소화전)
+    flow_direction: to_existing
+  - from: FLOOR-PLAN-PIT
+    to: FLOOR-PLAN-PIT
+    line_type: pipe
+    line_style: solid
+    annotation: 기존 배관에 연결 (스프링클러)
+    flow_direction: to_existing
+  groups:
+  - group_id: GRP-SEISMIC-BRACE
+    label: 내진 버팀대 그룹 (PIT층)
+    members:
+    - FLOOR-PLAN-PIT
+    - SCHEDULE-BRACING
+    - DETAIL-SEISMIC
+  - group_id: GRP-PIPE-H
+    label: 옥내소화전배관 계통 (H 100A)
+    members:
+    - FLOOR-PLAN-PIT
+  - group_id: GRP-PIPE-SP
+    label: 스프링클러배관 계통 (SP 150A)
+    members:
+    - FLOOR-PLAN-PIT
+  legend_references:
+  - text: 신설 배관 (실선)
+    linked_to: FLOOR-PLAN-PIT
+  - text: 기존 배관 (파선)
+    linked_to: FLOOR-PLAN-PIT
+  - text: H - 옥내소화전배관
+    linked_to: FLOOR-PLAN-PIT
+  - text: SP - 스프링클러배관
+    linked_to: FLOOR-PLAN-PIT
+  - text: 후렉시블 조인트
+    linked_to: DETAIL-SEISMIC
+  - text: 게이트밸브
+    linked_to: FLOOR-PLAN-PIT
+  - text: 체크밸브
+    linked_to: FLOOR-PLAN-PIT
+  diagram_meta:
+    title: PIT 소화 내진 평면도
+    drawing_number: MF-102
+    project: LS Electric R-Center 구축
+    scale: 1:200 (A1) / 1:400 (A3)
+    date: '2024.01'
+    discipline: FIRE_PROTECTION
+    mech_subsystem: fire_suppression_seismic
+    view_type: plan
+    floor_label: PIT층
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - fluid_type: H
+      name: 옥내소화전배관
+      nominal_diameter_A: '100'
+    - fluid_type: SP
+      name: 스프링클러배관
+      nominal_diameter_A: '150'
+    has_equipment_list: false
+    has_seismic_detail: true
+    has_bracing_schedule: true
+    seismic_bracing_summary:
+      pipe_100A:
+        lateral: 2
+        longitudinal: 5
+        total: 7
+      pipe_150A:
+        lateral: 2
+        longitudinal: 2
+        total: 4
+      grand_total: 11
+    grid_columns:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - 5A
+    - 5B
+    - '6'
+    - '7'
+    grid_rows:
+    - A
+    - B
+    - B1
+    - B2
+    - C
+    - D
+    notes:
+    - '기존 배관 자재: 백강관'
+    - '신설 배관: 실선 표기'
+    - '기존 배관: 파선 표기'
+    - 지진분리장치 1.8m 이내 4방향 버팀대 설치 필수
+    - 1층 소화 배관 평면도와 연결됨
+    classification_correction:
+      previous: sanitary_piping
+      corrected: fire_suppression_seismic_plan
+      reason: 도면 제목 'PIT 소화 내진 평면도', 배관 표기 H(옥내소화전)/SP(스프링클러), 내진 버팅대 수량표 등 소화설비 내진
+        도면임이 명확함

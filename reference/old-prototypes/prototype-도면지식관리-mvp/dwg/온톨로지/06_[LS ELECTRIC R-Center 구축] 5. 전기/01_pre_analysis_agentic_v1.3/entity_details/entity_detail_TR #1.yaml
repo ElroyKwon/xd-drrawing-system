@@ -1,0 +1,100 @@
+entity_detail:
+  tag: 'TR #1'
+  type: equipment
+  specs:
+    rated_voltage:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.98
+    secondary_voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.98
+    capacity:
+      value: 3,000kVA
+      unit: kVA
+      source: page 5
+      confidence: 0.98
+    frequency:
+      value: 60Hz
+      unit: Hz
+      source: page 5
+      confidence: 0.98
+    winding_type:
+      value: MOLD TYPE
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 'TR #1
+
+      3Ø 3,000kVA
+
+      P:22,900V
+
+      S:6,600V
+
+      MOLD TYPE'
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+    source: page 5
+    type: drawing_title
+  - text: 22.9kV
+    source: page 5
+    type: voltage_condition
+  - text: 6.6kV
+    source: page 5
+    type: voltage_condition
+  - text: 60Hz
+    source: page 5
+    type: frequency_condition
+  connection_specs:
+  - relation: feeds
+    partner: HV PNL
+    details:
+      source: page 5
+      text: 'TR #1에서 하단 6.6kV 계통으로 연결됨'
+  - relation: connected_to
+    partner: VCB
+    details:
+      source: page 5
+      text: 'TR #1 상부에 VCB 3P 표기 및 연결선 표시'
+  - relation: connected_to
+    partner: PT
+    details:
+      source: page 5
+      text: 'TR #1 주변 6.6kV 계통에 PT 표기 존재'
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: HV PNL
+      direction: downstream
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: VCB
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: GIPAM
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - rated_voltage
+    - secondary_voltage
+    - capacity
+    - frequency
+    - winding_type
+    similar_equipment:
+    - 'TR #2'
+    - 'TR. #1'
+    - 'TR. #2'
+    suggested_parent_class: Transformer
+    cross_discipline: []
+  notes:
+  - '도면 이미지에서 TR #1 표기 인근에 ''3Ø 3,000kVA / P:22,900V / S:6,600V / MOLD TYPE''가 확인됨.'
+  - 'page 5 context에는 TR #1의 spec이 null로 제공되어 이미지에서 보이는 원문을 보완 수집함.'
+tag: 'TR #1'

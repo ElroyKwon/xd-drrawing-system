@@ -1,0 +1,300 @@
+ontology_readiness:
+  tag: P-I-2PP
+  verdict: qualified
+  confidence: 0.97
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 17
+    reason: 고유 tag(P-I-2PP)가 있고, panel_board/main_cb/voltage/cover_type/branch_circuits
+      등 자체 사양이 명확하며, 다른 설비의 부품이 아닌 독립 분전반으로 확인됨.
+  relation_completeness:
+    declared_relations: 5
+    discovered_relations: 5
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 17
+    convertible: 15
+    ambiguous_attributes:
+    - key: main_cb_af
+      value: 30/20AT
+      reason: AF/AT 표기가 혼재된 값으로, 단일 정격 속성으로 기계적 변환 시 해석 주의 필요. 원문 보존 필요.
+    - key: cover_type
+      value: 노출형(STEEL)
+      reason: 형식상 속성화 가능하나 재질/설치형태가 결합된 복합 표현이므로 원문 annotation 보존 권장.
+    - key: spd
+      value: 3Ø S.P.D 40KA/mode
+      reason: SPD 정격 표현에 3상/용량/모드가 결합된 복합 문자열이므로 원문 보존 필요.
+    - key: branch_circuits[*].status
+      value: spare
+      reason: 운영상 상태값으로 속성화 가능하나 회로 사양과 분리된 보조 상태 정보이므로 annotation 보존 권장.
+    auxiliary_attributes:
+    - panel_board
+    - panel_location
+    - cover_type
+    - source
+    - volt
+    - main_cb_type
+    - main_cb_poles
+    - main_cb_at
+    - main_cb_af
+    - spd
+    - branch_circuits
+    - raw_labels
+    - box_size
+    - voltage
+    - type
+    - branch_circuits_count
+    - branch_circuit_details
+    requirement_attributes: []
+    extracted_attributes:
+    - 'FROM: 전기실'
+    - R S T 3상 입력
+    - MAIN
+    - MCCB 3P 30/20AT
+    - 3Ø S.P.D 40KA/mode
+    - AT:30 / AF:50 / P:3 / TYPE:MCCB / EG-1(PLC 검증시스템)
+    - AT:40 / AF:100 / P:3 / TYPE:MCCB / 신사업 검증시스템
+    - AT:50 / AF:100 / P:3 / TYPE:MCCB / 부하1
+    - AT:40 / AF:50 / P:3 / TYPE:MCCB / 부하2
+    - AT:40 / AF:50 / P:3 / TYPE:MCCB / 부하3
+    - AT:75 / AF:125 / P:3 / TYPE:MCCB / SP
+    - 'PANEL BOARD: P-I-2PP'
+    - 'COVER TYPE: 노출형(STEEL)'
+    - 'PANEL LOCATION: 1층 PLC/Drive 검증시스템 및 신사업 검증시스템'
+    - 'BOX SIZE: —'
+    - 'MAIN C.B AT: 150 AT'
+    - 'MAIN C.B AF: 250 AF'
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    - key: collection_sources.cross_validated
+      value: true
+      source: cross_validated
+      conflict_with: null
+    - key: collection_sources.visual_semantics
+      value: true
+      source: visual_semantics
+      conflict_with: null
+    - key: collection_sources.visual_semantics_gemini
+      value: true
+      source: visual_semantics_gemini
+      conflict_with: null
+    - key: collection_sources.entity_synthesis
+      value: true
+      source: entity_synthesis
+      conflict_with: null
+    - key: disagreements.main_cb_af
+      value: sonnet=30/20AT, gemini=250 AF, mini=30/20AT
+      source: page_context
+      conflict_with: resolved_to=30/20AT
+    - key: disagreements.main_cb_at
+      value: sonnet=150AT, gemini=250 AT, mini=150AT
+      source: page_context
+      conflict_with: null
+    conflicts:
+    - key: main_cb_af
+      values:
+      - 30/20AT
+      - 250 AF
+      sources:
+      - entity_detail.specs
+      - page_context.disagreements
+    - key: main_cb_at
+      values:
+      - 150AT
+      - 250 AT
+      sources:
+      - entity_detail.specs
+      - page_context.disagreements
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added:
+    - connection_specs/relations 기준으로는 ELECTRICAL 내부 연결만 확인됨.
+    - 타 분야 설비와의 직접 연결은 확인되지 않음.
+  ontology_class_hint:
+    suggested_parent_class: PowerDistributionEquipment
+    alternative_parent_classes:
+    - DistributionPanel
+    - PowerPanel
+    - CircuitProtectionEquipment
+  spatial_context:
+    position: bottom-right
+    source_pages:
+    - 19
+    room_or_zone: 1층 PLC/Drive 검증시스템 및 신사업 검증시스템
+    floor: 1층
+  preserved_auxiliary:
+    specs_full:
+      panel_board: P-I-2PP
+      panel_location: 1층 PLC/Drive 검증시스템 및 신사업 검증시스템
+      cover_type: 노출형(STEEL)
+      source: CCW (전기실)
+      volt: 220V
+      main_cb_type: MCCB
+      main_cb_poles: 3P
+      main_cb_at: 150AT
+      main_cb_af: 30/20AT
+      spd: 3Ø S.P.D 40KA/mode
+      branch_circuits:
+      - circuit_no: 1
+        at: 30
+        af: 50
+        poles: 3
+        type: MCCB
+        load_label: EG-1(PLC 검증시스템)
+      - circuit_no: 2
+        at: 40
+        af: 100
+        poles: 3
+        type: MCCB
+        load_label: 신사업 검증시스템
+      - circuit_no: 3
+        at: 50
+        af: 100
+        poles: 3
+        type: MCCB
+        load_label: 부하1
+      - circuit_no: 4
+        at: 40
+        af: 50
+        poles: 3
+        type: MCCB
+        load_label: 부하2
+      - circuit_no: 5
+        at: 40
+        af: 50
+        poles: 3
+        type: MCCB
+        load_label: 부하3
+      - circuit_no: 6
+        at: 75
+        af: 125
+        poles: 3
+        type: MCCB
+        load_label: SP
+        status: spare
+      raw_labels:
+      - 'SOURCE: CCW'
+      - 'VOLT: 220V'
+      - 'TYPE: 3P'
+      - 'MAIN C.B: MCCB'
+      - 'MAIN C.B AT: 150AT'
+      - 'FROM: 전기실'
+      - R S T (3상 입력)
+      - MAIN
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - AT:30 / AF:50 / P:3 / TYPE:MCCB / EG-1(PLC 검증시스템)
+      - AT:40 / AF:100 / P:3 / TYPE:MCCB / 신사업 검증시스템
+      - AT:50 / AF:100 / P:3 / TYPE:MCCB / 부하1
+      - AT:40 / AF:50 / P:3 / TYPE:MCCB / 부하2
+      - AT:40 / AF:50 / P:3 / TYPE:MCCB / 부하3
+      - AT:75 / AF:125 / P:3 / TYPE:MCCB / SP
+      - 'PANEL BOARD: P-I-2PP'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 1층 PLC/Drive 검증시스템 및 신사업 검증시스템'
+      - 'BOX SIZE: —'
+      - 'SOURCE: —'
+      - 'MAIN C.B AT: 150 AT'
+      - 'MAIN C.B AF: 250 AF'
+      - R S T
+      - AT:30 / AF:50 / P:3 / TYPE:MCCB / NO:— / CKT#:XDC-750L (4KVA)
+      - AT:63 / AF:100 / P:3 / TYPE:MCCB / NO:— / CKT#:성능시험기 판넬
+      - AT:50 / AF:50 / P:3 / TYPE:MCCB / NO:— / CKT#:PLC 테스트2
+      - AT:40 / AF:50 / P:3 / TYPE:MCCB / NO:— / CKT#:설비용
+      - AT:75 / AF:125 / P:3 / TYPE:MCCB / NO:— / CKT#:SP
+      - CKT#:XDC-1000L (5KVA) / NO:— / TYPE:MCCB / P:3 / AF:50 / AT:30
+      - CKT#:PLC 테스트1 / NO:— / TYPE:MCCB / P:3 / AF:50 / AT:50
+      - CKT#:설비용 / NO:— / TYPE:MCCB / P:3 / AF:50 / AT:32
+      - CKT#:직교로봇 / NO:— / TYPE:MCCB / P:3 / AF:50 / AT:40
+      - CKT#:SP / NO:— / TYPE:MCCB / P:3 / AF:125 / AT:75
+      notes: []
+      drawing_texts: []
+      requirements: []
+      source_attribution:
+        sonnet: true
+        gemini: true
+        mini: true
+      collection_sources:
+        cross_validated: true
+        visual_semantics: true
+        visual_semantics_gemini: true
+        entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - source_attribution
+  - read_page_context.cross_validated.entities
+  - read_page_context.cross_validated.relationships
+  - read_page_context.cross_validated.spaces
+  - read_page_context.cross_validated.diagram_spec
+  - read_page_context.cross_validated.page_common_notes
+  - read_page_context.cross_validated.disagreements
+  - read_page_context.visual_semantics
+  - read_page_context.visual_semantics_gemini
+  - read_page_context.entity_synthesis
+  - read_page_context.initial_scan
+  - read_page_context.visual_sketch
+  - read_page_context.key_elements_from_text
+  skipped_fields:
+  - requirements
+  - drawing_texts
+  - notes
+  - ontology_hints.observed_relations
+  - ontology_hints.cross_discipline
+  - ontology_hints.function_candidates
+  - read_page_image (not needed; text/context sufficient)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: PowerDistributionEquipment
+    annotations_to_emit:
+    - specs_full
+    - ambiguous_attributes
+    - provenance_attributes
+    - conflicts
+    - source_pages
+    - source_attribution
+    - collection_sources
+    - position
+    - raw_labels
+    - relations
+    relations_to_emit:
+    - feeds
+    - grounds_to
+    - contains
+    - cable
+    needs_human_review: false
+tag: P-I-2PP
+discovered_relations: 5

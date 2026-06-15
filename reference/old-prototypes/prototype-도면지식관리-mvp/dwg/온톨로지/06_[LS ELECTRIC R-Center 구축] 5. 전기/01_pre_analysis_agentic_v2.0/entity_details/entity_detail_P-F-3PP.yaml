@@ -1,0 +1,156 @@
+tag: P-F-3PP
+name: 1층 진동시험실 분전반
+type: PANEL_BOARD
+discipline: ELECTRICAL
+function_category: PANEL_BOARD
+source_pages:
+- 20
+specs:
+  labels_above:
+  - PANEL BOARD  P-F-3PP  COVER TYPE 노출형(STEEL)
+  - PANEL LOCATION 1층 진동시험실  BOX SIZE —
+  labels_inside:
+  - 'FROM: 전기실'
+  - R S T N
+  - 'SOURCE: VOLT 380V  TYPE MCCB'
+  - 'MAIN C.B: CCM 63A AT  4P 250AT'
+  - MCCB 3P 50/50AT
+  - 3Ø S.P.D 40KA/mode
+  - MAIN
+  - AT:200  AF:250  P:4  TYPE:MCCB  NO:—  CCM 통합
+  - AT:75  AF:125  P:4  TYPE:MCCB  NO:—  CCM SP
+  - MCCB 4P 250 200
+  - MCCB 4P 125 75
+  - MCCB 4P 125 SP
+  labels_below:
+  - E3 (접지)
+  raw_labels:
+  - 'FROM: 전기실'
+  - R S T N
+  - 'SOURCE: VOLT 380V  TYPE MCCB'
+  - 'MAIN C.B: CCM 63A AT  4P 250AT'
+  - MCCB 3P 50/50AT
+  - 3Ø S.P.D 40KA/mode
+  - MAIN
+  - AT:200  AF:250  P:4  TYPE:MCCB  NO:—  CCM 통합
+  - AT:75  AF:125  P:4  TYPE:MCCB  NO:—  CCM SP
+  - MCCB 4P 250 200
+  - MCCB 4P 125 75
+  - MCCB 4P 125 SP
+  - PANEL BOARD  P-F-3PP  COVER TYPE 노출형(STEEL)
+  - PANEL LOCATION 1층 진동시험실  BOX SIZE —
+  - SOURCE VOLT 380V TYPE MCCB
+  - MAIN C.B CKT# 4P 125 AF 100 AT
+  - MCCB 3P 30/20AT
+  - AT AF P TYPE NO CKT#
+  - CKT# NO TYPE P AF AT
+  - 200 250 4 MCCB 설비용
+  - 설비 3KW MCCB 4 50 20
+  - 75 125 4 MCCB SP
+  - SP MCCB 4 125 75
+  - PANEL BOARD P-F-3PP COVER TYPE 노출형(STEEL)
+  - PANEL LOCATION 1층 진동시험실 BOX SIZE —
+  panel_location: 1층 진동시험실
+  cover_type: 노출형(STEEL)
+  box_size: —
+  source_voltage_kV: 0.38
+  source_voltage_phase: 3Ø 380V
+  source_type: MCCB
+  main_cb_rating: MCCB 3P 50/50AT
+  main_cb_poles: 3
+  main_cb_af: 50
+  main_cb_at: 50
+  main_cb_alt_rating: 4P 250AT (Sonnet)
+  spd_rating: 3Ø S.P.D 40KA/mode
+  branch_breaker_schedule:
+  - at: 200
+    af: 250
+    poles: 4
+    type: MCCB
+    false: —
+    ccm: CCM 통합
+  - at: 75
+    af: 125
+    poles: 4
+    type: MCCB
+    false: —
+    ccm: CCM SP
+  - at: 125
+    af: 125
+    poles: 4
+    type: MCCB
+    false: SP
+    ccm: CCM
+  ground_terminal: E3
+relations:
+- from: EXT-전기실
+  to: P-F-3PP
+  relation: feeds
+  source_page: 20
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: P-F-3PP
+  to: GND-E3-F
+  relation: grounds_to
+  source_page: 20
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: EXT-전기실
+  to: P-F-3PP
+  relation: cable
+  source_page: 20
+  origin: visual_semantics
+  annotation: 'FROM: 전기실 / R S T N / 3Ø 380V'
+- from: P-F-3PP
+  to: GND-E3-F
+  relation: cable
+  source_page: 20
+  origin: visual_semantics
+  annotation: E3 접지
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: bottom-left
+confidence: 0.95
+equipment_symbols:
+- type: MCCB (Main) 3P 50/50AT
+  count: 1
+- type: SPD 3Ø 40KA/mode
+  count: 1
+- type: MCCB 4P (분기)
+  count: 3
+- type: 접지단자 E3
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - labels_above
+  - labels_inside
+  - labels_below
+  - raw_labels
+  - panel_location
+  - cover_type
+  - box_size
+  - source_voltage_kV
+  - source_voltage_phase
+  - source_type
+  - main_cb_rating
+  - main_cb_poles
+  - main_cb_af
+  - main_cb_at
+  - main_cb_alt_rating
+  - spd_rating
+  - branch_breaker_schedule
+  - ground_terminal
+  similar_equipment: []
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection

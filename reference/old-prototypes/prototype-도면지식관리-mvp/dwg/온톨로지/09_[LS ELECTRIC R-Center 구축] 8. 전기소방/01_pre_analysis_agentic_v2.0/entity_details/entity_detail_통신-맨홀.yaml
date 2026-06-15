@@ -1,0 +1,91 @@
+tag: 통신-맨홀
+name: 정보통신용 맨홀 및 지하공동구
+type: DISTRIBUTE
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 7
+specs:
+  shape: rectangle
+  labels_inside:
+  - 정보통신용 맨홀
+  - 지하공동구 사용
+  - 관로구방수장치
+  - 기존 공동구
+  - 터파기 및 되메우기
+  - 통신 CABLE TRAY(기존)
+  labels_above: []
+  labels_below: []
+  inferred_name: 정보통신용 맨홀 및 지하공동구
+  position: bottom-right (건물 외부)
+  raw_labels:
+  - 정보통신용 맨홀
+  - 지하공동구 사용
+  - 관로구방수장치
+  - 기존 공동구
+  - 터파기 및 되메우기
+  - 통신 CABLE TRAY(기존)
+  equipment_symbols:
+  - type: manhole
+    count: 1
+  - type: cable_tray
+    count: 1
+relations:
+- from: PULL-BOX-외부
+  to: 통신-맨홀
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: F/O SM 4C x1, ELP 30Φ /IN TRAY, 지하공동구 경유
+- from: 통신-맨홀
+  to: PULL-BOX-외부
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: dashed
+  note: 기존 공동구 / 통신 CABLE TRAY(기존)
+- from: PULL-BOX-외부
+  to: 통신-맨홀
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: F/O SM 4C x1, ELP 30Φ /IN TRAY, 지하공동구 경유
+- from: 통신-맨홀
+  to: PULL-BOX-외부
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 기존 공동구 / 통신 CABLE TRAY(기존)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-right (건물 외부)
+confidence: 0.95
+equipment_symbols:
+- type: manhole
+  count: 1
+- type: cable_tray
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: CommunicationInfrastructure
+  observed_attributes:
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - inferred_name
+  - position
+  - raw_labels
+  - equipment_symbols
+  similar_equipment:
+  - PULL-BOX-외부
+  function_candidates:
+  - CableRouting
+  - UndergroundDistribution
+  - CableProtection

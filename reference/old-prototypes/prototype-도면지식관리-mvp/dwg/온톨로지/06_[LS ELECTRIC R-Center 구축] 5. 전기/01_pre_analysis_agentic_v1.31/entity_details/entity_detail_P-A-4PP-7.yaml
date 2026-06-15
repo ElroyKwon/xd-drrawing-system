@@ -1,0 +1,155 @@
+entity_detail:
+  tag: P-A-4PP-7
+  type: Power Panelboard
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 22
+      confidence: 0.98
+    panel_location:
+      value: 1층 Drive 시험실
+      unit: null
+      source: page 22
+      confidence: 0.98
+    source_volt:
+      value: 440V
+      unit: V
+      source: page 22
+      confidence: 0.98
+    main_c_b_type:
+      value: MCCB 3F 30/20AT
+      unit: null
+      source: page 22
+      confidence: 0.98
+    surge_protective_device:
+      value: 3Ø S.P.D 40KA/mode
+      unit: null
+      source: page 22
+      confidence: 0.98
+    mccb_m1_at:
+      value: 100
+      unit: AT
+      source: page 22
+      confidence: 0.95
+    mccb_m1_af:
+      value: 250
+      unit: AF
+      source: page 22
+      confidence: 0.95
+    mccb_m1_phase:
+      value: 3상
+      unit: null
+      source: page 22
+      confidence: 0.95
+    mccb_m1_rating:
+      value: 30/20AT
+      unit: null
+      source: page 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page 22
+    page_number: 22
+    text: 'COVER TYPE: 노출형(STEEL); PANEL LOCATION: 1층 Drive 시험실; SOURCE VOLT: 440V;
+      MAIN C.B TYPE: MCCB 3F 30/20AT; 3Ø S.P.D 40KA/mode'
+  - source: page 22
+    page_number: 22
+    text: 3Ø 440V 전원을 전기실에서 인입해 6개 분전반(P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP, P-F-4PP,
+      P-P-4PP)으로 분기하는 분전반 결선도이다.
+  - source: page 22
+    page_number: 22
+    text: 각 분전반은 노출형(STEEL)이며, MCCB와 SPD, E3 접지가 반복 표기된다.
+  - source: page 22
+    page_number: 22
+    text: '도면상 주요 용량 표기는 MAIN C.B TYPE: MCCB 3F 30/20AT, 3Ø S.P.D 40KA/mode, SOURCE
+      VOLT: 440V로 보인다.'
+  - source: page 22
+    page_number: 22
+    text: 'AT: 100; AF: 250; 3상; 정격: 30/20AT'
+  - source: page 22
+    page_number: 22
+    text: 3Ø S.P.D 40KA/mode
+  - source: page 23
+    page_number: 23
+    text: 상단에 CABLE SCHEDULE & CONDUIT 표, 하단에 층별 라이저/계통도가 함께 보이는 전기 간선 계통도이다.
+  - source: page 23
+    page_number: 23
+    text: S/S R-Center 수전반에서 LP-1F, LP-2F, P-C-3PP, P-OAC-1/2/3, P-F, IVR-2, LV-6
+      및 다수의 2PP/3PP/4PP 패널로 연결된다.
+  - source: page 23
+    page_number: 23
+    text: 표기 전압은 6.6kV, 380/220V, 440V, 220V가 보이며, 인입은 UT동 전기실에서 오는 것으로 표시된다.
+  requirements:
+  - text: 3Ø 440V 전원을 전기실에서 인입해 6개 분전반으로 분기
+    source: page 22
+    type: power_supply
+  - text: 노출형(STEEL)
+    source: page 22
+    type: installation_requirement
+  - text: MCCB와 SPD, E3 접지 표기
+    source: page 22
+    type: protection_and_grounding
+  - text: 'SOURCE VOLT: 440V'
+    source: page 22
+    type: electrical_requirement
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 22
+      text: 3Ø 440V 전원을 전기실에서 인입해 6개 분전반(P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP,
+        P-F-4PP, P-P-4PP)으로 분기
+  - relation: protects_with
+    partner: MCCB-P-A-4PP-7-M1
+    details:
+      source: page 22
+      text: 'AT: 100; AF: 250; 3상; 정격: 30/20AT'
+  - relation: protects_with
+    partner: SPD-P-A-4PP-7
+    details:
+      source: page 22
+      text: 3Ø S.P.D 40KA/mode
+  - relation: grounded_to
+    partner: E3-GROUNDING
+    details:
+      source: page 22
+      text: E3 접지
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: ELECTRICAL-ROOM
+      direction: source_to_target
+      source: page 22
+    - relation_type: protects_with
+      partner_tag: MCCB-P-A-4PP-7-M1
+      direction: UNKNOWN
+      source: page 22
+    - relation_type: protects_with
+      partner_tag: SPD-P-A-4PP-7
+      direction: UNKNOWN
+      source: page 22
+    - relation_type: grounded_to
+      partner_tag: E3-GROUNDING
+      direction: UNKNOWN
+      source: page 22
+    observed_attributes:
+    - COVER TYPE
+    - PANEL LOCATION
+    - SOURCE VOLT
+    - MAIN C.B TYPE
+    - 3Ø S.P.D
+    - AT
+    - AF
+    - 3상
+    - 정격
+    similar_equipment:
+    - P-AC-4PP-1
+    - P-C-4PP
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: PowerPanelboard
+    cross_discipline: []
+  notes:
+  - page 23에는 P-A-4PP-7의 직접 사양은 없고, 계통도에서 동일 태그가 패널 목록에 포함됨.
+tag: P-A-4PP-7

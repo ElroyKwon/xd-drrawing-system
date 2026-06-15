@@ -1,0 +1,13 @@
+tag: POWER-SOURCE
+verdict: demoted
+confidence: 0.94
+missing_fields:
+- name
+- discipline
+missing_relations:
+- upstream source relation to 전기실 is hinted in requirements/notes but not structured
+  as a connection_spec
+reason: tag와 자체 사양은 있으나, specs의 drawing_number/title/project_name은 도면 메타데이터 성격이 강해
+  독립 물리 설비의 사양으로 보기 어렵다. main_inlet_text와 feeds 관계는 확인되지만, entity_detail에 독립 설비로서의
+  명확한 자체 장비 사양이 부족하고 전기실/전원 인입점 맥락의 도면 메타데이터 및 인입점 표기 중심이다. 따라서 독립 엔티티로 qualified
+  처리하지 않고 demoted로 판정한다.

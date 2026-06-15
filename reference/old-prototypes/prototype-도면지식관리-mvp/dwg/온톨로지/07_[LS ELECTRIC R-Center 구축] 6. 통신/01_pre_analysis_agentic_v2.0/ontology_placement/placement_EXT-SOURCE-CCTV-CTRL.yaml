@@ -1,0 +1,176 @@
+placement:
+  tag: EXT-SOURCE-CCTV-CTRL
+  name: 외부 인입 출처 - 옥외 CCTV 제어반
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-SOURCE-CCTV-CTRL
+    class_hint: ExternalConnectionSource
+    alternative_class_hints:
+    - ControlPanel
+    - CCTVControlSource
+    - SignalSource
+    - Placeholder
+    related_assertions:
+    - type: cable
+      target_hint: HUB-RACK-01
+      note: 'FROM : 옥외 CCTV 제어반 / FIBER OPTICAL S.M 4CORE / ELP 50Ø / 터파기 신설 구역'
+    applicable_axioms:
+    - AX043
+    applicable_constraints: []
+    confirmed_class: dks:ExternalConnectionSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 옥외 CCTV 제어반'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: fromLabel
+          suggested_datatype: xsd:string
+          rationale: FROM 표기와 출처 문구가 명시됨
+      - raw_text: FIBER OPTICAL S.M 4CORE
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열
+      - raw_text: ELP 50Ø
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: conduitSpecification
+          suggested_datatype: xsd:string
+          rationale: 관로/전선관 규격으로 보이는 문자열
+      - raw_text: 터파기 신설 구역
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: constructionNote
+          suggested_datatype: xsd:string
+          rationale: 시공 관련 주석 문구
+      - raw_text: 외부 인입 출처 - 옥외 CCTV 제어반
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 엔티티의 원문 라벨
+      - raw_text: control panel
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: function_category 값이 CONTROL_PANEL로 관찰됨
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: placement_inference
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class + visual_semantics
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates + type
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 4
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 4
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 4
+      method: relations.annotation
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 4
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 4
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 4
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 4
+      method: specs.note
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 4
+      method: entity_detail.function_category
+    provenance_note:
+      source_pages:
+      - 4
+      method: all recorded values traced to entity_detail source_page
+  unresolved:
+  - field_candidate: specs.conduit
+    raw_text: ELP 50Ø
+    source_page: 4
+    reason: 관로 규격으로 보이나 정확한 표준 의미를 외부 지식 없이 확정 불가
+    preservation_note: 원문 그대로 보존; conduit 관련 문자열로 재해석 가능
+  - field_candidate: specs.note
+    raw_text: 터파기 신설 구역
+    source_page: 4
+    reason: 시공/공사 메모로 보이나 정식 속성명 확정 불가
+    preservation_note: construction note 후보로 승격 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CCTV_CONTROL, SIGNAL_SOURCE, EXTERNAL_CONNECTION
+    source_page: 4
+    reason: 후보 기능이 복수이며 단일 확정 불가
+    preservation_note: function candidate 목록으로 유지
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM : 옥외 CCTV 제어반 / FIBER OPTICAL S.M 4CORE / ELP 50Ø / 터파기 신설 구역'
+    source_page: 4
+    reason: 복합 라벨 문자열로 분해는 가능하나 원문 보존 필요
+    preservation_note: 라벨 분해 전 원문 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 외부 인입 출처처럼 보이지만 name과 function_category가 제어반/출처/placeholder 성격을 함께
+      가지며, 관계 사실이 주 정보인지 독립 설비인지 경계가 혼합됨.
+    recommended_handling: 0-9c에서 placeholder/connection source/control panel 후보를 함께
+      검토하고, 0-9d에서 관계와 데이터 속성 분리를 재평가
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부 연결/인입/출처 지점 패턴으로 해석
+    - FROM/TO 계열 관계 사실을 related_assertions 원형으로 보존
+    - raw_labels, cable_spec, conduit, note를 free_notes 및 unresolved로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:23.252598'
+  confidence: 0.78

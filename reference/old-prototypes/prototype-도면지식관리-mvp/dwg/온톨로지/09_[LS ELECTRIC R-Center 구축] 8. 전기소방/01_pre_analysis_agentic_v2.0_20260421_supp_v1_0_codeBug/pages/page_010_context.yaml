@@ -1,0 +1,936 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: fire_alarm_legend_and_notes
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-202
+    title: 2층 자동화재탐지설비 평면도
+    revision: null
+  visible_tags:
+  - tag: FA-2A
+    type: fire_alarm_device_or_panel_label
+    source: image
+  - tag: FD-2A
+    type: fire_alarm_device_or_panel_label
+    source: image
+  - tag: Software Lab
+    type: named_space
+    source: both
+  - tag: 검증시스템 컨트롤실
+    type: named_space
+    source: both
+  - tag: 자료실
+    type: named_space
+    source: both
+  - tag: 세미나/다목적실
+    type: named_space
+    source: both
+  - tag: 라운지
+    type: named_space
+    source: both
+  - tag: 소회의실-1
+    type: named_space
+    source: both
+  - tag: 센터장실
+    type: named_space
+    source: both
+  - tag: 사무실
+    type: named_space
+    source: both
+  - tag: 중회의실
+    type: named_space
+    source: both
+  - tag: 휴게공간
+    type: named_space
+    source: both
+  - tag: 소회의실-2
+    type: named_space
+    source: both
+  - tag: 냉장고
+    type: named_space_or_fixture_label
+    source: both
+  - tag: SINK
+    type: named_space_or_fixture_label
+    source: both
+  - tag: 세단기
+    type: named_space_or_fixture_label
+    source: both
+  - tag: 복합기
+    type: named_space_or_fixture_label
+    source: both
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 범례 및 주기사항 섹션이 하단 좌측에 존재함
+  - 소방 자동화재탐지설비 평면도이며 실명 표기가 다수 보임
+  - FA-2A, FD-2A 표기가 도면 내에서 확인됨
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-10: discipline/fire_protection/genre_electrical_alarm/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 도면번호 EF-202와 제목 '2층 자동화재탐지설비 평면도'로 소방 분야의 평면도이며, 카탈로그에서 fire_protection/P-10의
+    genre_mechanical 보조프롬프트가 매칭된다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 2층 자동화재탐지설비 평면도
+    position: center
+    labels_near:
+    - Software Lab
+    - 검증시스템 컨트롤실
+    - 자료실
+    - 세미나/다목적실
+    - 라운지
+    - 소회의실-1
+    - 센터장실
+    - 사무실
+    - 중회의실
+    - 휴게공간
+    - 소회의실-2
+    - FA-2A
+    - FD-2A
+    - FA-2B
+  - panel_id: LEGEND_SECTION
+    shape: rectangle
+    primary_label: 범례 및 주기사항
+    position: bottom-left
+    labels_near:
+    - 심벌
+    - 내용
+    - 수량
+    - 자동식 감지기(2종 스포트형)-LED 부착형
+    - 정온식 감지기(1종 스포트형)-LED 부착형
+    - 연기식 감지기(1,2종 광전식)-LED 부착형
+    - 수동발신기 SET (소화전 상단형)
+    - 화재 수신반
+    - 전원반(중계기)
+    - 방화셔터 연동 제어반
+    - 1. 감지기 배관 배선
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: EF - 202
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 가운 건축
+    - (주)정연엔지니어링
+    - 2층 자동화재탐지설비 평면도
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: LEGEND_SECTION
+    line_style: dotted
+    annotation: 도면 내 심벌 정의 참조
+  notable_shapes:
+  - shape: circle
+    label: 감지기 심벌
+    note: 도면 내 다수 배치된 원형 심벌 (차동식, 정온식, 연기식)
+  - shape: rectangle
+    label: 수동발신기 SET
+    note: 소화전 상단형 발신기 세트 심벌
+  - shape: dashed_box
+    label: X 표시 영역
+    note: 평면도 내 오픈된 공간 또는 보이드 영역 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-left
+  confidence: 0.98
+  note: 도면 하단 좌측에 '범례 및 주기사항' 표가 명확히 존재함.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면 제목 '2층 자동화재탐지설비 평면도'와 도면번호 'EF-202' (F=Fire Protection, E=Electrical
+    Alarm 관행) 및 도면 내용(감지기, 발신기 배치)을 종합하여 FIRE_PROTECTION 분야의 floor_plan으로 확정. 0-0의
+    genre_mechanical 추천은 오분류이므로 카탈로그에서 fire_protection/P-10의 genre_electrical_alarm
+    경로로 수정하여 추천함.
+classification: FIRE_DETECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: 2층 자동화재탐지설비 평면도'
+- '도면 번호: EF-202'
+- '프로젝트 제목: LS Electric R-Center 구축'
+- '건물명: R-Center'
+- 범례 및 주기사항
+- 감지기 배관 배선
+- 수동발신기 SET (소화전 상단형)
+- 화재 수신반
+- 정온식 감지기(1종 스포트형)-LED 부착형
+- 연기식 감지기(1,2종 광전식)-LED 부착형
+- 차동식 감지기(2종 스포트형)-LED 부착형
+- 전원반(중계기)
+- 방화셔터 연동 제어반
+- '층 표기: 2층'
+title_block:
+  drawing_number: EF-202
+  title: 2층 자동화재탐지설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 FIRE_PROTECTION / FIRE_DETECTION_LAYOUT 판정과 일치함. 페이지 하단 좌측에 ''범례 및 주기사항''
+  표가 보이며, 도면 내 FA-2A, FD-2A 표기와 감지기/발신기/수신반 관련 심볼이 확인됨. 출처: 페이지 10 텍스트 및 이미지.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ZONE-SOFTWARE-LAB
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 3
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 2
+    inferred_name: 소프트웨어 랩 (2층 좌측 대형 공간)
+    position: center-left
+  - panel_id: ZONE-VERIFICATION-CTRL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 2
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 1
+    - type: 수동발신기 SET (소화전 상단형)
+      count: 1
+    inferred_name: 검증시스템 컨트롤실
+    position: center
+  - panel_id: ZONE-ARCHIVE
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 2
+    inferred_name: 자료실
+    position: center
+  - panel_id: ZONE-SEMINAR
+    shape: rectangle
+    labels_inside:
+    - 세미나/다목적실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 4
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 1
+    inferred_name: 세미나/다목적실
+    position: bottom-center
+  - panel_id: ZONE-LOUNGE
+    shape: rectangle
+    labels_inside:
+    - 라운지
+    - 냉장고
+    - SINK
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 1
+    - type: 정온식 감지기(1종 스포트형)-LED 부착형
+      count: 1
+    inferred_name: 라운지 (주방 기기 포함)
+    position: bottom-center-right
+  - panel_id: ZONE-SMALL-MTG-1
+    shape: rectangle
+    labels_inside:
+    - 소회의실-1
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 1
+    inferred_name: 소회의실-1
+    position: center-right
+  - panel_id: ZONE-SMALL-MTG-2
+    shape: rectangle
+    labels_inside:
+    - 소회의실-2
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 1
+    inferred_name: 소회의실-2
+    position: center-right
+  - panel_id: ZONE-CENTER-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 센터장실
+    - 세단기
+    - 복합기
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 2
+    inferred_name: 센터장실 (사무기기 포함)
+    position: center-right
+  - panel_id: ZONE-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 4
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 1
+    - type: 수동발신기 SET (소화전 상단형)
+      count: 1
+    inferred_name: 사무실
+    position: right
+  - panel_id: ZONE-MID-MTG
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 2
+    inferred_name: 중회의실
+    position: center-right
+  - panel_id: ZONE-REST
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기(2종 스포트형)-LED 부착형
+      count: 2
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 1
+    inferred_name: 휴게공간
+    position: top-right
+  - panel_id: ZONE-CORRIDOR
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 연기식 감지기(1,2종 광전식)-LED 부착형
+      count: 3
+    - type: 수동발신기 SET (소화전 상단형)
+      count: 1
+    inferred_name: 복도/계단 인접 공용 공간
+    position: center
+  - panel_id: PANEL-FA-2A
+    shape: rectangle
+    labels_inside:
+    - FA-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화재 수신반 / 전원반(중계기)
+      count: 1
+    inferred_name: 화재경보 수신반 FA-2A (2층 A구역)
+    position: center
+  - panel_id: PANEL-FD-2A
+    shape: rectangle
+    labels_inside:
+    - FD-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동 제어반
+      count: 1
+    inferred_name: 방화셔터 연동 제어반 FD-2A (2층 A구역)
+    position: center
+  - panel_id: PANEL-FA-2B
+    shape: rectangle
+    labels_inside:
+    - FA-2B
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화재 수신반 / 전원반(중계기)
+      count: 1
+    inferred_name: 화재경보 수신반 FA-2B (2층 B구역, 하단 출입구 인근)
+    position: bottom-center
+  - panel_id: LEGEND-SECTION
+    shape: rectangle
+    labels_inside:
+    - 범례 및 주기사항
+    - 심벌 / 내용 / 수량
+    - 자동식 감지기(2종 스포트형)-LED 부착형 / 13EA
+    - 정온식 감지기(1종 스포트형)-LED 부착형 / 16C (HFX 4 1.5㎟)
+    - 연기식 감지기(1,2종 광전식)-LED 부착형 / 8EA
+    - 수동발신기 SET (소화전 상단형)
+    - 화재 수신반
+    - 전원반(중계기)
+    - 방화셔터 연동 제어반
+    - 1. 감지기 배관 배선
+    - 16C (HFX 2-1.5㎟)
+    - 16C (HFX 4 1.5㎟)
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할수 있도록 한다.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례 및 주기사항 표
+    position: bottom-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운 건축
+    - GAUN Architects & Engineers
+    - (주)정연엔지니어링
+    - 2층 자동화재탐지설비 평면도
+    - 'SCALE : 1/NONE(A3) / 1/NONE(A1)'
+    - EF - 202
+    - R-Center
+    - '2024.01'
+    - 안동식 / 이은전 / 정용재
+    - A3:1/300
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  - panel_id: OPEN-SPACE-LEFT
+    shape: dashed_box
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 2층 좌측 대형 오픈 공간 (X 대각선 표시 — 미사용/보이드 구역)
+    position: left
+  connections:
+  - from: PANEL-FA-2A
+    to: ZONE-VERIFICATION-CTRL
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선 16C (HFX 2-1.5㎟)
+  - from: PANEL-FA-2A
+    to: ZONE-ARCHIVE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: ZONE-SOFTWARE-LAB
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: PANEL-FD-2A
+    line_type: signal
+    line_style: solid
+    annotation: 방화셔터 연동 신호
+  - from: PANEL-FA-2A
+    to: ZONE-CORRIDOR
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2B
+    to: ZONE-SEMINAR
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2B
+    to: ZONE-LOUNGE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: ZONE-OFFICE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선 16C (HFX 4 1.5㎟)
+  - from: PANEL-FA-2A
+    to: ZONE-REST
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: ZONE-MID-MTG
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: ZONE-SMALL-MTG-1
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: ZONE-SMALL-MTG-2
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PANEL-FA-2A
+    to: ZONE-CENTER-OFFICE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  groups:
+  - group_id: GRP-2F-ALARM-A
+    label: 2층 자동화재탐지 A구역 (FA-2A 관할)
+    members:
+    - PANEL-FA-2A
+    - PANEL-FD-2A
+    - ZONE-SOFTWARE-LAB
+    - ZONE-VERIFICATION-CTRL
+    - ZONE-ARCHIVE
+    - ZONE-CORRIDOR
+    - ZONE-OFFICE
+    - ZONE-REST
+    - ZONE-MID-MTG
+    - ZONE-SMALL-MTG-1
+    - ZONE-SMALL-MTG-2
+    - ZONE-CENTER-OFFICE
+  - group_id: GRP-2F-ALARM-B
+    label: 2층 자동화재탐지 B구역 (FA-2B 관할, 하단 출입구 인근)
+    members:
+    - PANEL-FA-2B
+    - ZONE-SEMINAR
+    - ZONE-LOUNGE
+  legend_references:
+  - text: 자동식 감지기(2종 스포트형)-LED 부착형 / 13EA
+    linked_to: ZONE-SOFTWARE-LAB
+  - text: 정온식 감지기(1종 스포트형)-LED 부착형 / 16C (HFX 4 1.5㎟)
+    linked_to: ZONE-LOUNGE
+  - text: 연기식 감지기(1,2종 광전식)-LED 부착형 / 8EA
+    linked_to: ZONE-CORRIDOR
+  - text: 수동발신기 SET (소화전 상단형)
+    linked_to: ZONE-OFFICE
+  - text: 화재 수신반
+    linked_to: PANEL-FA-2A
+  - text: 전원반(중계기)
+    linked_to: PANEL-FA-2A
+  - text: 방화셔터 연동 제어반
+    linked_to: PANEL-FD-2A
+  diagram_meta:
+    title: 2층 자동화재탐지설비 평면도
+    drawing_number: EF-202
+    project: LS Electric R-Center 구축
+    building: R-Center
+    floor: 2층
+    scale: 1/NONE(A3) / 1/NONE(A1)
+    date: '2024.01'
+    design_firm: (주)정연엔지니어링
+    architect: 가운 건축 (GAUN Architects & Engineers)
+    drawn_by: 안동식
+    checked_by: 이은전
+    approved_by: 정용재
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: detection_alarm
+    has_seismic: false
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: radial
+    grid_columns:
+    - ①
+    - ②
+    - ③
+    - ④
+    - ⑤
+    - ⑥
+    - ⑦
+    grid_rows:
+    - A
+    - B
+    - C
+    - D
+    overall_dimensions:
+      width_mm: 71000
+      bay_widths_mm:
+      - 12000
+      - 12000
+      - 12000
+      - 14000
+      - 11000
+      - 10000
+      height_mm: 43000
+      zone_heights_mm:
+      - 13000
+      - 17000
+      - 13000
+    wiring_spec:
+      conduit_type_default: HI-PVC 전선관 또는 난연성 CD전선관
+      exposed_conduit: 아연도 철제후강전선관
+      cable_type: HFX
+      typical_conduit_size: 16C
+      typical_cable_spec_2core: HFX 2-1.5㎟
+      typical_cable_spec_4core: HFX 4-1.5㎟
+    panels_on_drawing:
+    - tag: FA-2A
+      type: 화재 수신반 / 전원반(중계기)
+      location: center (검증시스템 컨트롤실 인근)
+    - tag: FD-2A
+      type: 방화셔터 연동 제어반
+      location: center (FA-2A 인접)
+    - tag: FA-2B
+      type: 화재 수신반 / 전원반(중계기)
+      location: bottom-center (하단 출입구 인근)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PNL-FA-2A
+    shape: rectangle
+    labels_inside:
+    - FA-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화재 수신반 / 전원반(중계기)
+      count: 1
+    inferred_name: R형 수신반/중계기 FA-2A
+    position: center
+  - panel_id: PNL-FD-2A-MID
+    shape: rectangle
+    labels_inside:
+    - FD-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동 제어반
+      count: 1
+    inferred_name: 방화셔터 제어반 FD-2A (중앙)
+    position: center
+  - panel_id: PNL-FA-2B
+    shape: rectangle
+    labels_inside:
+    - FA-2B
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화재 수신반 / 전원반(중계기)
+      count: 1
+    inferred_name: R형 수신반/중계기 FA-2B
+    position: bottom-center
+  - panel_id: PNL-FD-2A-BOT
+    shape: rectangle
+    labels_inside:
+    - FD-2A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동 제어반
+      count: 1
+    inferred_name: 방화셔터 제어반 FD-2A (하단)
+    position: bottom-right
+  - panel_id: ZONE-SOFT-LAB
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 3
+    - type: 연기식 감지기
+      count: 2
+    inferred_name: Software Lab 구역
+    position: center-left
+  - panel_id: ZONE-REST
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 2
+    - type: 연기식 감지기
+      count: 1
+    inferred_name: 휴게공간 구역
+    position: top-right
+  - panel_id: ZONE-CORRIDOR-MID
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 연기식 감지기
+      count: 3
+    - type: 수동발신기 SET
+      count: 1
+    inferred_name: 중앙 복도 구역
+    position: center
+  - panel_id: ZONE-ARCHIVE
+    shape: rectangle
+    labels_inside:
+    - 자료실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 2
+    inferred_name: 자료실 구역
+    position: center
+  - panel_id: ZONE-VERI-CTRL
+    shape: rectangle
+    labels_inside:
+    - 검증시스템 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 2
+    - type: 연기식 감지기
+      count: 1
+    - type: 수동발신기 SET
+      count: 1
+    inferred_name: 검증시스템 컨트롤실 구역
+    position: center
+  - panel_id: ZONE-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 4
+    - type: 연기식 감지기
+      count: 1
+    - type: 수동발신기 SET
+      count: 1
+    inferred_name: 사무실 구역
+    position: right
+  - panel_id: ZONE-MTG-S1
+    shape: rectangle
+    labels_inside:
+    - 소회의실-1
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 1
+    inferred_name: 소회의실-1 구역
+    position: center-right
+  - panel_id: ZONE-MTG-S2
+    shape: rectangle
+    labels_inside:
+    - 소회의실-2
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 1
+    inferred_name: 소회의실-2 구역
+    position: center-right
+  - panel_id: ZONE-CENTER-OFF
+    shape: rectangle
+    labels_inside:
+    - 센터장실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 2
+    inferred_name: 센터장실 구역
+    position: center-right
+  - panel_id: ZONE-MTG-MID
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 2
+    inferred_name: 중회의실 구역
+    position: center-right
+  - panel_id: ZONE-SEMINAR
+    shape: rectangle
+    labels_inside:
+    - 세미나/다목적실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 4
+    - type: 연기식 감지기
+      count: 1
+    inferred_name: 세미나/다목적실 구역
+    position: bottom-center
+  - panel_id: ZONE-LOUNGE
+    shape: rectangle
+    labels_inside:
+    - 라운지
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 차동식 감지기
+      count: 1
+    - type: 정온식 감지기
+      count: 1
+    inferred_name: 라운지 구역
+    position: bottom-center-right
+  - panel_id: ZONE-VOID-LEFT
+    shape: dashed_box
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 좌측 오픈/보이드 공간
+    position: left
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 범례 및 주기사항
+    - 심벌
+    - 내용
+    - 수량
+    - 자동식 감지기(2종 스포트형)-LED 부착형
+    - 정온식 감지기(1종 스포트형)-LED 부착형
+    - 연기식 감지기(1,2종 광전식)-LED 부착형
+    - 수동발신기 SET (소화전 상단형)
+    - 화재 수신반
+    - 전원반(중계기)
+    - 방화셔터 연동 제어반
+    - 1. 감지기 배관 배선
+    - 16C (HFX 2-1.5㎟)
+    - 16C (HFX 4 1.5㎟)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례표
+    position: bottom-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - 2층 자동화재탐지설비 평면도
+    - EF - 202
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  connections:
+  - from: PNL-FA-2A
+    to: PNL-FD-2A-MID
+    line_type: signal
+    line_style: solid
+    annotation: 연동 신호
+  - from: PNL-FA-2A
+    to: ZONE-SOFT-LAB
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-SOFT-LAB
+    to: ZONE-CORRIDOR-MID
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-CORRIDOR-MID
+    to: ZONE-REST
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PNL-FA-2A
+    to: ZONE-ARCHIVE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-ARCHIVE
+    to: ZONE-VERI-CTRL
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PNL-FA-2A
+    to: ZONE-OFFICE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-OFFICE
+    to: ZONE-MTG-S1
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-MTG-S1
+    to: ZONE-MTG-S2
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-MTG-S2
+    to: ZONE-CENTER-OFF
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-CENTER-OFF
+    to: ZONE-MTG-MID
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PNL-FA-2B
+    to: ZONE-SEMINAR
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: ZONE-SEMINAR
+    to: ZONE-LOUNGE
+    line_type: cable
+    line_style: solid
+    annotation: 감지기 배관배선
+  - from: PNL-FD-2A-BOT
+    to: null
+    line_type: signal
+    line_style: solid
+    annotation: 셔터 연동 (벽체 방향)
+  groups:
+  - group_id: GRP-FA-2A-LOOP
+    label: FA-2A 감지기 회로
+    members:
+    - PNL-FA-2A
+    - ZONE-SOFT-LAB
+    - ZONE-CORRIDOR-MID
+    - ZONE-REST
+    - ZONE-ARCHIVE
+    - ZONE-VERI-CTRL
+    - ZONE-OFFICE
+    - ZONE-MTG-S1
+    - ZONE-MTG-S2
+    - ZONE-CENTER-OFF
+    - ZONE-MTG-MID
+  - group_id: GRP-FA-2B-LOOP
+    label: FA-2B 감지기 회로
+    members:
+    - PNL-FA-2B
+    - ZONE-SEMINAR
+    - ZONE-LOUNGE
+  legend_references:
+  - text: 자동식 감지기(2종 스포트형)
+    linked_to: ZONE-OFFICE
+  - text: 정온식 감지기(1종 스포트형)
+    linked_to: ZONE-LOUNGE
+  - text: 연기식 감지기(1,2종 광전식)
+    linked_to: ZONE-CORRIDOR-MID
+  - text: 수동발신기 SET
+    linked_to: ZONE-OFFICE
+  - text: 화재 수신반
+    linked_to: PNL-FA-2A
+  - text: 방화셔터 연동 제어반
+    linked_to: PNL-FD-2A-MID
+  diagram_meta:
+    title: 2층 자동화재탐지설비 평면도
+    drawing_number: EF-202
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: detection_alarm
+    flow_direction: radial
+    scale: 1/NONE(A3)

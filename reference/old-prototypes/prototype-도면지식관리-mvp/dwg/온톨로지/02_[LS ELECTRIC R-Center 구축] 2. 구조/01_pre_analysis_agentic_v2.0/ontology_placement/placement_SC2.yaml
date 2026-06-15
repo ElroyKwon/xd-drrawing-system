@@ -1,0 +1,100 @@
+placement:
+  tag: SC2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:SC2
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 도면 실체 정보가 아님
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: raw_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/부재의 속성으로 직접 해석되지 않음
+    preservation_note: 페이지 목록과 안내 문구를 원문 그대로 보존
+  - field_candidate: source_pages
+    raw_text: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64, 65
+    source_page: 0
+    reason: entity_detail의 별도 구조 필드가 아니라 raw 문장 내 포함
+    preservation_note: 후속 단계에서 페이지 메타로 승격 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 SC2는 실체 설비인지 문서/시트 식별자인지 단독 정보로 판정 불가하며, 제공된 원문은 페이지 안내 문구만 포함함
+    recommended_handling: 문서 메타 또는 주석성 엔티티로 유지하고, 후속 페이지 컨텍스트가 있으면 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 계열 및 문서 메타 계층 비중이 큼'
+    - 'predicted_ontology_structure: DocumentEntity / PlanOrView / ScheduleOrList
+      / NoteOrLegend 후보 고려'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: 문서 메타 또는 주석성 정보는 AnnotationOnly로
+      보존'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:57.027765'
+  confidence: 0.86

@@ -1,0 +1,100 @@
+placement:
+  tag: SC11
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:SC11
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아닌 안내 문구/응답 문장
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/부재 실체로 해석할 근거가 없고, 페이지 안내 문구만 존재함
+    preservation_note: 문서 메타 또는 대화형 안내 텍스트로 보존
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: (분야 supplement 없음)
+    source_page: 0
+    reason: supplement 정의 카테고리가 제공되지 않아 정식 sub_kind 분류 불가
+    preservation_note: free_notes로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 SC11의 원문이 설비/부재가 아니라 페이지 안내 문구이며, DocumentEntity/PlanOrView/ScheduleOrList/NoteOrLegend
+      중 어느 문서 메타 계층인지 확정 불가
+    recommended_handling: 후속 단계에서 페이지 참조성, 시트 식별자 여부, 노트/범례 여부를 추가 문맥으로 판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: 도면에서 관찰된 것만 기록'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: 정보 소실 없이 raw_text 보존'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: unresolved를 source_page와
+      함께 기록'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:48.959659'
+  confidence: 0.86

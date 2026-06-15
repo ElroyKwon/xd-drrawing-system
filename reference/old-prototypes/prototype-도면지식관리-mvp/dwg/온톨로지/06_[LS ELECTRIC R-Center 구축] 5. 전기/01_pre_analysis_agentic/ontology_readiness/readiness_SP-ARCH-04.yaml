@@ -1,0 +1,12 @@
+tag: SP-ARCH-04
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- name
+- discipline
+- specifications
+missing_relations: []
+reason: 도구 확인 결과 SP-ARCH-04는 페이지별로 서로 다른 표기 요소에 재사용된 건축/표제란 성격의 엔티티이다. page 1에서는 '[
+  전기 ]' 분야 표기, page 2에서는 '하단 제목 영역', page 19에서는 '생산동력(3Ø 220V) 분전반 결선도-2'로 확인되어 독립
+  설비가 아니다. 자체 물리 설비 사양이 없고, 도면 메타데이터/표기 요소에 해당하므로 document_metadata로 강등한다. 관계는 entity_detail과
+  page_context에서 확인된 연결이 없고, page 1/2/19 모두 이 tag에 대한 설비 관계는 보이지 않는다.

@@ -1,0 +1,282 @@
+constraints:
+- id: CN001
+  type: FunctionalProperty
+  target_class: dks:DocumentEntity
+  property: dks:drawing_number
+  params: {}
+  derivation: data_properties에서 drawing_number.functional_candidate=true. 증거 3건(MF-001,
+    MF-102, TITLE-BLOCK-002) 모두 문서 엔티티당 drawing_number가 1개씩만 관찰됨.
+  evidence_tags:
+  - MF-001
+  - MF-102
+  - TITLE-BLOCK-002
+  confidence: 0.96
+- id: CN002
+  type: FunctionalProperty
+  target_class: dks:DocumentEntity
+  property: dks:detail_id
+  params: {}
+  derivation: data_properties에서 detail_id.functional_candidate=true. DET-01, DET-02,
+    DET-04 각 상세 엔티티에서 detail_id가 1개씩만 관찰됨.
+  evidence_tags:
+  - DET-01
+  - DET-02
+  - DET-04
+  confidence: 0.97
+- id: CN003
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:located_in
+  params: {}
+  derivation: object_properties에서 located_in.functional_candidate=true. 확인된 4건(CONN-FLEX-001,
+    PIPE-H-100-NEW, VALVE-GATE-001, PIPE-UG-001) 모두 각 subject당 단일 위치만 관찰됨.
+  evidence_tags:
+  - CONN-FLEX-001
+  - PIPE-H-100-NEW
+  - VALVE-GATE-001
+  - PIPE-UG-001
+  confidence: 0.94
+- id: CN004
+  type: FunctionalProperty
+  target_class: dks:PipingEntity
+  property: dks:system_type
+  params: {}
+  derivation: data_properties에서 system_type.functional_candidate=true. PIPE-H-100-NEW,
+    PIPE-SC-100-NEW, PIPE-SP-150-NEW 각각에서 system_type이 1개씩만 관찰됨.
+  evidence_tags:
+  - PIPE-H-100-NEW
+  - PIPE-SC-100-NEW
+  - PIPE-SP-150-NEW
+  confidence: 0.95
+- id: CN005
+  type: FunctionalProperty
+  target_class: dks:DocumentEntity
+  property: dks:title
+  params: {}
+  derivation: data_properties에서 title.functional_candidate=true. COVER-TITLE-001,
+    MF-001, TITLE-BLOCK-002에서 title이 각 1개씩만 관찰됨.
+  evidence_tags:
+  - COVER-TITLE-001
+  - MF-001
+  - TITLE-BLOCK-002
+  confidence: 0.95
+- id: CN006
+  type: FunctionalProperty
+  target_class: dks:DocumentEntity
+  property: dks:date
+  params: {}
+  derivation: data_properties에서 date.functional_candidate=true. COVER-TITLE-001, MF-001,
+    MF-102에서 date가 각 1개씩만 관찰됨.
+  evidence_tags:
+  - COVER-TITLE-001
+  - MF-001
+  - MF-102
+  confidence: 0.95
+- id: CN007
+  type: FunctionalProperty
+  target_class: dks:DocumentEntity
+  property: dks:project_number
+  params: {}
+  derivation: data_properties에서 project_number.functional_candidate=true. MF-001,
+    MF-102, TITLE-BLOCK-002에서 project_number가 각 1개씩만 관찰됨.
+  evidence_tags:
+  - MF-001
+  - MF-102
+  - TITLE-BLOCK-002
+  confidence: 0.94
+- id: CN008
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:position
+  params: {}
+  derivation: data_properties에서 position.functional_candidate=true. BLDG-B, FHC-LOBBY,
+    SPACE-20에서 position이 각 1개씩만 관찰됨.
+  evidence_tags:
+  - BLDG-B
+  - FHC-LOBBY
+  - SPACE-20
+  confidence: 0.98
+- id: CN009
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:shape
+  params: {}
+  derivation: data_properties에서 shape.functional_candidate=true. BLDG-A, BRACE-H-17,
+    COVERAGE-CIRCLE-SEISMIC에서 shape가 각 1개씩만 관찰됨.
+  evidence_tags:
+  - BLDG-A
+  - BRACE-H-17
+  - COVERAGE-CIRCLE-SEISMIC
+  confidence: 0.97
+- id: CN010
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:entity_type
+  params: {}
+  derivation: data_properties에서 entity_type.functional_candidate=true. BLDG-A, PIPE-H-100-NEW,
+    RISER-DN-50a-N에서 entity_type이 각 1개씩만 관찰됨.
+  evidence_tags:
+  - BLDG-A
+  - PIPE-H-100-NEW
+  - RISER-DN-50a-N
+  confidence: 0.95
+- id: CN011
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:function_category
+  params: {}
+  derivation: data_properties에서 function_category.functional_candidate=true. BLDG-A,
+    FHC-LOBBY, VALVE-AD-001에서 function_category가 각 1개씩만 관찰됨.
+  evidence_tags:
+  - BLDG-A
+  - FHC-LOBBY
+  - VALVE-AD-001
+  confidence: 0.96
+- id: CN012
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:line_style
+  params: {}
+  derivation: data_properties에서 line_style.functional_candidate=true. PIPE-H-100-EX,
+    PIPE-H-100-NEW, PIPE-H-MAIN에서 line_style이 각 1개씩만 관찰됨.
+  evidence_tags:
+  - PIPE-H-100-EX
+  - PIPE-H-100-NEW
+  - PIPE-H-MAIN
+  confidence: 0.93
+- id: CN013
+  type: Cardinality
+  target_class: dks:DocumentEntity
+  property: dks:source_page
+  params:
+    min: 1
+    max: null
+  derivation: 전 placement 전반에서 모든 태그가 source_page 또는 source_pages 문맥을 가짐. data_properties에서도
+    source_page가 독립 속성으로 승격되었고 BRACE-H-21, DET-05, SPACE-17 등에서 반복 관찰됨. 관찰 범위상 최소
+    1개 출처 페이지는 항상 존재.
+  evidence_tags:
+  - BRACE-H-21
+  - DET-05
+  - SPACE-17
+  - MF-001
+  - TITLE-BLOCK-002
+  confidence: 0.9
+- id: CN014
+  type: Cardinality
+  target_class: dks:SpatialEntity
+  property: dks:source_page
+  params:
+    min: 1
+    max: null
+  derivation: 공간 태그들도 모두 placement에 페이지 출처가 부여됨. BRACE-H-21/DET-05/SPACE-17 예시 외에도
+    BLDG-A, ROOM-전기실, UNKNOWN-SPACE-13 등 전 태그가 source_page 문맥을 가짐.
+  evidence_tags:
+  - BLDG-A
+  - ROOM-전기실
+  - SPACE-17
+  - UNKNOWN-SPACE-13
+  confidence: 0.9
+- id: CN015
+  type: Cardinality
+  target_class: dks:FireProtectionEquipment
+  property: dks:source_page
+  params:
+    min: 1
+    max: null
+  derivation: 설비 태그(FDC-01, FHC-1F-01, FE-10, VALVE-AD-001 등) 모두 placement에 source_page가
+    존재함.
+  evidence_tags:
+  - FDC-01
+  - FHC-1F-01
+  - FE-10
+  - VALVE-AD-001
+  confidence: 0.9
+- id: CN016
+  type: Cardinality
+  target_class: dks:PipingEntity
+  property: dks:source_page
+  params:
+    min: 1
+    max: null
+  derivation: 배관 태그(PIPE-H-100-NEW, RISER-01, CONN-UP-100, RISER-UP-100a 등) 모두 placement에
+    source_page가 존재함.
+  evidence_tags:
+  - PIPE-H-100-NEW
+  - RISER-01
+  - CONN-UP-100
+  - RISER-UP-100a
+  confidence: 0.9
+- id: CN017
+  type: Cardinality
+  target_class: dks:SeismicProtectionEntity
+  property: dks:source_page
+  params:
+    min: 1
+    max: null
+  derivation: 내진 태그(BRACE-H-17, BRACE-H-22, DET-05, DET-08 등) 모두 placement에 source_page가
+    존재함.
+  evidence_tags:
+  - BRACE-H-17
+  - BRACE-H-22
+  - DET-05
+  - DET-08
+  confidence: 0.9
+- id: CN018
+  type: Cardinality
+  target_class: owl:Thing
+  property: dks:count
+  params:
+    min: 0
+    max: 1
+  derivation: data_properties에서 count는 functional_candidate=false이나 실제 제시된 예시 ABC-EXTINGUISHER=29,
+    CONN-FLEX-001=2, FE-10=4는 각 subject당 count 1회만 관찰됨. 추가로 UNKNOWN-VALVE-01은 count
+    2회가 관찰되어 예외가 존재하므로 min=0, max=1의 후보 제약으로만 채택.
+  evidence_tags:
+  - ABC-EXTINGUISHER
+  - CONN-FLEX-001
+  - FE-10
+  - UNKNOWN-VALVE-01
+  confidence: 0.7
+- id: CN019
+  type: DomainRange
+  target_class: owl:Thing
+  property: dks:located_in
+  params:
+    domain: owl:Thing
+    range: dks:SpatialEntity
+    status: no_conflict_observed
+  derivation: object_properties에서 located_in의 range가 dks:SpatialEntity로 선언됨. 확인된 사례
+    CONN-FLEX-001→SPACE-PIT-001, PIPE-H-100-NEW→SPACE-PIT-001, VALVE-GATE-001→SPACE-PIT-001,
+    PIPE-UG-001→SPACE-PIT-001은 모두 공간 대상으로 일치하며 충돌이 관찰되지 않음.
+  evidence_tags:
+  - CONN-FLEX-001
+  - PIPE-H-100-NEW
+  - VALVE-GATE-001
+  - PIPE-UG-001
+  confidence: 0.94
+- id: CN020
+  type: DomainRange
+  target_class: dks:PipingEntity
+  property: dks:passes_through
+  params:
+    domain: dks:PipingEntity
+    range: dks:Valve
+    status: no_conflict_observed
+  derivation: object_properties에서 passes_through의 domain=dks:PipingEntity, range=dks:Valve로
+    선언됨. PIPE-H-100-NEW→VALVE-AD-001, PIPE-SC-100-NEW→VALVE-AD-001이 모두 이에 부합함.
+  evidence_tags:
+  - PIPE-H-100-NEW
+  - PIPE-SC-100-NEW
+  - VALVE-AD-001
+  confidence: 0.91
+summary_by_type:
+  FunctionalProperty: 12
+  Cardinality: 6
+  DomainRange: 2
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:20:29.407131'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.88

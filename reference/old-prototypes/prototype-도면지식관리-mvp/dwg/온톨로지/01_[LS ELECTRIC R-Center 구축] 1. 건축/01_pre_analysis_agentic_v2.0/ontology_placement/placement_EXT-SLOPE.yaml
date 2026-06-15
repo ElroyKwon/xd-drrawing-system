@@ -1,0 +1,102 @@
+placement:
+  tag: EXT-SLOPE
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-SLOPE
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - SpatialEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasAvailablePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 메타 정보이며, 도면 분석 가능 범위를 나타내는 주석성 정보로 보존 가치가 있음.
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasInstructionText
+        suggested_datatype: xsd:string
+        rationale: 사용자 안내 문구로서 엔티티의 본체 정보는 아니지만 원문 보존이 필요함.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: rule_based
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: rule_based
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 설비/도면 객체의 물리적 속성이나 관계가 아니라 안내 문구만 존재함.
+    preservation_note: 주석성 텍스트로 보존하며, 페이지 범위 정보는 후속 문맥 연결 시 참고 가능.
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드가 제공되지 않음.
+    preservation_note: 빈 값 자체를 누락 없이 기록.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명 EXT-SLOPE만으로는 물리 설비, 주석, 참조, 공간 요소 중 어느 범주인지 도면 근거가 부족함. raw에는 페이지
+      안내만 존재함.
+    recommended_handling: 후속 단계에서 페이지 1,2,3,4,5,60,61,62,63,64,118,119,120,121,122의
+      실제 도면 컨텍스트를 확인해 주석/참조/공간/설비 여부를 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그로서 상위는 느슨하게 두고 하위에서 세분화하는 구조를 따름
+    - 도면에서 관찰된 것만 기록하고, raw의 안내 문구를 free_notes와 unresolved에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:44.202418'
+  confidence: 0.42

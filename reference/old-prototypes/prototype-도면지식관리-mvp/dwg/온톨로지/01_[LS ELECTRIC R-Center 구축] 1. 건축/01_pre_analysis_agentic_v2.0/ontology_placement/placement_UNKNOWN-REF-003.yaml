@@ -1,0 +1,104 @@
+placement:
+  tag: UNKNOWN-REF-003
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: UNKNOWN-REF-003
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - AnnotationOrReferenceEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 참조 정보이며, 도면 내 확인 가능 페이지 범위를 보존할 필요가 있음.
+    - raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 주석/안내 문구로서 물리 실체가 아닌 설명 텍스트임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_from_raw
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_preservation
+    raw:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 읽어드리겠습니다.'
+    source_page: 0
+    reason: 참조 가능한 페이지 목록과 안내 문구만 있으며, 실제 설비/객체의 물리적 의미를 직접 지시하지 않음.
+    preservation_note: 페이지 범위 참조로 보존. 후속 단계에서 문서/주석 엔티티로 승격 가능.
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: (분야 supplement 없음)
+    source_page: 0
+    reason: supplement가 정의한 standard_sub_kinds가 제공되지 않아 세부 카테고리 배치 불가.
+    preservation_note: free_notes에 원문 보존.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 REF 계열이지만 raw는 페이지 안내 문구만 포함하여 문서 참조 주석인지, 참조 엔티티인지, 단순 안내 텍스트인지 경계가
+      불명확함.
+    recommended_handling: 0-9c/0-9d에서 문서 참조 또는 주석 엔티티로 재검토하고, 필요 시 AnnotationOnly
+      하위의 참조 라벨로 세분화.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown / annotation-or-reference 계열로 우선 배치
+    - 페이지 목록(raw)을 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:19.219733'
+  confidence: 0.74

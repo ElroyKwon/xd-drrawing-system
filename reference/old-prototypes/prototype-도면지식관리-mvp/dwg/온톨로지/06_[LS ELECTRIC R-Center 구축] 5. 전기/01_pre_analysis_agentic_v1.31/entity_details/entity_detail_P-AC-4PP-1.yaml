@@ -1,0 +1,103 @@
+entity_detail:
+  tag: P-AC-4PP-1
+  type: Power Panelboard
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    panel_location:
+      value: 1층 대용량 모터부하실(방음)
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    source_volt:
+      value: 440
+      unit: V
+      source:
+      - 22
+      confidence: 0.98
+    main_cb_type:
+      value: MCCB 3F 30/20AT
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    spd:
+      value: 3Ø S.P.D 40KA/mode
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+  drawing_texts:
+  - source: page_022_context.yaml
+    page_number: 22
+    text: "tag: P-AC-4PP-1\nname: P-AC-4PP-1 분전반\nspec: 'COVER TYPE: 노출형(STEEL); PANEL\
+      \ LOCATION: 1층 대용량 모터부하실(방음); SOURCE VOLT:\n      440V; MAIN C.B TYPE: MCCB\
+      \ 3F 30/20AT; 3Ø S.P.D 40KA/mode'\ndiscipline: ELECTRICAL\nfunction_category:\
+      \ DISTRIBUTE\nlocation: 1층 대용량 모터부하실(방음)\nconfidence: 0.98"
+  - source: page_022_context.yaml
+    page_number: 22
+    text: "3Ø 440V 전원을 전기실에서 인입해 6개 분전반(P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP,\n\
+      \    P-F-4PP, P-P-4PP)으로 분기하는 분전반 결선도이다.\n\n    각 분전반은 노출형(STEEL)이며, MCCB와 SPD,\
+      \ E3 접지가 반복 표기된다.\n\n    도면상 주요 용량 표기는 MAIN C.B TYPE: MCCB 3F 30/20AT, 3Ø S.P.D\
+      \ 40KA/mode, SOURCE VOLT:\n    440V로 보인다."
+  requirements:
+  - text: 'COVER TYPE: 노출형(STEEL)'
+    source: page 22
+    type: installation_condition
+  - text: 'SOURCE VOLT: 440V'
+    source: page 22
+    type: electrical_requirement
+  - text: 'MAIN C.B TYPE: MCCB 3F 30/20AT'
+    source: page 22
+    type: protection_requirement
+  - text: 3Ø S.P.D 40KA/mode
+    source: page 22
+    type: protection_requirement
+  connection_specs:
+  - relation: supply_from
+    partner: 전기실
+    details:
+      source: page 22
+      text: 3Ø 440V 전원을 전기실에서 인입해 6개 분전반(P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP,
+        P-F-4PP, P-P-4PP)으로 분기
+  - relation: grounding
+    partner: E3
+    details:
+      source: page 22
+      text: E3 접지
+  - relation: installed_with
+    partner: SPD-P-AC-4PP-1
+    details:
+      source: page 22
+      text: 3Ø S.P.D 40KA/mode
+  ontology_hints:
+    observed_relations:
+    - relation_type: supply_from
+      partner_tag: 전기실
+      direction: incoming
+      source: page 22
+    - relation_type: grounding
+      partner_tag: E3
+      direction: outgoing
+      source: page 22
+    observed_attributes:
+    - cover_type
+    - panel_location
+    - source_volt
+    - main_cb_type
+    - spd
+    similar_equipment:
+    - P-A-4PP-7
+    - P-C-4PP
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: Power Panelboard
+    cross_discipline: []
+  notes: []
+tag: P-AC-4PP-1

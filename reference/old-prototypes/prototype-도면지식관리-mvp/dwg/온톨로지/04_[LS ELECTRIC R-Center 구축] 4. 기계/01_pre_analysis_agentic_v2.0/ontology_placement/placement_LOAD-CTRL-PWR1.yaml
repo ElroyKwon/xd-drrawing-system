@@ -1,0 +1,200 @@
+placement:
+  tag: LOAD-CTRL-PWR1
+  name: 제어전원 공급 부하-1
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: LOAD-CTRL-PWR1
+    class_hint: ElectricalLoad
+    alternative_class_hints:
+    - Control Power Load
+    - Sequence Power Load
+    related_assertions:
+    - type: feeds
+      target_hint: FEEDER-CTRL-PWR1
+      note: FEEDER-CTRL-PWR1 to LOAD-CTRL-PWR1, relation feeds
+    - type: cable
+      target_hint: FEEDER-CTRL-PWR1
+      note: 'FEEDER-CTRL-PWR1 to LOAD-CTRL-PWR1, annotation: 1.5sqMM, CONTROL POWER-1'
+    applicable_axioms:
+    - AX017
+    - AX014
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalLoad
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: CONTROL POWER-1
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 라벨 텍스트
+      - raw_text: SEQUENCE POWER-1
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasAboveLabelText
+          suggested_datatype: xsd:string
+          rationale: labels_above에 기록된 도면 표기
+      - raw_text: 1.5sqMM
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasCableSize
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격으로 보이는 문자열
+      - raw_text: Control Power Load
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 표현
+      - raw_text: Sequence Power Load
+        source_page: 25
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 표현
+  provenance:
+    tag:
+      source_pages:
+      - 25
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 25
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 25
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 25
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 25
+      method: entity_detail.function_category
+    specs.shape:
+      source_pages:
+      - 25
+      method: entity_detail.specs.shape
+    specs.labels_inside:
+      source_pages:
+      - 25
+      method: entity_detail.specs.labels_inside
+    specs.labels_above:
+      source_pages:
+      - 25
+      method: entity_detail.specs.labels_above
+    specs.labels_below:
+      source_pages:
+      - 25
+      method: entity_detail.specs.labels_below
+    specs.inferred_name:
+      source_pages:
+      - 25
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 25
+      method: entity_detail.specs.position
+    specs.raw_labels:
+      source_pages:
+      - 25
+      method: entity_detail.specs.raw_labels
+    relations:
+      source_pages:
+      - 25
+      method: entity_detail.relations
+    collection_sources.cross_validated:
+      source_pages:
+      - 25
+      method: entity_detail.collection_sources.cross_validated
+    collection_sources.visual_semantics:
+      source_pages:
+      - 25
+      method: entity_detail.collection_sources.visual_semantics
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 25
+      method: entity_detail.collection_sources.visual_semantics_gemini
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 25
+      method: entity_detail.collection_sources.entity_synthesis
+    confidence:
+      source_pages:
+      - 25
+      method: entity_detail.confidence
+    equipment_symbols:
+      source_pages:
+      - 25
+      method: entity_detail.equipment_symbols
+    source_attribution.sonnet:
+      source_pages:
+      - 25
+      method: entity_detail.source_attribution.sonnet
+    source_attribution.gemini:
+      source_pages:
+      - 25
+      method: entity_detail.source_attribution.gemini
+    source_attribution.mini:
+      source_pages:
+      - 25
+      method: entity_detail.source_attribution.mini
+    position:
+      source_pages:
+      - 25
+      method: entity_detail.position
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 25
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 25
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 25
+      method: entity_detail.ontology_hints.similar_equipment
+    ontology_hints.function_candidates:
+      source_pages:
+      - 25
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.equipment_symbols
+    raw_text: '[]'
+    source_page: 25
+    reason: 빈 배열로 관찰값 없음
+    preservation_note: 원문 빈 상태 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 25
+    reason: 유사 장비 후보 없음
+    preservation_note: 원문 빈 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: LOAD-* 태그이며 도면상 전기 부하로 해석되는 관계(feeds)와 라벨이 명확함
+    recommended_handling: ElectricalLoad 후보로 유지하고 0-9d에서 feeds 관계 정식화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - LOAD-* 태그를 기계 장비가 아닌 전기 부하(ElectricalLoad)로 정확히 식별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:36:22.984457'
+  confidence: 0.95

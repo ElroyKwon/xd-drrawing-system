@@ -1,0 +1,115 @@
+entity_detail:
+  tag: 공동구
+  type: equipment
+  specs:
+    page_4:
+      source: page 4
+      confidence: 0.95
+      values:
+      - 도면 중앙 하단
+    page_23:
+      source: page 23
+      confidence: 0.95
+      values:
+      - 지하공동구
+    cable_related_text:
+      source: page 5
+      confidence: 0.95
+      text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+    cable_related_text_2:
+      source: page 5
+      confidence: 0.95
+      text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+    cable_related_text_3:
+      source: page 5
+      confidence: 0.95
+      text: 22.9kV-Y CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음
+  drawing_texts:
+  - source: page 4
+    page_number: 4
+    text: 공동구
+  - source: page 4
+    page_number: 4
+    text: 지하공동구 현황 사진
+  - source: page 4
+    page_number: 4
+    text: 공동구/덕트뱅크 경로
+  - source: page 5
+    page_number: 5
+    text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  - source: page 5
+    page_number: 5
+    text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+  - source: page 5
+    page_number: 5
+    text: 22.9kV-Y CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음
+  - source: page 23
+    page_number: 23
+    text: 'FROM: UT동 전기실 및 지하공동구 사용'
+  requirements:
+  - text: 'FROM: UT동 전기실 및 지하공동구 사용'
+    source: page 23
+    type: operational_condition
+  - text: 공동구:CABLE TRAY&ELP
+    source: page 5
+    type: connection_condition
+  - text: MH없음
+    source: page 5
+    type: connection_condition
+  connection_specs:
+  - relation: 전력 인입 경로
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+      text: R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입
+  - relation: 전력 인입 경로
+    partner: R-Center 변전실
+    details:
+      source: page 4
+      text: R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입
+  - relation: 케이블 경로
+    partner: CABLE TRAY&ELP
+    details:
+      source: page 5
+      text: 22.9kV-Y CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음
+  - relation: 케이블 경로
+    partner: ELP100
+    details:
+      source: page 5
+      text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+  - relation: 케이블 경로
+    partner: IN TRAY
+    details:
+      source: page 5
+      text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: 지하공동구
+      direction: UNKNOWN
+      source: page 23
+    - relation_type: associated_with_route
+      partner_tag: UT동 1층 변전실
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: associated_with_route
+      partner_tag: R-Center 변전실
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - 공동구
+    - 지하공동구
+    - 공동구/덕트뱅크 경로
+    - 공동구:CABLE TRAY&ELP
+    - CABLE TRAY&ELP
+    - MH없음
+    similar_equipment:
+    - 지하공동구
+    suggested_parent_class: utility_tunnel
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - 도면 분석 결과에서 공동구는 구조/공간 요소로 표기되며, 전력 인입 경로와 연계되어 나타남.
+  - 정확한 치수/규격은 제공된 분석 결과에서 확인되지 않아 생략함.
+tag: 공동구

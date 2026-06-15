@@ -1,0 +1,482 @@
+executive_summary:
+  drawing_number: EE-06-001
+  title: 내진설계 주기사항 및 상세도
+  classification: DETAIL_DRAWING
+  discipline: ELECTRICAL
+  confidence: 0.97
+  summary: '본 페이지는 내진설계 주기사항과 상세 설치 예시를 함께 제시한 전기 상세도이다.
+
+    조명기구, 다운라이트, 배선관로(RACE WAY), 케이블트레이, 내진형 Ladder Tray, 내진형 Support System, 내진 브래킷,
+    기기고정장치/탈락방지장치 관련 상세가 포함된다.
+
+    용량 정보로는 케이블트레이 직선구간 12m 간격 설치, 기기 질량 15N 초과 30N 이하 적용, 결쇠볼트 호칭 지름 9mm 이상, 재질 KS
+    D 3501(SPHC), 마감 용융 아연 도금(H.D.G)이 확인된다.
+
+    '
+  equipment:
+  - tag: EQ-E01
+    name: 조명기기
+    spec: null
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    location: null
+    confidence: 0.82
+  - tag: EQ-E02
+    name: 다운라이트
+    spec: 비상등만 적용
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    location: null
+    confidence: 0.85
+  - tag: EQ-E03
+    name: 배선관로
+    spec: RACE WAY
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.88
+  - tag: EQ-E04
+    name: 케이블트레이
+    spec: 직선구간 12m 간격으로 설치 / 부속품(Elbow, Tee, Cross 등)에 적용
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.88
+  - tag: EQ-E05
+    name: 내진형 Ladder Tray
+    spec: null
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: null
+    confidence: 0.85
+  - tag: SP-S01
+    name: 내진형 Support System
+    spec: '재질: KS D 3501 (SPHC), 마감: 용융 아연 도금 (H.D.G)'
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.88
+  - tag: SP-S02
+    name: 내진 브래킷
+    spec: null
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.85
+  - tag: SP-S03
+    name: BEARING ANGLE
+    spec: null
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.8
+  - tag: SP-S04
+    name: 기기고정장치
+    spec: 스프링, L형강 등으로 한다
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.82
+  - tag: SP-S05
+    name: 흔들림 방지 지지
+    spec: null
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.8
+  - tag: SP-S06
+    name: 탈락방지장치
+    spec: null
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.78
+  - tag: SP-S07
+    name: 결쇠볼트
+    spec: 호칭 지름 9mm 이상
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.78
+  - tag: SP-S08
+    name: 현수구조
+    spec: null
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: null
+    confidence: 0.78
+  relationships:
+  - from: SP-S08
+    to: EQ-E01
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.72
+  - from: SP-S05
+    to: EQ-E01
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.7
+  - from: SP-S04
+    to: SP-S06
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.68
+  - from: SP-S01
+    to: EQ-E04
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.7
+  - from: SP-S03
+    to: EQ-E05
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.68
+  - from: SP-S07
+    to: SP-S06
+    relation: connected_via
+    medium: structural_component
+    direction: bidirectional
+    confidence: 0.85
+  - from: SP-S02
+    to: SP-S01
+    relation: detail_of
+    medium: structural_detail
+    direction: unidirectional
+    confidence: 0.82
+  - from: EQ-E03
+    to: EQ-E01
+    relation: connected_via
+    medium: installation_example
+    direction: bidirectional
+    confidence: 0.82
+  spaces: []
+  flow_paths: []
+  top_equipment:
+  - 조명기기
+  - 다운라이트
+  - 배선관로(RACE WAY)
+  - 케이블트레이
+  - 내진형 Ladder Tray
+  - 내진형 Support System
+  - 내진 브래킷
+  - 기기고정장치
+  - 탈락방지장치
+  - 결쇠볼트
+  - 현수구조
+  - 흔들림 방지 지지
+  - BEARING ANGLE
+  stats:
+    equipment: 13
+    relationships: 8
+    spaces: 0
+    flow_paths: 0
+  uncertainties:
+  - 'SP-S06 명칭은 OCR 텍스트와 분석 결과 간 불일치가 있음: OCR=''탈락장비장치'', 분석=''탈락방지장치''.'
+  - SP-S02(내진 브래킷)과 SP-S01(내진형 Support System)의 관계는 검증 단계에서 보강 제안이 있었음.
+  - SP-S07(결쇠볼트)와 SP-S06(탈락방지장치)의 관계는 검증 단계에서 보강 제안이 있었음.
+  - 공간 정보는 확인되지 않음.
+  - 설비 위치(location)는 페이지에서 특정 공간으로 식별되지 않음.
+  related_pages:
+  - 41
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: ELECTRICAL
+  classification: DETAIL_DRAWING
+  title_block:
+    drawing_number: EE-06-001
+    title: 내진설계 주기사항 및 상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 페이지 상단/중앙에 내진설계 주기사항 텍스트와 하단에 상세도 4개가 함께 배치된 설명용 상세도 페이지임.
+  - '도면 내에 설비 식별 태그(예: TR-001 형태)는 보이지 않음.'
+  - 배선관로(RACE WAY), 다운라이트, 내진형 Support System, 내진형 TRAY 시스템 설치 예가 포함됨.
+  - 표제란에 도면번호 EE-06-001, 제목 내진설계 주기사항 및 상세도, 프로젝트 LS Electric R-Center 구축이 보임.
+  confidence: 0.96
+  note: 페이지 41. 표제란 및 본문 텍스트는 이미지와 추출 텍스트 모두에서 확인됨. 범례 전용 페이지는 아니며, 심볼-설명 쌍이나 약어 테이블은
+    보이지 않음.
+classification: DETAIL_DRAWING
+discipline: ELECTRICAL
+key_elements_from_text:
+- 내진설계 주기사항 및 상세도
+- 배선관로(RACE WAY) 조명기구의 설치 예
+- 다운라이트의 설치 예(비상등만 적용)
+- 내진형 Support System
+- 내진 브래킷 상세도
+- 내진형 TRAY 시스템 설치 예
+- 내진형 Ladder Tray
+- 케이블트레이 직선구간 12m 간격으로 설치 / 부속품(Elbow, Tee, Cross 등)에 적용
+- '재질: KS D 3501 (SPHC)'
+- '마감: 용융 아연 도금 (H.D.G)'
+- '프로젝트 제목: LS Electric / R-Center 구축'
+- '도면 번호: EE-06-001'
+title_block:
+  drawing_number: EE-06-001
+  title: 내진설계 주기사항 및 상세도
+  revision: UNKNOWN
+confidence: 0.97
+note: '표제란에 프로젝트 제목 ''LS Electric / R-Center 구축'', 작성일 ''2024.04'', 축척 ''A3 : 1/NONE''가
+  보이며, 리비전 표기는 확인되지 않음. 근거: 페이지 41 표제란 및 본문 제목 텍스트.'
+classification_confirmed: true
+override_classification: null
+visual_pattern: 상단에 주기사항 텍스트 블록, 중앙에 4개의 설치 상세 예시 도해, 하단에 내진형 TRAY/Ladder Tray 상세도와
+  설명이 배치된 설명용 상세도 페이지. 우측에는 표제란이 세로로 배치됨.
+symbol_density: MEDIUM
+detected_symbols:
+- type: 내진형 Ladder Tray
+  count: 1
+- type: 내진형 TRAY 시스템
+  count: 1
+- type: 배선관로(RACE WAY) 조명기구 설치 예
+  count: 1
+- type: 다운라이트 설치 예
+  count: 1
+- type: 내진형 Support System
+  count: 1
+- type: 내진 브래킷 상세도
+  count: 1
+- type: 기기장치/브래킷 연결 상세
+  count: 1
+- type: 케이블트레이 지지/행거 구성
+  count: 1
+line_types_observed:
+- 실선
+- 점선
+- 일점쇄선
+- 화살표 선
+additional_findings:
+- 범례 전용 페이지는 아님. 심볼-설명 쌍이나 약어 테이블은 보이지 않음.
+- 표제란에서 도면번호 EE-06-001과 제목 '내진설계 주기사항 및 상세도'가 확인됨.
+- 기존 텍스트 분석의 classification DETAIL_DRAWING, discipline ELECTRICAL와 시각적으로 일치함.
+- 범례에 있는 전력용 약어 심볼들은 본 페이지에서 식별되지 않음.
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 상세도 내 개별 설치 예시와 구성요소를 식별하기 적합함.
+- mode: spatial_mapping
+  priority: 2
+  reason: 상단 주기사항, 중앙 상세도, 하단 상세도, 우측 표제란의 배치 구조 확인에 필요함.
+pass1_설비식별:
+  entities:
+  - tag: EQ-E01
+    name: 조명기기
+    type: 조명기구
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    spec_text: null
+    confidence: 0.82
+    note: 배선관로 및 다운라이트 설치 예에서 반복 표기됨. 페이지 41 중앙 상세도.
+  - tag: EQ-E02
+    name: 다운라이트
+    type: 조명기구
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    spec_text: 비상등만 적용
+    confidence: 0.85
+    note: 다운라이트의 설치 예(비상등만 적용) 섹션에서 명시. 페이지 41.
+  - tag: EQ-E03
+    name: 배선관로
+    type: 배선관로/RACE WAY
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: null
+    confidence: 0.88
+    note: 배선관로(RACE WAY) 조명기구의 설치 예 섹션에서 명시. 페이지 41.
+  - tag: EQ-E04
+    name: 케이블트레이
+    type: 케이블트레이
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: 직선구간 12m 간격으로 설치 / 부속품(Elbow, Tee, Cross 등)에 적용
+    confidence: 0.88
+    note: 내진형 TRAY 시스템 설치 예 섹션에서 명시. 페이지 41.
+  - tag: EQ-E05
+    name: 내진형 Ladder Tray
+    type: Ladder Tray
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: null
+    confidence: 0.85
+    note: 내진형 Ladder Tray 상세도 섹션에서 명시. 페이지 41 하단.
+  - tag: SP-S01
+    name: 내진형 Support System
+    type: 내진 지지 시스템
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: '재질: KS D 3501 (SPHC), 마감: 용융 아연 도금 (H.D.G)'
+    confidence: 0.88
+    note: 내진형 Support System 섹션에서 명시. 페이지 41 중앙.
+  - tag: SP-S02
+    name: 내진 브래킷
+    type: 내진 브래킷
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: null
+    confidence: 0.85
+    note: 내진 브래킷 상세도 섹션에서 명시. 페이지 41 중앙.
+  - tag: SP-S03
+    name: BEARING ANGLE
+    type: 베어링 앵글
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: null
+    confidence: 0.8
+    note: 내진형 TRAY 시스템 설치 예 상세도에서 명시. 페이지 41.
+  - tag: SP-S04
+    name: 기기고정장치
+    type: 기기 고정 장치
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: 스프링, L형강 등으로 한다
+    confidence: 0.82
+    note: 기기고정장치 섹션에서 명시. 기기 질량 15N 초과 30N 이하인 경우 적용. 페이지 41.
+  - tag: SP-S05
+    name: 흔들림 방지 지지
+    type: 흔들림 방지 지지
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: null
+    confidence: 0.8
+    note: 배선관로 조명기구 시공 예에서 고정, 와이어, 파이프 등 다양한 형태로 표기됨. 페이지 41.
+  - tag: SP-S06
+    name: 탈락방지장치
+    type: 탈락 방지 장치
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: null
+    confidence: 0.78
+    note: 기기고정장치와 함께 사용되는 낙하방지체인 포함. 페이지 41.
+  - tag: SP-S07
+    name: 결쇠볼트
+    type: 결쇠 볼트
+    discipline: STRUCTURAL
+    function_category: PROTECT
+    spec_text: 호칭 지름 9mm 이상
+    confidence: 0.78
+    note: 탈락방지장치 섹션에서 명시. 페이지 41.
+  - tag: SP-S08
+    name: 현수구조
+    type: 현수 구조
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.78
+    note: 배선관로 조명기구 시공 예에서 조명기기의 현수 구조로 표기됨. 페이지 41.
+pass2_토폴로지:
+  relationships:
+  - from: SP-S08
+    to: EQ-E01
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.72
+    note: 현수구조(SP-S08)가 조명기기(EQ-E01)를 지지. 페이지 41 배선관로 조명기구 시공 예 섹션.
+  - from: SP-S05
+    to: EQ-E01
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.7
+    note: 흔들림 방지 지지(SP-S05)가 조명기기(EQ-E01)에 연결. 페이지 41 배선관로 조명기구 시공 예 섹션.
+  - from: SP-S04
+    to: SP-S06
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.68
+    note: 기기고정장치(SP-S04)와 탈락방지장치(SP-S06)가 함께 사용. 페이지 41 기기고정장치 섹션.
+  - from: SP-S01
+    to: EQ-E04
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.7
+    note: 내진형 Support System(SP-S01)이 케이블트레이(EQ-E04)를 지지. 페이지 41 내진형 TRAY 시스템 설치 예
+      섹션.
+  - from: SP-S03
+    to: EQ-E05
+    relation: connected_via
+    medium: structural_support
+    direction: bidirectional
+    confidence: 0.68
+    note: BEARING ANGLE(SP-S03)이 내진형 Ladder Tray(EQ-E05)를 지지. 페이지 41 내진형 TRAY 시스템
+      설치 예 섹션.
+  conduits: []
+  flow_sequence: []
+  isolated_entities:
+  - EQ-E02
+  - EQ-E03
+  - SP-S02
+  - SP-S07
+pass3_공간:
+  spaces: []
+  equipment_placement: []
+  notes:
+  - page_type: DETAIL_DRAWING - 내진설계 주기사항 및 상세도
+  - content_type: 기술 상세도 및 설치 방법론
+  - spatial_hierarchy_available: false
+  - reason: 평면도 없음, 실명 없음, 공간 경계 미정의
+  - identified_equipment_types:
+    - 조명기구 (조명기기)
+    - 배선관로 (RACE WAY)
+    - 다운라이트
+    - 케이블트레이
+    - 내진형 Ladder Tray
+    - 내진형 Support System
+    - 내진 브래킷
+  - equipment_location: UNKNOWN - 설치 방법 예시만 제시, 특정 공간 미지정
+  - recommendation: 건물 배치도(평면도)가 있는 다른 페이지를 참조하여 공간 계층 구성
+pass4_검증:
+  corrections:
+  - target: SP-S06 name
+    resolution: 'OCR 텍스트와 분석 결과 간 용어 불일치: OCR=''탈락장비장치'' vs 분석=''탈락방지장치''. 표준 기술용어는
+      ''탈락방지장치''이나 원본 OCR 텍스트는 ''탈락장비장치''로 기록됨.'
+    evidence: '페이지 41 OCR 텍스트: ''탈락장비장치'' / 분석 결과: ''탈락방지장치''. 기기고정장치 섹션에서 명시.'
+    confidence: 0.95
+  missing_relationships:
+  - issue: SP-S07(결쇠볼트)과 SP-S06(탈락방지장치) 간 관계 누락
+    recommendation: 'SP-S07은 탈락방지장치 섹션에서 ''결쇠볼트(호칭 지름 9mm 이상)''로 명시되어 있으며, 탈락방지장치의
+      구성 요소임. 관계 추가: SP-S07 --connected_via--> SP-S06 (structural_component, bidirectional,
+      confidence 0.85)'
+    evidence: '페이지 41 OCR 텍스트: ''탈락장비장치 (기기고정장치와 함께 사용) ... 결쇠볼트(호칭 지름 9mm 이상)'''
+    confidence: 0.88
+  - issue: SP-S02(내진 브래킷)과 SP-S01(내진형 Support System) 간 관계 누락
+    recommendation: 'SP-S02는 ''내진 브래킷 상세도''로 표기되어 있으며, SP-S01의 상세 구성 요소임. 관계 추가: SP-S02
+      --detail_of--> SP-S01 (structural_detail, unidirectional, confidence 0.82)'
+    evidence: '페이지 41 섹션 제목: ''내진 브래킷 상세도'' / ''내진형 Support System'' 섹션과 인접 배치'
+    confidence: 0.85
+  - issue: EQ-E03(배선관로)과 EQ-E01(조명기기) 간 관계 누락
+    recommendation: 'EQ-E03은 ''배선관로(RACE WAY) 조명기구의 설치 예'' 섹션의 제목에서 명시되어 있으며, EQ-E01(조명기기)의
+      배선 경로임. 관계 추가: EQ-E03 --supplies--> EQ-E01 (electrical_distribution, unidirectional,
+      confidence 0.80)'
+    evidence: '페이지 41 섹션 제목: ''배선관로(RACE WAY) 조명기구의 설치 예'' / 배선관로 조명기구 시공 예 상세도에서
+      함께 표기'
+    confidence: 0.82
+  consistency_check:
+    entity_count_before: 13
+    entity_count_after: 13
+    note: 'Pass 2에서 누락된 3개 관계 추가: SP-S07→SP-S06, SP-S02→SP-S01, EQ-E03→EQ-E01'
+    relation_count_before: 5
+    relation_count_after: 8
+    conduit_count: 0
+    space_count: 0
+    note_conduit_space: 이 페이지는 내진설계 주기사항 및 설치 방법 상세도로, 실제 배선 경로(conduit)와 명명된 공간(space)이
+      없음. 정상.
+  overall_assessment:
+    classification_accuracy: 0.97
+    entity_identification_accuracy: 0.92
+    relationship_completeness: 0.75
+    note: 관계 식별에서 3개 항목 누락으로 인해 완성도 저하. 텍스트 기반 명시적 연관성이 있는 항목들이 토폴로지 단계에서 누락됨.
+  overall_confidence: 0.87

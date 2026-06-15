@@ -1,0 +1,112 @@
+placement:
+  tag: SC12A
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:SC12A
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms:
+    - AX008
+    - AX009
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면 분석 가능 페이지 범위를 나타냄
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAnalysisAvailabilityNote
+          suggested_datatype: xsd:string
+          rationale: 분석 제공 가능성에 대한 안내 문구로, 주석/안내 텍스트 성격
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: not_present_in_entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 실체가 아니라 안내/주석 텍스트이며, 구조적 객체나 관계로 확정할 수 없음
+    preservation_note: 페이지 범위 안내와 분석 요청 응답 문구를 그대로 보존
+  - field_candidate: source_page
+    raw_text: '0'
+    source_page: 0
+    reason: 원문 entity_detail에 별도 페이지 번호가 명시되지 않음
+    preservation_note: 원문 전체를 단일 출처로 취급
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 SC12A는 실체 설비라기보다 페이지 사용 가능 안내 문구를 담은 주석/메타 텍스트로 보이며, NoteOrLegend와
+      DocumentEntity 사이 해석이 가능함
+    recommended_handling: 후속 단계에서 AnnotationOnly로 유지하되, 문서 메타 주석인지 일반 노트인지 추가 페이지
+      문맥으로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline 문맥에서 document_metadata / unresolved_structural_entities 가능성을
+      우선 고려
+    - 분류 불가 정보는 free_notes에 raw_text와 promotion_hint로 보존
+    deviations:
+    - supplement가 없어 standard_sub_kinds를 적용하지 못했으며, free_notes만 사용
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:15:52.872574'
+  confidence: 0.93

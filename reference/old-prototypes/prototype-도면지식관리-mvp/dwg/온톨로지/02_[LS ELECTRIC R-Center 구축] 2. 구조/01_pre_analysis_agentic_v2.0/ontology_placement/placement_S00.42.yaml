@@ -1,0 +1,109 @@
+placement:
+  tag: S00.42
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:S00.42
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DetailEntity
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: sourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 메타 정보이며, 엔티티 상세의 출처 범위 보존에 유용함
+      - raw_text: 'tag: S00.42'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 태그 문자열 자체가 엔티티 식별 메타 정보임
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: direct
+    name:
+      source_pages:
+      - 0
+      method: absent
+    discipline:
+      source_pages:
+      - 0
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_single_tag_without_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidates
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: direct_preservation
+  unresolved:
+  - field_candidate: entity_detail.pages
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65'
+    source_page: 0
+    reason: 페이지 목록은 존재하나 태그 S00.42와의 직접 관계, 위치, 속성으로 해석할 근거가 없음
+    preservation_note: 후속 단계에서 source_pages 메타 또는 page-coverage 정보로 승격 가능
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 name 필드가 제공되지 않음
+    preservation_note: 빈 값 유지
+  - field_candidate: relations
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 관계 정보가 제공되지 않음
+    preservation_note: 관계 부재 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그만 존재하고 관계/스펙/설명 정보가 없어 DocumentEntity, PlanOrView, DetailEntity, ScheduleOrList,
+      NoteOrLegend 중 어느 쪽인지 확정 불가
+    recommended_handling: 0-9c에서 주변 태그 및 페이지 맥락이 확보되면 문서 메타/시트 식별자 여부를 우선 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: dominant_equipment_types 중 도면/시트 식별자 계열과 문서 메타 계층 가능성 반영'
+    - 'predicted_ontology_structure: DocumentEntity / PlanOrView / DetailEntity /
+      ScheduleOrList / NoteOrLegend 후보군 반영'
+    - 'discipline_context_plan.unknown: sheet identifiers / series identifiers / unresolved
+      notes-schedules 가능성 반영'
+    deviations:
+    - supplement가 없어 sub_kinds를 정의하지 못해 free_notes만 사용함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:23.468445'
+  confidence: 0.42

@@ -1,0 +1,128 @@
+entity_detail:
+  tag: SP
+  type: circuit_breaker_branch_label
+  specs:
+    source_pages:
+    - page: 4
+      note: 페이지 4에서 SP-RCENTER-PS, SP-UT-PS, SP-A-INV-TEST, SP-A-UG-ELEC, SP-COMMON-DUCT-1/2/3,
+        SP-BLDG-A/B/ADMIN/UT 등이 공간 태그로 확인됨
+      confidence: 0.98
+  drawing_texts:
+  - source: page_004_context.yaml
+    page_number: 4
+    text: 'SP-RCENTER-PS
+
+      SP-UT-PS
+
+      SP-A-INV-TEST
+
+      SP-A-UG-ELEC
+
+      SP-COMMON-DUCT-1
+
+      SP-COMMON-DUCT-2
+
+      SP-COMMON-DUCT-3
+
+      SP-BLDG-A
+
+      SP-BLDG-B
+
+      SP-BLDG-ADMIN
+
+      SP-BLDG-UT'
+  - source: page_004_context.yaml
+    page_number: 4
+    text: 'R-Center 변전실
+
+      UT동 1층 변전실
+
+      A동 지상1층 인버터 시험센타
+
+      A동 지하1층 전기실
+
+      공동구
+
+      A동
+
+      B동
+
+      사무동
+
+      UT동'
+  requirements:
+  - text: 전력케이블 인입 연결
+    source: page 4
+    type: connection_condition
+  - text: 전력간선 연결
+    source: page 4
+    type: connection_condition
+  - text: 기존 TRAY 사용
+    source: page 4
+    type: existing_condition
+  - text: 철거후 R-Center로 이설
+    source: page 4
+    type: relocation_condition
+  connection_specs:
+  - relation: 전력케이블 인입 연결
+    partner: SP-RCENTER-PS
+    details:
+      source: page 4
+  - relation: 전력간선 연결
+    partner: SP-RCENTER-PS
+    details:
+      source: page 4
+  - relation: 기존 TRAY 경로를 통한 연결
+    partner: SP-RCENTER-PS
+    details:
+      source: page 4
+  - relation: 이설
+    partner: SP-RCENTER-PS
+    details:
+      source: page 4
+  ontology_hints:
+    observed_relations:
+    - relation_type: connection
+      partner_tag: SP-RCENTER-PS
+      direction: SP-UT-PS -> SP-RCENTER-PS
+      source: page 4
+    - relation_type: connection
+      partner_tag: SP-RCENTER-PS
+      direction: SP-COMMON-DUCT-1 -> SP-RCENTER-PS
+      source: page 4
+    - relation_type: relocation
+      partner_tag: SP-RCENTER-PS
+      direction: ELP-001 -> SP-RCENTER-PS
+      source: page 4
+    observed_attributes:
+    - SP-RCENTER-PS
+    - SP-UT-PS
+    - SP-A-INV-TEST
+    - SP-A-UG-ELEC
+    - SP-COMMON-DUCT-1
+    - SP-COMMON-DUCT-2
+    - SP-COMMON-DUCT-3
+    - SP-BLDG-A
+    - SP-BLDG-B
+    - SP-BLDG-ADMIN
+    - SP-BLDG-UT
+    similar_equipment:
+    - SP-RCENTER-PS
+    - SP-UT-PS
+    - SP-A-INV-TEST
+    - SP-A-UG-ELEC
+    - SP-COMMON-DUCT-1
+    - SP-COMMON-DUCT-2
+    - SP-COMMON-DUCT-3
+    - SP-BLDG-A
+    - SP-BLDG-B
+    - SP-BLDG-ADMIN
+    - SP-BLDG-UT
+    suggested_parent_class: SpatialEntity
+    cross_discipline:
+    - ELECTRICAL
+    - ARCHITECTURAL
+  notes:
+  - 대상 tag SP 자체의 개별 사양은 도면 분석 결과에서 확인되지 않음
+  - page 4에서 SP 접두 태그들은 주로 공간/실/건물 태그로 나타남
+tag: SP

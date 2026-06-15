@@ -1,0 +1,472 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: MF-101
+    title: 소화내진계통도
+    revision: null
+  visible_tags:
+  - tag: 수직배관-H-횡동05
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동06
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동07
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동08
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동04
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동01
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동02
+    type: vertical_pipe_riser
+    source: image
+  - tag: 수직배관-H-횡동03
+    type: vertical_pipe_riser
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 도면 하단 제목에 'MF 소화내진계통도'가 보임
+  - 우측 표제란에 도면번호 'MF-101'이 보임
+  - 상단 우측 주기 박스가 존재하나 범례 전용 페이지는 아님
+  - 배관/수직배관 계통과 수량표가 함께 보임
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_system_diagram/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.92
+  routing_reason: 도면번호 MF-101과 제목 '소화내진계통도'로 소방 계통 도면은 확인되나, 카탈로그에 fire_protection/P-10
+    또는 P-4.5용 매칭 supplement 경로가 없어 null로 기록함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: RISER_DIAGRAM
+    shape: rectangle
+    primary_label: 소화내진계통도
+    position: center
+    labels_near:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    - 수직배관-H-횡종01~08
+  - panel_id: NOTES_SECTION
+    shape: rectangle
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+  - panel_id: SCHEDULE_TABLE
+    shape: rectangle
+    primary_label: 버팀대 수량표
+    position: bottom-right
+    labels_near:
+    - 관경
+    - 지진분리이음
+  connections:
+  - from: RISER_DIAGRAM
+    to: SCHEDULE_TABLE
+    line_style: dotted
+    annotation: 계통도 내 버팀대 심볼과 수량표 연관
+  notable_shapes:
+  - shape: circle
+    label: 수직배관 심볼
+    note: 계통도 상단에 위치한 원형 심볼
+  - shape: triangle
+    label: 버팀대 심볼
+    note: 배관 라인에 표시된 삼각형 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.95
+  note: 우측 상단 '주 기' 섹션 내에 '6. 범례' 항목이 포함되어 있음
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: system_diagram
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 제목 '소화내진계통도'와 도면 내용(배관 계통, 버팀대)을 통해 기계소방 분야의 계통도로 확정. 0-0의 'other'
+    장르를 'system_diagram'으로 구체화하여 매칭되는 supplement 경로를 카탈로그에서 추출함.
+classification: FIRE_PROTECTION_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 하단 제목: MF 소화내진계통도'
+- '표제란 도면번호: MF-101'
+- '표제란 제목: 소화내진계통도'
+- '주기 박스: 6. 범례'
+- 버팀대 수량표
+- 관경 50(2"), 100(4")
+- 지진분리이음
+- 수직배관-H-횡종05
+- 수직배관-H-횡종06
+- 수직배관-H-횡종07
+- 수직배관-H-횡종08
+- 수직배관-H-횡종04
+- 수직배관-H-횡종01
+- 수직배관-H-횡종02
+- 수직배관-H-횡종03
+title_block:
+  drawing_number: MF-101
+  title: 소화내진계통도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline=FIRE_PROTECTION, classification=FIRE_DETECTION_LAYOUT, drawing_genre=system_diagram은
+  본 페이지 시각 근거와 대체로 일치하나, 도면 내용은 소화배관의 내진계통도이므로 classification은 FIRE_PROTECTION_DIAGRAM으로
+  보정함. 근거: 하단 제목 ''MF 소화내진계통도'', 우측 표제란 ''MF-101'', ''소화내진계통도'', 중앙 계통도와 ''버팀대 수량표''
+  존재. 페이지 10 시각 확인.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: RISER-H-05
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종05
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+      note: 수직배관 계통 심볼 (상단)
+    - type: triangle_brace
+      count: 1
+      note: 버팀대 심볼 (하단)
+    inferred_name: 옥내소화전 수직배관 횡종05 계통
+    position: top-left
+    labels_near:
+    - floor: 지붕층
+      annotation: 상단 연결
+    - floor: 2층
+      annotation: ±-50 (버팀대 간격)
+    - floor: 1층
+      annotation: 하단 연결
+  - panel_id: RISER-H-06
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종06
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+      note: 수직배관 계통 심볼 (상단)
+    - type: triangle_brace
+      count: 1
+      note: 버팀대 심볼 (하단)
+    inferred_name: 옥내소화전 수직배관 횡종06 계통
+    position: top-left-center
+    labels_near:
+    - floor: 2층
+      annotation: ±-50
+  - panel_id: RISER-H-07
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종07
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+    - type: triangle_brace
+      count: 1
+    inferred_name: 옥내소화전 수직배관 횡종07 계통
+    position: top-center-left
+    labels_near:
+    - floor: 2층
+      annotation: ±-50
+  - panel_id: RISER-H-08
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종08
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+    - type: triangle_brace
+      count: 1
+    inferred_name: 옥내소화전 수직배관 횡종08 계통
+    position: top-center
+    labels_near:
+    - floor: 2층
+      annotation: ±-50
+  - panel_id: RISER-H-04
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종04
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+    - type: triangle_brace
+      count: 1
+    inferred_name: 옥내소화전 수직배관 횡종04 계통
+    position: top-center-right
+    labels_near:
+    - floor: 2층
+      annotation: ±-50
+  - panel_id: RISER-H-01
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종01
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+      note: 수직배관 계통 심볼 (상단)
+    - type: gate_valve
+      count: 2
+      note: 밸브 심볼 (중간)
+    - type: triangle_brace
+      count: 2
+      note: 버팀대 심볼 (2층, 1층)
+    inferred_name: 옥내소화전 수직배관 횡종01 계통 (주계통)
+    position: top-right
+    labels_near:
+    - floor: 지붕층
+      annotation: +100 (버팀대 간격)
+    - floor: 2층
+      annotation: '+50'
+    - annotation: 연결송수구
+    - annotation: → 기존 공동구 폐내소화전 배관에서 분기 (공동구 내부 커머트_피(캐블브 이상))
+  - panel_id: RISER-H-02
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종02
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+    - type: gate_valve
+      count: 2
+    - type: triangle_brace
+      count: 1
+    inferred_name: 옥내소화전 수직배관 횡종02 계통
+    position: center-right
+    labels_near:
+    - floor: 2층
+      annotation: '+100'
+  - panel_id: RISER-H-03
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수직배관-H-횡종03
+    labels_below: []
+    equipment_symbols:
+    - type: circle_with_cross
+      count: 1
+    - type: gate_valve
+      count: 2
+    - type: check_valve
+      count: 1
+    - type: triangle_brace
+      count: 1
+    inferred_name: 옥내소화전 수직배관 횡종03 계통 (연결송수구 포함)
+    position: bottom-right
+    labels_near:
+    - annotation: 연결송수구
+    - annotation: 100 (관경)
+    - annotation: → 기존 공동구 폐내소화전 배관에서 분기
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면의 설계된 재료(시스템 범위)는 신기 재료 또는 동등 이상의 재료로 사용이 됨.
+    - 2. 붉게 도면이 칠한 곳 무에는 현장이건에 맞게 시공하며 공동구의 공통관리 준수에 특할 것.
+    - 3. 기존 장비 및 기구류는 최선을 되시 맞게 주의있게 철거후 재설치 할 것.
+    - 4. 날주시도 오국에 비해 경기한 반경이 있을 수 있으며, 그에 따른 물량들과 연관이 있음하우 공국으로 준인을 위한 후 시공할 것.
+    - 5. 배관 직지 철물은 기존 재사용.
+    - 6. 범례
+    - 신설 배관 (실선)
+    - 기존 배관 (점선)
+    - '7. 기존배관 재질 : 백강관'
+    - 8. 통과우려가 있는 배관 동파방지배선 실시후 임통보한 한다.
+    - 9. 기존 소방용품은(IT등)는 변경 없음.
+    labels_above: []
+    labels_below: []
+    inferred_name: 주기 (Notes) 섹션
+    position: top-right
+  - panel_id: SCHEDULE-TABLE
+    shape: rectangle
+    labels_inside:
+    - 버팀대 수량표
+    - 관경 | 50(2") | 100(4") | 계
+    - 4W(횡동) | 5 | 3 | 8
+    - 소진분리이음 | - | 6 | 6
+    - 종거 | 5 | 9 | 14
+    labels_above: []
+    labels_below: []
+    inferred_name: 버팀대 수량표 (내진 부품 집계)
+    position: bottom-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축 GAUN | Architects & Engineers
+    - R-Center
+    - 소화내진계통도
+    - MF-101
+    - 'A1: 1/NONE'
+    - 'A3: 1/NONE'
+    - '2024.01'
+    labels_above: []
+    labels_below:
+    - 'MF 소화내진계통도 SCALE: 1:NONE'
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: RISER-H-01
+    to: RISER-H-02
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전 배관 (H) 횡방향 연결 — 지붕층 수평 헤더
+  - from: RISER-H-02
+    to: RISER-H-03
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전 배관 (H) 횡방향 연결
+  - from: RISER-H-04
+    to: RISER-H-05
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전 배관 (H) 횡방향 연결 — 지붕층 수평 헤더
+  - from: RISER-H-05
+    to: RISER-H-06
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전 배관 (H) 횡방향 연결
+  - from: RISER-H-06
+    to: RISER-H-07
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전 배관 (H) 횡방향 연결
+  - from: RISER-H-07
+    to: RISER-H-08
+    line_type: pipe
+    line_style: solid
+    annotation: 옥내소화전 배관 (H) 횡방향 연결
+  - from: RISER-H-03
+    to: RISER-H-03
+    line_type: pipe
+    line_style: solid
+    annotation: 연결송수구 분기 — 100A 배관, 쌍구형 연결송수구 연결
+  - from: RISER-H-03
+    to: RISER-H-03
+    line_type: pipe
+    line_style: dashed
+    annotation: 기존 공동구 폐내소화전 배관에서 분기 (기존 배관 점선 표기)
+  - from: RISER-H-01
+    to: SCHEDULE-TABLE
+    line_type: other
+    line_style: dotted
+    annotation: 계통도 내 버팀대 심볼 집계 → 수량표 연관
+  groups:
+  - group_id: GRP-LEFT-RISERS
+    label: 좌측 수직배관 그룹 (횡종05~08, 04)
+    members:
+    - RISER-H-05
+    - RISER-H-06
+    - RISER-H-07
+    - RISER-H-08
+    - RISER-H-04
+    note: 지붕층 수평 헤더로 연결된 좌측 5개 수직배관 계통. 각 계통 2층에 ±50 버팀대 설치.
+  - group_id: GRP-RIGHT-RISERS
+    label: 우측 수직배관 그룹 (횡종01~03)
+    members:
+    - RISER-H-01
+    - RISER-H-02
+    - RISER-H-03
+    note: 우측 3개 수직배관 계통. 연결송수구 및 기존 공동구 배관 분기 포함. 밸브류 다수 설치.
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: GRP-LEFT-RISERS
+  - text: H (옥내소화전배관)
+    linked_to: GRP-RIGHT-RISERS
+  - text: 신설 배관 (실선)
+    linked_to: GRP-LEFT-RISERS
+  - text: 기존 배관 (점선)
+    linked_to: RISER-H-03
+  - text: 쌍구형연결송수구 (SYM-013)
+    linked_to: RISER-H-03
+  - text: 게이트밸브 (SYM-004)
+    linked_to: RISER-H-01
+  - text: 체크밸브 (SYM-006)
+    linked_to: RISER-H-03
+  diagram_meta:
+    title: 소화내진계통도
+    drawing_number: MF-101
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: 1:NONE
+    date: '2024.01'
+    design_firm: 가운건축 GAUN | Architects & Engineers
+    engineering_firm: (주)정연엔지니어링
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: system_diagram
+    has_seismic: true
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: top-to-bottom
+    floor_levels:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameters:
+      - 50A (2")
+      - 100A (4")
+      line_style: solid (신설) / dashed (기존)
+    seismic_components:
+    - type: 4W횡동 버팀대
+      count_50A: 5
+      count_100A: 3
+      count_total: 8
+    - type: 지진분리이음
+      count_50A: 0
+      count_100A: 6
+      count_total: 6
+    - type: 종거
+      count_50A: 5
+      count_100A: 9
+      count_total: 14
+    special_connections:
+    - type: 연결송수구
+      location: RISER-H-03 하단
+      pipe_size: 100A
+    - type: 기존 공동구 폐내소화전 배관 분기
+      location: RISER-H-03 하단
+      note: 공동구 내부 커머트_피(캐블브 이상)
+    pipe_material_existing: 백강관
+    notes:
+    - '기존 배관 재질: 백강관'
+    - 통과우려 배관 동파방지배선 실시
+    - 기존 소방용품(IT등) 변경 없음
+    - 기존 장비 및 기구류 철거 후 재설치
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview

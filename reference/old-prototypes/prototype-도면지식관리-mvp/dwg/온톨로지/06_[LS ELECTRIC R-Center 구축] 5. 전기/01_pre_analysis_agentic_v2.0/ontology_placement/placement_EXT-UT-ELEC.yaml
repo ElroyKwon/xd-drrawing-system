@@ -1,0 +1,247 @@
+placement:
+  tag: EXT-UT-ELEC
+  name: 외부 전원 인입 (UT동 전기실)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-UT-ELEC
+    class_hint: ElectricalSource
+    alternative_class_hints:
+    - PowerSupply
+    - ExternalFeeder
+    related_assertions:
+    - type: feeds
+      target_hint: BLK-SS-RCENTER
+      note: source_page 23, cross_validated; 외부 전원 인입이 수전/배전 대상로 공급
+    - type: connects_to
+      target_hint: BLK-MANHOLE
+      note: source_page 23, cross_validated; 케이블 경로상 맨홀 연결
+    - type: cable
+      target_hint: BLK-SS-RCENTER
+      note: source_page 23, visual_semantics; 3Ø 3W 6.6kV / F-CV 150㎟ -1C x6L (ELP
+        100ØX2)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 'FROM: UT동 전기실'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasSourceLocation
+          suggested_datatype: xsd:string
+          rationale: 전원 인입의 출발 위치를 나타내는 문자열 표기
+      - raw_text: 3Ø 3W 6.6kV
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 및 상선 표기(3상 3선식 6.6kV)
+      - raw_text: F-CV 150㎟ -1C x6L (ELP 100Ø X2)
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격과 관로 규격이 함께 표기된 복합 문자열
+      - raw_text: EMPTY PIPE (ELP100)
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasConduitSpecification
+          suggested_datatype: xsd:string
+          rationale: 관로(ELP100) 관련 표기
+      - raw_text: 지하공동구 사용
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasInstallationNote
+          suggested_datatype: xsd:string
+          rationale: 설치/포설 방식에 대한 주석성 문구
+      - raw_text: SEE DWG.NO 'EE-06-003'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasDrawingReference
+          suggested_datatype: xsd:string
+          rationale: 도면 참조 번호 표기
+      - raw_text: SEE DWG.NO 'EE-00-003'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasDrawingReference
+          suggested_datatype: xsd:string
+          rationale: 도면 참조 번호 표기
+      - raw_text: 3Ø 3W 6.6kV
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 수치 6.6kV가 명시됨
+      - raw_text: F-CV 150㎟ -1C x6L
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasCableType
+          suggested_datatype: xsd:string
+          rationale: 케이블 종류/규격 표기
+      - raw_text: ELP 100Ø X2
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasConduitCountAndSize
+          suggested_datatype: xsd:string
+          rationale: 관로 직경과 수량이 함께 표기됨
+  provenance:
+    name:
+      source_pages:
+      - 23
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 23
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 23
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 23
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 23
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 23
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 23
+      method: specs.labels_inside + specs.raw_labels
+    specs.labels_inside:
+      source_pages:
+      - 23
+      method: entity_detail.specs.labels_inside
+    specs.voltage:
+      source_pages:
+      - 23
+      method: entity_detail.specs.voltage
+    specs.cable:
+      source_pages:
+      - 23
+      method: entity_detail.specs.cable
+    specs.conduit:
+      source_pages:
+      - 23
+      method: entity_detail.specs.conduit
+    specs.remark:
+      source_pages:
+      - 23
+      method: entity_detail.specs.remark
+    specs.raw_labels:
+      source_pages:
+      - 23
+      method: entity_detail.specs.raw_labels
+    specs.voltage_kV:
+      source_pages:
+      - 23
+      method: entity_detail.specs.voltage_kV
+    specs.phase_wire:
+      source_pages:
+      - 23
+      method: entity_detail.specs.phase_wire
+    specs.cable_type:
+      source_pages:
+      - 23
+      method: entity_detail.specs.cable_type
+    relations:
+      source_pages:
+      - 23
+      method: entity_detail.relations
+    position:
+      source_pages:
+      - 23
+      method: entity_detail.position
+    source_attribution:
+      source_pages:
+      - 23
+      method: entity_detail.source_attribution
+    confidence:
+      source_pages:
+      - 23
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: 'FROM: UT동 전기실'
+    source_page: 23
+    reason: 관계/속성으로는 해석 가능하나, 이 단계에서는 원문 라벨을 보존
+    preservation_note: 전원 인입의 출발점 표기
+  - field_candidate: specs.labels_inside
+    raw_text: 3Ø 3W 6.6kV
+    source_page: 23
+    reason: 전압/상선 정보가 복합 표기되어 단일 필드로 확정 분해하지 않음
+    preservation_note: 전압과 상선 정보를 함께 보존
+  - field_candidate: specs.labels_inside
+    raw_text: F-CV 150㎟ -1C x6L (ELP 100Ø X2)
+    source_page: 23
+    reason: 케이블 규격과 관로 규격이 결합된 복합 문자열
+    preservation_note: 케이블/관로 분리 전 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: EMPTY PIPE (ELP100)
+    source_page: 23
+    reason: 관로 관련 표기이나 정확한 구조적 의미를 단정하지 않음
+    preservation_note: 관로 표기 원문 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 지하공동구 사용
+    source_page: 23
+    reason: 설치 방식/경로 주석으로 보이나 정형 속성 미확정
+    preservation_note: 시공/배선 경로 주석 보존
+  - field_candidate: specs.labels_inside
+    raw_text: SEE DWG.NO 'EE-06-003'
+    source_page: 23
+    reason: 도면 참조 정보
+    preservation_note: 참조 도면 번호 보존
+  - field_candidate: specs.labels_inside
+    raw_text: SEE DWG.NO 'EE-00-003'
+    source_page: 23
+    reason: 도면 참조 정보
+    preservation_note: 참조 도면 번호 보존
+  - field_candidate: relations.cable
+    raw_text: ① 3Ø 3W 6.6kV / F-CV 150㎟ -1C v6L (ELP 100ØX2)
+    source_page: 23
+    reason: 관계 주석이지만 정확한 property 확정 전 원형 보존
+    preservation_note: 케이블 연결/사양 주석
+  - field_candidate: specs.voltage_kV
+    raw_text: '6.6'
+    source_page: 23
+    reason: 수치 자체는 명확하나, 단위와 결합된 원문 표기를 함께 보존
+    preservation_note: 전압 수치 원문과 함께 유지
+  - field_candidate: specs.phase_wire
+    raw_text: 3Ø 3W
+    source_page: 23
+    reason: 상선 방식 표기
+    preservation_note: 3상 3선식 표기 보존
+  - field_candidate: specs.cable_type
+    raw_text: F-CV 150㎟ -1C x6L
+    source_page: 23
+    reason: 케이블 타입/규격 표기
+    preservation_note: 케이블 규격 원문 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:58.671866'
+  confidence: 0.98

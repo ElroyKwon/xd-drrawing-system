@@ -1,0 +1,188 @@
+placement:
+  tag: UNKNOWN-CONNECTOR-FLEXIBLE-01
+  name: Flexible Connector
+  discipline: electrical
+  ontology_core:
+    owl_role: PartOf
+    iri_hint: dks:UNKNOWN-CONNECTOR-FLEXIBLE-01
+    class_hint: ElectricalConnector
+    alternative_class_hints:
+    - FlexibleConnector
+    - Connector
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-CONDUCTOR-01
+      note: 수평도체의 신축 흡수를 위한 유연 연결; 25m 간격 접속
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalConnector
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 유연 커넥터
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasConnectorType
+          suggested_datatype: xsd:string
+          rationale: 설비의 종류를 나타내는 명칭 표현
+      - raw_text: 직선거리 25m간격마다 접속
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasInstallationInterval
+          suggested_datatype: xsd:string
+          rationale: 간격 조건을 나타내는 설치 주기 표현
+      - raw_text: 수평도체 신축 흡수
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasPurpose
+          suggested_datatype: xsd:string
+          rationale: 기능/목적을 설명하는 문구
+      - raw_text: Flexible Connector로 25m간격 신축 연결
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasConnectionNote
+          suggested_datatype: xsd:string
+          rationale: 관계 설명이 포함된 주석성 문구
+      - raw_text: Flexible Connector
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: 도면 상 장비 심볼 명칭
+      - raw_text: 'position: BLK-001, BLK-002'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치/블록 식별자 표기
+  provenance:
+    name:
+      source_pages:
+      - 40
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 40
+      method: rule_based
+    ontology_core.class_hint:
+      source_pages:
+      - 40
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 40
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 40
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 40
+      method: specs + equipment_symbols + position + ontology_hints
+    position:
+      source_pages:
+      - 40
+      method: entity_detail.position
+    specs.type:
+      source_pages:
+      - 40
+      method: entity_detail.specs.type
+    specs.installation_interval:
+      source_pages:
+      - 40
+      method: entity_detail.specs.installation_interval
+    specs.purpose:
+      source_pages:
+      - 40
+      method: entity_detail.specs.purpose
+    source_attribution:
+      source_pages:
+      - 40
+      method: entity_detail.source_attribution
+    collection_sources:
+      source_pages:
+      - 40
+      method: entity_detail.collection_sources
+    equipment_symbols:
+      source_pages:
+      - 40
+      method: entity_detail.equipment_symbols
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 40
+      method: entity_detail.ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 40
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 40
+      method: entity_detail.ontology_hints
+    confidence:
+      source_pages:
+      - 40
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.type
+    raw_text: 유연 커넥터
+    source_page: 40
+    reason: 원문은 설비 유형 설명이지만, 확정 클래스/속성으로 승격하지 않고 보존 필요
+    preservation_note: class_hint 후보 및 free_notes에 병행 보존
+  - field_candidate: specs.installation_interval
+    raw_text: 직선거리 25m간격마다 접속
+    source_page: 40
+    reason: 간격 조건은 수치 포함 문구이나 정식 데이터 속성으로 확정하지 않음
+    preservation_note: 설치 간격 규칙으로 후속 DataProperty 승격 가능
+  - field_candidate: specs.purpose
+    raw_text: 수평도체 신축 흡수
+    source_page: 40
+    reason: 기능 설명이지만 표준화된 속성명으로 확정하지 않음
+    preservation_note: 기능/목적 설명으로 유지
+  - field_candidate: position
+    raw_text: BLK-001, BLK-002
+    source_page: 40
+    reason: 위치 표기는 있으나 공간 마커로 분류하지 않고 원문 보존
+    preservation_note: 블록 위치 식별자
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: AbsorbingThermalExpansion; ConnectingConductors
+    source_page: 40
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 기능 후보 목록으로 유지
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true; gemini: true; mini: true'
+    source_page: 40
+    reason: 다중 출처 속성은 사실이지만 개별 판정 근거로는 미분해 보존
+    preservation_note: 출처 합의 상태로 유지
+  - field_candidate: collection_sources
+    raw_text: 'cross_validated: true; entity_synthesis: true'
+    source_page: 40
+    reason: 수집/합성 메타정보로 해석은 가능하나 정규 속성화하지 않음
+    preservation_note: 생성/검증 메타로 보존
+  - field_candidate: equipment_symbols
+    raw_text: Flexible Connector x1
+    source_page: 40
+    reason: 심볼 수량 정보이나 별도 수치 속성으로 확정하지 않음
+    preservation_note: 도면 심볼 존재 근거로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to)의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:14:08.616237'
+  confidence: 0.95

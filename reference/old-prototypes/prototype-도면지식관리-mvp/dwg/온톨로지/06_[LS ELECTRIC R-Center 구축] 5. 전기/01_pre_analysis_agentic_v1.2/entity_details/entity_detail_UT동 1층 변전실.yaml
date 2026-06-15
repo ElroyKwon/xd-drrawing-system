@@ -1,0 +1,103 @@
+entity_detail:
+  tag: UT동 1층 변전실
+  type: equipment
+  specs:
+    drawing_number:
+      value: EE-00-003
+      unit: null
+      source: 4
+      confidence: 0.96
+    title:
+      value: 옥외 전력간선설비 인입 배치도
+      unit: null
+      source: 4
+      confidence: 0.96
+    page_summary:
+      value: 옥외 전력간선설비 인입 배치도
+      unit: null
+      source: 4
+      confidence: 0.96
+  drawing_texts:
+  - source: page_4 executive_summary
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입이 구성되어
+      있다.
+
+
+      주요 설비는 전력용 맨홀 2개, PULL BOX 2개, EMPTY PIPE(ELP100), CONCRETE DUCT BANK, SPACER,
+      지중선표시기이며, 6.6kV 고압 케이블 사양이 표기되어 있다.
+
+
+      우측 상단에 SECTION 1, SECTION 2 단면 상세와 우측 중단의 지하공동구 현황 사진이 함께 배치되어 있다.'
+  requirements:
+  - text: 6.6kV 고압 케이블 사양이 표기되어 있다.
+    source: page 4
+    type: specification
+  - text: R-Center 변전실에서 UT동 1층 변전실 및 공동구/덕트뱅크 경로를 따라 전력 인입이 구성되어 있다.
+    source: page 4
+    type: routing
+  connection_specs:
+  - relation: power_infeed_route
+    partner: R-Center 변전실
+    details:
+      source: page 4
+  - relation: power_infeed_route
+    partner: 공동구
+    details:
+      source: page 4
+  - relation: power_infeed_route
+    partner: CONCRETE DUCT BANK
+    details:
+      source: page 4
+  - relation: connected_via
+    partner: EMPTY PIPE (ELP100)
+    details:
+      source: page 4
+  - relation: connected_via
+    partner: PULL BOX
+    details:
+      source: page 4
+  - relation: connected_via
+    partner: 전력용 맨홀
+    details:
+      source: page 4
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_infeed_route
+      partner_tag: R-Center 변전실
+      direction: source_to_target
+      source: page 4
+    - relation_type: route_through
+      partner_tag: 공동구
+      direction: through
+      source: page 4
+    - relation_type: route_through
+      partner_tag: CONCRETE DUCT BANK
+      direction: through
+      source: page 4
+    - relation_type: route_through
+      partner_tag: EMPTY PIPE (ELP100)
+      direction: through
+      source: page 4
+    - relation_type: route_through
+      partner_tag: PULL BOX
+      direction: through
+      source: page 4
+    - relation_type: route_through
+      partner_tag: 전력용 맨홀
+      direction: through
+      source: page 4
+    observed_attributes:
+    - drawing_number
+    - title
+    - 6.6kV
+    - 고압 케이블
+    - 전력 인입
+    - 공동구
+    - 덕트뱅크
+    similar_equipment: []
+    suggested_parent_class: ElectricalSubstationRoom
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에 직접 나타난 정보만 기록함.
+tag: UT동 1층 변전실

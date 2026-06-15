@@ -1,0 +1,204 @@
+placement:
+  tag: HUB-RACK-EQUIP
+  name: HUB RACK 장비 블록
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:HUB-RACK-EQUIP
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationRack
+    - NetworkConnectivityEquipment
+    - OpticalFiberTerminationEquipment
+    related_assertions:
+    - type: connectedTo
+      target_hint: JEONSAN-ROOM
+      note: relations.relation=cable; FIBER OPTICAL S.M 12CORE (2RC), 천정속 노출 배관배선
+    - type: hasSubcomponent
+      target_hint: FDF
+      note: equipment_symbols.type=FDF count=1; labels mention 광FDF(8분배기)x1
+    - type: connectedTo
+      target_hint: existing HUB RACK in JEONSAN-ROOM
+      note: 기존 전산실 HUB RACK에 연결
+    - type: servesZone
+      target_hint: 사무동 지상2층 전산실
+      note: TO 사무동 지상2층 전산실
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: HUB RACK
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 장비 명칭 표기
+      - raw_text: TO 사무동 지상2층 전산실
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: destinationSpace
+          suggested_datatype: xsd:string
+          rationale: 연결/배선의 목적지 공간 표기
+      - raw_text: 광FDF(8분배기)x1
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasSubcomponentCount
+          suggested_datatype: xsd:string
+          rationale: 구성품 종류와 수량 표기
+      - raw_text: FIBER OPTICAL S.M 12CORE (2RC)
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasCableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열
+      - raw_text: 천정속 노출 배관배선
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: installationMethod
+          suggested_datatype: xsd:string
+          rationale: 설치/배선 방식 표기
+      - raw_text: 기존 전산실 HUB RACK에 연결
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: connectedToExistingEquipment
+          suggested_datatype: xsd:string
+          rationale: 기존 설비와의 연결 관계
+      - raw_text: 광컨버터x2, 광점퍼코드x4
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: associatedEquipmentList
+          suggested_datatype: xsd:string
+          rationale: 부속 장비/자재 목록과 수량 표기
+      - raw_text: 'shape: rectangle'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보
+      - raw_text: 'equipment_symbols: HUB_RACK x1, FDF x1'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: equipmentSymbols
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 기반 장비 구성 정보
+      - raw_text: 'inferred_name: HUB RACK 장비 블록'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명
+      - raw_text: 'position: right-center'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 11
+      method: direct
+    name:
+      source_pages:
+      - 11
+      method: direct
+    discipline:
+      source_pages:
+      - 11
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: inferred_from_equipment_block
+    ontology_core.iri_hint:
+      source_pages:
+      - 11
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 11
+      method: relations + specs + equipment_symbols
+    discipline_context.free_notes:
+      source_pages:
+      - 11
+      method: all_unclassified_texts_preserved
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 11
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 11
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: HUB RACK; TO 사무동 지상2층 전산실; 광FDF(8분배기)x1; FIBER OPTICAL S.M 12CORE (2RC);
+      천정속 노출 배관배선; 기존 전산실 HUB RACK에 연결; 광컨버터x2, 광점퍼코드x4
+    source_page: 11
+    reason: 복수의 라벨이 혼합된 원문 목록으로 단일 속성으로 정규화하지 않음
+    preservation_note: 각 항목은 free_notes 및 related_assertions에 분산 보존
+  - field_candidate: specs.labels_inside
+    raw_text: HUB RACK; TO 사무동 지상2층 전산실; 광FDF(8분배기)x1; FIBER OPTICAL S.M 12CORE (2RC);
+      천정속 노출 배관배선
+    source_page: 11
+    reason: 도면 내부 표기 전체를 개별 속성으로 확정하지 않음
+    preservation_note: 원문 그대로 보존
+  - field_candidate: specs.labels_above
+    raw_text: 기존 전산실 HUB RACK에 연결; 광FDF(8분배기)x1; 광컨버터x2, 광점퍼코드x4
+    source_page: 11
+    reason: 상단 표기 묶음으로 구조화 기준 불명확
+    preservation_note: 연결/구성 관련 문구는 관계 및 free_notes로 보존
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 11
+    reason: 도형 정보이지만 현재 단계에서 별도 확정 속성으로 승격하지 않음
+    preservation_note: shape 후보로 유지
+  - field_candidate: specs.equipment_symbols
+    raw_text: HUB_RACK x1; FDF x1
+    source_page: 11
+    reason: 심볼 목록은 장비 구성 정보이나 개별 인스턴스 분해는 다음 단계에서 검증 필요
+    preservation_note: subcomponent 후보로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SignalDistribution; NetworkConnectivity; OpticalFiberTermination
+    source_page: 11
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: class_hint 보조 후보로만 보존
+  - field_candidate: relations.annotation
+    raw_text: FIBER OPTICAL S.M 12CORE (2RC), 천정속 노출 배관배선
+    source_page: 11
+    reason: 관계의 정확한 property IRI 미확정
+    preservation_note: connectedTo/servesZone 후보 관계 원형으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: HUB RACK 장비 블록은 독립 장비로 보이지만, 내부에 FDF와 광컨버터/광점퍼코드가 함께 표기되어 장비 블록과 부품/구성
+      묶음의 경계가 혼합되어 있음
+    recommended_handling: NamedIndividual로 우선 배치하되, 0-9d에서 subcomponent 및 connectedTo
+      관계를 재검증하고 필요 시 PartOf 후보를 별도 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CommunicationEquipment 계열로 수렴하는 허브랙/통신장비 패턴 적용
+    - connectedTo, hasSubcomponent, servesZone, hasCableSpec 후보 관계 패턴 적용
+    - locatedOnPage/source_pages 기반 추적성 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:43:16.862730'
+  confidence: 0.86

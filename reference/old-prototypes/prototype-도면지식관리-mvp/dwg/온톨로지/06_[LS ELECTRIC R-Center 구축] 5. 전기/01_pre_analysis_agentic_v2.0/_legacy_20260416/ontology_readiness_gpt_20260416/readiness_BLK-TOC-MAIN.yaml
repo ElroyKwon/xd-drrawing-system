@@ -1,0 +1,148 @@
+ontology_readiness:
+  tag: BLK-TOC-MAIN
+  verdict: demoted
+  confidence: 0.98
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 4
+    reason: type=PANEL이지만 내용은 전력용 도면목록표로, 물리적 설비가 아니라 도면/문서 메타데이터 성격이다. 독립 설비가 아닌
+      document_metadata로 분류한다.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 0
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 4
+    convertible: 0
+    ambiguous_attributes:
+    - key: labels_inside
+      value:
+      - 'NO'
+      - 도면번호
+      - 도면명
+      - 축척 A1
+      - 축척 A3
+      - 비고
+      reason: 문서 표의 라벨 목록으로 물리 설비 속성이 아님
+    - key: labels_above
+      value:
+      - 전력용 도면목록표
+      reason: 문서 제목/표기
+    - key: labels_below
+      value:
+      - '축척A1 : 1/NONE'
+      - 'A3 : 1/NONE'
+      reason: 도면 표기 텍스트로 설비 속성이 아님
+    - key: raw_labels
+      value:
+      - 'NO'
+      - 도면번호
+      - 도면명
+      - 축척 A1
+      - 축척 A3
+      - 비고
+      - 전력용 도면목록표
+      reason: 원문 라벨 집합으로 문서 메타데이터
+    auxiliary_attributes:
+    - labels_inside
+    - labels_above
+    - labels_below
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes: []
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: InformationContentEntity
+    alternative_parent_classes:
+    - DocumentMetadata
+    - DrawingIndex
+  spatial_context:
+    position: center
+    source_pages:
+    - 2
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - 'NO'
+      - 도면번호
+      - 도면명
+      - 축척 A1
+      - 축척 A3
+      - 비고
+      labels_above:
+      - 전력용 도면목록표
+      labels_below:
+      - '축척A1 : 1/NONE'
+      - 'A3 : 1/NONE'
+      raw_labels:
+      - 'NO'
+      - 도면번호
+      - 도면명
+      - 축척 A1
+      - 축척 A3
+      - 비고
+      - 전력용 도면목록표
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :BLK-TOC-MAIN rdf:type :DocumentMetadata ; :references :DrawingSet
+  owl_export_hints:
+    create_individual: true
+    individual_type: :DocumentMetadata
+    annotations_to_emit:
+    - labels_inside
+    - labels_above
+    - labels_below
+    - raw_labels
+    - source_attribution
+    - collection_sources
+    - position
+    - confidence
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: BLK-TOC-MAIN
+discovered_relations: 0

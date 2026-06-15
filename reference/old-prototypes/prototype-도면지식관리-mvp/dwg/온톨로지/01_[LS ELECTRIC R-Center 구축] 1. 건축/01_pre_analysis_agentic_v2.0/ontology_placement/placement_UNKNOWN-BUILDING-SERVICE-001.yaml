@@ -1,0 +1,125 @@
+placement:
+  tag: UNKNOWN-BUILDING-SERVICE-001
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-BUILDING-SERVICE-001
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - BuildingServiceElement
+    - ServiceNetworkElement
+    - BuildingElement
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePage
+          suggested_datatype: xsd:string
+          rationale: entity_detail.raw에 페이지 목록이 직접 제시됨
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRelationNote
+          suggested_datatype: xsd:string
+          rationale: 도면 분석 안내 문구로, 객체 속성보다는 주석/메모 성격
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 태그명 자체가 UNKNOWN-BUILDING-SERVICE-001이며, 건물 서비스 관련 미확정 엔티티로 보이나 원문에는
+          구체적 기능/관계/스펙이 없음.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 태그 접두어와 이름 패턴상 기능 범주 후보이나 본문 근거 부족
+        promoted_to: dks:hasFunctionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_by_tag_and_raw_absence_of_physical_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: direct_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_context_inference_only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_context_inference_only
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: verbatim_preservation_from_raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: inferred_from_missing_specific_entity_detail
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan_guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 구체적인 설비 스펙, 관계, 연결 정보가 없어 OWL 관계나 데이터 속성으로 확정 불가
+    preservation_note: 페이지 범위 정보는 후속 페이지 단위 분석의 탐색 힌트로 보존
+  - field_candidate: ontology_core.class_hint
+    raw_text: BuildingServiceElement / ServiceNetworkElement / BuildingElement
+    source_page: 0
+    reason: 태그명만으로는 실제 클래스 확정 불가
+    preservation_note: unknown 분야의 미확정 엔티티로 유지
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: (supplement 없음)
+    source_page: 0
+    reason: 이 분야 supplement가 제공되지 않아 standard_sub_kinds로 세분화 불가
+    preservation_note: free_notes에만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 건물 서비스 관련 미확정 엔티티처럼 보이지만, 원문에는 관계/스펙/기능 설명이 없어 NamedIndividual 외의
+      구체 분류를 확정할 수 없음
+    recommended_handling: 후속 단계에서 페이지 60-64 및 118-122의 주변 엔티티와 함께 재검토하고, 관계가 확인되면
+      ObjectPropertyAssertion 또는 PartOf로 재배치
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야의 미확정 엔티티로 보존
+    - supplement 부재 시 free_notes에 raw_text와 promotion_hint로 보존
+    - plan의 guidance_for_next_steps.for_0_9b_placement.focus를 반영하여 구체화 대신 보존 우선
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:24.785358'
+  confidence: 0.42

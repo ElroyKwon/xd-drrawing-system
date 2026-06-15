@@ -1,0 +1,45 @@
+entity_detail:
+  tag: HV PNL
+  type: equipment
+  specs:
+    voltage:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: '주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.'
+  - source: page 5 executive_summary
+    page_number: 5
+    text: 도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.
+  requirements: []
+  connection_specs:
+  - relation: connects_to
+    partner: JUNCTION BOX
+    details:
+      source: page 5
+  - relation: feeds
+    partner: UNKNOWN
+    details:
+      source: page 5
+      note: HV PNL의 구체적 공급/수요 방향은 제공된 컨텍스트에서 확정 불가
+  ontology_hints:
+    observed_relations:
+    - relation_type: connects_to
+      partner_tag: JUNCTION BOX
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - voltage
+    - name
+    - discipline
+    - tag
+    similar_equipment: []
+    suggested_parent_class: Electrical Panel
+    cross_discipline: []
+  notes: []
+tag: HV PNL

@@ -1,0 +1,848 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: ET-01-006
+    title: 사무동 지상1층 정보통신 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 사무동 지상1층 통신실
+    type: named_space
+    source: both
+  - tag: 'TO : 사무실 지상1층 통신실'
+    type: note_destination
+    source: image
+  - tag: 기존 통신실 DF RACK
+    type: equipment_note
+    source: image
+  - tag: 110 BLOCK 25Px1EA 전원
+    type: equipment_note
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 1
+  next_step_hints:
+  - 통신실, DF RACK, 110 BLOCK 관련 주석이 우측 상단에 집중되어 있음
+  - 도면번호 ET-01-006과 제목의 정보통신 설비 평면도는 통신 분야로 보임
+  confidence: 0.93
+  note: 표제란 도면번호 ET-01-006, 제목 '사무동 지상1층 정보통신 설비 평면도' 확인. 우측 주석에 '기존 통신실 DF RACK',
+    '110 BLOCK 25Px1EA 전원' 표기 보임.
+  recommended_supplements: &id001
+    P-10: discipline/communication/genre_floor_plan/supplement_p10.yaml
+    P-4.5: discipline/communication/genre_floor_plan/supplement_p4_05.yaml
+  routing_confidence: 0.98
+  routing_reason: 도면번호 ET-01-006과 제목상 정보통신 설비 평면도이므로 COMMUNICATION/FLOOR_LAYOUT로 판단했고,
+    카탈로그에 communication P-10 및 P-4.5 genre_floor_plan 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 사무동 지상1층 정보통신 설비 평면도
+    position: center
+    labels_near:
+    - '축척: A1 : 1/150, A3 : 1/300'
+    - SHOW ROOM
+    - 스마트홈 (회의실)
+    - Drive 개발시험실
+    - Reserve
+    - 통신실
+  - panel_id: NOTES_AREA
+    shape: dashed_box
+    primary_label: 주석 및 상세
+    position: top-right
+    labels_near:
+    - 'TO : 사무동 지상1층 통신실'
+    - UTP 0.5mm/25Px1, CAT.5 (28C)
+    - 바닥 악세스플로어속 노출배관배선
+    - 기존 통신실 IDF RACK
+    - 110 BLOCK 25Px1EA 신설
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 가운 건축
+    - 사무동 지상1층 정보통신 설비 평면도
+    - ET-01-006
+  connections:
+  - from: NOTES_AREA
+    to: FLOOR_PLAN_AREA
+    line_style: dashed
+    annotation: 통신실 위치 지시
+  notable_shapes:
+  - shape: rectangle
+    label: 통신실
+    note: 평면도 내 특정 구역 표시
+  - shape: rectangle
+    label: E/L
+    note: 엘리베이터 코어 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지는 사무동 지상1층 정보통신 설비 평면도이며, 범례 표나 섹션은 포함되어 있지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '사무동 지상1층 정보통신 설비 평면도'와 도면번호 'ET-01-006'의 'ET' 접두사, 그리고 도면
+    내용이 통신 설비 평면도임을 명확히 보여주므로 COMMUNICATION/floor_plan으로 확정함. 사전 분석 결과와 동일함.
+classification: FLOOR_LAYOUT
+discipline: COMMUNICATION
+key_elements_from_text:
+- 사무동 지상1층 정보통신 설비 평면도
+- 'TO : 사무동 지상1층 통신실'
+- UTP 0.5mm/25Px1, CAT.5 (28C)
+- 바닥 악세스플로어속 노출배관배선
+- 기존 통신실 DF RACK
+- 110 BLOCK 25Px1EA 전원
+- LS Electric
+- R-Center 구축
+title_block:
+  drawing_number: ET-01-006
+  title: 사무동 지상1층 정보통신 설비 평면도
+  revision: UNKNOWN
+confidence: 0.97
+note: 기존 분석의 discipline=COMMUNICATION, classification=FLOOR_LAYOUT, drawing_genre=floor_plan과
+  일치함. 표제란에서 도면번호 ET-01-006과 제목을 확인했고, 리비전 표기는 보이지 않아 UNKNOWN으로 둠.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: COMM-ROOM-1F
+    shape: rectangle
+    labels_inside:
+    - 사무동 지상1층 통신실
+    - 기존 통신실 IDF RACK
+    - 110 BLOCK 25Px1EA 신설
+    labels_above:
+    - 'TO : 사무동 지상1층 통신실'
+    labels_below: []
+    equipment_symbols:
+    - type: IDF RACK
+      count: 1
+    - type: 110 BLOCK
+      count: 1
+    inferred_name: 사무동 지상1층 통신실 (IDF RACK 수용)
+    position: top-right
+  - panel_id: SPACE-SHOWROOM
+    shape: rectangle
+    labels_inside:
+    - SHOW ROOM
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    - type: SYSTEM_BOX
+      count: null
+    inferred_name: 쇼룸 공간
+    position: top-left
+  - panel_id: SPACE-SMARTHOME
+    shape: rectangle
+    labels_inside:
+    - 스마트홈 (회의실)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    - type: SYSTEM_BOX
+      count: null
+    inferred_name: 스마트홈 회의실
+    position: top-center-left
+  - panel_id: SPACE-DRIVE-LAB
+    shape: rectangle
+    labels_inside:
+    - Drive 개발시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    - type: SYSTEM_BOX
+      count: null
+    inferred_name: Drive 개발시험실
+    position: top-center
+  - panel_id: SPACE-RESERVE
+    shape: rectangle
+    labels_inside:
+    - Reserve
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 예비 공간
+    position: top-right-center
+  - panel_id: SPACE-SLOW-ROOM
+    shape: rectangle
+    labels_inside:
+    - S.LOW ROOM
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    - type: SYSTEM_BOX
+      count: null
+    inferred_name: S.LOW ROOM
+    position: center-left
+  - panel_id: SPACE-CORRIDOR
+    shape: rectangle
+    labels_inside:
+    - 복도
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PULL_BOX
+      count: null
+    inferred_name: 복도
+    position: center
+  - panel_id: SPACE-STAIRS
+    shape: rectangle
+    labels_inside:
+    - 계단
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 계단실
+    position: center
+  - panel_id: SPACE-EL
+    shape: rectangle
+    labels_inside:
+    - E/L
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 엘리베이터
+    position: center
+  - panel_id: SPACE-LOUNGE
+    shape: rectangle
+    labels_inside:
+    - 휴게실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    inferred_name: 휴게실
+    position: center-right
+  - panel_id: SPACE-MEETING
+    shape: rectangle
+    labels_inside:
+    - 회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    - type: SYSTEM_BOX
+      count: null
+    inferred_name: 회의실
+    position: center-right
+  - panel_id: SPACE-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: LAN_OUTLET
+      count: null
+    - type: SYSTEM_BOX
+      count: null
+    - type: WIRELESS_AP
+      count: null
+    inferred_name: 사무실
+    position: center-right
+  - panel_id: SPACE-STORAGE
+    shape: rectangle
+    labels_inside:
+    - 창고
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 창고
+    position: bottom-right
+  - panel_id: SPACE-ENTRANCE
+    shape: rectangle
+    labels_inside:
+    - 현관
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 현관
+    position: bottom-center
+  - panel_id: SPACE-TOILET
+    shape: rectangle
+    labels_inside:
+    - 화장실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 화장실
+    position: bottom-center
+  - panel_id: SPACE-MACHINE
+    shape: rectangle
+    labels_inside:
+    - 기계실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 기계실
+    position: bottom-left
+  - panel_id: NOTE-CABLE-SPEC
+    shape: dashed_box
+    labels_inside:
+    - 'TO : 사무동 지상1층 통신실'
+    - UTP 0.5mm/25Px1, CAT.5 (28C)
+    - 바닥 악세스플로어속 노출배관배선
+    - 기존 통신실 IDF RACK
+    - 110 BLOCK 25Px1EA 신설
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 케이블 사양 및 배선 경로 주석
+    position: top-right
+  connections:
+  - from: NOTE-CABLE-SPEC
+    to: COMM-ROOM-1F
+    line_type: signal
+    line_style: dashed
+    annotation: UTP 0.5mm/25Px1, CAT.5 (28C), 바닥 악세스플로어속 노출배관배선
+  - from: SPACE-SHOWROOM
+    to: COMM-ROOM-1F
+    line_type: cable
+    line_style: solid
+    annotation: LAN 배선
+  - from: SPACE-SMARTHOME
+    to: COMM-ROOM-1F
+    line_type: cable
+    line_style: solid
+    annotation: LAN 배선
+  - from: SPACE-DRIVE-LAB
+    to: COMM-ROOM-1F
+    line_type: cable
+    line_style: solid
+    annotation: LAN 배선
+  - from: SPACE-SLOW-ROOM
+    to: COMM-ROOM-1F
+    line_type: cable
+    line_style: solid
+    annotation: LAN 배선
+  - from: SPACE-OFFICE
+    to: COMM-ROOM-1F
+    line_type: cable
+    line_style: solid
+    annotation: LAN 배선
+  groups:
+  - group_id: GRP-FLOOR-1F
+    label: 사무동 지상1층 전체 평면
+    members:
+    - COMM-ROOM-1F
+    - SPACE-SHOWROOM
+    - SPACE-SMARTHOME
+    - SPACE-DRIVE-LAB
+    - SPACE-RESERVE
+    - SPACE-SLOW-ROOM
+    - SPACE-CORRIDOR
+    - SPACE-STAIRS
+    - SPACE-EL
+    - SPACE-LOUNGE
+    - SPACE-MEETING
+    - SPACE-OFFICE
+    - SPACE-STORAGE
+    - SPACE-ENTRANCE
+    - SPACE-TOILET
+    - SPACE-MACHINE
+  legend_references:
+  - text: IDF RACK
+    linked_to: COMM-ROOM-1F
+  - text: 110 BLOCK 25Px1EA
+    linked_to: COMM-ROOM-1F
+  - text: UTP 0.5mm/25Px1, CAT.5 (28C)
+    linked_to: NOTE-CABLE-SPEC
+  - text: LAN OUTLET(OA) 2PORT
+    linked_to: SPACE-OFFICE
+  - text: SYSTEM BOX(OA) 2PORT
+    linked_to: SPACE-DRIVE-LAB
+  - text: 무선 AP - OA
+    linked_to: SPACE-OFFICE
+  diagram_meta:
+    title: 사무동 지상1층 정보통신 설비 평면도
+    drawing_number: ET-01-006
+    drawing_subtype: 정보통신
+    floor_label: 지상1층
+    scale: A1:1/150, A3:1/300
+    project: LS Electric R-Center 구축
+    flow_direction: radial
+    has_legend_section: false
+    has_cctv: false
+    has_ap: true
+    symbol_counts:
+      LAN_OUTLET_FA_2PORT: null
+      LAN_OUTLET_OA_2PORT: null
+      LAN_OUTLET_FA_1PORT: null
+      LAN_OUTLET_OA_1PORT: null
+      SYSTEM_BOX_FA_2PORT: null
+      SYSTEM_BOX_OA_2PORT: null
+      WIRELESS_AP_OA: null
+      PULL_BOX: null
+      IDF_RACK: 1
+      TERMINAL_BOARD_110BLOCK: 1
+    space_symbol_matrix:
+      SPACE-SHOWROOM:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      SPACE-SMARTHOME:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      SPACE-DRIVE-LAB:
+        LAN_OUTLET_FA_2PORT: null
+        SYSTEM_BOX_FA_2PORT: null
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      SPACE-SLOW-ROOM:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      SPACE-OFFICE:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+        WIRELESS_AP_OA: null
+      SPACE-MEETING:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      SPACE-LOUNGE:
+        LAN_OUTLET_OA_1PORT: null
+    ambiguities:
+    - id: AMB-001
+      type: terminal_density_estimate
+      description: 평면도 내 LAN OUTLET, SYSTEM BOX, AP 등 단말 심볼의 정확한 개수는 도면 해상도 한계로 OCR
+        추정이 불가하여 null 처리함. 현장 확인 또는 고해상도 도면 재분석 필요.
+    - id: AMB-002
+      type: space_label_partial
+      description: '일부 공간 라벨(예: 복도, 계단, 화장실 등)이 저해상도로 인해 정확한 판독이 어려울 수 있음. 원본 도면 확인
+        권장.'
+    - id: AMB-003
+      type: idf_rack_correction
+      description: 사전 분석에서 'DF RACK'으로 표기되었으나, 도면 주석 원문은 'IDF RACK'(Intermediate Distribution
+        Frame)으로 교정함.
+    - id: AMB-004
+      type: 110block_correction
+      description: 사전 분석에서 '110 BLOCK 25Px1EA 전원'으로 표기되었으나, 도면 주석 원문은 '110 BLOCK 25Px1EA
+        신설'로 교정함.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+entity_synthesis:
+  entities:
+  - tag: COMM-ROOM-1F
+    name: 사무동 지상1층 통신실
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 사무동 지상1층 통신실 (IDF RACK 수용)
+      labels_inside:
+      - 사무동 지상1층 통신실
+      - 기존 통신실 IDF RACK
+      - 110 BLOCK 25Px1EA 신설
+      labels_above:
+      - 'TO : 사무동 지상1층 통신실'
+      labels_below: []
+      equipment_symbols:
+      - type: IDF RACK
+        count: 1
+      - type: 110 BLOCK
+        count: 1
+      note_text:
+      - 'TO : 사무동 지상1층 통신실'
+      - UTP 0.5mm/25Px1, CAT.5 (28C)
+      - 바닥 악세스플로어속 노출배관배선
+      - 기존 통신실 IDF RACK
+      - 110 BLOCK 25Px1EA 신설
+      drawing_number: ET-01-006
+      title: 사무동 지상1층 정보통신 설비 평면도
+      scale:
+      - A1:1/150
+      - A3:1/300
+      project: LS Electric R-Center 구축
+      flow_direction: radial
+      has_legend_section: false
+      has_cctv: false
+      has_ap: true
+      drawing_subtype: 정보통신
+      floor_label: 지상1층
+      symbol_counts:
+        LAN_OUTLET_FA_2PORT: null
+        LAN_OUTLET_OA_2PORT: null
+        LAN_OUTLET_FA_1PORT: null
+        LAN_OUTLET_OA_1PORT: null
+        SYSTEM_BOX_FA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+        WIRELESS_AP_OA: null
+        PULL_BOX: null
+        IDF_RACK: 1
+        TERMINAL_BOARD_110BLOCK: 1
+      space_symbol_matrix: {}
+      ambiguities:
+      - terminal_density_estimate
+      - space_label_partial
+      - idf_rack_correction
+      - 110block_correction
+    position: top-right
+    source_block: both
+  - tag: SPACE-SHOWROOM
+    name: SHOW ROOM
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 쇼룸 공간
+      labels_inside:
+      - SHOW ROOM
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      - type: SYSTEM_BOX
+        count: null
+      symbol_counts:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      space_symbol_matrix:
+        SPACE-SHOWROOM:
+          LAN_OUTLET_OA_2PORT: null
+          SYSTEM_BOX_OA_2PORT: null
+    position: top-left
+    source_block: visual_semantics
+  - tag: SPACE-SMARTHOME
+    name: 스마트홈 (회의실)
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 스마트홈 회의실
+      labels_inside:
+      - 스마트홈 (회의실)
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      - type: SYSTEM_BOX
+        count: null
+      symbol_counts:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      space_symbol_matrix:
+        SPACE-SMARTHOME:
+          LAN_OUTLET_OA_2PORT: null
+          SYSTEM_BOX_OA_2PORT: null
+    position: top-center-left
+    source_block: visual_semantics
+  - tag: SPACE-DRIVE-LAB
+    name: Drive 개발시험실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: Drive 개발시험실
+      labels_inside:
+      - Drive 개발시험실
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      - type: SYSTEM_BOX
+        count: null
+      symbol_counts:
+        LAN_OUTLET_FA_2PORT: null
+        SYSTEM_BOX_FA_2PORT: null
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      space_symbol_matrix:
+        SPACE-DRIVE-LAB:
+          LAN_OUTLET_FA_2PORT: null
+          SYSTEM_BOX_FA_2PORT: null
+          LAN_OUTLET_OA_2PORT: null
+          SYSTEM_BOX_OA_2PORT: null
+    position: top-center
+    source_block: visual_semantics
+  - tag: SPACE-RESERVE
+    name: Reserve
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 예비 공간
+      labels_inside:
+      - Reserve
+      equipment_symbols: []
+    position: top-right-center
+    source_block: visual_semantics
+  - tag: SPACE-SLOW-ROOM
+    name: S.LOW ROOM
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: S.LOW ROOM
+      labels_inside:
+      - S.LOW ROOM
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      - type: SYSTEM_BOX
+        count: null
+      symbol_counts:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      space_symbol_matrix:
+        SPACE-SLOW-ROOM:
+          LAN_OUTLET_OA_2PORT: null
+          SYSTEM_BOX_OA_2PORT: null
+    position: center-left
+    source_block: visual_semantics
+  - tag: SPACE-CORRIDOR
+    name: 복도
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 복도
+      labels_inside:
+      - 복도
+      equipment_symbols:
+      - type: PULL_BOX
+        count: null
+      symbol_counts:
+        PULL_BOX: null
+      space_symbol_matrix:
+        SPACE-CORRIDOR:
+          PULL_BOX: null
+    position: center
+    source_block: visual_semantics
+  - tag: SPACE-STAIRS
+    name: 계단
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 계단실
+      labels_inside:
+      - 계단
+      equipment_symbols: []
+    position: center
+    source_block: visual_semantics
+  - tag: SPACE-EL
+    name: E/L
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 엘리베이터
+      labels_inside:
+      - E/L
+      equipment_symbols: []
+    position: center
+    source_block: visual_semantics
+  - tag: SPACE-LOUNGE
+    name: 휴게실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 휴게실
+      labels_inside:
+      - 휴게실
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      symbol_counts:
+        LAN_OUTLET_OA_1PORT: null
+      space_symbol_matrix:
+        SPACE-LOUNGE:
+          LAN_OUTLET_OA_1PORT: null
+    position: center-right
+    source_block: visual_semantics
+  - tag: SPACE-MEETING
+    name: 회의실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 회의실
+      labels_inside:
+      - 회의실
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      - type: SYSTEM_BOX
+        count: null
+      symbol_counts:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+      space_symbol_matrix:
+        SPACE-MEETING:
+          LAN_OUTLET_OA_2PORT: null
+          SYSTEM_BOX_OA_2PORT: null
+    position: center-right
+    source_block: visual_semantics
+  - tag: SPACE-OFFICE
+    name: 사무실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 사무실
+      labels_inside:
+      - 사무실
+      equipment_symbols:
+      - type: LAN_OUTLET
+        count: null
+      - type: SYSTEM_BOX
+        count: null
+      - type: WIRELESS_AP
+        count: null
+      symbol_counts:
+        LAN_OUTLET_OA_2PORT: null
+        SYSTEM_BOX_OA_2PORT: null
+        WIRELESS_AP_OA: null
+      space_symbol_matrix:
+        SPACE-OFFICE:
+          LAN_OUTLET_OA_2PORT: null
+          SYSTEM_BOX_OA_2PORT: null
+          WIRELESS_AP_OA: null
+    position: center-right
+    source_block: visual_semantics
+  - tag: SPACE-STORAGE
+    name: 창고
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 창고
+      labels_inside:
+      - 창고
+      equipment_symbols: []
+    position: bottom-right
+    source_block: visual_semantics
+  - tag: SPACE-ENTRANCE
+    name: 현관
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 현관
+      labels_inside:
+      - 현관
+      equipment_symbols: []
+    position: bottom-center
+    source_block: visual_semantics
+  - tag: SPACE-TOILET
+    name: 화장실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 화장실
+      labels_inside:
+      - 화장실
+      equipment_symbols: []
+    position: bottom-center
+    source_block: visual_semantics
+  - tag: SPACE-MACHINE
+    name: 기계실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      inferred_name: 기계실
+      labels_inside:
+      - 기계실
+      equipment_symbols: []
+    position: bottom-left
+    source_block: visual_semantics
+  - tag: NOTE-CABLE-SPEC
+    name: 케이블 사양 및 배선 경로 주석
+    discipline: COMMUNICATION
+    function_category: NOTE
+    specifications:
+      inferred_name: 케이블 사양 및 배선 경로 주석
+      labels_inside:
+      - 'TO : 사무동 지상1층 통신실'
+      - UTP 0.5mm/25Px1, CAT.5 (28C)
+      - 바닥 악세스플로어속 노출배관배선
+      - 기존 통신실 IDF RACK
+      - 110 BLOCK 25Px1EA 신설
+    position: top-right
+    source_block: visual_semantics
+  relationships:
+  - from_tag: NOTE-CABLE-SPEC
+    to_tag: COMM-ROOM-1F
+    relation_type: connects_to
+    note: UTP 0.5mm/25Px1, CAT.5 (28C), 바닥 악세스플로어속 노출배관배선
+    source_block: visual_semantics
+  - from_tag: SPACE-SHOWROOM
+    to_tag: COMM-ROOM-1F
+    relation_type: connects_to
+    note: LAN 배선
+    source_block: visual_semantics
+  - from_tag: SPACE-SMARTHOME
+    to_tag: COMM-ROOM-1F
+    relation_type: connects_to
+    note: LAN 배선
+    source_block: visual_semantics
+  - from_tag: SPACE-DRIVE-LAB
+    to_tag: COMM-ROOM-1F
+    relation_type: connects_to
+    note: LAN 배선
+    source_block: visual_semantics
+  - from_tag: SPACE-SLOW-ROOM
+    to_tag: COMM-ROOM-1F
+    relation_type: connects_to
+    note: LAN 배선
+    source_block: visual_semantics
+  - from_tag: SPACE-OFFICE
+    to_tag: COMM-ROOM-1F
+    relation_type: connects_to
+    note: LAN 배선
+    source_block: visual_semantics
+  - from_tag: NOTE-CABLE-SPEC
+    to_tag: COMM-ROOM-1F
+    relation_type: supplies
+    note: 'TO : 사무동 지상1층 통신실'
+    source_block: visual_semantics_gemini
+  spaces:
+  - space_id: GRP-FLOOR-1F
+    name: 사무동 지상1층 전체 평면
+    contains:
+    - COMM-ROOM-1F
+    - SPACE-SHOWROOM
+    - SPACE-SMARTHOME
+    - SPACE-DRIVE-LAB
+    - SPACE-RESERVE
+    - SPACE-SLOW-ROOM
+    - SPACE-CORRIDOR
+    - SPACE-STAIRS
+    - SPACE-EL
+    - SPACE-LOUNGE
+    - SPACE-MEETING
+    - SPACE-OFFICE
+    - SPACE-STORAGE
+    - SPACE-ENTRANCE
+    - SPACE-TOILET
+    - SPACE-MACHINE
+    specifications:
+      title: 사무동 지상1층 정보통신 설비 평면도
+      drawing_number: ET-01-006
+      scale:
+      - A1:1/150
+      - A3:1/300
+      project: LS Electric R-Center 구축
+      floor_label: 지상1층
+      drawing_subtype: 정보통신
+      has_legend_section: false
+      has_cctv: false
+      has_ap: true
+    source_block: both
+  self_check:
+    entity_count: 15
+    relationship_count: 6
+    visual_spec_preserved: true
+    issues:
+    - diagram_meta.symbol_counts and space_symbol_matrix contain null values because
+      exact terminal counts are not legible from the provided analysis.
+    - has_legend_section is false in source analysis despite legend references being
+      present in the page context; preserved as source_block-specific value.
+    - No separate individual outlet/AP/PULL BOX entities were created due to terminal
+      density estimate rule.

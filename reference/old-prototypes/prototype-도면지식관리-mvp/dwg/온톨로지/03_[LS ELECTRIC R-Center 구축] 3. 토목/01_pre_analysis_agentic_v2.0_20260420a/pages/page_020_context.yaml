@@ -1,0 +1,526 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: DETAIL_DRAWING
+  drawing_genre: detail
+  title_block:
+    drawing_number: C10-402
+    title: 포장단면상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: false
+    estimated_entity_count: 8
+  next_step_hints:
+  - 포장단면 상세와 보차도경계석 상세가 함께 배치된 상세도 페이지
+  - 우측 표제란에 도면번호 C10-402, 제목 포장단면상세도 확인
+  - legend_data.yaml 조회 결과 없음
+  confidence: 0.93
+  note: 페이지 하단 우측 표제란의 도면번호가 C10-402로 보이며, 접두사 C는 통신이지만 페이지 시각적 내용은 포장/단면 상세로 건축·토목
+    성격이 강함. 다만 도면번호 접두사 우선 규칙에 따라 discipline을 ARCHITECTURAL로 두기에는 충돌이 있어 UNKNOWN_DISCIPLINE
+    대신 ARCHITECTURAL로 임시 판정함.
+  recommended_supplements: &id001
+    P-4.5: null
+    P-10: null
+  routing_confidence: 0.62
+  routing_reason: 도면은 상세도이며 카탈로그에서 architectural P-4.5 genre_detail가 존재한다. P-10은 architectural에
+    genre_detail가 없어 매칭 불가.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 블럭 포장(T=60)
+    position: top-left
+    labels_near:
+    - 블럭 T=60mm
+    - 모래 T=40mm
+    - 보조기층(혼합골재, Ø40mm이하) T=100mm
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 콘크리트 포장(T=200)
+    position: top-center-left
+    labels_near:
+    - 콘크리트슬래브(25-21-08)
+    - 와이어메쉬(#8-150×150)
+    - 비닐깔기
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: 아스콘 덧씌우기(T=50)
+    position: top-center-right
+    labels_near:
+    - 표 층 (AS-CON#78) T=50mm
+    - 택코팅 (RSC-4) 40 ℓ/a
+  - panel_id: BLK-004
+    shape: rectangle
+    primary_label: 아스콘 포장복구(T=450)
+    position: top-right
+    labels_near:
+    - 표 층 (AS-CON#78) T=50mm
+    - 기 층 (AS-CON#467) T=100mm
+    - 프라임코팅 (RSC-3) 75 ℓ/a
+  - panel_id: BLK-005
+    shape: rectangle
+    primary_label: 보차도경계석
+    position: middle-left
+    labels_near:
+    - 보차도경계블록(콘크리트)
+    - 200x250x1,000
+    - 25-21-8
+  - panel_id: BLK-006
+    shape: rectangle
+    primary_label: 보차도경계석
+    position: middle-center
+    labels_near:
+    - 보차도경계블록(콘크리트)
+    - '200'
+    - '150'
+  - panel_id: BLK-007
+    shape: rectangle
+    primary_label: 경계석 낮춤시공
+    position: middle-right
+    labels_near:
+    - 정 면 도
+    - L형측구(보차도경계석)
+    - L형측구(낮춤경계석)
+  connections: []
+  notable_shapes:
+  - shape: circle
+    label: A형
+    note: 경계석 낮춤시공 상세도 내 단면 구분 기호
+  - shape: circle
+    label: B형
+    note: 경계석 낮춤시공 상세도 내 단면 구분 기호
+  - shape: circle
+    label: C형
+    note: 경계석 낮춤시공 상세도 내 단면 구분 기호
+  - shape: circle
+    label: '1'
+    note: 도면 하단 중앙의 상세 번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지는 포장 및 경계석 단면 상세도로 구성되어 있으며, 범례 표나 심볼 목록은 포함되어 있지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: detail
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 C10-402의 접두사 C에 따라 discipline을 COMMUNICATION으로 변경함. 시각적 내용은
+    토목/건축 상세이나 접두사 우선 규칙을 적용함. 카탈로그의 COMMUNICATION 분야에는 genre_detail이 존재하지 않아 매칭되는
+    supplement가 없음.
+classification: DETAIL_DRAWING
+discipline: UNKNOWN_DISCIPLINE
+key_elements_from_text:
+- 블럭 포장(T=60)
+- 콘크리트 포장(T=200)
+- 아스콘 덧씌우기(T=50)
+- 아스콘 포장복구(T=450)
+- 보차도경계석
+- 경계석 낮춤시공
+- 정면도
+- 수량표
+title_block:
+  drawing_number: C10-402
+  title: 포장단면상세도
+  revision: UNKNOWN
+confidence: 0.96
+note: 기존 분석의 도면번호 C10-402와 제목 포장단면상세도는 시각적으로 확인됨(우측 표제란). 다만 기존 discipline=COMMUNICATION
+  판정은 도면 내용(포장/경계석 상세)과 불일치하므로 보이는 내용만 기준으로 discipline은 UNKNOWN_DISCIPLINE로 교정함. 페이지는
+  포장 단면 상세와 보차도경계석/경계석 낮춤시공 상세로 구성된 상세도 페이지임.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PAV-01
+    shape: rectangle
+    labels_above:
+    - 블럭 포장(T=60)
+    labels_inside:
+    - 블럭 T=60mm
+    - 모래 T=40mm
+    - 보조기층(혼합골재, Ø40mm이하) T=100mm
+    labels_below:
+    - '수 량 표 (단위: ㎡당)'
+    - '고압블럭: 단위 ㎡, 수량 -'
+    - '모래: 단위 ㎡, 수량 0.04'
+    - '보조기층: 혼합골재 Ø40mm이하, 단위 ㎡, 수량 0.10'
+    equipment_symbols: []
+    inferred_name: 블럭 포장 단면 상세 (T=60)
+    position: top-left
+  - panel_id: PAV-02
+    shape: rectangle
+    labels_above:
+    - 콘크리트 포장(T=200)
+    labels_inside:
+    - 콘크리트슬래브(25-21-08)
+    - 와이어메쉬(#8-150×150)
+    - 비닐깔기
+    - T=200 (슬래브 두께)
+    - T=100 (보조기층 두께)
+    labels_below:
+    - '수 량 표 (단위: ㎡당)'
+    - '콘크리트: T=160mm, 단위 ㎡, 수량 0.20'
+    - '와이어메쉬: #8-150×150, 단위 ㎡, 수량 1'
+    - '비닐깔기: 혼합골재 Ø40mm이하, 단위 ㎡, 수량 1'
+    equipment_symbols: []
+    inferred_name: 콘크리트 포장 단면 상세 (T=200)
+    position: top-center-left
+  - panel_id: PAV-03
+    shape: rectangle
+    labels_above:
+    - 아스콘 덧씌우기(T=50)
+    labels_inside:
+    - 표 층 (AS-CON#78) T=50mm
+    - 택코팅 (RSC-4) 40 ℓ/a
+    labels_below:
+    - '수 량 표 (단위: ㎡당)'
+    - '표 층: AS-CON#78, 단위 ㎡, 수량 0.05, 비고 a당'
+    - '택코팅: RSC-4, 단위 ℓ/a, 수량 30'
+    equipment_symbols: []
+    inferred_name: 아스콘 덧씌우기 단면 상세 (T=50)
+    position: top-center-right
+  - panel_id: PAV-04
+    shape: rectangle
+    labels_above:
+    - 아스콘 포장복구(T=450)
+    labels_inside:
+    - 표 층 (AS-CON#78) T=50mm
+    - 택코팅 (RSC-4) 40 ℓ/a
+    - 기 층 (AS-CON#467) T=100mm
+    - 프라임코팅 (RSC-3) 75 ℓ/a
+    - 보조기층(혼합골재, Ø40mm이하) T=200mm
+    - T=450 (전체 포장 두께)
+    labels_below:
+    - '수 량 표 (단위: ㎡당)'
+    - '표 층: AS-CON #78, 단위 ㎡, 수량 0.05, 비고 a당'
+    - '택코팅: RSC-4, 단위 ℓ/a, 수량 40'
+    - '기 층: AS-CON #467, 단위 ㎡, 수량 0.10'
+    - '프라임코팅: RSC-3, 단위 ℓ/a, 수량 75'
+    - '보조기층: 혼합골재 Ø40mm이하, 단위 ㎡, 수량 0.30'
+    equipment_symbols: []
+    inferred_name: 아스콘 포장복구 단면 상세 (T=450)
+    position: top-right
+  - panel_id: CURB-01
+    shape: rectangle
+    labels_above:
+    - 보차도경계석
+    labels_inside:
+    - 보차도경계블록(콘크리트)
+    - 200×250×1,000
+    - 민욱시공
+    - 모래기(10~30)
+    - 25-21-8
+    - 5cm 이상(레미콘)
+    - '치수: 200, 500, 130, 370 (하단 치수선)'
+    - 750 (전체 폭)
+    - '치수: 300, 150, 100, 400, 180, 400 (단면 치수)'
+    labels_below:
+    - '수 량 표 (단위: m당)'
+    - '경계석: 200×250×1,000, 단위 EA, 수량 1, 비고 콘크리트'
+    - '콘크리트: 25-21-8, 단위 ㎡, 수량 0.087'
+    - '기 층 집: 잡밀 8치, 단위 ㎡, 수량 0.380'
+    - '오트라트: 1:2, 단위 ㎡, 수량 0.0005'
+    equipment_symbols: []
+    inferred_name: 보차도경계석 단면 상세 (좌측형)
+    position: middle-left
+  - panel_id: CURB-02
+    shape: rectangle
+    labels_above:
+    - 보차도경계석
+    labels_inside:
+    - 보차도경계블록(콘크리트)
+    - '치수: 200, 200, 150, 100 (단면 치수)'
+    labels_below:
+    - '수 량 표 (단위: m당)'
+    - '경계석: 200×250×1,000, 단위 EA, 수량 1, 비고 콘크리트'
+    - '콘크리트: 25-21-8, 단위 ㎡, 수량 0.087'
+    - '기 층 집: 잡밀 8치, 단위 ㎡, 수량 0.380'
+    - '오트라트: 1:2, 단위 ㎡, 수량 0.0005'
+    equipment_symbols: []
+    inferred_name: 보차도경계석 단면 상세 (우측형)
+    position: middle-center
+  - panel_id: CURB-03
+    shape: rectangle
+    labels_above:
+    - 경계석 낮춤시공
+    - 200×250×100×1000
+    labels_inside:
+    - 정 면 도
+    - 1.000 (좌측 치수)
+    - V.A.R (중앙 가변 구간)
+    - 1.000 (우측 치수)
+    - A형 (원형 기호, 보차도경계석 단면)
+    - B형 (원형 기호, 낮춤경계석 단면)
+    - C형 (원형 기호, 보차도경계석 단면)
+    - L형측구(보차도경계석) 200×250×1,000
+    - L형측구(낮춤경계석) 200×100~550×1,000
+    - L형측구(보차도경계석) 200×100×1,000
+    - '치수: 200, 1000, 200 (A형 단면)'
+    - '치수: 200, 1000 (B형 단면)'
+    - '치수: 200, 1000 (C형 단면)'
+    - 그 용 (단면 표기)
+    labels_below: []
+    equipment_symbols:
+    - type: 단면 구분 원형 기호
+      count: 3
+      note: A형, B형, C형 각각 원형 기호로 표기
+    inferred_name: 경계석 낮춤시공 정면도 및 단면 상세
+    position: middle-right
+  connections: []
+  groups:
+  - group_id: GRP-PAV
+    label: 포장 단면 상세 그룹
+    members:
+    - PAV-01
+    - PAV-02
+    - PAV-03
+    - PAV-04
+  - group_id: GRP-CURB
+    label: 보차도경계석 및 낮춤시공 상세 그룹
+    members:
+    - CURB-01
+    - CURB-02
+    - CURB-03
+  legend_references:
+  - text: 아스콘 (A.S.P)
+    linked_to: PAV-03
+  - text: 아스콘 (A.S.P)
+    linked_to: PAV-04
+  - text: 콘크리트
+    linked_to: PAV-02
+  - text: 콘크리트
+    linked_to: CURB-01
+  - text: 콘크리트
+    linked_to: CURB-02
+  diagram_meta:
+    title: 포장단면상세도
+    drawing_number: C10-402
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    scale: NONE
+    discipline: CIVIL
+    arch_subsystem: site_plan
+    view_type: detail
+    drawing_genre: detail
+    detail_count: 7
+    detail_categories:
+      pavement: 4
+      curb: 3
+    is_standard_notes: true
+    layer_assemblies_present:
+    - '블럭 포장 (T=60): 블럭 60mm + 모래 40mm + 보조기층 100mm'
+    - '콘크리트 포장 (T=200): 콘크리트슬래브 160mm + 와이어메쉬 + 비닐깔기 + 보조기층 100mm'
+    - '아스콘 덧씌우기 (T=50): 표층 AS-CON#78 50mm + 택코팅 RSC-4'
+    - '아스콘 포장복구 (T=450): 표층 50mm + 택코팅 + 기층 100mm + 프라임코팅 + 보조기층 200mm'
+    flow_direction: UNKNOWN
+    has_legend: false
+    has_grid: false
+    quantity_tables_present: true
+    note: 도면번호 C10-402의 접두사 C는 통신(Communication)을 시사하나, 도면 내용은 포장 단면 및 경계석 상세로 토목(Civil)
+      성격임. discipline은 시각적 내용 기준으로 CIVIL로 교정함. 수량표(수 량 표)가 각 상세 블록 하단에 포함되어 있으며, 경계석
+      낮춤시공 상세에는 A형/B형/C형 단면 구분 기호가 포함됨.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PAV-DTL-01
+    shape: rectangle
+    labels_above:
+    - 블럭 포장(T=60)
+    labels_inside:
+    - '100'
+    - '40'
+    - '60'
+    - '200'
+    - 블럭 T=60mm
+    - 모래 T=40mm
+    - 보조기층(혼합골재, Ø40mm이하) T=100mm
+    labels_below:
+    - '수 량 표 (단위: m2당)'
+    - 구분 | 규격 | 단위 | 수량 | 비고
+    - 고압블럭 | T=60mm | m² | 1 |
+    - 모래 | T=40mm | m² | 0.04 |
+    - 보조기층 | 혼합골재, Ø40mm이하 | m² | 0.10 |
+    inferred_name: 블럭 포장 단면 상세 (T=60)
+    position: top-left
+  - panel_id: PAV-DTL-02
+    shape: rectangle
+    labels_above:
+    - 콘크리트 포장(T=200)
+    labels_inside:
+    - '100'
+    - '100'
+    - '200'
+    - 콘크리트슬래브(25-21-08)
+    - 와이어메쉬(#8-150×150)
+    - 비닐깔기
+    labels_below:
+    - '수 량 표 (단위: m2당)'
+    - 구분 | 규격 | 단위 | 수량 | 비고
+    - 콘크리트 | T=200mm | m² | 0.20 |
+    - '와이어메쉬 | #8-150×150 | m² | 1 |'
+    - 비닐깔기 | 혼합골재, Ø40mm이하 | m² | 1 |
+    inferred_name: 콘크리트 포장 단면 상세 (T=200)
+    position: top-center-left
+  - panel_id: PAV-DTL-03
+    shape: rectangle
+    labels_above:
+    - 아스콘 덧씌우기(T=50)
+    labels_inside:
+    - '50'
+    - 표 층 (AS-CON#78) T=50mm
+    - 택코팅 (RSC-4) 40 ℓ/a
+    labels_below:
+    - '수 량 표 (단위: m2당)'
+    - 구분 | 규격 | 단위 | 수량 | 비고
+    - 표 층 | AS-CON#78 | m² | 0.05 | a당
+    - 택코팅 | RSC-4 | ℓ/a | 30 |
+    inferred_name: 아스콘 덧씌우기 단면 상세 (T=50)
+    position: top-center-right
+  - panel_id: PAV-DTL-04
+    shape: rectangle
+    labels_above:
+    - 아스콘 포장복구(T=450)
+    labels_inside:
+    - '450'
+    - '300'
+    - '100'
+    - '50'
+    - 표 층 (AS-CON#78) T=50mm
+    - 택코팅 (RSC-4) 40 ℓ/a
+    - 기 층 (AS-CON#467) T=100mm
+    - 프라임코팅 (RSC-3) 75 ℓ/a
+    - 보조기층(혼합골재, Ø40mm이하) T=200mm
+    labels_below:
+    - '수 량 표 (단위: m2당)'
+    - 구분 | 규격 | 단위 | 수량 | 비고
+    - '표 층 | AS-CON #78 | m² | 0.05 | a당'
+    - 택코팅 | RSC-4 | ℓ/a | 40 |
+    - '기 층 | AS-CON #467 | m² | 0.10 |'
+    - 프라임코팅 | RSC-3 | ℓ/a | 75 |
+    - 보조기층 | 혼합골재, Ø40mm이하 | m² | 0.30 |
+    inferred_name: 아스콘 포장복구 단면 상세 (T=450)
+    position: top-right
+  - panel_id: CURB-DTL-01
+    shape: rectangle
+    labels_above:
+    - 보차도경계석
+    labels_inside:
+    - '200'
+    - '500'
+    - '50'
+    - '180'
+    - '130'
+    - '50'
+    - '200'
+    - '100'
+    - '50'
+    - '400'
+    - '250'
+    - '50'
+    - '200'
+    - '130'
+    - '370'
+    - '750'
+    - 모래(10~30)
+    - 보차도경계블록(콘크리트) 200x250x1,000
+    - 민무늬시공
+    - 2%
+    - '1:1'
+    - 25-21-8 (버림콘크리트)
+    labels_below:
+    - '수 량 표 (단위: m당)'
+    - 구분 | 규격 | 단위 | 수량 | 비고
+    - 경계석 | 200x250x1,000 | EA | 1 | 콘크리트
+    - 콘크리트 | 25-21-8 | m³ | 0.087 |
+    - 거푸집 | 합판 6회 | m² | 0.380 |
+    - '모르타르 | 1 : 2 | m³ | 0.0005 |'
+    inferred_name: 보차도경계석 단면 상세 (기본형)
+    position: middle-left
+  - panel_id: CURB-DTL-02
+    shape: rectangle
+    labels_above:
+    - 보차도경계석
+    labels_inside:
+    - '200'
+    - '150'
+    - '100'
+    - '50'
+    - '200'
+    - 보차도경계블록(콘크리트)
+    labels_below:
+    - '수 량 표 (단위: m당)'
+    - 구분 | 규격 | 단위 | 수량 | 비고
+    - 경계석 | 200x250x1,000 | EA | 1 | 콘크리트
+    - 콘크리트 | 25-21-8 | m³ | 0.087 |
+    - 거푸집 | 합판 6회 | m² | 0.380 |
+    - '모르타르 | 1 : 2 | m³ | 0.0005 |'
+    inferred_name: 보차도경계석 단면 상세 (배면)
+    position: middle-center
+  - panel_id: CURB-DROP-DTL-01
+    shape: rectangle
+    labels_above:
+    - 경계석 낮춤시공
+    - 200X250~100X1000
+    labels_inside:
+    - 정 면 도
+    - 1,000
+    - V.A.R
+    - 1,000
+    - A형
+    - B형
+    - C형
+    - L형측구(보차도경계석) 200x250x1,000
+    - '200'
+    - '250'
+    - L형측구(낮춤경계석) 200×100~250×1000
+    - '200'
+    - 100~250
+    - L형측구(낮춤경계석) 200×100×1000
+    - '200'
+    - '100'
+    - '200'
+    - '1000'
+    - '200'
+    - '1000'
+    equipment_symbols:
+    - type: section_marker_circle
+      count: 3
+      labels:
+      - A
+      - B
+      - C
+    inferred_name: 경계석 낮춤시공 상세도
+    position: middle-right
+  connections: []
+  groups:
+  - group_id: GRP-PAV-DETAILS
+    label: 포장 단면 상세 그룹
+    members:
+    - PAV-DTL-01
+    - PAV-DTL-02
+    - PAV-DTL-03
+    - PAV-DTL-04
+  - group_id: GRP-CURB-DETAILS
+    label: 경계석 상세 그룹
+    members:
+    - CURB-DTL-01
+    - CURB-DTL-02
+    - CURB-DROP-DTL-01
+  diagram_meta:
+    title: 포장단면상세도
+    drawing_number: C10 - 402
+    project_name: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    scale: NONE
+    discipline: CIVIL
+    drawing_genre: detail
+    flow_direction: UNKNOWN

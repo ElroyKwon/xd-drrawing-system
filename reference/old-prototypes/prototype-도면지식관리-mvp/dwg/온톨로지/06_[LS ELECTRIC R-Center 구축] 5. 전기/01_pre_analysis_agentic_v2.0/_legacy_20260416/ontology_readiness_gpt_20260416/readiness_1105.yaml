@@ -1,0 +1,210 @@
+ontology_readiness:
+  tag: '1105'
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 18
+    reason: 고유 tag 1105가 있으며, bus_section SHV, panel_id 1105, voltage_kV 22.9, transformer/rectifier/MCCB/DC
+      cell 관련 자체 사양이 명시되어 독립 엔티티로 판단됨.
+  relation_completeness:
+    declared_relations: 3
+    discovered_relations: 3
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 18
+    convertible: 17
+    ambiguous_attributes:
+    - key: rectifier_type_gemini
+      value: 3상전파정류
+      reason: 이중 출처 값으로 원문 보존 필요; rectifier_type(SCR DEVICE)와 의미상 대응되나 출처별 값 차이를 annotation으로
+        유지해야 함.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - panel_id
+    - voltage_kV
+    - transformer_capacity_kVA
+    - transformer_primary_V
+    - transformer_secondary_V
+    - rectifier_type
+    - rectifier_output_A
+    - rectifier_type_gemini
+    - mccb_count
+    - mccb_2p_count
+    - mccb_main_rating_AF
+    - mccb_main_rating_AT
+    - mccb_hv_pnl_rating_AF
+    - mccb_hv_pnl_rating_AT
+    - mccb_lv_pnl_rating_AF
+    - mccb_lv_pnl_rating_AT
+    - mccb_dc_lighting_rating_AF
+    - mccb_dc_lighting_rating_AT
+    - dc_cell_type
+    - dc_cell_capacity_Ah
+    - dc_cell_maintenance_type
+    - dc_cell_enclosure_type
+    - spare_slots
+    - equipment_symbols
+    requirement_attributes: []
+    extracted_attributes:
+    - SHV
+    - LV PNL
+    - HV PNL
+    - MCCB 2P
+    - RECTIFIER
+    - SCR DEVICE
+    - 100AF/75AT
+    - NVR
+    - 2P 30AF/20AT
+    - DC LIGHTING 2P 30AF/15AT
+    - SPARE
+    - DC CELL 150 Ah
+    provenance_attributes:
+    - key: rectifier_type_gemini
+      value: 3상전파정류
+      source: gemini
+      conflict_with: 'rectifier_type: SCR DEVICE'
+    conflicts:
+    - key: rectifier_type
+      values:
+      - SCR DEVICE
+      - 3상전파정류
+      sources:
+      - specs.rectifier_type
+      - specs.rectifier_type_gemini
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from: EXT-FROM-250V
+      to: '1105'
+      relation: feeds
+      discipline: ELECTRICAL
+    - from: '1104'
+      to: '1105'
+      relation: connects_to
+      discipline: ELECTRICAL
+    - from: '1105'
+      to: '1106'
+      relation: connects_to
+      discipline: ELECTRICAL
+    hints_added:
+    - No cross-discipline partner explicitly confirmed for 1105 in provided data.
+  ontology_class_hint:
+    suggested_parent_class: AuxiliaryPowerPanel
+    alternative_parent_classes:
+    - PowerDistributionPanel
+    - DCPowerSupplyPanel
+    - BatteryChargingPanel
+  spatial_context:
+    position: middle-right
+    source_pages:
+    - 5
+    room_or_zone: U/T 동 주변전실-1(기존)
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - '1105'
+      - SHV
+      - LV PNL
+      - HV PNL
+      - MCCB 2P
+      - 5H
+      - RECTIFIER
+      - SCR DEVICE
+      - 100AF/75AT
+      - NVR
+      - 2P 30AF/20AT
+      - DC LIGHTING 2P 30AF/15AT
+      - SPARE
+      - DC CELL 150 Ah
+      bus_section: SHV
+      panel_id: '1105'
+      voltage_kV: 22.9
+      transformer_capacity_kVA: 10
+      transformer_primary_V: 440
+      transformer_secondary_V: 110
+      rectifier_type: SCR DEVICE
+      rectifier_output_A: 50
+      rectifier_type_gemini: 3상전파정류
+      mccb_count: 8
+      mccb_2p_count: 7
+      mccb_main_rating_AF: 100
+      mccb_main_rating_AT: 75
+      mccb_hv_pnl_rating_AF: 50
+      mccb_hv_pnl_rating_AT: 20
+      mccb_lv_pnl_rating_AF: 50
+      mccb_lv_pnl_rating_AT: 20
+      mccb_dc_lighting_rating_AF: 30
+      mccb_dc_lighting_rating_AT: 20
+      dc_cell_type: 2V 55CELL
+      dc_cell_capacity_Ah: 150
+      dc_cell_maintenance_type: 무보수 무누액
+      dc_cell_enclosure_type: 완전 밀폐형
+      spare_slots: 3
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  - read_page_context.page_5.relationships
+  - read_page_context.page_5.spaces
+  - read_page_context.page_5.diagram_spec
+  - read_page_context.page_5.key_elements_from_text
+  - read_page_context.page_5.initial_scan
+  - read_page_context.page_5.visual_semantics
+  - read_page_context.page_5.entity_synthesis
+  - read_page_context.page_5.disagreements
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: AuxiliaryPowerPanel
+    annotations_to_emit:
+    - rectifier_type_gemini=3상전파정류
+    - 'conflict: rectifier_type=SCR DEVICE vs rectifier_type_gemini=3상전파정류'
+    - 'source_attribution: sonnet/gemini/mini=true'
+    - position=middle-right
+    - source_pages=[5]
+    - room_or_zone=U/T 동 주변전실-1(기존)
+    relations_to_emit:
+    - EXT-FROM-250V feeds 1105
+    - 1104 connects_to 1105
+    - 1105 connects_to 1106
+    needs_human_review: false
+tag: '1105'
+discovered_relations: 3

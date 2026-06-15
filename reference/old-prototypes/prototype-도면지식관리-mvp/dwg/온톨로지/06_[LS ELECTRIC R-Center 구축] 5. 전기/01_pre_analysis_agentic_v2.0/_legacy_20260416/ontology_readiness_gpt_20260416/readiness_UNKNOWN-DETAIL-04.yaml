@@ -1,0 +1,126 @@
+ontology_readiness:
+  tag: UNKNOWN-DETAIL-04
+  verdict: demoted
+  confidence: 0.95
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 10
+    reason: DETAIL 도면의 상세 항목으로, 독립 설비라기보다 Ladder Tray/Support System의 상세 부품·구성 상세도
+      성격이 강함. 자체 specs는 있으나 설치 상세/브래킷 상세 중심이며 상위 설비의 부품으로 분류하는 것이 적절함.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 10
+    convertible: 10
+    ambiguous_attributes: []
+    auxiliary_attributes:
+    - material_surface
+    - material_diagonal
+    - components
+    - material
+    - surface_finish
+    - installation_spacing
+    - applicable_components
+    - detail_type
+    - bearing_angle_reference
+    - detail_count
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes: []
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from: UNKNOWN-DETAIL-03
+      to: UNKNOWN-DETAIL-04
+      relation: installed_with
+      source_page: 41
+      origin: cross_validated
+      line_style: solid
+      note: 내진형 Ladder Tray와 Support System의 조합 설치 관계
+    hints_added:
+    - connection indicates electrical support detail associated with tray system
+  ontology_class_hint:
+    suggested_parent_class: CableTraySupport
+    alternative_parent_classes:
+    - SeismicBracing
+    - Support
+  spatial_context:
+    position: bottom-right
+    source_pages:
+    - 41
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      material_surface: KS D 3501 (SPHC)
+      material_diagonal: 동등 이상 도금 (H.D.G)
+      components:
+      - BRACING ANGLE
+      - 내진 인대형 상세도
+      material: KS D 3501 (SPHC)
+      surface_finish: 용융 아연 도금 (H.D.G)
+      installation_spacing: 직선구간 12m 간격으로 설치
+      applicable_components:
+      - 부속품(Elbow, Tee, Cross 등)
+      detail_type: 내진 브래킷 상세도
+      bearing_angle_reference: BEARING ANGLE
+      detail_count: 1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (not present)
+  - drawing_texts (not present)
+  - notes (not present)
+  - ontology_hints.observed_relations (not present)
+  - ontology_hints.cross_discipline (not present)
+  demoted_to:
+    role: component
+    parent_tag: UNKNOWN-DETAIL-03
+    relation_type: part_of
+    owl_pattern: :UNKNOWN-DETAIL-04 rdf:type :Component ; :partOf :UNKNOWN-DETAIL-03
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Component
+    annotations_to_emit:
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=true
+    - collection_sources.cross_validated=true
+    - collection_sources.entity_synthesis=true
+    relations_to_emit:
+    - part_of UNKNOWN-DETAIL-03
+    - installed_with UNKNOWN-DETAIL-03
+    needs_human_review: false
+tag: UNKNOWN-DETAIL-04
+discovered_relations: 1

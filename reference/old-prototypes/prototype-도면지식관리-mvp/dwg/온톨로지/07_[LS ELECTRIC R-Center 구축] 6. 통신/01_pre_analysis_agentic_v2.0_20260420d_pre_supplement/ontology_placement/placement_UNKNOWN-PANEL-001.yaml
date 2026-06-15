@@ -1,0 +1,212 @@
+placement:
+  tag: UNKNOWN-PANEL-001
+  name: 표지 제목 블록
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: UNKNOWN-PANEL-001
+    class_hint: DocumentInformation
+    alternative_class_hints:
+    - DocumentEntity
+    - CoverPage
+    - TitleBlock
+    related_assertions:
+    - type: referencesDocumentSection
+      target_hint: COVER_PAGE
+      note: 표지 페이지로 실제 도면 요소 없음
+    - type: referencesDocumentSection
+      target_hint: TITLE-BLOCK
+      note: 상단 우측 도면번호/개정란 추정 표식 포함
+    applicable_axioms:
+    - AX050
+    applicable_constraints: []
+    confirmed_class: dks:DocumentInformation
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: LS ELECTRIC 천안 R-Center 구축설계
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: drawingTitle
+          suggested_datatype: xsd:string
+          rationale: 표지 제목 문자열
+      - raw_text: '- 실시설계 도서 -'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: documentSubtitle
+          suggested_datatype: xsd:string
+          rationale: 표지 부제/문서 성격 표기
+      - raw_text: '[ 통신 ]'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: disciplineLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 분야 표기
+      - raw_text: '2024.05'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: date
+          suggested_datatype: xsd:string
+          rationale: 표지에 기재된 날짜
+      - raw_text: (주)가운종합건축사사무소
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: author
+          suggested_datatype: xsd:string
+          rationale: 표지 작성/작성사 표기
+      - raw_text: 상단 우측 직사각형 표식 (도면번호/개정 표시란 추정)
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: drawingNumberBox
+          suggested_datatype: xsd:string
+          rationale: 도면번호/개정란으로 추정되는 표식
+      - raw_text: 도면번호/개정란 미기재
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: revisionStatus
+          suggested_datatype: xsd:string
+          rationale: 표식은 있으나 내용이 비어 있음
+      - raw_text: 표지 페이지로 실제 도면 요소 없음
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: pageRole
+          suggested_datatype: xsd:string
+          rationale: 페이지 기능 설명
+      - raw_text: 범례 요약의 심볼/약어 정보는 페이지 3 기준이며 본 표지와 직접 연결되지 않음
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: crossPageNote
+          suggested_datatype: xsd:string
+          rationale: 다른 페이지 참조 주석
+      - raw_text: 도면의 표지 페이지로 실제 도면 요소는 없음
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: pageClassificationNote
+          suggested_datatype: xsd:string
+          rationale: 표지 페이지 분류 설명
+      - raw_text: 상단 우측의 직사각형 표식은 도면번호 또는 개정 정보를 위한 란으로 보이나 비어 있음
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: revisionBoxNote
+          suggested_datatype: xsd:string
+          rationale: 빈 개정/도면번호 란에 대한 설명
+  provenance:
+    tag:
+      source_pages:
+      - 1
+      method: entity_detail.header
+    name:
+      source_pages:
+      - 1
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 1
+      method: entity_detail.header + diagram_meta
+    ontology_core.owl_role:
+      source_pages:
+      - 1
+      method: inferred from document title block / no physical entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 1
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 1
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 1
+      method: inferred from visual_semantics and diagram_meta
+    ontology_core.related_assertions:
+      source_pages:
+      - 1
+      method: diagram_meta + visual_semantics
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 1
+      method: specs.visual_semantics + diagram_meta + ontology_hints
+    specs.visual_semantics.panels:
+      source_pages:
+      - 1
+      method: entity_detail.specs.visual_semantics
+    specs.visual_semantics_gemini.panels:
+      source_pages:
+      - 1
+      method: entity_detail.specs.visual_semantics_gemini
+    relations:
+      source_pages:
+      - 1
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 1
+      method: entity_detail.ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 1
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 1
+      method: entity_detail.ontology_hints
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 1
+      method: entity_detail.collection_sources
+    source_pages:
+      source_pages:
+      - 1
+      method: entity_detail.source_pages
+  unresolved:
+  - field_candidate: specs.visual_semantics.panels[0].equipment_symbols[0].type
+    raw_text: 대각선 포함 직사각형 표식 (도면번호/개정 표시란 추정)
+    source_page: 1
+    reason: 실제 의미가 도면번호란인지 개정란인지 확정 불가
+    preservation_note: 빈 표식으로 보이며 문서 메타 영역으로 보존
+  - field_candidate: specs.visual_semantics.panels[1].equipment_symbols[0].type
+    raw_text: 직사각형 내 대각선 표식
+    source_page: 1
+    reason: 표식의 정확한 기능 미기재
+    preservation_note: 도면번호/개정란 후보로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: DocumentInformation
+    source_page: 1
+    reason: 표준 클래스 확정 전 단계
+    preservation_note: 문서성 엔티티 후보로 유지
+  - field_candidate: diagram_meta.drawing_number
+    raw_text: 'null'
+    source_page: 1
+    reason: 값 미기재
+    preservation_note: 미기재 상태 자체를 보존
+  - field_candidate: diagram_meta.revision
+    raw_text: 'null'
+    source_page: 1
+    reason: 값 미기재
+    preservation_note: 미기재 상태 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 표지 페이지이므로 AnnotationOnly가 우선이나, 제목 블록/문서 메타 정보로서 DocumentInformation 성격도
+      강함
+    recommended_handling: 0-9c에서 DocumentEntity 계열과 문서 주석 엔티티를 함께 검토하고, 페이지 메타와 표지
+      블록을 분리 여부 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - DocumentEntity / InformationEntity 축의 문서성 엔티티로 우선 배치
+    - 표지 페이지, TITLE-BLOCK, 도면번호/개정란 표식 등 문서 구조 요소를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:12.688710'
+  confidence: 0.93

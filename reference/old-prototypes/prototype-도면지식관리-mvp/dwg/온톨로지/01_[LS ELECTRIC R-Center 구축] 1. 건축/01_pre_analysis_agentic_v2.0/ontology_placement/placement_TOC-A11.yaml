@@ -1,0 +1,122 @@
+placement:
+  tag: TOC-A11
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: TOC-A11
+    class_hint: toc_group
+    alternative_class_hints:
+    - plan_container
+    - annotation_or_reference_entity
+    related_assertions:
+    - type: contains
+      target_hint: GRP-A11
+      note: outgoing contains 관계가 관찰됨
+      confirmed_property: dks:contains
+      confirmed_target: GRP-A11
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX014
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:toc_group
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'from: TOC-A11 to: GRP-A11 relation: contains source_page: 3 origin:
+          cross_validated line_style: none note: 패널 내 그룹 포함'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: 목차/패널 내 그룹 포함 관계가 직접 관찰됨
+      - raw_text: 'relations: partner: GRP-A11 relation_type: contains direction:
+          outgoing'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: contains
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 원문이 존재하며 TOC-A11의 outbound contains를 나타냄
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages: []
+    discipline:
+      source_pages: []
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guided_candidate
+    ontology_core.related_assertions:
+      source_pages:
+      - 0
+      - 3
+      method: relation_scan
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      - 3
+      method: raw_preservation
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan_guidance
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: GRP-A11
+    source_page: 0
+    reason: 관계 대상은 존재하나 supplement sub_kind가 없어 별도 구조화 불가
+    preservation_note: 그룹/패널 계층 후보로 후속 승격 가능
+  - field_candidate: relations[0].relation_type
+    raw_text: contains
+    source_page: 0
+    reason: 관계 유형은 식별되나 확정 property IRI는 0-9d 단계에서 결정
+    preservation_note: contains 관계 원형으로 보존
+  - field_candidate: relations[1].note
+    raw_text: 패널 내 그룹 포함
+    source_page: 3
+    reason: 주석성 설명으로 구조화된 속성에 직접 매핑하지 않음
+    preservation_note: 관계 의미 보강용 메모로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: TOC-A11은 목차/패널 컨테이너처럼 보이지만, 현재 입력에서는 실제 contains 관계 1건만 확인되어 문서 컨테이너와
+      주석/참조 엔티티 사이 경계가 완전히 확정되지 않음
+    recommended_handling: 다음 단계에서 GRP-A11 및 동일 패턴의 TOC-* 태그들과 함께 그룹/컨테이너 계층으로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - TOC-A11/TOC-A12와 GRP-* 계층을 목차/그룹 구조 후보로 본 guidance
+    - contains 관계를 우선 보존하고 확정 property IRI는 비워두는 guidance
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:18.205893'
+  confidence: 0.86

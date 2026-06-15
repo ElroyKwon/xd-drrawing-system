@@ -1,0 +1,81 @@
+page_16_entities:
+- tag: IDF-B1-BROADCAST
+  name: 방송용 스피커 단자함 / IDF
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: TRAY-MAIN
+  name: 기존 공동구 통신 케이블 트레이
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-PARKING
+  name: 주차장
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-FAN-ROOM
+  name: FAN ROOM
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-MECH-ROOM
+  name: 기계실
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-ELEC-ROOM
+  name: 전기실
+  type: space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: NOTE-LEGEND
+  name: NOTE 및 LEGEND 섹션
+  type: legend
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: TITLE-BLOCK
+  name: 표제란
+  type: title_block
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: OUTLET-GRP-PARKING
+  name: 주차장 방송 단말 그룹
+  type: terminal_group
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: RISER-TO-EPS-TPS
+  name: R-Center EPS/TPS로의 간선 연결
+  type: external
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: TRAY-BRANCH
+  name: 기존 통신 케이블 트레이
+  type: equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+page_16_relations:
+- from: IDF-B1-BROADCAST
+  to: RISER-TO-EPS-TPS
+  relation: connects_to
+- from: IDF-B1-BROADCAST
+  to: TRAY-MAIN
+  relation: connects_to
+- from: TRAY-MAIN
+  to: OUTLET-GRP-PARKING
+  relation: connects_to
+- from: TRAY-MAIN
+  to: TRAY-BRANCH
+  relation: connects_to
+- from: TRAY-BRANCH
+  to: SPACE-FAN-ROOM
+  relation: connects_to
+- from: TRAY-BRANCH
+  to: SPACE-MECH-ROOM
+  relation: connects_to
+- from: TRAY-BRANCH
+  to: SPACE-ELEC-ROOM
+  relation: connects_to
+- from: NOTE-LEGEND
+  to: OUTLET-GRP-PARKING
+  relation: defines

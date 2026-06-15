@@ -1,0 +1,122 @@
+placement:
+  tag: GND-E3-D
+  name: E3 접지
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:GND-E3-D
+    class_hint: ElectricalGrounding
+    alternative_class_hints:
+    - GroundingSystem
+    - GroundTerminal
+    - EarthingPoint
+    related_assertions:
+    - type: grounds_to
+      target_hint: P-D-3PP
+      note: P-D-3PP에서 GND-E3-D로 접지 연결
+    - type: cable
+      target_hint: P-D-3PP
+      note: 도면상 cable 관계로도 표시됨; E3 접지 주석 포함
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroundingSystem
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: E3 (접지)
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasGroundingLabel
+          suggested_datatype: xsd:string
+          rationale: 접지 식별 라벨 문자열
+      - raw_text: 'connected_panel: P-D-3PP'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: connectedPanel
+          suggested_datatype: xsd:string
+          rationale: 패널 식별자와의 연결 정보
+      - raw_text: 'panel_location: 1층 전기적 기능시험실'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasLocationContext
+          suggested_datatype: xsd:string
+          rationale: 공간 위치 설명 문자열
+      - raw_text: 'system_voltage_kV: 0.38'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 수치 표기
+      - raw_text: 'system_phase: 3Ø 380V'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasSystemPhase
+          suggested_datatype: xsd:string
+          rationale: 상수 및 전압 표기 문자열
+      - raw_text: 'grounding_terminal_count: 1'
+        source_page: 20
+        promotion_hint:
+          suggested_property_label: hasGroundingTerminalCount
+          suggested_datatype: xsd:integer
+          rationale: 접지 단자 수의 정수 표기
+  provenance:
+    name:
+      source_pages:
+      - 20
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 20
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 20
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 20
+      method: ontology_hints.suggested_parent_class + specifications
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 20
+      method: ontology_hints.function_candidates + observed_attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 20
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 20
+      method: specifications
+    source_attribution:
+      source_pages:
+      - 20
+      method: entity_detail.source_attribution
+    confidence:
+      source_pages:
+      - 20
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: true
+    other_tag: GND-E3-A
+    reason: same grounding network pattern 'GND-E3-*' and similar equipment list indicates
+      likely duplicate logical node across related tags
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:10:05.956011'
+  confidence: 0.85

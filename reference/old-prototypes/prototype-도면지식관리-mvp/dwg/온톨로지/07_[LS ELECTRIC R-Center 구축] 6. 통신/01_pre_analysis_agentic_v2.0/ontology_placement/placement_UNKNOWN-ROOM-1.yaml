@@ -1,0 +1,189 @@
+placement:
+  tag: UNKNOWN-ROOM-1
+  name: 지붕층 F.L
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-ROOM-1
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationArea
+    - Space
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-ROOF-1
+      note: specs.members에 포함
+    - type: hasMember
+      target_hint: OUTLET-ROOF-2
+      note: specs.members에 포함
+    - type: locatedIn
+      target_hint: 지붕층
+      note: specs.floor에 기록된 층 정보
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      groups:
+      - raw_text: 'group_id: GRP-ROOF'
+        source_page: 5
+      - raw_text: 'members: [OUTLET-ROOF-1, OUTLET-ROOF-2]'
+        source_page: 5
+      spatial_markers:
+      - raw_text: 지붕층 F.L
+        source_page: 5
+      - raw_text: 'floor: 지붕층'
+        source_page: 5
+      free_notes:
+      - raw_text: 'name: 지붕층 F.L'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 문자열로 보존 필요
+      - raw_text: 'type: space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문 보존
+      - raw_text: 'function_category: SPACE'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: sourceModel
+          suggested_datatype: xsd:string
+          rationale: 생성/합성 출처 메타정보 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.observed_attributes: [group_id, members, floor]'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: [Communication Area]'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 후보 기능 분류 보존
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + function_candidates
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + type/function_category
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: specs
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 5
+      method: specs.group_id + specs.members
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 5
+      method: name + specs.floor
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: preservation
+    unresolved:
+      source_pages:
+      - 5
+      method: scan_all_fields
+    ambiguous:
+      source_pages:
+      - 5
+      method: classification_review
+    merge_info:
+      source_pages:
+      - 5
+      method: tag_review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.group_id
+    raw_text: GRP-ROOF
+    source_page: 5
+    reason: 그룹 식별자이지만 supplement sub_kind에 직접 대응되는 확정 분류가 없음
+    preservation_note: 그룹 원문을 유지하고 후속 단계에서 group/space 관계로 승격 검토
+  - field_candidate: specs.members
+    raw_text: OUTLET-ROOF-1, OUTLET-ROOF-2
+    source_page: 5
+    reason: 멤버 목록은 관계 후보이나 개별 태그의 실체/역할은 이 단계에서 확정 불가
+    preservation_note: member 관계 원형으로 유지
+  - field_candidate: specs.floor
+    raw_text: 지붕층
+    source_page: 5
+    reason: 층 정보는 공간 마커이지만 별도 속성명 확정은 후속 단계 필요
+    preservation_note: locatedIn 또는 floorLabel 후보로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 5
+    reason: 힌트이므로 확정 class로 채택하지 않음
+    preservation_note: class_hint 후보 근거로만 사용
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Communication Area
+    source_page: 5
+    reason: 후보 기능명이며 표준 sub_kind 부재
+    preservation_note: free_notes에 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 공간/층 표기처럼 보이지만 specs에 group_id와 members가 함께 있어 단순 공간인지 그룹 공간인지 혼합적이다.
+    recommended_handling: 0-9c에서 Space 계열로 검토하되, group_id와 members를 가진 공간 그룹 인스턴스로
+      유지하고 관계를 별도 추출
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - group_id, members, floor 같은 관찰 속성 보존
+    - UNKNOWN-ROOM-* 계열을 공간 단위로 다루는 경향 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:29.700911'
+  confidence: 0.86

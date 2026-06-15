@@ -1,0 +1,118 @@
+entity_detail:
+  tag: HV-1302A
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: 5
+      confidence: 0.96
+    feeder_name:
+      value: 1302A HV 6.6kV 피더 - UT동 부속동력
+      unit: null
+      source: 5
+      confidence: 0.95
+    panel_id:
+      value: PNL-HV-1302A
+      unit: null
+      source: 5
+      confidence: 0.95
+    drawing_number:
+      value: EE-01-001
+      unit: null
+      source: 5
+      confidence: 0.96
+    drawing_title:
+      value: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+      unit: null
+      source: 5
+      confidence: 0.96
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "executive_summary:\n  drawing_number: EE-01-001\n  title: 22.9kV 수전설비 단선결선도-U/T\
+      \ 동 주변전실-1(기존)\n  classification: SINGLE_LINE_DIAGRAM\n  discipline: ELECTRICAL\n\
+      \  confidence: 0.96\n  summary: '22.9kV 수전설비 단선결선도로, KEPCO 인입, MOF, VCB, TR,\
+      \ GIPAM 보호계전기, CT/PT/SA/LA 및\n    BUS TIE, GEN, LV/HV PNL 계통이 단선결선 형태로 연결되어\
+      \ 있다.\n\n    도면상 22.9kV, 6.6kV, 440V 전압 표기가 보이며, TR #1~#4와 다수의 VCB/배전반 베이, 비상·동력\
+      \ 부하 계통이 함께\n    표시된다.\n\n    표제란에는 EE-01-001, 2024.04, LS Electric R-Center\
+      \ 구축, GAUN Architects & Engineers가\n    보인다.\n\n    '"
+  - source: search_entity_by_tag(HV-1302A)
+    page_number: 5
+    text: "panel_id: PNL-HV-1302A\n    shape: hexagon\n    labels_inside:\n    - 1302A\n\
+      ...\n    annotation: 6.6kV Bus\n  - from: PNL-HV-1301B\n    to: PNL-HV-1302A\n\
+      \    line_type: power_cable\n    line_style: solid\n    annotation: 6.6kV Bus\n\
+      ...\n    line_style: solid\n    annotation: 6.6kV Bus\n  - from: PNL-HV-1302A\n\
+      \    to: PNL-HV-1302B\n    line_type: power_cable\n    line_style: solid"
+  - source: search_entity_by_tag(1302A)
+    page_number: 5
+    text: "tag: 1302A\n    name: Breaker\n    spec: null\n    discipline: ELECTRICAL\n\
+      ...\n    type: breaker\n    source: both\n  - tag: 1302A\n    type: breaker\n\
+      \    source: both\n  - tag: 1302B\n...\n    labels_near:\n    - HV\n  - panel_id:\
+      \ PNL_HV_1302A\n    shape: rectangle\n    primary_label: 1302A\n    position:\
+      \ bottom-left"
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도로, KEPCO 인입, MOF, VCB, TR, GIPAM 보호계전기, CT/PT/SA/LA 및 BUS
+      TIE, GEN, LV/HV PNL 계통이 단선결선 형태로 연결되어 있다.
+    source: page 5
+    type: system_description
+  - text: 도면상 22.9kV, 6.6kV, 440V 전압 표기가 보인다.
+    source: page 5
+    type: voltage_reference
+  connection_specs:
+  - relation: power_cable
+    partner: PNL-HV-1301B
+    details:
+      source: page 5
+      text: 'from: PNL-HV-1301B to: PNL-HV-1302A line_type: power_cable line_style:
+        solid annotation: 6.6kV Bus'
+  - relation: power_cable
+    partner: PNL-HV-1302B
+    details:
+      source: page 5
+      text: 'from: PNL-HV-1302A to: PNL-HV-1302B line_type: power_cable line_style:
+        solid annotation: 6.6kV Bus'
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1302B
+      direction: OUT
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1301B
+      direction: IN
+      source: page 5
+    observed_attributes:
+    - voltage
+    - feeder_name
+    - panel_id
+    - drawing_number
+    - drawing_title
+    similar_equipment:
+    - 1301A
+    - 1301B
+    - 1302B
+    - 1303A
+    - 1303B
+    - 1304A
+    - 1304B
+    - 1305A
+    - 1305B
+    - '1306'
+    - '1308'
+    - '1309'
+    - 1310A
+    - 1310B
+    - 1311A
+    - 1311B
+    - 1402A
+    - 1402B
+    - 1403A
+    - 1403B
+    - 1404A
+    - 1404B
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - page 5 context and search results only; no additional page/image lookup performed
+tag: HV-1302A

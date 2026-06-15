@@ -1,0 +1,891 @@
+initial_scan:
+  page_type: toc
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: index
+  drawing_genre: index
+  title_block:
+    drawing_number: ET-00-001
+    title: 정보통신용 도면 목록표
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 도면 목록표이며 ET-00-001이 표제란에 보임
+  - 목록에 ET-00-002, ET-00-003, ET-01-001~ET-03-002 등의 도면번호와 도면명이 함께 나열됨
+  - 범례/기호 설명 전용 페이지는 아님
+  confidence: 0.98
+  note: 페이지 전체가 정보통신용 도면 목록표(목차)로 보이며, 표제란 도면번호 ET-00-001이 확인됨. 범례 데이터 파일은 read_legend_data
+    결과 NOT FOUND였음.
+  recommended_supplements: &id001
+    P-4.5: discipline/communication/genre_index/supplement_p4_05.yaml
+    P-10: discipline/communication/genre_index/supplement_p10.yaml
+  routing_confidence: 0.99
+  routing_reason: page_type=toc로 판단되어 supplement 라우팅 대상이 아니며, read_legend_data 결과
+    legend_data.yaml이 존재하지 않아 범례 기반 라우팅도 불가함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 정보통신용 도면 목록표
+    position: bottom-right
+    labels_near:
+    - ET-00-001
+    - LS Electric R-Center 구축
+  - panel_id: DRAWING_LIST_TABLE
+    shape: rectangle
+    primary_label: 도면 목록표
+    position: center
+    labels_near:
+    - 'NO'
+    - 도면번호
+    - 도면명
+    - 축척
+    - 비고
+    - 일반사항
+    - 정보통신설비
+    - 방송설비
+    - BLOCK DIAGRAM 및 상세도
+  connections: []
+  notable_shapes:
+  - shape: rectangle
+    label: ET-00-001
+    note: 표제란의 도면번호
+  - shape: rectangle
+    label: ET-00-002
+    note: 목록 내 정보통신용 범례 및 주기사항 도면번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.99
+  note: 페이지 전체가 도면 목록표(TOC)이며, 범례 섹션은 포함되어 있지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: index
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.99
+  routing_reason: vision으로 도면 목록표(TOC)임을 확인하였으며, 표제란 도면번호 ET-00-001 및 도면명 '정보통신용 도면
+    목록표'를 통해 COMMUNICATION 분야의 index 장르로 확정함. 기존 분석 결과와 일치함.
+classification: DRAWING_LIST
+discipline: COMMUNICATION
+key_elements_from_text:
+- 정보통신용 도면 목록표
+- 일반사항
+- 정보통신설비
+- 방송설비
+- BLOCK DIAGRAM 및 상세도
+- ET-00-001
+- ET-00-002
+- ET-00-003
+- ET-01-001
+- ET-01-002
+- ET-01-003
+- ET-01-004
+- ET-01-005
+- ET-01-006
+- ET-01-007
+- ET-02-001
+- ET-02-002
+- ET-02-003
+- ET-02-004
+- ET-02-005
+- ET-02-006
+- ET-03-001
+- ET-03-002
+title_block:
+  drawing_number: ET-00-001
+  title: 정보통신용 도면 목록표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석(initial_scan/visual_sketch)과 일치함. 페이지 중앙 표는 도면 목록표이며, 표제란 우하단에 도면번호 ET-00-001과
+  제목 정보통신용 도면 목록표가 보임. 페이지 3 범례는 본 페이지에 없음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: TOC-MAIN
+    shape: rectangle
+    labels_inside:
+    - 'NO'
+    - 도면번호
+    - 도면명
+    - 축척 A1
+    - 축척 A3
+    - 비고
+    labels_above: []
+    labels_below:
+    - 정보통신용 도면 목록표
+    - '축척A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    equipment_symbols: []
+    inferred_name: 정보통신용 도면 목록표 전체 표 영역
+    position: center
+  - panel_id: SEC-GENERAL
+    shape: rectangle
+    labels_inside:
+    - 일 반 사 항
+    - 1 | ET-00-001 | 정보통신용 도면 목록표 | NONE | NONE
+    - 2 | ET-00-002 | 정보통신용 범례 및 주기사항 | NONE | NONE
+    - 3 | ET-00-003 | 옥외 정보통신 인입 배치도 | 1/500 | 1/1000
+    labels_above:
+    - 일반사항
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 일반사항 섹션
+    position: center-upper
+  - panel_id: SEC-COMM
+    shape: rectangle
+    labels_inside:
+    - 정 보 통 신 설 비
+    - 4 | ET-01-001 | 정보통신설비 계통도 | NONE | NONE
+    - 5 | ET-01-002 | PIT층 정보통신설비 평면도 | 1/200 | 1/400
+    - 6 | ET-01-003 | 지상1층 정보통신설비 평면도 | 1/200 | 1/400
+    - 7 | ET-01-004 | 지상2층 정보통신설비 평면도 | 1/200 | 1/400
+    - 8 | ET-01-005 | 사무동 지하1층 정보통신 설비 평면도 | 1/150 | 1/300
+    - 9 | ET-01-006 | 사무동 지상1층 정보통신 설비 평면도 | 1/150 | 1/300
+    - 10 | ET-01-007 | 사무동 지상2층 정보통신 설비 평면도 | 1/150 | 1/300
+    labels_above:
+    - 정보통신설비
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 정보통신설비 섹션
+    position: center-middle-upper
+  - panel_id: SEC-BROADCAST
+    shape: rectangle
+    labels_inside:
+    - 방 송 설 비
+    - 11 | ET-02-001 | 방송설비 계통도 | NONE | NONE
+    - 12 | ET-02-002 | PIT층 방송 설비 평면도 | 1/200 | 1/400
+    - 13 | ET-02-003 | 지상1층 방송 설비 평면도 | 1/200 | 1/400
+    - 14 | ET-02-004 | 지상2층 방송 설비 평면도 | 1/200 | 1/400
+    - 15 | ET-02-005 | 사무동 지하1층 방송 설비 평면도 | 1/150 | 1/300
+    - 16 | ET-02-006 | 사무동 지상1층 방송 설비 평면도 | 1/150 | 1/300
+    labels_above:
+    - 방송설비
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 방송설비 섹션
+    position: center-middle-lower
+  - panel_id: SEC-BLOCKDIAG
+    shape: rectangle
+    labels_inside:
+    - BLOCK DIAGRAM 및 상 세 도
+    - 17 | ET-03-001 | 통합배선설비 구성도 | NONE | NONE
+    - 18 | ET-03-002 | 통합배선설비 상세도 | NONE | NONE
+    labels_above:
+    - BLOCK DIAGRAM 및 상세도
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: BLOCK DIAGRAM 및 상세도 섹션
+    position: center-lower
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 서울시 강남구 언주로 111길 6,5B (논현동, 백암빌딩)
+    - Tel:02-3443-7799 Fax:02-3443-3807
+    - www.gaun.co.kr
+    - 정보통신용 도면 목록표
+    - 'A3 : 1/NONE'
+    - 안 동 식
+    - 이 윤 찬
+    - 정 윤 직
+    - '2024.04'
+    - ET-00-001
+    - (주)정명기술단
+    - 통신선로산업기사 김 근 식
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections: []
+  groups:
+  - group_id: GRP-TOC
+    label: 정보통신용 도면 목록표 전체
+    members:
+    - SEC-GENERAL
+    - SEC-COMM
+    - SEC-BROADCAST
+    - SEC-BLOCKDIAG
+  legend_references: []
+  diagram_meta:
+    title: 정보통신용 도면 목록표
+    drawing_number: ET-00-001
+    project: LS Electric R-Center 구축
+    project_code: '624001'
+    discipline_scope: COMMUNICATION
+    is_reference_only: true
+    flow_direction: UNKNOWN
+    toc_section_keys:
+    - 일반사항
+    - 정보통신설비
+    - 방송설비
+    - BLOCK DIAGRAM 및 상세도
+    drawing_index:
+      sections:
+      - 일반사항
+      - 정보통신설비
+      - 방송설비
+      - BLOCK DIAGRAM 및 상세도
+      drawing_number_prefix_scheme:
+        general: ET-00-NNN
+        communication: ET-01-NNN
+        broadcast: ET-02-NNN
+        block_diagram: ET-03-NNN
+      entries:
+      - seq_no: 1
+        drawing_number: ET-00-001
+        drawing_title: 정보통신용 도면 목록표
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 일반사항
+        remarks: null
+      - seq_no: 2
+        drawing_number: ET-00-002
+        drawing_title: 정보통신용 범례 및 주기사항
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 일반사항
+        remarks: null
+      - seq_no: 3
+        drawing_number: ET-00-003
+        drawing_title: 옥외 정보통신 인입 배치도
+        scale_a1: 1/500
+        scale_a3: 1/1000
+        section: 일반사항
+        remarks: null
+      - seq_no: 4
+        drawing_number: ET-01-001
+        drawing_title: 정보통신설비 계통도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 5
+        drawing_number: ET-01-002
+        drawing_title: PIT층 정보통신설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 6
+        drawing_number: ET-01-003
+        drawing_title: 지상1층 정보통신설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 7
+        drawing_number: ET-01-004
+        drawing_title: 지상2층 정보통신설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 8
+        drawing_number: ET-01-005
+        drawing_title: 사무동 지하1층 정보통신 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 9
+        drawing_number: ET-01-006
+        drawing_title: 사무동 지상1층 정보통신 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 10
+        drawing_number: ET-01-007
+        drawing_title: 사무동 지상2층 정보통신 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 11
+        drawing_number: ET-02-001
+        drawing_title: 방송설비 계통도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 방송설비
+        remarks: null
+      - seq_no: 12
+        drawing_number: ET-02-002
+        drawing_title: PIT층 방송 설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 방송설비
+        remarks: null
+      - seq_no: 13
+        drawing_number: ET-02-003
+        drawing_title: 지상1층 방송 설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 방송설비
+        remarks: null
+      - seq_no: 14
+        drawing_number: ET-02-004
+        drawing_title: 지상2층 방송 설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 방송설비
+        remarks: null
+      - seq_no: 15
+        drawing_number: ET-02-005
+        drawing_title: 사무동 지하1층 방송 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 방송설비
+        remarks: null
+      - seq_no: 16
+        drawing_number: ET-02-006
+        drawing_title: 사무동 지상1층 방송 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 방송설비
+        remarks: null
+      - seq_no: 17
+        drawing_number: ET-03-001
+        drawing_title: 통합배선설비 구성도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: BLOCK DIAGRAM 및 상세도
+        remarks: null
+      - seq_no: 18
+        drawing_number: ET-03-002
+        drawing_title: 통합배선설비 상세도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: BLOCK DIAGRAM 및 상세도
+        remarks: null
+    designer:
+      architect: 가운건축 (GAUN Architects & Engineers)
+      engineer_firm: (주)정명기술단
+      supervisor: 통신선로산업기사 김 근 식
+      date: '2024.04'
+      checkers:
+      - 안 동 식
+      - 이 윤 찬
+      - 정 윤 직
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: TOC-MAIN
+    shape: rectangle
+    labels_inside:
+    - 'NO'
+    - 도면번호
+    - 도면명
+    - 축척
+    - A1
+    - A3
+    - 비고
+    labels_above: []
+    labels_below:
+    - 정보통신용 도면 목록표
+    - '축척:A1 : 1/NONE'
+    - 'A3 : 1/NONE'
+    equipment_symbols: []
+    inferred_name: 정보통신용 도면 목록표 전체 표 영역
+    position: center
+  - panel_id: SEC-GENERAL
+    shape: rectangle
+    labels_inside:
+    - 일 반 사 항
+    - 1
+    - ET-00-001
+    - 정보통신용 도면 목록표
+    - NONE
+    - NONE
+    - 2
+    - ET-00-002
+    - 정보통신용 범례 및 주기사항
+    - NONE
+    - NONE
+    - 3
+    - ET-00-003
+    - 옥외 정보통신 인입 배치도
+    - 1/500
+    - 1/1000
+    labels_above:
+    - 일반사항
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 일반사항 섹션
+    position: center-upper
+  - panel_id: SEC-COMM
+    shape: rectangle
+    labels_inside:
+    - 정 보 통 신 설 비
+    - 4
+    - ET-01-001
+    - 정보통신설비 계통도
+    - NONE
+    - NONE
+    - 5
+    - ET-01-002
+    - PIT층 정보통신설비 평면도
+    - 1/200
+    - 1/400
+    - 6
+    - ET-01-003
+    - 지상1층 정보통신설비 평면도
+    - 1/200
+    - 1/400
+    - 7
+    - ET-01-004
+    - 지상2층 정보통신설비 평면도
+    - 1/200
+    - 1/400
+    - 8
+    - ET-01-005
+    - 사무동 지하1층 정보통신 설비 평면도
+    - 1/150
+    - 1/300
+    - 9
+    - ET-01-006
+    - 사무동 지상1층 정보통신 설비 평면도
+    - 1/150
+    - 1/300
+    - 10
+    - ET-01-007
+    - 사무동 지상2층 정보통신 설비 평면도
+    - 1/150
+    - 1/300
+    labels_above:
+    - 정보통신설비
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 정보통신설비 섹션
+    position: center-middle-upper
+  - panel_id: SEC-BROADCAST
+    shape: rectangle
+    labels_inside:
+    - 방 송 설 비
+    - 11
+    - ET-02-001
+    - 방송설비 계통도
+    - NONE
+    - NONE
+    - 12
+    - ET-02-002
+    - PIT층 방송 설비 평면도
+    - 1/200
+    - 1/400
+    - 13
+    - ET-02-003
+    - 지상1층 방송 설비 평면도
+    - 1/200
+    - 1/400
+    - 14
+    - ET-02-004
+    - 지상2층 방송 설비 평면도
+    - 1/200
+    - 1/400
+    - 15
+    - ET-02-005
+    - 사무동 지하1층 방송 설비 평면도
+    - 1/150
+    - 1/300
+    - 16
+    - ET-02-006
+    - 사무동 지상1층 방송 설비 평면도
+    - 1/150
+    - 1/300
+    labels_above:
+    - 방송설비
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 방송설비 섹션
+    position: center-middle-lower
+  - panel_id: SEC-BLOCKDIAG
+    shape: rectangle
+    labels_inside:
+    - BLOCK DIAGRAM 및 상 세 도
+    - 17
+    - ET-03-001
+    - 통합배선설비 구성도
+    - NONE
+    - NONE
+    - 18
+    - ET-03-002
+    - 통합배선설비 상세도
+    - NONE
+    - NONE
+    labels_above:
+    - BLOCK DIAGRAM 및 상세도
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: BLOCK DIAGRAM 및 상세도 섹션
+    position: center-lower
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 서울시 강남구 언주로 111길 6,5B (논현동, 백암빌딩)
+    - Tel:02-3443-7799 Fax:02-3443-3807
+    - www.gaun.co.kr
+    - 정보통신용 도면 목록표
+    - 'A3 : 1/NONE'
+    - 안 동 식
+    - 이 윤 찬
+    - 정 윤 직
+    - '2024.04'
+    - ET-00-001
+    - (주)정명기술단
+    - 대표·기술사 이 정 환
+    - 통신선로산업기사 김 근 식
+    - 엔지니어링활동주체신고증 제1-055호
+    - 전력시설물전문설계업 제06-378호
+    - 전문소방시설설계업 제 강남-06-1호
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  connections: []
+  groups:
+  - group_id: GRP-TOC
+    label: 정보통신용 도면 목록표 전체
+    members:
+    - SEC-GENERAL
+    - SEC-COMM
+    - SEC-BROADCAST
+    - SEC-BLOCKDIAG
+  legend_references: []
+  diagram_meta:
+    title: 정보통신용 도면 목록표
+    drawing_number: ET-00-001
+    project: LS Electric R-Center 구축
+    project_code: '624001'
+    discipline_scope: COMMUNICATION
+    is_reference_only: true
+    flow_direction: UNKNOWN
+    toc_section_keys:
+    - 일반사항
+    - 정보통신설비
+    - 방송설비
+    - BLOCK DIAGRAM 및 상세도
+    drawing_index:
+      sections:
+      - 일반사항
+      - 정보통신설비
+      - 방송설비
+      - BLOCK DIAGRAM 및 상세도
+      drawing_number_prefix_scheme:
+        general: ET-00-NNN
+        communication: ET-01-NNN
+        broadcast: ET-02-NNN
+        block_diagram: ET-03-NNN
+      entries:
+      - seq_no: 1
+        drawing_number: ET-00-001
+        drawing_title: 정보통신용 도면 목록표
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 일반사항
+        remarks: null
+      - seq_no: 2
+        drawing_number: ET-00-002
+        drawing_title: 정보통신용 범례 및 주기사항
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 일반사항
+        remarks: null
+      - seq_no: 3
+        drawing_number: ET-00-003
+        drawing_title: 옥외 정보통신 인입 배치도
+        scale_a1: 1/500
+        scale_a3: 1/1000
+        section: 일반사항
+        remarks: null
+      - seq_no: 4
+        drawing_number: ET-01-001
+        drawing_title: 정보통신설비 계통도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 5
+        drawing_number: ET-01-002
+        drawing_title: PIT층 정보통신설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 6
+        drawing_number: ET-01-003
+        drawing_title: 지상1층 정보통신설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 7
+        drawing_number: ET-01-004
+        drawing_title: 지상2층 정보통신설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 8
+        drawing_number: ET-01-005
+        drawing_title: 사무동 지하1층 정보통신 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 9
+        drawing_number: ET-01-006
+        drawing_title: 사무동 지상1층 정보통신 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 10
+        drawing_number: ET-01-007
+        drawing_title: 사무동 지상2층 정보통신 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 정보통신설비
+        remarks: null
+      - seq_no: 11
+        drawing_number: ET-02-001
+        drawing_title: 방송설비 계통도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: 방송설비
+        remarks: null
+      - seq_no: 12
+        drawing_number: ET-02-002
+        drawing_title: PIT층 방송 설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 방송설비
+        remarks: null
+      - seq_no: 13
+        drawing_number: ET-02-003
+        drawing_title: 지상1층 방송 설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 방송설비
+        remarks: null
+      - seq_no: 14
+        drawing_number: ET-02-004
+        drawing_title: 지상2층 방송 설비 평면도
+        scale_a1: 1/200
+        scale_a3: 1/400
+        section: 방송설비
+        remarks: null
+      - seq_no: 15
+        drawing_number: ET-02-005
+        drawing_title: 사무동 지하1층 방송 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 방송설비
+        remarks: null
+      - seq_no: 16
+        drawing_number: ET-02-006
+        drawing_title: 사무동 지상1층 방송 설비 평면도
+        scale_a1: 1/150
+        scale_a3: 1/300
+        section: 방송설비
+        remarks: null
+      - seq_no: 17
+        drawing_number: ET-03-001
+        drawing_title: 통합배선설비 구성도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: BLOCK DIAGRAM 및 상세도
+        remarks: null
+      - seq_no: 18
+        drawing_number: ET-03-002
+        drawing_title: 통합배선설비 상세도
+        scale_a1: NONE
+        scale_a3: NONE
+        section: BLOCK DIAGRAM 및 상세도
+        remarks: null
+    designer:
+      architect: 가운건축 (GAUN Architects & Engineers)
+      engineer_firm: (주)정명기술단
+      supervisor: 대표·기술사 이 정 환, 통신선로산업기사 김 근 식
+      date: '2024.04'
+      checkers:
+      - 안 동 식
+      - 이 윤 찬
+      - 정 윤 직
+entity_synthesis:
+  entities:
+  - tag: TOC-MAIN
+    name: 정보통신용 도면 목록표 전체 표 영역
+    discipline: COMMUNICATION
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 'NO'
+      - 도면번호
+      - 도면명
+      - 축척 A1
+      - 축척 A3
+      - 비고
+      labels_above: []
+      labels_below:
+      - 정보통신용 도면 목록표
+      - '축척A1 : 1/NONE'
+      - 'A3 : 1/NONE'
+      equipment_symbols: []
+      inferred_name: 정보통신용 도면 목록표 전체 표 영역
+      position: center
+      source_model: both
+    position: center
+    source_block: both
+  - tag: SEC-GENERAL
+    name: 일반사항 섹션
+    discipline: COMMUNICATION
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 일 반 사 항
+      - 1 | ET-00-001 | 정보통신용 도면 목록표 | NONE | NONE
+      - 2 | ET-00-002 | 정보통신용 범례 및 주기사항 | NONE | NONE
+      - 3 | ET-00-003 | 옥외 정보통신 인입 배치도 | 1/500 | 1/1000
+      labels_above:
+      - 일반사항
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 일반사항 섹션
+      position: center-upper
+      source_model: both
+    position: center-upper
+    source_block: both
+  - tag: SEC-COMM
+    name: 정보통신설비 섹션
+    discipline: COMMUNICATION
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 정 보 통 신 설 비
+      - 4 | ET-01-001 | 정보통신설비 계통도 | NONE | NONE
+      - 5 | ET-01-002 | PIT층 정보통신설비 평면도 | 1/200 | 1/400
+      - 6 | ET-01-003 | 지상1층 정보통신설비 평면도 | 1/200 | 1/400
+      - 7 | ET-01-004 | 지상2층 정보통신설비 평면도 | 1/200 | 1/400
+      - 8 | ET-01-005 | 사무동 지하1층 정보통신 설비 평면도 | 1/150 | 1/300
+      - 9 | ET-01-006 | 사무동 지상1층 정보통신 설비 평면도 | 1/150 | 1/300
+      - 10 | ET-01-007 | 사무동 지상2층 정보통신 설비 평면도 | 1/150 | 1/300
+      labels_above:
+      - 정보통신설비
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 정보통신설비 섹션
+      position: center-middle-upper
+      source_model: both
+    position: center-middle-upper
+    source_block: both
+  - tag: SEC-BROADCAST
+    name: 방송설비 섹션
+    discipline: COMMUNICATION
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 방 송 설 비
+      - 11 | ET-02-001 | 방송설비 계통도 | NONE | NONE
+      - 12 | ET-02-002 | PIT층 방송 설비 평면도 | 1/200 | 1/400
+      - 13 | ET-02-003 | 지상1층 방송 설비 평면도 | 1/200 | 1/400
+      - 14 | ET-02-004 | 지상2층 방송 설비 평면도 | 1/200 | 1/400
+      - 15 | ET-02-005 | 사무동 지하1층 방송 설비 평면도 | 1/150 | 1/300
+      - 16 | ET-02-006 | 사무동 지상1층 방송 설비 평면도 | 1/150 | 1/300
+      labels_above:
+      - 방송설비
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 방송설비 섹션
+      position: center-middle-lower
+      source_model: both
+    position: center-middle-lower
+    source_block: both
+  - tag: SEC-BLOCKDIAG
+    name: BLOCK DIAGRAM 및 상세도 섹션
+    discipline: COMMUNICATION
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - BLOCK DIAGRAM 및 상 세 도
+      - 17 | ET-03-001 | 통합배선설비 구성도 | NONE | NONE
+      - 18 | ET-03-002 | 통합배선설비 상세도 | NONE | NONE
+      labels_above:
+      - BLOCK DIAGRAM 및 상세도
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: BLOCK DIAGRAM 및 상세도 섹션
+      position: center-lower
+      source_model: both
+    position: center-lower
+    source_block: both
+  - tag: TITLE-BLOCK
+    name: 표제란
+    discipline: COMMUNICATION
+    function_category: REFERENCE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - LS Electric R-Center 구축
+      - '624001'
+      - 가운건축
+      - GAUN Architects & Engineers
+      - 서울시 강남구 언주로 111길 6,5B (논현동, 백암빌딩)
+      - Tel:02-3443-7799 Fax:02-3443-3807
+      - www.gaun.co.kr
+      - 정보통신용 도면 목록표
+      - 'A3 : 1/NONE'
+      - 안 동 식
+      - 이 윤 찬
+      - 정 윤 직
+      - '2024.04'
+      - ET-00-001
+      - (주)정명기술단
+      - 통신선로산업기사 김 근 식
+      - 대표·기술사 이 정 환
+      - 엔지니어링활동주체신고증 제1-055호
+      - 전력시설물전문설계업 제06-378호
+      - 전문소방시설설계업 제 강남-06-1호
+      labels_above: []
+      labels_below: []
+      equipment_symbols: []
+      inferred_name: 표제란
+      position: right
+      source_model: both
+    position: right
+    source_block: both
+  relationships: []
+  spaces:
+  - space_id: GRP-TOC
+    name: 정보통신용 도면 목록표 전체
+    contains:
+    - SEC-GENERAL
+    - SEC-COMM
+    - SEC-BROADCAST
+    - SEC-BLOCKDIAG
+  self_check:
+    entity_count: 6
+    relationship_count: 0
+    visual_spec_preserved: true
+    issues: []

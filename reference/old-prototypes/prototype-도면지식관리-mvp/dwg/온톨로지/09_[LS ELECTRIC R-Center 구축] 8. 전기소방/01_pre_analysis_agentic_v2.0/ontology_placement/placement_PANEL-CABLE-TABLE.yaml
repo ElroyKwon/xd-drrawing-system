@@ -1,0 +1,173 @@
+placement:
+  tag: PANEL-CABLE-TABLE
+  name: 배관 배선 규격 표
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:PANEL-CABLE-TABLE
+    class_hint: Schedule
+    alternative_class_hints:
+    - DrawingInformationEntity
+    - LegendTable
+    - Piping and Wiring Specification
+    - Line Type Definition
+    related_assertions:
+    - type: defines_line_type
+      target_hint: SYM-015
+      note: 도면 상 선종/배선 규격을 정의하는 관계로 관찰됨
+      confirmed_property: dks:defines_line_type
+      confirmed_target: SYM-015
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:08:25.807779'
+    - type: defines_line_type
+      target_hint: SYM-016
+      note: 도면 상 선종/배선 규격을 정의하는 관계로 관찰됨
+      confirmed_property: dks:defines_line_type
+      confirmed_target: SYM-016
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:08:25.807779'
+    - type: defines_line_type
+      target_hint: SYM-017
+      note: 도면 상 선종/배선 규격을 정의하는 관계로 관찰됨
+      confirmed_property: dks:defines_line_type
+      confirmed_target: SYM-017
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:08:25.807779'
+    applicable_axioms:
+    - AX008
+    - AX022
+    - AX025
+    - AX026
+    applicable_constraints:
+    - CN001
+    - CN003
+    - CN004
+    - CN011
+    confirmed_class: dks:Schedule
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 구 분
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasSectionHeader
+          suggested_datatype: xsd:string
+          rationale: 표 형식의 구분 헤더로 보이는 텍스트
+      - raw_text: 배관 배선 및 주기사항
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasSpecificationTitle
+          suggested_datatype: xsd:string
+          rationale: 표의 주제/항목명으로 보이는 제목성 텍스트
+      - raw_text: 감지기용 배관 배선
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasCableSpecificationItem
+          suggested_datatype: xsd:string
+          rationale: 배관 배선 규격의 세부 항목으로 보이는 문구
+      - raw_text: 유도등용 배관 배선
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasCableSpecificationItem
+          suggested_datatype: xsd:string
+          rationale: 배관 배선 규격의 세부 항목으로 보이는 문구
+      - raw_text: 비상조명 배관 배선
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: hasCableSpecificationItem
+          suggested_datatype: xsd:string
+          rationale: 배관 배선 규격의 세부 항목으로 보이는 문구
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    function_category:
+      source_pages:
+      - 3
+      method: direct
+    source_pages:
+      source_pages:
+      - 3
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 3
+      method: direct
+    relations:
+      source_pages:
+      - 3
+      method: cross_validated
+    position:
+      source_pages:
+      - 3
+      method: direct
+    source_attribution:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+    collection_sources.cross_validated:
+      source_pages:
+      - 3
+      method: direct
+  unresolved:
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Schedule
+    source_page: 3
+    reason: 상위 클래스 후보이지만 이 단계에서 확정 불가
+    preservation_note: class_hint 후보로만 보존
+  - field_candidate: ontology_hints.function_candidates[0]
+    raw_text: Piping and Wiring Specification
+    source_page: 3
+    reason: 기능 후보 문구이나 표준화된 분류로 확정 불가
+    preservation_note: 표 제목/기능 설명 후보로 보존
+  - field_candidate: ontology_hints.function_candidates[1]
+    raw_text: Line Type Definition
+    source_page: 3
+    reason: 기능 후보 문구이나 표준화된 분류로 확정 불가
+    preservation_note: 선종 정의 표기 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 도면 메타/표 형식 객체로 보이며, SYM-015/016/017에 대한 선종 정의 관계가 명시되어 있음
+    recommended_handling: AnnotationOnly로 유지하고, 0-9d에서 defines_line_type 관계를 정식 객체
+      속성으로 승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - PANEL-* 및 Schedule 계열을 DrawingInformationEntity 축으로 보존
+    - defines_line_type 관계 원형을 related_assertions에 보존
+    - labels_inside 및 표 제목성 텍스트를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:59:02.810999'
+  confidence: 0.95

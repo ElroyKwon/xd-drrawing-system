@@ -1,0 +1,466 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_PROTECTION_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: MF-003
+    title: 옥외 소화 배관 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 도면 제목과 표제란에 '옥외 소화 배관 평면도'가 보이며, 평면도 형태의 배관 배치가 중심이다.
+  - 굵은 점선/실선 배관 경로와 연결부가 보인다.
+  - 페이지 우상단 표제란에 LS Electric R-Center 구축, 도면번호 MF-003이 보인다.
+  confidence: 0.93
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_mechanical/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 도면번호 MF-003의 접두사 M/F 중 표제란에 'MF-003'로 보이며, 시각적으로 옥외 소화 배관 평면도이므로
+    fire_protection의 genre_mechanical 경로가 가장 근접하다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 옥외 소화 배관 평면도
+    position: bottom-right
+    labels_near:
+    - MF - 003
+    - LS Electric R-Center 구축
+  - panel_id: DRAWING_AREA
+    shape: rectangle
+    primary_label: 옥외 소화 배관 평면도
+    position: center
+    labels_near:
+    - MF 옥외 소화 배관 평면도
+    - 'SCALE : 1:500'
+  - panel_id: BUILDING_A
+    shape: rectangle
+    primary_label: A동
+    position: bottom-right
+  - panel_id: BUILDING_B
+    shape: rectangle
+    primary_label: B동
+    position: center-left
+  - panel_id: BUILDING_UT
+    shape: rectangle
+    primary_label: U.T.동
+    position: center-right
+  - panel_id: OFFICE_BUILDING
+    shape: rectangle
+    primary_label: 사무동
+    position: bottom-left
+  - panel_id: SIAMESE_CONNECTION
+    shape: rectangle
+    primary_label: 연결송수구(쌍구형)
+    position: top-center
+    labels_near:
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+  connections:
+  - from: SIAMESE_CONNECTION
+    to: BUILDING_UT
+    line_style: dashed
+    annotation: H-100
+  - from: BUILDING_UT
+    to: BUILDING_A
+    line_style: dashed
+    annotation: H-100
+  notable_shapes:
+  - shape: dashed_box
+    label: H-100
+    note: 굵은 점선으로 표현된 옥외 소화 배관 경로
+  - shape: circle
+    label: N
+    note: 방위 표시 (North Arrow)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 도면 전체가 옥외 소화 배관 평면도로 구성되어 있으며, 별도의 범례 표나 섹션이 식별되지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: mechanical
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '옥외 소화 배관 평면도'와 도면번호 'MF-003'의 접두사 MF(Mechanical Fire)를 통해
+    소방 기계 분야의 평면도임을 명확히 확인. 기존 분석 결과가 타당하므로 유지.
+classification: FIRE_PROTECTION_LAYOUT
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 옥외 소화 배관 평면도
+- MF
+- 'SCALE : 1:500'
+- LS Electric R-Center 구축
+- '224001'
+- 가온건축
+- R-Center
+- MF - 003
+title_block:
+  drawing_number: MF - 003
+  title: 옥외 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=FIRE_PROTECTION, classification=FIRE_PROTECTION_LAYOUT, drawing_genre=floor_plan
+  판정과 일치함. 시각적으로도 옥외 소화 배관 경로, 연결송수구, A동/B동/U.T.동/사무동 배치가 보이며, 표제란에 MF-003과 옥외 소화
+  배관 평면도가 확인됨. 페이지 4 기준으로 별도 범례 섹션은 보이지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - MF - 003
+    - 옥외 소화 배관 평면도
+    - 'SCALE: A1:1/500, A3:1/1000'
+    - '2024.04'
+    - R-Center
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: A동 건물
+    position: bottom-right
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: B동 건물
+    position: center-left
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: U.T.동 건물
+    position: center-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 사무동 건물
+    position: bottom-left
+  - panel_id: SIAMESE-CONN
+    shape: other
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구 (SYM-013)
+      count: 1
+    inferred_name: 옥외 쌍구형 연결송수구
+    position: top-center
+  - panel_id: PIPE-ROUTE-MAIN
+    shape: dashed_box
+    labels_inside:
+    - H-100
+    labels_above:
+    - H-100
+    labels_below: []
+    equipment_symbols:
+    - type: 옥내소화전배관 (SYM-001)
+      count: 1
+    inferred_name: 옥외 소화 주배관 경로 (100A 옥내소화전배관)
+    position: center
+  - panel_id: PIPE-RISER-100
+    shape: other
+    labels_inside:
+    - L-100
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 입상배관 100A
+    position: center
+  - panel_id: DISABLED-PARKING
+    shape: rectangle
+    labels_inside:
+    - 장애인전용 주차구역 금지선
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 장애인전용 주차구역
+    position: bottom-center
+  connections:
+  - from: SIAMESE-CONN
+    to: PIPE-ROUTE-MAIN
+    line_type: pipe
+    line_style: dashed
+    annotation: 100ø x 65ø x 65ø
+  - from: PIPE-ROUTE-MAIN
+    to: BLDG-UT
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100
+  - from: PIPE-ROUTE-MAIN
+    to: PIPE-RISER-100
+    line_type: pipe
+    line_style: solid
+    annotation: L-100
+  - from: PIPE-RISER-100
+    to: BLDG-UT
+    line_type: pipe
+    line_style: solid
+    annotation: H-100
+  groups:
+  - group_id: GRP-OUTDOOR-FIRE
+    label: 옥외 소화 배관 계통
+    members:
+    - SIAMESE-CONN
+    - PIPE-ROUTE-MAIN
+    - PIPE-RISER-100
+    - BLDG-UT
+  - group_id: GRP-BUILDINGS
+    label: 건물 배치
+    members:
+    - BLDG-A
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-OFFICE
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-ROUTE-MAIN
+  - text: 쌍구형연결송수구 (SYM-013)
+    linked_to: SIAMESE-CONN
+  - text: H-100 (옥내소화전배관 100A)
+    linked_to: PIPE-ROUTE-MAIN
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: 1:500 (A1) / 1:1000 (A3)
+    date: '2024.04'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    flow_direction: top-to-bottom
+    fire_mech_subsystem: site_outdoor
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    pump_count: 0
+    seismic_scope: null
+    pipe_systems:
+    - pipe_id: PIPE-H-100
+      pipe_role: feed_main
+      nominal_diameter_A: 100
+      pipe_type: 옥내소화전배관
+      line_symbol: H
+      line_style: dashed
+      flow_direction: from siamese connection toward U.T.동
+    - pipe_id: PIPE-L-100
+      pipe_role: feed_main
+      nominal_diameter_A: 100
+      pipe_type: 입상배관
+      line_symbol: L
+      line_style: solid
+      flow_direction: vertical riser
+    siamese_connections:
+    - id: SC-001
+      type: 쌍구형연결송수구
+      inlet_size: 65ø x 65ø
+      outlet_size: 100ø
+      note: 압력표시 판넬부착
+      position: top-center of site
+    notes:
+    - 도면 전체가 옥외 소화 배관 평면도로 구성됨
+    - 굵은 점선으로 표현된 배관 경로는 옥내소화전배관(H-100) 계통
+    - 연결송수구에서 U.T.동 방향으로 배관이 연결됨
+    - 장애인전용 주차구역 금지선이 하단에 표기됨
+    - 방위 표시(North Arrow) 없음 또는 미식별
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - (주)정연엔지니어링
+    - MF - 003
+    - 옥외 소화 배관 평면도
+    - 'SCALE : A1 : 1/500, A3 : 1/1000'
+    - 'DATE : 2024.04'
+    - R-Center
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  - panel_id: DRAWING-TITLE-SCALE
+    shape: rectangle
+    labels_inside:
+    - MF 옥외 소화 배관 평면도
+    - 'SCALE : 1:500'
+    equipment_symbols: []
+    inferred_name: 도면 제목 및 축척
+    position: bottom-center
+  - panel_id: NORTH-ARROW
+    shape: circle
+    labels_inside:
+    - N
+    equipment_symbols: []
+    inferred_name: 방위표
+    position: top-right
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    equipment_symbols: []
+    inferred_name: A동 건물
+    position: bottom-right
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    equipment_symbols: []
+    inferred_name: B동 건물
+    position: center-left
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    equipment_symbols: []
+    inferred_name: U.T.동 건물
+    position: center-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    equipment_symbols: []
+    inferred_name: 사무동 건물
+    position: bottom-left
+  - panel_id: SIAMESE-CONN
+    shape: other
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 판넬부착)
+    equipment_symbols:
+    - type: 쌍구형연결송수구 (SYM-013)
+      count: 1
+    inferred_name: 옥외 쌍구형 연결송수구
+    position: top-center
+  - panel_id: PIPE-ROUTE-MAIN
+    shape: dashed_box
+    labels_inside:
+    - H-100
+    labels_above:
+    - H-100
+    equipment_symbols:
+    - type: 옥내소화전배관 (SYM-001)
+      count: 1
+    inferred_name: 옥외 소화 주배관 경로 (100A 옥내소화전배관)
+    position: center
+  - panel_id: DISABLED-PARKING
+    shape: other
+    labels_inside:
+    - 장애인전용 주차구역 표지판 설치
+    equipment_symbols: []
+    inferred_name: 장애인전용 주차구역
+    position: center-right
+  connections:
+  - from: SIAMESE-CONN
+    to: PIPE-ROUTE-MAIN
+    line_type: pipe
+    line_style: dashed
+    annotation: 100ø x 65ø x 65ø
+  - from: PIPE-ROUTE-MAIN
+    to: BLDG-UT
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100
+  groups:
+  - group_id: GRP-OUTDOOR-FIRE
+    label: 옥외 소화 배관 계통
+    members:
+    - SIAMESE-CONN
+    - PIPE-ROUTE-MAIN
+    - BLDG-UT
+  - group_id: GRP-BUILDINGS
+    label: 건물 배치
+    members:
+    - BLDG-A
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-OFFICE
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-ROUTE-MAIN
+  - text: 쌍구형연결송수구 (SYM-013)
+    linked_to: SIAMESE-CONN
+  - text: H-100 (옥내소화전배관 100A)
+    linked_to: PIPE-ROUTE-MAIN
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: 1:500 (A1) / 1:1000 (A3)
+    date: '2024.04'
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    engineering_firm: (주)정연엔지니어링
+    flow_direction: from siamese connection to building
+    fire_mech_subsystem: site_outdoor
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    pump_count: 0
+    seismic_scope: null
+    pipe_systems:
+    - pipe_id: PIPE-H-100
+      pipe_role: feed_main
+      nominal_diameter_A: 100
+      pipe_type: 옥내소화전배관
+      line_symbol: H
+      line_style: dashed
+      flow_direction: from siamese connection toward U.T.동
+    siamese_connections:
+    - id: SC-001
+      type: 쌍구형연결송수구
+      inlet_size: 65ø x 65ø
+      outlet_size: 100ø
+      note: 압력표시 판넬부착
+      position: top-center of site
+    notes:
+    - 도면 전체가 옥외 소화 배관 평면도로 구성됨
+    - 굵은 점선으로 표현된 배관 경로는 옥내소화전배관(H-100) 계통임
+    - 연결송수구에서 U.T.동 방향으로 배관이 연결됨
+    - 장애인전용 주차구역이 U.T.동 인근에 표기됨
+    - 방위 표시(North Arrow)가 우측 상단에 있음

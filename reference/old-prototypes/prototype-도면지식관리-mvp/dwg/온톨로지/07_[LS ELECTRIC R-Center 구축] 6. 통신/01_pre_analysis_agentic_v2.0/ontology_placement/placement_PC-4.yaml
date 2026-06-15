@@ -1,0 +1,175 @@
+placement:
+  tag: PC-4
+  name: PC
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PC-4
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationTerminal
+    - UserInterface
+    related_assertions:
+    - type: cable
+      target_hint: SYSBOX-4
+      note: SYSBOX-4에서 PC-4로 케이블 연결
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: PC
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원표기 라벨
+      - raw_text: (본 공사 제외)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: statusText
+          suggested_datatype: xsd:string
+          rationale: 공사 범위 제외 상태를 나타내는 표기
+      - raw_text: 'shape: dashed_box'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 표현 정보
+      - raw_text: 'labels_inside: PC, (본 공사 제외)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 내부 표기 텍스트 보존
+      - raw_text: 'inferred_name: PC 단말 4 (본 공사 제외)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 도면 해석 기반 추정명
+      - raw_text: 'position: bottom-center-right'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면상 배치 위치
+      - raw_text: 'annotation: CAT.6 UTP CABLE (1Gbps) / OUTLET BOX'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 연결 주석에 케이블 규격과 종단 대상이 함께 표기됨
+  provenance:
+    tag:
+      source_pages:
+      - 18
+    name:
+      source_pages:
+      - 18
+      method: from_entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: rule_based_classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class + observed attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 18
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 18
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 18
+    discipline_context.sub_kinds.free_notes[6].raw_text:
+      source_pages:
+      - 18
+    relations:
+      source_pages:
+      - 18
+      method: visual_semantics
+    position:
+      source_pages:
+      - 18
+    specs.raw_labels:
+      source_pages:
+      - 18
+    specs.shape:
+      source_pages:
+      - 18
+    specs.labels_inside:
+      source_pages:
+      - 18
+    specs.inferred_name:
+      source_pages:
+      - 18
+    specs.position:
+      source_pages:
+      - 18
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 도면상 PC는 장비/단말로 보이지만 '(본 공사 제외)' 표기가 함께 있어 실제 설치 대상인지 주석성 표기인지 경계가 있음.
+    recommended_handling: NamedIndividual로 보존하되, 0-9c에서 class 확정 시 제외 상태와 장비 실체를 분리
+      검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야의 단말/아울렛/시스템박스 그룹 및 연결 관계 패턴을 반영
+    - relations의 cable 연결을 관계 사실 원형으로 보존
+    - raw_labels, inferred_name, shape, position, annotation을 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:14:40.809445'
+  confidence: 0.86

@@ -1,0 +1,135 @@
+ontology_readiness:
+  tag: UNKNOWN-NOTE-03
+  verdict: demoted
+  confidence: 0.85
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 5
+    reason: type=REFERENCE, name=우측 참고사항 텍스트 블록. 물리적 설비가 아니라 도면의 참고 문구/설명 텍스트로 보이며,
+      독립 설비가 아닌 document_metadata 성격이다.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 0
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 5
+    convertible: 3
+    ambiguous_attributes:
+    - key: note_1
+      value: 본도면은 참고도면으로 내진 제작사의 사양에 의해 변경될 수 있다.
+      reason: 문장형 참고 문구로 정량 속성 전환 불가
+    - key: reference
+      value: (내진설계 주기사항 및 상세도 참조)
+      reason: 참조 지시문으로 속성값이 아니라 문서 링크 성격
+    - key: reference_note
+      value: 본도면은 참고도면으로 내진 제작사의 사양에 의해 변경될 수 있다
+      reason: note_1과 동일 의미의 문장형 참고 문구
+    - key: reference_document
+      value: 내진설계 주기사항 및 상세도 참조
+      reason: 참조 문서명/지시문으로 정규 속성화 어려움
+    auxiliary_attributes:
+    - note_1
+    - installation_spacing
+    - reference
+    - reference_note
+    - installation_standard
+    - reference_document
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    - key: source_attribution.sonnet
+      value: false
+      source: sonnet
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added:
+    - ELECTRICAL 도면의 참고/내진 설치 기준 텍스트 블록
+    - 타 분야 설비 연결선은 entity_detail 및 page context에서 확인되지 않음
+  ontology_class_hint:
+    suggested_parent_class: InformationContentEntity
+    alternative_parent_classes:
+    - SeismicDesignGuideline
+    - InstallationStandardReference
+  spatial_context:
+    position: top-right
+    source_pages:
+    - 41
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      note_1: 본도면은 참고도면으로 내진 제작사의 사양에 의해 변경될 수 있다.
+      installation_spacing: 전기 배관이나 케이블 트레이, 부스 덕트 배관은 2.5m에 1개소씩 내진 면진체인가대 내진종횡버팀대나
+        내진스프링행가를 설치하는것을 기준으로 한다.
+      reference: (내진설계 주기사항 및 상세도 참조)
+      reference_note: 본도면은 참고도면으로 내진 제작사의 사양에 의해 변경될 수 있다
+      installation_standard: 전기 배관이나 케이블 트레이, 부스 덕트 배관은 2.5m에 1개소씩 내진 면진체인가대 내진종횡버팀대나
+        내진스프링행가를 설치하는 것을 기준으로 한다
+      reference_document: 내진설계 주기사항 및 상세도 참조
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: false
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - connection_specs (제공되지 않음)
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :UNKNOWN-NOTE-03 rdf:type :InformationContentEntity ; :references
+      :SeismicDesignGuideline .
+  owl_export_hints:
+    create_individual: true
+    individual_type: InformationContentEntity
+    annotations_to_emit:
+    - specs_full
+    - source_attribution
+    - collection_sources
+    - position
+    - source_pages
+    - ambiguous_attributes
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: UNKNOWN-NOTE-03
+discovered_relations: 0

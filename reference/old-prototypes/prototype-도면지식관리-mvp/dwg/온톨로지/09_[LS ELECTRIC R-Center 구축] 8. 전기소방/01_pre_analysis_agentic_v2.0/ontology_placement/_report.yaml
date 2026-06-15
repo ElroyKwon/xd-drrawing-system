@@ -1,0 +1,110 @@
+summary:
+  total_placements: 154
+  expected_total_tags: 154
+  owl_role_distribution:
+    NamedIndividual: 102
+    AnnotationOnly: 52
+  discipline_distribution:
+    fire_protection: 120
+    electrical: 30
+    unknown_discipline: 4
+  ambiguous_count: 73
+  merge_candidate_count: 10
+  unresolved_entries: 728
+ambiguous_samples:
+- tag: AREA-CORRIDOR-CORE
+  reason: 태그는 SPACE로 보이지만 function_category가 FIRE_ALARM_ZONE이고 다수의 feeds 관계를 가져 공간/존/배선
+    대상의 경계가 도면상 혼재됨.
+- tag: EF-102
+  reason: 태그 EF-102는 물리 설비 개체라기보다 '1층 소방간선설비 평면도'라는 도면/주석성 정보 객체로 보이며, BACKBONE 타입과
+    기능 후보가 함께 존재해 실체/문서 경계가 모호함.
+- tag: EF-203
+  reason: 태그 EF-203은 실제 설비 개체라기보다 '옥탑층 자동화재탐지설비 평면도'라는 도면/정보 객체로 관찰됨. ontology_hints는
+    FireDetectionSystem을 제안하지만, 본 입력에는 물리 설비 관계나 개별 장치가 없음.
+- tag: EF-303
+  reason: type은 TITLE이지만 name/title/specifications가 함께 존재하여 도면 메타 객체로 보이나, ontology_hints가
+    Fan/Smoke Exhaust/Ventilation을 제시해 실제 설비와 혼재된 흔적이 있음.
+- tag: FA-1A
+  reason: FA-1A는 발신기/중계기 세트로 표기되며, 단일 설비인지 복합 구성인지와 기능(수신/송신/수동발신) 경계가 도면상 혼재함.
+- tag: FA-1C
+  reason: 태그는 단일 설비처럼 보이나 name과 equipment_symbols가 발신기/중계기/전원반/패널 성격을 함께 포함하고, relations도
+    feeds/connects_to/cable이 혼재함.
+- tag: FA-1D
+  reason: 태그는 FA-1D 단일 개체로 보이나 이름에 '발신기/중계기 세트'가 함께 나타나고, equipment_symbols에도 panel/relay,
+    수동발신기, 전원반(중계기)가 혼재하여 정확한 세부 클래스가 단정되지 않음.
+- tag: FA-1E
+  reason: FA-1E는 발신기/중계기 세트로 보이며, 장치 자체인지 관계 중심 노드인지, 또는 FireAlarmStation/Relay/Panel
+    중 어느 상위 개념이 적절한지 도면 정보만으로 단정하기 어렵다.
+- tag: FA-1F
+  reason: FA-1F는 이름상 자동화재탐지 발신기/중계기 세트이며, ontology_hints에는 FireAlarmRelay가 제시되지만 equipment_symbols와
+    function_candidates에 수동발신기/전원반/존모니터링이 함께 나타나 단일 기능·클래스 확정이 어렵다.
+- tag: FA-2A
+  reason: 태그 FA-2A는 분기 샤프트/분기반/릴레이/간선 요소가 혼재하며, 도면상 물리 설비인지 분배 네트워크 요소인지 경계가 완전히 단정되지
+    않음.
+- tag: FA-2B
+  reason: 태그는 독립 설비처럼 보이지만, 점선 박스 형태의 분기 샤프트이며 feeds/connects_to/cable 관계가 혼재하여 장치/분기
+    인프라/공간성 요소 경계가 다소 불명확함.
+- tag: FD-2A
+  reason: 도면상 수직 샤프트/구역/간선 요소가 동시에 읽히며, 공간 객체인지 설비 객체인지 단정하기 어려움. 또한 equipment_symbols에
+    방화셔터 연동제어반이 포함되어 독립 개체 여부가 불명확함.
+- tag: PB-001
+  reason: PULL BOX가 독립 설비인지, 배선/접속 인프라인지, 또는 JunctionBox 계열인지 도면상 혼재됨. 또한 legend_refers_to와
+    다수 connects_to가 함께 존재함.
+- tag: PB-002
+  reason: PULL BOX로 보이는 독립 설비이지만, 상부/입상이라는 위치·방향 정보와 JunctionBox 후보가 함께 존재하여 세부 클래스
+    확정이 어려움
+- tag: ROOM-AMP
+  reason: 태그는 SPACE로 보이지만 function_candidates가 EmergencyBroadcasting, SignalAmplification으로
+    제시되어 공간명과 기능 해석이 분리됨
+- tag: ROOM-CENTER-DIRECTOR
+  reason: SPACE로 보이는 센터장실이면서 감지기 배선 feeds 관계와 내부 감지기 심벌을 함께 가짐. 공간 자체와 감지구역/실체 설비
+    해석이 병존함.
+- tag: ROOM-DATA
+  reason: 공간(자료실)로 보이지만 감지기 심벌과 배선/feeds/cable 관계가 함께 있어 Space와 FireDetectionZone
+    해석이 공존함.
+- tag: ROOM-EMI-EMS
+  reason: 태그는 ROOM-로 시작하고 specs/type은 SPACE이며, ontology_hints는 ShieldedRoom을 제안하지만
+    실제 물리 설비인지 도면 공간인지 경계가 도면상 혼재됨.
+- tag: ROOM-MID-MTG
+  reason: SPACE 타입의 회의실이면서 감지기 배선 관계와 다수의 감지기 심벌을 포함하여 공간/존/설비 포함 객체 경계가 혼재함
+- tag: ROOM-OFFICE
+  reason: 태그는 ROOM-OFFICE로 공간 엔티티이지만, fire_protection 도면에서 감지기/유도등 심벌과 배선 관계가 함께 기록되어
+    있어 공간 자체와 공간 내 설비 정보가 혼재함.
+merge_candidates:
+- tag: EX-MTG-M-01
+  other_tag: EX-MTG-S1-01
+  reason: similar_equipment에 명시된 유사 장비이며, 동일 계열 피난구 유도등으로 보이는 태그가 인근에 존재함
+- tag: FA-1A
+  other_tag: FA-1B
+  reason: ontology_hints.similar_equipment에 FA-1B가 명시되어 있고, FA-1A/FA-1B가 동일 계열 태그
+    패턴을 가짐.
+- tag: FA-1B
+  other_tag: FA-1A
+  reason: ontology_hints.similar_equipment에 포함되고, FA-1A/FA-1B/FA-1C가 동일 계열 표기 패턴을
+    공유함
+- tag: FA-1C
+  other_tag: FA-1B
+  reason: ontology_hints.similar_equipment에 포함되고, FA-1B/FA-1D와 동일 계열의 소방간선/분기 구조를
+    공유함.
+- tag: FA-1D
+  other_tag: FA-1C
+  reason: ontology_hints.similar_equipment에 FA-1C가 명시되어 있고, relations에 FA-1D↔FA-1C
+    연결이 있어 유사 태그/인접 개체로 병합 검토 필요
+- tag: FA-1E
+  other_tag: FA-1F
+  reason: ontology_hints.similar_equipment에 FA-1F가 명시되어 있고, 동일한 FA 계열/유사 장비로 보이는 태그
+    패턴이 관찰됨.
+- tag: FA-1F
+  other_tag: FA-1E
+  reason: relations에 FA-1E와의 직접 connects_to가 있으며, ontology_hints.similar_equipment에도
+    FA-1E가 제시되어 유사 태그/루프 토폴로지 상 인접 개체로 보인다.
+- tag: PB-001
+  other_tag: PB-002
+  reason: 동일 계열의 상하 PULL BOX로 명시되어 있으며, 태그 패턴과 기능이 매우 유사함. 다만 별도 Individual로 존속 필요
+- tag: SOURCE_PANEL_2
+  other_tag: SOURCE_PANEL_1
+  reason: similar_equipment에 SOURCE_PANEL_1이 명시되어 있으며, 태그 패턴과 기능이 유사한 변형 후보로 보임
+- tag: 통신-맨홀
+  other_tag: PULL-BOX-외부
+  reason: 둘 다 외부 연결 인프라이며 상호 connects_to/cable 관계가 직접 관찰되어 유사 설비 후보로 보임.
+generated_at: '2026-04-21T14:02:06.100530'

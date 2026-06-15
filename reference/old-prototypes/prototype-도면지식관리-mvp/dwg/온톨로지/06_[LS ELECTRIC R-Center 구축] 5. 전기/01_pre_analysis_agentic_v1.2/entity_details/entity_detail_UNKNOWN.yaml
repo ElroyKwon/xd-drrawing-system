@@ -1,0 +1,141 @@
+entity_detail:
+  tag: UNKNOWN
+  type: power_cable
+  specs:
+    cable_voltage:
+      value: 6.6kV
+      unit: kV
+      source: 4
+      confidence: 0.95
+    cable_configuration:
+      value: 3Ф 3W
+      unit: ''
+      source: 4
+      confidence: 0.95
+    cable_type:
+      value: F-CV
+      unit: ''
+      source: 4
+      confidence: 0.95
+    cable_size:
+      value: 150㎟
+      unit: ㎟
+      source: 4
+      confidence: 0.95
+    cable_core_count:
+      value: 1C
+      unit: ''
+      source: 4
+      confidence: 0.95
+    cable_run_count:
+      value: x6L
+      unit: ''
+      source: 4
+      confidence: 0.95
+    installation_method_1:
+      value: IN TRAY
+      unit: ''
+      source: 4
+      confidence: 0.95
+    installation_method_2:
+      value: ELP100 X 2
+      unit: ''
+      source: 4
+      confidence: 0.95
+  drawing_texts:
+  - source: page 4
+    page_number: 4
+    text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  - source: page 4
+    page_number: 4
+    text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+  - source: page 4
+    page_number: 4
+    text: 옥외 전력간선설비 인입 배치도
+  - source: page 4
+    page_number: 4
+    text: R-Center 변전실
+  - source: page 4
+    page_number: 4
+    text: UT동 1층 변전실
+  - source: page 4
+    page_number: 4
+    text: 공동구
+  - source: page 4
+    page_number: 4
+    text: PULL BOX
+  - source: page 4
+    page_number: 4
+    text: 전력용 맨홀
+  - source: page 4
+    page_number: 4
+    text: EMPTY PIPE (ELP100)
+  - source: page 4
+    page_number: 4
+    text: CONCRETE DUCT BANK
+  - source: page 4
+    page_number: 4
+    text: SPACER
+  - source: page 4
+    page_number: 4
+    text: 지중선표시기(전기공사분)
+  requirements:
+  - text: 옥외 전력간선설비 인입 배치도에 따라 전력 인입 경로가 공동구/덕트뱅크/빈관 경로로 구성됨
+    source: page 4
+    type: routing_condition
+  - text: 우측 상단에 SECTION 1, SECTION 2 단면 상세가 함께 배치됨
+    source: page 4
+    type: drawing_condition
+  - text: 우측 중단의 지하공동구 현황 사진이 함께 배치됨
+    source: page 4
+    type: drawing_condition
+  connection_specs:
+  - relation: power_feed
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+      text: R-Center 변전실 → UT동 1층 변전실
+      medium: CONCRETE DUCT BANK / ELP100
+  - relation: power_feed
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+      text: R-Center 변전실 → UT동 1층 변전실
+      medium: 공동구 내 기존 TRAY
+  - relation: power_feed
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+      text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  - relation: power_feed
+    partner: UT동 1층 변전실
+    details:
+      source: page 4
+      text: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: UT동 1층 변전실
+      direction: from_to
+      source: page 4
+    - relation_type: feeds
+      partner_tag: R-Center 변전실
+      direction: from_to
+      source: page 4
+    observed_attributes:
+    - cable_voltage
+    - cable_configuration
+    - cable_type
+    - cable_size
+    - cable_core_count
+    - cable_run_count
+    - installation_method_1
+    - installation_method_2
+    similar_equipment: []
+    suggested_parent_class: power_cable
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 대상 tag가 UNKNOWN으로, 도면 내 특정 케이블 인스턴스 태그는 확인되지 않음.
+  - page 4에서 확인된 원문 텍스트만 반영함.
+tag: UNKNOWN

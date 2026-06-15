@@ -1,0 +1,523 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: symbol/abbreviation note box for fire protection piping components
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: MF-004
+    title: 소화배관계통도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 도면 우하단 표제란에 drawing number MF-004가 보이며, MF 접두사로 FIRE_PROTECTION 우선 판단
+  - 상단 우측 주기 박스와 하단 중앙의 기호 설명 박스가 있어 범례성 정보가 일부 포함됨
+  - 도면 본문은 소화배관 계통의 수직/수평 배관 연결과 층별 분기 표기로 보임
+  - 설비 태그로 보이는 명시적 코드가 거의 보이지 않아 visible_tags는 비움
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_system_diagram/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.93
+  routing_reason: 도면번호 MF-004와 제목 '소화배관계통도'가 보여 FIRE_PROTECTION 계통도 성격이 명확하며, 카탈로그에
+    fire_protection P-4.5 genre_system_diagram은 없고 P-4.5 genre_mechanical 및 P-10 genre_mechanical만
+    확인되어 해당 경로로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND-01
+    shape: dashed_box
+    primary_label: 주 기
+    position: top-right
+    labels_near:
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+  - panel_id: DIAGRAM-01
+    shape: rectangle
+    primary_label: 소화배관계통도
+    position: center
+    labels_near:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+    - 연결송수구
+  - panel_id: SCHEDULE-01
+    shape: rectangle
+    primary_label: A.B.C 분말 소화기
+    position: bottom-center
+    labels_near:
+    - 옥내소화전함(호스릴형)
+    - 쌍구형 연결송수구
+  connections:
+  - from: DIAGRAM-01
+    to: SCHEDULE-01
+    line_style: dotted
+    annotation: 심볼 매칭
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 하단 제목 옆 상세 번호
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.98
+  note: 우상단 주기 박스 내에 '6. 범례' 섹션이 명시적으로 포함되어 있음
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: system_diagram
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 도면번호 MF-004와 제목 '소화배관계통도'로 FIRE_PROTECTION 확정. 0-0에서 genre를 other로
+    판정했으나, vision으로 층별 수직 배관 연결을 보여주는 계통도임을 확인하여 system_diagram으로 갱신. 카탈로그에서 해당 경로
+    조합을 찾아 추천함.
+classification: FIRE_PROTECTION_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면명: 소화배관계통도'
+- '도면번호: MF-004'
+- '주기 박스: 주 기'
+- '범례 표기: 6. 범례'
+- 신설 배관
+- 기존 배관
+- 지붕층
+- 2층
+- 1층
+- PIT
+- 연결송수구
+- A.B.C 분말소화기
+- 옥내소화전함(호스릴형)
+- 쌍구형 연결송수구
+title_block:
+  drawing_number: MF-004
+  title: 소화배관계통도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline FIRE_PROTECTION, classification FIRE_DETECTION_LAYOUT, drawing_genre
+  system_diagram은 본 페이지 시각 근거(층별 수직/수평 배관 계통, 표제란의 ''소화배관계통도'', 도면번호 MF-004)와 대체로
+  일치하나, 분류명은 계통도 성격을 더 직접적으로 반영하는 FIRE_PROTECTION_DIAGRAM으로 보강함. 표제란의 리비전은 보이지 않아
+  UNKNOWN으로 유지함. 근거: 우하단 표제란 MF-004 / 소화배관계통도, 본문 배관 연결 및 층 표기, 하단 장비/기호 박스.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  diagram_meta:
+    title: 소화배관계통도
+    drawing_number: MF-004
+    discipline: FIRE_PROTECTION
+    discipline_corrected_by: 0-4.5-sonnet
+    discipline_correction_reason: 도면번호 MF-004(MF 접두사) + 제목 '소화배관계통도' 두 단서 근거
+    fire_subsystem: mechanical
+    fire_mech_subsystem: system_diagram
+    drawing_genre: system_diagram
+    has_seismic: false
+    has_equipment_list: true
+    coverage_circles_present: false
+    flow_direction: top-to-bottom
+    riser_count: 5
+    floor_count: 4
+    pump_count: 0
+    scale: A1:1/NONE, A3:1/NONE
+    date: '2024.04'
+    design_firm: (주)정연엔지니어링
+    project_name: R-Center
+    floors_shown:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT
+  panels:
+  - panel_id: NOTES-BOX
+    shape: rectangle
+    labels_inside:
+    - ■ 주 기
+    - 1. 도면의 설계된 제품(시스템 범위)은 반기 표준 또는 동등 이상의 제품으로 사용가능함.
+    - 2. 붉게 도면이 칠한 곳 무에는 현장이라면 맞게 시공하며 관련의 승인을 득할 것.
+    - 3. 기존 장비 및 기구류는 최선의 위치 맞게 주석있게 철거후 재설치 할 것.
+    - 4. 날부치의 오구에 비해 검기(한 반경)가 있을 수 있으며, 그에 따른 물량들과 연관이 있을수도 있으므로 승인을 득하여 시공함.
+    - 5. 배관 위치 철물은 기존 재시공.
+    - 6. 범례
+    - 신설 배관
+    - 기존 배관
+    - '7. 기존배관 자재 : 백강관'
+    - 8. 통과우려가 있는 배관 통과방화벽선 설치후 임통보완 한다.
+    - 9. 기존 소방용품(IT등)는 변경 없음.
+    inferred_name: 주기(Notes) 박스
+    position: top-right
+  - panel_id: RISER-01
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: 게이트밸브
+      count: 1
+    inferred_name: 수직 주배관 계통 1 (H계통)
+    position: center-left
+    pipe_system: H
+    pipe_role: feed_main
+    nominal_diameter_A: '50'
+  - panel_id: RISER-02
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: 게이트밸브
+      count: 1
+    inferred_name: 수직 주배관 계통 2 (H계통)
+    position: center
+    pipe_system: H
+    pipe_role: feed_main
+    nominal_diameter_A: '50'
+  - panel_id: RISER-03
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: 게이트밸브
+      count: 1
+    inferred_name: 수직 주배관 계통 3 (H계통)
+    position: center
+    pipe_system: H
+    pipe_role: feed_main
+    nominal_diameter_A: '50'
+  - panel_id: RISER-04
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: 게이트밸브
+      count: 1
+    inferred_name: 수직 주배관 계통 4 (H계통)
+    position: center
+    pipe_system: H
+    pipe_role: feed_main
+    nominal_diameter_A: '50'
+  - panel_id: RISER-05
+    shape: other
+    labels_inside:
+    - T-50
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 옥내소화전함(호스릴형)
+      count: 1
+    - type: 게이트밸브
+      count: 1
+    inferred_name: 수직 주배관 계통 5 (H계통)
+    position: center
+    pipe_system: H
+    pipe_role: feed_main
+    nominal_diameter_A: '50'
+  - panel_id: RISER-SC
+    shape: other
+    labels_inside:
+    - '100'
+    - 연결송수구
+    - '100'
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 쌍구형 연결송수구
+      count: 1
+    - type: 게이트밸브
+      count: 1
+    - type: 체크밸브
+      count: 1
+    inferred_name: 연결송수구 계통 (SC계통)
+    position: center-right
+    pipe_system: SC
+    pipe_role: feed_main
+    nominal_diameter_A: '100'
+  - panel_id: RISER-SP
+    shape: other
+    labels_inside:
+    - '100'
+    - '50'
+    labels_above:
+    - 지붕층
+    labels_below:
+    - 2층
+    - 1층
+    - PIT
+    equipment_symbols:
+    - type: 게이트밸브
+      count: 2
+    - type: 체크밸브
+      count: 1
+    inferred_name: 스프링클러 계통 (SP계통)
+    position: right
+    pipe_system: SP
+    pipe_role: feed_main
+    nominal_diameter_A: '100'
+  - panel_id: FHC-FLOOR-01
+    shape: rectangle
+    labels_inside:
+    - 기존 공동구 폐내소화전 배관에서 분기
+    - (공동구 내부 기미트_피(케이블 이설)
+    - '100'
+    inferred_name: 1층 기존 공동구 폐내소화전 분기점
+    position: center-right-bottom
+    floor: 1층
+  - panel_id: SCHEDULE-ABC
+    shape: rectangle
+    labels_inside:
+    - A.B.C 분말 소화기
+    - 3단 위
+    - '각면에 추가(A: 소방법 추가설치)'
+    - 및 에 따라 행정소화약제 소화기로 변경가능
+    - x 29EA
+    inferred_name: A.B.C 분말소화기 수량 일람
+    position: bottom-center-left
+  - panel_id: SCHEDULE-FHC
+    shape: rectangle
+    labels_inside:
+    - 옥내소화전함(호스릴형)
+    - 25ex30M트롤 25ø라인12
+    - 전면(ST3) 후면(STEEL)
+    - x 6EA
+    inferred_name: 옥내소화전함(호스릴형) 수량 일람
+    position: bottom-center
+  - panel_id: SCHEDULE-FDC
+    shape: rectangle
+    labels_inside:
+    - 쌍구형 연결송수구
+    - 100ø x 65ø x 65ø
+    - x 1EA
+    inferred_name: 쌍구형 연결송수구 수량 일람
+    position: bottom-center-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - R-Center
+    - 소화배관계통도
+    - MF-004
+    - A1:1/NONE
+    - A3:1/NONE
+    - '2024.04'
+    - 오 다 일
+    - 명 동식
+    - 이 준진
+    - 청 용재
+    inferred_name: 표제란
+    position: right
+  connections:
+  - from: RISER-SC
+    to: RISER-01
+    line_type: pipe
+    line_style: solid
+    annotation: 연결송수구 → H계통 연결 (1층 레벨)
+    pipe_system: SC+H
+  - from: RISER-SC
+    to: FHC-FLOOR-01
+    line_type: pipe
+    line_style: solid
+    annotation: 기존 공동구 폐내소화전 배관에서 분기, 100A
+    nominal_diameter_A: '100'
+  - from: RISER-01
+    to: FHC-FLOOR-01
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 옥내소화전 분기
+    floor: 1층
+    pipe_system: H
+  - from: RISER-02
+    to: FHC-FLOOR-01
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 옥내소화전 분기
+    floor: 1층
+    pipe_system: H
+  - from: RISER-03
+    to: FHC-FLOOR-01
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 옥내소화전 분기
+    floor: 1층
+    pipe_system: H
+  - from: RISER-04
+    to: FHC-FLOOR-01
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 옥내소화전 분기
+    floor: 1층
+    pipe_system: H
+  - from: RISER-05
+    to: FHC-FLOOR-01
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 옥내소화전 분기
+    floor: 1층
+    pipe_system: H
+  - from: RISER-SP
+    to: RISER-SC
+    line_type: pipe
+    line_style: solid
+    annotation: 스프링클러 계통 연결, 100A
+    nominal_diameter_A: '100'
+    pipe_system: SP
+  groups:
+  - group_id: GRP-H-RISERS
+    label: 옥내소화전 수직 주배관 그룹 (H계통)
+    members:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+    pipe_system: H
+    nominal_diameter_A: '50'
+  - group_id: GRP-SC
+    label: 연결송수구 계통 (SC계통)
+    members:
+    - RISER-SC
+    - SCHEDULE-FDC
+    pipe_system: SC
+    nominal_diameter_A: '100'
+  - group_id: GRP-SP
+    label: 스프링클러 계통 (SP계통)
+    members:
+    - RISER-SP
+    pipe_system: SP
+  - group_id: GRP-SCHEDULE
+    label: 장비 수량 일람표
+    members:
+    - SCHEDULE-ABC
+    - SCHEDULE-FHC
+    - SCHEDULE-FDC
+  floor_tap_nodes:
+  - floor: 지붕층
+    risers_tapped:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+    - RISER-SC
+    - RISER-SP
+  - floor: 2층
+    risers_tapped:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+    - RISER-SC
+    - RISER-SP
+    equipment_per_riser:
+    - type: 옥내소화전함(호스릴형)
+      symbol: SYM-012
+  - floor: 1층
+    risers_tapped:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+    - RISER-SC
+    - RISER-SP
+    equipment_per_riser:
+    - type: 옥내소화전함(호스릴형)
+      symbol: SYM-012
+    note: 기존 공동구 폐내소화전 배관에서 분기 (공동구 내부 기미트_피 케이블 이설)
+  - floor: PIT
+    risers_tapped:
+    - RISER-01
+    - RISER-02
+    - RISER-03
+    - RISER-04
+    - RISER-05
+    - RISER-SC
+    - RISER-SP
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: RISER-01
+  - text: H (옥내소화전배관)
+    linked_to: RISER-02
+  - text: H (옥내소화전배관)
+    linked_to: RISER-03
+  - text: H (옥내소화전배관)
+    linked_to: RISER-04
+  - text: H (옥내소화전배관)
+    linked_to: RISER-05
+  - text: SC (연결송수구배관)
+    linked_to: RISER-SC
+  - text: SP (스프링클러배관)
+    linked_to: RISER-SP
+  - text: 옥내소화전함(호스릴형)
+    linked_to: SCHEDULE-FHC
+  - text: 쌍구형연결송수구
+    linked_to: SCHEDULE-FDC
+  - text: A.B.C 분말소화기
+    linked_to: SCHEDULE-ABC
+  - text: 신설 배관 (실선)
+    linked_to: NOTES-BOX
+  - text: 기존 배관 (파선)
+    linked_to: NOTES-BOX
+  equipment_schedule:
+  - item: A.B.C 분말소화기
+    quantity: 29
+    unit: EA
+    spec: '3단 위, 각면에 추가(A: 소방법 추가설치), 및에 따라 행정소화약제 소화기로 변경가능'
+  - item: 옥내소화전함(호스릴형)
+    quantity: 6
+    unit: EA
+    spec: 25ex30M트롤 25ø라인12, 전면(ST3) 후면(STEEL)
+  - item: 쌍구형 연결송수구
+    quantity: 1
+    unit: EA
+    spec: 100ø x 65ø x 65ø
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview

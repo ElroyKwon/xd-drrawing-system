@@ -1,0 +1,157 @@
+placement:
+  tag: 벽부형_스피커_(3W)
+  name: 벽부형 스피커 (3W)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - WallSpeaker
+    - AudioBroadcastingDevice
+    - EmergencyAnnouncementDevice
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: wall_speaker'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 type 값
+      - raw_text: 'function_category: SENSE'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값
+      - raw_text: 'power: 3W'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: powerRating
+          suggested_datatype: xsd:string
+          rationale: 전력 값이 명시됨
+      - raw_text: 'mount_type_sonnet: 벽부형 (Wall Bracket Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 표기
+      - raw_text: 'mount_type_gemini: 벽부형 (Wall Bracket Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 표기
+      - raw_text: 'visual_description: 벽부형 스피커 심볼'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 범례 기반 심볼 설명
+      - raw_text: 'source: 좌측 범례, 전관방송설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: source
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처/근거 설명
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'similar_equipment: []'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 목록 필드 존재
+      - raw_text: 'function_candidates: AudioBroadcasting, EmergencyAnnouncement'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 분야 표기
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: direct_and_preserved
+    confidence:
+      source_pages:
+      - 3
+      method: heuristic
+  unresolved:
+  - field_candidate: ontology_core.iri_hint
+    raw_text: ''
+    source_page: 3
+    reason: 고유 IRI 정보가 entity_detail에 없음
+    preservation_note: 후속 단계에서 태그 기반 IRI 생성 가능
+  - field_candidate: ontology_core.related_assertions
+    raw_text: 'relations: []'
+    source_page: 3
+    reason: 관계 배열이 비어 있음
+    preservation_note: 추후 인근 태그/도면 관계 입력 시 연결
+  - field_candidate: discipline_context.sub_kinds
+    raw_text: supplement가 정의한 sub_kinds 없음
+    source_page: 3
+    reason: 분야 supplement 미제공
+    preservation_note: free_notes에 원문 속성 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 벽부형 스피커는 물리 설비로 보이나, 범례 심볼/주석성 표현이 함께 존재하여 실제 개별 장비와 도면 표기 사이 경계가 다소 혼재됨.
+    recommended_handling: NamedIndividual로 우선 배치하되, 후속 단계에서 범례 심볼인지 실제 설치 장비인지 도면
+      맥락 재검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야에서 CommunicationEquipment 계열로 수렴하는 장비군을 우선 class_hint로 반영
+    - powerRating, mountType, visualDescription, functionCategory 등 관찰 속성을 free_notes로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:59.768325'
+  confidence: 0.86

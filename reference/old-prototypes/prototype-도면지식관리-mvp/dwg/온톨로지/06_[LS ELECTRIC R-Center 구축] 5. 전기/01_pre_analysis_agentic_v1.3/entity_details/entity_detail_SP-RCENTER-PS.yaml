@@ -1,0 +1,56 @@
+entity_detail:
+  tag: SP-RCENTER-PS
+  type: equipment
+  specs: {}
+  drawing_texts:
+  - source: page 4 analysis result / page_004_context.yaml
+    page_number: 4
+    text: R-Center 변전실
+  requirements: []
+  connection_specs:
+  - relation: 전력케이블 인입 연결
+    partner: SP-UT-PS
+    details:
+      source: page 4 analysis result / page_004_context.yaml
+  - relation: 전력간선 연결
+    partner: SP-UT-PS
+    details:
+      source: page 4 analysis result / page_004_context.yaml
+  - relation: 기존 TRAY 경로를 통한 연결
+    partner: SP-COMMON-DUCT-1
+    details:
+      source: page 4 analysis result / page_004_context.yaml
+  - relation: 이설
+    partner: ELP-001
+    details:
+      source: page 4 analysis result / page_004_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_from
+      partner_tag: SP-UT-PS
+      direction: SP-UT-PS -> SP-RCENTER-PS
+      source: page 4 analysis result / page_004_context.yaml
+    - relation_type: connected_from
+      partner_tag: SP-COMMON-DUCT-1
+      direction: SP-COMMON-DUCT-1 -> SP-RCENTER-PS
+      source: page 4 analysis result / page_004_context.yaml
+    - relation_type: moved_to
+      partner_tag: ELP-001
+      direction: ELP-001 -> SP-RCENTER-PS
+      source: page 4 analysis result / page_004_context.yaml
+    observed_attributes:
+    - name
+    - location
+    - discipline
+    - function_category
+    similar_equipment:
+    - SP-UT-PS
+    - SP-A-INV-TEST
+    - SP-A-UG-ELEC
+    suggested_parent_class: RoomOrSpace
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - 도면 분석 결과에서 해당 공간의 별도 사양(spec)은 확인되지 않음.
+tag: SP-RCENTER-PS

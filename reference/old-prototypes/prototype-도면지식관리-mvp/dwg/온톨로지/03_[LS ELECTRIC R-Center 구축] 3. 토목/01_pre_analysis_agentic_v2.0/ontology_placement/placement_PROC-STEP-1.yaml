@@ -1,0 +1,172 @@
+placement:
+  tag: PROC-STEP-1
+  name: 시공순서 1 (침목 설치)
+  discipline: civil
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: ProcedureStep
+    alternative_class_hints:
+    - ConstructionSequence
+    - SleeperInstallation
+    - FoundationWork
+    related_assertions: []
+    applicable_axioms:
+    - AX054
+    applicable_constraints: []
+    confirmed_class: dks:ProcedureStep
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T13:22:29.731739'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: ①, 침목'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 라벨 정보
+      - raw_text: 'equipment_symbols: 시공순서도 1단계 (count: 1)'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasStepSymbol
+          suggested_datatype: xsd:string
+          rationale: 시공순서 단계 표기
+      - raw_text: 'inferred_name: 시공순서 1 (침목 설치)'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 도면 해석 기반 명칭
+      - raw_text: 'position: top-right'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 상 배치 위치
+      - raw_text: 'shape: rectangle'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'source_model: visual_semantics_gemini'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasSourceModel
+          suggested_datatype: xsd:string
+          rationale: 추출 출처 모델 식별
+      - raw_text: 'drawing_genre: detail'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasDrawingGenre
+          suggested_datatype: xsd:string
+          rationale: 도면 장르 분류 정보
+      - raw_text: 'sub_genre: drainage_pipe_detail'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasSubGenre
+          suggested_datatype: xsd:string
+          rationale: 세부 도면 하위 장르 정보
+      - raw_text: 'function_category: CONSTRUCTION_PROCEDURE'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 정보
+      - raw_text: 'type: PROCEDURE_STEP'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasEntityType
+          suggested_datatype: xsd:string
+          rationale: 원문 타입 표기
+      - raw_text: 'labels_inside: ①, 침목'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasInternalLabel
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기
+      - raw_text: 'collection_sources: visual_semantics_gemini=true, entity_synthesis=true'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: hasCollectionSource
+          suggested_datatype: xsd:string
+          rationale: 수집/합성 출처 정보
+  provenance:
+    tag:
+      source_pages:
+      - 11
+    name:
+      source_pages:
+      - 11
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 11
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: annotation/procedure-step 판단
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 11
+    unresolved:
+      source_pages:
+      - 11
+    ambiguous:
+      source_pages:
+      - 11
+    merge_info:
+      source_pages:
+      - 11
+    plan_reference.guidance_applied:
+      source_pages:
+      - 11
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 11
+    reason: 관계 항목이 비어 있음
+    preservation_note: 추후 관계 추가 가능
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 11
+    reason: 유사 장비/태그 없음
+    preservation_note: merge 판단 근거 부족
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ProcedureStep
+    source_page: 11
+    reason: 후보 클래스이며 확정 아님
+    preservation_note: 0-9c에서 taxonomy 확정 필요
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PROC-STEP-* 태그는 시공 절차의 단계 정보로 보이며, 물리적 객체인지 도면 주석인지 경계가 모호함. 본 건은 시공순서도
+      1단계 표기와 내부 라벨만 관찰되어 AnnotationOnly로 보존함.
+    recommended_handling: 0.9c에서 ConstructionProcedure 하위 정보성 엔티티로 검토하고, 물리 실체와 분리
+      유지
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:42:20.205166'
+  confidence: 0.95

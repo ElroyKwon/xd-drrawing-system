@@ -1,0 +1,112 @@
+page_21_entities:
+- tag: CP.1
+  name: 도근점 CP.1
+  type: BENCHMARK_POINT
+  discipline: CIVIL
+  confidence: 0.98
+- tag: CP.3
+  name: 도근점 CP.3
+  type: BENCHMARK_POINT
+  discipline: CIVIL
+  confidence: 0.98
+- tag: UNKNOWN-EXCAVATION-PLAN-01
+  name: 굴착계획평면도 — 주 굴착 구역
+  type: EXCAVATION_PLAN
+  discipline: CIVIL
+  confidence: 0.98
+- tag: UNKNOWN-EXCAVATION-CELL-01
+  name: 굴착 셀
+  type: EXCAVATION_CELL
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-SLOPE-HATCH-01
+  name: 사면 경사 해치
+  type: SLOPE_HATCH
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-STAIR-01
+  name: 계단 심볼
+  type: STAIR_SYMBOL
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-GRID-H-01
+  name: 수평 그리드
+  type: GRID
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-GRID-V-01
+  name: 수직 그리드
+  type: GRID
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-NORTH-ARROW-01
+  name: 북쪽 화살표
+  type: NORTH_ARROW
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-ANNEX-LEFT-01
+  name: 부속 구조물 구역 (좌하단)
+  type: ANNEX_STRUCTURE_AREA
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-ANNEX-CENTER-01
+  name: 부속 구조물 구역 (하단 중앙)
+  type: ANNEX_STRUCTURE_AREA
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-ANNEX-RIGHT-01
+  name: 부속 구조물 구역 (우하단) — 저심도 굴착 구역
+  type: ANNEX_STRUCTURE_AREA
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-OUTER-BLOCK-LEFT-01
+  name: 외부 인접 구조물 또는 대지 경계 블록 (좌측)
+  type: OUTER_BLOCK
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-FINAL-EXC-ZONE-01
+  name: 최종 굴착 구역 1
+  type: FINAL_EXCAVATION_ZONE
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-FINAL-EXC-ZONE-02
+  name: 최종 굴착 구역 2
+  type: FINAL_EXCAVATION_ZONE
+  discipline: CIVIL
+  confidence: 0.95
+- tag: UNKNOWN-FINAL-EXC-ZONE-03
+  name: 최종 굴착 구역 3
+  type: FINAL_EXCAVATION_ZONE
+  discipline: CIVIL
+  confidence: 0.95
+page_21_relations:
+- from: UNKNOWN-GRID-H-01
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: defines_grid_for
+- from: UNKNOWN-GRID-V-01
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: defines_grid_for
+- from: UNKNOWN-NORTH-ARROW-01
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: orients
+- from: CP.1
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: benchmarks
+- from: CP.3
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: benchmarks
+- from: UNKNOWN-FINAL-EXC-ZONE-01
+  to: UNKNOWN-EXCAVATION-CELL-01
+  relation: contains
+- from: UNKNOWN-FINAL-EXC-ZONE-02
+  to: UNKNOWN-EXCAVATION-CELL-01
+  relation: contains
+- from: UNKNOWN-FINAL-EXC-ZONE-03
+  to: UNKNOWN-EXCAVATION-CELL-01
+  relation: contains
+- from: UNKNOWN-SLOPE-HATCH-01
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: marks_boundary_slope
+- from: UNKNOWN-STAIR-01
+  to: UNKNOWN-EXCAVATION-PLAN-01
+  relation: marks_boundary_access

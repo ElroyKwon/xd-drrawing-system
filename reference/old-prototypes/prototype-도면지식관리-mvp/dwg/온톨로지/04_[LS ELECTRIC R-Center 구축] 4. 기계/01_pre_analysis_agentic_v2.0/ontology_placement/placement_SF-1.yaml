@@ -1,0 +1,299 @@
+placement:
+  tag: SF-1
+  name: SUPPLY FAN
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:SF-1
+    class_hint: Fan
+    alternative_class_hints:
+    - SupplyFan
+    - HVACEquipment
+    - VentilationEquipment
+    related_assertions:
+    - type: related_to_space
+      target_hint: 1F 시험실구역
+      note: specs.용도에 기재된 사용 구역
+      confirmed_property: dks:related_to_space
+      confirmed_target: 1F 시험실구역
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T08:41:55.765988'
+    - type: installed_in
+      target_hint: 1F 검증시스템실
+      note: specs.설치위치에 기재된 설치 위치
+      confirmed_property: dks:installed_in
+      confirmed_target: 1F 검증시스템실
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T08:41:55.765988'
+    - type: has_form
+      target_hint: DUCT IN LINE
+      note: specs.형식 및 category_path에 반복 표기
+    applicable_axioms:
+    - AX005
+    - AX001
+    - AX027
+    applicable_constraints:
+    - CN002
+    - CN004
+    - CN010
+    - CN024
+    - CN025
+    - CN026
+    - CN027
+    - CN029
+    - CN034
+    - CN035
+    - CN039
+    confirmed_class: dks:Fan
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: '형식: DUCT IN LINE'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFormType
+          suggested_datatype: xsd:string
+          rationale: 장비 형식 표기
+      - raw_text: '용도: 1F 시험실구역'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasUsageArea
+          suggested_datatype: xsd:string
+          rationale: 사용 구역/용도 표기
+      - raw_text: '설치위치: 1F 검증시스템실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: installedIn
+          suggested_datatype: xsd:string
+          rationale: 설치 위치 표기
+      - raw_text: '풍량_CMH: 22940'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasAirflow_CMH
+          suggested_datatype: xsd:decimal
+          rationale: 풍량 수치
+      - raw_text: '정압_Pa: 270'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasStaticPressure_Pa
+          suggested_datatype: xsd:decimal
+          rationale: 정압 수치
+      - raw_text: '모터_kW: 5.5'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMotorPower_kW
+          suggested_datatype: xsd:decimal
+          rationale: 모터 출력 수치
+      - raw_text: '전원_Φ_V_Hz: 3/380/60'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasPowerSpec
+          suggested_datatype: xsd:string
+          rationale: 상/전압/주파수 복합 전원 표기
+      - raw_text: '크기_mm: φ900'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasSize_mm
+          suggested_datatype: xsd:string
+          rationale: 직경/크기 표기
+      - raw_text: '비상전원: null'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEmergencyPower
+          suggested_datatype: xsd:string
+          rationale: 비상전원 항목이 존재하나 값이 비어 있음
+      - raw_text: '비고: MOTOR 직결형, 내부 흡음재 부착, 기타 표준 부속품 일체구비'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRemark
+          suggested_datatype: xsd:string
+          rationale: 비고/설명 문구
+      - raw_text: 'raw_row: SF-1 | DUCT IN LINE | 1F 시험실구역 | 1F 검증시스템실 | 1 | 22,940
+          | 270 | 5.5 | 3/380/60 | φ900 | - | MOTOR 직결형, 내부 흡음재 부착, 기타 표준 부속품 일체구비'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawRow
+          suggested_datatype: xsd:string
+          rationale: 원문 행 전체 보존 필요
+      - raw_text: 'column_headers: 기호, 형식, 용도, 설치위치, 수량(EA), 풍량(CMH), 정압(Pa), 모터(kW),
+          전원(Φ/V/Hz), 크기(mm), 비상전원, 비고'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasColumnHeaders
+          suggested_datatype: xsd:string
+          rationale: 표 컬럼 헤더 원문 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail
+    name:
+      source_pages:
+      - 5
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.similar_equipment + plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: specs
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: specs/raw_row/column_headers
+    specs.model:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.quantity:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.category_path:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.형식:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.용도:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.설치위치:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.풍량_CMH:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.정압_Pa:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.모터_kW:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.전원_Φ_V_Hz:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.크기_mm:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.비상전원:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.raw_row:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.전원:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.비고:
+      source_pages:
+      - 5
+      method: entity_detail
+    specs.column_headers:
+      source_pages:
+      - 5
+      method: entity_detail
+    relations:
+      source_pages:
+      - 5
+      method: entity_detail
+    collection_sources.cross_validated:
+      source_pages:
+      - 5
+      method: entity_detail
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: entity_detail
+    position:
+      source_pages:
+      - 5
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 5
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.model
+    raw_text: 'null'
+    source_page: 5
+    reason: 값이 비어 있음
+    preservation_note: 원문 null 상태 보존
+  - field_candidate: specs.비상전원
+    raw_text: 'null'
+    source_page: 5
+    reason: 값이 비어 있음
+    preservation_note: 원문 null 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    - 카탈로그 스펙(raw_row 등)이 누락되지 않도록 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:36:50.943804'
+  confidence: 0.95

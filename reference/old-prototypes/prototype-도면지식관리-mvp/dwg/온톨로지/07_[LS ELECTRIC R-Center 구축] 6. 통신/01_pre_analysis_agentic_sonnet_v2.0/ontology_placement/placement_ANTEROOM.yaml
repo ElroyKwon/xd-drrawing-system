@@ -1,0 +1,162 @@
+placement:
+  tag: ANTEROOM
+  name: 전실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:ANTEROOM
+    class_hint: Space
+    alternative_class_hints:
+    - SpatialEntity
+    - TransitionSpace
+    - BufferArea
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 전실
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 공간 명칭 라벨로 관찰됨
+      - raw_text: 전실
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: visual semantics 기반 추론명으로 관찰됨
+      - raw_text: center
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: rectangle
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: ANTEROOM
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 패널/도면 내 식별자 문자열
+      - raw_text: Buffer area
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 function_candidates에 제시된 기능 후보
+      - raw_text: Transition space
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 function_candidates에 제시된 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 10
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 10
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 10
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      method: tag-based
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 10
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes[0]:
+      source_pages:
+      - 10
+      method: specs.raw_labels
+    discipline_context.free_notes[1]:
+      source_pages:
+      - 10
+      method: specs.inferred_name
+    discipline_context.free_notes[2]:
+      source_pages:
+      - 10
+      method: specs.position
+    discipline_context.free_notes[3]:
+      source_pages:
+      - 10
+      method: specs.shape
+    discipline_context.free_notes[4]:
+      source_pages:
+      - 10
+      method: specs.panel_id
+    discipline_context.free_notes[5]:
+      source_pages:
+      - 10
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes[6]:
+      source_pages:
+      - 10
+      method: ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 10
+    reason: 관계 항목이 비어 있음
+    preservation_note: 추후 인근 태그와의 공간-설비 관계가 발견되면 연결 가능
+  - field_candidate: collection_sources
+    raw_text: 'visual_semantics_gemini: true, entity_synthesis: true'
+    source_page: 10
+    reason: 출처 플래그는 있으나 개별 값으로 승격할 대상 아님
+    preservation_note: 생성/합성 출처 메타데이터로 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 10
+    reason: 유사 설비 없음
+    preservation_note: 빈 배열 상태 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Buffer area; Transition space
+    source_page: 10
+    reason: 후보 기능은 있으나 확정 분류 아님
+    preservation_note: free_notes로 보존하고 class_hint는 Space로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 전실은 공간(space)으로 보이지만 communication 분야에서 설비 설치 공간인지 단순 구역인지 도면만으로 확정 불가
+    recommended_handling: 0-9c에서 SpatialEntity 계열로 검증하고, 인접 공간/설비와의 관계가 확인되면 servesZone
+      또는 hasInstalledEquipment 후보로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 우선 축에 따라 공간 엔티티로 배치
+    - function_candidates를 free_notes로 보존
+    - source_pages 기반 provenance 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:41:57.253223'
+  confidence: 0.86

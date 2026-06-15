@@ -1,0 +1,417 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: FIRE_DETECTION_LAYOUT
+  drawing_genre: site_plan
+  title_block:
+    drawing_number: MF-003
+    title: 옥외 소화 배관 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 도면 하단 제목에 'MF 옥외 소화 배관 평면도'가 보이며, 우측 표제란 도면번호는 'MF-003'로 확인됨.
+  - 배관 경로가 굵은 실선/점선으로 표시되어 있고, 건물 외곽을 따라 연결됨.
+  - 표제란 외에 범례/약어 목록은 확인되지 않음.
+  confidence: 0.93
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_site_plan/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_mechanical/supplement_p10.yaml
+  routing_confidence: 0.88
+  routing_reason: 도면번호 접두사 MF와 제목 '옥외 소화 배관 평면도' 및 배관 경로 시각 요소로 보아 FIRE_PROTECTION의
+    배관/기계 관련 평면도이며, 카탈로그에 fire_protection P-4.5/P-10의 genre_mechanical 보조프롬프트가 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BUILDING_A
+    shape: rectangle
+    primary_label: A동
+    position: bottom-right
+    labels_near:
+    - A동
+  - panel_id: BUILDING_B
+    shape: rectangle
+    primary_label: B동
+    position: center-left
+    labels_near:
+    - B동
+  - panel_id: BUILDING_UT
+    shape: rectangle
+    primary_label: U.T.동
+    position: center-right
+    labels_near:
+    - U.T.동
+  - panel_id: BUILDING_OFFICE
+    shape: rectangle
+    primary_label: 사무동
+    position: bottom-left
+    labels_near:
+    - 사무동
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 표제란
+    position: bottom-right
+    labels_near:
+    - MF-003
+    - 옥외 소화 배관 평면도
+  connections:
+  - from: BUILDING_B
+    to: BUILDING_UT
+    line_style: dashed
+    annotation: H 100
+  - from: BUILDING_UT
+    to: BUILDING_A
+    line_style: dashed
+    annotation: H 100
+  notable_shapes:
+  - shape: dashed_box
+    label: 연결송수구(쌍구형)
+    note: B동 상단에 위치한 소방 설비 심볼 및 상세 설명
+  - shape: circle
+    label: 방위 표시
+    note: 도면 우측 상단에 위치한 N 방향 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 도면 전체가 옥외 평면도로 구성되어 있으며, 범례 표나 섹션은 확인되지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: site_plan
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.92
+  routing_reason: 도면 제목 '옥외 소화 배관 평면도'와 시각적 요소(건물 배치, 옥외 배관 경로)를 종합할 때, 단순 floor_plan이
+    아닌 site_plan으로 분류하는 것이 타당함. discipline은 소화 키워드로 FIRE_PROTECTION 유지.
+classification: SITE_PLAN
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: 옥외 소화 배관 평면도'
+- '도면번호: MF-003'
+- '축척: A1 1/500, A3 1/1000'
+- '표제란 회사명: LS Electric'
+- '프로젝트명: R-Center 구축'
+- '건물 표기: A동, B동, U.T.동, 사무동'
+- '배관 표기: H 100'
+- '연결송수구 표기: 연결송수구(쌍구형)'
+- '연결송수구 관련 치수 표기: 900 x 650 x 650'
+- 방위표시 N
+title_block:
+  drawing_number: MF-003
+  title: 옥외 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline FIRE_PROTECTION, classification SITE_PLAN, drawing_genre site_plan,
+  도면번호 MF-003, 제목 옥외 소화 배관 평면도는 이미지 표제란과 하단 제목 표기와 일치함. 페이지 4에는 범례 표가 보이지 않으며, 범례는
+  별도 페이지(3)로 확인됨.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: B동 건물
+    position: center-left
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: U.T.동 건물
+    position: center-right
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: A동 건물
+    position: bottom-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: 사무동 건물
+    position: bottom-left
+  - panel_id: FDC-001
+    shape: dashed_box
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø × 65ø × 65ø
+    - (압력표시 감실부착)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구 심볼
+      count: 1
+    inferred_name: 쌍구형 연결송수구 (FDC)
+    position: top-center
+  - panel_id: PIPE-OUTDOOR-MAIN
+    shape: other
+    labels_inside: []
+    labels_above:
+    - H·100
+    labels_below: []
+    equipment_symbols:
+    - type: 옥외 소화배관 (H계통)
+      count: 1
+    inferred_name: 옥외 옥내소화전 주배관 (H100A)
+    position: center
+  connections:
+  - from: FDC-001
+    to: PIPE-OUTDOOR-MAIN
+    line_type: pipe
+    line_style: solid
+    annotation: SC계통 연결송수구 배관 100ø×65ø×65ø
+  - from: BLDG-B
+    to: BLDG-UT
+    line_type: pipe
+    line_style: dashed
+    annotation: H·100
+  - from: BLDG-UT
+    to: BLDG-A
+    line_type: pipe
+    line_style: dashed
+    annotation: H·100
+  - from: PIPE-OUTDOOR-MAIN
+    to: BLDG-B
+    line_type: pipe
+    line_style: solid
+    annotation: H계통 옥외 배관
+  groups:
+  - group_id: GRP-OUTDOOR-H
+    label: 옥외 옥내소화전 배관 계통 (H)
+    members:
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-A
+    - PIPE-OUTDOOR-MAIN
+  - group_id: GRP-SC
+    label: 연결송수구 배관 계통 (SC)
+    members:
+    - FDC-001
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-OUTDOOR-MAIN
+  - text: SC (연결송수구배관)
+    linked_to: FDC-001
+  - text: 쌍구형연결송수구
+    linked_to: FDC-001
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    design_firm: (주)정연엔지니어링
+    design_consultant: 가운건축 (GAUN Architects & Engineers)
+    scale: A1:1/500, A3:1/1000
+    date: '2024.04'
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      line_style: dashed
+      note: 옥외 구간은 점선으로 표기, B동~U.T.동~A동 연결
+    - abbreviation: SC
+      system_type: 연결송수구배관
+      nominal_diameter_A: 100
+      branch_diameters_A:
+      - 65
+      - 65
+      pipe_role: feed_main
+      note: 연결송수구(쌍구형) 100ø×65ø×65ø, 압력표시 감실부착
+    fdc_count: 1
+    buildings_on_site:
+    - B동
+    - U.T.동
+    - A동
+    - 사무동
+    north_arrow_present: true
+    notes:
+    - 연결송수구(쌍구형) 100ø × 65ø × 65ø (압력표시 감실부착)
+    - 옥외 배관은 H계통(옥내소화전배관) 100A로 건물 간 연결
+    - 장애인전용 주차구역 표기 확인됨 (도면 하단)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FDC-01
+    shape: dashed_box
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø x 65ø x 65ø
+    - (압력표시 감실부착)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구 심볼
+      count: 1
+    inferred_name: 쌍구형 연결송수구
+    position: top-center
+  - panel_id: BLDG-B
+    shape: rectangle
+    labels_inside:
+    - B동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: B동
+    position: center-left
+  - panel_id: BLDG-UT
+    shape: rectangle
+    labels_inside:
+    - U.T.동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: U.T.동
+    position: center-right
+  - panel_id: BLDG-A
+    shape: rectangle
+    labels_inside:
+    - A동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: A동
+    position: bottom-right
+  - panel_id: BLDG-OFFICE
+    shape: rectangle
+    labels_inside:
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 건물 외곽선
+      count: 1
+    inferred_name: 사무동
+    position: bottom-left
+  - panel_id: PIPE-MAIN-H
+    shape: other
+    labels_inside: []
+    labels_above:
+    - H-100
+    labels_below:
+    - 공동구
+    equipment_symbols:
+    - type: 배관 경로
+      count: 1
+    inferred_name: 옥외 소화 주배관 (H계통)
+    position: center
+  connections:
+  - from: FDC-01
+    to: PIPE-MAIN-H
+    line_type: pipe
+    line_style: solid
+    annotation: 연결송수구 배관
+  - from: PIPE-MAIN-H
+    to: BLDG-B
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100 배관 경로
+  - from: PIPE-MAIN-H
+    to: BLDG-UT
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100 배관 경로 (공동구 구간)
+  - from: PIPE-MAIN-H
+    to: BLDG-A
+    line_type: pipe
+    line_style: dashed
+    annotation: H-100 배관 경로
+  groups:
+  - group_id: GRP-SITE-WATER
+    label: 옥외 소화수 공급 계통
+    members:
+    - FDC-01
+    - PIPE-MAIN-H
+    - BLDG-B
+    - BLDG-UT
+    - BLDG-A
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-MAIN-H
+  - text: SC (연결송수구배관)
+    linked_to: FDC-01
+  - text: 쌍구형연결송수구
+    linked_to: FDC-01
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    design_firm: (주)정연엔지니어링
+    scale: A1:1/500, A3:1/1000
+    date: 2024.04
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_sprinkler: false
+    has_hydrant_indoor: false
+    has_hydrant_outdoor: true
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    pipe_systems:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      line_style: dashed
+      note: 옥외 매설 주배관
+    - abbreviation: SC
+      system_type: 연결송수구배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      note: 연결송수구 인입 배관
+    fdc_count: 1
+    buildings_on_site:
+    - B동
+    - U.T.동
+    - A동
+    - 사무동
+    north_arrow_present: true
+    notes:
+    - '연결송수구 사양: 100ø x 65ø x 65ø (압력표시 감실부착)'
+    - B동과 U.T.동 사이 '공동구' 구간 배관 통과

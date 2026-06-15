@@ -1,0 +1,99 @@
+entity_detail:
+  tag: EQ-E08
+  type: equipment
+  name: 접지설비
+  specs:
+    drawing_number:
+      value: EE-05-001 ~ EE-05-006
+      unit: null
+      source:
+      - 2
+      confidence: 0.98
+  drawing_texts:
+  - source: page_002_context.yaml
+    page_number: 2
+    text: "EQ-E08\n    name: 접지설비\n    spec: EE-05-001 ~ EE-05-006\n    discipline:\
+      \ ELECTRICAL\n    function_category: PROTECT\n    location: ZONE-EE-05\n   \
+      \ confidence: 0.98"
+  - source: page_002_context.yaml
+    page_number: 2
+    text: 일반사항 / 수변전 설비 / 전력간선 및 동력설비 / 전등설비 / 전열설비 / 접지설비 / 내진설비
+  - source: page_002_context.yaml
+    page_number: 2
+    text: 도면 목록에 EE-00-001 ~ EE-06-001 항목이 표기됨
+  - source: page_002_context.yaml
+    page_number: 2
+    text: 접지설비
+  - source: page_039_context.yaml
+    page_number: 39
+    text: "Test Rod\n    spec: Ø 14 x 1,000 mm"
+  - source: page_040_context.yaml
+    page_number: 40
+    text: 지지금구
+  - source: page_041_context.yaml
+    page_number: 41
+    text: 내진 브래킷 상세도
+  requirements:
+  - text: 접지설비
+    source: page 2
+    type: system_category
+  - text: EE-05-001 ~ EE-05-006
+    source: page 2
+    type: drawing_range
+  - text: Ø 14 x 1,000 mm
+    source: page 39
+    type: dimension
+  - text: 내진 브래킷 상세도
+    source: page 41
+    type: detail_reference
+  connection_specs:
+  - relation: related_detail
+    partner: EE-05-001 ~ EE-05-006
+    details:
+      source: page 2
+  - relation: related_component
+    partner: Test Rod
+    details:
+      source: page 39
+  - relation: related_component
+    partner: 지지금구
+    details:
+      source: page 40
+  - relation: related_component
+    partner: 내진 브래킷
+    details:
+      source: page 41
+  ontology_hints:
+    observed_relations:
+    - relation_type: related_drawing
+      partner_tag: EE-05-001 ~ EE-05-006
+      direction: UNKNOWN
+      source: page 2
+    - relation_type: related_component
+      partner_tag: EQ-E08
+      direction: UNKNOWN
+      source: page 39
+    - relation_type: related_component
+      partner_tag: EQ-E08
+      direction: UNKNOWN
+      source: page 40
+    - relation_type: related_component
+      partner_tag: EQ-E08
+      direction: UNKNOWN
+      source: page 41
+    observed_attributes:
+    - drawing_number
+    - 접지설비
+    - Ø 14 x 1,000 mm
+    - 내진 브래킷 상세도
+    similar_equipment:
+    - EQ-E08
+    suggested_parent_class: ElectricalGroundingEquipment
+    cross_discipline:
+    - ELECTRICAL
+    - STRUCTURAL
+  notes:
+  - 제공된 분석 결과에서 EQ-E08은 페이지 2의 접지설비 항목으로 확인됨.
+  - 페이지 39~41의 텍스트는 동일 태그 EQ-E08로 재사용된 다른 상세 요소 표기이므로, 본 대상과 직접 동일 설비로 단정하지 않고 관련
+    참고로만 기록함.
+tag: EQ-E08

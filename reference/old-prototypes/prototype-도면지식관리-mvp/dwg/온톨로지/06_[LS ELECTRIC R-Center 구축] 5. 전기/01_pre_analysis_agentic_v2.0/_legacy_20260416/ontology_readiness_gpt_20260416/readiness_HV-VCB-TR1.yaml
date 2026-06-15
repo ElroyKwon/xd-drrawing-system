@@ -1,0 +1,215 @@
+ontology_readiness:
+  tag: HV-VCB-TR1
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 13
+    reason: 고유 tag가 있고, 자체 사양(specs)과 관계(relations)가 충분히 존재하는 독립 설비로 판단됨. SWITCHGEAR_PANEL이며
+      VCB/CT/보호계전기/정격 정보가 명시됨.
+  relation_completeness:
+    declared_relations: 3
+    discovered_relations: 3
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 13
+    convertible: 10
+    ambiguous_attributes:
+    - key: voltage_kV
+      value: 6.6
+      reason: 동일 엔티티 내 voltage_kV_sonnet=3.3과 값 충돌 존재. 원문 보존 필요.
+    - key: voltage_kV_sonnet
+      value: 3.3
+      reason: 본 필드가 이중 출처 값이며 voltage_kV=6.6과 충돌. provenance로 보존.
+    - key: raw_labels
+      value:
+      - VCB 3P
+      - 3.6kV 600A
+      - 250MVA
+      - 2×CT 300/5A
+      - GIPAM
+      - 50/51
+      - 50/51G
+      - '64'
+      - KW PD
+      - INTER-LOCK
+      reason: 라벨 묶음은 개별 속성으로 분해 가능하나 원문 전체도 보존 필요.
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      - V
+      - KW
+      - PF
+      reason: 계측/표시 항목으로 해석 가능하나 출처별 보조 정보이므로 provenance로 보존.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - protection_functions
+    - panel_id
+    - voltage_kV
+    - voltage_kV_sonnet
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - protection_relay_model
+    - protection_relay_indicators_gemini
+    - has_interlock
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: voltage_kV_sonnet
+      value: 3.3
+      source: sonnet
+      conflict_with: voltage_kV=6.6
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      - V
+      - KW
+      - PF
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    conflicts:
+    - key: voltage_kV
+      values:
+      - 6.6
+      - 3.3
+      sources:
+      - specs.voltage_kV
+      - specs.voltage_kV_sonnet
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from: HV-VCB-TR1
+      to: TR-001
+      relation: feeds
+    - from: HV-VCB-TR1
+      to: 1301A
+      relation: connects_to
+    hints_added:
+    - ELECTRICAL to ELECTRICAL/other-discipline boundary not explicitly confirmed
+      beyond connection targets; preserve as cross-discipline candidate only if target
+      tags are later resolved.
+    - TR-001 및 1301A와의 연결은 도면상 연결 관계로 보존.
+  ontology_class_hint:
+    suggested_parent_class: SwitchgearPanel
+    alternative_parent_classes:
+    - CircuitBreakerPanel
+    - ProtectionPanel
+    - TransformerSecondaryPanel
+  spatial_context:
+    position: middle-center
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - VCB 3P
+      - 3.6kV 600A
+      - 250MVA
+      - 2×CT 300/5A
+      - GIPAM
+      - 50/51
+      - 50/51G
+      - '64'
+      - KW PD
+      - INTER-LOCK
+      bus_section: HV
+      vcb_rating: 3P 3.6kV 600A 250MVA
+      ct_ratio: 300/5A
+      protection_functions:
+      - 50/51
+      - 50/51G
+      - '64'
+      panel_id: '1309'
+      voltage_kV: 6.6
+      voltage_kV_sonnet: 3.3
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      - V
+      - KW
+      - PF
+      has_interlock: true
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SwitchgearPanel
+    annotations_to_emit:
+    - voltage_kV_sonnet=3.3
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=true
+    - protection_relay_indicators_gemini=[A,V,KW,PF]
+    - 'conflict: voltage_kV=6.6 vs voltage_kV_sonnet=3.3'
+    - raw_labels=[VCB 3P, 3.6kV 600A, 250MVA, 2×CT 300/5A, GIPAM, 50/51, 50/51G, 64,
+      KW PD, INTER-LOCK]
+    relations_to_emit:
+    - feeds(TR-001 -> HV-VCB-TR1)
+    - controls(HV-VCB-TR1 -> HV-VCB-TR2)
+    - connects_to(HV-VCB-TR1 -> 1301A)
+    needs_human_review: false
+tag: HV-VCB-TR1
+discovered_relations: 3

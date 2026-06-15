@@ -1,0 +1,78 @@
+entity_detail:
+  tag: GEN-비상-UT동
+  type: emergency_feeder
+  specs:
+    drawing_number:
+      value: EE-01-001
+      source: 5
+      confidence: 0.96
+    title:
+      value: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+      source: 5
+      confidence: 0.96
+    classification:
+      value: SINGLE_LINE_DIAGRAM
+      source: 5
+      confidence: 0.96
+    discipline:
+      value: ELECTRICAL
+      source: 5
+      confidence: 0.96
+  drawing_texts:
+  - source: page_5 executive_summary
+    page_number: 5
+    text: '22.9kV 수전설비 단선결선도로, 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI),
+      계량(MOF) 및 개폐기(VCB, G/S)를 거쳐 하단 다수 피더로 분기되는 구조가 보인다.
+
+
+      주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.
+
+
+      도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.'
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도
+    source: 5
+    type: system_condition
+  - text: 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI), 계량(MOF) 및 개폐기(VCB,
+      G/S)를 거쳐 하단 다수 피더로 분기
+    source: 5
+    type: operational_condition
+  - text: 도면 내 전압 표기는 22.9kV, 6.6kV, 440V
+    source: 5
+    type: electrical_condition
+  connection_specs:
+  - relation: feeds
+    partner: 3303B/HV
+    details:
+      source: 5
+  - relation: feeds
+    partner: U/T 동 주변전실-1 하단 피더들
+    details:
+      source: 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 3303B/HV
+      direction: source_to_target
+      source: 5
+    - relation_type: feeds
+      partner_tag: 하단 다수 피더
+      direction: source_to_target
+      source: 5
+    observed_attributes:
+    - drawing_number
+    - title
+    - classification
+    - discipline
+    - voltage
+    - generator_capacity
+    - emergency_output
+    - continuous_output
+    similar_equipment: []
+    suggested_parent_class: electrical_feeder
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과에서 tag GEN-비상-UT동은 U/T 비상 피더로 확인됨.
+tag: GEN-비상-UT동

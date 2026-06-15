@@ -1,0 +1,42 @@
+entity_detail:
+  tag: CT
+  type: equipment
+  specs:
+    voltage:
+      value: 22.9kV
+      unit: kV
+      source: 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: '주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.'
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도 내 CT가 포함된다.
+    source: page_005_context.yaml
+    type: diagram_presence
+  connection_specs:
+  - relation: included_in_single_line_diagram
+    partner: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+    details:
+      source: page_005_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: appears_in
+      partner_tag: EE-01-001
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    observed_attributes:
+    - voltage
+    similar_equipment:
+    - PT
+    - MOF
+    - LA
+    - SA
+    suggested_parent_class: ElectricalInstrument
+    cross_discipline: []
+  notes:
+  - 제공된 도면 분석 결과에서 CT의 개별 사양은 확인되지 않음.
+  - CT는 page 5의 단선결선도 본문에 설비 목록으로만 확인됨.
+tag: CT

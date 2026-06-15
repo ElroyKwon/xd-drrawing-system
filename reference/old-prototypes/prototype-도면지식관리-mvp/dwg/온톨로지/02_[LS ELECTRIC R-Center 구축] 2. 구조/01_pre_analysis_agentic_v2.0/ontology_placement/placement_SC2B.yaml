@@ -1,0 +1,112 @@
+placement:
+  tag: SC2B
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:SC2B
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 메타 정보이며, 도면 주석/안내 문구로 보존 필요
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로, 엔티티의 설명/주석 성격 정보
+      - raw_text: "raw: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35,\
+          \ 61, 62, 63, 64, 65\n\n  원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'"
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체를 손실 없이 보존하기 위한 원시 텍스트
+      references: []
+      document_metadata: []
+      unresolved_structural_entities: []
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: direct
+    discipline:
+      source_pages:
+      - 0
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: direct_and_preserved
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: direct_assessment
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비 실체나 관계로 직접 해석되지 않는 안내/메타 문구
+    preservation_note: AnnotationOnly로 보존하되, 페이지 목록과 안내 문구는 free_notes에 원문 유지
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 name 필드가 제공되지 않음
+    preservation_note: 빈 값 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 SC2B는 실물 설비보다 페이지 안내/메타 문구에 해당하며, NoteOrLegend와 DocumentEntity 사이 해석이
+      가능함
+    recommended_handling: 후속 단계에서 문서 주석/안내 엔티티로 유지하고, 페이지 메타 속성 승격 여부를 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline로 보수적으로 유지
+    - 문서 메타/주석 성격의 raw 텍스트를 free_notes로 보존
+    - supplement 부재 시 free_notes에 promotion_hint 포함
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:00.050775'
+  confidence: 0.86

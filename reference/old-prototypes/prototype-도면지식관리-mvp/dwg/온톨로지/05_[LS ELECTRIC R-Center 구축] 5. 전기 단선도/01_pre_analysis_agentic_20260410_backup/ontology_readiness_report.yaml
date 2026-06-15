@@ -1,0 +1,384 @@
+ontology_readiness_report:
+  group: 01_pre_analysis_agentic
+  generated: '2026-04-10T22:04:41.753194'
+  summary:
+    total_entities: 84
+    qualified: 27
+    demoted: 57
+    flagged: 0
+    no_result: 0
+    correction_stats:
+      total_disagreements: 1
+      corrected_by_mid: 1
+  relation_completeness:
+    total_declared: 70
+    total_discovered: 41
+    avg_completeness: 1.0
+  duplicate_pairs: []
+  cross_discipline_links: []
+  qualified_entities:
+  - tag: G.P.T
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_G.P.T_mini.yaml
+  - tag: HV 1
+    confidence: 0.91
+    spec_count: 2
+    source: readiness_HV 1_mini.yaml
+  - tag: HV 2
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_HV 2_mini.yaml
+  - tag: HV 3
+    confidence: 0.91
+    spec_count: 1
+    source: readiness_HV 3_mini.yaml
+  - tag: HV 4
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_HV 4_mini.yaml
+  - tag: IVR 1
+    confidence: 0.96
+    spec_count: 4
+    source: readiness_IVR 1_mini.yaml
+  - tag: IVR 2
+    confidence: 0.93
+    spec_count: 4
+    source: readiness_IVR 2_mini.yaml
+  - tag: LV 1
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_LV 1_mini.yaml
+  - tag: LV 3(상)
+    confidence: 0.88
+    spec_count: 1
+    source: readiness_LV 3(상)_mini.yaml
+  - tag: LV 3(하)
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_LV 3(하)_mini.yaml
+  - tag: LV 6
+    confidence: 0.91
+    spec_count: 1
+    source: readiness_LV 6_mini.yaml
+  - tag: LV 7
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_LV 7_mini.yaml
+  - tag: LV R
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_LV R_mini.yaml
+  - tag: P-A-3PP
+    confidence: 0.91
+    spec_count: 1
+    source: readiness_P-A-3PP_mini.yaml
+  - tag: P-C-2PP
+    confidence: 0.93
+    spec_count: 2
+    source: readiness_P-C-2PP_mini.yaml
+  - tag: P-D-2PP
+    confidence: 0.88
+    spec_count: 1
+    source: readiness_P-D-2PP_mini.yaml
+  - tag: P-E-2PP-1
+    confidence: 0.91
+    spec_count: 1
+    source: readiness_P-E-2PP-1_mini.yaml
+  - tag: P-I-2PP
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_P-I-2PP_mini.yaml
+  - tag: P-OAC-3
+    confidence: 0.88
+    spec_count: 1
+    source: readiness_P-OAC-3_mini.yaml
+  - tag: PTT
+    confidence: 0.93
+    spec_count: 2
+    source: readiness_PTT_mini.yaml
+  - tag: R-Center 변전실
+    confidence: 0.96
+    spec_count: 5
+    source: readiness_R-Center 변전실_mini.yaml
+  - tag: RECTIFIER
+    confidence: 0.88
+    spec_count: 1
+    source: readiness_RECTIFIER_mini.yaml
+  - tag: 'TR #1'
+    confidence: 0.98
+    spec_count: 5
+    source: 'readiness_TR #1_mini.yaml'
+  - tag: 'TR #2'
+    confidence: 0.98
+    spec_count: 5
+    source: 'readiness_TR #2_mini.yaml'
+  - tag: 'TR #3'
+    confidence: 0.98
+    spec_count: 5
+    source: 'readiness_TR #3_mini.yaml'
+  - tag: TR-3204
+    confidence: 0.98
+    spec_count: 5
+    source: readiness_TR-3204_mini.yaml
+  - tag: ZCT
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_ZCT_mini.yaml
+  demoted_entities:
+  - tag: ACB
+    demoted_to: 'component_of: LV PNL'
+    reason: page 2에서 차단기 3종(VCB, ACB, MCCB)으로만 표기되며, ACB 고유 정격/사양이 확인되지 않음
+    source: readiness_ACB_mini.yaml
+  - tag: A동 인버터 시험센터 변전실 이설분
+    demoted_to: document_metadata
+    reason: type=area이며 자체 설비 사양이 없고, 도면 내 구역/이설분 표기이다. 물리적 독립 설비가 아니라 공간/문서 메타 성격으로
+      강등.
+    source: readiness_A동 인버터 시험센터 변전실 이설분_mini.yaml
+  - tag: A동 지하1층 변전실 이설분
+    demoted_to: document_metadata
+    reason: type=area이며 자체 설비 사양이 없고, 이설 구역 표기 성격으로 확인됨
+    source: readiness_A동 지하1층 변전실 이설분_mini.yaml
+  - tag: BATTERY
+    demoted_to: 'component_of: RECTIFIER/CAPACITOR'
+    reason: tag는 있으나 자체 사양값이 확인되지 않았고, page 2에서 RECTIFIER/CAPACITOR와 함께 동일 블록으로 표기됨.
+    source: readiness_BATTERY_mini.yaml
+  - tag: CAPACITOR
+    demoted_to: 'component_of: BATTERY/RECTIFIER'
+    reason: 독립 사양이 확인되지 않았고, 도면에서 BATTERY/RECTIFIER와 함께 묶여 표기됨
+    source: readiness_CAPACITOR_mini.yaml
+  - tag: CTT
+    demoted_to: 'component_of: measurement_protection_device'
+    reason: page 2에서 CTT는 ZCT/PTT/G.P.T와 함께 계측/보호기기 그룹으로만 확인되며, 독립 사양은 확인되지 않음.
+    source: readiness_CTT_mini.yaml
+  - tag: GIMAC
+    demoted_to: 'component_of: GIPAM'
+    reason: page 2에서 GIMAC은 R-Center 변전실 내 GIPAM과 함께 표기되며, 독립 사양은 확인되지 않음.
+    source: readiness_GIMAC_mini.yaml
+  - tag: GIPAM
+    demoted_to: 'component_of: GIMAC'
+    reason: type은 relay이나 자체 spec 값이 UNKNOWN이며, GIMAC과 함께 표기되는 보호/계측 릴레이 성격으로 확인됨.
+      독립 사양이 확인되지 않아 강등.
+    source: readiness_GIPAM_mini.yaml
+  - tag: HV 5
+    demoted_to: 'component_of: switchgear_feeder'
+    reason: tag는 존재하나 spec이 null이며 도면 텍스트/노트에서도 상세 사양 수치가 확인되지 않음. 독립 엔티티 기준 미충족.
+    source: readiness_HV 5_mini.yaml
+  - tag: HV 6(상)
+    demoted_to: 'component_of: HV PNL'
+    reason: tag와 type은 확인되지만 entity_detail에 자체 사양이 없고, 고압 피더로서 독립 설비 사양을 확인할 수 없음
+    source: readiness_HV 6(상)_mini.yaml
+  - tag: HV 7(하)
+    demoted_to: 'component_of: ElectricalFeeder'
+    reason: 고유 tag는 있으나 entity_detail에서 자체 사양이 확인되지 않음. 확인된 내용은 page 2 등장과 type=고압
+      피더뿐이며, 독립 엔티티로 판정할 근거가 부족함.
+    source: readiness_HV 7(하)_mini.yaml
+  - tag: HV PNL
+    demoted_to: 'component_of: R-Center 변전실'
+    reason: HV PNL은 6.6kV 사양이 있으나, read_page_context(page 2)는 [NOT FOUND]였고 확인 가능한
+      연결 대상 HV 1, HV 2, SPARE는 피더/예비 회로로 확인됨. 독립 설비라기보다 패널 내 회로/구성요소 성격으로 판단됨.
+    source: readiness_HV PNL_mini.yaml
+  - tag: LV 2
+    demoted_to: 'component_of: LV PNL'
+    reason: tag는 있으나 독립 설비로 볼 자체 사양이 확인되지 않았고, 도면상 저압 피더 표기만 확인됨
+    source: readiness_LV 2_mini.yaml
+  - tag: LV 4
+    demoted_to: 'component_of: LV PNL'
+    reason: 'LV PNL 내부 연결 피더로 보이며, LV 4 자체 spec은 확인되지 않음. 독립 설비가 아니라 component_of:
+      LV PNL로 강등.'
+    source: readiness_LV 4_mini.yaml
+  - tag: LV 5
+    demoted_to: 'component_of: UNKNOWN'
+    reason: tag는 존재하지만 specs가 비어 있고, connection_specs/observed_relations도 없어 독립 엔티티로
+      보기 어렵다.
+    source: readiness_LV 5_mini.yaml
+  - tag: LV 8
+    demoted_to: 'component_of: LV PNL'
+    reason: type은 저압 피더이나 자체 사양이 확인되지 않고, 다른 설비의 부품/연결 대상으로만 보임
+    source: readiness_LV 8_mini.yaml
+  - tag: LV PNL
+    demoted_to: 'component_of: LV PNL'
+    reason: tag와 패널 표기는 확인되지만, 확인된 spec은 drawing_number/drawing_title/voltage_level로
+      도면 메타 및 표기 정보에 해당하며 독립 설비의 자체 물리 사양으로 보기 어렵다. LV 1~LV R 피더를 포함하는 상위 패널로 확인됨.
+    source: readiness_LV PNL_mini.yaml
+  - tag: MCCB
+    demoted_to: 'component_of: LV PNL'
+    reason: 독립 사양이 확인되지 않았고 LV PNL 내부 차단기 항목으로 표시됨
+    source: readiness_MCCB_mini.yaml
+  - tag: P-A-2PP-1
+    demoted_to: 'component_of: unknown_parent'
+    reason: tag는 고유하나 specs가 없고, connection_specs/observed_relations도 없어 독립 설비로 판정
+      불가
+    source: readiness_P-A-2PP-1_mini.yaml
+  - tag: P-A-2PP-2
+    demoted_to: 'component_of: Panel'
+    reason: 독립 tag는 있으나 자체 specs가 없고, read_page_context(page 2)도 NOT FOUND로 연결/사양을
+      확인할 수 없음.
+    source: readiness_P-A-2PP-2_mini.yaml
+  - tag: P-A-4PP-1
+    demoted_to: 'component_of: Panel'
+    reason: 패널 목록 내 항목으로 보이나 개별 사양/치수/마감 표기가 확인되지 않음. 독립 설비로 볼 자체 specs가 없음.
+    source: readiness_P-A-4PP-1_mini.yaml
+  - tag: P-A-4PP-2
+    demoted_to: 'component_of: unknown'
+    reason: 독립 사양 수치/연결 정보가 확인되지 않음. type=패널이며 자체 spec이 없어 독립 엔티티로 보기 어려움.
+    source: readiness_P-A-4PP-2_mini.yaml
+  - tag: P-A-4PP-3
+    demoted_to: 'component_of: UNKNOWN'
+    reason: tag는 존재하지만 specs가 비어 있고 connection_specs/observed_relations도 없어 독립 엔티티로
+      볼 자체 사양이 확인되지 않음
+    source: readiness_P-A-4PP-3_mini.yaml
+  - tag: P-A-4PP-4
+    demoted_to: 'component_of: Panel'
+    reason: 패널 목록 내 항목으로 보이며, 자체 사양값이 확인되지 않음. 독립 엔티티 기준을 충족하지 못함.
+    source: readiness_P-A-4PP-4_mini.yaml
+  - tag: P-A-4PP-5
+    demoted_to: 'component_of: ElectricalPanel'
+    reason: 패널 목록 내 항목으로 보이며 자체 specs와 connection_specs가 확인되지 않음. 독립 설비로 판정할 자체 사양이
+      없음.
+    source: readiness_P-A-4PP-5_mini.yaml
+  - tag: P-A-4PP-6
+    demoted_to: 'component_of: Panel'
+    reason: 패널 목록 내 항목으로 보이며 자체 specs가 확인되지 않음. 독립 설비가 아니라 패널 구성 항목으로 강등.
+    source: readiness_P-A-4PP-6_mini.yaml
+  - tag: P-A-4PP-7
+    demoted_to: 'component_of: Panel'
+    reason: 패널 목록 내 항목으로 보이며 자체 specs가 확인되지 않음. 독립 엔티티 기준을 충족하지 못함.
+    source: readiness_P-A-4PP-7_mini.yaml
+  - tag: P-AC-3PP
+    demoted_to: 'component_of: Panel'
+    reason: specs가 비어 있고, read_page_image/notes 기준으로 패널 표의 항목명으로만 확인됨. 독립 설비 사양이 확인되지
+      않음.
+    source: readiness_P-AC-3PP_mini.yaml
+  - tag: P-AC-4PP-1
+    demoted_to: 'component_of: panel'
+    reason: panel tag is present, but no own specs are provided; suggested_parent_class
+      is panel and the item appears as a panel list entry.
+    source: readiness_P-AC-4PP-1_mini.yaml
+  - tag: P-AC-4PP-2
+    demoted_to: 'component_of: P-AC-4PP-3'
+    reason: tag는 고유하나 specs가 비어 있어 자체 사양이 확인되지 않음. type은 패널이며 독립 설비로 판정할 근거 부족.
+    source: readiness_P-AC-4PP-2_mini.yaml
+  - tag: P-AC-4PP-3
+    demoted_to: 'component_of: Panel'
+    reason: tag는 고유하지만 specs가 없고, observed_relations도 없어 독립 설비로 판정 불가
+    source: readiness_P-AC-4PP-3_mini.yaml
+  - tag: P-C-4PP
+    demoted_to: 'component_of: UNKNOWN'
+    reason: type은 패널이지만 entity_detail과 page context에서 자체 spec이 확인되지 않음. 독립 설비로 판정
+      불가.
+    source: readiness_P-C-4PP_mini.yaml
+  - tag: P-D-3PP
+    demoted_to: document_metadata
+    reason: type=패널이지만 specs는 drawing_number/title만 있으며, 물리적 설비의 독립 사양이 아니라 도면 메타데이터에
+      해당함.
+    source: readiness_P-D-3PP_mini.yaml
+  - tag: P-E-2PP-2
+    demoted_to: 'component_of: UNKNOWN'
+    reason: 고유 tag는 확인되지만 자체 사양으로 볼 수 있는 값이 없음. specs에는 name=UNKNOWN만 있으며, read_entity_detail과
+      read_entity_list 기준으로 페이지 2에서 패널 표기 목록의 태그만 확인되고 상세 사양이나 독립 관계는 확인되지 않음.
+    source: readiness_P-E-2PP-2_corrected.yaml
+  - tag: P-E-3PP
+    demoted_to: 'component_of: ElectricalPanel'
+    reason: 도면 내 우측 하단 패널 목록 및 440V 계통 패널 표에 표시된 항목으로 확인되며, 자체 사양은 확인되지 않음.
+    source: readiness_P-E-3PP_mini.yaml
+  - tag: P-E-4PP
+    demoted_to: 'component_of: Panel'
+    reason: tag는 존재하지만 specs가 없고, read_page_context(page_num=2)에서도 개별 사양/연결 정보가 확인되지
+      않음
+    source: readiness_P-E-4PP_mini.yaml
+  - tag: P-EA-2PP
+    demoted_to: 'component_of: ElectricalPanel'
+    reason: 독립 tag는 있으나 자체 사양은 UNKNOWN 1건뿐이며, 확인 가능한 독립 설비 사양이 없음. 패널 목록의 항목으로 보임.
+    source: readiness_P-EA-2PP_mini.yaml
+  - tag: P-F-2PP
+    demoted_to: 'component_of: panel'
+    reason: tag는 존재하지만 specs가 비어 있고, 도구 결과에서도 구체 사양이 확인되지 않음
+    source: readiness_P-F-2PP_mini.yaml
+  - tag: P-F-3PP
+    demoted_to: 'component_of: panel'
+    reason: tag는 존재하지만 specs가 비어 있고 connection_specs도 없으며, page context에서도 panel-specific
+      spec/connection이 확인되지 않음
+    source: readiness_P-F-3PP_mini.yaml
+  - tag: P-F-4PP
+    demoted_to: 'component_of: Panel'
+    reason: 패널 표기만 확인되며 자체 사양(specs)이 없어 독립 엔티티로 판정 불가
+    source: readiness_P-F-4PP_mini.yaml
+  - tag: P-F
+    demoted_to: document_metadata
+    reason: 패널로만 확인되며 자체 사양이 없고, 독립 설비로 판단할 근거가 부족함
+    source: readiness_P-F_mini.yaml
+  - tag: P-G-2PP
+    demoted_to: 'component_of: unknown_parent'
+    reason: tag와 type은 확인되지만 specs가 없고 connection_specs도 비어 있어 독립 엔티티로 보기 어려움.
+    source: readiness_P-G-2PP_mini.yaml
+  - tag: P-G-3PP
+    demoted_to: 'component_of: Panel'
+    reason: tag는 존재하지만 specs가 비어 있고, 도면/컨텍스트에서 독립 설비로 볼 자체 사양이 확인되지 않음. 패널 목록 내 항목으로만
+      보임.
+    source: readiness_P-G-3PP_mini.yaml
+  - tag: P-I-3PP
+    demoted_to: 'component_of: unknown_parent_panel'
+    reason: 패널 태그는 확인되지만 자체 사양이 확인되지 않음. observed_relations는 목록/계통 연결 수준이며 독립 설비로
+      보기 어려움.
+    source: readiness_P-I-3PP_mini.yaml
+  - tag: P-OAC-1
+    demoted_to: 'component_of: Panel'
+    reason: tag는 존재하지만 specs가 비어 있고, page 2 context에서도 자체 사양/연결 정보가 확인되지 않음.
+    source: readiness_P-OAC-1_mini.yaml
+  - tag: P-OAC-2
+    demoted_to: 'component_of: Panel'
+    reason: type=패널이지만 자체 specs가 없고, connection_specs 및 observed_relations도 비어 있어
+      독립 엔티티로 확인되지 않음
+    source: readiness_P-OAC-2_mini.yaml
+  - tag: P-P-4PP
+    demoted_to: 'component_of: unknown_parent'
+    reason: 'tag는 존재하지만 specs가 비어 있고 drawing_texts에서도 spec: null로 확인됨. 패널 목록 내 항목으로만
+      보이며 독립 설비로 확정할 자체 사양이 없음.'
+    source: readiness_P-P-4PP_mini.yaml
+  - tag: SITE-001
+    demoted_to: document_metadata
+    reason: site는 도면 메타데이터로 확인됨. title, document_type, discipline, date, drawing_number,
+      sub_title는 물리적 설비 사양이 아니며 독립 물리 엔티티로 볼 수 없음.
+    source: readiness_SITE-001_mini.yaml
+  - tag: SPARE
+    demoted_to: 'component_of: R-Center 변전실'
+    reason: '패널 내 예비 회로(function_category: SPARE)로 확인되며, 독립 설비의 자체 사양이 확인되지 않음.'
+    source: readiness_SPARE_mini.yaml
+  - tag: UNKNOWN-001
+    demoted_to: document_metadata
+    reason: 표제란/도면 프레임 일부로 식별됨. specs는 title, document_type, discipline_mark, date,
+      designer 등 도면 메타데이터뿐이며 물리적 설비 사양이 아님.
+    source: readiness_UNKNOWN-001_mini.yaml
+  - tag: UNKNOWN-002
+    demoted_to: document_metadata
+    reason: COVER_PAGE의 도면 제목 텍스트로 확인됨. 물리적 설비가 아니며 독립 엔티티가 아님.
+    source: readiness_UNKNOWN-002_mini.yaml
+  - tag: UNKNOWN-003
+    demoted_to: document_metadata
+    reason: page 1 COVER_PAGE의 도서 구분 텍스트('- 실시설계 도서 -')로 확인됨. 물리적 설비가 아니며 독립 엔티티가
+      아님.
+    source: readiness_UNKNOWN-003_mini.yaml
+  - tag: UNKNOWN-004
+    demoted_to: document_metadata
+    reason: 표지/제목 페이지의 '[ 전기 ]' 텍스트로 확인된 document metadata이며 물리적 설비가 아님.
+    source: readiness_UNKNOWN-004_mini.yaml
+  - tag: UNKNOWN-005
+    demoted_to: document_metadata
+    reason: page 1의 날짜 텍스트(2024.05)로 확인된 document metadata이며 물리적 설비가 아님
+    source: readiness_UNKNOWN-005_mini.yaml
+  - tag: UNKNOWN-006
+    demoted_to: document_metadata
+    reason: COVER_PAGE의 설계사 텍스트로 확인됨. 물리적 설비가 아니라 document_metadata이며 독립 엔티티가 아님.
+    source: readiness_UNKNOWN-006_mini.yaml
+  - tag: VCB
+    demoted_to: 'component_of: Breaker'
+    reason: tag는 있으나 specs가 비어 있고, 도면 텍스트에서도 진공차단기라는 항목명만 확인되며 독립 사양은 확인되지 않음.
+    source: readiness_VCB_mini.yaml
+  - tag: 주변전실
+    demoted_to: document_metadata
+    reason: room/space 성격의 tag이며 자체 물리 사양이 확인되지 않음. 도면 메타데이터와 전기설비 목록만 확인됨.
+    source: readiness_주변전실_mini.yaml
+  flagged_entities: []
+  merge_candidates: []
+  missing_relations_summary: []

@@ -1,0 +1,50 @@
+entity_detail:
+  tag: E3
+  type: equipment
+  specs:
+    grounding_reference:
+      value: 접지 기준점 E3
+      unit: ''
+      source: page 21
+      confidence: 0.98
+  drawing_texts:
+  - source: page 21
+    page_number: 21
+    text: 각 분전반에는 MAIN CB, MCCB, SPD 및 E3 접지 표기가 보이며, 우측 표제란에는 LS Electric R-Center
+      구축과 도면번호 EE-01-017이 확인된다.
+  - source: page 22
+    page_number: 22
+    text: 각 분전반은 MCCB, SPD, 접지(E3)와 함께 구성되며, 패널 위치는 1층 Drive 시험실, 1층 대용량 모터부하실(방음),
+      첨부품, 1층 환경시험실, 1층 진동시험실, 고객접견공간으로 읽힌다.
+  requirements:
+  - text: E3 접지 표기가 보임
+    source: page 21
+    type: grounding
+  - text: 접지(E3)와 함께 구성됨
+    source: page 22
+    type: grounding
+  connection_specs:
+  - relation: grounding_reference
+    partner: E3
+    details:
+      source: page 21, page 22
+  ontology_hints:
+    observed_relations:
+    - relation_type: grounding_reference
+      partner_tag: E3
+      direction: UNKNOWN
+      source: page 21
+    - relation_type: grounding_reference
+      partner_tag: E3
+      direction: UNKNOWN
+      source: page 22
+    observed_attributes:
+    - 접지 기준점 E3
+    - E3 접지
+    - 접지(E3)
+    similar_equipment: []
+    suggested_parent_class: GroundingReference
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과에서 E3는 page_021_context.yaml과 page_022_context.yaml에 등장함.
+tag: E3

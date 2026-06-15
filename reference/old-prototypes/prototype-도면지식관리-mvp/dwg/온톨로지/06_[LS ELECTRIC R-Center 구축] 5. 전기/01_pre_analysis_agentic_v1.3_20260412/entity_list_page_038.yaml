@@ -1,0 +1,97 @@
+page_38_entities:
+- tag: LPS-ROD-001
+  name: 피뢰침
+  type: Lightning Rod / Air Terminal
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LPS-COND-001
+  name: 수평도체
+  type: Horizontal Conductor
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LPS-DOWN-001
+  name: 주 인하도선
+  type: Main Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: LPS-DOWN-002
+  name: 보조 인하도선
+  type: Auxiliary Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: LPS-STRUCT-001
+  name: 구조체 접속
+  type: Structural Connection
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: LPS-RISER-001
+  name: 층간연결 입상
+  type: Interstory Riser
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: LPS-RISER-002
+  name: 층간연결 입하
+  type: Interstory Lower
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: SUPPORT-001
+  name: 지지금구
+  type: Support Bracket / Clamp
+  discipline: STRUCTURAL
+  confidence: 0.92
+- tag: ROOF-PLANE-001
+  name: 옥탑지붕층
+  type: Roof Plane / Structural Element
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: STANDARD-REF-001
+  name: 한국전기설비규정(KEC) 150 피뢰시스템
+  type: Design Standard Reference
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: PROTECTION-ZONE-001
+  name: 회전 구체법 보호 영역
+  type: Protection Zone
+  discipline: ELECTRICAL
+  confidence: 0.88
+- tag: LPS-STRUCT-002
+  name: 구조물 접속
+  type: Structural Connection (secondary)
+  discipline: STRUCTURAL
+  confidence: 0.75
+- tag: LPS-RISER-001-MULTI
+  name: 층간연결 입상, 입하 (다중)
+  type: Interstory Riser/Lower (multiple instances)
+  discipline: ELECTRICAL
+  confidence: 0.88
+page_38_relations:
+- from: LPS-ROD-001
+  to: LPS-COND-001
+  relation: connected_via
+- from: LPS-COND-001
+  to: LPS-DOWN-001
+  relation: connected_via
+- from: LPS-COND-001
+  to: LPS-DOWN-002
+  relation: connected_via
+- from: LPS-DOWN-001
+  to: LPS-STRUCT-001
+  relation: connected_via
+- from: LPS-DOWN-002
+  to: LPS-STRUCT-001
+  relation: connected_via
+- from: LPS-COND-001
+  to: SUPPORT-001
+  relation: connected_via
+- from: LPS-COND-001
+  to: LPS-RISER-001
+  relation: connected_via
+- from: LPS-COND-001
+  to: LPS-RISER-002
+  relation: connected_via
+- from: LPS-COND-001
+  to: LPS-STRUCT-002
+  relation: connected_via
+- from: LPS-COND-001
+  to: LPS-RISER-001-MULTI
+  relation: connected_via

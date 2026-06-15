@@ -1,0 +1,110 @@
+tag: HUB-RACK-2
+name: HUB RACK-2
+type: communication_distribution_frame / rack
+discipline: COMMUNICATION
+function_category: COMMUNICATION_DISTRIBUTION_FRAME
+source_pages:
+- 5
+- 18
+specs:
+  raw_labels:
+  - HUB RACK-2 (RACK TYPE)
+  - DATA IN 12CORE
+  - OUT 8PORT
+  - FDF 형 FDF(SM) 12CORE
+  - HUB RACK-2
+  - HUB RACK -2 (RACK TYPE)
+  - IN 12CORE
+  - DATA OUT 8PORT
+  - F.D.F - IN (SM 12C)
+  - OPTICAL PATCH CORD (1Gbps)
+  - OPTICAL SWITCH (본 공사 제외)
+  - GIGABIT P.O.E SWITCH
+  - GIGABIT ETHERNET SWITCH
+  - CAT.6 UTP CORD (1Gbps)
+  - F.D.F - OUT (광 포트)
+  - PATCH PANEL
+  shape: rectangle
+  labels_inside:
+  - HUB RACK-2 (RACK TYPE)
+  - DATA IN 12CORE
+  - OUT 8PORT
+  - FDF 형 FDF(SM) 12CORE
+  labels_above:
+  - HUB RACK-2
+  labels_below: []
+  equipment_symbols:
+  - type: rack
+    count: 1
+  - type: FDF
+    count: 1
+  inferred_name: 2층 허브 랙 (데이터 분배)
+  position: center-upper
+  source_model: visual_semantics
+relations:
+- from: IDF-1
+  to: HUB-RACK-2
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: F/O CABLE S.M 12CORE (F4)
+- from: HUB-RACK-2
+  to: GRP-2층
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: UTP 0.5mm/4Px, CAT.5e 각 실 분기
+- from: HUB-RACK-2
+  to: GRP-지붕층
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 지붕층 단말 연결
+- from: HUB-RACK-1
+  to: HUB-RACK-2
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: F/O CABLE (SM 12C) / OPTICAL PATCH CORD (1Gbps)
+- from: HUB-RACK-2
+  to: SYSBOX-6
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: CAT.6 UTP CABLE
+- from: HUB-RACK-2
+  to: GWANGPORT-RIGHT
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: F.D.F - OUT (광 포트)
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-upper
+equipment_symbols:
+- type: rack
+  count: 1
+- type: FDF
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  - source_model
+  similar_equipment:
+  - HUB-RACK-1
+  - IDF-1
+  function_candidates:
+  - Data Distribution
+  - Fiber Termination
+  - Network Switching
+  - Signal Routing

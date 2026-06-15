@@ -1,0 +1,207 @@
+entity_detail:
+  tag: 1층 진동시험실
+  type: room_name
+  specs:
+    room_name:
+      value: 1층 진동시험실
+      unit: null
+      source:
+      - 19
+      - 20
+      - 22
+      confidence: 0.99
+    associated_panel_1:
+      value: P-F-2PP
+      unit: null
+      source:
+      - 19
+      confidence: 0.95
+    associated_panel_2:
+      value: P-F-3PP
+      unit: null
+      source:
+      - 20
+      confidence: 0.98
+    associated_panel_3:
+      value: P-F-4PP
+      unit: null
+      source:
+      - 22
+      confidence: 0.98
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source:
+      - 19
+      - 20
+      - 22
+      confidence: 0.98
+    power_supply_note:
+      value: FROM 전기실
+      unit: null
+      source:
+      - 19
+      - 20
+      - 22
+      confidence: 0.98
+    voltage_1:
+      value: 3Ø 220V
+      unit: null
+      source:
+      - 19
+      confidence: 0.97
+    voltage_2:
+      value: 3상 380V
+      unit: null
+      source:
+      - 20
+      confidence: 0.98
+    voltage_3:
+      value: 3상 440V
+      unit: null
+      source:
+      - 22
+      confidence: 0.95
+    main_breaker:
+      value: MAIN MCCB 3P
+      unit: null
+      source:
+      - 19
+      confidence: 0.95
+    spd:
+      value: 3Ø SPD 40KA/mode
+      unit: null
+      source:
+      - 19
+      confidence: 0.95
+    grounding:
+      value: E3
+      unit: null
+      source:
+      - 19
+      - 20
+      - 22
+      confidence: 0.98
+    breaker_rating_table:
+      value: 30AF~600AF
+      unit: null
+      source:
+      - 19
+      - 22
+      confidence: 0.96
+    breaking_capacity_table:
+      value: 5KA 이상~50KA 이상
+      unit: null
+      source:
+      - 19
+      - 22
+      confidence: 0.96
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: '위치: 1층 진동시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode,
+      접지 E3, 분기 회로 MCCBs 포함'
+  - source: page 19
+    page_number: 19
+    text: 분전반 P-F-2PP
+  - source: page 20
+    page_number: 20
+    text: '노출형(STEEL), 3상 380V, 위치: 1층 진동시험실'
+  - source: page 20
+    page_number: 20
+    text: 분전반 P-F-3PP
+  - source: page 22
+    page_number: 22
+    text: 'COVER TYPE: 노출형(STEEL), PANEL LOCATION: 1층 진동시험실, BOX SIZE: -, FROM: 전기실'
+  - source: page 22
+    page_number: 22
+    text: 분전반 P-F-4PP
+  requirements:
+  - text: 노출형(STEEL) 외함
+    source: pages 19, 20, 22
+    type: installation_condition
+  - text: 전원은 전기실 FROM
+    source: pages 19, 20, 22
+    type: power_supply_condition
+  - text: 접지 E3
+    source: pages 19, 20, 22
+    type: grounding_condition
+  - text: MAIN MCCB 3P
+    source: page 19
+    type: electrical_condition
+  - text: SPD 3Ø 40KA/mode
+    source: page 19
+    type: electrical_protection_condition
+  - text: 3상 380V
+    source: page 20
+    type: electrical_condition
+  - text: 3상 440V
+    source: page 22
+    type: electrical_condition
+  - text: 차단기 정격 30AF~600AF
+    source: pages 19, 22
+    type: breaker_rating_condition
+  - text: 차단용량 5KA 이상~50KA 이상
+    source: pages 19, 22
+    type: breaker_capacity_condition
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: pages 19, 20, 22
+      text: FROM 전기실
+  - relation: associated_with_panelboard
+    partner: P-F-2PP
+    details:
+      source: page 19
+      text: '위치: 1층 진동시험실'
+  - relation: associated_with_panelboard
+    partner: P-F-3PP
+    details:
+      source: page 20
+      text: '위치: 1층 진동시험실'
+  - relation: associated_with_panelboard
+    partner: P-F-4PP
+    details:
+      source: page 22
+      text: 'PANEL LOCATION: 1층 진동시험실'
+  ontology_hints:
+    observed_relations:
+    - relation_type: location_of
+      partner_tag: P-F-2PP
+      direction: room_contains_equipment
+      source: page 19
+    - relation_type: location_of
+      partner_tag: P-F-3PP
+      direction: room_contains_equipment
+      source: page 20
+    - relation_type: location_of
+      partner_tag: P-F-4PP
+      direction: room_contains_equipment
+      source: page 22
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: source_to_target
+      source: pages 19, 20, 22
+    observed_attributes:
+    - room_name
+    - cover_type
+    - power_supply_note
+    - voltage
+    - main_breaker
+    - spd
+    - grounding
+    - breaker_rating_table
+    - breaking_capacity_table
+    similar_equipment:
+    - P-F-2PP
+    - P-F-3PP
+    - P-F-4PP
+    suggested_parent_class: room
+    cross_discipline:
+    - ELECTRICAL
+    - ARCHITECTURAL
+  notes:
+  - 페이지 19, 20, 22에서 동일 공간명이 반복 확인됨.
+  - 도면상 이 공간과 직접 연결된 전기 설비는 분전반 P-F 계열로 확인됨.
+tag: 1층 진동시험실

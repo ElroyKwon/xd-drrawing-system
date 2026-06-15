@@ -1,0 +1,214 @@
+placement:
+  tag: GRP-소화설비
+  name: 소화설비
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GRP-소화설비
+    class_hint: FireProtectionSystemGroup
+    alternative_class_hints:
+    - FireProtectionSystem
+    - Group
+    related_assertions:
+    - type: member_of_group
+      target_hint: MF-001
+      note: specs.members에 포함된 그룹 멤버
+      confirmed_property: dks:member_of_group
+      confirmed_target: dks:GRP-소화설비
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:16:22.421313'
+    - type: member_of_group
+      target_hint: MF-002
+      note: specs.members에 포함된 그룹 멤버
+      confirmed_property: dks:member_of_group
+      confirmed_target: dks:GRP-소화설비
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T14:16:22.421313'
+    - type: member_of_group
+      target_hint: MF-003
+      note: specs.members에 포함된 그룹 멤버
+    - type: member_of_group
+      target_hint: MF-004
+      note: specs.members에 포함된 그룹 멤버
+    - type: member_of_group
+      target_hint: MF-005
+      note: specs.members에 포함된 그룹 멤버
+    - type: member_of_group
+      target_hint: MF-006
+      note: specs.members에 포함된 그룹 멤버
+    - type: member_of_group
+      target_hint: MF-007
+      note: specs.members에 포함된 그룹 멤버
+    - type: member_of_group
+      target_hint: MF-008
+      note: specs.members에 포함된 그룹 멤버
+    applicable_axioms:
+    - AX036
+    applicable_constraints: []
+    confirmed_class: dks:FireProtectionSystemGroup
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'specs.label: 소화설비'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: label
+          suggested_datatype: xsd:string
+          rationale: 그룹의 표기 라벨로 보이는 문자열
+      - raw_text: 'specs.members: MF-001, MF-002, MF-003, MF-004, MF-005, MF-006,
+          MF-007, MF-008'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: xsd:string
+          rationale: 그룹 구성원 목록으로 보이는 식별자 집합
+      - raw_text: 'ontology_hints.suggested_parent_class: FireProtectionSystem'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: parentClassHint
+          suggested_datatype: xsd:string
+          rationale: 상위 클래스 후보 힌트
+      - raw_text: 'ontology_hints.observed_attributes: label, members'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: observedAttribute
+          suggested_datatype: xsd:string
+          rationale: 관찰된 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: FireSuppression, FireExtinguishing'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: specs.members는 관계 사실이지만 개별 멤버 태그의 실체는 별도 Individual로 존속해야 함
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: memberOfGroup
+          suggested_datatype: owl:ObjectProperty
+          rationale: 그룹-멤버 관계의 정식화 후보
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: direct
+    name:
+      source_pages:
+      - 2
+      method: direct
+    discipline:
+      source_pages:
+      - 2
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: inferred_from_group_tag_and_members
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: from_specs_members
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: preservation
+    specs.label:
+      source_pages:
+      - 2
+      method: direct
+    specs.members:
+      source_pages:
+      - 2
+      method: direct
+    relations:
+      source_pages:
+      - 2
+      method: direct_empty
+    collection_sources.cross_validated:
+      source_pages:
+      - 2
+      method: direct
+    position:
+      source_pages:
+      - 2
+      method: direct
+    confidence:
+      source_pages:
+      - 2
+      method: direct
+    source_attribution:
+      source_pages:
+      - 2
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 2
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 2
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 2
+      method: direct
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 2
+    reason: 관계 항목이 비어 있음
+    preservation_note: 추후 관계가 추가되면 group/member 연결과 함께 재검토
+  - field_candidate: collection_sources.cross_validated
+    raw_text: 'true'
+    source_page: 2
+    reason: 검증 방식의 세부 의미는 도면 원문만으로 확정 불가
+    preservation_note: 검증 플래그로만 보존
+  - field_candidate: position
+    raw_text: center
+    source_page: 2
+    reason: 도면 내 정확한 공간 의미인지, 레이아웃 위치인지 불명확
+    preservation_note: 레이아웃 중심 표기로 보존
+  - field_candidate: confidence
+    raw_text: '0.95'
+    source_page: 2
+    reason: 신뢰도 값의 산정 근거는 원문에 없음
+    preservation_note: 메타 신뢰도 값으로 보존
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: true, mini: true'
+    source_page: 2
+    reason: 출처 조합의 의미는 불명확하나 원문 보존 필요
+    preservation_note: 다중 모델/검토 출처 플래그로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 그룹 태그이며 specs.members로 구성원이 명시되어 있어 그룹형 NamedIndividual로 배치 가능
+    recommended_handling: 0-9d에서 member_of_group 관계의 정식 property IRI를 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - group/member 구조를 member_of_group 관계 원형으로 보존
+    - 도면에서 관찰된 specs.members와 ontology_hints만 사용
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:03:54.522031'
+  confidence: 0.95

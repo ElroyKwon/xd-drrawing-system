@@ -1,0 +1,88 @@
+entity_detail:
+  tag: MAIN-CB-4PP-4
+  type: Main Circuit Breaker
+  specs:
+    rated_voltage:
+      value: 3Ø 440V
+      unit: V
+      source: page_021_context.yaml
+      confidence: 0.85
+    breaker_type:
+      value: MCB 또는 MCCB
+      unit: ''
+      source: page_021_context.yaml
+      confidence: 0.85
+  drawing_texts:
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 생산동력(3Ø 440V) 분전반 결선도-1
+  - source: page_021_context.yaml
+    page_number: 21
+    text: P-A-4PP-1부터 P-A-4PP-6까지 6개의 분전반이 2행×3열로 배치된 단선도이다.
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 각 분전반에는 MAIN CB, MCCB, SPD 및 E3 접지 표기가 보이며, 우측 표제란에는 LS Electric R-Center
+      구축과 도면번호 EE-01-017이 확인된다.
+  - source: page_021_context.yaml
+    page_number: 21
+    text: MAIN CB
+  - source: page_021_context.yaml
+    page_number: 21
+    text: MCCB
+  - source: page_021_context.yaml
+    page_number: 21
+    text: SPD
+  - source: page_021_context.yaml
+    page_number: 21
+    text: E3
+  - source: page_021_context.yaml
+    page_number: 21
+    text: P-A-4PP-4
+  requirements:
+  - text: '노출형(STEEL), 1층 Drive 시험실, BOX SIZE: -'
+    source: page_021_context.yaml
+    type: installation_condition
+  - text: 3Ø 440V
+    source: page_021_context.yaml
+    type: electrical_rating
+  connection_specs:
+  - relation: internal_protection
+    partner: MCCB-GROUP-4
+    details:
+      source: page_021_context.yaml
+  - relation: internal_protection
+    partner: SPD-4
+    details:
+      source: page_021_context.yaml
+  - relation: ground_connection
+    partner: E3
+    details:
+      source: page_021_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: installed_on
+      partner_tag: P-A-4PP-4
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    - relation_type: ground_to_panel
+      partner_tag: P-A-4PP-4
+      direction: UNKNOWN
+      source: page_021_context.yaml
+    observed_attributes:
+    - rated_voltage
+    - breaker_type
+    - installation_condition
+    - electrical_rating
+    similar_equipment:
+    - MAIN-CB-1
+    - MAIN-CB-2
+    - MAIN-CB-3
+    - MAIN-CB-5
+    - MAIN-CB-6
+    suggested_parent_class: Circuit Breaker
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 MAIN-CB-4PP-4의 직접 태그는 확인되지 않아, 관련 페이지의 MAIN-CB-4 및 P-A-4PP-4 정보를 근거로
+    수집함.
+  - feeds 관계는 사용하지 않음.
+tag: MAIN-CB-4PP-4

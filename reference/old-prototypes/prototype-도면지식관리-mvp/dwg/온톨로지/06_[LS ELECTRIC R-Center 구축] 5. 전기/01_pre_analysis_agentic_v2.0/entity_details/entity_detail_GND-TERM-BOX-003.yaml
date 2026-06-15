@@ -1,0 +1,73 @@
+tag: GND-TERM-BOX-003
+name: 전력접지 단자함
+type: GROUNDING
+discipline: ELECTRICAL
+function_category: GROUNDING
+source_pages:
+- 39
+specs:
+  grounding_systems:
+  - 계통접지(E1)
+  - 변압기 중성점 접지(E2)
+  - 보호 접지(E3)
+  circuit_count: 10CCT
+  wire_size: F-GV 16㎟ (HI-PVC 16C)
+  connection_note: 전력 계통의 F-GV 화재 상선 공기 기초접지극과 연결
+  design_note: 전기실 전력설비 구성에 따라 회로수정 및 검토
+  system_type: 전력접지 (Power System Grounding)
+  wire_size_main_mm2: null
+  wire_size_secondary_mm2: 16
+  wire_type_secondary: F-GV
+  conduit_type_secondary: HI-PVC 16C
+  busbar_material: CU-Busbar
+  insulation_support: Bakelite
+  test_point: Test
+  conduit_material: HI PVC 전선관
+relations:
+- from: GND-TERM-BOX-003
+  to: GND-ELEC-001
+  relation: grounds_to
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 전력 계통의 F-GV 기초접지극과 연결
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-center-right
+confidence: 0.95
+equipment_symbols:
+- type: 단자함 내부 배선 상세도
+  count: 1
+- type: CU-Busbar 심볼
+  count: 1
+- type: Bakelite 절연 지지대 심볼
+  count: 1
+- type: 접지 계통 구분 심볼 (E1/E2/E3)
+  count: 3
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingEquipment
+  observed_attributes:
+  - grounding_systems
+  - circuit_count
+  - wire_size
+  - connection_note
+  - design_note
+  - system_type
+  - wire_size_main_mm2
+  - wire_size_secondary_mm2
+  - wire_type_secondary
+  - conduit_type_secondary
+  - busbar_material
+  - insulation_support
+  - test_point
+  - conduit_material
+  similar_equipment: []
+  function_candidates:
+  - GroundingConnection
+  - CircuitTermination
+  - SystemTesting

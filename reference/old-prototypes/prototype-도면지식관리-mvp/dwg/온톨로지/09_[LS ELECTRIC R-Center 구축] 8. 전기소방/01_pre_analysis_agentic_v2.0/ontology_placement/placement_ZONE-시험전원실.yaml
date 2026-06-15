@@ -1,0 +1,214 @@
+placement:
+  tag: ZONE-시험전원실
+  name: 시험 전원실
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ZONE-시험전원실
+    class_hint: Space
+    alternative_class_hints:
+    - FireProtectionZone
+    - TestPowerRoom
+    related_assertions:
+    - type: connects_to
+      target_hint: FA-1F
+      note: 감지기 배관배선 / 16C (HFIX 2-1.5㎟)
+    - type: cable
+      target_hint: FA-1F
+      note: 감지기 배관배선
+    applicable_axioms:
+    - AX002
+    - AX022
+    - AX023
+    - AX024
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN004
+    - CN005
+    - CN006
+    confirmed_class: dks:Zone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: 시험 전원실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 표기 라벨 문자열
+      - raw_text: 'raw_labels: 시험 전원실'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: raw_labels
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존용 문자열
+      - raw_text: 'equipment_symbols: 차동식 감지기(2종 스포트형)-LED 부착형 x2'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: equipment_symbols
+          suggested_datatype: structured literal / reified node
+          rationale: 공간 내 설비 심벌과 수량 정보
+      - raw_text: 'relations: FA-1F -> ZONE-시험전원실 (connects_to), note=감지기 배관배선 / 16C
+          (HFIX 2-1.5㎟)'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: object property
+          rationale: 공간과 FA-1F 간 연결 관계
+      - raw_text: 'relations: FA-1F -> ZONE-시험전원실 (cable), annotation=감지기 배관배선'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cable
+          suggested_datatype: object property
+          rationale: 배선 관계 원형
+      - raw_text: 'position: center'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 상대 위치
+      - raw_text: 'confidence: 0.95'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 수치
+      - raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: source_attribution
+          suggested_datatype: structured literal
+          rationale: 출처 모델 속성 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.function_candidates: TestPowerRoom, FireProtectionZone'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string list
+          rationale: 후보 기능명 보존
+  provenance:
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 9
+      method: relations
+    specs.labels_inside:
+      source_pages:
+      - 9
+      method: specs
+    specs.raw_labels:
+      source_pages:
+      - 9
+      method: specs
+    specs.equipment_symbols:
+      source_pages:
+      - 9
+      method: specs
+    relations:
+      source_pages:
+      - 9
+      method: relations
+    position:
+      source_pages:
+      - 9
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 9
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 9
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+      method: entity_detail
+    collection_sources:
+      source_pages:
+      - 9
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.equipment_symbols.type
+    raw_text: 차동식 감지기(2종 스포트형)-LED 부착형
+    source_page: 9
+    reason: 장치 유형은 관찰되나 supplement sub_kind로 확정 분류 불가
+    preservation_note: 공간 내 설치된 감지기 심벌로 보존
+  - field_candidate: specs.equipment_symbols.count
+    raw_text: '2'
+    source_page: 9
+    reason: 수량 정보이나 현재 단계에서 별도 정규화 대상 아님
+    preservation_note: 심벌 수량으로 보존
+  - field_candidate: relations.note
+    raw_text: 감지기 배관배선 / 16C (HFIX 2-1.5㎟)
+    source_page: 9
+    reason: 배관배선 및 케이블 규격이 혼합된 원문
+    preservation_note: 배선 메모와 케이블 스펙 원문 그대로 보존
+  - field_candidate: relations.annotation
+    raw_text: 감지기 배관배선
+    source_page: 9
+    reason: 관계 주석 텍스트
+    preservation_note: 관계 설명 문자열로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: TestPowerRoom, FireProtectionZone
+    source_page: 9
+    reason: 후보 기능명이며 확정 클래스 아님
+    preservation_note: class_hint 후보로만 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 ZONE-로 시작하는 공간 개체이지만, 내부에 감지기 심벌과 FA-1F 연결 관계가 함께 존재하여 공간/설비 경계가 혼재됨.
+    recommended_handling: NamedIndividual로 유지하되, 후속 단계에서 Space 계열 클래스와 관계 assertions를
+      분리 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone/Room 계열로 분류
+    - contains/connected_to 계열 관계 패턴을 우선 보존
+    - labels_inside, raw_labels, equipment_symbols, position, source_attribution 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:01:46.718623'
+  confidence: 0.95

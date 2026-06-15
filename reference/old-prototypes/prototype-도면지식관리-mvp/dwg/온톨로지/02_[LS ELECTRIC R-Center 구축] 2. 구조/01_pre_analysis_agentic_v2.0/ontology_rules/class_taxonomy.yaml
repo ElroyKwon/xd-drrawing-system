@@ -1,0 +1,632 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=187)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T10:17:47.860722'
+  classes:
+  - iri: dks:DocumentEntity
+    label: DocumentEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - B1
+    - INDEX-S00.01
+    - S0-SERIES
+    - S00.01
+    - S00.11
+    - S00.12
+    - S00.13
+    - S00.14
+    - S00.15
+    - S00.16
+    - S00.17
+    - S00.18
+    - S00.19
+    - S00.20
+    - S00.21
+    - S00.22
+    - S00.23
+    - S00.24
+    - S00.25
+    - S00.26
+    - S00.31
+    - S00.32
+    - S00.33
+    - S00.34
+    - S00.35
+    - S00.36
+    - S00.41
+    - S00.42
+    - S00.43
+    - S00.44
+    - S01.01
+    - S02.01
+    - S02.02
+    - S02.11
+    - S02.12
+    - S02.21
+    - S02.24
+    - S02.31
+    - S02.32
+    - S02.33
+    - S02.34
+    - S02.35
+    - S02.36
+    - S02.37
+    - S03.01
+    - S03.02
+    - S03.03
+    - S04.01
+    - S04.02
+    - S04.11
+    - S05.01
+    - S05.02
+    - S05.11
+    - S05.21
+    - S05.31
+    - S06.02
+    - S06.11-10
+    - S06.11-9
+    - S06.21-3
+    - S06.21
+    - S06.22
+    - S06.31
+    - S06.41-1
+    - S06.41-8
+    - S1-SERIES
+    - S1
+    - S2-SERIES
+    - S2
+    - S3-SERIES
+    - S4-SERIES
+    - S5-SERIES
+    - S6-SERIES
+    - SC1
+    - SC11
+    - SC11A
+    - SC12
+    - SC2
+    - SC21
+    - SSC1
+    derivation: class_hint가 DocumentEntity로 반복 관찰되며, Sxx.xx·Sx-SERIES·INDEX 계열의 태그
+      패턴이 문서/시트 식별자 군집을 형성한다.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:PlanOrView
+    label: PlanOrView
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - FOUNDATION-PLAN
+    - GRID-SYSTEM
+    - MAIN-PLAN
+    - PLAN-PIT
+    derivation: 직접 class_hint=PlanOrView가 부여된 허브 태그들만 채택했다. 다수의 references/contains/linked_to
+      관계의 중심으로 관찰된다.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:GroupingEntity
+    label: GroupingEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - GRID-X
+    - GRP-GENERAL-WALL
+    - GRP-GRID-Y
+    - GRP-PIT-WALL
+    - PIT-ZONE
+    - PIT-ZONE___UNKNOWN-SHAPE-01
+    derivation: class_hint=GroupingEntity가 직접 관찰된 태그들을 묶었다. contains 관계를 통해 다른 태그를
+      집합적으로 다루는 패턴이 반복된다.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:MemberMark
+    label: MemberMark
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - MF1
+    - MF2
+    - MF2_MF3
+    - MF3
+    - PF1
+    - PF1_PF1A_PF1B_PF1C_PF2_PF2A_PF3_PF21
+    - PF1A
+    - PF1B
+    - PF1C
+    - PF2
+    - PF21
+    - PF2A
+    - PF3
+    - PW1
+    - W1
+    - WF1
+    derivation: class_hint=MemberMark가 직접 관찰된 태그들을 우선 채택했다. PF/MF/WF/PW/W 계열의 이름 패턴도
+      부재 마크 군집을 지지한다. 단, PW2·PW3는 더 구체적인 PitWallMark로 분리했다.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:PitWallMark
+    label: PitWallMark
+    super_classes:
+    - dks:MemberMark
+    evidence_tags:
+    - PW2
+    - PW3
+    derivation: class_hint=PitWallMark가 직접 관찰된 태그들이다. PW 접두 패턴과 GRP-PIT-WALL 포함, PLAN-PIT
+      linked_to 패턴이 공통적이다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ScheduleOrList
+    label: ScheduleOrList
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - MEMBER-LIST-TABLE
+    - MEMBER-LIST
+    - UNKNOWN-SCHEDULE-01
+    derivation: class_hint=ScheduleOrList가 직접 관찰된 태그들이다. MEMBER-LIST/UNKNOWN-SCHEDULE-01은
+      다수의 references 관계를 가진다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:NoteOrLegend
+    label: NoteOrLegend
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - CENTRLIZER
+    - ES1
+    - ES2
+    - FG1
+    - FS1
+    - MC-01
+    - MC-02
+    - MC-03
+    - MC-05
+    - MC-07
+    - MC-08
+    - MF1_vs_MF2_MF3
+    - S03.13
+    - S06.11-1
+    - SC12A
+    - SC12B
+    - SC13
+    - SC2B
+    - SC3A
+    - UNKNOWN-NOTE-01
+    - UNKNOWN-NOTE-02
+    - WC1
+    - WC2
+    - WG1
+    derivation: class_hint=NoteOrLegend가 직접 관찰된 태그들을 묶었다. 다수는 AnnotationOnly이며 설명/범례성
+      태그 패턴을 보인다.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:DetailEntity
+    label: DetailEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EXP-JOINT-01
+    - S06.11-2
+    - S06.11-3
+    - S06.11-4
+    - S06.11-5
+    - S06.11-7
+    - S06.11-8
+    - S06.21-1
+    - S06.21-2
+    - S06.21-4
+    - S06.21-5
+    - S06.21-6
+    - S06.21-7
+    - S06.21-8
+    - S06.31-1
+    - S06.31-2
+    - S06.31-3
+    - S06.31-4
+    - S06.31-5
+    - S06.31-6
+    - S06.31-7
+    - S06.31-8
+    - S06.41-2
+    - S06.41-3
+    - S06.41-4
+    - S06.41-5
+    - S06.41-6
+    - S06.41-7
+    - S06.41
+    - VBR1
+    - VBR3
+    derivation: class_hint=DetailEntity가 직접 관찰된 태그들을 묶었다. S06.xx-x 상세 번호 패턴과 connects_to
+      관계가 상세 군집을 지지한다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ReinforcementDetail
+    label: ReinforcementDetail
+    super_classes:
+    - dks:DetailEntity
+    evidence_tags:
+    - UNKNOWN-REINFORCEMENT-01
+    - UNKNOWN-REINFORCEMENT-02
+    derivation: class_hint=ReinforcementDetail가 직접 관찰되며, PF1A/PF1B를 references 하는
+      상세성 패턴이 있다.
+    source_pages: []
+    confidence: 0.91
+  - iri: dks:Beam
+    label: Beam
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - VBR2
+    derivation: class_hint=Beam이 직접 관찰된 유일 태그다. VBR1/VBR3와 connects_to 관계를 가진다. 상위로
+      MemberMark 또는 DetailEntity를 강제할 직접 증거는 부족하여 독립 클래스로 둔다.
+    source_pages: []
+    confidence: 0.74
+  - iri: dks:UnresolvedStructuralEntity
+    label: UnresolvedStructuralEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-MICRO_PILE-1
+    - UNKNOWN-PHC_PILE-1
+    derivation: class_hint=UnresolvedStructuralEntity가 직접 관찰된 태그들이다. 구조 관련으로 보이나 더
+      구체적 귀속 증거가 부족하다.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:DocumentMetadata
+    label: DocumentMetadata
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - ES1A
+    - SC1A
+    derivation: class_hint=DocumentMetadata가 직접 관찰된 태그들이다. 문서 자체보다 메타/가용성/보조 표기 성격으로
+      보인다.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:SheetIdentifier
+    label: SheetIdentifier
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - S02.23
+    - S06.01
+    - S06.11-6
+    - S06.11
+    derivation: class_hint=SheetIdentifier가 직접 관찰된 태그들이다. S번호 기반 시트 식별 패턴이 명확하다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SheetOrSeriesIdentifier
+    label: SheetOrSeriesIdentifier
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SC1~SC21
+    derivation: class_hint=SheetOrSeriesIdentifier가 직접 관찰된 단일 태그다. 복수 시트 범위를 가리키는
+      이름 패턴을 가진다.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:DocumentTitleBlock
+    label: DocumentTitleBlock
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - TITLE-BLOCK
+    derivation: class_hint=DocumentTitleBlock가 직접 관찰된 단일 태그다. 문서 구성요소 성격이므로 DocumentEntity
+      하위로 귀납했다.
+    source_pages: []
+    confidence: 0.89
+  subclass_relations:
+  - sub: dks:PitWallMark
+    super: dks:MemberMark
+    derivation: PW2·PW3에 직접 class_hint=PitWallMark가 있고, PW1/W1이 MemberMark이며 동일한 PW
+      접두 패턴과 GRP-PIT-WALL/PLAN-PIT 관계 패턴을 공유한다.
+    confidence: 0.9
+  - sub: dks:ReinforcementDetail
+    super: dks:DetailEntity
+    derivation: class_hint 자체에 Detail이 포함되고, UNKNOWN-REINFORCEMENT-01/02가 PF1A/PF1B를
+      references 하는 상세 참조 패턴을 보인다.
+    confidence: 0.92
+  - sub: dks:DocumentMetadata
+    super: dks:DocumentEntity
+    derivation: DocumentMetadata라는 class_hint 명칭상 DocumentEntity의 메타 하위 범주로 귀납 가능하며,
+      ES1A·SC1A 모두 문서 식별 보조 패턴을 가진다.
+    confidence: 0.84
+  - sub: dks:SheetIdentifier
+    super: dks:DocumentEntity
+    derivation: SheetIdentifier라는 class_hint 명칭과 S02.23/S06.01/S06.11 등의 시트 번호 패턴이
+      문서 식별 하위 범주임을 지지한다.
+    confidence: 0.93
+  - sub: dks:SheetOrSeriesIdentifier
+    super: dks:DocumentEntity
+    derivation: SC1~SC21은 시트 또는 시리즈 범위를 가리키는 식별자 패턴이며, class_hint 명칭상 DocumentEntity
+      하위로 귀납된다.
+    confidence: 0.87
+  - sub: dks:DocumentTitleBlock
+    super: dks:DocumentEntity
+    derivation: TITLE-BLOCK은 문서 내부 구성 블록을 가리키며 class_hint 명칭상 문서 엔티티의 하위 범주로 보는 것이
+      가장 보수적이다.
+    confidence: 0.9
+  disjoint_candidates:
+  - classes:
+    - dks:PlanOrView
+    - dks:MemberMark
+    reason: 현재 confirmed evidence_tags 교집합이 0이며, FOUNDATION-PLAN/PLAN-PIT와 PF/MF/WF/PW/W
+      계열이 역할상 분리되어 관찰된다.
+    confidence: 0.86
+  - classes:
+    - dks:PlanOrView
+    - dks:NoteOrLegend
+    reason: 현재 confirmed evidence_tags 교집합이 0이며, 플랜 허브 태그와 범례/노트 태그가 분리되어 관찰된다.
+    confidence: 0.82
+  - classes:
+    - dks:GroupingEntity
+    - dks:NoteOrLegend
+    reason: 현재 confirmed evidence_tags 교집합이 0이며, contains 중심 그룹 태그와 설명성 노트 태그가 분리된다.
+    confidence: 0.84
+  - classes:
+    - dks:ScheduleOrList
+    - dks:MemberMark
+    reason: 현재 confirmed evidence_tags 교집합이 0이며, MEMBER-LIST/UNKNOWN-SCHEDULE-01과
+      PF/MF/WF/PW/W 계열이 references 관계로만 연결된다.
+    confidence: 0.87
+  - classes:
+    - dks:DocumentEntity
+    - dks:MemberMark
+    reason: 현재 confirmed evidence_tags 교집합이 0이며, 시트/시리즈 식별자와 부재 마크가 이름 패턴과 역할에서 분리된다.
+    confidence: 0.8
+  - classes:
+    - dks:DocumentEntity
+    - dks:DetailEntity
+    reason: 현재 confirmed evidence_tags 교집합이 0이다. 다만 일부 상세 번호 태그가 alternative_class_hints로
+      DocumentEntity를 가져 완전 분리는 보수적으로 후보로만 둔다.
+    confidence: 0.62
+  hierarchy_summary:
+    total_classes: 14
+    max_depth: 2
+    by_discipline:
+      unknown: 14
+  unclassified_tags:
+  - tag: FG2
+    reason: class_hint가 비어 있고 관계도 없어 유일 클래스에 귀속할 근거가 부족하다.
+    hint: ''
+  - tag: MC-04
+    reason: class_hint가 비어 있고 관계도 없어 분류 불가.
+    hint: ''
+  - tag: MC-06
+    reason: class_hint가 비어 있고 관계도 없어 분류 불가.
+    hint: ''
+  - tag: GRID-Y
+    reason: class_hint는 DocumentEntity이나 이름 패턴상 GRID 계열로 보일 수 있어 단일 클래스 확정이 불안정하다.
+      직접 관계도 없다.
+    hint: GroupingEntity 또는 DocumentEntity 재검토
+  - tag: GRP-GRID-X
+    reason: 전 태그 집계 evidence에 나타나지 않아 class 확정용 placement 근거가 없다.
+    hint: GRID-SYSTEM.contains의 target으로만 계획에 언급됨
+  - tag: DOUBLE-FOUNDATION-NOTE
+    reason: related_assertions의 target으로만 반복 등장하고 자체 placement record가 없다.
+    hint: NoteOrLegend 가능성 높으나 직접 evidence 필요
+  - tag: REBAR-DETAIL-PF1A
+    reason: related_assertions의 target으로만 등장하고 자체 placement record가 없다.
+    hint: DetailEntity 또는 ReinforcementDetail 재검토
+  - tag: REBAR-DETAIL-PF1B
+    reason: related_assertions의 target으로만 등장하고 자체 placement record가 없다.
+    hint: DetailEntity 또는 ReinforcementDetail 재검토
+  - tag: UNKNOWN-SHAPE-01
+    reason: PIT-ZONE___UNKNOWN-SHAPE-01의 target으로만 등장하고 자체 placement record가 없다.
+    hint: UnresolvedStructuralEntity 또는 Grouping 하위 구성요소
+  - tag: SC2A
+    reason: class_hint가 비어 있고 관계도 없다.
+    hint: ''
+  - tag: SC3
+    reason: class_hint가 비어 있고 관계도 없다.
+    hint: ''
+  plan_deviations:
+  - plan_item: top_level에 DocumentEntity, PlanOrView, MemberMark, GroupingEntity,
+      NoteOrLegend, ScheduleOrList, DetailEntity를 채택
+    actual_finding: 대체로 evidence와 일치했으나 Beam, ReinforcementDetail, DocumentMetadata,
+      SheetIdentifier, SheetOrSeriesIdentifier, DocumentTitleBlock, UnresolvedStructuralEntity
+      같은 직접 class_hint 기반 클래스가 추가 관찰되었다.
+    action_taken: plan의 상위 분류는 유지하되, 직접 관찰된 class_hint를 별도 클래스로 추가했다.
+  - plan_item: PlanOrView ⊑ DocumentEntity 예시
+    actual_finding: PlanOrView가 DocumentEntity의 하위라는 직접 class_hint 증거는 없다. 두 클래스가
+      병렬 대안으로 함께 제시된 경우가 많다.
+    action_taken: PlanOrView를 owl:Thing 직하위로 두고 DocumentEntity 하위로 강제하지 않았다.
+  - plan_item: FoundationMemberMark ⊑ MemberMark 예시
+    actual_finding: FoundationMemberMark는 alternative_class_hints로만 반복되고 직접 class_hint로는
+      관찰되지 않았다.
+    action_taken: 독립 클래스로 생성하지 않고 MemberMark에 통합했다.
+  - plan_item: GroupingEntity와 MemberMark의 DisjointWith 우선
+    actual_finding: W1은 MemberMark이고 alternative_class_hints에 GroupingEntity가 있어 완전
+      확정은 이르다.
+    action_taken: 확정 공리 대신 disjoint_candidates로만 기록했다.
+  - plan_item: ReferenceSupportEntity를 seed_top_classes로 고려
+    actual_finding: 직접 class_hint로는 관찰되지 않았다.
+    action_taken: 생성하지 않고 ScheduleOrList와 NoteOrLegend로 분산 반영했다.
+  back_update_instructions:
+    per_tag_confirmed_class:
+      B1: dks:DocumentEntity
+      CENTRLIZER: dks:NoteOrLegend
+      ES1: dks:NoteOrLegend
+      ES1A: dks:DocumentMetadata
+      ES2: dks:NoteOrLegend
+      EXP-JOINT-01: dks:DetailEntity
+      FG1: dks:NoteOrLegend
+      FOUNDATION-PLAN: dks:PlanOrView
+      FS1: dks:NoteOrLegend
+      GRID-SYSTEM: dks:PlanOrView
+      GRID-X: dks:GroupingEntity
+      GRP-GENERAL-WALL: dks:GroupingEntity
+      GRP-GRID-Y: dks:GroupingEntity
+      GRP-PIT-WALL: dks:GroupingEntity
+      INDEX-S00.01: dks:DocumentEntity
+      MAIN-PLAN: dks:PlanOrView
+      MC-01: dks:NoteOrLegend
+      MC-02: dks:NoteOrLegend
+      MC-03: dks:NoteOrLegend
+      MC-05: dks:NoteOrLegend
+      MC-07: dks:NoteOrLegend
+      MC-08: dks:NoteOrLegend
+      MEMBER-LIST-TABLE: dks:ScheduleOrList
+      MEMBER-LIST: dks:ScheduleOrList
+      MF1: dks:MemberMark
+      MF1_vs_MF2_MF3: dks:NoteOrLegend
+      MF2: dks:MemberMark
+      MF2_MF3: dks:MemberMark
+      MF3: dks:MemberMark
+      PF1: dks:MemberMark
+      PF1_PF1A_PF1B_PF1C_PF2_PF2A_PF3_PF21: dks:MemberMark
+      PF1A: dks:MemberMark
+      PF1B: dks:MemberMark
+      PF1C: dks:MemberMark
+      PF2: dks:MemberMark
+      PF21: dks:MemberMark
+      PF2A: dks:MemberMark
+      PF3: dks:MemberMark
+      PIT-ZONE: dks:GroupingEntity
+      PIT-ZONE___UNKNOWN-SHAPE-01: dks:GroupingEntity
+      PLAN-PIT: dks:PlanOrView
+      PW1: dks:MemberMark
+      PW2: dks:PitWallMark
+      PW3: dks:PitWallMark
+      S0-SERIES: dks:DocumentEntity
+      S00.01: dks:DocumentEntity
+      S00.11: dks:DocumentEntity
+      S00.12: dks:DocumentEntity
+      S00.13: dks:DocumentEntity
+      S00.14: dks:DocumentEntity
+      S00.15: dks:DocumentEntity
+      S00.16: dks:DocumentEntity
+      S00.17: dks:DocumentEntity
+      S00.18: dks:DocumentEntity
+      S00.19: dks:DocumentEntity
+      S00.20: dks:DocumentEntity
+      S00.21: dks:DocumentEntity
+      S00.22: dks:DocumentEntity
+      S00.23: dks:DocumentEntity
+      S00.24: dks:DocumentEntity
+      S00.25: dks:DocumentEntity
+      S00.26: dks:DocumentEntity
+      S00.31: dks:DocumentEntity
+      S00.32: dks:DocumentEntity
+      S00.33: dks:DocumentEntity
+      S00.34: dks:DocumentEntity
+      S00.35: dks:DocumentEntity
+      S00.36: dks:DocumentEntity
+      S00.41: dks:DocumentEntity
+      S00.42: dks:DocumentEntity
+      S00.43: dks:DocumentEntity
+      S00.44: dks:DocumentEntity
+      S01.01: dks:DocumentEntity
+      S02.01: dks:DocumentEntity
+      S02.02: dks:DocumentEntity
+      S02.11: dks:DocumentEntity
+      S02.12: dks:DocumentEntity
+      S02.21: dks:DocumentEntity
+      S02.23: dks:SheetIdentifier
+      S02.24: dks:DocumentEntity
+      S02.31: dks:DocumentEntity
+      S02.32: dks:DocumentEntity
+      S02.33: dks:DocumentEntity
+      S02.34: dks:DocumentEntity
+      S02.35: dks:DocumentEntity
+      S02.36: dks:DocumentEntity
+      S02.37: dks:DocumentEntity
+      S03.01: dks:DocumentEntity
+      S03.02: dks:DocumentEntity
+      S03.03: dks:DocumentEntity
+      S03.13: dks:NoteOrLegend
+      S04.01: dks:DocumentEntity
+      S04.02: dks:DocumentEntity
+      S04.11: dks:DocumentEntity
+      S05.01: dks:DocumentEntity
+      S05.02: dks:DocumentEntity
+      S05.11: dks:DocumentEntity
+      S05.21: dks:DocumentEntity
+      S05.31: dks:DocumentEntity
+      S06.01: dks:SheetIdentifier
+      S06.02: dks:DocumentEntity
+      S06.11-1: dks:NoteOrLegend
+      S06.11-10: dks:DocumentEntity
+      S06.11-2: dks:DetailEntity
+      S06.11-3: dks:DetailEntity
+      S06.11-4: dks:DetailEntity
+      S06.11-5: dks:DetailEntity
+      S06.11-6: dks:SheetIdentifier
+      S06.11-7: dks:DetailEntity
+      S06.11-8: dks:DetailEntity
+      S06.11-9: dks:DocumentEntity
+      S06.11: dks:SheetIdentifier
+      S06.21-1: dks:DetailEntity
+      S06.21-2: dks:DetailEntity
+      S06.21-3: dks:DocumentEntity
+      S06.21-4: dks:DetailEntity
+      S06.21-5: dks:DetailEntity
+      S06.21-6: dks:DetailEntity
+      S06.21-7: dks:DetailEntity
+      S06.21-8: dks:DetailEntity
+      S06.21: dks:DocumentEntity
+      S06.22: dks:DocumentEntity
+      S06.31-1: dks:DetailEntity
+      S06.31-2: dks:DetailEntity
+      S06.31-3: dks:DetailEntity
+      S06.31-4: dks:DetailEntity
+      S06.31-5: dks:DetailEntity
+      S06.31-6: dks:DetailEntity
+      S06.31-7: dks:DetailEntity
+      S06.31-8: dks:DetailEntity
+      S06.31: dks:DocumentEntity
+      S06.41-1: dks:DocumentEntity
+      S06.41-2: dks:DetailEntity
+      S06.41-3: dks:DetailEntity
+      S06.41-4: dks:DetailEntity
+      S06.41-5: dks:DetailEntity
+      S06.41-6: dks:DetailEntity
+      S06.41-7: dks:DetailEntity
+      S06.41-8: dks:DocumentEntity
+      S06.41: dks:DetailEntity
+      S1-SERIES: dks:DocumentEntity
+      S1: dks:DocumentEntity
+      S2-SERIES: dks:DocumentEntity
+      S2: dks:DocumentEntity
+      S3-SERIES: dks:DocumentEntity
+      S4-SERIES: dks:DocumentEntity
+      S5-SERIES: dks:DocumentEntity
+      S6-SERIES: dks:DocumentEntity
+      SC1: dks:DocumentEntity
+      SC11: dks:DocumentEntity
+      SC11A: dks:DocumentEntity
+      SC12: dks:DocumentEntity
+      SC12A: dks:NoteOrLegend
+      SC12B: dks:NoteOrLegend
+      SC13: dks:NoteOrLegend
+      SC1A: dks:DocumentMetadata
+      SC1~SC21: dks:SheetOrSeriesIdentifier
+      SC2: dks:DocumentEntity
+      SC21: dks:DocumentEntity
+      SC2B: dks:NoteOrLegend
+      SC3A: dks:NoteOrLegend
+      SSC1: dks:DocumentEntity
+      TITLE-BLOCK: dks:DocumentTitleBlock
+      UNKNOWN-MICRO_PILE-1: dks:UnresolvedStructuralEntity
+      UNKNOWN-NOTE-01: dks:NoteOrLegend
+      UNKNOWN-NOTE-02: dks:NoteOrLegend
+      UNKNOWN-PHC_PILE-1: dks:UnresolvedStructuralEntity
+      UNKNOWN-REINFORCEMENT-01: dks:ReinforcementDetail
+      UNKNOWN-REINFORCEMENT-02: dks:ReinforcementDetail
+      UNKNOWN-SCHEDULE-01: dks:ScheduleOrList
+      VBR1: dks:DetailEntity
+      VBR2: dks:Beam
+      VBR3: dks:DetailEntity
+      W1: dks:MemberMark
+      WC1: dks:NoteOrLegend
+      WC2: dks:NoteOrLegend
+      WF1: dks:MemberMark
+      WG1: dks:NoteOrLegend
+    confirmed_at: '2026-04-22T00:00:00Z'
+    by: step_0-9c
+  confidence_overall: 0.87
+  self_assessment: 직접 관찰된 class_hint와 태그 이름 패턴만으로 보수적으로 계층을 구성했다. plan의 상위 분류는 대체로
+    맞았으나, PlanOrView를 DocumentEntity 하위로 두는 등 계획상의 가설은 직접 증거가 부족해 채택하지 않았다. raw-only
+    및 class_hint 공백 태그, 그리고 related_assertions의 target으로만 등장한 태그들은 unclassified로 남겼다.

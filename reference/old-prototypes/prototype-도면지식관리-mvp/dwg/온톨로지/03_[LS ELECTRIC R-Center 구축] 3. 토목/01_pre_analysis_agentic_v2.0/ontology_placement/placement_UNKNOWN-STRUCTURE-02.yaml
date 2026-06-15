@@ -1,0 +1,150 @@
+placement:
+  tag: UNKNOWN-STRUCTURE-02
+  name: 수소저장소
+  discipline: civil
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-STRUCTURE-02
+    class_hint: CivilStructure
+    alternative_class_hints:
+    - StorageFacility
+    - Shelter
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CivilStructure
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: EXISTING_STRUCTURE'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasStructureType
+          suggested_datatype: xsd:string
+          rationale: 구조물 유형을 나타내는 원문 값
+      - raw_text: 'function_category: STORAGE_FACILITY'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주를 나타내는 원문 값
+      - raw_text: 'specs.label: 천막'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 라벨로 보이는 문자열 값
+      - raw_text: 'ontology_hints.suggested_parent_class: CivilStructure'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasOntologyHint
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: Hydrogen Storage'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열 보존
+      - raw_text: 'ontology_hints.function_candidates: Shelter'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열 보존
+      - raw_text: 'source_pages: [4, 5]'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasSourcePage
+          suggested_datatype: xsd:string
+          rationale: 출처 페이지 목록 보존
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: isEntitySynthesized
+          suggested_datatype: xsd:boolean
+          rationale: 합성 생성 여부 원문 보존
+  provenance:
+    name:
+      source_pages:
+      - 4
+      - 5
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      - 5
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      - 5
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+    specs.label:
+      source_pages:
+      - 4
+    specs.status:
+      source_pages:
+      - 4
+    type:
+      source_pages:
+      - 4
+    function_category:
+      source_pages:
+      - 4
+    source_pages:
+      source_pages:
+      - 4
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 4
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 4
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 4
+    ontology_hints.function_candidates:
+      source_pages:
+      - 4
+  unresolved:
+  - field_candidate: specs.status
+    raw_text: 'null'
+    source_page: 4
+    reason: 값이 비어 있어 의미를 판정할 수 없음
+    preservation_note: 원문 null 상태를 유지
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 4
+    reason: 관계 항목이 존재하지 않음
+    preservation_note: 관계 부재 자체를 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 4
+    reason: 유사 장비 후보가 없음
+    preservation_note: 빈 배열 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name은 수소저장소로 물리적 구조물처럼 보이나, specs.label은 '천막'이고 function_category는 STORAGE_FACILITY,
+      ontology_hints.function_candidates는 Hydrogen Storage와 Shelter로 상충함.
+    recommended_handling: 0.9c에서 구조물/주석/임시시설 가능성을 분리 검토하고, 0.9d에서 관계가 추가되면 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:44:24.819368'
+  confidence: 0.78

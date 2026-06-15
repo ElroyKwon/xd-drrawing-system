@@ -1,0 +1,169 @@
+placement:
+  tag: CABLE-TRAY-MAIN
+  name: 기존 공동구 통신 CABLE TRAY
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:CABLE-TRAY-MAIN
+    class_hint: CableTray
+    alternative_class_hints:
+    - CableRoutingSupport
+    - CableAndPathway
+    related_assertions:
+    - type: connectedTo
+      target_hint: CABLE-TRAY-SUB
+      note: 기존 통신 TRAY 경유
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:CABLE-TRAY-SUB
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: connectedTo
+      target_hint: SPEAKER-TB-01
+      note: 도면 주석상 TRAY로 케이블 연결
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:SPEAKER-TB-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    applicable_axioms:
+    - AX022
+    - AX061
+    applicable_constraints:
+    - CN016
+    confirmed_class: dks:CableTray
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 공동구 통신 CABLE TRAY
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 라벨
+        promoted_to: dks:visualDescription
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: W:500(H)1000mm
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: hasDimensions
+          suggested_datatype: xsd:string
+          rationale: 치수 문자열이 직접 관찰됨
+        promoted_to: dks:dimensions
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: CABLE TRAY (점선 박스)
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: hasVisualDescription
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols의 시각적 표현 설명
+        promoted_to: dks:visualDescription
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-20T14:54:44.331858'
+      - raw_text: 기존 통신 TRAY 경유
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: hasRouteNote
+          suggested_datatype: xsd:string
+          rationale: 관계 annotation에 포함된 경유 설명
+      - raw_text: FR-3 2.5sq / 10C, ELP 50 /IN TRAY, TO R-Center EPS/TPS
+        source_page: 16
+        promotion_hint:
+          suggested_property_label: hasConnectionNote
+          suggested_datatype: xsd:string
+          rationale: 연결 주석 원문으로 보존 필요
+  provenance:
+    name:
+      source_pages:
+      - 16
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 16
+      method: classification_by_observation
+    ontology_core.iri_hint:
+      source_pages:
+      - 16
+      method: tag_based_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 16
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 16
+      method: derived_from_ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 16
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 16
+      method: preserve_unclassified_observations
+    unresolved:
+      source_pages:
+      - 16
+      method: scan_all_fields
+    ambiguous:
+      source_pages:
+      - 16
+      method: classification_review
+    merge_info:
+      source_pages:
+      - 16
+      method: similar_equipment_check
+    plan_reference.guidance_applied:
+      source_pages:
+      - 16
+      method: applied_ontology_plan_focus
+  unresolved:
+  - field_candidate: specs.position
+    raw_text: center-upper
+    source_page: 16
+    reason: 위치 정보는 관찰되지만 별도 표준 속성으로 확정하지 않음
+    preservation_note: 후속 단계에서 위치/배치 속성으로 승격 가능
+  - field_candidate: specs.shape
+    raw_text: dashed_box
+    source_page: 16
+    reason: 도형 표현은 관찰되나 class/property로 단정하지 않음
+    preservation_note: 시각적 표현 속성 후보
+  - field_candidate: specs.inferred_name
+    raw_text: 기존 공동구 통신 케이블 트레이
+    source_page: 16
+    reason: 원문 name과 유사하나 별도 필드로 보존
+    preservation_note: 명칭 정규화 후보
+  - field_candidate: specs.equipment_symbols[0].type
+    raw_text: CABLE TRAY (점선 박스)
+    source_page: 16
+    reason: 심볼 설명 원문이므로 해석 보류
+    preservation_note: visualDescription 후보
+  - field_candidate: relations[0].annotation
+    raw_text: FR-3 2.5sq / 10C, ELP 50 /IN TRAY, TO R-Center EPS/TPS
+    source_page: 16
+    reason: 케이블 규격/경로/종단 정보가 혼재
+    preservation_note: 후속 단계에서 관계와 데이터 속성으로 분해 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 점선 박스 형태의 케이블 트레이로 관찰되며, 관계도 존재하므로 독립 설비 개체로 분류 가능
+    recommended_handling: CableTray 계열 NamedIndividual로 유지하고, 관계 원문은 후속 단계에서 정제
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CableAndPathway 축으로 분류
+    - connectedTo / routesThrough 계열 관계 사실 원형 보존
+    - position, shape, dimensions, visualDescription 성격의 관찰값 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:05.625949'
+  confidence: 0.93

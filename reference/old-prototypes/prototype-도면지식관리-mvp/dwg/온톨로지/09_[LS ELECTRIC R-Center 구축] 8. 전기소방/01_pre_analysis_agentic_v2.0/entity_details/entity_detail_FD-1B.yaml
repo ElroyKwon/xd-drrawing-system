@@ -1,0 +1,115 @@
+tag: FD-1B
+name: 방화셔터 연동제어반 FD-1B
+type: CONTROL
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+- 7
+- 9
+specs:
+  inferred_name: 소방 분배반/단자함 FD-1B
+  labels_inside:
+  - FD-1B
+  shape: circle
+  floor: 1층
+  raw_labels:
+  - FD-1B
+  labels_above: []
+  labels_below: []
+  position: bottom-center
+  equipment_symbols:
+  - type: fire_alarm_distribution_panel
+    count: 1
+relations:
+- from: RISER-MAIN
+  to: FD-1B
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 1층 FD-1B 분기
+- from: FACP-MAIN
+  to: FD-1B
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: ②
+- from: RISER-MAIN
+  to: FD-1B
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 1층 FD-1B 분기
+- from: FD-1B
+  to: FA-1F
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선
+- from: FA-1A
+  to: FD-1B
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선 (Gemini Loop Topology)
+- from: FD-1B
+  to: FA-1F
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 소방간선 배선
+- from: FD-1B
+  to: ZONE-대용량모터부하실
+  relation: connects_to
+  source_page: 9
+  origin: cross_validated
+  line_style: solid
+  note: 방화셔터 연동 신호선
+- from: FD-1B
+  to: ZONE-신사업검증시스템
+  relation: connects_to
+  source_page: 9
+  origin: cross_validated
+  line_style: solid
+  note: 방화셔터 연동
+- from: FD-1B
+  to: ZONE-대용량모터부하실
+  relation: signal
+  source_page: 9
+  origin: visual_semantics
+  annotation: 방화셔터 연동 신호선
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+  visual_semantics_gemini: true
+position: bottom-center
+confidence: 0.95
+equipment_symbols:
+- type: 방화셔터 연동제어반
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireControlPanel
+  observed_attributes:
+  - inferred_name
+  - labels_inside
+  - shape
+  - floor
+  - raw_labels
+  - labels_above
+  - labels_below
+  - position
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - FireShutterControl
+  - SignalDistribution
+  - Interlocking

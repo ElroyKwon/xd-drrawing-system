@@ -1,0 +1,666 @@
+data_properties:
+- iri: dks:hasVoltage
+  label: has voltage
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1101'
+    value: 22.9kV
+    source_page: 5
+  - subject: BLK-LP-1F
+    value: 3Ø 4W 380/220V
+    source_page: 23
+  total_evidence: 120
+  derivation: hasVoltage, voltage_kV, hasRatedVoltage 등 전압 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasRatedCurrent
+  label: has rated current
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1101'
+    value: '630'
+    source_page: 5
+  - subject: MCCB-EA-MAIN
+    value: 100AT
+    source_page: 19
+  total_evidence: 85
+  derivation: hasRatedCurrent, hasMainBreakerAT 등 전류 정격 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasBreakingCapacity
+  label: has breaking capacity
+  domain: dks:ProtectionAndControlDevice
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1101'
+    value: 520MVA
+    source_page: 5
+  - subject: SPD-EA-001
+    value: 3Ø 40KA/mode
+    source_page: 19
+  total_evidence: 70
+  derivation: hasBreakingCapacity, hasSurgeProtectionRating 등 차단/서지 용량 관련 free_notes
+    승격
+  confidence: 0.95
+- iri: dks:hasPoleCount
+  label: has pole count
+  domain: dks:CircuitBreaker
+  range: xsd:integer
+  functional_candidate: true
+  evidence:
+  - subject: '1101'
+    value: 3P
+    source_page: 5
+  - subject: MCCB-EA-MAIN
+    value: 3P
+    source_page: 19
+  total_evidence: 65
+  derivation: hasBreakerPoles, hasPoleCount 등 극수 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasCTRatio
+  label: has CT ratio
+  domain: dks:CurrentTransformer
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: '1101'
+    value: 300/5A
+    source_page: 5
+  - subject: 1301B
+    value: 2×CT 75/5A
+    source_page: 5
+  total_evidence: 40
+  derivation: hasCTRatio 등 변류비 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasProtectionFunction
+  label: has protection function
+  domain: dks:ProtectionAndControlDevice
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1101'
+    value: 50/51
+    source_page: 5
+  - subject: 1301B
+    value: '67'
+    source_page: 5
+  total_evidence: 50
+  derivation: hasProtectionFunction, hasProtectionFunctionCode 등 보호 기능 코드 관련 free_notes
+    승격
+  confidence: 0.95
+- iri: dks:hasProtectionRelayModel
+  label: has protection relay model
+  domain: dks:ProtectionAndControlDevice
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: '1101'
+    value: GIPAM-2000FI
+    source_page: 5
+  - subject: 1301B
+    value: GIPAM
+    source_page: 5
+  total_evidence: 35
+  derivation: hasProtectionRelayModel 등 계전기 모델명 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasPanelId
+  label: has panel ID
+  domain: dks:Panel
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: '1103'
+    value: '1103'
+    source_page: 5
+  - subject: BLK-P-A-2PP-1
+    value: P-A-2PP-1
+    source_page: 23
+  total_evidence: 90
+  derivation: hasPanelId, hasPanelIdentifier 등 패널 식별자 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasCableSpecification
+  label: has cable specification
+  domain: dks:ConductorAndConnection
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLK-LP-1F
+    value: F-CV 50㎟ -1C x4, E-25㎟
+    source_page: 23
+  - subject: '1106'
+    value: 24kV CNCV-W
+    source_page: 5
+  total_evidence: 85
+  derivation: hasCableSpecification, hasCableType 등 케이블 규격 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasConduitSpecification
+  label: has conduit specification
+  domain: dks:InfrastructureAndSupport
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLK-LP-1F
+    value: 70C
+    source_page: 23
+  - subject: BLK-P-A-2PP-1
+    value: 104C
+    source_page: 23
+  total_evidence: 60
+  derivation: hasConduitSpecification, hasConduitSize 등 전선관 규격 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasGroundingMark
+  label: has grounding mark
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1102'
+    value: E1
+    source_page: 5
+  - subject: P-A-4PP-1
+    value: E3
+    source_page: 21
+  total_evidence: 75
+  derivation: hasGroundingMark, hasGroundTerminal 등 접지 마크 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasEquipmentType
+  label: has equipment type
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1102'
+    value: MOF
+    source_page: 5
+  - subject: 1303B
+    value: VCB
+    source_page: 5
+  total_evidence: 110
+  derivation: hasEquipmentType, hasDeviceType 등 장비 유형 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasCoverType
+  label: has cover type
+  domain: dks:Panel
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: P-A-3PP
+    value: 노출형(STEEL)
+    source_page: 20
+  - subject: P-A-4PP-1
+    value: 노출형(STEEL)
+    source_page: 21
+  total_evidence: 45
+  derivation: hasCoverType 등 외함 커버 형식 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasLocation
+  label: has location
+  domain: dks:ElectricalEquipment
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: P-A-3PP
+    value: 1층 Drive 시험실
+    source_page: 20
+  - subject: BLK-P-A-4PP-1
+    value: 옥상 A구역
+    source_page: 23
+  total_evidence: 80
+  derivation: hasLocation, hasPanelLocation, hasLocationDescription 등 위치 관련 free_notes
+    승격
+  confidence: 0.95
+- iri: dks:hasMaterial
+  label: has material
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: STRUCT-001
+    value: Steel (철강)
+    source_page: 39
+  - subject: COND-001
+    value: HI-PVC
+    source_page: 39
+  total_evidence: 30
+  derivation: hasMaterial, material 등 재질 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasDimensions
+  label: has dimensions
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLK-MANHOLE
+    value: 2,000x2,000x2,000mm
+    source_page: 23
+  - subject: GND-PLATE-001
+    value: 500 x 500
+    source_page: 39
+  total_evidence: 25
+  derivation: hasDimensions, hasDimensionsMm 등 치수 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasPurpose
+  label: has purpose
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: ACC-001
+    value: 배관 접속박스 방수 캡
+    source_page: 39
+  - subject: PIPE-001
+    value: 등전위 접속 대상
+    source_page: 39
+  total_evidence: 40
+  derivation: hasPurpose 등 용도/목적 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasDrawingPosition
+  label: has drawing position
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: '1101'
+    value: top-right
+    source_page: 5
+  - subject: BLK-IVR-2
+    value: bottom-right
+    source_page: 23
+  total_evidence: 150
+  derivation: hasDrawingPosition, hasPosition 등 도면 내 배치 위치 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasScheduleNumber
+  label: has schedule number
+  domain: dks:InformationEntity
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLK-LP-1F
+    value: ②
+    source_page: 23
+  - subject: BLK-P-A-2PP-1
+    value: A1
+    source_page: 23
+  total_evidence: 50
+  derivation: hasScheduleNumber, hasScheduleNo 등 스케줄 번호 관련 free_notes 승격
+  confidence: 0.95
+- iri: dks:hasBranchCircuitSpecification
+  label: has branch circuit specification
+  domain: dks:ElectricalCircuit
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: P-A-3PP
+    value: AT:20 AF:30 P:4 TYPE:MCCB NO:4 CCM
+    source_page: 20
+  - subject: BRANCH-P-AC-4PP-1
+    value: circuit_id=회로, at=125, af=125, poles=3, type=MCCB
+    source_page: 22
+  total_evidence: 80
+  derivation: hasBranchCircuitSpecification, hasBranchBreakerSpecification 등 분기회로
+    사양 관련 free_notes 승격
+  confidence: 0.95
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasVoltage
+  datatype: xsd:string
+  label: has voltage
+  evidence_tags:
+  - '1101'
+  - BLK-LP-1F
+  - P-A-3PP
+  - EXT-전기실
+  threshold_applied: ≥ 3건
+  total_evidence: 120
+  sample_evidence:
+  - tag: '1101'
+    raw_text: 22.9kV
+    source_page: 5
+  - tag: BLK-LP-1F
+    raw_text: 3Ø 4W 380/220V
+    source_page: 23
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasRatedCurrent
+  datatype: xsd:string
+  label: has rated current
+  evidence_tags:
+  - '1101'
+  - MCCB-EA-MAIN
+  - P-A-3PP
+  threshold_applied: ≥ 3건
+  total_evidence: 85
+  sample_evidence:
+  - tag: '1101'
+    raw_text: '630'
+    source_page: 5
+  - tag: MCCB-EA-MAIN
+    raw_text: 100AT
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasBreakingCapacity
+  datatype: xsd:string
+  label: has breaking capacity
+  evidence_tags:
+  - '1101'
+  - SPD-EA-001
+  - P-A-3PP
+  threshold_applied: ≥ 3건
+  total_evidence: 70
+  sample_evidence:
+  - tag: '1101'
+    raw_text: 520MVA
+    source_page: 5
+  - tag: SPD-EA-001
+    raw_text: 3Ø 40KA/mode
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasPoleCount
+  datatype: xsd:integer
+  label: has pole count
+  evidence_tags:
+  - '1101'
+  - MCCB-EA-MAIN
+  - P-A-3PP
+  threshold_applied: ≥ 3건
+  total_evidence: 65
+  sample_evidence:
+  - tag: '1101'
+    raw_text: 3P
+    source_page: 5
+  - tag: MCCB-EA-MAIN
+    raw_text: 3P
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasCTRatio
+  datatype: xsd:string
+  label: has CT ratio
+  evidence_tags:
+  - '1101'
+  - 1301B
+  - 1402A
+  threshold_applied: ≥ 3건
+  total_evidence: 40
+  sample_evidence:
+  - tag: '1101'
+    raw_text: 300/5A
+    source_page: 5
+  - tag: 1301B
+    raw_text: 2×CT 75/5A
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasProtectionFunction
+  datatype: xsd:string
+  label: has protection function
+  evidence_tags:
+  - '1101'
+  - 1301B
+  - 1402A
+  threshold_applied: ≥ 3건
+  total_evidence: 50
+  sample_evidence:
+  - tag: '1101'
+    raw_text: 50/51
+    source_page: 5
+  - tag: 1301B
+    raw_text: '67'
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasProtectionRelayModel
+  datatype: xsd:string
+  label: has protection relay model
+  evidence_tags:
+  - '1101'
+  - 1301B
+  - 1402A
+  threshold_applied: ≥ 3건
+  total_evidence: 35
+  sample_evidence:
+  - tag: '1101'
+    raw_text: GIPAM-2000FI
+    source_page: 5
+  - tag: 1301B
+    raw_text: GIPAM
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasPanelId
+  datatype: xsd:string
+  label: has panel ID
+  evidence_tags:
+  - '1103'
+  - BLK-P-A-2PP-1
+  - P-A-3PP
+  threshold_applied: ≥ 3건
+  total_evidence: 90
+  sample_evidence:
+  - tag: '1103'
+    raw_text: '1103'
+    source_page: 5
+  - tag: BLK-P-A-2PP-1
+    raw_text: P-A-2PP-1
+    source_page: 23
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasCableSpecification
+  datatype: xsd:string
+  label: has cable specification
+  evidence_tags:
+  - BLK-LP-1F
+  - '1106'
+  - BLK-P-A-2PP-1
+  threshold_applied: ≥ 3건
+  total_evidence: 85
+  sample_evidence:
+  - tag: BLK-LP-1F
+    raw_text: F-CV 50㎟ -1C x4, E-25㎟
+    source_page: 23
+  - tag: '1106'
+    raw_text: 24kV CNCV-W
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasConduitSpecification
+  datatype: xsd:string
+  label: has conduit specification
+  evidence_tags:
+  - BLK-LP-1F
+  - BLK-P-A-2PP-1
+  - BLK-P-A-3PP-1
+  threshold_applied: ≥ 3건
+  total_evidence: 60
+  sample_evidence:
+  - tag: BLK-LP-1F
+    raw_text: 70C
+    source_page: 23
+  - tag: BLK-P-A-2PP-1
+    raw_text: 104C
+    source_page: 23
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasGroundingMark
+  datatype: xsd:string
+  label: has grounding mark
+  evidence_tags:
+  - '1102'
+  - P-A-4PP-1
+  - 1301B
+  threshold_applied: ≥ 3건
+  total_evidence: 75
+  sample_evidence:
+  - tag: '1102'
+    raw_text: E1
+    source_page: 5
+  - tag: P-A-4PP-1
+    raw_text: E3
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasEquipmentType
+  datatype: xsd:string
+  label: has equipment type
+  evidence_tags:
+  - '1102'
+  - 1303B
+  - SPD-EA-001
+  threshold_applied: ≥ 3건
+  total_evidence: 110
+  sample_evidence:
+  - tag: '1102'
+    raw_text: MOF
+    source_page: 5
+  - tag: 1303B
+    raw_text: VCB
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasCoverType
+  datatype: xsd:string
+  label: has cover type
+  evidence_tags:
+  - P-A-3PP
+  - P-A-4PP-1
+  - BLK-P-A-4PP-1
+  threshold_applied: ≥ 3건
+  total_evidence: 45
+  sample_evidence:
+  - tag: P-A-3PP
+    raw_text: 노출형(STEEL)
+    source_page: 20
+  - tag: P-A-4PP-1
+    raw_text: 노출형(STEEL)
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasLocation
+  datatype: xsd:string
+  label: has location
+  evidence_tags:
+  - P-A-3PP
+  - BLK-P-A-4PP-1
+  - ROOM-A-ELECTRICAL-001
+  threshold_applied: ≥ 3건
+  total_evidence: 80
+  sample_evidence:
+  - tag: P-A-3PP
+    raw_text: 1층 Drive 시험실
+    source_page: 20
+  - tag: BLK-P-A-4PP-1
+    raw_text: 옥상 A구역
+    source_page: 23
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasMaterial
+  datatype: xsd:string
+  label: has material
+  evidence_tags:
+  - STRUCT-001
+  - COND-001
+  - UNKNOWN-PLATE-STEEL-01
+  threshold_applied: ≥ 3건
+  total_evidence: 30
+  sample_evidence:
+  - tag: STRUCT-001
+    raw_text: Steel (철강)
+    source_page: 39
+  - tag: COND-001
+    raw_text: HI-PVC
+    source_page: 39
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDimensions
+  datatype: xsd:string
+  label: has dimensions
+  evidence_tags:
+  - BLK-MANHOLE
+  - GND-PLATE-001
+  - INF-PULLBOX-001
+  threshold_applied: ≥ 3건
+  total_evidence: 25
+  sample_evidence:
+  - tag: BLK-MANHOLE
+    raw_text: 2,000x2,000x2,000mm
+    source_page: 23
+  - tag: GND-PLATE-001
+    raw_text: 500 x 500
+    source_page: 39
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasPurpose
+  datatype: xsd:string
+  label: has purpose
+  evidence_tags:
+  - ACC-001
+  - PIPE-001
+  - UNKNOWN-ANCHOR-DOUBLE-01
+  threshold_applied: ≥ 3건
+  total_evidence: 40
+  sample_evidence:
+  - tag: ACC-001
+    raw_text: 배관 접속박스 방수 캡
+    source_page: 39
+  - tag: PIPE-001
+    raw_text: 등전위 접속 대상
+    source_page: 39
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDrawingPosition
+  datatype: xsd:string
+  label: has drawing position
+  evidence_tags:
+  - '1101'
+  - BLK-IVR-2
+  - UNKNOWN-BLK-04
+  threshold_applied: ≥ 3건
+  total_evidence: 150
+  sample_evidence:
+  - tag: '1101'
+    raw_text: top-right
+    source_page: 5
+  - tag: BLK-IVR-2
+    raw_text: bottom-right
+    source_page: 23
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasScheduleNumber
+  datatype: xsd:string
+  label: has schedule number
+  evidence_tags:
+  - BLK-LP-1F
+  - BLK-P-A-2PP-1
+  - BLK-P-A-4PP-1
+  threshold_applied: ≥ 3건
+  total_evidence: 50
+  sample_evidence:
+  - tag: BLK-LP-1F
+    raw_text: ②
+    source_page: 23
+  - tag: BLK-P-A-2PP-1
+    raw_text: A1
+    source_page: 23
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasBranchCircuitSpecification
+  datatype: xsd:string
+  label: has branch circuit specification
+  evidence_tags:
+  - P-A-3PP
+  - BRANCH-P-AC-4PP-1
+  - P-A-4PP-1
+  threshold_applied: ≥ 3건
+  total_evidence: 80
+  sample_evidence:
+  - tag: P-A-3PP
+    raw_text: AT:20 AF:30 P:4 TYPE:MCCB NO:4 CCM
+    source_page: 20
+  - tag: BRANCH-P-AC-4PP-1
+    raw_text: circuit_id=회로, at=125, af=125, poles=3, type=MCCB
+    source_page: 22
+unused_hints:
+- suggested_property_label: hasTimeConstant
+  evidence_count: 1
+  sample_tags:
+  - '1101'
+  reason_not_promoted: 출현 빈도가 임계치(3건) 미만
+- suggested_property_label: hasNFactor
+  evidence_count: 2
+  sample_tags:
+  - '1101'
+  - BUNGI
+  reason_not_promoted: 출현 빈도가 임계치(3건) 미만
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-17T13:20:27.755999'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.95

@@ -1,0 +1,184 @@
+placement:
+  tag: UNKNOWN-ROOM-4
+  name: PIT층 F.L
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-4
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationSpace
+    - Cable Routing Area
+    - Underground Infrastructure Housing
+    related_assertions:
+    - type: hasMember
+      target_hint: PULL-BOX
+      note: specs.members에 포함
+    - type: hasMember
+      target_hint: MANHOLE
+      note: specs.members에 포함
+    - type: hasMember
+      target_hint: UNDERGROUND-DUCT
+      note: specs.members에 포함
+    - type: locatedIn
+      target_hint: PIT층
+      note: specs.floor로 관찰됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: GRP-PIT'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별자 형태의 문자열 값
+      - raw_text: 'members: PULL-BOX, MANHOLE, UNDERGROUND-DUCT'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간/구역에 포함된 구성요소 목록
+      - raw_text: 'floor: PIT층'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: floorLabel
+          suggested_datatype: xsd:string
+          rationale: 층 표기 문자열
+      - raw_text: 'name: PIT층 F.L'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면에 표기된 원문 라벨
+      - raw_text: 'type: space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문 보존
+      - raw_text: 'function_category: COMMUNICATION_PIT'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문
+      - raw_text: 'ontology_hints.function_candidates: Cable Routing, Underground
+          Infrastructure Housing'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열 목록
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entitySynthesisFlag
+          suggested_datatype: xsd:boolean
+          rationale: 생성/합성 출처 플래그
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: direct
+    name:
+      source_pages:
+      - 5
+      method: direct
+    discipline:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_type_and_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints_and_type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: direct_from_specs
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: preservation_bucket
+    specs.group_id:
+      source_pages:
+      - 5
+      method: direct
+    specs.members:
+      source_pages:
+      - 5
+      method: direct
+    specs.floor:
+      source_pages:
+      - 5
+      method: direct
+    type:
+      source_pages:
+      - 5
+      method: direct
+    function_category:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 space로 보이지만 name이 'PIT층 F.L'로 공간명인지 층 표기인지 혼합되어 있고, ontology_hints에
+      Cable Routing / Underground Infrastructure Housing 두 기능 후보가 함께 제시됨.
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, 이후 관계/주변 엔티티와 함께 공간-인프라 혼합 여부를
+      재평가.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - group_id, members, floor, function_category, ontology_hints를 모두 보존
+    - 관계 원형은 related_assertions에, 해석 불가 정보는 free_notes에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:45.699777'
+  confidence: 0.86

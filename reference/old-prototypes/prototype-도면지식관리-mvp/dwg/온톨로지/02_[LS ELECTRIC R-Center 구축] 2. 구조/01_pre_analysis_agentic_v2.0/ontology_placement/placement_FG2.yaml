@@ -1,0 +1,85 @@
+placement:
+  tag: FG2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:FG2
+    class_hint: ''
+    alternative_class_hints: []
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints:
+    - CN007
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면 주석/안내 문구로 보존 필요
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 대화형 안내 문구로서 도면 실체 정보가 아니며 주석성 텍스트로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: textual interpretation from raw
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비 실체나 관계로 직접 해석되지 않는 안내/메타 텍스트
+    preservation_note: 페이지 목록과 사용자 안내 문구를 분리하지 않고 원문 의미를 유지해 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 FG2는 실체 설비라기보다 페이지 안내/메타 성격의 텍스트만 포함하며, 물리적 개체 여부를 확정할 근거가 없음
+    recommended_handling: AnnotationOnly로 유지하고 후속 단계에서 문서 메타/주석 엔티티로 취급
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타/주석성 텍스트를 보수적으로 AnnotationOnly로 배치
+    - 분류 불가 정보는 free_notes와 unresolved에 원문 그대로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:15.336026'
+  confidence: 0.93

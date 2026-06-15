@@ -1,0 +1,131 @@
+placement:
+  tag: '201'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:201
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - RoomLikeEntity
+    - UnknownEntity
+    related_assertions:
+    - type: adjacent_to
+      target_hint: T01
+      note: incoming relation from T01 to 201; adjacency observed
+      confirmed_property: dks:adjacent_to
+      confirmed_target: T01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX032
+    - AX033
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: 'relation: adjacent_to; partner: T01; direction: incoming'
+      source_page: 63
+      promotion_hint:
+        suggested_property_label: adjacent_to
+        suggested_datatype: owl:ObjectProperty
+        rationale: 관계 사실이 직접 관찰되며 공간/인접 문맥의 핵심 정보임
+    - raw_text: 'from: T01 to: 201 relation: adjacent_to origin: cross_validated'
+      source_page: 63
+      promotion_hint:
+        suggested_property_label: adjacent_to
+        suggested_datatype: owl:ObjectProperty
+        rationale: 교차검증된 인접 관계로 보존 가치가 높음
+  provenance:
+    tag:
+      source_pages:
+      - 63
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 63
+      method: inferred_from_relation_presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 63
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 63
+      method: plan_guided_inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 63
+      method: plan_guided_inference
+    ontology_core.related_assertions:
+      source_pages:
+      - 63
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 63
+      method: direct
+    plan_reference.guidance_applied:
+      source_pages:
+      - 63
+      method: applied
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: T01
+    source_page: 63
+    reason: 관계 상대는 확인되나, 이 태그의 정확한 상위 분류는 도면만으로 확정 불가
+    preservation_note: adjacent_to 관계의 상대 노드로 보존
+  - field_candidate: relations[0].relation_type
+    raw_text: adjacent_to
+    source_page: 63
+    reason: 관계는 해석 가능하나 OWL 확정 property IRI는 다음 단계에서 결정
+    preservation_note: related_assertions에 원형 보존
+  - field_candidate: relations[1].from
+    raw_text: T01
+    source_page: 63
+    reason: 관계 방향 정보는 있으나 현재 태그 201의 독립적 의미는 추가 문맥 필요
+    preservation_note: cross_validated relation source
+  - field_candidate: relations[1].to
+    raw_text: '201'
+    source_page: 63
+    reason: 관계 대상은 본 태그이나, 공간/실/구획 여부는 미확정
+    preservation_note: adjacent_to의 대상 노드로 보존
+  - field_candidate: relations[1].relation
+    raw_text: adjacent_to
+    source_page: 63
+    reason: 관계명은 관찰되나 정식 ontology property는 미확정
+    preservation_note: 후속 단계에서 object property로 승격 가능
+  - field_candidate: relations[1].origin
+    raw_text: cross_validated
+    source_page: 63
+    reason: 검증 출처 메타정보로, 의미 분류 대상은 아님
+    preservation_note: provenance 강화용 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 201은 인접 관계만 관찰되고 자체 명칭/기능/설비 유형이 제공되지 않음
+    recommended_handling: 공간/실 후보로 유지하되, 추가 인근 태그나 시트 문맥이 확보되면 SpatialEntity 하위로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space_room_like_entities
+    - expected_object_properties.adjacent_to
+    - discipline_context_plan.architectural.observed_signals
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:05.913996'
+  confidence: 0.71

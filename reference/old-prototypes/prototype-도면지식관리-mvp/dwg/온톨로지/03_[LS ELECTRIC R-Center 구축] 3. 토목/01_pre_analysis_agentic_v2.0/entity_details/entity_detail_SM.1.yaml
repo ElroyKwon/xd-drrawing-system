@@ -1,0 +1,87 @@
+tag: SM.1
+name: 오수맨홀 SM.1
+type: MANHOLE
+discipline: CIVIL
+function_category: SEWAGE_MANHOLE
+source_pages:
+- 12
+- 13
+specs:
+  type: 오수맨홀
+  symbol: 이중원
+  nominal_diameter_mm: 900
+  unit: EA
+  line_id: LINE 101
+  connected_line:
+  - LINE 101 D150 L=26.0m
+  - LINE 102 D150 L=15.0m
+  pipe_service: 오수(S)
+  nominal_diameter_A: 150A
+  material: PVC이중벽관
+  annotation: 오수관
+  position_note: top-left (그리드 2~3 교차, B열 인근)
+  source_labels:
+  - SM.1
+  - 오수관
+  - LINE 101 D150 L=26.0m
+  - LINE 102 D150 L=15.0m
+  subsystem: sewage
+  status: new
+  manhole_depth_m: 1.57
+  segment_distance_m: 26.0
+  cumulative_distance_m: 26.0
+  plan_level_m: 94.45
+  invert_level_in_m: 92.92
+  invert_level_out_m: 92.89
+  excavation_depth_m_in: 1.55
+  excavation_depth_m_out: 1.65
+  soil_cover_m_in: 1.38
+  soil_cover_m_out: 1.35
+relations:
+- from: 기준맨홀(기존맨홀)
+  to: SM.1
+  relation: pipe
+  source_page: 13
+  origin: visual_semantics
+  annotation: LINE 101, D=150, S=3.85%, L=26.00m
+- from: SM.1
+  to: SM.2
+  relation: pipe
+  source_page: 13
+  origin: visual_semantics
+  annotation: LINE 102, D=150, S=4.00%, L=15.00m
+collection_sources:
+  entity_synthesis: true
+ontology_hints:
+  suggested_parent_class: Manhole
+  observed_attributes:
+  - type
+  - symbol
+  - nominal_diameter_mm
+  - unit
+  - line_id
+  - connected_line
+  - pipe_service
+  - nominal_diameter_A
+  - material
+  - annotation
+  - position_note
+  - source_labels
+  - subsystem
+  - status
+  - manhole_depth_m
+  - segment_distance_m
+  - cumulative_distance_m
+  - plan_level_m
+  - invert_level_in_m
+  - invert_level_out_m
+  - excavation_depth_m_in
+  - excavation_depth_m_out
+  - soil_cover_m_in
+  - soil_cover_m_out
+  similar_equipment:
+  - SM.2
+  function_candidates:
+  - sewage_collection
+  - inspection
+  - maintenance

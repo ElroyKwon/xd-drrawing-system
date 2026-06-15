@@ -1,0 +1,459 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: SANITARY_PIPING_LAYOUT
+  drawing_genre: sanitary_piping
+  title_block:
+    drawing_number: M32-001
+    title: PIT층 위생배관 평면도
+    revision: '2024.05'
+  visible_tags:
+  - tag: PIT
+    type: structural_element
+    source: both
+  - tag: SP
+    type: piping_abbreviation
+    source: image
+  - tag: RD
+    type: piping_abbreviation
+    source: image
+  - tag: ED
+    type: piping_abbreviation
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 1
+  next_step_hints:
+  - 도면 중앙 우측에 PIT 상세 배관이 집중되어 있으며, 옥외 배관/화장실 확대배관/평면도에 연결 등의 참조 문구가 보임
+  - 표제란 도면번호가 M32-001로 보이며, 시각적 내용은 위생배관 평면도
+  - 범례 전용 페이지는 아님
+  confidence: 0.96
+  note: 도면번호 접두사 M이 보이나, 시각적 내용은 위생배관 평면도이므로 PLUMBING으로 판정함. 표제란의 제목과 도면번호 접두사 간 불일치가
+    있음.
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_sanitary_piping/supplement_p4_05.yaml
+    P-10: discipline/mechanical/genre_schedule/supplement_p10.yaml
+  routing_confidence: 0.74
+  routing_reason: 시각적으로 위생배관 평면도이며 카탈로그에 mechanical의 genre_sanitary_piping가 존재해 우선
+    매칭했다. 다만 도면번호 접두사 M과 내용이 충돌한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: PIT층 위생배관 평면도
+    position: center
+    labels_near:
+    - PIT
+    - SP
+    - RD
+    - ED
+    - 화장실 확대배관 평면도에 연결
+    - 옥외 배관 평면도에 연결
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: solid
+    annotation: 화장실 확대배관 평면도에 연결
+  - from: BLK-001
+    to: BLK-003
+    line_style: solid
+    annotation: 옥외 배관 평면도에 연결
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 하단 중앙의 도면 번호 식별자
+  - shape: circle
+    label: 1 / M93-001
+    note: 화장실 확대배관 연결 참조
+  - shape: circle
+    label: 1 / M06-001
+    note: 옥외 배관 연결 참조
+  - shape: hexagon
+    label: SP
+    note: 배관 심볼 (위생배관)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 도면은 PIT층 위생배관 평면도이며, 범례 표나 섹션이 존재하지 않음.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: sanitary_piping
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 접두사 M과 도면 제목 '위생배관 평면도'를 종합하여 MECHANICAL 분야의 sanitary_piping
+    장르로 확정. 사전 분석의 PLUMBING 판정을 도면번호 접두사 M에 따라 MECHANICAL로 갱신함.
+classification: PLUMBING_DIAGRAM
+discipline: PLUMBING
+key_elements_from_text:
+- PIT층 위생배관 평면도
+- 옥외 배관 평면도에 연결
+- 화장실 확대배관 평면도에 연결
+- SP
+- RD
+- ED
+- PS
+- 도면 축척 A1:1/200 A3:1/400
+- 그리드 A, B, C, D / 1, 2, 3, 4, 5, 6, 7
+title_block:
+  drawing_number: M32-001
+  title: PIT층 위생배관 평면도
+  revision: '2024.05'
+confidence: 0.98
+note: 기존 분석의 discipline=MECHANICAL 판정은 도면번호 접두사 M에 근거한 것으로 보이나, 페이지의 시각적 제목과 배관 표기(RD,
+  ED, SP, PS) 및 범례상 위생배관 맥락이 명확하여 PLUMBING으로 보정함. 표제란과 하단 제목 모두 'PIT층 위생배관 평면도'로 보임.
+  페이지 27.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - PIT
+    - '100'
+    - '75'
+    - '200'
+    - '50'
+    - RD
+    - ED
+    - SP
+    - '50'
+    - '32'
+    - '50'
+    - '12'
+    labels_above:
+    - 화장실 확대배관 평면도에 연결
+    labels_below:
+    - 옥외 배관 평면도에 연결
+    labels_near:
+    - PIT
+    - 1 / M93-001 (화장실 확대배관 연결 참조)
+    - 1 / M06-001 (옥외 배관 연결 참조)
+    equipment_symbols:
+    - type: floor_drain (FD)
+      count: 2
+    - type: pump (SP)
+      count: 1
+    - type: pipe_riser
+      count: 3
+    inferred_name: PIT층 위생배관 집중 구역 (배수·우수·장비배수 배관)
+    position: center-right
+  - panel_id: BLK-M02
+    shape: dashed_box
+    labels_inside:
+    - 화장실 확대배관 평면도에 연결
+    - M93-001
+    labels_above: []
+    labels_below: []
+    inferred_name: 화장실 확대배관 평면도 참조 블록
+    position: center-right-upper
+  - panel_id: BLK-M03
+    shape: dashed_box
+    labels_inside:
+    - 옥외 배관 평면도에 연결
+    - M06-001
+    labels_above: []
+    labels_below: []
+    inferred_name: 옥외 배관 평면도 참조 블록
+    position: center-right-lower
+  - panel_id: BLK-GRID
+    shape: rectangle
+    labels_inside:
+    - 그리드 A, B, C, D (수평)
+    - 그리드 1, 2, 3, 4, 5, 6, 7 (수직)
+    - 71,000 (전체 폭)
+    - 12,000 / 12,000 / 12,000 / 14,000 / 11,000 / 10,000 (스팬)
+    - 13,000 / 17,900 / 13,000 (수직 스팬)
+    - 43,900 (전체 높이)
+    labels_above: []
+    labels_below: []
+    inferred_name: 구조 그리드 레이아웃 (PIT층 전체 평면)
+    position: full
+  connections:
+  - from: BLK-M01
+    to: BLK-M02
+    line_type: pipe
+    line_style: solid
+    annotation: 화장실 확대배관 평면도에 연결 / 참조번호 1/M93-001
+    fluid_type: sanitary_mixed
+    flow_direction: upward
+  - from: BLK-M01
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: 옥외 배관 평면도에 연결 / 참조번호 1/M06-001
+    fluid_type: sanitary_mixed
+    flow_direction: downward
+  - from: BLK-M01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: RD 100A (우수배수관)
+    fluid_type: RD
+    nominal_diameter_A: '100'
+  - from: BLK-M01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: ED 75A (장비배수관)
+    fluid_type: ED
+    nominal_diameter_A: '75'
+  - from: BLK-M01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: SP 200A (펌핑배수관)
+    fluid_type: SP
+    nominal_diameter_A: '200'
+  - from: BLK-M01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: 50A 배관
+    fluid_type: drain
+    nominal_diameter_A: '50'
+  - from: BLK-M01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: 32A 배관
+    fluid_type: drain
+    nominal_diameter_A: '32'
+  groups:
+  - group_id: GRP-001
+    label: PIT층 위생배관 집중 구역 (그리드 5~6 / B~D 사이)
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    fluid_types:
+    - RD (우수배수관)
+    - ED (장비배수관)
+    - SP (펌핑배수관)
+    - D (배수관)
+  legend_references:
+  - text: SP — PUMP (펌프)
+    linked_to: BLK-M01
+    symbol_id: SYM-045 (PD/펌핑배수관 관련)
+  - text: RD — 우수배수관 / RAINWATER DRAIN
+    linked_to: BLK-M01
+    symbol_id: SYM-046
+  - text: ED — 장비배수관 / EQUIPMENT DRAIN
+    linked_to: BLK-M01
+    symbol_id: SYM-047
+  - text: FD — 바닥배수관 / FLOOR DRAIN
+    linked_to: BLK-M01
+    symbol_id: SYM-031
+  - text: CO — 소제구 / CLEANOUT
+    linked_to: BLK-M01
+    symbol_id: SYM-032
+  diagram_meta:
+    title: PIT층 위생배관 평면도
+    drawing_number: M32-001
+    revision: '2024.05'
+    scale: A1:1/200, A3:1/400
+    discipline: MECHANICAL (PLUMBING)
+    mech_subsystem: sanitary_piping
+    sanitary_subtype: sanitary_floor_plan
+    view_type: plan
+    floor_label: PIT층
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - RD (우수배수관)
+    - ED (장비배수관)
+    - SP (펌핑배수관/펌프)
+    - D (배수관)
+    fixture_counts:
+      floor_drain: 2
+      clean_out: 1
+      pump: 1
+    has_riser_schedule: false
+    has_equipment_list: false
+    grid_columns:
+    - label: '1'
+      span_mm: 12000
+    - label: '2'
+      span_mm: 12000
+    - label: '3'
+      span_mm: 12000
+    - label: '4'
+      span_mm: 14000
+    - label: '5'
+      span_mm: 11000
+    - label: '6'
+      span_mm: 10000
+    - label: '7'
+      span_mm: null
+    - total_width_mm: 71000
+    grid_rows:
+    - label: A
+      span_mm: 13000
+    - label: B
+      span_mm: 17900
+    - label: C
+      span_mm: null
+    - label: D
+      span_mm: 13000
+    - total_height_mm: 43900
+    cross_references:
+    - ref_drawing: M93-001
+      ref_detail: '1'
+      description: 화장실 확대배관 평면도에 연결
+    - ref_drawing: M06-001
+      ref_detail: '1'
+      description: 옥외 배관 평면도에 연결
+    notes:
+    - 배관 집중 구역은 그리드 5~6 / B~D 사이에 위치
+    - PIT층 전체 평면에서 배관 설비는 우측 중앙부에만 집중
+    - 도면번호 접두사 M은 기계(Mechanical) 분야를 의미하며, 위생배관(Sanitary Piping) 서브시스템에 해당
+    - SP는 범례상 PUMP를 의미하며, 펌핑배수 계통으로 추정
+    - '관경 표기: 100A, 75A, 200A, 50A, 32A 확인'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - PIT
+    labels_near:
+    - 100 RD
+    - 75 ED
+    - 200 SP
+    - 50 D
+    - '50'
+    - '32'
+    - SP
+    equipment_symbols:
+    - type: PUMP
+      count: 1
+      legend_ref: SP
+    - type: FLOOR DRAIN
+      count: 1
+      symbol_id: SYM-031
+    - type: CHECK VALVE
+      count: 1
+      symbol_id: SYM-050
+    - type: GATE VALVE
+      count: 1
+      symbol_id: SYM-048
+    - type: FLEXIBLE JOINT
+      count: 1
+      symbol_id: SYM-054
+    inferred_name: PIT층 집수정 및 배관 구역
+    position: bottom-right
+  - panel_id: BLK-REF-01
+    shape: dashed_box
+    labels_inside:
+    - 화장실 확대배관 평면도에 연결
+    - 1 / M93-001
+    inferred_name: 화장실 확대배관 평면도 참조
+    position: top-right-of-BLK-M01
+  - panel_id: BLK-REF-02
+    shape: dashed_box
+    labels_inside:
+    - 옥외 배관 평면도에 연결
+    - 1 / M06-001
+    inferred_name: 옥외 배관 평면도 참조
+    position: bottom-right-of-BLK-M01
+  connections:
+  - from: BLK-M01
+    to: BLK-M01
+    line_type: pipe
+    line_style: solid
+    annotation: 펌프(SP) 토출 배관 (w/ Check & Gate Valve)
+    fluid_type: SP
+    flow_direction: outward
+  - from: BLK-M01
+    to: BLK-REF-01
+    line_type: pipe
+    line_style: solid
+    annotation: 화장실 계통 연결 (50A, 32A 배관)
+    flow_direction: upward
+  - from: BLK-M01
+    to: BLK-REF-02
+    line_type: pipe
+    line_style: solid
+    annotation: 옥외 배수 계통 연결 (100 RD, 75 ED, 200 SP)
+    fluid_type: mixed_drain
+    flow_direction: downward
+  groups:
+  - group_id: GRP-GRID
+    label: 구조 그리드 시스템
+    members: []
+    meta:
+      horizontal_grids:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      vertical_grids:
+      - A
+      - B
+      - C
+      - D
+  legend_references:
+  - text: SP - PUMP (펌프)
+    linked_to: BLK-M01
+  - text: FD - 바닥배수관 / FLOOR DRAIN
+    symbol_id: SYM-031
+    linked_to: BLK-M01
+  - text: RD - 우수배수관 / RAINWATER DRAIN
+    symbol_id: SYM-046
+    linked_to: BLK-M01
+  - text: ED - 장비배수관 / EQUIPMENT DRAIN
+    symbol_id: SYM-047
+    linked_to: BLK-M01
+  - text: D - 배수관 / DRAIN
+    symbol_id: SYM-042
+    linked_to: BLK-M01
+  - text: 체크밸브 / CHECK VALVE
+    symbol_id: SYM-050
+    linked_to: BLK-M01
+  - text: 게이트밸브 / GATE VALVE
+    symbol_id: SYM-048
+    linked_to: BLK-M01
+  - text: 플렉시블이음 / FLEXIBLE JOINT
+    symbol_id: SYM-054
+    linked_to: BLK-M01
+  diagram_meta:
+    title: PIT층 위생배관 평면도
+    drawing_number: M32-001
+    revision: '2024.05'
+    scale: A1:1/200, A3:1/400
+    discipline: MECHANICAL
+    mech_subsystem: sanitary_piping
+    sanitary_subtype: sanitary_floor_plan
+    view_type: plan
+    floor_label: PIT층
+    fluid_types_present:
+    - RD
+    - ED
+    - SP
+    - D
+    fixture_counts:
+      pump: 1
+      floor_drain: 1
+    grid_info:
+      total_width_mm: 71000
+      total_height_mm: 43000
+      horizontal_spans_mm:
+      - 12000
+      - 12000
+      - 12000
+      - 14000
+      - 11000
+      - 10000
+      vertical_spans_mm:
+      - 13000
+      - 17000
+      - 13000

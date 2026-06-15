@@ -1,0 +1,79 @@
+entity_detail:
+  tag: T01
+  type: space
+  specs:
+    page_61:
+      source: 61
+      confidence: 0.98
+    page_63:
+      source: 63
+      confidence: 0.99
+  drawing_texts:
+  - source: page_061_context.yaml
+    page_number: 61
+    text: 계단실
+  - source: page_063_context.yaml
+    page_number: 63
+    text: 계단실 확대평면도
+  - source: page_063_context.yaml
+    page_number: 63
+    text: 계단실 T01을 중심으로 로비, 화장실, Software Lab, 중층 조망공간과 계단 방향(UP/DN), 그리드(B1, B2,
+      5, 5A, 5B)가 함께 표기된다.
+  - source: page_063_context.yaml
+    page_number: 63
+    text: 계단실 T01
+  requirements:
+  - text: 계단 방향(UP/DN) 표기
+    source: page_063_context.yaml
+    type: circulation
+  - text: 그리드(B1, B2, 5, 5A, 5B)와 함께 표기
+    source: page_063_context.yaml
+    type: drawing_annotation
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: adjacent_to_or_centered_with
+      partner_tag: 로비
+      direction: around
+      source: page_063_context.yaml
+    - relation_type: adjacent_to_or_centered_with
+      partner_tag: 화장실
+      direction: around
+      source: page_063_context.yaml
+    - relation_type: adjacent_to_or_centered_with
+      partner_tag: Software Lab
+      direction: around
+      source: page_063_context.yaml
+    - relation_type: adjacent_to_or_centered_with
+      partner_tag: 중층 조망공간
+      direction: around
+      source: page_063_context.yaml
+    - relation_type: associated_with
+      partner_tag: UP
+      direction: annotation
+      source: page_063_context.yaml
+    - relation_type: associated_with
+      partner_tag: DN
+      direction: annotation
+      source: page_063_context.yaml
+    observed_attributes:
+    - 계단실
+    - T01
+    - UP
+    - DN
+    - B1
+    - B2
+    - '5'
+    - 5A
+    - 5B
+    similar_equipment:
+    - T01
+    suggested_parent_class: ARCHITECTURAL_SPACE
+    cross_discipline: []
+  notes:
+  - 페이지 61, 63에서 계단실 T01이 확인됨.
+  - 페이지 62의 검색 결과에는 T01이 직접 확인되지 않아 본 상세 정보에는 포함하지 않음.
+  - read_page_context(page=63)에서 계단실 T01 중심으로 로비, 화장실, Software Lab, 중층 조망공간과 계단 방향(UP/DN)이
+    함께 표기됨을 확인함.
+  - read_entity_detail(tag=Software Lab) 결과, T01과 adjacent_or_co_shown_with 관계가 확인됨.
+  - read_entity_detail(tag=중층 조망공간) 결과, T01과 adjacent_to 관계가 확인됨.

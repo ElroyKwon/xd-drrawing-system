@@ -1,0 +1,59 @@
+entity_detail:
+  tag: BUS-6.6kV-1
+  name: 6.6kV Bus
+  type: bus
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    members:
+      value:
+      - PNL-HV-1301A
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "bus_id: BUS-6.6kV-1\nvoltage: 6.6kV\nmembers:\n- PNL-HV-1301A\n...\nannotation:\
+      \ 6.6kV FR-8 100SQ 1Cx3x1LINE(CABLE TRAY)\n- from: PNL-1301A\n  to: BUS-6.6kV-1\n\
+      \  line_type: power_cable\n  line_style: solid\n  annotation: ''\n...\n- from:\
+      \ BUS-6.6kV-1\n  to: PNL-BUS-TIE\n  line_type: power_cable\n  line_style: solid"
+  requirements: []
+  connection_specs:
+  - relation: power_cable
+    partner: PNL-1301A
+    details:
+      source: page 5
+      annotation: 6.6kV FR-8 100SQ 1Cx3x1LINE(CABLE TRAY)
+  - relation: power_cable
+    partner: PNL-BUS-TIE
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_cable
+      partner_tag: PNL-1301A
+      direction: from PNL-1301A to BUS-6.6kV-1
+      source: page 5
+    - relation_type: power_cable
+      partner_tag: PNL-BUS-TIE
+      direction: from BUS-6.6kV-1 to PNL-BUS-TIE
+      source: page 5
+    observed_attributes:
+    - bus_id
+    - voltage
+    - members
+    - annotation
+    similar_equipment: []
+    suggested_parent_class: ElectricalBus
+    cross_discipline: []
+  notes:
+  - page 5 context and search result only provide partial bus-related text; no additional
+    bus-specific specs were confirmed.
+  - name derived from tag (BUS-6.6kV-1) with confidence 0.85; no explicit name field
+    found in source documents.
+  - members field populated from bus structure in page 5 drawing_texts.
+  - Cable annotation (6.6kV FR-8 100SQ 1Cx3x1LINE) is connection spec, not bus spec.
+tag: BUS-6.6kV-1

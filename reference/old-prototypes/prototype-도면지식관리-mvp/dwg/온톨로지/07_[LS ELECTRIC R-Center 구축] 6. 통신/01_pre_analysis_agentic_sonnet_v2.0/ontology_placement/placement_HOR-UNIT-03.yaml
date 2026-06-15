@@ -1,0 +1,168 @@
+placement:
+  tag: HOR-UNIT-03
+  name: SYSTEM BOX / OUTLET BOX
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: HOR-UNIT-03
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - OutletBox
+    - SystemBox
+    - SignalTerminationEquipment
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'inferred_name: Horizontal Unit 3 (Data)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 문자열
+      - raw_text: 'position: bottom-center'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'shape: rectangle'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 표기
+      - raw_text: 'raw_labels: SYSTEM BOX; OUTLET BOX'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존
+      - raw_text: 'labels_inside: SYSTEM BOX; OUTLET BOX'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기 보존
+      - raw_text: 'function_category: OUTLET_BOX'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology hint 보존
+      - raw_text: 'function_candidates: Data Connection; Signal Termination'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'collection_sources.visual_semantics_gemini: true'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: collectionSourceVisualSemanticsGemini
+          suggested_datatype: xsd:boolean
+          rationale: 수집/생성 출처 메타정보
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: collectionSourceEntitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 수집/생성 출처 메타정보
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: direct
+    name:
+      source_pages:
+      - 18
+      method: direct
+    discipline:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: inferred_from_type_and_content
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: inferred_from_ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 18
+      method: direct_scan
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 18
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 18
+      method: direct
+  unresolved:
+  - field_candidate: specs
+    raw_text: 'raw_labels: SYSTEM BOX / OUTLET BOX; inferred_name: Horizontal Unit
+      3 (Data); position: bottom-center; shape: rectangle; labels_inside: SYSTEM BOX
+      / OUTLET BOX'
+    source_page: 18
+    reason: 구조화된 세부 spec로 확정할 수 있는 수치/속성은 없음
+    preservation_note: 라벨/형상/위치 정보는 free_notes로 보존
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 18
+    reason: 관계 항목이 비어 있음
+    preservation_note: 관계 부재 자체를 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 18
+    reason: 유사 장비 목록 없음
+    preservation_note: 빈 배열 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Data Connection; Signal Termination
+    source_page: 18
+    reason: 후보 기능이 있으나 단일 확정 불가
+    preservation_note: 후보 기능 문자열을 free_notes로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SYSTEM BOX / OUTLET BOX라는 라벨과 function_category OUTLET_BOX, function_candidates(Data
+      Connection, Signal Termination)가 함께 존재하나, 물리 설비의 정확한 세부 class를 도면만으로 단정하기 어렵다.
+    recommended_handling: 0-9c에서 CommunicationEquipment 하위의 구체 class 후보를 검증하고, 0-9d에서
+      기능/종단 관련 데이터 속성 또는 관계로 승격 여부를 판단
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 분야의 dominant_equipment_types 중 CommunicationEquipment 계열로 수렴하는
+      패턴 적용
+    - ontology_hints의 suggested_parent_class를 class_hint 후보로 반영
+    - raw_labels, inferred_name, position, shape, labels_inside를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:57.832092'
+  confidence: 0.83

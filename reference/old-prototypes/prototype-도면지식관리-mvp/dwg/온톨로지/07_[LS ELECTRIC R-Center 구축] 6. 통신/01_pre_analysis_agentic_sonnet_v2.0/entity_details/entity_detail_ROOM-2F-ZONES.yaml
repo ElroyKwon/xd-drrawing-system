@@ -1,0 +1,73 @@
+tag: ROOM-2F-ZONES
+name: 2층 단말 구역
+type: SPACE
+discipline: COMMUNICATION
+function_category: COMMUNICATION_ZONE
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - 40인 나이트
+  - 회의실-1,2
+  - 전산실
+  - 식당
+  - 대회의실
+  - Software Lab
+  - 유틸리티
+  - 대기실
+  - 2층
+  labels_inside:
+  - 40인 나이트
+  - 회의실-1,2
+  - 전산실
+  - 식당
+  - 대회의실
+  - Software Lab
+  - 유틸리티
+  - 대기실
+  labels_above:
+  - 2층
+  equipment_symbols:
+  - type: LAN_OUTLET_2PORT
+    count: 12
+  - type: LAN_OUTLET_1PORT
+    count: 6
+  - type: SYSTEM_BOX_LAN_2PORT
+    count: 4
+  - type: AP
+    count: 3
+  inferred_name: 2층 각 실 단말 그룹
+  position: center
+relations:
+- from: HUB-RACK-2
+  to: ROOM-2F-ZONES
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: T1~T6 UTP CAT.5e 수평배선
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: center
+equipment_symbols:
+- type: LAN_OUTLET_2PORT
+  count: 12
+- type: LAN_OUTLET_1PORT
+  count: 6
+- type: SYSTEM_BOX_LAN_2PORT
+  count: 4
+- type: AP
+  count: 3
+ontology_hints:
+  suggested_parent_class: CommunicationZone
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_above
+  - equipment_symbols
+  - inferred_name
+  - position
+  similar_equipment: []
+  function_candidates:
+  - NetworkConnectivity
+  - TerminalDistribution

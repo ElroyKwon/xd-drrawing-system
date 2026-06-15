@@ -1,0 +1,121 @@
+entity_detail:
+  tag: BRANCH_CIRCUITS_P1~P6
+  type: equipment
+  specs:
+    branch_circuits_count:
+      value: 6
+      unit: ea
+      source: page 21
+      confidence: 0.95
+    branch_circuits_present_in_each_panel:
+      value: 4~6개 행의 분기 회로 표시
+      unit: null
+      source: page 21
+      confidence: 0.95
+    branch_circuit_breaker_rating_table:
+      value: 30AF/35KA이상, 600AF/50KA이상 등 6개 행의 정격 용량 표
+      unit: null
+      source: page 21
+      confidence: 0.95
+    panel_voltage:
+      value: 440
+      unit: V
+      source: page 21
+      confidence: 0.97
+    phase:
+      value: 3Ø
+      unit: null
+      source: page 21
+      confidence: 0.97
+    panel_location:
+      value: 1층 Drive 시험실
+      unit: null
+      source: page 21
+      confidence: 0.95
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 21
+      confidence: 0.95
+    from_source:
+      value: 전기실
+      unit: null
+      source: page 21
+      confidence: 0.95
+    grounding:
+      value: E3
+      unit: null
+      source: page 21
+      confidence: 0.95
+  drawing_texts:
+  - source: page 21
+    page_number: 21
+    text: 각 패널 블록 내 4~6개 행의 분기 회로 표시, 각 행에 극수(P), AF/AT 정격, 부하 설명 표기 (텍스트 해상도 제한으로
+      정확한 태그 미확인)
+  - source: page 21
+    page_number: 21
+    text: 생산동력(3Ø 440V) 분전반 결선도-1
+  - source: page 21
+    page_number: 21
+    text: 'COVER TYPE: 노출형(STEEL), PANEL LOCATION: 1층 Drive 시험실, FROM: 전기실, 3Ø 440V,
+      MCCB, SPD, E3 접지'
+  requirements:
+  - text: 각 패널 블록 내 분기 회로가 4~6개 행으로 표시됨
+    source: page 21
+    type: layout/functional
+  - text: 각 행에 극수(P), AF/AT 정격, 부하 설명 표기
+    source: page 21
+    type: documentation
+  - text: 3Ø 440V 분전반 계통
+    source: page 21
+    type: electrical
+  - text: 노출형(STEEL) 외함
+    source: page 21
+    type: construction
+  - text: E3 접지 적용
+    source: page 21
+    type: safety
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 21
+  - relation: grounded_to
+    partner: E3
+    details:
+      source: page 21
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: downstream
+      source: page 21
+    - relation_type: grounded_to
+      partner_tag: E3
+      direction: downstream
+      source: page 21
+    observed_attributes:
+    - 3Ø 440V
+    - 노출형(STEEL)
+    - 1층 Drive 시험실
+    - 전기실
+    - MCCB
+    - SPD
+    - E3 접지
+    - 분기 회로
+    - 극수(P)
+    - AF/AT 정격
+    - 부하 설명
+    similar_equipment:
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-3
+    - P-A-4PP-4
+    - P-A-4PP-5
+    - P-A-4PP-6
+    suggested_parent_class: ElectricalBranchCircuit
+    cross_discipline: []
+  notes:
+  - 대상 태그 BRANCH_CIRCUITS_P1~P6는 페이지 21의 각 패널 내 분기 회로 묶음을 의미하는 것으로 보이나, 개별 분기 태그는
+    텍스트 해상도 제한으로 확인되지 않음.
+tag: BRANCH_CIRCUITS_P1~P6

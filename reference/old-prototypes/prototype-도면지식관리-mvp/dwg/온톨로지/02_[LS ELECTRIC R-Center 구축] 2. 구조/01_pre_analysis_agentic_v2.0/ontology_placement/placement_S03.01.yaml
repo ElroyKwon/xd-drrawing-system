@@ -1,0 +1,99 @@
+placement:
+  tag: S03.01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S03.01
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - NoteOrLegend
+    - ScheduleOrList
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 메타 정보이며, 도면/문서 참조 가능성 있는 값
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로, 도면 실체가 아닌 주석성 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    name:
+      source_pages:
+      - 0
+      method: not provided
+    discipline:
+      source_pages:
+      - 0
+      method: explicit input
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred from raw text being page-availability note
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided coarse placement
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided coarse placement
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: verbatim preservation
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 태그 S03.01의 물리 설비/부재 실체를 직접 지시하지 않고, 페이지 안내 문구만 포함
+    preservation_note: 문서 메타/안내 주석으로 보존; 후속 단계에서 페이지 참조 엔티티 여부 재검토 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식은 시트/시리즈 계열처럼 보이나, 원문은 특정 페이지 목록을 안내하는 주석성 텍스트뿐이라 DocumentEntity와
+      AnnotationOnly 사이 경계가 불명확함
+    recommended_handling: 0-9c에서 문서 메타 또는 주석 엔티티로 재판정; 페이지 목록을 별도 데이터 속성 후보로 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'dominant_equipment_types: 도면/시트 식별자 계열 및 문서 메타 계층'
+    - 'predicted_ontology_structure: DocumentEntity / NoteOrLegend / ScheduleOrList
+      후보 검토'
+    - 'discipline_context_plan.unknown: document_metadata로 보수적 처리'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:43.041452'
+  confidence: 0.86

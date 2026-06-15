@@ -1,0 +1,123 @@
+placement:
+  tag: UNKNOWN-ROOM-002
+  name: SHOW ROOM
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-002
+    class_hint: Room
+    alternative_class_hints:
+    - CommunicationSpace
+    - PublicAddressSpace
+    - AudioBroadcastingSpace
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: 스피커 천정형 (3W)
+      note: specs.equipment_symbols에 관찰됨
+    - type: hasEquipmentSymbol
+      target_hint: SPEAKER 단자함
+      note: specs.equipment_symbols에 관찰됨
+    applicable_axioms:
+    - AX002
+    applicable_constraints: []
+    confirmed_class: dks:Room
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: SHOW ROOM
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 문자열
+      - raw_text: 스피커 천정형 (3W)
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간에 부착된 설비 심볼/기기 표기
+      - raw_text: SPEAKER 단자함
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간에 부착된 설비 심볼/기기 표기
+  provenance:
+    name:
+      source_pages:
+      - 17
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: space entity with own tag and attributes
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates + discipline context
+    ontology_core.related_assertions:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 17
+      method: preservation of unclassified raw texts
+    specs.source_text:
+      source_pages:
+      - 17
+      method: specs.source_text
+    specs.equipment_symbols:
+      source_pages:
+      - 17
+      method: specs.equipment_symbols
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 17
+      method: ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 17
+      method: ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 17
+      method: ontology_hints.function_candidates
+    source_pages:
+      source_pages:
+      - 17
+      method: entity_detail.source_pages
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 공간(SPACE)로 보이지만, equipment_symbols에 스피커 천정형(3W)과 SPEAKER 단자함이 함께 있어
+      순수 공간인지, 방송/음향 기능이 강한 공간인지 경계가 모호함.
+    recommended_handling: 0-9c에서 Room/Space 계열로 우선 분류하되, 0-9d에서 공간-설비 관계와 기능 속성을 분리
+      검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 보이는 UNKNOWN-ROOM-* 계열을 공간 엔티티로 우선 배치
+    - equipment_symbols를 관계 사실 원형으로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:19.046601'
+  confidence: 0.86

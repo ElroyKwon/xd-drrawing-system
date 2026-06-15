@@ -1,0 +1,113 @@
+placement:
+  tag: B_113
+  name: 시험 전원실
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:B_113
+    class_hint: RoomOrSpace
+    alternative_class_hints:
+    - SpatialEntity
+    - BuildingSpace
+    related_assertions:
+    - type: contains
+      target_hint: PLAN-1F
+      note: incoming relation recorded; B/113 is contained by PLAN-1F
+      confirmed_property: dks:contained_in
+      confirmed_target: PLAN-1F
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX001
+    - AX036
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN003
+    - CN009
+    confirmed_class: dks:RoomOrSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: 시험 전원실
+      source_page: 60
+      promotion_hint:
+        suggested_property_label: hasName
+        suggested_datatype: xsd:string
+        rationale: 태그에 대응하는 명칭 문자열
+    - raw_text: PLAN-1F contains B/113
+      source_page: 60
+      promotion_hint:
+        suggested_property_label: contained_in
+        suggested_datatype: owl:ObjectProperty
+        rationale: 공간/실로 보이는 태그가 상위 컨테이너에 포함됨
+  provenance:
+    tag:
+      source_pages:
+      - 60
+      method: entity_detail
+    name:
+      source_pages:
+      - 60
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 60
+      method: inferred_from_relation_and_self_name
+    ontology_core.iri_hint:
+      source_pages:
+      - 60
+      method: normalized_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 60
+      method: plan_guidance_based_inference
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 60
+      method: entity_detail
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 60
+      method: entity_detail
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 60
+      method: entity_detail
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 60
+      method: entity_detail
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 60
+      method: entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 실/공간처럼 보이지만, supplement가 없어 sub_kind를 확정할 수 없고 도면상 명칭만으로는 정확한 클래스
+      단정이 불가함.
+    recommended_handling: 0-9c에서 공간/실 계열 후보로 검토하고, 0-9d에서 contained_in/contains 관계를
+      정식화할 것.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space_room_like_entities
+    - contains
+    - RoomLikeEntity -> SpatialEntity
+    deviations:
+    - supplement 부재로 architectural sub_kind를 부여하지 않고 free_notes로 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:30.019476'
+  confidence: 0.86

@@ -1,0 +1,667 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: STRUCTURAL
+  classification: DETAIL
+  drawing_genre: detail
+  title_block:
+    drawing_number: C10-202
+    title: 집수정(500x500) 상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: false
+    estimated_entity_count: 6
+  next_step_hints:
+  - 상세도이며 집수정(500x500) 구성과 단면/입면/평면 상세가 함께 보임
+  - 수량표(구성표)와 재료 표기가 하단에 있음
+  - '표제란 도면번호 접두사 C와 시각적 내용이 불일치함: 시각적 내용은 구조 상세로 보이나 접두사 C가 우선 근거'
+  confidence: 0.93
+  note: 도면번호 접두사 C10-202가 표제란에 보이며, 시각적 내용은 집수정 상세도/구조 상세로 보임. 접두사 우선 규칙에 따라 STRUCTURAL로
+    분류함.
+  recommended_supplements: &id001
+    P-4.5: discipline/structural/genre_detail/supplement_p4_05.yaml
+  routing_confidence: 0.88
+  routing_reason: STRUCTURAL + P-10에서 genre_schedule만 उपलब्ध하며, 본 페이지는 상세도이지만 표제란/구성표가
+    있어 schedule 계열 보조자료로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 평면도
+    position: top-left
+    labels_near:
+    - '1000'
+    - '500'
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: A-A 단면도
+    position: top-center
+    labels_near:
+    - fck =21Mpa
+    - 버림 콘크리트
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: B-B 단면도
+    position: top-right
+    labels_near:
+    - 스틸그레이팅
+    - 앵커
+  - panel_id: BLK-004
+    shape: rectangle
+    primary_label: 스틸그레이팅 (평면)
+    position: middle-left
+    labels_near:
+    - '600'
+    - 4@100=400
+  - panel_id: BLK-005
+    shape: other
+    primary_label: 스틸그레이팅 (입체)
+    position: middle-center
+    labels_near:
+    - TWIST BAR
+    - BEARING BAR
+  - panel_id: BLK-006
+    shape: rectangle
+    primary_label: 수량표
+    position: bottom-right
+    labels_near:
+    - 콘크리트
+    - 거푸집
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: dashed
+    annotation: A-A 단면선
+  - from: BLK-001
+    to: BLK-003
+    line_style: dashed
+    annotation: B-B 단면선
+  notable_shapes:
+  - shape: circle
+    label: D
+    note: A-A 단면도 내 배수관 단면 표시
+  - shape: circle
+    label: 상세 "A"
+    note: B-B 단면도 내 상세 부위 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.9
+  note: 하단에 재료 및 규격을 명시한 '수량표'가 범례 섹션 역할을 수행함
+supplement_routing:
+  discipline: STRUCTURAL
+  drawing_genre: detail
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 접두사 C와 불일치하나, 시각적 내용이 명확한 집수정 구조 상세도이므로 STRUCTURAL/detail로
+    확정. 카탈로그에서 해당 경로 추출.
+classification: DETAIL_DRAWING
+discipline: STRUCTURAL
+key_elements_from_text:
+- 집수정(500x500) 상세도
+- 평면도
+- A-A 단면도
+- B-B 단면도
+- 스틸그레이팅
+- 수량표
+- 버림 콘크리트
+- fck =21Mpa
+- fck =18Mpa
+title_block:
+  drawing_number: C10-202
+  title: 집수정(500x500) 상세도
+  revision: UNKNOWN
+confidence: 0.98
+note: 표제란의 도면번호 C10-202와 제목 '집수정(500x500) 상세도'가 보이며, 페이지 내에 평면도/A-A 단면도/B-B 단면도와 스틸그레이팅,
+  수량표가 함께 표시됨. 기존 판정의 STRUCTURAL/detail과 일치함.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PLAN-01
+    shape: rectangle
+    labels_inside:
+    - '500'
+    - '500'
+    - '1000'
+    - '150'
+    - '50'
+    labels_above:
+    - 평면도
+    labels_below: []
+    labels_left:
+    - '1000'
+    - '500'
+    - '150'
+    - '50'
+    equipment_symbols:
+    - type: 집수정 평면 외곽선 (이중 사각형)
+      count: 1
+    - type: 단면 절단선 A-A
+      count: 1
+    - type: 단면 절단선 B-B
+      count: 1
+    inferred_name: 집수정(500×500) 평면도
+    position: top-left
+    detail_id: C10-202-PLAN
+    member_type: foundation
+    material_system: rc
+    raw_dimension_text: 1000×1000 외곽, 500×500 내부, 150 벽두께, 50 여유
+  - panel_id: SEC-AA
+    shape: rectangle
+    labels_inside:
+    - '500'
+    - fck =21MPa
+    - 버림 콘크리트 fck =18MPa
+    - D (배수관 단면 원형)
+    - '100'
+    - '150'
+    - '100'
+    - '50'
+    labels_above:
+    - A-A 단면도
+    labels_below:
+    - 50|50  150  500  150  50|50
+    - '1000'
+    labels_left:
+    - 1000|1200 (전체 높이)
+    - 100 (상단)
+    - '150'
+    - 100 (하단)
+    - 150 (버림콘크리트)
+    equipment_symbols:
+    - type: 배수관 단면 원형 심볼 (D)
+      count: 1
+    - type: 콘크리트 해치
+      count: 1
+    - type: 버림콘크리트 해치
+      count: 1
+    inferred_name: 집수정 A-A 단면도 (종단면)
+    position: top-center
+    detail_id: C10-202-SEC-AA
+    member_type: foundation
+    material_system: rc
+    concrete_spec:
+      main_concrete_fck: 21MPa
+      lean_concrete_fck: 18MPa
+    raw_dimension_text: 전체폭 1000, 내부폭 500, 벽두께 150, 외부여유 50×2, 전체높이 1000~1200, 버림콘크리트
+      두께 100
+  - panel_id: SEC-BB
+    shape: rectangle
+    labels_inside:
+    - '500'
+    - fck =21MPa
+    - 버림 콘크리트 fck =18MPa
+    - 스틸그레이팅
+    - 앵커
+    - 상세 "A"
+    - '100'
+    - '150'
+    - '100'
+    - '50'
+    labels_above:
+    - B-B 단면도
+    labels_below:
+    - 50|50  150  500  150  50|50
+    - '1000'
+    labels_right:
+    - 상세 "A" (상세 콜아웃 원형)
+    labels_left:
+    - 1000|1200 (전체 높이)
+    - 100 (상단)
+    - '150'
+    - 100 (하단)
+    - 150 (버림콘크리트)
+    equipment_symbols:
+    - type: 스틸그레이팅 심볼 (상단 덮개)
+      count: 1
+    - type: 앵커 심볼
+      count: 1
+    - type: 상세 콜아웃 원형 (상세 A)
+      count: 1
+    - type: 콘크리트 해치
+      count: 1
+    - type: 버림콘크리트 해치
+      count: 1
+    - type: 배수 방향 화살표
+      count: 1
+    inferred_name: 집수정 B-B 단면도 (횡단면, 스틸그레이팅 포함)
+    position: top-right
+    detail_id: C10-202-SEC-BB
+    member_type: foundation
+    material_system: rc
+    concrete_spec:
+      main_concrete_fck: 21MPa
+      lean_concrete_fck: 18MPa
+    raw_dimension_text: 전체폭 1000, 내부폭 500, 벽두께 150, 외부여유 50×2, 전체높이 1000~1200, 버림콘크리트
+      두께 100
+  - panel_id: DET-A
+    shape: circle
+    labels_inside:
+    - 상세 "A"
+    labels_above:
+    - 상세 "A"
+    equipment_symbols:
+    - type: 앵커 상세 확대 원형 콜아웃
+      count: 1
+    inferred_name: 앵커/스틸그레이팅 고정부 상세 A
+    position: top-right (B-B 단면도 우측)
+    detail_id: C10-202-DET-A
+    is_standard: false
+    referenced_by:
+    - SEC-BB
+  - panel_id: GRATING-PLAN
+    shape: rectangle
+    labels_inside:
+    - 4@100=400
+    - 600×600
+    - 100 (테두리)
+    - 스틸그레이팅
+    labels_above:
+    - 스틸그레이팅
+    labels_below: []
+    labels_left:
+    - '600'
+    - 100+400+100
+    labels_right: []
+    equipment_symbols:
+    - type: 격자 해치 (스틸그레이팅 평면)
+      count: 1
+    inferred_name: 스틸그레이팅 평면도 (600×600)
+    position: middle-left
+    detail_id: C10-202-GRATING-PLAN
+    member_type: deck_slab
+    grating_spec:
+      overall_size: 600×600
+      grid_spacing: 4@100=400
+      border_width: 100
+  - panel_id: GRATING-ISO
+    shape: other
+    labels_inside:
+    - TWIST BAR 6mm × 6mm
+    - BEARING BAR 50mm × 5 × 3
+    - END PLATE VAR 50mm × 50mm × 4.5T
+    - '90'
+    - '100'
+    - '30'
+    - '30'
+    labels_above: []
+    labels_right:
+    - BEARING BAR
+    - TWIST BAR
+    equipment_symbols:
+    - type: 스틸그레이팅 아이소메트릭/사시도
+      count: 1
+    - type: TWIST BAR 단면 심볼
+      count: 1
+    - type: BEARING BAR 단면 심볼
+      count: 1
+    inferred_name: 스틸그레이팅 입체 상세도
+    position: middle-center
+    detail_id: C10-202-GRATING-ISO
+    member_type: deck_slab
+    grating_spec:
+      bearing_bar: 50mm × 5 × 3
+      twist_bar: 6mm × 6mm
+      end_plate: 50mm × 50mm × 4.5T
+      pitch_bearing: 30
+      pitch_twist: 90
+  - panel_id: SCHEDULE-01
+    shape: rectangle
+    labels_inside:
+    - 수량표 (계소망)
+    - 구분 | 규격 | 단위 | W=0.7 | W=1.2 | 비고
+    - 콘크리트 | fck <21MPa | m³ | 0.39 | 0.59
+    - 콘크리트 | fck <18MPa | m³ | 0.10 | 0.10 | 버림 콘크리트
+    - 거푸집 | 합판 4회 | m² | 3.78 | 6.78
+    - 거푸집 | 합판 6회 | m² | 0.40 | 0.45 | 버림 콘크리트
+    - 부망 | 600×900×50 | m² | 1.00 | 1.00 | 앵커 포함
+    labels_above:
+    - 수량표
+    labels_right:
+    - (계소망)
+    equipment_symbols: []
+    inferred_name: 집수정 수량표 (W=0.7 / W=1.2 두 가지 규격)
+    position: bottom-right
+    detail_id: C10-202-SCHEDULE
+    has_schedule_table: true
+    schedule_columns:
+    - 구분
+    - 규격
+    - 단위
+    - W=0.7
+    - W=1.2
+    - 비고
+  connections:
+  - from: PLAN-01
+    to: SEC-AA
+    line_type: other
+    line_style: dashed
+    annotation: A-A 단면 절단선
+  - from: PLAN-01
+    to: SEC-BB
+    line_type: other
+    line_style: dashed
+    annotation: B-B 단면 절단선
+  - from: SEC-BB
+    to: DET-A
+    line_type: other
+    line_style: solid
+    annotation: 상세 "A" 콜아웃 참조
+  - from: GRATING-PLAN
+    to: GRATING-ISO
+    line_type: other
+    line_style: solid
+    annotation: 스틸그레이팅 평면-입체 대응
+  - from: SEC-BB
+    to: GRATING-PLAN
+    line_type: other
+    line_style: dashed
+    annotation: 스틸그레이팅 덮개 참조
+  groups:
+  - group_id: GRP-SUMP
+    label: 집수정(500×500) 구조 상세 그룹
+    members:
+    - PLAN-01
+    - SEC-AA
+    - SEC-BB
+    - DET-A
+  - group_id: GRP-GRATING
+    label: 스틸그레이팅 상세 그룹
+    members:
+    - GRATING-PLAN
+    - GRATING-ISO
+  legend_references:
+  - text: 스틸그레이팅
+    linked_to: GRATING-PLAN
+  - text: 콘크리트
+    linked_to: SEC-AA
+  - text: 버림 콘크리트
+    linked_to: SEC-AA
+  diagram_meta:
+    title: 집수정(500×500) 상세도
+    drawing_number: C10-202
+    project: R-Center 구축
+    client: LS Electric
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    scale: NONE
+    discipline: STRUCTURAL
+    drawing_genre: detail
+    view_type: detail
+    material_system: rc
+    member_types_present:
+    - foundation
+    - deck_slab
+    has_reinforcement_detail: false
+    has_schedule_table: true
+    detail_count: 6
+    detail_categories:
+    - '기초(집수정 RC 구조체): 3개 (평면, A-A 단면, B-B 단면)'
+    - '접합부 상세: 1개 (상세 A - 앵커/그레이팅 고정)'
+    - '데크/그레이팅: 2개 (평면, 입체)'
+    - '수량표: 1개'
+    is_standard_notes: false
+    flow_direction: UNKNOWN
+    notable_shapes:
+    - shape: circle
+      label: D
+      note: A-A 단면도 내 배수관 단면 표시 (관경 미기재)
+      panel: SEC-AA
+    - shape: circle
+      label: 상세 "A"
+      note: B-B 단면도 우측 앵커/그레이팅 고정부 상세 콜아웃
+      panel: SEC-BB
+    - shape: arrow
+      label: 배수 방향
+      note: B-B 단면도 내 배수 흐름 방향 화살표
+      panel: SEC-BB
+    concrete_specs:
+      main: fck = 21MPa
+      lean: fck = 18MPa (버림 콘크리트)
+    grating_specs:
+      overall_size: 600×600mm
+      bearing_bar: 50mm × 5 × 3
+      twist_bar: 6mm × 6mm
+      end_plate: 50mm × 50mm × 4.5T
+    sump_variants:
+    - label: W=0.7
+      description: 집수정 폭 0.7m 규격
+    - label: W=1.2
+      description: 집수정 폭 1.2m 규격
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: PLAN-01
+    shape: rectangle
+    labels_inside:
+    - A
+    - B
+    - A
+    - B
+    labels_above:
+    - 평면도
+    labels_below:
+    - '1000'
+    labels_left:
+    - '1000'
+    - '500'
+    - '150'
+    - 50|50
+    labels_right:
+    - 50|50
+    - '150'
+    - '500'
+    equipment_symbols:
+    - type: 단면 절단선
+      count: 2
+    inferred_name: 집수정 평면도
+    position: top-left
+  - panel_id: SEC-AA
+    shape: rectangle
+    labels_inside:
+    - '500'
+    - D
+    - fck =21MPa
+    - 버림 콘크리트
+    - fck =18MPa
+    labels_above:
+    - A-A 단면도
+    - 100|590|100
+    labels_below:
+    - 50|50|150|500|150|50|50
+    - '1000'
+    labels_right:
+    - '150'
+    - VAR
+    - 700(1200)
+    - VAR
+    - '100'
+    - '150'
+    equipment_symbols:
+    - type: 콘크리트 해치
+      count: 1
+    - type: 버림콘크리트 해치
+      count: 1
+    - type: 배관 심볼 (D)
+      count: 1
+    inferred_name: 집수정 A-A 단면도
+    position: top-center
+  - panel_id: SEC-BB
+    shape: rectangle
+    labels_inside:
+    - '500'
+    - 스틸그레이팅
+    - 앵커
+    - 상세 "A"
+    - fck =21MPa
+    - 버림 콘크리트
+    - fck =18MPa
+    labels_above:
+    - B-B 단면도
+    - 100|5|590|5|100
+    labels_below:
+    - 50|50|150|500|150|50|50
+    - '1000'
+    labels_right:
+    - '150'
+    - VAR
+    - 700(1200)
+    - VAR
+    equipment_symbols:
+    - type: 콘크리트 해치
+      count: 1
+    - type: 버림콘크리트 해치
+      count: 1
+    - type: 스틸그레이팅 심볼
+      count: 1
+    - type: 앵커 심볼
+      count: 1
+    - type: 상세 콜아웃 (원형)
+      count: 1
+    - type: 화살표 (유체 흐름)
+      count: 1
+    inferred_name: 집수정 B-B 단면도
+    position: top-right
+  - panel_id: DET-A
+    shape: circle
+    labels_inside:
+    - '100'
+    - '30'
+    labels_above:
+    - 상세 "A"
+    equipment_symbols:
+    - type: 앵커 상세
+      count: 1
+    - type: 스틸그레이팅 상세
+      count: 1
+    inferred_name: 앵커 및 그레이팅 상세 A
+    position: top-right
+  - panel_id: GRATING-PLAN
+    shape: rectangle
+    labels_inside:
+    - 스틸그레이팅
+    labels_above:
+    - 스틸그레이팅
+    - '600'
+    - 100|4@100=400|100
+    labels_left:
+    - '600'
+    - 100|4@100=400|100
+    equipment_symbols:
+    - type: 격자 해치
+      count: 1
+    inferred_name: 스틸그레이팅 평면도
+    position: middle-left
+  - panel_id: GRATING-ISO
+    shape: other
+    labels_inside:
+    - END PLATE VAR
+    - 50mm x 50mm x 4.5T
+    - BEARING BAR
+    - TWIST BAR
+    - 6mm x 6mm
+    - BEARING BAR
+    - 50mm x 5 x 3
+    - TWIST BAR
+    - '90'
+    - '100'
+    - '30'
+    - '30'
+    - '50'
+    - '5'
+    equipment_symbols:
+    - type: 입체도
+      count: 1
+    - type: 단면 상세
+      count: 2
+    inferred_name: 스틸그레이팅 입체 및 구성 상세
+    position: middle-center
+  - panel_id: SCHEDULE-01
+    shape: rectangle
+    labels_inside:
+    - 구 분
+    - 규 격
+    - 단 위
+    - H=0.7
+    - H=1.2
+    - 비 고
+    - 콘 크 리 트
+    - fck =21MPa
+    - m3
+    - '0.39'
+    - '0.59'
+    - fck =18MPa
+    - m3
+    - '0.10'
+    - '0.10'
+    - 버림 콘크리트
+    - 거 푸 집
+    - 합 판 4 회
+    - m2
+    - '3.78'
+    - '6.78'
+    - 합 판 6 회
+    - m2
+    - '0.40'
+    - '0.40'
+    - 버림 콘크리트
+    - 뚜 껑
+    - 600X600X50
+    - ea
+    - '1.00'
+    - '1.00'
+    - 앵글, 앵커 포함
+    labels_above:
+    - 수량표
+    labels_right:
+    - (개소당)
+    inferred_name: 집수정 수량표
+    position: bottom-right
+  connections:
+  - from: PLAN-01
+    to: SEC-AA
+    line_type: other
+    line_style: dashed
+    annotation: A-A 단면선
+  - from: PLAN-01
+    to: SEC-BB
+    line_type: other
+    line_style: dashed
+    annotation: B-B 단면선
+  - from: SEC-BB
+    to: DET-A
+    line_type: other
+    line_style: solid
+    annotation: 상세 "A" 콜아웃
+  groups:
+  - group_id: GRP-SUMP-DETAIL
+    label: 집수정 상세도 모음
+    members:
+    - PLAN-01
+    - SEC-AA
+    - SEC-BB
+    - DET-A
+  - group_id: GRP-GRATING-DETAIL
+    label: 스틸그레이팅 상세도 모음
+    members:
+    - GRATING-PLAN
+    - GRATING-ISO
+  diagram_meta:
+    title: 집수정(500x500) 상세도
+    drawing_number: C10-202
+    project: LS Electric R-Center 구축
+    client: LS Electric
+    architect: 가운건축
+    date: '2024.05'
+    scale: A1:NONE, A3:NONE
+    flow_direction: right
+    notes:
+    - 단면도의 'VAR' 치수는 수량표의 H=0.7 및 H=1.2 타입에 대응됨.
+    - B-B 단면도에 유체 흐름 방향 화살표가 있음.

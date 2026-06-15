@@ -1,0 +1,192 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: HVAC_CONTROL_PLAN
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: M92-104
+    title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    revision: null
+  visible_tags:
+  - tag: PS
+    type: pressure_switch
+    source: both
+  - tag: SMFD
+    type: fire_damper_control_device_or_system_label
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 2
+  next_step_hints:
+  - 도면 우하단 범례/약어 박스에 '전선 및 전선관'과 케이블 규격 표기가 보임
+  - 중앙 우측에 제어 대상 설비/기기 배치가 작게 표시되어 있음
+  - 페이지 3 범례 데이터에 PS=Pressure Switch, F.D=Fire Damper, V.D=Volume Damper, F.V.D=Fire
+    Volume Damper, S.D=Solenoid Damper, M.D=Motorized Volume Damper, B.D=Backdraft
+    Damper가 확인됨
+  confidence: 0.86
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/mechanical/genre_floor_plan/supplement_p10.yaml
+  routing_confidence: 0.93
+  routing_reason: 제목란에 '지붕층 스마트 방화댐퍼(SMFD) 제어 평면도'가 보이고 평면 배치형 도면이므로 MECHANICAL/floor_plan으로
+    라우팅한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    position: center
+    labels_near:
+    - 축척 1/400
+    - '1'
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 전선 및 전선관 범례
+    position: bottom-right
+    labels_near:
+    - KEY
+    - CV
+    - C3052
+    - UTP
+    - A
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: TITLE BLOCK
+    position: right
+    labels_near:
+    - LS Electric
+    - 가운 건축
+    - M92-104
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: dashed
+    annotation: 범례 참조 관계
+  notable_shapes:
+  - shape: circle
+    label: A, B, C, D
+    note: 그리드 축 열 표시
+  - shape: circle
+    label: 1, 2, 3, 4, 5, 6, 7
+    note: 그리드 축 행 표시
+  - shape: circle
+    label: A, B
+    note: 도면 내 상세 참조 마커
+  - shape: triangle
+    label: 'null'
+    note: 우측 하단 범례 표 내 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.98
+  note: 우측 하단에 '전선 및 전선관' 표가 명확히 존재함
+classification: HVAC_CONTROL_PLAN
+discipline: MECHANICAL
+key_elements_from_text:
+- 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+- 축척 1/400
+- '프로젝트 제목: R-Center 구축'
+- '건물명: R-Center'
+- '프로젝트 번호: 224001'
+- '도면번호: M92-104'
+- '설계사무소: 가운건축(GAUN)'
+- LS Electric
+- 전선 및 전선관
+- PS
+- A, B, C, D
+- 1, 2, 3, 4, 5, 6, 7
+title_block:
+  drawing_number: M92-104
+  title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+  revision: UNKNOWN
+confidence: 0.97
+note: 기존 분석의 MECHANICAL/HVAC_CONTROL_PLAN 판정과 일치한다. 우하단 범례 박스에 '전선 및 전선관'과 케이블 규격
+  표기가 보이며, 본 도면은 지붕층 SMFD 제어 대상의 평면 배치 도면으로 보인다. 페이지 53 표제란 기준.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: vision으로 제목란의 '지붕층 스마트 방화댐퍼(SMFD) 제어 평면도'와 평면 배치 형태를 확인하여 MECHANICAL/floor_plan으로
+    확정
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-SHAFT-01
+    shape: rectangle
+    labels_inside:
+    - EPS / TPS
+    inferred_name: Electrical / Telecommunication Piping Shaft
+    position: grid C-5/6
+  - panel_id: BLK-SMFD-01
+    shape: other
+    labels_near:
+    - SMFD
+    equipment_symbols:
+    - type: SMFD_symbol
+      count: 1
+    inferred_name: Smart Fire Damper
+    position: inside BLK-SHAFT-01
+  - panel_id: BLK-LEGEND-A
+    shape: circle
+    labels_inside:
+    - A
+    labels_near:
+    - CV 2.5sq x 3C
+    - (22C)
+    inferred_name: Power Cable Legend Entry
+    position: legend_box
+  - panel_id: BLK-LEGEND-B
+    shape: circle
+    labels_inside:
+    - B
+    labels_near:
+    - C3052 2.5sq x 2P
+    - (22C)
+    inferred_name: Control Cable Legend Entry
+    position: legend_box
+  connections:
+  - from: UNKNOWN_SOURCE
+    to: BLK-SMFD-01
+    line_type: cable
+    line_style: solid
+    annotation: A (CV 2.5sq x 3C, 22C)
+    legend_reference: BLK-LEGEND-A
+  - from: UNKNOWN_SOURCE
+    to: BLK-SMFD-01
+    line_type: signal
+    line_style: solid
+    annotation: B (C3052 2.5sq x 2P, 22C)
+    legend_reference: BLK-LEGEND-B
+  - from: BLK-SHAFT-01
+    to: LOWER_FLOOR
+    line_type: path
+    line_style: arrow
+    annotation: DN
+  groups:
+  - group_id: GRP-SHAFT-AREA
+    label: Shaft Area at Grid C-5/6
+    members:
+    - BLK-SHAFT-01
+    - BLK-SMFD-01
+  legend_references:
+  - text: A
+    linked_to: BLK-LEGEND-A
+  - text: B
+    linked_to: BLK-LEGEND-B
+  diagram_meta:
+    title: 지붕층 스마트 방화댐퍼(SMFD) 제어 평면도
+    discipline: MECHANICAL
+    sub_discipline: fire_damper_control
+    floor_label: 지붕층
+    scale: 1/400
+    grid_system: A-D x 1-7
+    flow_direction: UNKNOWN

@@ -1,0 +1,243 @@
+ontology_readiness:
+  tag: TBL-LEFT
+  verdict: qualified
+  confidence: 0.98
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 6
+    reason: SCHEDULE 타입의 독립 문서형 엔티티이며, 자체 spec(labels_inside/raw_labels/columns/rows_count/schedule_items)과
+      relations가 존재함. 물리 설비는 아니므로 정보 엔티티로 qualified.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 6
+    convertible: 4
+    ambiguous_attributes:
+    - key: labels_inside
+      value:
+      - NO / FROM / TO / 전원 / CABLE SCHEDULE & CONDUIT / REMARK
+      - ① S/S UT동 → S/S R-Center | 3Ø 3W 6.6kV | F-CV 150㎟ -1C v6L (ELP 100ØX2)
+      - ② LP-1F | 3Ø 4W 380/220V | F-CV 50㎟ -1C x4, E-25㎟ (70C)
+      - ③ P-C-3PP(펌프용) | 3Ø 4W 380/220V | F-CV 185㎟ -1C x4, E-95㎟ (104C)
+      - ④ P-OAC-1 | 3Ø 4W 380/220V | F-CV 150㎟ -1C x4, E-95㎟ (104C)
+      - ⑤ S/S R-Center → P-OAC-2 | 3Ø 4W 380/220V | F-CV 240㎟ -1C x4, E-120㎟ (104C)
+      - ⑥ P-OAC-3 | 3Ø 4W 380/220V | F-CV 120㎟ -1C x4, E-70㎟ (82C)
+      - ⑦ P-F | 3Ø 4W 380/220V | F-CV 35㎟ -4C x1, E-16㎟ (54C)
+      - ⑧ IVR-2 | 3Ø 3W 440V | F-CV 240㎟ -1C x3
+      - ⑨ LP-1F → LP-2F | 3Ø 4W 380/220V | F-CV 10㎟ -4C x1, E-10㎟ (42C)
+      - A1 P-A-2PP-1 | 3Ø 3W 220V | F-CV 240㎟ -1C x3, E-120㎟ (104C)
+      - A2 P-A-2PP-2 | 3Ø 3W 220V | F-CV 185㎟ -1C x3, E-95㎟ (104C)
+      - A3 P-C-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A4 P-D-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A5 P-E-2PP-1 | 3Ø 3W 220V | F-CV 300㎟ -1C x3, E-150㎟ (104C)
+      - A6 S/S R-Center → P-E-2PP-2 | 3Ø 3W 220V | F-CV 240㎟ -1C x3, E-120㎟ (104C)
+      - A7 P-EA-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A8 P-F-2PP | 3Ø 3W 220V | F-CV 150㎟ -1C x3, E-95㎟ (82C)
+      - A9 P-G-2PP | 3Ø 3W 220V | F-CV 70㎟ -1C x3, E-35㎟ (54C)
+      - A10 P-I-2PP | 3Ø 3W 220V | F-CV 50㎟ -1C x3, E-25㎟ (54C)
+      reason: 표 전체 원문은 보존 필요. 개별 행은 관계/배선 정보가 섞인 복합 텍스트라 단일 속성으로 정규화하지 않고 annotation으로
+        보존.
+    - key: raw_labels
+      value:
+      - NO / FROM / TO / 전원 / CABLE SCHEDULE & CONDUIT / REMARK
+      - ① S/S UT동 → S/S R-Center | 3Ø 3W 6.6kV | F-CV 150㎟ -1C v6L (ELP 100ØX2)
+      - ② LP-1F | 3Ø 4W 380/220V | F-CV 50㎟ -1C x4, E-25㎟ (70C)
+      - ③ P-C-3PP(펌프용) | 3Ø 4W 380/220V | F-CV 185㎟ -1C x4, E-95㎟ (104C)
+      - ④ P-OAC-1 | 3Ø 4W 380/220V | F-CV 150㎟ -1C x4, E-95㎟ (104C)
+      - ⑤ S/S R-Center → P-OAC-2 | 3Ø 4W 380/220V | F-CV 240㎟ -1C x4, E-120㎟ (104C)
+      - ⑥ P-OAC-3 | 3Ø 4W 380/220V | F-CV 120㎟ -1C x4, E-70㎟ (82C)
+      - ⑦ P-F | 3Ø 4W 380/220V | F-CV 35㎟ -4C x1, E-16㎟ (54C)
+      - ⑧ IVR-2 | 3Ø 3W 440V | F-CV 240㎟ -1C x3
+      - ⑨ LP-1F → LP-2F | 3Ø 4W 380/220V | F-CV 10㎟ -4C x1, E-10㎟ (42C)
+      - A1 P-A-2PP-1 | 3Ø 3W 220V | F-CV 240㎟ -1C x3, E-120㎟ (104C)
+      - A2 P-A-2PP-2 | 3Ø 3W 220V | F-CV 185㎟ -1C x3, E-95㎟ (104C)
+      - A3 P-C-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A4 P-D-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A5 P-E-2PP-1 | 3Ø 3W 220V | F-CV 300㎟ -1C x3, E-150㎟ (104C)
+      - A6 S/S R-Center → P-E-2PP-2 | 3Ø 3W 220V | F-CV 240㎟ -1C x3, E-120㎟ (104C)
+      - A7 P-EA-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A8 P-F-2PP | 3Ø 3W 220V | F-CV 150㎟ -1C x3, E-95㎟ (82C)
+      - A9 P-G-2PP | 3Ø 3W 220V | F-CV 70㎟ -1C x3, E-35㎟ (54C)
+      - A10 P-I-2PP | 3Ø 3W 220V | F-CV 50㎟ -1C x3, E-25㎟ (54C)
+      - ① S/S UT동 → S/S R-Center | 3Ø 3W 6.6kV | F-CV 150㎟ -1C x6L (ELP 100ØX2)
+      - ⑧ IVR-2 | 3Ø 3W 440V | F-CV 240㎟ -1C x3 (82C)
+      reason: 원문 라벨 전체를 annotation으로 보존.
+    - key: columns
+      value:
+      - 'NO'
+      - FROM
+      - TO
+      - 전원
+      - CABLE SCHEDULE & CONDUIT
+      - REMARK
+      reason: 표 구조 정보로서 속성화보다 문서 메타데이터 성격이 강함.
+    - key: rows_count
+      value: 10
+      reason: 문서 구조 메타데이터.
+    - key: schedule_items
+      value:
+      - ①
+      - ②
+      - ③
+      - ④
+      - ⑤
+      - ⑥
+      - ⑦
+      - ⑧
+      - ⑨
+      - A1-A10
+      reason: 문서 내 항목 인덱스이며 설비 속성으로 직접 전환 불가.
+    auxiliary_attributes:
+    - labels_inside
+    - raw_labels
+    - columns
+    - rows_count
+    - schedule_items
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    - key: collection_sources.cross_validated
+      value: true
+      source: cross_validated
+      conflict_with: null
+    - key: collection_sources.visual_semantics
+      value: true
+      source: visual_semantics
+      conflict_with: null
+    - key: collection_sources.visual_semantics_gemini
+      value: true
+      source: visual_semantics_gemini
+      conflict_with: null
+    - key: collection_sources.entity_synthesis
+      value: true
+      source: entity_synthesis
+      conflict_with: null
+    - key: ontology_hints.suggested_parent_class
+      value: InformationEntity
+      source: ontology_hints
+      conflict_with: null
+    - key: ontology_hints.function_candidates
+      value:
+      - CableRoutingInformation
+      - EquipmentConnectionList
+      source: ontology_hints
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - ELECTRICAL schedule references external/other entities via feeder connections
+      and substation links on page 23.
+    hints_added:
+    - connection to BLK-SS-RCENTER via logical_link
+    - connection to BLK-SS-RCENTER via visual_semantics
+  ontology_class_hint:
+    suggested_parent_class: InformationEntity
+    alternative_parent_classes:
+    - CableRoutingInformation
+    - EquipmentConnectionList
+  spatial_context:
+    position: top-left
+    source_pages:
+    - 23
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - NO / FROM / TO / 전원 / CABLE SCHEDULE & CONDUIT / REMARK
+      - ① S/S UT동 → S/S R-Center | 3Ø 3W 6.6kV | F-CV 150㎟ -1C v6L (ELP 100ØX2)
+      - ② LP-1F | 3Ø 4W 380/220V | F-CV 50㎟ -1C x4, E-25㎟ (70C)
+      - ③ P-C-3PP(펌프용) | 3Ø 4W 380/220V | F-CV 185㎟ -1C x4, E-95㎟ (104C)
+      - ④ P-OAC-1 | 3Ø 4W 380/220V | F-CV 150㎟ -1C x4, E-95㎟ (104C)
+      - ⑤ S/S R-Center → P-OAC-2 | 3Ø 4W 380/220V | F-CV 240㎟ -1C x4, E-120㎟ (104C)
+      - ⑥ P-OAC-3 | 3Ø 4W 380/220V | F-CV 120㎟ -1C x4, E-70㎟ (82C)
+      - ⑦ P-F | 3Ø 4W 380/220V | F-CV 35㎟ -4C x1, E-16㎟ (54C)
+      - ⑧ IVR-2 | 3Ø 3W 440V | F-CV 240㎟ -1C x3
+      - ⑨ LP-1F → LP-2F | 3Ø 4W 380/220V | F-CV 10㎟ -4C x1, E-10㎟ (42C)
+      - A1 P-A-2PP-1 | 3Ø 3W 220V | F-CV 240㎟ -1C x3, E-120㎟ (104C)
+      - A2 P-A-2PP-2 | 3Ø 3W 220V | F-CV 185㎟ -1C x3, E-95㎟ (104C)
+      - A3 P-C-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A4 P-D-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A5 P-E-2PP-1 | 3Ø 3W 220V | F-CV 300㎟ -1C x3, E-150㎟ (104C)
+      - A6 S/S R-Center → P-E-2PP-2 | 3Ø 3W 220V | F-CV 240㎟ -1C x3, E-120㎟ (104C)
+      - A7 P-EA-2PP | 3Ø 3W 220V | F-CV 35㎟ -3C x1, E-25㎟ (54C)
+      - A8 P-F-2PP | 3Ø 3W 220V | F-CV 150㎟ -1C x3, E-95㎟ (82C)
+      - A9 P-G-2PP | 3Ø 3W 220V | F-CV 70㎟ -1C x3, E-35㎟ (54C)
+      - A10 P-I-2PP | 3Ø 3W 220V | F-CV 50㎟ -1C x3, E-25㎟ (54C)
+      - ① S/S UT동 → S/S R-Center | 3Ø 3W 6.6kV | F-CV 150㎟ -1C x6L (ELP 100ØX2)
+      - ⑧ IVR-2 | 3Ø 3W 440V | F-CV 240㎟ -1C x3 (82C)
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.labels_inside
+  - specs.raw_labels
+  - specs.columns
+  - specs.rows_count
+  - specs.schedule_items
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.function_candidates
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :InformationEntity
+    annotations_to_emit:
+    - labels_inside
+    - raw_labels
+    - columns
+    - rows_count
+    - schedule_items
+    - source_attribution
+    - collection_sources
+    - ontology_hints.suggested_parent_class
+    - ontology_hints.function_candidates
+    relations_to_emit:
+    - logical_link -> BLK-SS-RCENTER
+    - other -> BLK-SS-RCENTER
+    needs_human_review: false
+tag: TBL-LEFT
+discovered_relations: 2

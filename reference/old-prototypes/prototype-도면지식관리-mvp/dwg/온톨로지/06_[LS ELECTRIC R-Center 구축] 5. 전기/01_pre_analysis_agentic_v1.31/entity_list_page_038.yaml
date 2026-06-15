@@ -1,0 +1,46 @@
+page_38_entities:
+- tag: LP-001
+  name: 피뢰침
+  type: Lightning Rod / Air Terminal
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: HC-001
+  name: 수평도체 (STS 환봉 8mm)
+  type: Horizontal Conductor / STS Round Bar
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: SC-001
+  name: 구조체 접속 (철근 및 철골 접속)
+  type: Structure Connection / Rebar & Steel Frame Connection
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: DC-001
+  name: 입상/입하
+  type: Vertical Conductor / Ascending/Descending Conductor
+  discipline: ELECTRICAL
+  confidence: 0.7
+- tag: DC-002
+  name: 중간연결 입상/입하
+  type: Intermediate Vertical Conductor / F-GV Wire Connection
+  discipline: ELECTRICAL
+  confidence: 0.7
+- tag: AUX-DC-001
+  name: 보조 인하도선 (F-GV 50㎟ HI-PVC 28C)
+  type: Auxiliary Down Conductor / F-GV Cable
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: ROOF-001
+  name: 옥탑지붕층
+  type: Rooftop / Building Roof Structure
+  discipline: STRUCTURAL
+  confidence: 0.95
+page_38_relations:
+- from: 피뢰침
+  to: 수평도체
+  relation: connected_via
+- from: 수평도체
+  to: 구조체 접속
+  relation: connected_via
+- from: 피뢰침
+  to: 옥탑지붕층
+  relation: located_in

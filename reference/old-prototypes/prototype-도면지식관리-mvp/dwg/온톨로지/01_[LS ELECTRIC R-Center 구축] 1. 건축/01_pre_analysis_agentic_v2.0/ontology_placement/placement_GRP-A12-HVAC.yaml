@@ -1,0 +1,167 @@
+placement:
+  tag: GRP-A12-HVAC
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: GRP-A12-HVAC
+    class_hint: GroupOrContainerEntity
+    alternative_class_hints:
+    - DocumentGroup
+    - PanelGroup
+    - TOCGroup
+    related_assertions:
+    - type: contains
+      target_hint: TOC-A12
+      note: incoming relation recorded; 패널 내 그룹 포함
+      confirmed_property: dks:contained_in
+      confirmed_target: TOC-A12
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX016
+    - AX037
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:GroupOrContainerEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 패널 내 그룹 포함
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: isContainedInPanel
+          suggested_datatype: xsd:string
+          rationale: contains 관계의 note로, 패널/그룹 포함 문맥을 보존할 필요가 있음
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_relation_presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: plan_guidance_alignment
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: plan_guidance_alignment
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 3
+      method: entity_detail.relations
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 3
+      method: entity_detail.relations
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 3
+      method: entity_detail.relations.note
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 3
+      method: entity_detail.relations.note
+    discipline_context.sub_kinds.free_notes[0].promotion_hint.suggested_property_label:
+      source_pages:
+      - 3
+      method: derived_from_relation_note
+    discipline_context.sub_kinds.free_notes[0].promotion_hint.suggested_datatype:
+      source_pages:
+      - 3
+      method: derived_from_relation_note
+    discipline_context.sub_kinds.free_notes[0].promotion_hint.rationale:
+      source_pages:
+      - 3
+      method: derived_from_relation_note
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 3
+      method: plan_guidance_alignment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 3
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 3
+    reason: name 필드가 제공되지 않음
+    preservation_note: 추후 원문에서 name 존재 여부 확인 필요
+  - field_candidate: entity_detail.specs
+    raw_text: ''
+    source_page: 3
+    reason: specs 정보가 제공되지 않음
+    preservation_note: 스펙 부재 자체를 보존
+  - field_candidate: entity_detail.connection_specs
+    raw_text: ''
+    source_page: 3
+    reason: connection_specs 정보가 제공되지 않음
+    preservation_note: 연결 상세 부재
+  - field_candidate: entity_detail.requirements
+    raw_text: ''
+    source_page: 3
+    reason: requirements 정보가 제공되지 않음
+    preservation_note: 요구사항 부재
+  - field_candidate: entity_detail.drawing_texts
+    raw_text: ''
+    source_page: 3
+    reason: drawing_texts 정보가 제공되지 않음
+    preservation_note: 도면 텍스트 부재
+  - field_candidate: entity_detail.ontology_hints
+    raw_text: ''
+    source_page: 3
+    reason: ontology_hints 정보가 제공되지 않음
+    preservation_note: 힌트 부재
+  - field_candidate: entity_detail.notes
+    raw_text: ''
+    source_page: 3
+    reason: notes 정보가 제공되지 않음
+    preservation_note: 추가 메모 부재
+  - field_candidate: entity_detail.source_pages
+    raw_text: ''
+    source_page: 3
+    reason: 별도 source_pages 필드가 제공되지 않음
+    preservation_note: 관계의 source_page만 존재
+  - field_candidate: entity_detail.source_attribution
+    raw_text: ''
+    source_page: 3
+    reason: source_attribution 정보가 제공되지 않음
+    preservation_note: 출처 귀속 부재
+  - field_candidate: entity_detail.position
+    raw_text: ''
+    source_page: 3
+    reason: position 정보가 제공되지 않음
+    preservation_note: 도면 상 위치 정보 부재
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: GRP-A12-HVAC는 그룹/패널 내 포함 관계만 관찰되며, 실제 물리 설비인지 문서 그룹인지 단정할 수 없음.
+    recommended_handling: 다음 단계에서 TOC-A12 및 주변 GRP-* 패턴과 함께 그룹/컨테이너 계열로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - TOC-A11/TOC-A12와 GRP-* 관계를 grouped_under/contains 문맥으로 해석하는 방향
+    - 패널/그룹 구조를 우선 보존하고, 확정 class는 비워두는 방향
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:57.040894'
+  confidence: 0.71

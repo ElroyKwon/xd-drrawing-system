@@ -1,0 +1,116 @@
+placement:
+  tag: A_110
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: A_110
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePage
+        suggested_datatype: xsd:string
+        rationale: 태그 A/110의 가용 페이지 목록으로, 문서 참조성 정보이며 후속 페이지 기반 분류에 유용함.
+    - raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내 주석/안내 문구로, 실체 설비가 아닌 설명성 텍스트임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw normalization
+    name:
+      source_pages:
+      - 0
+      method: not present
+    discipline:
+      source_pages:
+      - 0
+      method: input field
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification from raw text only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag normalization
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: candidate inference from annotation-like raw
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: candidate inference from annotation-like raw
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: classification uncertainty assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus applied
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 읽어드리겠습니다.'
+    source_page: 0
+    reason: 설비/객체의 물리적 속성이나 관계가 아니라 페이지 안내 문구만 존재함.
+    preservation_note: 페이지 목록은 후속 페이지별 재검토 시 참조 가능.
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드가 제공되지 않음.
+    preservation_note: 추후 원문 메타에서 이름이 확인되면 보완 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 A/110은 실체 설비나 관계가 아니라 특정 페이지를 안내하는 문구만 포함하여 AnnotationOnly로 보는 것이 타당하나,
+      문서 참조 엔티티인지 단순 주석인지 경계가 다소 모호함.
+    recommended_handling: 후속 단계에서 DocumentEntity/AnnotationOrReferenceEntity 후보로 검토하되,
+      현재는 주석성 엔티티로 유지.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown/annotation-like raw only entity는 AnnotationOrReferenceEntity 계열로 우선
+      배치
+    - page reference 정보를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:25.654462'
+  confidence: 0.93

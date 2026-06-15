@@ -1,0 +1,83 @@
+page_37_entities:
+- tag: LP-ROD-001
+  name: 피뢰침
+  type: Lightning Rod
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LP-CONDUCTOR-001
+  name: 수평도체
+  type: Horizontal Conductor
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LP-STRUCT-CONN-001
+  name: 구조체 접속
+  type: Structural Connection
+  discipline: STRUCTURAL
+  confidence: 0.98
+- tag: LP-LADDER-CONN-001
+  name: 금속 사다리 접속
+  type: Metal Ladder Connection
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: LP-DOWN-CONDUCTOR-PRIMARY
+  name: 주 인하도선
+  type: Main Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LP-DOWN-CONDUCTOR-SECONDARY
+  name: 보조 인하도선
+  type: Auxiliary Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LP-GROUND-ELECTRODE
+  name: 피뢰기초접지극
+  type: Lightning Protection Ground Electrode
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: LP-SUPPORT-BRACKET
+  name: 지지금구
+  type: Support Bracket
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: ROOF-STRUCTURE
+  name: 지붕층 구조
+  type: Roof Structure
+  discipline: STRUCTURAL
+  confidence: 0.9
+- tag: ROOF-DETAIL-AREA
+  name: 지붕 상세 영역
+  type: Roof Detail Section
+  discipline: ARCHITECTURAL
+  confidence: 0.85
+- tag: PROTECTION-SYSTEM
+  name: 수뢰부시스템
+  type: Lightning Protection System
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: GROUNDING-TEST-TERMINAL
+  name: 접지 시험 단자
+  type: Grounding Test Terminal
+  discipline: ELECTRICAL
+  confidence: 0.85
+page_37_relations:
+- from: LP-ROD-001
+  to: LP-CONDUCTOR-001
+  relation: connected_via
+- from: LP-CONDUCTOR-001
+  to: LP-STRUCT-CONN-001
+  relation: connected_via
+- from: LP-LADDER-CONN-001
+  to: LP-CONDUCTOR-001
+  relation: connected_via
+- from: LP-STRUCT-CONN-001
+  to: LP-DOWN-CONDUCTOR-PRIMARY
+  relation: connected_via
+- from: LP-DOWN-CONDUCTOR-PRIMARY
+  to: LP-GROUND-ELECTRODE
+  relation: connected_via
+- from: LP-DOWN-CONDUCTOR-SECONDARY
+  to: LP-GROUND-ELECTRODE
+  relation: connected_via
+- from: LP-CONDUCTOR-001
+  to: LP-SUPPORT-BRACKET
+  relation: connected_via

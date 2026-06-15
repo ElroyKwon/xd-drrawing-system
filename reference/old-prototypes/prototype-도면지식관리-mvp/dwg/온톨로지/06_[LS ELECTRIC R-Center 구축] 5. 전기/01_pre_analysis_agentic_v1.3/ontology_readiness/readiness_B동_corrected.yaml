@@ -1,0 +1,14 @@
+verdict: demoted
+confidence: 0.97
+reason: "재평가 결과 이전 판정(demoted)을 유지한다.\n[판단 근거]\n1. **공간 분류 일관성**\n   - type: room_or_space,\
+  \ discipline: ARCHITECTURAL, function_category: BOUNDARY,\n     suggested_parent_class:\
+  \ Building 등 모든 온톨로지 속성이 '건축 공간/경계 엔티티'를\n     일관되게 지시하며, 설비 엔티티로 격상할 만한 반증이 없음.\n\
+  \n2. **사양 빈곤**\n   - specs에 building_name(값: B동) 단 1개만 존재.\n     요구사항(requirements:\
+  \ []), 연결 사양(connection_specs: []) 모두 공란으로,\n     물리적 설비에 요구되는 최소한의 기술 사양도 확인되지\
+  \ 않음.\n\n3. **전기 크로스 레퍼런스 해석**\n   - page_5의 GEN-비상-B동(B동 비상 피더)은 B동을 수전 목적지(TO:\
+  \ 4302/HV)로\n     참조하는 별도 ELECTRICAL 엔티티이며,\n     B동 자체가 전기 설비 속성을 보유한다는 근거가 아님.\n\
+  \   - 이 참조는 B동을 '위치 컨텍스트'로 사용하는 관계일 뿐,\n     B동 엔티티의 discipline을 ELECTRICAL로 변경하거나\
+  \ 설비로 승격시키는 근거가 되지 않음.\n\n4. **관계 유형의 한계**\n   - observed_relations이 located_on_page,\
+  \ visible_tag 수준에 그쳐\n     설비 간 기능 연결(feeds, controls, supplies 등)이 전무함.\n\n결론:\
+  \ B동은 건물 경계를 나타내는 공간 메타 엔티티(SP-BLDG-B)로 처리하며, 설비 온톨로지 계층에서 demoted 상태를 유지한다."
+tag: B동

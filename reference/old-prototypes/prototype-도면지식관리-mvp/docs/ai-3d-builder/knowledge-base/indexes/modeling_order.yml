@@ -1,0 +1,132 @@
+baseline:
+  reference_floor: 지상1층
+  reference_sheet: arch_p060#v2
+  rationale: 지상1층의 첫 평면에서 그리드와 FL datum 을 수립. 이후 모든 층이 동일 그리드로 정렬되는지 검증.
+  floor_stack_ordered:
+  - PIT
+  - 지상1층
+  - 지상2층
+  - 옥탑
+  level_stack_source: docs/ai-3d-builder/knowledge-base/level-stack.yml
+  level_stack:
+    levels_mm:
+      2FL: 99700
+      RFL: 104200
+      GL: 94000
+      1FL: 94200
+    offsets_mm:
+      RSFL+1800: 106000
+      RSFL+200: 104400
+      RFL+200: 104500
+      1FL+5500: 99700
+      1FL+10000: 104200
+    ffh_mm:
+      GL→1FL: 200
+      1FL→2FL: 5500
+      2FL→RFL: 4500
+queue:
+- step: 1
+  sheet: arch_p060#v2
+  sheet_number: A04.01
+  role: baseline_plan
+  floor: 지상1층
+  produces:
+  - grid_mm
+  - FL_datum
+  - slab_polygon_지상1층
+  - rooms_지상1층
+  needs: []
+  validates: null
+  notes: 지상1층 기준 평면. 그리드·FL datum 수립.
+- step: 2
+  sheet: arch_p061#v1
+  sheet_number: A04.02
+  role: supplementary_plan
+  floor: 지상1층
+  produces:
+  - rooms_지상1층_extra
+  - slab_extension_지상1층
+  needs:
+  - grid_mm
+  - FL_datum
+  validates: grid_consistency(prev_step, this)
+  notes: 지상1층 보완 평면. 기준 그리드와 일치 확인.
+- step: 3
+  sheet: arch_p060#v1
+  sheet_number: A04.01
+  role: floor_plan
+  floor: PIT
+  produces:
+  - slab_polygon_PIT
+  - rooms_PIT
+  needs:
+  - grid_mm
+  - FL_datum
+  validates: grid_consistency(ref, PIT)
+  notes: PIT 평면. 기준 그리드 재사용.
+- step: 4
+  sheet: arch_p062#v1
+  sheet_number: A04.03
+  role: floor_plan
+  floor: 지상2층
+  produces:
+  - slab_polygon_지상2층
+  - rooms_지상2층
+  needs:
+  - grid_mm
+  - FL_datum
+  validates: grid_consistency(ref, 지상2층)
+  notes: 지상2층 평면. 기준 그리드 재사용.
+- step: 5
+  sheet: arch_p062#v2
+  sheet_number: A04.03
+  role: floor_plan
+  floor: 옥탑
+  produces:
+  - slab_polygon_옥탑
+  - rooms_옥탑
+  needs:
+  - grid_mm
+  - FL_datum
+  validates: grid_consistency(ref, 옥탑)
+  notes: 옥탑 평면. 기준 그리드 재사용.
+- step: 6
+  sheet: arch_p063#v1
+  sheet_number: A05.01
+  role: vertical_core_plan
+  floor: 전층관통
+  produces:
+  - stair_polygon
+  - ev_polygon
+  needs:
+  - grid_mm
+  validates: stair_consistency_across_floors
+  notes: 계단실 수평 위치 — 모든 층에 걸친 수직 관통.
+- step: 7
+  sheet: arch_p064#v1
+  sheet_number: A05.02
+  role: vertical_section
+  floor: 전층관통
+  produces:
+  - FFH_per_floor
+  - slab_thickness
+  - parapet_height
+  - stair_height
+  needs:
+  - FL_datum
+  - stair_polygon
+  validates: FL_consistency(section vs annotations)
+  notes: ★ Z축 정보의 주 소스. 슬라브 두께·층간 높이·옥탑 파라펫.
+blocked:
+- missing: 건물 입면도 (정입면·측입면)
+  impact: 외벽 마감·창호 개구부 반영 불가. 박스 매싱으로 근사.
+  note: p121/p122 는 '무창층 검토서'로 elevation 오분류 — 실제 입면도 아님.
+- missing: RCP (반자 평면도)
+  impact: 각 실별 천장고 추정 불가. 실 높이 = FFH 에서 균일 2700mm 가정.
+- missing: 외벽 상세도, 슬라브 상세도
+  impact: 외벽 두께 200mm 기본값 사용. 슬라브 두께 단면도 값 또는 250mm.
+secondary_refs: []
+meta:
+  planned_at: '2026-04-22T08:33:45'
+  queue_length: 7
+  blocked_count: 3

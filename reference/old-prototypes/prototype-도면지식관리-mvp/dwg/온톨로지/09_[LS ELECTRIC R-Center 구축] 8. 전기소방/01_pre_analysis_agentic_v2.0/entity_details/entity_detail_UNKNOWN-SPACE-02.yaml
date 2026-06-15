@@ -1,0 +1,45 @@
+tag: UNKNOWN-SPACE-02
+name: 계단실 감지구역
+type: space
+discipline: FIRE_PROTECTION
+function_category: SPACE
+source_pages:
+- 11
+specs:
+  shape: dashed_box
+  labels_inside:
+  - 계단 별도 감지기
+relations:
+- from: UNKNOWN-SPACE-01
+  to: UNKNOWN-SPACE-02
+  relation: connects_to
+  source_page: 11
+  origin: cross_validated
+  line_style: dashed
+  note: 계단 별도 감지기 분기
+- from: UNKNOWN-SPACE-02
+  to: UNKNOWN-CONTROL-03
+  relation: connects_to
+  source_page: 11
+  origin: cross_validated
+  line_style: solid
+  note: 16C (HFIX 4-1.5㎟)
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: right
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireDetectionZone
+  observed_attributes:
+  - shape
+  - labels_inside
+  similar_equipment:
+  - UNKNOWN-SPACE-01
+  function_candidates:
+  - Fire Detection
+  - Smoke Detection Zone

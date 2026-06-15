@@ -1,0 +1,137 @@
+placement:
+  tag: META-FLOORS
+  name: 층별 안내
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - InformationEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 지붕층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 층 표기 문자열
+      - raw_text: 2층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 층 표기 문자열
+      - raw_text: 1층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 층 표기 문자열
+      - raw_text: PIT층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 층 표기 문자열
+      - raw_text: Floor Level Indication
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 기능 후보
+      - raw_text: Vertical Reference
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred from type=SPACE and content as label/guide
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: derived from observed attributes and function candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels, specs.labels_inside, ontology_hints.function_candidates
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.labels_inside:
+      source_pages:
+      - 5
+      method: entity_detail.specs.labels_inside
+    specs.inferred_name:
+      source_pages:
+      - 5
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 5
+      method: entity_detail.specs.position
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.function_candidates
+    source_pages:
+      source_pages:
+      - 5
+      method: entity_detail.source_pages
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type=SPACE와 function_category=FLOOR_LEVEL, raw_labels가 층 표기 안내/기준선 성격을
+      함께 보여 공간 엔티티와 문서성 주석 엔티티 경계가 다소 모호함.
+    recommended_handling: 0-9c에서 SpatialEntity 또는 InformationEntity로 재검토하고, 필요 시 AnnotationOnly
+      보조 해석을 유지.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - locatedOnPage 추적을 위해 source_pages를 provenance에 보존
+    - observed_attributes(raw_labels, labels_inside, inferred_name, position) 전체 보존
+    - function_candidates를 free_notes 승격 후보로 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:43:57.615915'
+  confidence: 0.86

@@ -1,0 +1,2290 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: SYSTEM_DIAGRAM
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: ET-03-001
+    title: 통합배선설비 구성도
+    revision: null
+  visible_tags:
+  - tag: 기존 MDF
+    type: named_area
+    source: both
+  - tag: 구내간선계
+    type: named_area
+    source: both
+  - tag: IDF
+    type: named_area
+    source: both
+  - tag: 수평배선계
+    type: named_area
+    source: both
+  - tag: 사용자구간
+    type: named_area
+    source: both
+  - tag: SYSTEM BOX
+    type: equipment
+    source: both
+  - tag: OUTLET BOX
+    type: equipment
+    source: both
+  - tag: PATCH PANEL
+    type: equipment
+    source: both
+  - tag: GIGABIT ETHERNET SWITCH
+    type: equipment
+    source: both
+  - tag: GIGABIT OPTICAL SWITCH
+    type: equipment
+    source: both
+  - tag: GIGABIT P.O.E SWITCH
+    type: equipment
+    source: both
+  - tag: OPTICAL SWITCH
+    type: equipment
+    source: both
+  - tag: F.D.F - OUT
+    type: equipment
+    source: both
+  - tag: F.D.F - IN
+    type: equipment
+    source: both
+  - tag: F/O CABLE
+    type: cable
+    source: both
+  - tag: CAT.6 UTP CABLE
+    type: cable
+    source: both
+  - tag: CAT.6 UTP CORD
+    type: cable
+    source: both
+  - tag: CAT.5e 25P CABLE
+    type: cable
+    source: both
+  - tag: 110BLOCK - IN / OUT
+    type: termination_block
+    source: both
+  - tag: 110BLOCK - OUT
+    type: termination_block
+    source: both
+  - tag: PC
+    type: device
+    source: both
+  - tag: 일반전화기
+    type: device
+    source: both
+  - tag: 무선 AP
+    type: device
+    source: both
+  - tag: 무선 AP 컨트롤러
+    type: device
+    source: both
+  - tag: 광 포트
+    type: port
+    source: both
+  - tag: HUB RACK-1
+    type: rack
+    source: both
+  - tag: HUB RACK-2
+    type: rack
+    source: both
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 25
+  next_step_hints:
+  - 통합배선설비 구성도이며 MDF/IDF, 구내간선계, 수평배선계, 사용자구간이 함께 표시됨
+  - 본 공사 제외 표기가 여러 곳에 있음
+  - 기존 MDF DATA/VOICE 연결 표기가 있음
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-10: discipline/communication/genre_system_diagram/supplement_p10.yaml
+    P-4.5: discipline/communication/genre_system_diagram/supplement_p4_05.yaml
+  routing_confidence: 0.98
+  routing_reason: 도면번호 ET-03-001과 제목 '통합배선설비 구성도' 및 MDF/IDF, 스위치, 패치패널, 케이블 연결 표현으로
+    통신계 시스템 다이어그램으로 판단되며, communication/system_diagram 매칭 supplement가 카탈로그에 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: ZONE-MDF
+    shape: rectangle
+    primary_label: 기존 MDF
+    position: top-left
+    labels_near:
+    - 기존 MDF DATA에 연결
+    - 기존 MDF VOICE에 연결
+  - panel_id: ZONE-BACKBONE
+    shape: rectangle
+    primary_label: 구내간선계
+    position: top-left
+    labels_near:
+    - F/O CABLE (SM 12C)
+    - CAT.5e 25P CABLE
+  - panel_id: ZONE-IDF
+    shape: rectangle
+    primary_label: IDF
+    position: middle-left
+    labels_near:
+    - HUB RACK-1
+    - HUB RACK-2
+  - panel_id: ZONE-HORIZONTAL
+    shape: rectangle
+    primary_label: 수평배선계
+    position: bottom-left
+    labels_near:
+    - SYSTEM BOX
+    - OUTLET BOX
+  - panel_id: ZONE-USER
+    shape: rectangle
+    primary_label: 사용자구간
+    position: bottom-left
+    labels_near:
+    - PC (본 공사 제외)
+    - 무선 AP
+    - 일반전화기 (본 공사 제외)
+  connections:
+  - from: ZONE-MDF
+    to: ZONE-BACKBONE
+    line_style: solid
+    annotation: DATA/VOICE 연결
+  - from: ZONE-BACKBONE
+    to: ZONE-IDF
+    line_style: solid
+    annotation: 광/UTP 케이블
+  - from: ZONE-IDF
+    to: ZONE-HORIZONTAL
+    line_style: solid
+    annotation: 수평 배선
+  - from: ZONE-HORIZONTAL
+    to: ZONE-USER
+    line_style: solid
+    annotation: 사용자 아울렛 연결
+  notable_shapes:
+  - shape: dashed_box
+    label: 본 공사 제외
+    note: PC, 일반전화기, 일부 스위치 주변에 점선 테두리와 함께 표기됨
+  - shape: shaded_box
+    label: HUB RACK
+    note: IDF 구역 내 HUB RACK-1, HUB RACK-2를 음영 처리된 사각형으로 표현
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 통합배선설비 구성도로, 범례 표나 심볼 목록이 포함되어 있지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: system_diagram
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.99
+  routing_reason: 도면 제목 '통합배선설비 구성도' 및 MDF/IDF, 스위치, 패치패널, 케이블 연결 표현으로 통신계 시스템 다이어그램임이
+    명확함. 기존 분석 결과가 타당함.
+classification: SYSTEM_DIAGRAM
+discipline: COMMUNICATION
+key_elements_from_text:
+- 통합배선설비 구성도
+- 기존 MDF
+- 구내간선계
+- IDF
+- 수평배선계
+- 사용자구간
+- SYSTEM BOX
+- OUTLET BOX
+- PATCH PANEL
+- GIGABIT ETHERNET SWITCH
+- GIGABIT OPTICAL SWITCH
+- GIGABIT P.O.E SWITCH
+- OPTICAL SWITCH (본 공사 제외)
+- F.D.F - OUT / F.D.F - IN
+- F/O CABLE (SM 12C, SM 2C)
+- CAT.6 UTP CABLE
+- CAT.6 UTP CORD
+- CAT.5e 25P CABLE
+- 110BLOCK - IN / OUT
+- 110BLOCK - OUT
+- PC
+- 일반전화기
+- 무선 AP
+- 무선 AP 컨트롤러 (본 공사 제외)
+- HUB RACK-1
+- HUB RACK-2
+- 기존 MDF DATA에 연결
+- 기존 MDF VOICE에 연결
+title_block:
+  drawing_number: ET-03-001
+  title: 통합배선설비 구성도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=COMMUNICATION, classification=SYSTEM_DIAGRAM, drawing_genre=system_diagram은
+  페이지 텍스트와 이미지에서 확인되는 MDF/IDF, 스위치, 패치패널, 케이블 연결 구조와 일치함. 표제란에서 도면번호 ET-03-001과 제목
+  통합배선설비 구성도가 보이며, 리비전 표기는 확인되지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ZONE-MDF
+    shape: rectangle
+    labels_inside:
+    - 기존 MDF
+    labels_above: []
+    labels_below: []
+    labels_near:
+    - 기존 MDF DATA에 연결
+    - 기존 MDF VOICE에 연결
+    inferred_name: 기존 MDF (Main Distribution Frame) 연결점
+    position: top-left
+  - panel_id: ZONE-BACKBONE
+    shape: rectangle
+    labels_inside:
+    - 구내간선계
+    labels_above: []
+    labels_below: []
+    labels_near:
+    - F/O CABLE (SM 12C)
+    - CAT.5e 25P CABLE
+    - F.D.F - OUT (SM 12C) (기존 예정 자재)
+    - 110BLOCK - OUT (기존 예정 자재)
+    inferred_name: 구내간선계 (Backbone Cabling Zone)
+    position: top-left
+  - panel_id: HUB-RACK-1
+    shape: shaded_box
+    labels_inside:
+    - HUB RACK-1
+    - F.D.F - IN (SM 12C)
+    - OPTICAL PATCH CORD (1Gbps)
+    - GIGABIT OPTICAL SWITCH
+    - OPTICAL PATCH CORD (1Gbps)
+    - GIGABIT ETHERNET SWITCH
+    - GIGABIT P.O.E SWITCH
+    - OPTICAL SWITCH (본 공사 제외)
+    - CAT.6 UTP CORD (1Gbps)
+    - CAT.6 UTP CORD (1Gbps)
+    - PATCH PANEL
+    - PATCH PANEL
+    - F.D.F - OUT (SM 12C)
+    - F.D.F - OUT (광 포트)
+    - 110BLOCK - IN / OUT
+    - 무선 AP 컨트롤러 (본 공사 제외)
+    labels_above:
+    - HUB RACK-1
+    labels_below: []
+    equipment_symbols:
+    - type: FDF (Fiber Distribution Frame)
+      count: 3
+    - type: GIGABIT OPTICAL SWITCH
+      count: 1
+    - type: GIGABIT ETHERNET SWITCH
+      count: 1
+    - type: GIGABIT P.O.E SWITCH
+      count: 1
+    - type: OPTICAL SWITCH (본 공사 제외)
+      count: 1
+    - type: PATCH PANEL
+      count: 2
+    - type: 110BLOCK
+      count: 1
+    - type: 무선 AP 컨트롤러 (본 공사 제외)
+      count: 1
+    inferred_name: HUB RACK-1 (IDF 내 주 허브 랙)
+    position: middle-center
+  - panel_id: HUB-RACK-2
+    shape: shaded_box
+    labels_inside:
+    - HUB RACK-2
+    - F.D.F - IN (SM 12C)
+    - OPTICAL PATCH CORD (1Gbps)
+    - OPTICAL PATCH CORD (1Gbps)
+    - OPTICAL SWITCH (본 공사 제외)
+    - GIGABIT P.O.E SWITCH
+    - GIGABIT ETHERNET SWITCH
+    - CAT.6 UTP CORD (1Gbps)
+    - PATCH PANEL
+    - F.D.F - OUT (광 포트)
+    labels_above:
+    - HUB RACK-2
+    labels_below: []
+    equipment_symbols:
+    - type: FDF (Fiber Distribution Frame)
+      count: 2
+    - type: OPTICAL SWITCH (본 공사 제외)
+      count: 1
+    - type: GIGABIT P.O.E SWITCH
+      count: 1
+    - type: GIGABIT ETHERNET SWITCH
+      count: 1
+    - type: PATCH PANEL
+      count: 1
+    inferred_name: HUB RACK-2 (IDF 내 보조 허브 랙)
+    position: middle-right
+  - panel_id: ZONE-IDF
+    shape: rectangle
+    labels_inside:
+    - IDF
+    labels_above: []
+    labels_below: []
+    labels_near:
+    - HUB RACK-1
+    - HUB RACK-2
+    - F/O CABLE (SM 12C)
+    inferred_name: IDF (Intermediate Distribution Frame) 구역
+    position: middle-left
+  - panel_id: SYSBOX-DATA-01
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    labels_above:
+    - CAT.6 UTP CABLE (1Gbps)
+    labels_below:
+    - CAT.6 UTP CABLE (1Gbps)
+    equipment_symbols:
+    - type: SYSTEM BOX
+      count: 1
+    - type: OUTLET BOX
+      count: 1
+    inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (1번)
+    position: bottom-center-left
+  - panel_id: SYSBOX-DATA-02
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    labels_above:
+    - CAT.6 UTP CABLE (1Gbps)
+    labels_below:
+    - CAT.6 UTP CABLE (1Gbps)
+    equipment_symbols:
+    - type: SYSTEM BOX
+      count: 1
+    - type: OUTLET BOX
+      count: 1
+    inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (2번)
+    position: bottom-center
+  - panel_id: SYSBOX-DATA-03
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    labels_above:
+    - CAT.6 UTP CABLE (1Gbps)
+    labels_below:
+    - CAT.6 UTP CABLE (1Gbps)
+    equipment_symbols:
+    - type: SYSTEM BOX
+      count: 1
+    - type: OUTLET BOX
+      count: 1
+    inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (3번)
+    position: bottom-center
+  - panel_id: SYSBOX-DATA-04
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    labels_above:
+    - CAT.6 UTP CABLE (1Gbps)
+    labels_below:
+    - CAT.6 UTP CABLE (1Gbps)
+    equipment_symbols:
+    - type: SYSTEM BOX
+      count: 1
+    - type: OUTLET BOX
+      count: 1
+    inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (4번)
+    position: bottom-center-right
+  - panel_id: SYSBOX-VOICE-LEFT
+    shape: rectangle
+    labels_inside:
+    - 광 포트
+    - SYSTEM BOX
+    - OUTLET BOX
+    labels_above:
+    - F/O CABLE (SM 2C)
+    labels_below:
+    - CAT.6 UTP CABLE
+    equipment_symbols:
+    - type: 광 포트
+      count: 1
+    - type: SYSTEM BOX
+      count: 1
+    - type: OUTLET BOX
+      count: 1
+    inferred_name: 수평배선 단말 - 광 포트 + SYSTEM BOX + OUTLET BOX (좌측 VOICE계)
+    position: bottom-left
+  - panel_id: SYSBOX-VOICE-RIGHT
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    labels_above:
+    - F/O CABLE (SM 2C)
+    - CAT.6 UTP CABLE
+    labels_below:
+    - CAT.6 UTP CABLE
+    equipment_symbols:
+    - type: SYSTEM BOX
+      count: 1
+    - type: OUTLET BOX
+      count: 1
+    inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (우측 VOICE계)
+    position: bottom-right
+  - panel_id: ZONE-HORIZONTAL
+    shape: rectangle
+    labels_inside:
+    - 수평배선계
+    labels_above: []
+    labels_below: []
+    inferred_name: 수평배선계 (Horizontal Cabling Zone)
+    position: bottom-left
+  - panel_id: ZONE-USER
+    shape: rectangle
+    labels_inside:
+    - 사용자구간
+    labels_above: []
+    labels_below: []
+    inferred_name: 사용자구간 (Work Area Zone)
+    position: bottom-left
+  - panel_id: USER-PC-01
+    shape: dashed_box
+    labels_inside:
+    - PC (본 공사 제외)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PC
+      count: 1
+    inferred_name: 사용자 PC 단말 (본 공사 제외) - 1번
+    position: bottom-center-left
+  - panel_id: USER-PC-02
+    shape: dashed_box
+    labels_inside:
+    - PC (본 공사 제외)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PC
+      count: 1
+    inferred_name: 사용자 PC 단말 (본 공사 제외) - 2번
+    position: bottom-center
+  - panel_id: USER-PC-03
+    shape: dashed_box
+    labels_inside:
+    - PC (본 공사 제외)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PC
+      count: 1
+    inferred_name: 사용자 PC 단말 (본 공사 제외) - 3번
+    position: bottom-center
+  - panel_id: USER-PC-04
+    shape: dashed_box
+    labels_inside:
+    - PC (본 공사 제외)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PC
+      count: 1
+    inferred_name: 사용자 PC 단말 (본 공사 제외) - 4번
+    position: bottom-center-right
+  - panel_id: USER-AP-01
+    shape: circle
+    labels_inside:
+    - 무선 AP
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 무선 AP
+      count: 1
+    inferred_name: 무선 AP 단말 - 1번
+    position: bottom-center
+  - panel_id: USER-AP-02
+    shape: circle
+    labels_inside:
+    - 무선 AP
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 무선 AP
+      count: 1
+    inferred_name: 무선 AP 단말 - 2번
+    position: bottom-center-right
+  - panel_id: USER-TEL-LEFT
+    shape: dashed_box
+    labels_inside:
+    - 일반전화기 (본 공사 제외)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 일반전화기
+      count: 1
+    inferred_name: 일반전화기 단말 (본 공사 제외) - 좌측
+    position: bottom-left
+  - panel_id: USER-TEL-RIGHT
+    shape: dashed_box
+    labels_inside:
+    - 일반전화기 (본 공사 제외)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 일반전화기
+      count: 1
+    inferred_name: 일반전화기 단말 (본 공사 제외) - 우측
+    position: bottom-right
+  - panel_id: EXT-MDF-DATA
+    shape: other
+    labels_inside:
+    - 기존 MDF DATA에 연결
+    labels_above: []
+    labels_below: []
+    inferred_name: 외부 인입 - 기존 MDF DATA 연결점
+    position: top-center
+  - panel_id: EXT-MDF-VOICE
+    shape: other
+    labels_inside:
+    - 기존 MDF VOICE에 연결
+    labels_above: []
+    labels_below: []
+    inferred_name: 외부 인입 - 기존 MDF VOICE 연결점
+    position: top-right
+  connections:
+  - from: EXT-MDF-DATA
+    to: HUB-RACK-1
+    line_type: cable
+    line_style: solid
+    annotation: F.D.F - OUT (SM 12C) (기존 예정 자재) → F/O CABLE (SM 12C) → F.D.F - IN
+      (SM 12C)
+  - from: EXT-MDF-VOICE
+    to: HUB-RACK-1
+    line_type: cable
+    line_style: solid
+    annotation: 110BLOCK - OUT (기존 예정 자재) → CAT.5e 25P CABLE → 110BLOCK - IN / OUT
+  - from: EXT-MDF-VOICE
+    to: HUB-RACK-2
+    line_type: cable
+    line_style: solid
+    annotation: 110BLOCK - IN / OUT (우측)
+  - from: HUB-RACK-1
+    to: HUB-RACK-2
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 12C) → F.D.F - IN (SM 12C)
+  - from: HUB-RACK-1
+    to: SYSBOX-DATA-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HUB-RACK-1
+    to: SYSBOX-DATA-02
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HUB-RACK-1
+    to: SYSBOX-DATA-03
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HUB-RACK-1
+    to: SYSBOX-DATA-04
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HUB-RACK-1
+    to: SYSBOX-VOICE-LEFT
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 2C)
+  - from: HUB-RACK-2
+    to: SYSBOX-VOICE-RIGHT
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 2C) + CAT.6 UTP CABLE
+  - from: SYSBOX-DATA-01
+    to: USER-PC-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: SYSBOX-DATA-02
+    to: USER-PC-02
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: SYSBOX-DATA-02
+    to: USER-AP-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: SYSBOX-DATA-03
+    to: USER-PC-03
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: SYSBOX-DATA-04
+    to: USER-PC-04
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: SYSBOX-DATA-04
+    to: USER-AP-02
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: SYSBOX-VOICE-LEFT
+    to: USER-TEL-LEFT
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE
+  - from: SYSBOX-VOICE-RIGHT
+    to: USER-TEL-RIGHT
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE
+  groups:
+  - group_id: GRP-MDF-ZONE
+    label: 기존 MDF 구역
+    members:
+    - EXT-MDF-DATA
+    - EXT-MDF-VOICE
+    - ZONE-MDF
+  - group_id: GRP-BACKBONE
+    label: 구내간선계
+    members:
+    - ZONE-BACKBONE
+    - HUB-RACK-1
+    - HUB-RACK-2
+  - group_id: GRP-IDF
+    label: IDF (Intermediate Distribution Frame)
+    members:
+    - ZONE-IDF
+    - HUB-RACK-1
+    - HUB-RACK-2
+  - group_id: GRP-HORIZONTAL
+    label: 수평배선계
+    members:
+    - ZONE-HORIZONTAL
+    - SYSBOX-DATA-01
+    - SYSBOX-DATA-02
+    - SYSBOX-DATA-03
+    - SYSBOX-DATA-04
+    - SYSBOX-VOICE-LEFT
+    - SYSBOX-VOICE-RIGHT
+  - group_id: GRP-USER
+    label: 사용자구간
+    members:
+    - ZONE-USER
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - USER-AP-01
+    - USER-AP-02
+    - USER-TEL-LEFT
+    - USER-TEL-RIGHT
+  - group_id: GRP-EXCLUDED
+    label: 본 공사 제외 항목
+    members:
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - USER-TEL-LEFT
+    - USER-TEL-RIGHT
+  - group_id: GRP-DATA
+    label: DATA 계통
+    members:
+    - EXT-MDF-DATA
+    - HUB-RACK-1
+    - SYSBOX-DATA-01
+    - SYSBOX-DATA-02
+    - SYSBOX-DATA-03
+    - SYSBOX-DATA-04
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - USER-AP-01
+    - USER-AP-02
+  - group_id: GRP-VOICE
+    label: VOICE 계통
+    members:
+    - EXT-MDF-VOICE
+    - HUB-RACK-1
+    - HUB-RACK-2
+    - SYSBOX-VOICE-LEFT
+    - SYSBOX-VOICE-RIGHT
+    - USER-TEL-LEFT
+    - USER-TEL-RIGHT
+  legend_references:
+  - text: SYSTEM BOX
+    linked_to: SYSBOX-DATA-01
+  - text: SYSTEM BOX
+    linked_to: SYSBOX-DATA-02
+  - text: SYSTEM BOX
+    linked_to: SYSBOX-DATA-03
+  - text: SYSTEM BOX
+    linked_to: SYSBOX-DATA-04
+  - text: OUTLET BOX
+    linked_to: SYSBOX-DATA-01
+  - text: 무선 AP
+    linked_to: USER-AP-01
+  - text: 무선 AP
+    linked_to: USER-AP-02
+  - text: MDF
+    linked_to: ZONE-MDF
+  diagram_meta:
+    title: 통합배선설비 구성도
+    drawing_number: ET-03-001
+    project: LS Electric R-Center 구축
+    drawing_number_prefix: '624001'
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.04'
+    scale: 'A1: 1/NONE, A3: 1/NONE'
+    flow_direction: top-to-bottom
+    sub_system: MIXED
+    diagram_subtype: cabling_tree
+    layers:
+    - 기존 MDF
+    - 구내간선계
+    - IDF
+    - 수평배선계
+    - 사용자구간
+    external_inflows:
+    - from: 기존 MDF DATA
+      cable: F/O CABLE SM 12C
+      conduit: null
+      via: F.D.F - OUT (SM 12C) (기존 예정 자재)
+    - from: 기존 MDF VOICE
+      cable: CAT.5e 25P CABLE
+      conduit: null
+      via: 110BLOCK - OUT (기존 예정 자재)
+    cable_schedule: []
+    notes:
+    - '본 공사 제외 항목: PC, 일반전화기, 무선 AP 컨트롤러, OPTICAL SWITCH 일부'
+    - '기존 예정 자재: F.D.F - OUT (SM 12C), 110BLOCK - OUT'
+    - HUB RACK-1 내 무선 AP 컨트롤러는 본 공사 제외
+    - HUB RACK-1 내 OPTICAL SWITCH는 본 공사 제외
+    - HUB RACK-2 내 OPTICAL SWITCH는 본 공사 제외
+    hub_rack_count: 2
+    patch_panel_count: 3
+    fdf_count: 5
+    gigabit_switch_count: 4
+    system_box_count: 6
+    outlet_box_count: 6
+    wireless_ap_count: 2
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: EXT-MDF-DATA
+    shape: other
+    labels_inside:
+    - 기존 MDF DATA에 연결
+    inferred_name: External MDF Data Connection
+    position: top-center
+  - panel_id: EXT-MDF-VOICE
+    shape: other
+    labels_inside:
+    - 기존 MDF VOICE에 연결
+    inferred_name: External MDF Voice Connection
+    position: top-right
+  - panel_id: BB-FDF-DATA
+    shape: rectangle
+    labels_inside:
+    - F.D.F - OUT (SM 12C)
+    labels_below:
+    - (기존 예정 자재)
+    inferred_name: Backbone FDF (Data)
+    position: top-center
+  - panel_id: BB-110-VOICE
+    shape: rectangle
+    labels_inside:
+    - 110BLOCK - OUT
+    labels_below:
+    - (기존 예정 자재)
+    inferred_name: Backbone 110 Block (Voice)
+    position: top-right
+  - panel_id: R1-AP-CONTROLLER
+    shape: dashed_box
+    labels_inside:
+    - 무선 AP 컨트롤러
+    inferred_name: Wireless AP Controller (Rack 1)
+    position: middle-left
+  - panel_id: R1-FDF-IN
+    shape: rectangle
+    labels_inside:
+    - F.D.F - IN (SM 12C)
+    inferred_name: FDF Input (Rack 1)
+    position: middle-center
+  - panel_id: R1-OPT-SWITCH-1
+    shape: rectangle
+    labels_inside:
+    - GIGABIT OPTICAL SWITCH
+    inferred_name: Gigabit Optical Switch 1 (Rack 1)
+    position: middle-center
+  - panel_id: R1-ETH-SWITCH
+    shape: rectangle
+    labels_inside:
+    - GIGABIT ETHERNET SWITCH
+    inferred_name: Gigabit Ethernet Switch (Rack 1)
+    position: middle-center
+  - panel_id: R1-POE-SWITCH
+    shape: rectangle
+    labels_inside:
+    - GIGABIT P.O.E SWITCH
+    inferred_name: Gigabit PoE Switch (Rack 1)
+    position: middle-center
+  - panel_id: R1-OPT-SWITCH-2
+    shape: dashed_box
+    labels_inside:
+    - OPTICAL SWITCH (본 공사 제외)
+    inferred_name: Optical Switch 2 (Rack 1, Excluded)
+    position: middle-right
+  - panel_id: R1-PATCH-PANEL-1
+    shape: rectangle
+    labels_inside:
+    - PATCH PANEL
+    inferred_name: Patch Panel 1 (Rack 1)
+    position: middle-center
+  - panel_id: R1-PATCH-PANEL-2
+    shape: rectangle
+    labels_inside:
+    - PATCH PANEL
+    inferred_name: Patch Panel 2 (Rack 1)
+    position: middle-center
+  - panel_id: R1-FDF-OUT-1
+    shape: rectangle
+    labels_inside:
+    - F.D.F - OUT (SM 12C)
+    inferred_name: FDF Output 1 (Rack 1)
+    position: middle-left
+  - panel_id: R1-FDF-OUT-2
+    shape: rectangle
+    labels_inside:
+    - F.D.F - OUT (광 포트)
+    inferred_name: FDF Output 2 (Rack 1, Optical Port)
+    position: middle-right
+  - panel_id: R1-110-BLOCK
+    shape: rectangle
+    labels_inside:
+    - 110BLOCK - IN / OUT
+    inferred_name: 110 Block (Rack 1)
+    position: middle-right
+  - panel_id: R2-FDF-IN
+    shape: rectangle
+    labels_inside:
+    - F.D.F - IN (SM 12C)
+    inferred_name: FDF Input (Rack 2)
+    position: middle-right
+  - panel_id: R2-OPT-SWITCH
+    shape: dashed_box
+    labels_inside:
+    - OPTICAL SWITCH (본 공사 제외)
+    inferred_name: Optical Switch (Rack 2, Excluded)
+    position: middle-right
+  - panel_id: R2-POE-SWITCH
+    shape: rectangle
+    labels_inside:
+    - GIGABIT P.O.E SWITCH
+    inferred_name: Gigabit PoE Switch (Rack 2)
+    position: middle-right
+  - panel_id: R2-ETH-SWITCH
+    shape: rectangle
+    labels_inside:
+    - GIGABIT ETHERNET SWITCH
+    inferred_name: Gigabit Ethernet Switch (Rack 2)
+    position: middle-right
+  - panel_id: R2-PATCH-PANEL
+    shape: rectangle
+    labels_inside:
+    - PATCH PANEL
+    inferred_name: Patch Panel (Rack 2)
+    position: middle-right
+  - panel_id: R2-FDF-OUT
+    shape: rectangle
+    labels_inside:
+    - F.D.F - OUT (광 포트)
+    inferred_name: FDF Output (Rack 2, Optical Port)
+    position: middle-right
+  - panel_id: HOR-UNIT-01
+    shape: rectangle
+    labels_inside:
+    - 광 포트
+    - SYSTEM BOX
+    - OUTLET BOX
+    inferred_name: Horizontal Unit 1 (Data/Optical)
+    position: bottom-left
+  - panel_id: HOR-UNIT-02
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    inferred_name: Horizontal Unit 2 (Data)
+    position: bottom-center-left
+  - panel_id: HOR-UNIT-03
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    inferred_name: Horizontal Unit 3 (Data)
+    position: bottom-center
+  - panel_id: HOR-UNIT-04
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    inferred_name: Horizontal Unit 4 (Data)
+    position: bottom-center-right
+  - panel_id: HOR-UNIT-05
+    shape: rectangle
+    labels_inside:
+    - 광 포트
+    - SYSTEM BOX
+    - OUTLET BOX
+    inferred_name: Horizontal Unit 5 (Data/Optical)
+    position: bottom-right
+  - panel_id: HOR-UNIT-06
+    shape: rectangle
+    labels_inside:
+    - SYSTEM BOX
+    - OUTLET BOX
+    inferred_name: Horizontal Unit 6 (Voice)
+    position: bottom-right
+  - panel_id: USR-PC-01
+    shape: dashed_box
+    labels_inside:
+    - PC
+    labels_below:
+    - (본 공사 제외)
+    inferred_name: User PC 1 (Excluded)
+    position: bottom-left
+  - panel_id: USR-PC-02
+    shape: dashed_box
+    labels_inside:
+    - PC
+    labels_below:
+    - (본 공사 제외)
+    inferred_name: User PC 2 (Excluded)
+    position: bottom-center-left
+  - panel_id: USR-AP-01
+    shape: other
+    labels_inside:
+    - 무선 AP
+    inferred_name: Wireless AP 1
+    position: bottom-center-left
+  - panel_id: USR-PC-03
+    shape: dashed_box
+    labels_inside:
+    - PC
+    labels_below:
+    - (본 공사 제외)
+    inferred_name: User PC 3 (Excluded)
+    position: bottom-center
+  - panel_id: USR-PC-04
+    shape: dashed_box
+    labels_inside:
+    - PC
+    labels_below:
+    - (본 공사 제외)
+    inferred_name: User PC 4 (Excluded)
+    position: bottom-center-right
+  - panel_id: USR-AP-02
+    shape: other
+    labels_inside:
+    - 무선 AP
+    inferred_name: Wireless AP 2
+    position: bottom-center-right
+  - panel_id: USR-TEL-01
+    shape: dashed_box
+    labels_inside:
+    - 일반전화기
+    labels_below:
+    - (본 공사 제외)
+    inferred_name: User Telephone 1 (Excluded)
+    position: bottom-right
+  connections:
+  - from: BB-FDF-DATA
+    to: R1-FDF-IN
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 12C)
+  - from: BB-110-VOICE
+    to: R1-110-BLOCK
+    line_type: cable
+    line_style: solid
+    annotation: CAT.5e 25P CABLE
+  - from: R1-FDF-IN
+    to: R1-OPT-SWITCH-1
+    line_type: cable
+    line_style: solid
+    annotation: OPTICAL PATCH CORD (1Gbps)
+  - from: R1-OPT-SWITCH-1
+    to: R1-ETH-SWITCH
+    line_type: cable
+    line_style: solid
+    annotation: OPTICAL PATCH CORD (1Gbps)
+  - from: R1-ETH-SWITCH
+    to: R1-POE-SWITCH
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CORD (1Gbps)
+  - from: R1-ETH-SWITCH
+    to: R1-PATCH-PANEL-1
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CORD (1Gbps)
+  - from: R1-POE-SWITCH
+    to: R1-PATCH-PANEL-2
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CORD (1Gbps)
+  - from: R1-OPT-SWITCH-2
+    to: R1-FDF-OUT-2
+    line_type: cable
+    line_style: solid
+    annotation: OPTICAL PATCH CORD (1Gbps)
+  - from: R1-FDF-OUT-1
+    to: R2-FDF-IN
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 12C)
+  - from: R2-FDF-IN
+    to: R2-OPT-SWITCH
+    line_type: cable
+    line_style: solid
+    annotation: OPTICAL PATCH CORD (1Gbps)
+  - from: R2-OPT-SWITCH
+    to: R2-POE-SWITCH
+    line_type: cable
+    line_style: solid
+    annotation: OPTICAL PATCH CORD (1Gbps)
+  - from: R2-POE-SWITCH
+    to: R2-ETH-SWITCH
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CORD (1Gbps)
+  - from: R2-ETH-SWITCH
+    to: R2-PATCH-PANEL
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CORD (1Gbps)
+  - from: R1-PATCH-PANEL-1
+    to: HOR-UNIT-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: R1-PATCH-PANEL-1
+    to: HOR-UNIT-02
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: R1-PATCH-PANEL-2
+    to: HOR-UNIT-03
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: R1-PATCH-PANEL-2
+    to: HOR-UNIT-04
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: R1-FDF-OUT-2
+    to: HOR-UNIT-01
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 2C)
+  - from: R1-110-BLOCK
+    to: HOR-UNIT-06
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE
+  - from: R2-PATCH-PANEL
+    to: HOR-UNIT-05
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: R2-FDF-OUT
+    to: HOR-UNIT-05
+    line_type: cable
+    line_style: solid
+    annotation: F/O CABLE (SM 2C)
+  - from: HOR-UNIT-01
+    to: USR-PC-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HOR-UNIT-02
+    to: USR-PC-02
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HOR-UNIT-02
+    to: USR-AP-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HOR-UNIT-03
+    to: USR-PC-03
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HOR-UNIT-04
+    to: USR-PC-04
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HOR-UNIT-04
+    to: USR-AP-02
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE (1Gbps)
+  - from: HOR-UNIT-06
+    to: USR-TEL-01
+    line_type: cable
+    line_style: solid
+    annotation: CAT.6 UTP CABLE
+  groups:
+  - group_id: GRP-RACK-1
+    label: HUB RACK-1
+    shape: shaded_box
+    members:
+    - R1-AP-CONTROLLER
+    - R1-FDF-IN
+    - R1-OPT-SWITCH-1
+    - R1-ETH-SWITCH
+    - R1-POE-SWITCH
+    - R1-OPT-SWITCH-2
+    - R1-PATCH-PANEL-1
+    - R1-PATCH-PANEL-2
+    - R1-FDF-OUT-1
+    - R1-FDF-OUT-2
+    - R1-110-BLOCK
+  - group_id: GRP-RACK-2
+    label: HUB RACK-2
+    shape: shaded_box
+    members:
+    - R2-FDF-IN
+    - R2-OPT-SWITCH
+    - R2-POE-SWITCH
+    - R2-ETH-SWITCH
+    - R2-PATCH-PANEL
+    - R2-FDF-OUT
+  - group_id: GRP-ZONE-MDF
+    label: 기존 MDF
+    members:
+    - EXT-MDF-DATA
+    - EXT-MDF-VOICE
+  - group_id: GRP-ZONE-BACKBONE
+    label: 구내간선계
+    members:
+    - BB-FDF-DATA
+    - BB-110-VOICE
+  - group_id: GRP-ZONE-IDF
+    label: IDF
+    members:
+    - GRP-RACK-1
+    - GRP-RACK-2
+  - group_id: GRP-ZONE-HORIZ
+    label: 수평배선계
+    members:
+    - HOR-UNIT-01
+    - HOR-UNIT-02
+    - HOR-UNIT-03
+    - HOR-UNIT-04
+    - HOR-UNIT-05
+    - HOR-UNIT-06
+  - group_id: GRP-ZONE-USER
+    label: 사용자구간
+    members:
+    - USR-PC-01
+    - USR-PC-02
+    - USR-AP-01
+    - USR-PC-03
+    - USR-PC-04
+    - USR-AP-02
+    - USR-TEL-01
+  - group_id: GRP-EXCLUDED
+    label: 본 공사 제외
+    members:
+    - R1-AP-CONTROLLER
+    - R1-OPT-SWITCH-2
+    - R2-OPT-SWITCH
+    - USR-PC-01
+    - USR-PC-02
+    - USR-PC-03
+    - USR-PC-04
+    - USR-TEL-01
+  diagram_meta:
+    title: 통합배선설비 구성도
+    drawing_number: ET-03-001
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.04'
+    scale: 'A1: 1/NONE, A3: 1/NONE'
+    flow_direction: top-to-bottom
+    sub_system: MIXED
+    diagram_subtype: cabling_tree
+    layers:
+    - 기존 MDF
+    - 구내간선계
+    - IDF
+    - 수평배선계
+    - 사용자구간
+    external_inflows:
+    - from: 기존 MDF DATA
+      cable: F/O CABLE SM 12C
+      via: BB-FDF-DATA
+    - from: 기존 MDF VOICE
+      cable: CAT.5e 25P CABLE
+      via: BB-110-VOICE
+    notes:
+    - '본 공사 제외 항목: PC, 일반전화기, 무선 AP 컨트롤러, 일부 OPTICAL SWITCH'
+    - '기존 예정 자재: 구내간선계 F.D.F 및 110BLOCK'
+entity_synthesis:
+  entities:
+  - tag: ZONE-MDF
+    name: 기존 MDF
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 기존 MDF (Main Distribution Frame) 연결점
+      position: top-left
+      labels_inside:
+      - 기존 MDF
+      labels_near:
+      - 기존 MDF DATA에 연결
+      - 기존 MDF VOICE에 연결
+    source_block: visual_semantics
+  - tag: ZONE-BACKBONE
+    name: 구내간선계
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 구내간선계 (Backbone Cabling Zone)
+      position: top-left
+      labels_inside:
+      - 구내간선계
+      labels_near:
+      - F/O CABLE (SM 12C)
+      - CAT.5e 25P CABLE
+      - F.D.F - OUT (SM 12C) (기존 예정 자재)
+      - 110BLOCK - OUT (기존 예정 자재)
+    source_block: visual_semantics
+  - tag: HUB-RACK-1
+    name: HUB RACK-1
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: HUB RACK-1 (IDF 내 주 허브 랙)
+      position: middle-center
+      shape: shaded_box
+      labels_inside:
+      - HUB RACK-1
+      - F.D.F - IN (SM 12C)
+      - OPTICAL PATCH CORD (1Gbps)
+      - GIGABIT OPTICAL SWITCH
+      - OPTICAL PATCH CORD (1Gbps)
+      - GIGABIT ETHERNET SWITCH
+      - GIGABIT P.O.E SWITCH
+      - OPTICAL SWITCH (본 공사 제외)
+      - CAT.6 UTP CORD (1Gbps)
+      - CAT.6 UTP CORD (1Gbps)
+      - PATCH PANEL
+      - PATCH PANEL
+      - F.D.F - OUT (SM 12C)
+      - F.D.F - OUT (광 포트)
+      - 110BLOCK - IN / OUT
+      - 무선 AP 컨트롤러 (본 공사 제외)
+      labels_above:
+      - HUB RACK-1
+      labels_below: []
+      equipment_symbols:
+      - type: FDF (Fiber Distribution Frame)
+        count: 3
+      - type: GIGABIT OPTICAL SWITCH
+        count: 1
+      - type: GIGABIT ETHERNET SWITCH
+        count: 1
+      - type: GIGABIT P.O.E SWITCH
+        count: 1
+      - type: OPTICAL SWITCH (본 공사 제외)
+        count: 1
+      - type: PATCH PANEL
+        count: 2
+      - type: 110BLOCK
+        count: 1
+      - type: 무선 AP 컨트롤러 (본 공사 제외)
+        count: 1
+    source_block: visual_semantics
+  - tag: HUB-RACK-2
+    name: HUB RACK-2
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: HUB RACK-2 (IDF 내 보조 허브 랙)
+      position: middle-right
+      shape: shaded_box
+      labels_inside:
+      - HUB RACK-2
+      - F.D.F - IN (SM 12C)
+      - OPTICAL PATCH CORD (1Gbps)
+      - OPTICAL PATCH CORD (1Gbps)
+      - OPTICAL SWITCH (본 공사 제외)
+      - GIGABIT P.O.E SWITCH
+      - GIGABIT ETHERNET SWITCH
+      - CAT.6 UTP CORD (1Gbps)
+      - PATCH PANEL
+      - F.D.F - OUT (광 포트)
+      labels_above:
+      - HUB RACK-2
+      labels_below: []
+      equipment_symbols:
+      - type: FDF (Fiber Distribution Frame)
+        count: 2
+      - type: OPTICAL SWITCH (본 공사 제외)
+        count: 1
+      - type: GIGABIT P.O.E SWITCH
+        count: 1
+      - type: GIGABIT ETHERNET SWITCH
+        count: 1
+      - type: PATCH PANEL
+        count: 1
+    source_block: visual_semantics
+  - tag: ZONE-IDF
+    name: IDF
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: IDF (Intermediate Distribution Frame) 구역
+      position: middle-left
+      labels_inside:
+      - IDF
+      labels_near:
+      - HUB RACK-1
+      - HUB RACK-2
+      - F/O CABLE (SM 12C)
+    source_block: visual_semantics
+  - tag: SYSBOX-DATA-01
+    name: SYSTEM BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (1번)
+      position: bottom-center-left
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+      labels_above:
+      - CAT.6 UTP CABLE (1Gbps)
+      labels_below:
+      - CAT.6 UTP CABLE (1Gbps)
+      equipment_symbols:
+      - type: SYSTEM BOX
+        count: 1
+      - type: OUTLET BOX
+        count: 1
+    source_block: visual_semantics
+  - tag: SYSBOX-DATA-02
+    name: SYSTEM BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (2번)
+      position: bottom-center
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+      labels_above:
+      - CAT.6 UTP CABLE (1Gbps)
+      labels_below:
+      - CAT.6 UTP CABLE (1Gbps)
+      equipment_symbols:
+      - type: SYSTEM BOX
+        count: 1
+      - type: OUTLET BOX
+        count: 1
+    source_block: visual_semantics
+  - tag: SYSBOX-DATA-03
+    name: SYSTEM BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (3번)
+      position: bottom-center
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+      labels_above:
+      - CAT.6 UTP CABLE (1Gbps)
+      labels_below:
+      - CAT.6 UTP CABLE (1Gbps)
+      equipment_symbols:
+      - type: SYSTEM BOX
+        count: 1
+      - type: OUTLET BOX
+        count: 1
+    source_block: visual_semantics
+  - tag: SYSBOX-DATA-04
+    name: SYSTEM BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (4번)
+      position: bottom-center-right
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+      labels_above:
+      - CAT.6 UTP CABLE (1Gbps)
+      labels_below:
+      - CAT.6 UTP CABLE (1Gbps)
+      equipment_symbols:
+      - type: SYSTEM BOX
+        count: 1
+      - type: OUTLET BOX
+        count: 1
+    source_block: visual_semantics
+  - tag: SYSBOX-VOICE-LEFT
+    name: SYSTEM BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선 단말 - 광 포트 + SYSTEM BOX + OUTLET BOX (좌측 VOICE계)
+      position: bottom-left
+      labels_inside:
+      - 광 포트
+      - SYSTEM BOX
+      - OUTLET BOX
+      labels_above:
+      - F/O CABLE (SM 2C)
+      labels_below:
+      - CAT.6 UTP CABLE
+      equipment_symbols:
+      - type: 광 포트
+        count: 1
+      - type: SYSTEM BOX
+        count: 1
+      - type: OUTLET BOX
+        count: 1
+    source_block: visual_semantics
+  - tag: SYSBOX-VOICE-RIGHT
+    name: SYSTEM BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선 단말 - SYSTEM BOX + OUTLET BOX (우측 VOICE계)
+      position: bottom-right
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+      labels_above:
+      - F/O CABLE (SM 2C)
+      - CAT.6 UTP CABLE
+      labels_below:
+      - CAT.6 UTP CABLE
+      equipment_symbols:
+      - type: SYSTEM BOX
+        count: 1
+      - type: OUTLET BOX
+        count: 1
+    source_block: visual_semantics
+  - tag: ZONE-HORIZONTAL
+    name: 수평배선계
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 수평배선계 (Horizontal Cabling Zone)
+      position: bottom-left
+      labels_inside:
+      - 수평배선계
+    source_block: visual_semantics
+  - tag: ZONE-USER
+    name: 사용자구간
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 사용자구간 (Work Area Zone)
+      position: bottom-left
+      labels_inside:
+      - 사용자구간
+    source_block: visual_semantics
+  - tag: USER-PC-01
+    name: PC (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: 사용자 PC 단말 (본 공사 제외) - 1번
+      position: bottom-center-left
+      shape: dashed_box
+      labels_inside:
+      - PC (본 공사 제외)
+      equipment_symbols:
+      - type: PC
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-PC-02
+    name: PC (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: 사용자 PC 단말 (본 공사 제외) - 2번
+      position: bottom-center
+      shape: dashed_box
+      labels_inside:
+      - PC (본 공사 제외)
+      equipment_symbols:
+      - type: PC
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-PC-03
+    name: PC (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: 사용자 PC 단말 (본 공사 제외) - 3번
+      position: bottom-center
+      shape: dashed_box
+      labels_inside:
+      - PC (본 공사 제외)
+      equipment_symbols:
+      - type: PC
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-PC-04
+    name: PC (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: 사용자 PC 단말 (본 공사 제외) - 4번
+      position: bottom-center-right
+      shape: dashed_box
+      labels_inside:
+      - PC (본 공사 제외)
+      equipment_symbols:
+      - type: PC
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-AP-01
+    name: 무선 AP
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: 무선 AP 단말 - 1번
+      position: bottom-center
+      shape: circle
+      labels_inside:
+      - 무선 AP
+      equipment_symbols:
+      - type: 무선 AP
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-AP-02
+    name: 무선 AP
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: 무선 AP 단말 - 2번
+      position: bottom-center-right
+      shape: circle
+      labels_inside:
+      - 무선 AP
+      equipment_symbols:
+      - type: 무선 AP
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-TEL-LEFT
+    name: 일반전화기 (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: 일반전화기 단말 (본 공사 제외) - 좌측
+      position: bottom-left
+      shape: dashed_box
+      labels_inside:
+      - 일반전화기 (본 공사 제외)
+      equipment_symbols:
+      - type: 일반전화기
+        count: 1
+    source_block: visual_semantics
+  - tag: USER-TEL-RIGHT
+    name: 일반전화기 (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: 일반전화기 단말 (본 공사 제외) - 우측
+      position: bottom-right
+      shape: dashed_box
+      labels_inside:
+      - 일반전화기 (본 공사 제외)
+      equipment_symbols:
+      - type: 일반전화기
+        count: 1
+    source_block: visual_semantics
+  - tag: EXT-MDF-DATA
+    name: 기존 MDF DATA에 연결
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 외부 인입 - 기존 MDF DATA 연결점
+      position: top-center
+      shape: other
+      labels_inside:
+      - 기존 MDF DATA에 연결
+    source_block: both
+  - tag: EXT-MDF-VOICE
+    name: 기존 MDF VOICE에 연결
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 외부 인입 - 기존 MDF VOICE 연결점
+      position: top-right
+      shape: other
+      labels_inside:
+      - 기존 MDF VOICE에 연결
+    source_block: both
+  - tag: BB-FDF-DATA
+    name: F.D.F - OUT (SM 12C)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Backbone FDF (Data)
+      position: top-center
+      shape: rectangle
+      labels_inside:
+      - F.D.F - OUT (SM 12C)
+      labels_below:
+      - (기존 예정 자재)
+    source_block: visual_semantics_gemini
+  - tag: BB-110-VOICE
+    name: 110BLOCK - OUT
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Backbone 110 Block (Voice)
+      position: top-right
+      shape: rectangle
+      labels_inside:
+      - 110BLOCK - OUT
+      labels_below:
+      - (기존 예정 자재)
+    source_block: visual_semantics_gemini
+  - tag: R1-AP-CONTROLLER
+    name: 무선 AP 컨트롤러
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Wireless AP Controller (Rack 1)
+      position: middle-left
+      shape: dashed_box
+      labels_inside:
+      - 무선 AP 컨트롤러
+    source_block: visual_semantics_gemini
+  - tag: R1-FDF-IN
+    name: F.D.F - IN (SM 12C)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: FDF Input (Rack 1)
+      position: middle-center
+      shape: rectangle
+      labels_inside:
+      - F.D.F - IN (SM 12C)
+    source_block: visual_semantics_gemini
+  - tag: R1-OPT-SWITCH-1
+    name: GIGABIT OPTICAL SWITCH
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Gigabit Optical Switch 1 (Rack 1)
+      position: middle-center
+      shape: rectangle
+      labels_inside:
+      - GIGABIT OPTICAL SWITCH
+    source_block: visual_semantics_gemini
+  - tag: R1-ETH-SWITCH
+    name: GIGABIT ETHERNET SWITCH
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Gigabit Ethernet Switch (Rack 1)
+      position: middle-center
+      shape: rectangle
+      labels_inside:
+      - GIGABIT ETHERNET SWITCH
+    source_block: visual_semantics_gemini
+  - tag: R1-POE-SWITCH
+    name: GIGABIT P.O.E SWITCH
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Gigabit PoE Switch (Rack 1)
+      position: middle-center
+      shape: rectangle
+      labels_inside:
+      - GIGABIT P.O.E SWITCH
+    source_block: visual_semantics_gemini
+  - tag: R1-OPT-SWITCH-2
+    name: OPTICAL SWITCH (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Optical Switch 2 (Rack 1, Excluded)
+      position: middle-right
+      shape: dashed_box
+      labels_inside:
+      - OPTICAL SWITCH (본 공사 제외)
+    source_block: visual_semantics_gemini
+  - tag: R1-PATCH-PANEL-1
+    name: PATCH PANEL
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Patch Panel 1 (Rack 1)
+      position: middle-center
+      shape: rectangle
+      labels_inside:
+      - PATCH PANEL
+    source_block: visual_semantics_gemini
+  - tag: R1-PATCH-PANEL-2
+    name: PATCH PANEL
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Patch Panel 2 (Rack 1)
+      position: middle-center
+      shape: rectangle
+      labels_inside:
+      - PATCH PANEL
+    source_block: visual_semantics_gemini
+  - tag: R1-FDF-OUT-1
+    name: F.D.F - OUT (SM 12C)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: FDF Output 1 (Rack 1)
+      position: middle-left
+      shape: rectangle
+      labels_inside:
+      - F.D.F - OUT (SM 12C)
+    source_block: visual_semantics_gemini
+  - tag: R1-FDF-OUT-2
+    name: F.D.F - OUT (광 포트)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: FDF Output 2 (Rack 1, Optical Port)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - F.D.F - OUT (광 포트)
+    source_block: visual_semantics_gemini
+  - tag: R1-110-BLOCK
+    name: 110BLOCK - IN / OUT
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: 110 Block (Rack 1)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - 110BLOCK - IN / OUT
+    source_block: visual_semantics_gemini
+  - tag: R2-FDF-IN
+    name: F.D.F - IN (SM 12C)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: FDF Input (Rack 2)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - F.D.F - IN (SM 12C)
+    source_block: visual_semantics_gemini
+  - tag: R2-OPT-SWITCH
+    name: OPTICAL SWITCH (본 공사 제외)
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Optical Switch (Rack 2, Excluded)
+      position: middle-right
+      shape: dashed_box
+      labels_inside:
+      - OPTICAL SWITCH (본 공사 제외)
+    source_block: visual_semantics_gemini
+  - tag: R2-POE-SWITCH
+    name: GIGABIT P.O.E SWITCH
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Gigabit PoE Switch (Rack 2)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - GIGABIT P.O.E SWITCH
+    source_block: visual_semantics_gemini
+  - tag: R2-ETH-SWITCH
+    name: GIGABIT ETHERNET SWITCH
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Gigabit Ethernet Switch (Rack 2)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - GIGABIT ETHERNET SWITCH
+    source_block: visual_semantics_gemini
+  - tag: R2-PATCH-PANEL
+    name: PATCH PANEL
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Patch Panel (Rack 2)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - PATCH PANEL
+    source_block: visual_semantics_gemini
+  - tag: R2-FDF-OUT
+    name: F.D.F - OUT (광 포트)
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: FDF Output (Rack 2, Optical Port)
+      position: middle-right
+      shape: rectangle
+      labels_inside:
+      - F.D.F - OUT (광 포트)
+    source_block: visual_semantics_gemini
+  - tag: HOR-UNIT-01
+    name: SYSTEM BOX / OUTLET BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Horizontal Unit 1 (Data/Optical)
+      position: bottom-left
+      shape: rectangle
+      labels_inside:
+      - 광 포트
+      - SYSTEM BOX
+      - OUTLET BOX
+    source_block: visual_semantics_gemini
+  - tag: HOR-UNIT-02
+    name: SYSTEM BOX / OUTLET BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Horizontal Unit 2 (Data)
+      position: bottom-center-left
+      shape: rectangle
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+    source_block: visual_semantics_gemini
+  - tag: HOR-UNIT-03
+    name: SYSTEM BOX / OUTLET BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Horizontal Unit 3 (Data)
+      position: bottom-center
+      shape: rectangle
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+    source_block: visual_semantics_gemini
+  - tag: HOR-UNIT-04
+    name: SYSTEM BOX / OUTLET BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Horizontal Unit 4 (Data)
+      position: bottom-center-right
+      shape: rectangle
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+    source_block: visual_semantics_gemini
+  - tag: HOR-UNIT-05
+    name: SYSTEM BOX / OUTLET BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Horizontal Unit 5 (Data/Optical)
+      position: bottom-right
+      shape: rectangle
+      labels_inside:
+      - 광 포트
+      - SYSTEM BOX
+      - OUTLET BOX
+    source_block: visual_semantics_gemini
+  - tag: HOR-UNIT-06
+    name: SYSTEM BOX / OUTLET BOX
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      inferred_name: Horizontal Unit 6 (Voice)
+      position: bottom-right
+      shape: rectangle
+      labels_inside:
+      - SYSTEM BOX
+      - OUTLET BOX
+    source_block: visual_semantics_gemini
+  - tag: USR-PC-01
+    name: PC
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: User PC 1 (Excluded)
+      position: bottom-left
+      shape: dashed_box
+      labels_inside:
+      - PC
+      labels_below:
+      - (본 공사 제외)
+    source_block: visual_semantics_gemini
+  - tag: USR-PC-02
+    name: PC
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: User PC 2 (Excluded)
+      position: bottom-center-left
+      shape: dashed_box
+      labels_inside:
+      - PC
+      labels_below:
+      - (본 공사 제외)
+    source_block: visual_semantics_gemini
+  - tag: USR-PC-03
+    name: PC
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: User PC 3 (Excluded)
+      position: bottom-center
+      shape: dashed_box
+      labels_inside:
+      - PC
+      labels_below:
+      - (본 공사 제외)
+    source_block: visual_semantics_gemini
+  - tag: USR-PC-04
+    name: PC
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: User PC 4 (Excluded)
+      position: bottom-center-right
+      shape: dashed_box
+      labels_inside:
+      - PC
+      labels_below:
+      - (본 공사 제외)
+    source_block: visual_semantics_gemini
+  - tag: USR-AP-01
+    name: 무선 AP
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Wireless AP 1
+      position: bottom-center-left
+      shape: other
+      labels_inside:
+      - 무선 AP
+    source_block: visual_semantics_gemini
+  - tag: USR-AP-02
+    name: 무선 AP
+    discipline: COMMUNICATION
+    function_category: CONTROL
+    specifications:
+      inferred_name: Wireless AP 2
+      position: bottom-center-right
+      shape: other
+      labels_inside:
+      - 무선 AP
+    source_block: visual_semantics_gemini
+  - tag: USR-TEL-01
+    name: 일반전화기
+    discipline: COMMUNICATION
+    function_category: DEVICE
+    specifications:
+      inferred_name: User Telephone 1 (Excluded)
+      position: bottom-right
+      shape: dashed_box
+      labels_inside:
+      - 일반전화기
+      labels_below:
+      - (본 공사 제외)
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: EXT-MDF-DATA
+    to_tag: HUB-RACK-1
+    relation_type: connects_to
+    note: F.D.F - OUT (SM 12C) (기존 예정 자재) → F/O CABLE (SM 12C) → F.D.F - IN (SM 12C)
+  - from_tag: EXT-MDF-VOICE
+    to_tag: HUB-RACK-1
+    relation_type: connects_to
+    note: 110BLOCK - OUT (기존 예정 자재) → CAT.5e 25P CABLE → 110BLOCK - IN / OUT
+  - from_tag: EXT-MDF-VOICE
+    to_tag: HUB-RACK-2
+    relation_type: connects_to
+    note: 110BLOCK - IN / OUT (우측)
+  - from_tag: HUB-RACK-1
+    to_tag: HUB-RACK-2
+    relation_type: connects_to
+    note: F/O CABLE (SM 12C) → F.D.F - IN (SM 12C)
+  - from_tag: HUB-RACK-1
+    to_tag: SYSBOX-DATA-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HUB-RACK-1
+    to_tag: SYSBOX-DATA-02
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HUB-RACK-1
+    to_tag: SYSBOX-DATA-03
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HUB-RACK-1
+    to_tag: SYSBOX-DATA-04
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HUB-RACK-1
+    to_tag: SYSBOX-VOICE-LEFT
+    relation_type: connects_to
+    note: F/O CABLE (SM 2C)
+  - from_tag: HUB-RACK-2
+    to_tag: SYSBOX-VOICE-RIGHT
+    relation_type: connects_to
+    note: F/O CABLE (SM 2C) + CAT.6 UTP CABLE
+  - from_tag: SYSBOX-DATA-01
+    to_tag: USER-PC-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: SYSBOX-DATA-02
+    to_tag: USER-PC-02
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: SYSBOX-DATA-02
+    to_tag: USER-AP-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: SYSBOX-DATA-03
+    to_tag: USER-PC-03
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: SYSBOX-DATA-04
+    to_tag: USER-PC-04
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: SYSBOX-DATA-04
+    to_tag: USER-AP-02
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: SYSBOX-VOICE-LEFT
+    to_tag: USER-TEL-LEFT
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE
+  - from_tag: SYSBOX-VOICE-RIGHT
+    to_tag: USER-TEL-RIGHT
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE
+  - from_tag: BB-FDF-DATA
+    to_tag: R1-FDF-IN
+    relation_type: connects_to
+    note: F/O CABLE (SM 12C)
+  - from_tag: BB-110-VOICE
+    to_tag: R1-110-BLOCK
+    relation_type: connects_to
+    note: CAT.5e 25P CABLE
+  - from_tag: R1-FDF-IN
+    to_tag: R1-OPT-SWITCH-1
+    relation_type: connects_to
+    note: OPTICAL PATCH CORD (1Gbps)
+  - from_tag: R1-OPT-SWITCH-1
+    to_tag: R1-ETH-SWITCH
+    relation_type: connects_to
+    note: OPTICAL PATCH CORD (1Gbps)
+  - from_tag: R1-ETH-SWITCH
+    to_tag: R1-POE-SWITCH
+    relation_type: connects_to
+    note: CAT.6 UTP CORD (1Gbps)
+  - from_tag: R1-ETH-SWITCH
+    to_tag: R1-PATCH-PANEL-1
+    relation_type: connects_to
+    note: CAT.6 UTP CORD (1Gbps)
+  - from_tag: R1-POE-SWITCH
+    to_tag: R1-PATCH-PANEL-2
+    relation_type: connects_to
+    note: CAT.6 UTP CORD (1Gbps)
+  - from_tag: R1-OPT-SWITCH-2
+    to_tag: R1-FDF-OUT-2
+    relation_type: connects_to
+    note: OPTICAL PATCH CORD (1Gbps)
+  - from_tag: R1-FDF-OUT-1
+    to_tag: R2-FDF-IN
+    relation_type: connects_to
+    note: F/O CABLE (SM 12C)
+  - from_tag: R2-FDF-IN
+    to_tag: R2-OPT-SWITCH
+    relation_type: connects_to
+    note: OPTICAL PATCH CORD (1Gbps)
+  - from_tag: R2-OPT-SWITCH
+    to_tag: R2-POE-SWITCH
+    relation_type: connects_to
+    note: OPTICAL PATCH CORD (1Gbps)
+  - from_tag: R2-POE-SWITCH
+    to_tag: R2-ETH-SWITCH
+    relation_type: connects_to
+    note: CAT.6 UTP CORD (1Gbps)
+  - from_tag: R2-ETH-SWITCH
+    to_tag: R2-PATCH-PANEL
+    relation_type: connects_to
+    note: CAT.6 UTP CORD (1Gbps)
+  - from_tag: R1-PATCH-PANEL-1
+    to_tag: HOR-UNIT-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: R1-PATCH-PANEL-1
+    to_tag: HOR-UNIT-02
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: R1-PATCH-PANEL-2
+    to_tag: HOR-UNIT-03
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: R1-PATCH-PANEL-2
+    to_tag: HOR-UNIT-04
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: R1-FDF-OUT-2
+    to_tag: HOR-UNIT-01
+    relation_type: connects_to
+    note: F/O CABLE (SM 2C)
+  - from_tag: R1-110-BLOCK
+    to_tag: HOR-UNIT-06
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE
+  - from_tag: R2-PATCH-PANEL
+    to_tag: HOR-UNIT-05
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: R2-FDF-OUT
+    to_tag: HOR-UNIT-05
+    relation_type: connects_to
+    note: F/O CABLE (SM 2C)
+  - from_tag: HOR-UNIT-01
+    to_tag: USR-PC-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HOR-UNIT-02
+    to_tag: USR-PC-02
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HOR-UNIT-02
+    to_tag: USR-AP-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HOR-UNIT-03
+    to_tag: USR-PC-03
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HOR-UNIT-04
+    to_tag: USR-PC-04
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HOR-UNIT-04
+    to_tag: USR-AP-02
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE (1Gbps)
+  - from_tag: HOR-UNIT-06
+    to_tag: USR-TEL-01
+    relation_type: connects_to
+    note: CAT.6 UTP CABLE
+  spaces:
+  - space_id: GRP-MDF-ZONE
+    name: 기존 MDF 구역
+    contains:
+    - EXT-MDF-DATA
+    - EXT-MDF-VOICE
+    - ZONE-MDF
+  - space_id: GRP-BACKBONE
+    name: 구내간선계
+    contains:
+    - ZONE-BACKBONE
+    - HUB-RACK-1
+    - HUB-RACK-2
+  - space_id: GRP-IDF
+    name: IDF (Intermediate Distribution Frame)
+    contains:
+    - ZONE-IDF
+    - HUB-RACK-1
+    - HUB-RACK-2
+  - space_id: GRP-HORIZONTAL
+    name: 수평배선계
+    contains:
+    - ZONE-HORIZONTAL
+    - SYSBOX-DATA-01
+    - SYSBOX-DATA-02
+    - SYSBOX-DATA-03
+    - SYSBOX-DATA-04
+    - SYSBOX-VOICE-LEFT
+    - SYSBOX-VOICE-RIGHT
+  - space_id: GRP-USER
+    name: 사용자구간
+    contains:
+    - ZONE-USER
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - USER-AP-01
+    - USER-AP-02
+    - USER-TEL-LEFT
+    - USER-TEL-RIGHT
+  - space_id: GRP-EXCLUDED
+    name: 본 공사 제외 항목
+    contains:
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - USER-TEL-LEFT
+    - USER-TEL-RIGHT
+  - space_id: GRP-DATA
+    name: DATA 계통
+    contains:
+    - EXT-MDF-DATA
+    - HUB-RACK-1
+    - SYSBOX-DATA-01
+    - SYSBOX-DATA-02
+    - SYSBOX-DATA-03
+    - SYSBOX-DATA-04
+    - USER-PC-01
+    - USER-PC-02
+    - USER-PC-03
+    - USER-PC-04
+    - USER-AP-01
+    - USER-AP-02
+  - space_id: GRP-VOICE
+    name: VOICE 계통
+    contains:
+    - EXT-MDF-VOICE
+    - HUB-RACK-1
+    - HUB-RACK-2
+    - SYSBOX-VOICE-LEFT
+    - SYSBOX-VOICE-RIGHT
+    - USER-TEL-LEFT
+    - USER-TEL-RIGHT
+  self_check:
+    entity_count: 35
+    relationship_count: 40
+    visual_spec_preserved: true
+    issues:
+    - visual_semantics와 visual_semantics_gemini 간 일부 패널 태그 체계가 상이하여, 합집합 기준으로 병합함.
+    - Gemini의 일부 엔티티는 Sonnet의 더 구체적 스펙과 병합됨.
+    - 페이지는 통합배선설비 구성도로, legend 기반 심볼은 entity.specifications에 직접 반영하지 않고 관련 엔티티에 매핑함.

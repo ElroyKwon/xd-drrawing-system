@@ -1,0 +1,140 @@
+tag: SMFD-01
+name: '스마트 방화댐퍼 #1'
+type: fire_damper
+discipline: MECHANICAL
+function_category: PROTECT
+source_pages:
+- 50
+- 53
+specs:
+  shape: circle
+  labels_inside:
+  - A
+  labels_above:
+  - SMFD
+  - 300x300(A)
+  labels_below:
+  - H=300
+  inferred_name: '스마트 방화댐퍼 #1 (SMFD)'
+  position: center-right (PIT 구역 내 상단)
+  damper_size: 300x300
+  height: '300'
+  raw_labels:
+  - A
+  - SMFD
+  - 300x300(A)
+  - B (원형 태그)
+  equipment_symbols:
+  - type: SMFD 심볼 (원형)
+    count: 1
+  panel_id: SMFD-01
+  source_model: visual_semantics
+  labels_from_gemini:
+  - SMFD
+  - 300x300(A)
+  labels_below_from_gemini:
+  - H=300
+  tag: SMFD
+  actuator_type: motor_operated
+  is_motor_operated: true
+  duct_direction: DN (하향)
+  key_reference: A
+  cable_spec_reference: CV V 2.5 3C
+  cable_spec_reference_alt: C3052 0.6/1P
+  location_note: 도면 중앙 우측 구역(5-6열, B-C행 사이)
+  duct_direction_gemini: DN
+  source_note: 모터구동 방화댐퍼 심볼
+relations:
+- from: SMFD-01
+  to: SMFD-02
+  relation: connects_to
+  source_page: 50
+  origin: cross_validated
+  line_style: solid
+  note: SMFD 제어 배선 (CV 또는 UTP)
+- from: SMFD-01
+  to: JB-A-01
+  relation: connects_to
+  source_page: 50
+  origin: cross_validated
+  line_style: solid
+  note: UTP 0.6 4P (추정)
+- from: SMFD-01
+  to: SMFD-02
+  relation: signal
+  source_page: 50
+  origin: visual_semantics
+  annotation: SMFD 제어 배선 (CV 또는 UTP)
+- from: SMFD-01
+  to: LEGEND-CABLE
+  relation: references
+  source_page: 53
+  origin: cross_validated
+  line_style: dashed
+  note: '범례 참조 관계 (전선 규격 A 적용: CV V 2.5 3C)'
+- from: PANEL-ROOF-PLAN
+  to: SMFD-01
+  relation: contains
+  source_page: 53
+  origin: cross_validated
+  line_style: null
+  note: null
+- from: SMFD-01
+  to: SMFD-02
+  relation: cable
+  source_page: 53
+  origin: visual_semantics
+  annotation: SMFD 간 신호/전원 배선 (CV 또는 C3052)
+- from: SMFD-01
+  to: LEGEND-CABLE
+  relation: signal
+  source_page: 53
+  origin: visual_semantics
+  annotation: 범례 참조 관계 (전선 규격 A/B 적용)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+confidence: 0.95
+equipment_symbols:
+- type: smfd_damper
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+position: center-right
+ontology_hints:
+  suggested_parent_class: FireDamper
+  observed_attributes:
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - inferred_name
+  - position
+  - damper_size
+  - height
+  - raw_labels
+  - equipment_symbols
+  - panel_id
+  - source_model
+  - labels_from_gemini
+  - labels_below_from_gemini
+  - tag
+  - actuator_type
+  - is_motor_operated
+  - duct_direction
+  - key_reference
+  - cable_spec_reference
+  - cable_spec_reference_alt
+  - location_note
+  - duct_direction_gemini
+  - source_note
+  similar_equipment:
+  - SMFD-02
+  function_candidates:
+  - Fire Protection
+  - Smoke Control
+  - Airflow Isolation

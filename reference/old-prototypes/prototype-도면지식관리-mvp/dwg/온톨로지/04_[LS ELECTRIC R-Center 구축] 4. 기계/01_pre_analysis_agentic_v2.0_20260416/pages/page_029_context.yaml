@@ -1,0 +1,630 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: PLUMBING
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: M32-003
+    title: 지상2층 위생배관 평면도
+    revision: null
+  visible_tags:
+  - tag: 휴게공간
+    type: named_space
+    source: both
+  - tag: 중회의실
+    type: named_space
+    source: both
+  - tag: 사무실
+    type: named_space
+    source: both
+  - tag: Software Lab
+    type: named_space
+    source: both
+  - tag: 복도
+    type: named_space
+    source: both
+  - tag: 연결통로
+    type: named_space
+    source: both
+  - tag: 냉장고
+    type: equipment
+    source: both
+  - tag: SINK
+    type: equipment
+    source: both
+  - tag: 세단기
+    type: equipment
+    source: both
+  - tag: PS
+    type: equipment
+    source: both
+  - tag: 2층 화장실 확대
+    type: named_space
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 11
+  next_step_hints:
+  - 위생배관 평면도이며 실명과 위생기기(냉장고, SINK, 세단기, PS)가 함께 표기됨
+  - 우측 하단 표제란에 도면번호 M32-003, 제목 지상2층 위생배관 평면도 확인됨
+  - 도면 내 확대 표기(2층 화장실 확대)와 연결통로가 보임
+  confidence: 0.95
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/mechanical/genre_floor_plan/supplement_p10.yaml
+  routing_confidence: 0.98
+  routing_reason: 위생배관 평면도이므로 mechanical + floor_plan에 정확히 대응하며, 카탈로그에 P-4.5/P-10
+    genre_floor_plan 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 지상2층 위생배관 평면도
+    position: center
+    labels_near:
+    - Software Lab
+    - 중회의실
+    - 사무실
+    - 연결통로
+    - 2층 화장실 확대 평면도 참조
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: solid
+    annotation: 배관 연결
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 하단 제목 옆 원형 심볼
+  - shape: circle
+    label: '2'
+    note: 도면 중앙 확대 평면도 참조 원형 심볼
+  - shape: rectangle
+    label: SINK
+    note: 탕비실 내 싱크대 심볼
+  - shape: dashed_box
+    label: 2층 화장실 확대
+    note: 확대 영역을 표시하는 점선 박스
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 지상2층 위생배관 평면도로, 범례 표나 섹션이 포함되어 있지 않음.
+classification: PLUMBING_DIAGRAM
+discipline: PLUMBING
+key_elements_from_text:
+- 지상2층 위생배관 평면도
+- LS Electric
+- R-Center 구축
+- R-Center
+- 'PROJECT NUMBER: 224001'
+- 'DRAWING NO.: M32-003'
+- 'SCALE: A1:1/200 A3:1/400'
+- 'DATE: 2024.05'
+- 냉장고
+- SINK
+- 세단기
+- 휴게공간
+- 중회의실
+- 사무실
+- Software Lab
+- PS
+- 복도
+- 연결통로
+- 2층 화장실 확대 평면도 참조
+title_block:
+  drawing_number: M32-003
+  title: 지상2층 위생배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline=PLUMBING, classification=FLOOR_LAYOUT, drawing_genre=floor_plan은
+  페이지 제목 ''지상2층 위생배관 평면도''와 평면 배치/위생기기 표기와 일치하나, 도면 성격을 더 직접적으로 나타내는 분류는 PLUMBING_DIAGRAM으로
+  보임. 표제란에서 도면번호 M32-003, 제목 지상2층 위생배관 평면도, 축척 A1:1/200 A3:1/400, 날짜 2024.05는 확인되나
+  revision 값은 보이지 않아 UNKNOWN으로 둠. 근거: 우측 표제란과 하단 중앙 제목 표기.'
+supplement_routing:
+  discipline: PLUMBING
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: vision으로 '지상2층 위생배관 평면도' 제목과 평면 배치 확인 — plumbing/floor_plan 확정
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: workstation/desk arrangement
+      count: 12
+    inferred_name: 소프트웨어 랩 (Software Laboratory)
+    position: center
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    - 냉장고
+    - SINK
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sink
+      count: 1
+    - type: refrigerator
+      count: 1
+    inferred_name: 휴게공간 (Break Room / Pantry)
+    position: center-right
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: conference table with chairs
+      count: 1
+    inferred_name: 중회의실 (Medium Conference Room)
+    position: center-right
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: desk arrangement
+      count: 8
+    inferred_name: 사무실 (Office)
+    position: right
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - 복도
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 복도 (Corridor)
+    position: center
+  - panel_id: BLK-M06
+    shape: dashed_box
+    labels_inside:
+    - 2층 화장실 확대 평면도 참조
+    - PS
+    - 세단기
+    labels_above:
+    - 2층 화장실 확대
+    labels_below: []
+    equipment_symbols:
+    - type: toilet fixtures
+      count: 4
+    - type: urinal
+      count: 2
+    - type: lavatory/sink
+      count: 3
+    - type: shredder (세단기)
+      count: 1
+    - type: pipe shaft (PS)
+      count: 1
+    inferred_name: 2층 화장실 구역 (2F Toilet Area - Enlarged Reference)
+    position: center
+  - panel_id: BLK-M07
+    shape: rectangle
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 연결통로 (Connection Corridor)
+    position: bottom-center
+  - panel_id: BLK-M08
+    shape: rectangle
+    labels_inside:
+    - 스층 화장실 확대 평면도 참조
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: reference circle symbol
+      count: 1
+    inferred_name: 화장실 확대도 참조 심볼
+    position: center
+  - panel_id: BLK-M09
+    shape: rectangle
+    labels_inside:
+    - 배회공간
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 배회공간 (Circulation Space)
+    position: center-right
+  - panel_id: BLK-M10
+    shape: rectangle
+    labels_inside:
+    - 스토리지
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 스토리지 (Storage)
+    position: right
+  - panel_id: BLK-M11
+    shape: rectangle
+    labels_inside:
+    - 공조(시스템 전대실)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical equipment
+      count: 2
+    inferred_name: 공조 시스템 전대실 (HVAC System Room)
+    position: center
+  - panel_id: BLK-M12
+    shape: shaded_box
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - 지상2층 위생배관 평면도
+    - 축척 1/400
+    equipment_symbols:
+    - type: drawing title circle
+      count: 1
+    inferred_name: 도면 제목 블록
+    position: bottom-center
+  connections:
+  - from: BLK-M02
+    to: BLK-M06
+    line_type: pipe
+    line_style: solid
+    annotation: 급수/배수 배관 연결 (위생배관)
+  - from: BLK-M06
+    to: BLK-M05
+    line_type: pipe
+    line_style: solid
+    annotation: 배수 배관 연결
+  - from: BLK-M06
+    to: BLK-M07
+    line_type: pipe
+    line_style: solid
+    annotation: 배관 수직 연결 (PS 통해)
+  - from: BLK-M02
+    to: BLK-M03
+    line_type: other
+    line_style: solid
+    annotation: 공간 인접 연결
+  - from: BLK-M01
+    to: BLK-M05
+    line_type: other
+    line_style: solid
+    annotation: 공간 인접 연결
+  groups:
+  - group_id: GRP-001
+    label: 지상 2층 주요 실 구획
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+    - BLK-M07
+  - group_id: GRP-002
+    label: 위생 설비 구역 (화장실 + 탕비실)
+    members:
+    - BLK-M02
+    - BLK-M06
+  - group_id: GRP-003
+    label: 대형 오픈 공간 (창고/랩/무주공간)
+    members:
+    - BLK-M01
+    - BLK-M10
+    - BLK-M11
+  legend_references:
+  - text: SINK
+    linked_to: BLK-M02
+  - text: 냉장고
+    linked_to: BLK-M02
+  - text: 세단기
+    linked_to: BLK-M06
+  - text: PS (Pressure Switch / Pipe Shaft)
+    linked_to: BLK-M06
+  - text: Floor Drain (FD)
+    linked_to: BLK-M06
+  - text: Vent Thru Roof (VTR)
+    linked_to: BLK-M06
+  - text: Cleanout (CO)
+    linked_to: BLK-M06
+  diagram_meta:
+    title: 지상2층 위생배관 평면도
+    drawing_number: M32-003
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    revision: null
+    discipline: PLUMBING
+    mech_subsystem: sanitary_piping
+    view_type: plan
+    floor_label: 지상 2층 (2F)
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - 급수 (Cold Water Supply)
+    - 배수 (Drain/Waste)
+    - 통기 (Vent)
+    has_equipment_list: false
+    grid_lines:
+      columns:
+      - label: '1'
+        spacing_mm: 12000
+      - label: '2'
+        spacing_mm: 12000
+      - label: '3'
+        spacing_mm: 12000
+      - label: '4'
+        spacing_mm: 14000
+      - label: '5'
+        spacing_mm: 11000
+      - label: '6'
+        spacing_mm: 10000
+      - label: '7'
+        spacing_mm: null
+      rows:
+      - label: A
+        spacing_mm: 13000
+      - label: B
+        spacing_mm: null
+      - label: C
+        spacing_mm: 13000
+      - label: D
+        spacing_mm: null
+      total_width_mm: 71000
+      total_depth_mm: 43000
+      inner_depth_mm: 17900
+    notable_annotations:
+    - 2층 화장실 확대 평면도 참조 (점선 박스로 표시된 확대 영역)
+    - 스층 화장실 확대 평면도 참조 (원형 참조 심볼)
+    - 연결통로 (하단 중앙)
+    corrections_from_prior_analysis:
+    - field: visible_tags
+      correction: 배회공간, 스토리지, 공조(시스템 전대실) 등 추가 공간 라벨 누락 — 추가함
+    - field: BLK-002
+      correction: 사전 분석에서 BLK-002 참조가 있었으나 정의 없음 — 본 분석에서 BLK-M06(화장실 구역)으로 대응
+    - field: grid_dimensions
+      correction: 총 폭 71,000mm, 열 간격 12000/12000/12000/14000/11000/10000 확인, 행 간격
+        A-B=13000, C-D=13000 확인
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - Software Lab
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: desk_arrangement
+      count: 12
+    inferred_name: 소프트웨어 랩 (Software Laboratory)
+    position: top-center-right
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 휴게공간
+    - 냉장고
+    - SINK
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: sink
+      count: 1
+    - type: refrigerator
+      count: 1
+    inferred_name: 휴게공간 (Break Room / Pantry)
+    position: center-right, below BLK-M01
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 중회의실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: conference_table
+      count: 1
+    inferred_name: 중회의실 (Medium Conference Room)
+    position: center-right, below BLK-M02
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - 사무실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: desk_arrangement
+      count: 8
+    inferred_name: 사무실 (Office)
+    position: right
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - 임원실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: desk_arrangement
+      count: 1
+    inferred_name: 임원실 (Executive Office)
+    position: top-right
+  - panel_id: BLK-M06
+    shape: rectangle
+    labels_inside:
+    - 복도
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 복도 (Corridor)
+    position: center
+  - panel_id: BLK-M07
+    shape: dashed_box
+    labels_inside:
+    - 2층 화장실 확대 평면도 참조
+    - PS
+    - 세단기
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: water_closet
+      count: 4
+    - type: urinal
+      count: 2
+    - type: lavatory
+      count: 3
+    - type: pipe_shaft
+      count: 1
+    - type: shredder
+      count: 1
+    inferred_name: 2층 화장실 구역 (2F Toilet Area - Enlarged Reference)
+    position: center, left of BLK-M06
+  - panel_id: BLK-M08
+    shape: rectangle
+    labels_inside:
+    - 공조실/시스템전산실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_equipment
+      count: 2
+    inferred_name: 공조실/시스템전산실 (HVAC/System Room)
+    position: center, below BLK-M07
+  - panel_id: BLK-M09
+    shape: rectangle
+    labels_inside:
+    - 세미나/다목적실
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: table_chair_arrangement
+      count: 1
+    inferred_name: 세미나/다목적실 (Seminar/Multipurpose Room)
+    position: center, below BLK-M08
+  - panel_id: BLK-M10
+    shape: rectangle
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 연결통로 (Connection Passage)
+    position: bottom-center
+  - panel_id: BLK-M11
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 오픈 스페이스 (Open Space - Double Height)
+    position: left_half
+  - panel_id: BLK-M12
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: stairs
+      count: 2
+    - type: elevator
+      count: 2
+    inferred_name: 코어 (Stair/Elevator Core)
+    position: center-left
+  connections:
+  - from: BLK-M02
+    to: BLK-M07
+    line_type: pipe
+    line_style: solid
+    annotation: 급수/배수 배관 (SINK to PS)
+  - from: BLK-M07
+    to: BLK-M07
+    line_type: pipe
+    line_style: solid
+    annotation: 위생기구 급수/배수 배관 (Fixtures to PS)
+  - from: BLK-M08
+    to: BLK-M07
+    line_type: pipe
+    line_style: solid
+    annotation: 장비 배수 배관 (Equipment to PS)
+  groups:
+  - group_id: GRP-001
+    label: 업무 및 지원 공간
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+    - BLK-M09
+  - group_id: GRP-002
+    label: 코어 및 공용 공간
+    members:
+    - BLK-M06
+    - BLK-M07
+    - BLK-M08
+    - BLK-M10
+    - BLK-M12
+  - group_id: GRP-003
+    label: 대공간
+    members:
+    - BLK-M11
+  legend_references: []
+  diagram_meta:
+    title: 지상2층 위생배관 평면도
+    drawing_number: M32-003
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    revision: null
+    discipline: PLUMBING
+    mech_subsystem: sanitary_piping
+    view_type: plan
+    floor_label: 지상 2층 (2F)
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - 급수 (Cold Water Supply)
+    - 배수 (Drain/Waste)
+    - 통기 (Vent)
+    has_equipment_list: false
+    grid_lines:
+      columns:
+      - label: '1'
+        spacing_mm: 12000
+      - label: '2'
+        spacing_mm: 12000
+      - label: '3'
+        spacing_mm: 12000
+      - label: '4'
+        spacing_mm: 14000
+      - label: '5'
+        spacing_mm: 11000
+      - label: '6'
+        spacing_mm: 10000
+      - label: '7'
+        spacing_mm: null
+      rows:
+      - label: A
+        spacing_mm: 13000
+      - label: B
+        spacing_mm: null
+      - label: C
+        spacing_mm: 13000
+      - label: D
+        spacing_mm: null
+      total_width_mm: 71000
+      total_depth_mm: 43000
+    notable_annotations:
+    - 2층 화장실 확대 평면도 참조 (점선 박스)
+    - 연결통로

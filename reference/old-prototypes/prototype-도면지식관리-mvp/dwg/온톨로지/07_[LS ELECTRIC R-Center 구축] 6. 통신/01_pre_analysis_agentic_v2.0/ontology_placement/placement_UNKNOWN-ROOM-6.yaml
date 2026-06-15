@@ -1,0 +1,141 @@
+placement:
+  tag: UNKNOWN-ROOM-6
+  name: 회의실-1
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-ROOM-6
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - Space
+    - MeetingRoom
+    - CommunicationSpaceEntity
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-2F-3
+      note: specs.members에 포함된 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: ROOM'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 기능 분류 값
+      - raw_text: 'specs.group_id: ROOM-회의실-1'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별자 형태의 문자열
+      - raw_text: 'specs.members: OUTLET-2F-3'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: owl:NamedIndividual
+          rationale: 공간 그룹의 구성원 관계
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: Meeting, CommunicationSpace'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 라벨 보존
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_type_and_specs
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: inferred_from_name_type_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: from_specs_members
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: preserved_raw
+    specs.group_id:
+      source_pages:
+      - 5
+      method: direct
+    specs.members:
+      source_pages:
+      - 5
+      method: direct
+    type:
+      source_pages:
+      - 5
+      method: direct
+    discipline:
+      source_pages:
+      - 5
+      method: direct
+    function_category:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag는 UNKNOWN-ROOM-6이지만 name은 회의실-1이며, type은 space, function_category는
+      ROOM, ontology_hints에는 Meeting/CommunicationSpace가 함께 있어 공간/회의실/통신공간 해석이 혼재함.
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, 회의실 기능과 통신공간 기능을 분리 가능한지 확인하고
+      members 관계를 유지한 채 후속 분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 보이는 엔티티를 NamedIndividual로 보존
+    - group_id, members, ontology_hints, function_candidates를 모두 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:45.983595'
+  confidence: 0.86

@@ -1,0 +1,193 @@
+placement:
+  tag: INF-EMPTYPIPE-001
+  name: EMPTY PIPE (ELP100)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:INF-EMPTYPIPE-001
+    class_hint: CableConduit
+    alternative_class_hints:
+    - SpareConduit
+    - EmptyPipe
+    - InfrastructureElement
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Conduit
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: empty_pipe'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 설비 유형을 나타내는 문자열 표기
+      - raw_text: 'spec: ELP100 (직경 100mm)'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasSpecification
+          suggested_datatype: xsd:string
+          rationale: ELP100 규격과 직경 100mm가 함께 표기된 사양 문자열
+      - raw_text: 'note: DUCT BANK 내 예비 배관 (향후 증설 대비)'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionalNote
+          suggested_datatype: xsd:string
+          rationale: 예비 배관 및 향후 증설 대비라는 기능 설명
+      - raw_text: 'diameter_mm: 100'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasDiameter
+          suggested_datatype: xsd:decimal
+          rationale: 직경을 mm 단위 숫자로 명시
+      - raw_text: 'function_category: INFRASTRUCTURE'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 인프라 범주를 나타내는 분류값
+      - raw_text: 'position: center-left'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치를 나타내는 좌표성 표기
+      - raw_text: 'ontology_hints.suggested_parent_class: CableConduit'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스 후보
+      - raw_text: 'ontology_hints.observed_attributes: type, spec, note, diameter_mm'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasObservedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰된 속성 목록을 문자열로 보존
+      - raw_text: 'ontology_hints.function_candidates: SPARE_PROVISION, CABLE_ROUTING'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 복수로 제시됨
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: isCrossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 수집 स्रोत 교차 검증 여부
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: isEntitySynthesized
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 여부
+      - raw_text: 'source_attribution.sonnet: true, source_attribution.gemini: false,
+          source_attribution.mini: true'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasSourceAttributionFlags
+          suggested_datatype: xsd:string
+          rationale: 출처 귀속 플래그를 원문 그대로 보존
+      - raw_text: 'confidence: 0.85'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasConfidenceScore
+          suggested_datatype: xsd:decimal
+          rationale: 엔티티 추출 신뢰도 수치
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: placement_rule_electrical_specialization
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates + inferred alternatives
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+      method: supplement_free_notes_preservation
+    position:
+      source_pages:
+      - 4
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 4
+      method: entity_detail.confidence
+    collection_sources.cross_validated:
+      source_pages:
+      - 4
+      method: entity_detail.collection_sources
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 4
+      method: entity_detail.collection_sources
+    source_attribution:
+      source_pages:
+      - 4
+      method: entity_detail.source_attribution
+  unresolved:
+  - field_candidate: specs.spec
+    raw_text: ELP100 (직경 100mm)
+    source_page: 4
+    reason: 규격 코드와 직경 정보가 결합된 문자열로, 단일 구조화 필드로 확정 분해하지 않음
+    preservation_note: 규격 코드 ELP100과 직경 100mm를 함께 보존
+  - field_candidate: specs.note
+    raw_text: DUCT BANK 내 예비 배관 (향후 증설 대비)
+    source_page: 4
+    reason: 기능 설명과 설치 맥락이 포함된 서술형 문장
+    preservation_note: 예비 배관 및 향후 증설 대비 목적을 그대로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SPARE_PROVISION, CABLE_ROUTING
+    source_page: 4
+    reason: 복수 기능 후보가 병렬 제시되어 단일 확정 불가
+    preservation_note: 기능 후보 목록을 원문 순서대로 보존
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true, gemini: false, mini: true'
+    source_page: 4
+    reason: 출처 귀속 플래그는 의미 해석보다 원문 보존이 우선
+    preservation_note: 모델별 출처 귀속 상태를 그대로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보와 설비 정보의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:10:45.069956'
+  confidence: 0.85

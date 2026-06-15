@@ -1,0 +1,90 @@
+entity_detail:
+  tag: P-OAC-1
+  type: Power Panelboard
+  specs:
+    voltage:
+      value: 380/220V
+      unit: V
+      source: page 23
+      confidence: 0.98
+    phase_wire:
+      value: 3Ф 4W
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    feeder_cable:
+      value: F-CV 150㎟ -1C x4
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    earth_cable:
+      value: E-95㎟ (104C)
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    breaker:
+      value: MCCB 1개
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    location:
+      value: 지붕층 F.L
+      unit: ''
+      source: page 23
+      confidence: 0.98
+  drawing_texts:
+  - source: page 23 executive_summary
+    page_number: 23
+    text: "상단에 CABLE SCHEDULE & CONDUIT 표, 하단에 층별 라이저/계통도가 함께 보이는 전기 간선 계통도이다.\n\n\
+      \    S/S R-Center 수전반에서 LP-1F, LP-2F, P-C-3PP, P-OAC-1/2/3, P-F, IVR-2, LV-6\
+      \ 및 다수의\n    2PP/3PP/4PP 패널로 연결된다.\n\n    표기 전압은 6.6kV, 380/220V, 440V, 220V가\
+      \ 보이며, 인입은 UT동 전기실에서 오는 것으로 표시된다."
+  - source: page 23 equipment
+    page_number: 23
+    text: P-OAC-1 외기조화기 분전반
+  - source: page 23 equipment
+    page_number: 23
+    text: 3Ф 4W 380/220V, F-CV 150㎟ -1C x4, E-95㎟ (104C), MCCB 1개
+  - source: page 23 equipment
+    page_number: 23
+    text: 지붕층 F.L
+  requirements:
+  - text: 3Ф 4W 380/220V
+    source: page 23
+    type: electrical_condition
+  - text: MCCB 1개
+    source: page 23
+    type: protection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: P-OAC-1
+    details:
+      source: page 23
+  - relation: incoming_feeder
+    partner: P-OAC-1
+    details:
+      source: page 23
+      cable: F-CV 150㎟ -1C x4
+      earth: E-95㎟ (104C)
+      voltage: 380/220V
+      phase_wire: 3Ф 4W
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: P-OAC-1
+      direction: UNKNOWN
+      source: page 23
+    observed_attributes:
+    - voltage
+    - phase_wire
+    - feeder_cable
+    - earth_cable
+    - breaker
+    - location
+    similar_equipment:
+    - P-OAC-2
+    - P-OAC-3
+    suggested_parent_class: Power Panelboard
+    cross_discipline: []
+  notes: []
+tag: P-OAC-1

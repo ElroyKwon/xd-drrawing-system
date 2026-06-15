@@ -1,0 +1,158 @@
+placement:
+  tag: GWANGPORT-LEFT
+  name: 광 포트
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:GWANGPORT-LEFT
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationTerminal
+    - OpticalConnectionPoint
+    - FiberTermination
+    related_assertions:
+    - type: cable
+      target_hint: HUB-RACK-1
+      note: F.D.F - OUT (광 포트)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 광 포트'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면에 직접 표기된 원문 라벨
+      - raw_text: 'shape: rectangle'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'labels_inside: 광 포트'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelInsideText
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기 텍스트
+      - raw_text: 'inferred_name: 광 포트 단말 (좌측)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 도면 해석 기반 추정명
+      - raw_text: 'position: bottom-left'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 배치 위치 표기
+      - raw_text: 'relation: cable from HUB-RACK-1 to GWANGPORT-LEFT'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 설비 간 케이블 연결 관계
+      - raw_text: 'annotation: F.D.F - OUT (광 포트)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: noteText
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 보이는 원문
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 제안
+      - raw_text: 'function_candidates: Fiber Termination, Optical Connection'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategoryText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'collection_sources: visual_semantics, visual_semantics_gemini,
+          entity_synthesis'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: sourceModel
+          suggested_datatype: xsd:string
+          rationale: 생성/수집 출처 메타정보
+  provenance:
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: tag_based
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class + visual semantics
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: relations
+    discipline_context.free_notes:
+      source_pages:
+      - 18
+      method: full_scan
+    ambiguous:
+      source_pages:
+      - 18
+      method: rule_based_review
+    merge_info:
+      source_pages:
+      - 18
+      method: tag_similarity_check
+    plan_reference.guidance_applied:
+      source_pages:
+      - 18
+      method: plan_alignment
+  unresolved:
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Fiber Termination; Optical Connection
+    source_page: 18
+    reason: 기능 후보는 있으나 확정 class/property로 승격하지 않음
+    preservation_note: 후속 단계에서 class_hint 보조 근거로 재검토 가능
+  - field_candidate: relations.annotation
+    raw_text: F.D.F - OUT (광 포트)
+    source_page: 18
+    reason: 관계 주석이지만 정규 property IRI 미확정
+    preservation_note: 0-9d에서 connectedTo/terminatesAt 계열로 검토 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 광 포트는 단말/포트/종단점 성격이 함께 보이며, 도면상 물리 설비인지 연결 종단점인지 경계가 완전히 고정되지 않음
+    recommended_handling: NamedIndividual로 보존하되, 0-9c에서 CommunicationEquipment vs
+      CommunicationTerminal vs OpticalConnectionPoint 후보를 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 랙/단말/연결점 패턴을 반영
+    - relations의 cable 연결 사실을 related_assertions로 보존
+    - ontology_hints의 suggested_parent_class와 function_candidates를 후보로만 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:45.183777'
+  confidence: 0.86

@@ -1,0 +1,196 @@
+placement:
+  tag: SPACE-FLOOR-MGMT
+  name: 포트 호텔관리 / 아래층
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:SPACE-FLOOR-MGMT
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - SpatialEntity
+    - FloorManagementSpace
+    - VerticalConnectionSpace
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 포트 호텔관리
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 문자열이며 공간 명칭 해석의 근거
+      - raw_text: 아래층
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 공간의 방향/층 관련 표기 문자열
+      - raw_text: 포트 호텔관리/아래층 연결 공간
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: entity_detail의 추론명으로 공간 성격을 요약한 문자열
+      - raw_text: right-bottom
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 상 배치 위치 정보
+      - raw_text: rectangle
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: Floor Management
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보 문자열
+      - raw_text: Port Management
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보 문자열
+      - raw_text: Vertical Connection
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보 문자열
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: entity_detail
+    name:
+      source_pages:
+      - 8
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: tag-based
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints + visual_semantics
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: preservation
+    specs.raw_labels:
+      source_pages:
+      - 8
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: entity_detail
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      method: entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 8
+      method: entity_detail
+    specs.position:
+      source_pages:
+      - 8
+      method: entity_detail
+    specs.shape:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: entity_detail
+    collection_sources.visual_semantics:
+      source_pages:
+      - 8
+      method: entity_detail
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 8
+      method: entity_detail
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 8
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 포트 호텔관리
+    source_page: 8
+    reason: 정확한 표준 용어인지, 고유 공간명인지 도면만으로 확정 불가
+    preservation_note: 원문 라벨 그대로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 아래층
+    source_page: 8
+    reason: 공간명 일부인지 층/방향 주석인지 단정 불가
+    preservation_note: 층 관련 표기 가능성 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationSpace
+    source_page: 8
+    reason: 후보 클래스이며 확정 아님
+    preservation_note: 공간 계열 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Floor Management | Port Management | Vertical Connection
+    source_page: 8
+    reason: 기능 후보가 복수이며 실제 기능 단정 불가
+    preservation_note: 기능 후보 문자열을 원형 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 공간 엔티티로 보이나 '포트 호텔관리'의 정확한 의미와 '아래층'의 결합 방식이 도면만으로 불명확함
+    recommended_handling: 다음 단계에서 공간/구역 클래스 후보를 유지한 채, 라벨과 위치 정보를 중심으로 검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 계열 엔티티로 분류
+    - raw_labels, labels_inside, inferred_name, position, shape, ontology_hints를 모두
+      보존
+    - free_notes에 분류 불가 정보와 promotion_hint 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:54.485393'
+  confidence: 0.78

@@ -1,0 +1,88 @@
+entity_detail:
+  tag: SP-04
+  type: named_space / electrical_room
+  specs:
+    drawing_number:
+      value: UNKNOWN
+      unit: null
+      source: UNKNOWN
+      confidence: 0.0
+    title:
+      value: UNKNOWN
+      unit: null
+      source: UNKNOWN
+      confidence: 0.0
+    space_name:
+      value: A동 지하1층 전기실
+      unit: null
+      source: page_004_context.yaml
+      confidence: 0.99
+    parent:
+      value: A동
+      unit: null
+      source: page_004_context.yaml
+      confidence: 0.99
+  drawing_texts:
+  - source: page_004_context.yaml
+    page_number: 4
+    text: 'tag: SP-04
+
+      name: A동 지하1층 전기실
+
+      type: named_space / electrical_room
+
+      location: 하단 우측 배치도
+
+      confidence: 0.99'
+  - source: page_004_context.yaml
+    page_number: 4
+    text: "spaces:\n  - space_id: SP-04\n    type: named_space / electrical_room\n\
+      \    name: A동 지하1층 전기실\n    parent: A동"
+  - source: page_004_context.yaml
+    page_number: 4
+    text: "relationships:\n  - from: A동 지하1층 전기실\n    to: 공동구\n    relation: 연결\n\
+      \    medium: 전력간선\n    direction: UNKNOWN\n    confidence: 0.95"
+  - source: page_004_context.yaml
+    page_number: 4
+    text: "flow_paths:\n  - - SP-04\n    - SP-09\n    - ST-01\n    - ST-02\n    -\
+      \ ST-03\n    - UT-01\n    - UT-03"
+  requirements:
+  - text: 전력간선과 연결됨
+    source: page 4
+    type: connection_requirement
+  - text: 공동구를 경유하는 흐름 경로에 포함됨
+    source: page 4
+    type: routing_requirement
+  connection_specs:
+  - relation: 연결
+    partner: 공동구
+    details:
+      medium: 전력간선
+      direction: UNKNOWN
+      source: page 4
+  - relation: flow_path
+    partner: SP-09 → ST-01 → ST-02 → ST-03 → UT-01 → UT-03
+    details:
+      source: page 4
+  ontology_hints:
+    observed_relations:
+    - relation_type: 연결
+      partner_tag: SP-09
+      direction: UNKNOWN
+      source: page 4
+    observed_attributes:
+    - name
+    - type
+    - parent
+    - location
+    - confidence
+    similar_equipment:
+    - SP-03
+    suggested_parent_class: electrical_room
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에 기반한 정보만 기록함.
+  - 방향은 도면에서 명시되지 않아 UNKNOWN으로 유지함.
+  - drawing_number/title은 SP-04의 독립 사양이 아니라 도면 메타데이터이므로 UNKNOWN으로 정리함.
+  - 도구 사용: search_entity_by_tag, read_page_context, read_legend_data
+tag: SP-04

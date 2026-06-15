@@ -1,0 +1,648 @@
+executive_summary:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.98
+  summary: '지붕층 피뢰 및 접지 설비 평면도로, 피뢰침 1개소를 중심으로 수평도체(STS 환봉 8㎜)와 구조체 접속 12개소, 금속 사다리
+    접속 2개소가 연결된 구성이다.
+
+    접속된 계통은 피뢰기초접지극(DN to)으로 이어지며, 주 인하도선은 기초철골, 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로 표기되어
+    있다.
+
+    보호등급 IV등급, 회전구체반경 60 m, KEC 150 및 KS C IEC 62305 기준이 보이며, 별도 전기기기(VCB/TR/GEN 등)는
+    확인되지 않는다.
+
+    '
+  equipment:
+  - tag: LR-001
+    name: 피뢰침
+    spec: H:3,000㎜, 1개소
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 도면 중앙 상단, 지붕층 최상부
+    confidence: 0.98
+  - tag: SC-001
+    name: 구조체 접속
+    spec: 12개소 동일, 철근 및 철골 접속
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 건물 경계선 주변
+    confidence: 0.98
+  - tag: HC-001
+    name: 수평도체
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 도면 전체, 건물 경계 및 연결 경로
+    confidence: 0.98
+  - tag: MLC-001
+    name: 금속 사다리 접속
+    spec: 2개소 동일
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 도면 우측 영역
+    confidence: 0.95
+  - tag: GC-001
+    name: 피뢰기초접지극 연결
+    spec: 'DN to: 피뢰기초접지극, 2개소'
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 좌측 및 우측에 표시
+    confidence: 0.98
+  - tag: DC-001
+    name: 주 인하도선
+    spec: 기초철골 이용
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 도면 전체 경계를 따라 표시
+    confidence: 0.98
+  - tag: DC-002
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 도면 내 특정 위치
+    confidence: 0.98
+  - tag: IC-001
+    name: 층간연결 입상, 입하
+    spec: F-GV Wire 또는 구조체 접속
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    location: 도면 내 표시
+    confidence: 0.95
+  - tag: ROOF-LEVEL
+    name: 지붕층
+    spec: null
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 기준 평면
+    confidence: 0.98
+  - tag: GRID-A-D
+    name: 구조 그리드 (A-D)
+    spec: A, B, C, D 4개 그리드
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 도면 좌측
+    confidence: 0.98
+  - tag: GRID-1-7
+    name: 구조 그리드 (1-7)
+    spec: 1, 2, 3, 4, 5, 6, 7 7개 그리드
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 도면 상단
+    confidence: 0.98
+  - tag: BLDG-BOUNDARY
+    name: 건물 경계선
+    spec: 점선으로 표시된 지붕층 건물 경계
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    location: 도면 중앙의 점선 사각형
+    confidence: 0.98
+  relationships:
+  - from: LR-001
+    to: HC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+  - from: HC-001
+    to: SC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+  - from: HC-001
+    to: MLC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+  - from: SC-001
+    to: GC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+  - from: GC-001
+    to: DC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+  - from: GC-001
+    to: DC-002
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.98
+  - from: IC-001
+    to: HC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+  spaces:
+  - space_id: ROOF-AREA-001
+    type: roof_area
+    name: 지붕층 작업/배치 영역
+    parent: null
+  flow_paths:
+  - - LR-001
+    - HC-001
+    - SC-001
+    - GC-001
+    - DC-001
+  - - LR-001
+    - HC-001
+    - SC-001
+    - GC-001
+    - DC-002
+  - - LR-001
+    - HC-001
+    - MLC-001
+    - GC-001
+    - DC-001
+  - - IC-001
+    - HC-001
+    - SC-001
+    - GC-001
+    - DC-001
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000㎜)
+  - 구조체 접속 12개소
+  - 수평도체(STS 환봉 8㎜)
+  - 금속 사다리 접속 2개소
+  - 피뢰기초접지극 연결 2개소
+  - 주 인하도선(기초철골)
+  - 보조 인하도선(F-GV 50㎟, HI-PVC 28C)
+  - 층간연결 입상/입하(F-GV Wire 또는 구조체 접속)
+  stats:
+    equipment: 12
+    relationships: 7
+    spaces: 1
+    flow_paths: 4
+  uncertainties:
+  - 표제란의 프로젝트명 'LS Electric R-Center 구축', 건물명 '가운건축', 날짜 2024.04는 본 입력에서 확인되나, 최종
+    도면 메타로 확정할 수 있는지 여부는 UNKNOWN
+  - 리비전 표기는 확인되지 않음
+  - 공간 계층은 ROOF-AREA-001 외 추가 하위 공간이 본 입력에서 명시되지 않음
+  related_pages:
+  - 36
+  - 38
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/특기사항 섹션
+  discipline: ELECTRICAL
+  classification: FLOOR_LAYOUT
+  title_block:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 피뢰침
+    type: lightning_rod
+    source: both
+  - tag: 구조체 접속
+    type: structural_connection
+    source: both
+  - tag: 수평도체(STS 환봉8㎜)
+    type: horizontal_conductor
+    source: both
+  - tag: 금속 사다리 접속
+    type: metal_ladder_connection
+    source: both
+  - tag: 'DN to : 피뢰기초접지극'
+    type: grounding_connection_note
+    source: both
+  - tag: '주 인하도선 : 기초철골'
+    type: down_conductor_note
+    source: text
+  - tag: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+    type: down_conductor_note
+    source: text
+  - tag: 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    type: interstory_connection_note
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 범례 박스가 우측 상단에 있으며 피뢰설비 개요 및 특기사항과 함께 범례 기호가 정리되어 있음
+  - '도면 본문은 지붕층 평면 위에 피뢰/접지 배치가 표시되어 있고, 그리드 A-D / 1-7 및 치수(예: 71,000, 43,000)가 함께
+    보임'
+  - 표제란에 도면번호 EE-05-003, 제목 지붕층 피뢰 및 접지 설비 평면도, 축척 A1 1/200 A3 1/400이 보임
+  confidence: 0.96
+  note: null
+classification: GROUNDING_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 지붕층 피뢰 및 접지 설비 평면도
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- 피뢰침 (H:3,000㎜) 1개소
+- 구조체 접속 12개소 동일
+- 수평도체(STS 환봉 8㎜) 지지금구 1m마다 설치
+- 'DN to : 피뢰기초접지극'
+- 금속 사다리 접속 2개소 동일
+- '주 인하도선 : 기초철골'
+- '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+- 보호등급 IV등급
+- 회전구체반경 60 m
+- 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+title_block:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 표제란에 프로젝트명 'LS Electric R-Center 구축', 건물명 '가운건축', 축척 A1 1/200, A3 1/400, 날짜
+  2024.04가 보임. 리비전 표기는 확인되지 않음.
+classification_confirmed: true
+override_classification: null
+visual_pattern: 지붕층 평면 위에 피뢰/접지 설비가 배치된 전기 평면도 형태이며, 우측에 범례/특기사항 박스와 표제란이 있고, 본문에는
+  그리드(A-D, 1-7)와 점선/실선으로 피뢰도체 및 접속 위치가 표시됨
+symbol_density: MEDIUM
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 구조체 접속
+  count: 12
+- type: 수평도체(STS 환봉 8㎜)
+  count: 1
+- type: 금속 사다리 접속
+  count: 2
+- type: 'DN to : 피뢰기초접지극'
+  count: 2
+- type: 주 인하도선/보조 인하도선 연결 표기
+  count: 2
+line_types_observed:
+- 점선/짧은 대시 혼합 선
+- 실선
+- 화살표/접속 표시가 포함된 선
+additional_findings:
+- 표제란의 제목은 '지붕층 피뢰 및 접지 설비 평면도'로 보이며, 기존 텍스트 분석의 FLOOR_LAYOUT 및 GROUNDING_DIAGRAM
+  성격과 일치함
+- 우측 상단에 '피뢰설비 개요 및 특기사항', 그 아래에 '피뢰설비 범례' 박스가 시각적으로 확인됨
+- '범례에 없는 별도 전기기기(예: VCB, TR, GEN 등)는 본 이미지에서 확인되지 않음'
+- 도면 본문은 건축 평면 위에 피뢰설비 배치와 접속 위치를 표시한 구성으로 보임
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 피뢰침, 구조체 접속, 수평도체, 금속 사다리 접속, DN to 접지극 등 시각적 엔티티 확인이 필요함
+- mode: spatial_mapping
+  priority: 2
+  reason: 지붕층 평면 내 설비 배치와 접속 위치의 공간적 관계 확인이 필요함
+- mode: logic_extraction
+  priority: 3
+  reason: 피뢰/접지 연결 관계와 주 인하도선, 보조 인하도선의 연결 논리 확인이 필요함
+pass1_설비식별:
+  entities:
+  - tag: LR-001
+    name: 피뢰침
+    type: Lightning Rod
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: H:3,000㎜, 1개소
+    confidence: 0.98
+    note: 도면 중앙 상단 영역에 위치, 지붕층 최상부에 설치
+  - tag: SC-001
+    name: 구조체 접속
+    type: Structural Connection
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 12개소 동일, 철근 및 철골 접속
+    confidence: 0.98
+    note: 도면 경계선 주변에 분포, 피뢰침과 기초 사이의 연결
+  - tag: HC-001
+    name: 수평도체
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: STS 환봉 8㎜, 지지금구 1m마다 설치
+    confidence: 0.98
+    note: 도면 전체에 걸쳐 표시, 피뢰침과 구조체 접속을 연결
+  - tag: MLC-001
+    name: 금속 사다리 접속
+    type: Metal Ladder Connection
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 2개소 동일
+    confidence: 0.95
+    note: 도면 우측 영역에 위치, 옥상 노출 도전성 부분 보호
+  - tag: GC-001
+    name: 피뢰기초접지극 연결
+    type: Grounding Connection
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 'DN to: 피뢰기초접지극, 2개소'
+    confidence: 0.98
+    note: 도면 좌측과 우측에 표시, 인하도선의 최종 접지점
+  - tag: DC-001
+    name: 주 인하도선
+    type: Main Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: 기초철골 이용
+    confidence: 0.98
+    note: 도면 전체 경계를 따라 표시, 자연적 구성부재 활용
+  - tag: DC-002
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.98
+    note: 도면 내 특정 위치에 표시, 주 인하도선 보조
+  - tag: IC-001
+    name: 층간연결 입상, 입하
+    type: Interstory Connection
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    spec_text: F-GV Wire 또는 구조체 접속
+    confidence: 0.95
+    note: 도면 내 표시, 층간 피뢰 시스템 연결
+  - tag: ROOF-LEVEL
+    name: 지붕층
+    type: Roof Level
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: null
+    confidence: 0.98
+    note: 도면의 기준 평면, 피뢰 및 접지 설비 배치 기준
+  - tag: GRID-A-D
+    name: 구조 그리드 (A-D)
+    type: Structural Grid
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: A, B, C, D 4개 그리드
+    confidence: 0.98
+    note: 도면 좌측에 표시, 건물 구조 기준선
+  - tag: GRID-1-7
+    name: 구조 그리드 (1-7)
+    type: Structural Grid
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: 1, 2, 3, 4, 5, 6, 7 7개 그리드
+    confidence: 0.98
+    note: 도면 상단에 표시, 건물 구조 기준선
+  - tag: BLDG-BOUNDARY
+    name: 건물 경계선
+    type: Building Boundary
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    spec_text: 점선으로 표시된 지붕층 건물 경계
+    confidence: 0.98
+    note: 도면 중앙의 점선 사각형, 피뢰 설비 배치 범위 정의
+pass2_토폴로지:
+  relationships:
+  - from: LR-001
+    to: HC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+    source: page 37 image - 도면 중앙 상단 피뢰침에서 수평도체로의 연결선
+  - from: HC-001
+    to: SC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.98
+    source: page 37 image - 수평도체가 경계선을 따라 12개 구조체 접속점과 연결
+  - from: HC-001
+    to: MLC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+    source: page 37 image - 수평도체에서 우측 금속 사다리 접속 2개소로의 연결
+  - from: SC-001
+    to: GC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    source: 'page 37 text - 구조체 접속에서 피뢰기초접지극으로의 연결 (DN to: 피뢰기초접지극)'
+  - from: GC-001
+    to: DC-001
+    relation: connected_via
+    medium: conductor
+    direction: downstream
+    confidence: 0.98
+    source: page 37 text - 피뢰기초접지극에서 주 인하도선(기초철골)으로의 연결
+  - from: GC-001
+    to: DC-002
+    relation: connected_via
+    medium: cable
+    direction: downstream
+    confidence: 0.98
+    source: page 37 text - 피뢰기초접지극에서 보조 인하도선(F-GV 50㎟)으로의 연결
+  - from: IC-001
+    to: HC-001
+    relation: connected_via
+    medium: conductor
+    direction: bidirectional
+    confidence: 0.95
+    source: page 37 text - 층간연결 입상, 입하가 수평도체 또는 구조체와 연결
+  conduits:
+  - tag: HC-001
+    type: conductor
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    from: LR-001
+    to: SC-001
+    source: text
+    confidence: 0.98
+  - tag: DC-001
+    type: natural_conductor
+    spec: 기초철골
+    from: GC-001
+    to: FOUNDATION
+    source: text
+    confidence: 0.98
+  - tag: DC-002
+    type: cable
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    from: GC-001
+    to: FOUNDATION
+    source: text
+    confidence: 0.98
+  - tag: IC-001
+    type: conductor
+    spec: F-GV Wire 또는 구조체 접속
+    from: UPPER_FLOOR
+    to: HC-001
+    source: text
+    confidence: 0.95
+  flow_sequence:
+  - - LR-001
+    - HC-001
+    - SC-001
+    - GC-001
+    - DC-001
+  - - LR-001
+    - HC-001
+    - SC-001
+    - GC-001
+    - DC-002
+  - - LR-001
+    - HC-001
+    - MLC-001
+    - GC-001
+    - DC-001
+  - - IC-001
+    - HC-001
+    - SC-001
+    - GC-001
+    - DC-001
+  isolated_entities: []
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center 구축
+    parent: null
+    discipline: ARCHITECTURAL
+    confidence: 0.98
+  - space_id: BLDG-001
+    type: building
+    name: LS Electric R-Center
+    parent: SITE-001
+    discipline: ARCHITECTURAL
+    confidence: 0.98
+  - space_id: ROOF-001
+    type: floor
+    name: 지붕층
+    parent: BLDG-001
+    discipline: ARCHITECTURAL
+    confidence: 0.98
+    note: '도면 제목: 지붕층 피뢰 및 접지 설비 평면도'
+  - space_id: ROOF-AREA-001
+    type: zone
+    name: 지붕 피뢰 설비 영역
+    parent: ROOF-001
+    discipline: ELECTRICAL
+    confidence: 0.98
+    note: 건물 경계선(점선)으로 표시된 지붕층 전체 영역
+  equipment_placement:
+  - tag: LR-001
+    name: 피뢰침
+    type: Lightning Rod
+    located_in: ROOF-AREA-001
+    grid_location: 3-4, A-B
+    spec: H:3,000㎜, 1개소
+    confidence: 0.98
+    source: page 37 image - 도면 중앙 상단
+  - tag: SC-001
+    name: 구조체 접속
+    type: Structural Connection
+    located_in: ROOF-AREA-001
+    grid_location: A-D, 1-7 경계선 따라 분포
+    spec: 12개소 동일, 철근 및 철골 접속
+    confidence: 0.98
+    source: page 37 image - 건물 경계선 주변
+  - tag: HC-001
+    name: 수평도체
+    type: Horizontal Conductor
+    located_in: ROOF-AREA-001
+    grid_location: 전체 영역
+    spec: STS 환봉 8㎜, 지지금구 1m마다 설치
+    confidence: 0.98
+    source: page 37 image - 도면 전체에 걸쳐 표시
+  - tag: MLC-001
+    name: 금속 사다리 접속
+    type: Metal Ladder Connection
+    located_in: ROOF-AREA-001
+    grid_location: 5-6, B-C
+    spec: 2개소 동일
+    confidence: 0.95
+    source: page 37 image - 우측 영역
+  - tag: GC-001
+    name: 피뢰기초접지극 연결
+    type: Grounding Connection
+    located_in: ROOF-AREA-001
+    grid_location: 좌측(A-B, 1-2), 우측(D-E, 6-7)
+    spec: 'DN to: 피뢰기초접지극, 2개소'
+    confidence: 0.98
+    source: page 37 image - 경계선 좌측과 우측
+  - tag: DC-001
+    name: 주 인하도선
+    type: Main Down Conductor
+    located_in: ROOF-AREA-001
+    grid_location: 경계선 따라 전체
+    spec: 기초철골 이용
+    confidence: 0.98
+    source: page 37 text
+  - tag: DC-002
+    name: 보조 인하도선
+    type: Auxiliary Down Conductor
+    located_in: ROOF-AREA-001
+    grid_location: 특정 위치
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    confidence: 0.98
+    source: page 37 text
+  - tag: IC-001
+    name: 층간연결 입상, 입하
+    type: Interstory Connection
+    located_in: ROOF-AREA-001
+    grid_location: UNKNOWN
+    spec: F-GV Wire 또는 구조체 접속
+    confidence: 0.95
+    source: page 37 text
+pass4_검증:
+  corrections:
+  - target: pass2_토폴로지 - 접지 경로 방향
+    resolution: SC-001 → (DC-001/DC-002를 통해) → GC-001로 수정. GC-001(피뢰기초접지극)이 최종 목적지이며,
+      DC-001/DC-002는 경로(medium)이지 중간 노드가 아님
+    evidence: 'page 37 text - ''DN to: 피뢰기초접지극''은 down conductor가 grounding electrode로
+      연결됨을 명시. 물리적 흐름: 수평도체 → 구조체접속 → 인하도선 → 기초접지극'
+    confidence: 0.98
+  missing_entities:
+  - tag: SC-002
+    name: 구조물 접속
+    type: Structural Connection (filled dot)
+    spec_text: ●, 도면 내 여러 위치에 분포
+    evidence: page 37 image - 범례에 '구조물 접속' (●) 명시되어 있으며, 도면 경계선 주변에 검은 원형 기호 다수 확인.
+      page 37 text 범례에서 '구조물 접속'이 별도 항목으로 나열됨
+    confidence: 0.92
+  - tag: IC-002
+    name: 입상, 입하
+    type: Interstory Connection (basic)
+    spec_text: ↗, 층간연결과 구분되는 기본 입상/입하
+    evidence: page 37 image - 범례에 '입상, 입하' (↗)가 '층간연결 입상, 입하'와 별도로 표시됨. 도면 내 화살표 기호
+      다수 확인
+    confidence: 0.85
+  relationship_issues:
+  - issue: GC-001의 토폴로지 위치 오류
+    current_flow: SC-001 → GC-001 → DC-001/DC-002
+    corrected_flow: SC-001 → (via DC-001/DC-002) → GC-001
+    explanation: 피뢰기초접지극(GC-001)은 최종 목적지이며, 인하도선(DC-001/DC-002)은 경로를 나타내는 conduit이어야
+      함. 현재 구조는 GC-001을 중간 노드로 취급하여 물리적 흐름과 불일치
+    evidence: 'page 37 text - ''DN to: 피뢰기초접지극'' 표기 및 KS C IEC 62305 기준에 따른 피뢰 시스템
+      구조'
+    confidence: 0.98
+  - issue: LR-001 위치 설명 부정확
+    current_description: 도면 중앙 상단 영역에 위치
+    corrected_description: 도면 중앙 영역(그리드 B-C, 4-5 근처)에 위치
+    evidence: page 37 image - 피뢰침 기호가 도면 중앙 상단이 아니라 중앙 영역에 위치함을 시각적으로 확인
+    confidence: 0.9
+  spatial_accuracy:
+  - entity: LR-001
+    current_location: 도면 중앙 상단 영역
+    corrected_location: 도면 중앙 영역 (그리드 B-C, 4-5 근처)
+    confidence: 0.9
+  consistency_check:
+    entity_count_before: 12
+    entity_count_after: 14
+    added_entities:
+    - SC-002 (구조물 접속)
+    - IC-002 (입상, 입하)
+    relation_count_before: 8
+    relation_count_after: 8
+    relation_direction_corrections: 1
+    note: 토폴로지 방향 수정은 관계 개수 변화 없음. 단, GC-001의 역할 재정의로 인해 흐름 구조 개선
+  overall_confidence: 0.91
+  summary: Pass 1에서 범례에 명시된 2개 엔티티(구조물 접속, 입상/입하) 누락. Pass 2에서 GC-001의 토폴로지 위치 오류로
+    인한 물리적 흐름 불일치. 이 두 항목이 주요 수정 대상.

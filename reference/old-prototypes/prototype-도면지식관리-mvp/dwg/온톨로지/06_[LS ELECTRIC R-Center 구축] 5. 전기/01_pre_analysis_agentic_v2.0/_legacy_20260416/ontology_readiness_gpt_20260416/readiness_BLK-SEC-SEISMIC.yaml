@@ -1,0 +1,136 @@
+ontology_readiness:
+  tag: BLK-SEC-SEISMIC
+  verdict: demoted
+  confidence: 0.96
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 2
+    reason: 고유 tag는 있으나, page_context에서 이 항목은 도면목록표의 섹션(내진설비)으로 나타나며 실제 물리 설비가 아니라
+      문서 섹션/참조 항목이다. labels_inside/raw_labels는 '내 진 설 비'와 '40 | EE-06-001 | 내진설계 주기사항
+      및 상세도'로, 독립 설비 사양이라기보다 도면 참조를 나타낸다. 따라서 document_metadata 성격으로 demoted 처리한다.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 0
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 2
+    convertible: 0
+    ambiguous_attributes:
+    - key: labels_inside
+      value:
+      - 내 진 설 비
+      - 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+      reason: 섹션 제목 및 도면 참조 문자열로, 물리 설비 속성으로 직접 변환 불가
+    - key: raw_labels
+      value:
+      - 내 진 설 비
+      - 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+      reason: 원문 표기 보존 필요; 온톨로지 속성으로 직접 전환 불가
+    auxiliary_attributes:
+    - labels_inside
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: false
+      source: mini
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalPanel
+    alternative_parent_classes:
+    - DocumentSection
+    - DrawingIndexSection
+  spatial_context:
+    position: center-lower
+    source_pages:
+    - 2
+    room_or_zone: GRP-SEISMIC / 내진설비
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - 내 진 설 비
+      - 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+      raw_labels:
+      - 내 진 설 비
+      - 40 | EE-06-001 | 내진설계 주기사항 및 상세도 | NONE | NONE
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.labels_inside
+  - specs.raw_labels
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - page_context.groups
+  - page_context.diagram_spec
+  - page_context.initial_scan
+  - page_context.visual_semantics
+  - page_context.visual_semantics_gemini
+  - page_context.entity_synthesis
+  - page_context.self_check
+  - page_context.relationships
+  - page_context.spaces
+  skipped_fields: []
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :BLK-SEC-SEISMIC rdf:type :Component ; :partOf :DocumentOrIndex ;
+      rdfs:comment "내진설비 섹션 / EE-06-001 참조"
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Component
+    annotations_to_emit:
+    - labels_inside
+    - raw_labels
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    - collection_sources.cross_validated
+    - collection_sources.visual_semantics
+    - collection_sources.visual_semantics_gemini
+    - ontology_hints.suggested_parent_class
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: BLK-SEC-SEISMIC
+discovered_relations: 0

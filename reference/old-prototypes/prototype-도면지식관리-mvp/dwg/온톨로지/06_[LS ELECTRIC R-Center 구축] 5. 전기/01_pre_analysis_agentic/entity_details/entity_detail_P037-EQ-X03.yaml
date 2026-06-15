@@ -1,0 +1,98 @@
+entity_detail:
+  tag: P037-EQ-X03
+  type: Structural Bonding
+  specs:
+    structure_bonding:
+      value: 구조체 접속
+      unit: ''
+      source: page_037_context.yaml
+      confidence: 0.98
+    bonding_target:
+      value: 철근 및 철골 접속
+      unit: ''
+      source: page_038_context.yaml
+      confidence: 0.95
+    count:
+      value: 12
+      unit: 개소
+      source: page_037_context.yaml
+      confidence: 0.98
+  drawing_texts:
+  - source: page_037_context.yaml
+    page_number: 37
+    text: 구조체 접속 12개소 동일
+  - source: page_037_context.yaml
+    page_number: 37
+    text: '주 인하도선 : 기초철골'
+  - source: page_037_context.yaml
+    page_number: 37
+    text: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+  - source: page_037_context.yaml
+    page_number: 37
+    text: 피뢰침 (H:3,000㎜) 1개소
+  - source: page_038_context.yaml
+    page_number: 38
+    text: 구조체 접속 (철근 및 철골 접속)
+  - source: page_038_context.yaml
+    page_number: 38
+    text: '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+  - source: page_038_context.yaml
+    page_number: 38
+    text: '보호등급: IV등급'
+  - source: page_038_context.yaml
+    page_number: 38
+    text: 회전구체반경 60 m
+  requirements:
+  - text: 구조체 접속 12개소 동일
+    source: page_037_context.yaml
+    type: quantity_requirement
+  - text: 구조체 접속 (철근 및 철골 접속)
+    source: page_038_context.yaml
+    type: connection_requirement
+  - text: '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+    source: page_038_context.yaml
+    type: design_standard
+  - text: '보호등급: IV등급'
+    source: page_038_context.yaml
+    type: protection_requirement
+  - text: 회전구체반경 60 m
+    source: page_038_context.yaml
+    type: design_parameter
+  connection_specs:
+  - relation: connected_via
+    partner: 기초철골
+    details:
+      source: page_037_context.yaml
+  - relation: bonding_target
+    partner: 철근 및 철골
+    details:
+      source: page_038_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: SP-STR-01
+      direction: UNKNOWN
+      source: page_037_context.yaml
+    - relation_type: bonding_target
+      partner_tag: SP-STR-02
+      direction: UNKNOWN
+      source: page_038_context.yaml
+    - relation_type: bonding_target
+      partner_tag: SP-STR-03
+      direction: UNKNOWN
+      source: page_038_context.yaml
+    observed_attributes:
+    - 구조체 접속
+    - 철근 및 철골 접속
+    - 12개소 동일
+    similar_equipment:
+    - EQ-E05
+    - EQ-E03
+    suggested_parent_class: StructuralBonding
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - 'search_entity_by_tag 결과: P037-EQ-X03 직접 검색 결과 없음.'
+  - 페이지 37, 38의 도면 분석 결과에서만 확인 가능한 정보로 작성함.
+tag: P037-EQ-X03

@@ -1,0 +1,46 @@
+entity_detail:
+  tag: SIGNAL_RS485_DEMAND
+  type: signal_cable
+  specs:
+  - key: signal_type
+    value: RS485
+    unit: ''
+    source: page 5
+    confidence: 0.95
+  - key: demand_label
+    value: DEMAND
+    unit: ''
+    source: page 5
+    confidence: 0.95
+  drawing_texts:
+  - source: page 5 executive_summary
+    page_number: 5
+    text: 본문에는 22.9kV, 6.6kV, 440V 전압 레벨이 함께 보이며, MOF/DM, SA/LA/PF/PT/CT/ZCT, BUS
+      TIE, JUNCTION BOX, REC/RECTIFIER/SCR, LV PNL/HV PNL, NVR, DC LIGHTING, DEMAND
+      관련 표기가 확인된다.
+  - source: page 5 executive_summary
+    page_number: 5
+    text: 부하/피더 명칭으로 공장B2동 동력, 사무동력, 오폐수처리장동력, UT동 부속동력, 오폐수동 비상, 사무동 비상, B동 비상, 공장
+      A 동, U/T 비상, 이오스솔라 동력이 보인다.
+  requirements: []
+  connection_specs:
+  - relation: signal
+    partner: DEMAND
+    details:
+      source: page 5 executive_summary
+      text: DEMAND 관련 표기가 확인된다.
+  ontology_hints:
+    observed_relations:
+    - relation_type: signal_to
+      partner_tag: DEMAND
+      direction: UNKNOWN
+      source: page 5 executive_summary
+    observed_attributes:
+    - signal_type
+    - demand_label
+    similar_equipment: []
+    suggested_parent_class: SignalCable
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 SIGNAL_RS485_DEMAND 자체의 상세 사양은 직접적으로 충분히 확인되지 않아, 확인 가능한 원문 표기만 기록함.
+tag: SIGNAL_RS485_DEMAND

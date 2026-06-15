@@ -1,0 +1,389 @@
+cross_validated:
+  page_num: 1
+  model: gemini-3.1-pro
+  entities:
+  - tag: UNKNOWN-BLK-01
+    name: 메인 프로젝트 제목 블록
+    discipline: ELECTRICAL
+    function_category: TEXT_BLOCK
+    specifications:
+      text: LS ELECTRIC 천안 R-Center 구축설계
+    equipment_symbols: []
+    position: center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    confidence: 0.9
+  - tag: UNKNOWN-BLK-02
+    name: 도서 유형 표기 블록
+    discipline: ELECTRICAL
+    function_category: TEXT_BLOCK
+    specifications:
+      text: 실시설계 도서
+    equipment_symbols: []
+    position: center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    confidence: 0.9
+  - tag: UNKNOWN-BLK-03
+    name: 분야 표기 블록 (전기)
+    discipline: ELECTRICAL
+    function_category: TEXT_BLOCK
+    specifications:
+      text: '[ 전기 ]'
+    equipment_symbols: []
+    position: center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    confidence: 0.9
+  - tag: UNKNOWN-BLK-04
+    name: 발행 날짜 블록
+    discipline: ELECTRICAL
+    function_category: TEXT_BLOCK
+    specifications:
+      text: '2024.05'
+    equipment_symbols: []
+    position: center-bottom
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    confidence: 0.9
+  - tag: UNKNOWN-BLK-05
+    name: 설계사무소 명칭 블록
+    discipline: ELECTRICAL
+    function_category: TEXT_BLOCK
+    specifications:
+      text: (주)가운종합건축사사무소
+    equipment_symbols: []
+    position: bottom-center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    confidence: 0.9
+  - tag: UNKNOWN-BLK-06
+    name: 우상단 도면 표제란 심볼 (대각선 포함 사각형)
+    discipline: ELECTRICAL
+    function_category: TITLE_BLOCK
+    specifications:
+      note: 대각선이 포함된 이중 사각형 형태의 표제란 심볼 (우상단) — 좌측 삼각형 분할 사각형 + 우측 빈 사각형 구성
+    equipment_symbols:
+    - type: title_block_symbol
+      count: 1
+    position: top-right
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    confidence: 0.9
+  relationships: []
+  spaces: []
+  diagram_spec:
+    title: LS ELECTRIC 천안 R-Center 구축설계 - 실시설계 도서 [전기] 표지
+    flow_direction: UNKNOWN
+    drawing_number: null
+    revision: null
+    date: '2024.05'
+    issued_by: (주)가운종합건축사사무소
+    discipline: ELECTRICAL
+    page_type: COVER_PAGE
+    main_voltage: null
+    system_type: null
+    note: '도면 본문이 아닌 표지 페이지. 도면 번호 및 리비전 정보 없음. 우상단에 표제란 심볼(대각선으로 분할된 좌측 사각형 + 빈 우측
+      사각형 조합) 존재. 프로젝트명: LS ELECTRIC 천안 R-Center 구축설계. 분야: 전기 ([ 전기 ] 표기). 설계사: (주)가운종합건축사사무소.
+      발행일: 2024.05. 사전 분석과 일치하며 추가 수정 사항 없음.'
+  disagreements:
+  - item_type: entity
+    tag_affected: UNKNOWN-BLK-02
+    field: specifications.text
+    values:
+      sonnet: 실시설계 도서
+      gemini: '- 실시설계 도서 -'
+      mini: null
+    resolved_to: 실시설계 도서
+    reason: Sonnet의 시각 분석 결과를 우선 적용
+  - item_type: entity
+    tag_affected: UNKNOWN-BLK-04
+    field: position
+    values:
+      sonnet: center-bottom
+      gemini: bottom-center
+      mini: null
+    resolved_to: center-bottom
+    reason: Sonnet의 시각 분석 결과를 우선 적용
+  preservation_check:
+    sonnet_spec_count: 17
+    preserved_count: 17
+    lost_fields: []
+  summary:
+    entity_count: 6
+    relationship_count: 0
+    high_confidence_count: 6
+    disagreement_count: 2
+    diagram_spec_preserved: true
+initial_scan:
+  page_type: cover
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: ELECTRICAL
+  classification: UNKNOWN
+  drawing_genre: other
+  title_block:
+    drawing_number: null
+    title: LS ELECTRIC 천안 R-Center 구축설계
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 표지 페이지로 보이며 도면/범례/설비 태그는 보이지 않음
+  confidence: 0.99
+  note: null
+  recommended_supplements: {}
+  routing_confidence: 1.0
+  routing_reason: 도면 본문이 아닌 표지이며, cover 페이지는 recommended_supplements를 빈 dict로 두도록
+    지시됨.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels: []
+  connections: []
+  notable_shapes:
+  - shape: rectangle
+    label: LS ELECTRIC 천안 R-Center 구축설계
+    note: 페이지 중앙의 메인 제목 텍스트 블록
+  - shape: rectangle
+    label: '[ 전기 ]'
+    note: 분야를 나타내는 텍스트 블록
+  - shape: rectangle
+    label: '2024.05'
+    note: 날짜 텍스트 블록
+  - shape: rectangle
+    label: (주)가운종합건축사사무소
+    note: 회사명 텍스트 블록
+  - shape: other
+    label: 우상단 로고/심볼
+    note: 대각선이 포함된 사각형 형태의 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 1.0
+  note: 도면의 표지 페이지로, 범례나 심볼 목록을 포함하지 않음.
+classification: COVER_PAGE
+discipline: ELECTRICAL
+key_elements_from_text:
+- 실시설계 도서
+- LS ELECTRIC 천안 R-Center 구축설계
+- '2024.05'
+- (주)가운종합건축사사무소
+- '[ 전기 ]'
+title_block:
+  drawing_number: UNKNOWN
+  title: LS ELECTRIC 천안 R-Center 구축설계
+  revision: UNKNOWN
+confidence: 0.99
+note: '기존 분석(initial_scan/visual_sketch/legend_candidate)과 일치함. 페이지는 표지이며 도면 번호와 리비전은
+  보이지 않음. 근거: 페이지 중앙의 메인 제목, 하단의 날짜와 회사명, ''[ 전기 ]'' 표기.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - LS ELECTRIC 천안 R-Center 구축설계
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 메인 프로젝트 제목 블록
+    position: center
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 실시설계 도서
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도서 유형 표기 블록
+    position: center
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - '[ 전기 ]'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 분야 표기 블록 (전기)
+    position: center
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - '2024.05'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 발행 날짜 블록
+    position: center-bottom
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - (주)가운종합건축사사무소
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설계사무소 명칭 블록
+    position: bottom-center
+  - panel_id: BLK-M06
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: title_block_symbol
+      count: 1
+      note: 대각선이 포함된 이중 사각형 형태의 표제란 심볼 (우상단) — 좌측 삼각형 분할 사각형 + 우측 빈 사각형 구성
+    inferred_name: 우상단 도면 표제란 심볼 (대각선 포함 사각형)
+    position: top-right
+  connections: []
+  groups:
+  - group_id: GRP-001
+    label: 표지 텍스트 그룹
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+  legend_references: []
+  diagram_meta:
+    title: LS ELECTRIC 천안 R-Center 구축설계 - 실시설계 도서 [전기] 표지
+    flow_direction: UNKNOWN
+    drawing_number: null
+    revision: null
+    date: '2024.05'
+    issued_by: (주)가운종합건축사사무소
+    discipline: ELECTRICAL
+    page_type: COVER_PAGE
+    main_voltage: null
+    system_type: null
+    note: '도면 본문이 아닌 표지 페이지. 도면 번호 및 리비전 정보 없음. 우상단에 표제란 심볼(대각선으로 분할된 좌측 사각형 + 빈 우측
+      사각형 조합) 존재. 프로젝트명: LS ELECTRIC 천안 R-Center 구축설계. 분야: 전기 ([ 전기 ] 표기). 설계사: (주)가운종합건축사사무소.
+      발행일: 2024.05. 사전 분석과 일치하며 추가 수정 사항 없음.'
+visual_semantics_gemini:
+  model: gemini-3.1-pro-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - LS ELECTRIC 천안 R-Center 구축설계
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 메인 프로젝트 제목 블록
+    position: center
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - '- 실시설계 도서 -'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도서 유형 표기 블록
+    position: center
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - '[ 전기 ]'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 분야 표기 블록 (전기)
+    position: center
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - '2024.05'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 발행 날짜 블록
+    position: bottom-center
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - (주)가운종합건축사사무소
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설계사무소 명칭 블록
+    position: bottom-center
+  - panel_id: BLK-M06
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: title_block_symbol
+      count: 1
+      note: 대각선이 포함된 이중 사각형 형태의 표제란 심볼 (우상단) — 좌측 삼각형 분할 사각형 + 우측 빈 사각형 구성
+    inferred_name: 우상단 도면 표제란 심볼 (대각선 포함 사각형)
+    position: top-right
+  connections: []
+  groups:
+  - group_id: GRP-001
+    label: 표지 텍스트 그룹
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+  legend_references: []
+  diagram_meta:
+    title: LS ELECTRIC 천안 R-Center 구축설계 - 실시설계 도서 [전기] 표지
+    flow_direction: UNKNOWN
+    drawing_number: null
+    revision: null
+    date: '2024.05'
+    issued_by: (주)가운종합건축사사무소
+    discipline: ELECTRICAL
+    page_type: COVER_PAGE
+    main_voltage: null
+    system_type: null
+    note: '도면 본문이 아닌 표지 페이지. 도면 번호 및 리비전 정보 없음. 우상단에 표제란 심볼(대각선으로 분할된 좌측 사각형 + 빈 우측
+      사각형 조합) 존재. 프로젝트명: LS ELECTRIC 천안 R-Center 구축설계. 분야: 전기 ([ 전기 ] 표기). 설계사: (주)가운종합건축사사무소.
+      발행일: 2024.05. 사전 분석과 일치하며 추가 수정 사항 없음.'
+entity_synthesis:
+  entities: []
+  relationships: []
+  spaces: []
+  self_check:
+    entity_count: 0
+    relationship_count: 0
+    visual_spec_preserved: true
+    issues:
+    - page_type: COVER_PAGE
+      note: 표지 페이지로 설비 엔티티, 관계, 공간 정보 없음
+      visual_semantics_panels: 6개 (모두 텍스트 블록 및 표제란 심볼)
+      equipment_symbols: 1개 (title_block_symbol만 존재)
+      connections: 0개
+      groups: 1개 (표지 텍스트 그룹)
+      diagram_meta:
+        title: LS ELECTRIC 천안 R-Center 구축설계 - 실시설계 도서 [전기] 표지
+        page_type: COVER_PAGE
+        discipline: ELECTRICAL
+        date: '2024.05'
+        issued_by: (주)가운종합건축사사무소
+        drawing_number: null
+        revision: null
+        main_voltage: null
+        system_type: null
+      conclusion: 도면 본문이 아닌 표지이므로 설비 추출 대상 아님

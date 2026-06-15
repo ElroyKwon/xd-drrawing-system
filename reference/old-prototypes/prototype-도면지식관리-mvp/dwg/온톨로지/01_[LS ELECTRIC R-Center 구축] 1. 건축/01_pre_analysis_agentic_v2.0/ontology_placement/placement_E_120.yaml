@@ -1,0 +1,164 @@
+placement:
+  tag: E_120
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: E_120
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - RoomLikeEntity
+    - BuildingElement
+    - UnknownEntity
+    related_assertions:
+    - type: contains
+      target_hint: PLAN-1F
+      note: incoming relation recorded; PLAN-1F contains E/120
+      confirmed_property: dks:contained_in
+      confirmed_target: PLAN-1F
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX037
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'tag: E/120'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 태그 식별자 문자열
+      - raw_text: 'relation: contains'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: PLAN-1F와의 포함 관계가 직접 관찰됨
+      - raw_text: 'partner: PLAN-1F'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 상대 태그가 명시된 관계 원문
+      - raw_text: 'direction: incoming'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: relationDirection
+          suggested_datatype: xsd:string
+          rationale: 관계 방향 정보가 원문에 포함됨
+      - raw_text: 'origin: cross_validated'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: relationProvenance
+          suggested_datatype: xsd:string
+          rationale: 관계 출처/검증 방식 메타정보
+      - raw_text: 'line_style: null'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: lineStyle
+          suggested_datatype: xsd:string
+          rationale: 관계 부가 속성으로 보이나 값이 없음
+      - raw_text: 'note: null'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 필드가 존재하나 값이 없음
+  provenance:
+    tag:
+      source_pages:
+      - 60
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 60
+      method: inferred_from_relation_presence
+    ontology_core.class_hint:
+      source_pages:
+      - 60
+      method: plan_guided_inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 60
+      method: plan_guided_inference
+    ontology_core.related_assertions:
+      source_pages:
+      - 60
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 60
+      method: direct
+    plan_reference.guidance_applied:
+      source_pages:
+      - 60
+      method: plan_guided
+  unresolved:
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 60
+    reason: 원문에 name 필드가 없음
+    preservation_note: 빈 값 자체를 보존
+  - field_candidate: relations[0].relation_type
+    raw_text: contains
+    source_page: 60
+    reason: 관계는 명확하나 OWL 확정 property IRI는 0-9d 단계에서 결정
+    preservation_note: contains/contained_in 후보로 유지
+  - field_candidate: relations[0].partner
+    raw_text: PLAN-1F
+    source_page: 60
+    reason: 상대 태그는 있으나 본 태그의 역할 확정은 보류
+    preservation_note: 컨테이너-피포함 관계 후보
+  - field_candidate: relations[0].direction
+    raw_text: incoming
+    source_page: 60
+    reason: 방향 정보는 있으나 정식 공리로 승격하지 않음
+    preservation_note: 관계 방향 메타로 보존
+  - field_candidate: relations[0].origin
+    raw_text: cross_validated
+    source_page: 60
+    reason: 검증 출처 메타정보로서 분류 대상 아님
+    preservation_note: provenance 메타로 보존
+  - field_candidate: relations[0].line_style
+    raw_text: 'null'
+    source_page: 60
+    reason: 값이 비어 있어 해석 불가
+    preservation_note: null 상태 보존
+  - field_candidate: relations[0].note
+    raw_text: 'null'
+    source_page: 60
+    reason: 값이 비어 있어 해석 불가
+    preservation_note: null 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: E/120은 PLAN-1F에 포함되는 공간/요소로 보이지만, 원문에 name/specs가 없어 공간인지 건축요소인지 단정하기
+      어렵다.
+    recommended_handling: 후속 단계에서 PLAN-1F의 contains 하위 항목들과 함께 공간성/요소성 문맥으로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space_room_like_entities
+    - expected_object_properties.contains
+    - predicted_ontology_structure.class_hierarchy_hint
+    - discipline_context_plan.architectural.observed_signals
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:41.392603'
+  confidence: 0.78

@@ -1,0 +1,82 @@
+entity_detail:
+  tag: HV-1313A
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    feeder_name:
+      value: 1313A HV 6.6kV 피더 - SPARE
+      unit: null
+      source: page 5
+      confidence: 0.95
+    bus_annotation:
+      value: 6.6kV Bus
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: "panel_id: PNL-HV-1313A\nshape: hexagon\nlabels_inside:\n- 1313A\n...\n\
+      annotation: 6.6kV Bus\n- from: PNL-HV-1312\n  to: PNL-HV-1313A\n  line_type:\
+      \ power_cable\n  line_style: solid\n  annotation: 6.6kV Bus\n...\nline_style:\
+      \ solid\nannotation: 6.6kV Bus\n- from: PNL-HV-1313A\n  to: PNL-HV-1313B\n \
+      \ line_type: power_cable\n  line_style: solid"
+  requirements:
+  - text: 6.6kV Bus
+    source: page 5
+    type: electrical_connection_condition
+  - text: SPARE
+    source: page 5
+    type: operational_status
+  connection_specs:
+  - relation: feeds
+    partner: PNL-HV-1313B
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  - relation: feeds
+    partner: PNL-HV-1313A
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  - relation: feeds
+    partner: PNL-HV-1312
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1313B
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1312
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - annotation
+    - line_type
+    - line_style
+    similar_equipment:
+    - PNL-HV-1312
+    - PNL-HV-1313B
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과와 page 5 context에서 확인된 텍스트만 사용함.
+  - feeds 방향은 도면 원문만으로 확정하기 어려워 direction을 UNKNOWN으로 기록함.
+tag: HV-1313A

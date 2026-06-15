@@ -1,0 +1,154 @@
+entity_detail:
+  tag: MCCB-EA-MAIN
+  type: equipment
+  specs:
+    rated_pole:
+      value: 3P
+      unit: null
+      source: page 19
+      confidence: 0.95
+    breaker_type:
+      value: MCCB
+      unit: null
+      source: page 19
+      confidence: 0.95
+    associated_panel:
+      value: P-EA-2PP
+      unit: null
+      source: page 19
+      confidence: 0.95
+    panel_cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 19
+      confidence: 0.92
+    power_source:
+      value: FROM 전기실
+      unit: null
+      source: page 19
+      confidence: 0.95
+    drawing_number:
+      value: EE-01-015
+      unit: null
+      source: page 19
+      confidence: 0.98
+    drawing_title:
+      value: 생산동력(3Ø 220V) 분전반 결선도-2
+      unit: null
+      source: page 19
+      confidence: 0.98
+    system_voltage:
+      value: 3Ø 220V
+      unit: null
+      source: page 19
+      confidence: 0.98
+    breaker_rating_table:
+      value: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+      unit: AF
+      source: page 19
+      confidence: 0.9
+    breaking_capacity_table:
+      value: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상
+      unit: KA
+      source: page 19
+      confidence: 0.9
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: '도면 제목: 생산동력(3Ø 220V) 분전반 결선도-2'
+  - source: page 19
+    page_number: 19
+    text: '도면 번호: EE-01-015'
+  - source: page 19
+    page_number: 19
+    text: '전원 표기: FROM: 전기실'
+  - source: page 19
+    page_number: 19
+    text: '분전반 표기: P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP'
+  - source: page 19
+    page_number: 19
+    text: '차단기 표기: MCCB, SPD'
+  - source: page 19
+    page_number: 19
+    text: '접지 표기: E3'
+  - source: page 19
+    page_number: 19
+    text: '주기사항에 차단기 정격용량 표기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF'
+  - source: page 19
+    page_number: 19
+    text: '주기사항에 차단용량 표기: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상'
+  - source: page 19
+    page_number: 19
+    text: P-EA-2PP 패널 상단 MAIN 표기
+  requirements:
+  - text: 전원은 전기실에서 공급됨
+    source: page 19
+    type: supply_condition
+  - text: 3Ø 220V 계통
+    source: page 19
+    type: electrical_condition
+  - text: 노출형(STEEL) 커버 타입
+    source: page 19
+    type: installation_condition
+  - text: 접지 E3 표기
+    source: page 19
+    type: grounding_condition
+  - text: '차단기 정격용량 표기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF'
+    source: page 19
+    type: rating_requirement
+  - text: '차단용량 표기: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상'
+    source: page 19
+    type: protection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 19
+      text: 'FROM: 전기실'
+      direction: 전기실 -> P-EA-2PP
+  - relation: connected_via
+    partner: SPD-EA
+    details:
+      source: page 19
+      text: P-EA-2PP -> SPD-EA
+      direction: P-EA-2PP -> SPD-EA
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: source_to_target
+      source: page 19
+    - relation_type: connected_via
+      partner_tag: SPD-EA
+      direction: downstream
+      source: page 19
+    observed_attributes:
+    - MCCB
+    - MAIN
+    - 3P
+    - P-EA-2PP
+    - FROM 전기실
+    - 노출형(STEEL)
+    - E3
+    - 30AF
+    - 50AF
+    - 100AF
+    - 125AF
+    - 250AF
+    - 400AF
+    - 600AF
+    - 5KA 이상
+    - 10KA 이상
+    - 25KA 이상
+    - 35KA 이상
+    - 50KA 이상
+    similar_equipment:
+    - P-F-2PP
+    - P-G-2PP
+    - P-I-2PP
+    suggested_parent_class: CircuitBreaker
+    cross_discipline: []
+  notes:
+  - 도면에서 MCCB-EA-MAIN 자체의 개별 정격값은 명시적으로 판독되지 않아 생략함.
+  - 관련 페이지의 원문은 P-EA-2PP 분전반 결선도 내 MAIN MCCB 표기와 차단기 정격 표를 근거로 수집함.
+tag: MCCB-EA-MAIN

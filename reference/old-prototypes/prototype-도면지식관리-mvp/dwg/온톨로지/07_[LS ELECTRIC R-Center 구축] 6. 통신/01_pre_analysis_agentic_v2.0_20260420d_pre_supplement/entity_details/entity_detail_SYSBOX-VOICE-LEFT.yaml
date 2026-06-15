@@ -1,0 +1,68 @@
+tag: SYSBOX-VOICE-LEFT
+name: SYSTEM BOX
+type: equipment
+discipline: COMMUNICATION
+function_category: COMMUNICATION_OUTLET
+source_pages:
+- 18
+specs:
+  raw_labels:
+  - 광 포트
+  - SYSTEM BOX
+  - OUTLET BOX
+  - F/O CABLE (SM 2C)
+  inferred_name: 수평배선 단말 - 광 포트 + SYSTEM BOX + OUTLET BOX (좌측 VOICE계)
+  position: bottom-left
+  labels_inside:
+  - 광 포트
+  - SYSTEM BOX
+  - OUTLET BOX
+  labels_above:
+  - F/O CABLE (SM 2C)
+  labels_below:
+  - CAT.6 UTP CABLE
+  equipment_symbols:
+  - type: 광 포트
+    count: 1
+  - type: SYSTEM BOX
+    count: 1
+  - type: OUTLET BOX
+    count: 1
+relations:
+- from: HUB-RACK-1
+  to: SYSBOX-VOICE-LEFT
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: F/O CABLE (SM 2C)
+- from: SYSBOX-VOICE-LEFT
+  to: USER-TEL-LEFT
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: CAT.6 UTP CABLE
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-left
+equipment_symbols:
+- type: 광 포트
+  count: 1
+- type: SYSTEM BOX
+  count: 1
+- type: OUTLET BOX
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - inferred_name
+  - position
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - Voice Signal Termination
+  - Horizontal Cabling Connection

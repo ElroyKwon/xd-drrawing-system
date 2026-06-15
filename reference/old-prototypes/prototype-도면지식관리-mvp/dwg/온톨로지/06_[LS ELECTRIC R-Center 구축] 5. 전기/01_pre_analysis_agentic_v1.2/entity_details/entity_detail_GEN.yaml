@@ -1,0 +1,108 @@
+entity_detail:
+  tag: GEN
+  type: equipment
+  specs:
+    rated_voltage:
+      value: 22.9kV
+      unit: kV
+      source:
+      - 5
+      confidence: 0.98
+    rated_capacity:
+      value: 1,500kVA
+      unit: kVA
+      source:
+      - 5
+      confidence: 0.98
+    rated_speed:
+      value: 1,500RPM
+      unit: RPM
+      source:
+      - 5
+      confidence: 0.98
+    cooling_system:
+      value: RADIATOR COOLING SYSTEM
+      unit: null
+      source:
+      - 5
+      confidence: 0.98
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: GEN 1대와 TR 3대, VCB/GIPAM 계전·차단 계통이 중심인 전력 단선결선도이다.
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 22.9kV 수전설비 단선결선도-U/T 동 주변전실-1(기존)
+  - source: page_005_context.yaml
+    page_number: 5
+    text: GEN
+  - source: page_005_context.yaml
+    page_number: 5
+    text: Diesel Engine Generator
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 22.9kV, 1,500kVA, 1,500RPM, RADIATOR COOLING SYSTEM
+  - source: legend_data.yaml
+    page_number: 3
+    text: 'G.E.N: Diesel Engine Generator'
+  requirements:
+  - text: 22.9kV
+    source: page_005_context.yaml
+    type: electrical_rating
+  - text: 1,500kVA
+    source: page_005_context.yaml
+    type: capacity
+  - text: 1,500RPM
+    source: page_005_context.yaml
+    type: speed
+  - text: RADIATOR COOLING SYSTEM
+    source: page_005_context.yaml
+    type: cooling_requirement
+  connection_specs:
+  - relation: connected_to
+    partner: 'TR #1'
+    details:
+      source: page_005_context.yaml
+  - relation: connected_to
+    partner: 'TR #2'
+    details:
+      source: page_005_context.yaml
+  - relation: connected_to
+    partner: VCB
+    details:
+      source: page_005_context.yaml
+  - relation: connected_to
+    partner: GIPAM
+    details:
+      source: page_005_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_to
+      partner_tag: 'TR #1'
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_to
+      partner_tag: 'TR #2'
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_to
+      partner_tag: VCB
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_to
+      partner_tag: GIPAM
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    observed_attributes:
+    - rated_voltage
+    - rated_capacity
+    - rated_speed
+    - cooling_system
+    similar_equipment:
+    - G.E.N
+    suggested_parent_class: Diesel Engine Generator
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 확인된 GEN 관련 정보만 수집함.
+  - 연결 방향은 단선결선도 본문 텍스트만으로 확정하기 어려워 UNKNOWN으로 기록함.
+tag: GEN

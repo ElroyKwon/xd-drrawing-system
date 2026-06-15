@@ -1,0 +1,116 @@
+tag: RISER-H-01
+name: 수직배관-H-횡종01
+type: PIPE_RISER
+discipline: FIRE_PROTECTION
+function_category: PIPE_RISER
+source_pages:
+- 10
+specs:
+  pipe_system: H (옥내소화전배관)
+  brace_direction: 횡종
+  labels_above:
+  - 수직배관-H-횡종01
+  floor_connections:
+  - floor: 지붕층
+    offset_label: '+100'
+    brace_present: true
+  - floor: 2층
+    offset_label: '+50'
+    brace_present: true
+  - floor: 1층
+    flexible_joint_present: true
+  - floor: PIT
+  seismic_brace_locations:
+  - 지붕층
+  - 2층
+  flexible_joint_present: true
+  raw_labels:
+  - 수직배관-H-횡종01
+  equipment_symbols:
+  - type: riser_circle
+    count: 1
+  - type: seismic_brace_triangle
+    count: 2
+relations:
+- from: RISER-H-01
+  to: FDC-01
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: SC 연결송수구배관 100A
+- from: RISER-H-04
+  to: RISER-H-01
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 지붕층 수평 연결 배관
+- from: RISER-H-01
+  to: RISER-H-02
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 지붕층 수평 연결 배관
+- from: RISER-H-01
+  to: UNKNOWN-PIPE-01
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: null
+  note: null
+- from: RISER-H-01
+  to: FDC-01
+  relation: pipe
+  source_page: 10
+  origin: visual_semantics
+  annotation: SC 연결송수구배관 100A
+- from: RISER-H-04
+  to: RISER-H-01
+  relation: pipe
+  source_page: 10
+  origin: visual_semantics
+  annotation: 지붕층 수평 연결 배관
+- from: RISER-H-01
+  to: RISER-H-02
+  relation: pipe
+  source_page: 10
+  origin: visual_semantics
+  annotation: 지붕층 수평 연결 배관
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: center-right
+confidence: 0.95
+equipment_symbols:
+- type: riser_circle
+  count: 1
+- type: seismic_brace_triangle
+  count: 2
+- type: flexible_joint_circle
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionEquipment
+  observed_attributes:
+  - pipe_system
+  - brace_direction
+  - labels_above
+  - floor_connections
+  - seismic_brace_locations
+  - flexible_joint_present
+  - raw_labels
+  - equipment_symbols
+  similar_equipment:
+  - RISER-H-02
+  - RISER-H-04
+  function_candidates:
+  - IndoorHydrantWaterSupply
+  - SeismicProtection
+  - VerticalDistribution

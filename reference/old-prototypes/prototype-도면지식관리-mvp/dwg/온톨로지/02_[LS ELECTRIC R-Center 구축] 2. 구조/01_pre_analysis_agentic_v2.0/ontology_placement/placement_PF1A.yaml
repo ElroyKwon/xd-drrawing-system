@@ -1,0 +1,159 @@
+placement:
+  tag: PF1A
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PF1A
+    class_hint: MemberMark
+    alternative_class_hints:
+    - FoundationMemberMark
+    - StructuralMemberMark
+    related_assertions:
+    - type: located_in
+      target_hint: FOUNDATION-PLAN
+      note: 도면 내 기초 심볼
+      confirmed_property: dks:located_in
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-REINFORCEMENT-01
+      note: PF1A 상부 보강근 상세 참조
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-REINFORCEMENT-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-SCHEDULE-01
+      note: 부재 태그 → 일람표 치수 참조
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-SCHEDULE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX002
+    - AX007
+    - AX010
+    - AX012
+    - AX013
+    applicable_constraints:
+    - CN001
+    - CN012
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 도면 내 기초 심볼
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 보이는 서술 텍스트
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: PF1A 상부 보강근 상세 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: referencesDetail
+          suggested_datatype: xsd:string
+          rationale: 상세 참조 관계를 설명하는 문구
+      - raw_text: 부재 태그 → 일람표 치수 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: referencesSchedule
+          suggested_datatype: xsd:string
+          rationale: 일람표 참조를 설명하는 문구
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 32
+      - 33
+      method: relation_pattern_inference
+    ontology_core.iri_hint:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 32
+      - 33
+      method: ontology_plan_hint
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 32
+      - 33
+      method: ontology_plan_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 32
+      - 33
+      method: relations_scan
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 32
+      - 33
+      method: relations.note
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 32
+      - 33
+      method: overall_assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 32
+      - 33
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: PF1A
+    source_page: 32
+    reason: 태그만으로 확정 클래스 단정 불가
+    preservation_note: PF* 계열로 보이나 확정은 보류
+  - field_candidate: ontology_core.related_assertions[1].target_hint
+    raw_text: UNKNOWN-REINFORCEMENT-01
+    source_page: 33
+    reason: 상대 태그가 미해결 태그
+    preservation_note: 보강근 상세로 추정되는 참조 대상
+  - field_candidate: ontology_core.related_assertions[2].target_hint
+    raw_text: UNKNOWN-SCHEDULE-01
+    source_page: 33
+    reason: 상대 태그가 미해결 태그
+    preservation_note: 일람표/스케줄 참조 대상
+  - field_candidate: discipline
+    raw_text: unknown
+    source_page: 32
+    reason: 명시 discipline 정보 없음
+    preservation_note: ontology_plan상 structural 문맥 가능성은 있으나 외부 보완 금지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PF1A는 기초 심볼로 보이지만, 태그 자체만으로 MemberMark/PartOf 여부를 확정할 수 없고 references
+      관계도 함께 존재함.
+    recommended_handling: 0-9c에서 class 후보를 보수적으로 검토하고, 0-9d에서 located_in 및 references
+      관계를 별도 정규화할 것.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - schedule/list -> references -> member mark
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:44.706063'
+  confidence: 0.78

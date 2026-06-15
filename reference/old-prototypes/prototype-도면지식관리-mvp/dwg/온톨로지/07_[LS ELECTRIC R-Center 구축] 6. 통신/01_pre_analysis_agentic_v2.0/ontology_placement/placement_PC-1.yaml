@@ -1,0 +1,178 @@
+placement:
+  tag: PC-1
+  name: PC
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PC-1
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationTerminal
+    - UserInterface
+    - DataProcessingDevice
+    related_assertions:
+    - type: connectedTo
+      target_hint: SYSBOX-1
+      note: source_page 18, relation=cable, annotation='CAT.6 UTP CABLE (1Gbps) /
+        OUTLET BOX'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: PC
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨
+      - raw_text: (본 공사 제외)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: statusText
+          suggested_datatype: xsd:string
+          rationale: 공사 포함 여부를 나타내는 상태 표기
+      - raw_text: dashed_box
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 표현
+      - raw_text: PC 단말 1 (본 공사 제외)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭
+      - raw_text: bottom-left
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: CAT.6 UTP CABLE (1Gbps) / OUTLET BOX
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 포함된 케이블/아울렛 박스 정보
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification_by_observation
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 18
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 18
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 18
+      method: relations.annotation + relations.origin
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 18
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 18
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 18
+      method: specs.shape
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 18
+      method: specs.inferred_name
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 18
+      method: specs.position
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 18
+      method: relations.annotation
+    provenance_note:
+      source_pages:
+      - 18
+      method: 'all observed fields scanned: specs, relations, connection_specs, requirements,
+        drawing_texts, ontology_hints, notes, source_pages, source_attribution, position'
+  unresolved:
+  - field_candidate: specs.connection_specs
+    raw_text: ''
+    source_page: 18
+    reason: entity_detail 원문에 해당 필드가 존재하지 않음
+    preservation_note: 빈 값도 누락으로 보존
+  - field_candidate: specs.requirements
+    raw_text: ''
+    source_page: 18
+    reason: entity_detail 원문에 해당 필드가 존재하지 않음
+    preservation_note: 빈 값도 누락으로 보존
+  - field_candidate: specs.drawing_texts
+    raw_text: ''
+    source_page: 18
+    reason: entity_detail 원문에 해당 필드가 존재하지 않음
+    preservation_note: 빈 값도 누락으로 보존
+  - field_candidate: specs.notes
+    raw_text: ''
+    source_page: 18
+    reason: entity_detail 원문에 해당 필드가 존재하지 않음
+    preservation_note: 빈 값도 누락으로 보존
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 18
+    reason: entity_detail 원문에 해당 필드가 존재하지 않음
+    preservation_note: 빈 값도 누락으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PC는 단말/장치로 보이지만, 본 공사 제외 표기가 있어 실제 설치 대상인지 주석성 표기인지 경계가 있음.
+    recommended_handling: 0-9c에서 CommunicationEquipment 또는 Annotation/Status 혼합 여부를
+      재검토하고, 관계는 유지하되 상태 표기를 별도 데이터로 승격 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 단말/아울렛/시스템박스 그룹 및 연결점 패턴을 반영하여 NamedIndividual로 배치
+    - relations의 cable 연결을 관계 사실 원형으로 보존
+    - raw_labels, shape, inferred_name, position, status 표기를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:14:34.757264'
+  confidence: 0.86

@@ -1,0 +1,80 @@
+tag: UNKNOWN-LIGHTNING-ROD-01
+name: 피뢰침
+type: entity
+discipline: ELECTRICAL
+function_category: LIGHTNING_PROTECTION
+source_pages:
+- 37
+- 38
+- 40
+specs:
+  height_mm: 3000
+  count: 1
+  material: STS 환봉 8mm + 피뢰침
+  standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+  protection_method: 회전 구체법
+  protection_grade: IV등급
+  rolling_sphere_radius_m: 60
+  minimum_height_above_roof_mm: 250
+  type: 돌침피뢰침
+  installation_context: 콘크리트 기초 상부
+  connection_to_system: F-GV Wire 피뢰시스템과 연결
+relations:
+- from: UNKNOWN-LIGHTNING-ROD-01
+  to: UNKNOWN-HORIZ-COND-01
+  relation: connects_to
+  source_page: 37
+  origin: cross_validated
+  line_style: solid
+  note: 수평도체 (STS 환봉 8mm) 접속
+- from: UNKNOWN-LIGHTNING-ROD-01
+  to: UNKNOWN-SUPPORT-MEMBER-01
+  relation: connects_to
+  source_page: 40
+  origin: cross_validated
+  line_style: null
+  note: 피뢰침 상부에 일체형 지지대 부착
+- from: UNKNOWN-LIGHTNING-ROD-01
+  to: UNKNOWN-TERMINAL-2HOLE-01
+  relation: connects_to
+  source_page: 40
+  origin: cross_validated
+  line_style: null
+  note: 피뢰침 하부 동관단자 2Hole 연결
+- from: UNKNOWN-WIRE-01
+  to: UNKNOWN-LIGHTNING-ROD-01
+  relation: connects_to
+  source_page: 40
+  origin: cross_validated
+  line_style: null
+  note: F-GV Wire가 피뢰침과 연결 (피뢰시스템)
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: BLK-004 bottom-left
+confidence: 0.95
+equipment_symbols:
+- type: 피뢰침 (lightning_rod)
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: LightningProtectionSystem
+  observed_attributes:
+  - height_mm
+  - count
+  - material
+  - standard
+  - protection_method
+  - protection_grade
+  - rolling_sphere_radius_m
+  - minimum_height_above_roof_mm
+  - type
+  - installation_context
+  - connection_to_system
+  similar_equipment: []
+  function_candidates:
+  - LightningStrikeInterception
+  - SurgeProtection

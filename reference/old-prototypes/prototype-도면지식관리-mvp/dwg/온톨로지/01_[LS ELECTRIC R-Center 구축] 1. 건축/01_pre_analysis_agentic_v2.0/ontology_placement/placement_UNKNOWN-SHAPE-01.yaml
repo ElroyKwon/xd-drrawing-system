@@ -1,0 +1,112 @@
+placement:
+  tag: UNKNOWN-SHAPE-01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: unknown:UNKNOWN-SHAPE-01
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - BuildingElement
+    - SpatialEntity
+    - AnnotationOrReferenceEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePage
+        suggested_datatype: xsd:string
+        rationale: entity_detail.raw에 페이지 목록이 직접 제시됨
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 분석 안내 문구로, 객체 자체의 물리 속성은 아니지만 주석성 텍스트로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: entity_detail.name_absent
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_by_raw_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: plan_and_raw_assessment
+    confidence:
+      source_pages:
+      - 0
+      method: heuristic
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 태그 자체의 물리적/도면적 실체를 직접 설명하지 않고, 페이지 안내 문구만 포함함
+    preservation_note: 페이지 범위 정보와 안내 문구를 원문 그대로 보존
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: name 필드가 제공되지 않음
+    preservation_note: 빈 값으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 UNKNOWN-SHAPE-01로 형상/도형 계열을 암시하지만, 원문에는 실제 형상 설명이나 관계가 없고 페이지 안내만
+      존재함
+    recommended_handling: 후속 단계에서 관련 페이지(특히 1-5, 60-64, 118-122) 원문/도면을 확인해 실제 객체인지
+      주석인지 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그는 unresolved_document_component / unresolved_building_element / unresolved_reference_marker
+      / unresolved_grouping_label 가능성을 열어두는 방향
+    - raw만 존재하는 경우 free_notes와 unresolved에 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:26.919016'
+  confidence: 0.62

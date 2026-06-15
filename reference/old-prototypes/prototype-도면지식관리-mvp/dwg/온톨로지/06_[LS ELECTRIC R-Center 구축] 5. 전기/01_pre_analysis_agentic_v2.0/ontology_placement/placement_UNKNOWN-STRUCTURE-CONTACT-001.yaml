@@ -1,0 +1,218 @@
+placement:
+  tag: UNKNOWN-STRUCTURE-CONTACT-001
+  name: 구조물 접속
+  discipline: electrical
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: GroundingConnection
+    alternative_class_hints:
+    - Bonding
+    - LightningProtectionConnection
+    - DocumentMetadata
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-HORIZONTAL-CONDUCTOR-001
+      note: 수평도체에서 구조물 접속으로 연결
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:GroundingConnection
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasConnectionNote
+          suggested_datatype: xsd:string
+          rationale: 도면 주석 문장으로, 접속 대상과 기능을 설명하는 서술형 텍스트
+      - raw_text: 구조물 접속
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasConnectionType
+          suggested_datatype: xsd:string
+          rationale: 연결 유형을 나타내는 명칭형 텍스트
+      - raw_text: 'legend_symbol: ● / symbol: ●'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasLegendSymbol
+          suggested_datatype: xsd:string
+          rationale: 범례 기호 표기
+      - raw_text: '적용 표준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasApplicableStandard
+          suggested_datatype: xsd:string
+          rationale: 도면에 명시된 적용 기준/표준 문자열
+      - raw_text: 'function_category: GROUNDING_CONNECTION'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값이지만 supplement의 sub_kind에는 해당하지 않음
+      - raw_text: 'ontology_hints.suggested_parent_class: GroundingConnection'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스 후보
+      - raw_text: 'ontology_hints.function_candidates: Bonding, LightningProtectionConnection'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'position: center-left'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'equipment_symbols.type: structure_contact_symbol, count: 1'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 기호 유형과 개수 정보
+      - raw_text: 'collection_sources.cross_validated: true, entity_synthesis: true'
+        source_page: 38
+        promotion_hint:
+          suggested_property_label: hasCollectionSourceFlag
+          suggested_datatype: xsd:string
+          rationale: 추출/검증 출처 상태 정보
+  provenance:
+    tag:
+      source_pages:
+      - 38
+      method: entity_detail
+    name:
+      source_pages:
+      - 38
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 38
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 38
+      method: classification
+    ontology_core.class_hint:
+      source_pages:
+      - 38
+      method: ontology_hints.suggested_parent_class + specs/function_category
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 38
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 38
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 38
+      method: preservation
+    position:
+      source_pages:
+      - 38
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 38
+      method: entity_detail
+    specs.legend_symbol:
+      source_pages:
+      - 38
+      method: entity_detail
+    specs.note:
+      source_pages:
+      - 38
+      method: entity_detail
+    specs.connection_type:
+      source_pages:
+      - 38
+      method: entity_detail
+    specs.symbol:
+      source_pages:
+      - 38
+      method: entity_detail
+    specs.applicable_standards:
+      source_pages:
+      - 38
+      method: entity_detail
+    relations:
+      source_pages:
+      - 38
+      method: entity_detail
+    collection_sources:
+      source_pages:
+      - 38
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 38
+      method: entity_detail
+    ontology_hints:
+      source_pages:
+      - 38
+      method: entity_detail
+    equipment_symbols:
+      source_pages:
+      - 38
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.applicable_standards
+    raw_text: 한국전기설비규정(KEC) 150 피뢰시스템; KS C IEC 62305
+    source_page: 38
+    reason: 도면에 명시된 표준명이지만 외부 표준 해석 없이 원문 보존 필요
+    preservation_note: 표준 문자열 그대로 유지
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: GroundingConnection
+    source_page: 38
+    reason: 힌트 값이므로 확정 분류로 승격하지 않음
+    preservation_note: class_hint 후보로만 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Bonding; LightningProtectionConnection
+    source_page: 38
+    reason: 복수 후보이며 확정 불가
+    preservation_note: alternative_class_hints로 보존
+  - field_candidate: specs.note
+    raw_text: 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+    source_page: 38
+    reason: 주석 문장으로 해석은 가능하나 데이터 속성으로 확정하지 않음
+    preservation_note: free_notes에도 원문 보존
+  - field_candidate: position
+    raw_text: center-left
+    source_page: 38
+    reason: 도면 배치 정보이나 온톨로지 핵심 속성으로 확정하지 않음
+    preservation_note: 도면 위치 메타데이터로 보존
+  - field_candidate: equipment_symbols
+    raw_text: structure_contact_symbol x1
+    source_page: 38
+    reason: 기호 정보는 물리 실체가 아닌 표현 정보
+    preservation_note: AnnotationOnly 성격의 보조 정보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 구조물 접속은 물리적 접속 요소인지, 도면 주석/범례 항목인지 경계가 모호함. 태그명과 symbol/legend_symbol만으로는
+      독립 설비 여부를 확정하기 어려움.
+    recommended_handling: 0-9c에서 GroundingConnection 계열 후보로 검토하되, 실제 물리 부품이 아니라면 AnnotationOnly로
+      유지. 관계는 connects_to 원형만 보존.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    - 전력 흐름과 물리적/전기적 접속(connects_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:15:13.854106'
+  confidence: 0.95

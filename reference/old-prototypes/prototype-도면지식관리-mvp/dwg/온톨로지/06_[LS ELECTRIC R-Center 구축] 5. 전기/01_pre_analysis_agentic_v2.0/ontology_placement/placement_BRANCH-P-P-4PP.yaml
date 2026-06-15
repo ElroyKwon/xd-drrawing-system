@@ -1,0 +1,263 @@
+placement:
+  tag: BRANCH-P-P-4PP
+  name: P-P-4PP 분기회로
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:BRANCH-P-P-4PP
+    class_hint: ElectricalBranchCircuit
+    alternative_class_hints:
+    - Load
+    - MCCBBranchCircuit
+    - PowerDistribution
+    related_assertions:
+    - type: feeds
+      target_hint: P-P-4PP
+      note: 도면 relation에 P-P-4PP -> BRANCH-P-P-4PP feeds가 명시됨
+    - type: contains
+      target_hint: MCCB
+      note: branch_circuits에 MCCB 회로 2개가 명시됨
+    - type: is_fed_by
+      target_hint: P-P-4PP
+      note: 분기회로는 부모 패널 P-P-4PP에 종속된 전원 분기 요소로 해석 가능
+    - type: grounds_to
+      target_hint: E3
+      note: specifications.grounding에 E3가 명시됨
+    applicable_axioms:
+    - AX_INV_01
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalCircuit
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-17T13:26:19.626981'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 'branch_circuits: 회로 AT 50 AF 125 poles 4 type MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasRatedCurrent
+          suggested_datatype: xsd:decimal
+          rationale: AT/AF 및 poles/type이 분기회로 보호기기 사양으로 관찰됨
+      - raw_text: 'branch_circuits: SP AT 75 AF 125 poles 3 type MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasRatedCurrent
+          suggested_datatype: xsd:decimal
+          rationale: AT/AF 및 poles/type이 분기회로 보호기기 사양으로 관찰됨
+      - raw_text: 'parent_panel: P-P-4PP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: isContainedIn
+          suggested_datatype: owl:ObjectProperty
+          rationale: 분기회로가 부모 패널에 종속됨을 나타내는 관계 정보
+      - raw_text: 'parent_panel_location: 고객접견공간'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasLocation
+          suggested_datatype: xsd:string
+          rationale: 공간명 표기이므로 위치 속성 후보
+      - raw_text: 'parent_panel_voltage: 440V'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 값 표기
+      - raw_text: 'parent_panel_phase: 3Ø'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasPhase
+          suggested_datatype: xsd:string
+          rationale: 상(phase) 표기
+      - raw_text: 'source: 전기실'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSourceLocation
+          suggested_datatype: xsd:string
+          rationale: 전원 출처 공간명 표기
+      - raw_text: 'grounding: E3'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: grounds_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 접지 계통 식별자 E3가 명시됨
+      - raw_text: 'function_candidates: PowerDistribution, LoadProtection'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 텍스트로 제시됨
+      - raw_text: 'ontology_hints.suggested_parent_class: ElectricalBranchCircuit'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: rdf:type
+          suggested_datatype: owl:Class
+          rationale: 상위 클래스 후보가 직접 제시됨
+      - raw_text: 'similar_equipment: BRANCH-P-A-4PP-7, BRANCH-P-AC-4PP-1, BRANCH-P-C-4PP,
+          BRANCH-P-E-4PP, BRANCH-P-F-4PP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipment
+          suggested_datatype: owl:ObjectProperty
+          rationale: 유사 태그 목록이 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 22
+      method: direct
+    name:
+      source_pages:
+      - 22
+      method: direct
+    discipline:
+      source_pages:
+      - 22
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 22
+      method: placement_inference
+    ontology_core.iri_hint:
+      source_pages:
+      - 22
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 22
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 22
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 22
+      method: direct_and_inferred
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 22
+      method: preservation
+    confidence:
+      source_pages:
+      - 22
+      method: direct
+  unresolved:
+  - field_candidate: specifications.branch_circuits[0].circuit_id
+    raw_text: 회로
+    source_page: 22
+    reason: 고유 식별 정보가 아니며 일반명으로만 표기됨
+    preservation_note: AT/AF/poles/type과 함께 보존
+  - field_candidate: specifications.branch_circuits[0].at
+    raw_text: '50'
+    source_page: 22
+    reason: 단독 수치로는 단위가 명시되지 않음
+    preservation_note: branch_circuits[0].type=MCCB와 함께 해석 가능
+  - field_candidate: specifications.branch_circuits[0].af
+    raw_text: '125'
+    source_page: 22
+    reason: 단독 수치로는 단위가 명시되지 않음
+    preservation_note: branch_circuits[0].type=MCCB와 함께 해석 가능
+  - field_candidate: specifications.branch_circuits[0].poles
+    raw_text: '4'
+    source_page: 22
+    reason: 단독 숫자이며 속성명만으로는 표현 방식이 불명확함
+    preservation_note: 4P 표기와 대응 가능
+  - field_candidate: specifications.branch_circuits[0].type
+    raw_text: MCCB
+    source_page: 22
+    reason: 장비 유형이지만 세부 클래스 확정은 0-9c 이후 단계
+    preservation_note: 분기회로 보호기기 사양으로 보존
+  - field_candidate: specifications.branch_circuits[1].circuit_id
+    raw_text: SP
+    source_page: 22
+    reason: 약어 의미가 도면 외부 맥락 없이 불명확함
+    preservation_note: branch_circuits[1]의 식별자 원문 보존
+  - field_candidate: specifications.branch_circuits[1].at
+    raw_text: '75'
+    source_page: 22
+    reason: 단독 수치로는 단위가 명시되지 않음
+    preservation_note: branch_circuits[1].type=MCCB와 함께 해석 가능
+  - field_candidate: specifications.branch_circuits[1].af
+    raw_text: '125'
+    source_page: 22
+    reason: 단독 수치로는 단위가 명시되지 않음
+    preservation_note: branch_circuits[1].type=MCCB와 함께 해석 가능
+  - field_candidate: specifications.branch_circuits[1].poles
+    raw_text: '3'
+    source_page: 22
+    reason: 단독 숫자이며 속성명만으로는 표현 방식이 불명확함
+    preservation_note: 3P 표기와 대응 가능
+  - field_candidate: specifications.branch_circuits[1].type
+    raw_text: MCCB
+    source_page: 22
+    reason: 장비 유형이지만 세부 클래스 확정은 0-9c 이후 단계
+    preservation_note: 분기회로 보호기기 사양으로 보존
+  - field_candidate: specifications.parent_panel
+    raw_text: P-P-4PP
+    source_page: 22
+    reason: 부모 패널 태그는 명시되었으나 별도 엔티티 상세는 없음
+    preservation_note: 관계 타깃으로 보존
+  - field_candidate: specifications.parent_panel_location
+    raw_text: 고객접견공간
+    source_page: 22
+    reason: 공간명은 있으나 supplement의 spatial_markers로 분류할지 불명확
+    preservation_note: 위치 컨텍스트로 보존
+  - field_candidate: specifications.parent_panel_voltage
+    raw_text: 440V
+    source_page: 22
+    reason: 전압 표기이나 수치/단위 분리 확정 전
+    preservation_note: 전압 값 후보로 보존
+  - field_candidate: specifications.parent_panel_phase
+    raw_text: 3Ø
+    source_page: 22
+    reason: 상수 표기이나 정규화 방식 미확정
+    preservation_note: 3상 표기 원문 보존
+  - field_candidate: specifications.source
+    raw_text: 전기실
+    source_page: 22
+    reason: 전원 출처 공간명이나 관계/위치 속성으로의 확정 전
+    preservation_note: source location 후보로 보존
+  - field_candidate: specifications.grounding
+    raw_text: E3
+    source_page: 22
+    reason: 접지 계통 식별자이나 별도 엔티티 존재 여부 불명확
+    preservation_note: 접지 타깃 후보로 보존
+  - field_candidate: relations[0]
+    raw_text: from P-P-4PP to BRANCH-P-P-4PP relation feeds
+    source_page: 22
+    reason: 관계 사실은 명시되었으나 확정 property IRI는 아직 미정
+    preservation_note: ObjectPropertyAssertion 원형으로 보존
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: branch_circuit_protection, molded_case_circuit_breaker, surge_protection
+    source_page: 22
+    reason: 관찰 속성 목록이지만 표준화된 클래스/속성으로 확정하지 않음
+    preservation_note: 후속 taxonomy/property 승격 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: PowerDistribution, LoadProtection
+    source_page: 22
+    reason: 기능 후보가 복수이며 확정 불가
+    preservation_note: 기능 분류 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그가 BRANCH-*이지만 specifications에 부모 패널, 분기 MCCB, 접지, 전압, 위치 정보가 함께 있어 독립
+      부하인지 패널 종속 분기회로인지 경계가 모호함
+    recommended_handling: 독립 설비로 완전히 승격하지 말고 NamedIndividual로 존속시키되, 0-9c/0-9d에서 ElectricalBranchCircuit
+      또는 Panel 종속 요소로 정교화
+  merge_info:
+    is_merge_candidate: true
+    other_tag: BRANCH-P-A-4PP-7
+    reason: 유사 태그 패턴 BRANCH-P-*-4PP 계열과 동일한 분기회로 구조를 공유하며, similar_equipment 목록에 포함됨
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:19.841211'
+  confidence: 0.95

@@ -1,0 +1,11 @@
+tag: 사무동 비상
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: 도면에서 '사무동 비상'은 부하/피더 명칭으로만 확인되며, entity_detail에도 자체 사양은 440V 1개만 있고 connection_specs는
+  비어 있다. read_page_context와 entity_list에서 동일 태그가 'FEEDER-사무동비상'으로 별도 부하/피더 항목으로 존재하지만,
+  이는 독립 설비라기보다 전기 부하 명칭에 해당한다. 관계는 LOAD로만 보이며 추가 연결 관계는 확인되지 않았다. 따라서 독립 엔티티가 아니라
+  전기 부하/피더 항목으로 강등한다.

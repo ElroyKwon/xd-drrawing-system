@@ -1,0 +1,15 @@
+tag: P038-SP-ARCH-01
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- name
+- discipline
+missing_relations:
+- 주 인하도선 -> 기초철골
+- 보조 인하도선 -> F-GV 50㎟
+- 보조 인하도선 -> HI-PVC 28C
+- 구조체 접속 -> 철근 및 철골
+reason: entity_detail과 page_038_context.yaml에서 확인되는 대상은 '옥탑지붕층'이라는 공간이며, title/drawing_number/protection_grade
+  등은 도면 메타데이터 성격이다. 독립 물리 설비가 아니므로 entity_qualification 기준을 만족하지 못해 demoted 처리한다.
+  다만 공간 자체는 고유 태그와 도면 내 위치 정보가 확인되며, 연결 관계는 피뢰/접지 설비와의 관계로 존재하지만 이는 공간의 자체 설비 사양이
+  아니라 도면 메타데이터/배경 공간 정보에 해당한다.

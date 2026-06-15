@@ -1,0 +1,84 @@
+tag: ZONE-대형공간서측
+name: 서측 대형 공간
+type: space
+discipline: MECHANICAL
+function_category: SPACE
+source_pages:
+- 52
+specs:
+  labels_inside:
+  - 220x250(2a)
+  - 220x250(EA)
+  - 550x150(2a)
+  - 560x400(2a)
+  - 660x400(PL)
+  inferred_name: 서측 대형 공간 — 덕트 및 SMFD 설치 구역
+  position: center-left
+  raw_labels:
+  - 220x250(2a)
+  - 220x250(EA)
+  - 550x150(2a)
+  - 560x400(2a)
+  - 660x400(PL)
+  equipment_symbols:
+  - type: SMFD (스마트 방화댐퍼)
+    count: 8
+  - type: F.C (Field Controller)
+    count: 3
+  - type: 덕트 (duct)
+    count: 5
+  source_panel_id: ZONE-대형공간서측
+  duct_sizes_noted:
+  - 220x250(2a)
+  - 220x250(EA)
+  - 550x150(2a)
+  - 560x400(2a)
+  - 660x400(PL)
+  cross_discipline_ref: null
+relations:
+- from: CTRL-GATEWAY
+  to: ZONE-대형공간서측
+  relation: connects_to
+  source_page: 52
+  origin: cross_validated
+  line_style: solid
+  note: SMFD 제어 신호선 (B)(C)
+- from: CTRL-GATEWAY
+  to: ZONE-대형공간서측
+  relation: signal
+  source_page: 52
+  origin: visual_semantics
+  annotation: SMFD 제어 신호선 (B)(C)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: center-left
+confidence: 0.9
+equipment_symbols:
+- type: SMFD (스마트 방화댐퍼)
+  count: 8
+- type: F.C (Field Controller)
+  count: 3
+- type: 덕트 (duct)
+  count: 5
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: true
+ontology_hints:
+  suggested_parent_class: HVACZone
+  observed_attributes:
+  - labels_inside
+  - inferred_name
+  - position
+  - raw_labels
+  - equipment_symbols
+  - source_panel_id
+  - duct_sizes_noted
+  - cross_discipline_ref
+  similar_equipment: []
+  function_candidates:
+  - HVAC_Zone
+  - Fire_Damper_Control_Zone
+  - Duct_Installation_Area

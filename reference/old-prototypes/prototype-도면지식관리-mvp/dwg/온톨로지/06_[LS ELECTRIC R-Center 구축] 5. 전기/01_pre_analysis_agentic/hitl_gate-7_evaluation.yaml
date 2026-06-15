@@ -1,0 +1,83 @@
+verdict: PASS
+confidence: 0.82
+issues:
+- severity: HIGH
+  description: 전체 311개 태그 중 demoted가 186개(59.8%)로, qualified 비율이 35.7%(111/311)에 불과하다.
+    온톨로지에 진입하는 독립 설비 엔티티가 전체의 1/3 수준이므로, 원본 도면 대비 설비 커버리지가 충분한지 검증이 필요하다.
+  affected_tags:
+  - CP-01~CP-20
+  - EQ-E03
+  - EQ-E07
+  - EQ-E09
+  - EQ-E11
+  - EQ-E16
+  - EQ-E19
+  - EQ-E22~E26
+  - EQ-E29
+  - EQ-E31
+  suggestion: demoted 태그 186개에 대해 강등 사유를 유형별로 분류(회로표기, 건물/공간명, 스펙 부재 등)하고, 실제 물리 설비임에도
+    스펙 미추출로 강등된 케이스가 없는지 샘플링 재검증을 수행할 것.
+- severity: HIGH
+  description: flagged 14개 태그 중 CP-15처럼 confidence가 null인 항목이 존재한다. confidence 산출
+    자체가 불가능했다는 것은 해당 태그의 원본 근거 데이터가 극히 부족하거나 파이프라인 처리 오류 가능성을 시사한다.
+  affected_tags:
+  - CP-15
+  suggestion: flagged 14개 태그 전수에 대해 confidence=null 원인을 추적하고, 원본 도면 페이지에서 해당 태그의 실존
+    여부를 수동 확인할 것. 파이프라인 오류라면 재처리 대상으로 분류.
+- severity: MEDIUM
+  description: CP-01~CP-20 시리즈가 거의 전량 demoted 처리되었으나, 이들이 실제 전력 분전반(Power Panel)일
+    가능성을 완전히 배제하기 어렵다. 단선결선도(SLD)에서 CP 표기는 Control Panel 또는 Circuit Panel로서 독립 설비인
+    경우가 산업 현장에서 흔하다.
+  affected_tags:
+  - CP-01
+  - CP-02
+  - CP-03
+  - CP-04
+  - CP-05
+  - CP-06
+  - CP-07
+  - CP-08
+  - CP-09
+  - CP-10
+  - CP-11
+  - CP-12
+  - CP-13
+  - CP-14
+  - CP-16
+  - CP-17
+  - CP-18
+  - CP-19
+  - CP-20
+  suggestion: CP 시리즈 태그에 대해 원본 SLD 도면(page 5 등)을 재참조하여, 정격전류·차단기 용량·부하 목록 등 독립 설비
+    스펙이 존재하는지 집중 확인할 것. 스펙이 확인되면 qualified로 승격 처리.
+- severity: MEDIUM
+  description: EQ 시리즈 태그 중 qualified와 demoted가 거의 반반으로 나뉘어 있어(약 20개 qualified, 15개
+    demoted), 동일 접두사 계열 내 판정 기준의 일관성 검증이 필요하다. EQ-E03과 EQ-E04가 유사 설비임에도 하나는 demoted,
+    하나는 qualified인 경우 판정 근거의 균일성이 의심된다.
+  affected_tags:
+  - EQ-E03
+  - EQ-E04
+  - EQ-E07
+  - EQ-E08
+  - EQ-E09
+  - EQ-E10
+  suggestion: EQ 시리즈 내 qualified/demoted 경계 사례를 5~10건 추출하여 판정 근거를 교차 비교하고, 판정 기준 임계값의
+    적정성을 확인할 것.
+- severity: LOW
+  description: BLDG-001의 corrected 파일에서 confidence가 0.93→0.96으로 상향 조정되었으나 verdict는
+    동일(demoted)하다. 보정 프로세스가 정상 작동하고 있으며, 건물/공간 엔티티를 Building/Zone 계열로 분류하는 판단은 온톨로지
+    설계 관점에서 적절하다.
+  affected_tags:
+  - BLDG-001
+  suggestion: BLDG 계열 태그가 추가로 존재하는지 확인하고, Building/Zone 클래스를 온톨로지 스키마에 명시적으로 정의하여
+    demoted 엔티티의 수용 경로를 마련할 것.
+- severity: LOW
+  description: readiness 개별 파일과 corrected 파일이 병존하는 구조로, 보정 이력 추적이 가능한 점은 긍정적이나, 최종
+    판정값이 어느 파일 기준인지 명시적 버전 관리가 부재하다.
+  affected_tags: []
+  suggestion: corrected 파일이 존재하는 경우 해당 파일을 최종 판정으로 채택한다는 규칙을 메타데이터에 명시하거나, 단일 파일 내
+    revision 필드로 관리할 것.
+reason: qualified 비율(35.7%)이 낮아 보이나, 이는 회로 표기(CP 시리즈 20개)·건물/공간명·스펙 미확인 태그를 적극적으로
+  강등한 결과로, 온톨로지 품질 확보를 위한 보수적 판정으로 판단된다. 개별 판정 근거(readiness 파일)의 논리가 명확하고, confidence
+  값이 대부분 0.9 이상으로 높으며, corrected 보정 프로세스도 정상 작동하고 있다. HIGH 이슈 2건은 다음 단계에서 샘플링 재검증으로
+  해소 가능한 수준이므로 PASS 판정하되, CP 시리즈 재검토를 Phase 1 초기 태스크로 권고한다.

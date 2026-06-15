@@ -1,0 +1,127 @@
+placement:
+  tag: AC_115
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: AC_115
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - RoomLikeEntity
+    - UnknownEntity
+    related_assertions:
+    - type: contains
+      target_hint: PLAN-1F
+      note: incoming relation recorded; AC/115 is contained by PLAN-1F
+      confirmed_property: dks:contained_in
+      confirmed_target: PLAN-1F
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX037
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'relation: contains; direction: incoming; partner: PLAN-1F'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: Contains relation is explicitly recorded with AC/115 as the target;
+            preserve as relation fact for later property mapping.
+      - raw_text: 'from: PLAN-1F to: AC/115 relation: contains origin: cross_validated
+          line_style: null note: null'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: Cross-validated relation statement preserves the same containment
+            fact and should be retained for later assertion normalization.
+  provenance:
+    tag:
+      source_pages:
+      - 60
+      method: entity_detail
+    owl_role:
+      source_pages:
+      - 60
+      method: inferred_from_relation_presence
+    iri_hint:
+      source_pages:
+      - 60
+      method: direct_tag_normalization
+    class_hint:
+      source_pages:
+      - 60
+      method: plan-guided inference
+    alternative_class_hints:
+      source_pages:
+      - 60
+      method: plan-guided inference
+    related_assertions:
+      source_pages:
+      - 60
+      method: relation_scan
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 60
+      method: raw_preservation
+  unresolved:
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 60
+    reason: No name field present in entity_detail.
+    preservation_note: Keep empty until a source page provides an explicit name.
+  - field_candidate: relations[0].relation_type
+    raw_text: contains
+    source_page: 60
+    reason: Relation is clear, but OWL property IRI is not assigned at this stage.
+    preservation_note: Normalize later to the chosen object property.
+  - field_candidate: relations[0].direction
+    raw_text: incoming
+    source_page: 60
+    reason: Direction is preserved as raw relation metadata; not yet mapped to inverse
+      property.
+    preservation_note: May become contained_in or inverse assertion in later step.
+  - field_candidate: relations[1].line_style
+    raw_text: 'null'
+    source_page: 60
+    reason: No line style information provided.
+    preservation_note: Retain as missing relation-visual metadata.
+  - field_candidate: relations[1].note
+    raw_text: 'null'
+    source_page: 60
+    reason: No note text provided.
+    preservation_note: Retain as missing relation annotation.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: AC/115 has only a containment relation and no explicit semantic description
+      or name, so it could be a spatial entity or another contained element.
+    recommended_handling: Keep as NamedIndividual with SpatialEntity/RoomLikeEntity
+      candidate hints until additional page evidence clarifies the class.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Use plan guidance that space/room-like entities are common under PLAN-1F containment
+      patterns.
+    - Preserve containment relation facts as core evidence.
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:29.732713'
+  confidence: 0.74

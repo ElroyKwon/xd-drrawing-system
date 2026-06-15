@@ -1,0 +1,260 @@
+executive_summary:
+  drawing_number: null
+  title: null
+  classification: null
+  discipline: null
+  confidence: 0.94
+  summary: 'page 22에는 6개의 PANEL BOARD가 확인되며, 패널 헤더의 위치 표기와 기존 zone 할당이 5건 불일치한다.
+
+    주요 설비는 P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP, P-F-4PP, P-P-4PP이며, 각각 시험/모터부하/잼버룸/환경시험/진동시험/고객접견공간
+    관련으로 읽힌다.
+
+    공간 계층은 1층(FLOOR-01) 기준으로 재정리 필요하며, 일부 zone은 기존 정의와 page 22 표기가 다르다.
+
+    '
+  equipment:
+  - tag: P-A-4PP-7
+    name: PANEL BOARD
+    spec: null
+    discipline: null
+    function_category: null
+    location: ZONE-TEST
+    confidence: 0.95
+  - tag: P-AC-4PP-1
+    name: PANEL BOARD
+    spec: null
+    discipline: null
+    function_category: null
+    location: ZONE-DUCT
+    confidence: 0.95
+  - tag: P-C-4PP
+    name: PANEL BOARD
+    spec: null
+    discipline: null
+    function_category: null
+    location: UNKNOWN
+    confidence: 0.5
+  - tag: P-E-4PP
+    name: PANEL BOARD
+    spec: null
+    discipline: null
+    function_category: null
+    location: ZONE-OPER
+    confidence: 0.95
+  - tag: P-F-4PP
+    name: PANEL BOARD
+    spec: null
+    discipline: null
+    function_category: null
+    location: ZONE-MOTOR
+    confidence: 0.95
+  - tag: P-P-4PP
+    name: PANEL BOARD
+    spec: null
+    discipline: null
+    function_category: null
+    location: ZONE-TRAIN
+    confidence: 0.95
+  relationships: []
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric 천안 R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: R-Center 구축
+    parent: SITE-001
+  - space_id: FLOOR-01
+    type: floor
+    name: 1층
+    parent: BLDG-001
+  - space_id: ZONE-DUCT
+    type: zone
+    name: 덕션실
+    parent: FLOOR-01
+  - space_id: ZONE-OPER
+    type: zone
+    name: 운전실
+    parent: FLOOR-01
+  - space_id: ZONE-MOTOR
+    type: zone
+    name: 전동기실
+    parent: FLOOR-01
+  - space_id: ZONE-TEST
+    type: zone
+    name: Drive 시험실
+    parent: BLDG-001
+  - space_id: ZONE-TRAIN
+    type: zone
+    name: 교육연습실
+    parent: BLDG-001
+  flow_paths: []
+  top_equipment:
+  - P-A-4PP-7 PANEL BOARD
+  - P-AC-4PP-1 PANEL BOARD
+  - P-C-4PP PANEL BOARD
+  - P-E-4PP PANEL BOARD
+  - P-F-4PP PANEL BOARD
+  - P-P-4PP PANEL BOARD
+  stats:
+    equipment: 6
+    relationships: 0
+    spaces: 8
+    flow_paths: 0
+  uncertainties:
+  - P-C-4PP의 위치는 UNKNOWN이며, 패널 헤더의 실제 공간명은 '잼버룸'으로 읽혔으나 층 정보는 불명확함(page 22, visual
+    evidence / OCR 오독 수정).
+  - P-AC-4PP-1의 위치는 기존 ZONE-DUCT와 불일치하며, page 22 패널 헤더 기준으로는 '1층 대용량 모터부하실(방음)'로 읽힘.
+  - P-E-4PP의 위치는 기존 ZONE-OPER와 불일치하며, page 22 패널 헤더 기준으로는 '1층 환경시험실'로 읽힘.
+  - P-F-4PP의 위치는 기존 ZONE-MOTOR와 불일치하며, page 22 패널 헤더 기준으로는 '1층 진동시험실'로 읽힘.
+  - P-P-4PP의 위치는 기존 ZONE-TRAIN와 불일치하며, page 22 패널 헤더 기준으로는 '고객접견공간'으로 읽힘.
+  - ZONE-TEST의 parent는 BLDG-001로 되어 있으나, 검증 결과 1층 공간이므로 FLOOR-01이어야 한다는 지적이 있음.
+  - drawing_number, title, classification, discipline은 제공된 분석 결과에 명시되지 않아 null.
+  related_pages:
+  - 22
+spaces:
+- space_id: SITE-001
+  type: site
+  name: LS Electric 천안 R-Center
+  parent: null
+- space_id: BLDG-001
+  type: building
+  name: R-Center 구축
+  parent: SITE-001
+- space_id: FLOOR-01
+  type: floor
+  name: 1층
+  parent: BLDG-001
+- space_id: ZONE-DUCT
+  type: zone
+  name: 덕션실
+  parent: FLOOR-01
+- space_id: ZONE-OPER
+  type: zone
+  name: 운전실
+  parent: FLOOR-01
+- space_id: ZONE-MOTOR
+  type: zone
+  name: 전동기실
+  parent: FLOOR-01
+- space_id: ZONE-TEST
+  type: zone
+  name: Drive 시험실
+  parent: BLDG-001
+- space_id: ZONE-TRAIN
+  type: zone
+  name: 교육연습실
+  parent: BLDG-001
+equipment_placement:
+- tag: P-A-4PP-7
+  type: PANEL_BOARD
+  located_in: ZONE-TEST
+  confidence: 0.95
+  source: 도면 패널보드 라벨 - Drive 시험용
+- tag: P-AC-4PP-1
+  type: PANEL_BOARD
+  located_in: ZONE-DUCT
+  confidence: 0.95
+  source: 도면 패널보드 라벨 - 1층 덕션실용
+- tag: P-C-4PP
+  type: PANEL_BOARD
+  located_in: UNKNOWN
+  confidence: 0.5
+  source: 도면 패널보드 라벨 - 덤용 (공간 명칭 불명확)
+- tag: P-E-4PP
+  type: PANEL_BOARD
+  located_in: ZONE-OPER
+  confidence: 0.95
+  source: 도면 패널보드 라벨 - 1층 운전실용
+- tag: P-F-4PP
+  type: PANEL_BOARD
+  located_in: ZONE-MOTOR
+  confidence: 0.95
+  source: 도면 패널보드 라벨 - 1층 전동기실용
+- tag: P-P-4PP
+  type: PANEL_BOARD
+  located_in: ZONE-TRAIN
+  confidence: 0.95
+  source: 도면 패널보드 라벨 - 교육연습용
+pass4_검증:
+  corrections:
+  - target: P-AC-4PP-1 located_in
+    resolution: ZONE-DUCT → 새로운 공간 '대용량 모터부하실(방음)' 생성 필요
+    evidence: '도면 패널 헤더 ''PANEL LOCATION: 1층 대용량 모터부하실(방음)'' (page 22, 상단 중앙 패널)'
+    confidence: 0.98
+  - target: P-C-4PP located_in
+    resolution: UNKNOWN → 새로운 공간 '잼버룸' 생성 필요
+    evidence: '도면 패널 헤더 ''PANEL LOCATION: 잼버룸'' (page 22, 상단 중앙 패널); OCR 오독 ''덤용''
+      수정'
+    confidence: 0.98
+  - target: P-E-4PP located_in
+    resolution: ZONE-OPER → 새로운 공간 '환경시험실' 생성 필요
+    evidence: '도면 패널 헤더 ''PANEL LOCATION: 1층 환경시험실'' (page 22, 중앙 패널)'
+    confidence: 0.98
+  - target: P-F-4PP located_in
+    resolution: ZONE-MOTOR → 새로운 공간 '진동시험실' 생성 필요
+    evidence: '도면 패널 헤더 ''PANEL LOCATION: 1층 진동시험실'' (page 22, 중앙 패널)'
+    confidence: 0.98
+  - target: P-P-4PP located_in
+    resolution: ZONE-TRAIN → 새로운 공간 '고객접견공간' 생성 필요
+    evidence: '도면 패널 헤더 ''PANEL LOCATION: 고객접견공간'' (page 22, 하단 중앙 패널)'
+    confidence: 0.98
+  - target: ZONE-TEST parent
+    resolution: 'parent: BLDG-001 → parent: FLOOR-01 (1층에 속함)'
+    evidence: 도면 패널 헤더에 '1층 Drive 시험실'로 표기되어 있으나, 분석에서는 ZONE-TEST의 parent가 BLDG-001로
+      설정됨. 다른 1층 공간들과 계층 일관성 필요
+    confidence: 0.85
+  missing_entities:
+  - tag: ZONE-MOTOR-LARGE
+    name: 대용량 모터부하실(방음)
+    type: zone
+    parent: FLOOR-01
+    evidence: '도면 page 22 패널 P-AC-4PP-1 헤더의 ''PANEL LOCATION: 1층 대용량 모터부하실(방음)'''
+    confidence: 0.98
+  - tag: ZONE-JAM
+    name: 잼버룸
+    type: zone
+    parent: UNKNOWN
+    evidence: '도면 page 22 패널 P-C-4PP 헤더의 ''PANEL LOCATION: 잼버룸'' (층 정보 불명확)'
+    confidence: 0.95
+  - tag: ZONE-ENV-TEST
+    name: 환경시험실
+    type: zone
+    parent: FLOOR-01
+    evidence: '도면 page 22 패널 P-E-4PP 헤더의 ''PANEL LOCATION: 1층 환경시험실'''
+    confidence: 0.98
+  - tag: ZONE-VIBR-TEST
+    name: 진동시험실
+    type: zone
+    parent: FLOOR-01
+    evidence: '도면 page 22 패널 P-F-4PP 헤더의 ''PANEL LOCATION: 1층 진동시험실'''
+    confidence: 0.98
+  - tag: ZONE-CUSTOMER
+    name: 고객접견공간
+    type: zone
+    parent: UNKNOWN
+    evidence: '도면 page 22 패널 P-P-4PP 헤더의 ''PANEL LOCATION: 고객접견공간'' (층 정보 불명확)'
+    confidence: 0.95
+  relationship_issues:
+  - issue: 공간 계층 구조 불일치
+    description: 분석 결과의 ZONE-TEST, ZONE-OPER, ZONE-MOTOR, ZONE-TRAIN은 도면에 표기된 실제 공간명과
+      일치하지 않음. 이들 zone이 다른 페이지에서 정의되었을 가능성이 있으나, page 22 도면에서는 다른 공간명이 사용됨.
+    recommendation: page 22에 표기된 6개 패널의 위치 정보를 기준으로 공간 정의를 재검토하고, 기존 zone 정의와의 관계를
+      명확히 할 것. 동일 건물 내 다른 층/영역의 도면과 비교 필요.
+    confidence: 0.9
+  - issue: OCR 오독
+    description: P-C-4PP의 PANEL LOCATION이 '덤용'으로 OCR되었으나, 실제는 '잼버룸'으로 보임
+    recommendation: OCR 결과 재검증 및 수동 수정
+    confidence: 0.92
+  consistency_check:
+    entity_count_before: 6
+    entity_count_after: 11
+    entity_count_note: 기존 6개 패널 + 새로운 5개 공간(zone) 추가
+    relation_count_before: 6
+    relation_count_after: 6
+    relation_note: 패널-공간 관계는 수정되지만 개수는 동일
+    space_hierarchy_issue: ZONE-TEST의 parent가 BLDG-001이 아닌 FLOOR-01이어야 함 (1층 공간이므로)
+  overall_confidence: 0.94
+  summary: page 22 도면의 패널 헤더에 명시된 위치 정보가 분석 결과의 공간 할당과 5개 항목에서 불일치. 도면 이미지의 직접 읽음(visual
+    evidence)이 OCR 텍스트보다 신뢰도가 높음. 새로운 공간 5개를 추가하고 기존 zone 할당을 수정해야 함.

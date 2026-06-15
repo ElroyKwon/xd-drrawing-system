@@ -1,0 +1,196 @@
+placement:
+  tag: PANEL-4PP-A7
+  name: 440V 분전반 P-A-4PP-7
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PANEL-4PP-A7
+    class_hint: DistributionBoard
+    alternative_class_hints:
+    - ElectricalPanel
+    - DistributionPanel
+    - MCCBPanel
+    related_assertions:
+    - type: feeds
+      target_hint: LV-4
+      note: LV-4가 PANEL-4PP-A7로 공급함
+      confirmed_property: dks:feeds
+      confirmed_target: dks:LV-4
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: LV-4
+      note: visual_semantics 기반 케이블 연결
+      confirmed_property: dks:cable
+      confirmed_target: dks:LV-4
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX011
+    - AX024
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN024
+    - CN025
+    - CN011
+    - CN012
+    confirmed_class: dks:DistributionBoard
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: MCCB'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 장비 타입 표기이며 MCCB로 관찰됨
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 표기이며 분배/배전 의미로 관찰됨
+      - raw_text: 'equipment_symbols.type: MCCB, count: 1'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 정보가 존재하며 MCCB 심볼 1개가 관찰됨
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasCollectionSourceFlag
+          suggested_datatype: xsd:boolean
+          rationale: 교차검증 여부를 나타내는 메타 정보
+      - raw_text: 'collection_sources.visual_semantics: true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasVisualSemanticsFlag
+          suggested_datatype: xsd:boolean
+          rationale: 시각 의미 기반 수집 여부를 나타내는 메타 정보
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEntitySynthesisFlag
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 여부를 나타내는 메타 정보
+      - raw_text: 'confidence: 0.85'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasConfidenceScore
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 수치가 관찰됨
+      - raw_text: 'source_attribution.sonnet: true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSourceAttributionSonnet
+          suggested_datatype: xsd:boolean
+          rationale: 출처 귀속 메타 정보
+      - raw_text: 'source_attribution.mini: true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSourceAttributionMini
+          suggested_datatype: xsd:boolean
+          rationale: 출처 귀속 메타 정보
+      - raw_text: 'source_attribution.gemini: false'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSourceAttributionGemini
+          suggested_datatype: xsd:boolean
+          rationale: 출처 귀속 메타 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: DistributionBoard'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 상위 클래스 후보가 명시됨
+  provenance:
+    name:
+      source_pages:
+      - 2
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class + specs/type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints.function_candidates + ontology_plan
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: preserve_unclassified_fields
+    provenance:
+      source_pages:
+      - 2
+      method: entity_detail_all_fields_scanned
+    confidence:
+      source_pages:
+      - 2
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: P-A-4PP-7
+    source_page: 2
+    reason: 원문 라벨이지만 별도 정규 속성으로 승격하지 않음
+    preservation_note: 태그와 함께 식별 보조 라벨로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: MCCB 3P
+    source_page: 2
+    reason: 장비 표기이지만 class_hint와 중복 가능
+    preservation_note: 심볼/타입 보조 정보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 440V
+    source_page: 2
+    reason: 전압 표기이지만 이미 rated_voltage_V로 관찰됨
+    preservation_note: 중복 원문으로 보존
+  - field_candidate: relations.note
+    raw_text: 440V 피더
+    source_page: 2
+    reason: 관계 주석이지만 정규 관계명 자체는 feeds/cable로 이미 기록
+    preservation_note: 관계 설명 문구로 보존
+  - field_candidate: relations.annotation
+    raw_text: 440V 피더
+    source_page: 2
+    reason: visual_semantics 주석이지만 정규 관계명 자체는 cable로 이미 기록
+    preservation_note: 관계 설명 문구로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - MCCB 기반 PANEL-* 개체를 DistributionBoard/DistributionPanel/ElectricalPanel 계열로
+      보는 상위 구조
+    - feeds와 cable 관계를 관계 사실 원형으로 보존
+    - raw_labels, note, annotation 등 원문 텍스트를 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T15:59:31.854693'
+  confidence: 0.85

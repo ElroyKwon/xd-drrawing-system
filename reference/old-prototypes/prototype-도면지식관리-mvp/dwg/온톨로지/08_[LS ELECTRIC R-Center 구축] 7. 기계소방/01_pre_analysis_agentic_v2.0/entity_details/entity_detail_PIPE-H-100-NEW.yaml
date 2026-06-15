@@ -1,0 +1,56 @@
+tag: PIPE-H-100-NEW
+name: 옥내소화전배관
+type: DISTRIBUTE
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 6
+specs:
+  abbreviation: H
+  system_type: 옥내소화전배관
+  nominal_diameter_A: 100
+  pipe_role: feed_main
+  line_style: solid
+  note: 신설 배관
+relations:
+- from: PIPE-H-100-NEW
+  to: CONN-UP-100
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: 1층 소화 배관 컨넥터에 연결
+- from: PIPE-H-100-NEW
+  to: VALVE-AD-001
+  relation: passes_through
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: 20ø 자동배수밸브 설치
+- from: PIPE-H-100-NEW
+  to: SPACE-PIT-001
+  relation: located_in
+  source_page: 6
+  origin: cross_validated
+  line_style: null
+  note: null
+collection_sources:
+  cross_validated: true
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionPipe
+  observed_attributes:
+  - abbreviation
+  - system_type
+  - nominal_diameter_A
+  - pipe_role
+  - line_style
+  - note
+  similar_equipment: []
+  function_candidates:
+  - FireFightingWaterDistribution
+  - MainSupply

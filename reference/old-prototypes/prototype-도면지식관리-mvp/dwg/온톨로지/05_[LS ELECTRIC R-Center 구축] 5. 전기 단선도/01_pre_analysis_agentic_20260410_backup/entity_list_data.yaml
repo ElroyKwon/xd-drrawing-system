@@ -1,0 +1,1346 @@
+entity_list_data:
+  ambiguities:
+  - issue: 관계가 connected_via로만 추출되고 연결 대상이 UNKNOWN으로 표시됨
+    recommendation: 원본 도면 또는 추가 페이지 확인 필요
+    tag: IVR 1
+  - issue: 관계가 connected_via로만 추출되고 연결 대상이 UNKNOWN으로 표시됨
+    recommendation: 원본 도면 또는 추가 페이지 확인 필요
+    tag: IVR 2
+  - issue: 공간 태그는 고유명처럼 보이나 name은 '변전실'로만 추출됨
+    recommendation: HITL 확인 필요
+    tag: R-Center 변전실
+  - issue: 공간 태그는 고유명처럼 보이나 name은 '변전실'로만 추출됨
+    recommendation: HITL 확인 필요
+    tag: 주변전실
+  consolidation_issues:
+  - action: 원본 도면 재확인 필요
+    description: IVR 1 → UNKNOWN, IVR 2 → UNKNOWN 관계의 대상이 그룹 내 엔티티로 식별되지 않음
+    pages:
+    - 2
+    type: orphan_relation
+  - action: 추가 페이지 없음 확인
+    description: 페이지 요약 합산은 엔티티 84개, 관계 54개로 제공됨. 본 통합 결과는 동일 수를 유지함
+    pages:
+    - 1
+    - 2
+    type: count_mismatch_check
+  entities:
+  - confidence: 0.86
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    name: 표제란/도면 프레임 일부
+    note: null
+    source_pages:
+    - 1
+    tag: UNKNOWN-001
+    type: 건축/구조 요소
+  - confidence: 0.99
+    discipline: UNKNOWN_DISCIPLINE
+    function_category: UNKNOWN_FUNCTION
+    name: 도면 제목 텍스트
+    note: 'specs: LS ELECTRIC 천안 R-Center 구축설계'
+    source_pages:
+    - 1
+    tag: UNKNOWN-002
+    type: 문자 요소
+  - confidence: 0.99
+    discipline: UNKNOWN_DISCIPLINE
+    function_category: UNKNOWN_FUNCTION
+    name: 도서 구분 텍스트
+    note: 'specs: - 실시설계 도서 -'
+    source_pages:
+    - 1
+    tag: UNKNOWN-003
+    type: 문자 요소
+  - confidence: 0.99
+    discipline: UNKNOWN_DISCIPLINE
+    function_category: UNKNOWN_FUNCTION
+    name: 전기 구분 텍스트
+    note: 'specs: [ 전기 ]'
+    source_pages:
+    - 1
+    tag: UNKNOWN-004
+    type: 문자 요소
+  - confidence: 0.99
+    discipline: UNKNOWN_DISCIPLINE
+    function_category: UNKNOWN_FUNCTION
+    name: 날짜 텍스트
+    note: 'specs: 2024.05'
+    source_pages:
+    - 1
+    tag: UNKNOWN-005
+    type: 문자 요소
+  - confidence: 0.99
+    discipline: UNKNOWN_DISCIPLINE
+    function_category: UNKNOWN_FUNCTION
+    name: 설계사 텍스트
+    note: 'specs: (주)가운종합건축사사무소'
+    source_pages:
+    - 1
+    tag: UNKNOWN-006
+    type: 문자 요소
+  - confidence: 0.99
+    discipline: null
+    function_category: null
+    name: LS ELECTRIC 천안 R-Center
+    note: null
+    source_pages:
+    - 1
+    tag: SITE-001
+    type: site
+  - confidence: 0.99
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    name: 변압기
+    note: 'specs: 3Ø 1,000kVA, P:6,600V, S:220V, MOLD TYPE'
+    source_pages:
+    - 2
+    tag: TR-3204
+    type: 변압기
+  - confidence: 0.99
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    name: 변압기
+    note: 'specs: 3Ø 2,000kVA, P:6,600V, S:3,300V, MOLD TYPE'
+    source_pages:
+    - 2
+    tag: 'TR #1'
+    type: 변압기
+  - confidence: 0.99
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    name: 변압기
+    note: 'specs: 3Ø 2,000kVA, P:6,600V, S:440V, MOLD TYPE'
+    source_pages:
+    - 2
+    tag: 'TR #2'
+    type: 변압기
+  - confidence: 0.99
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    name: 변압기
+    note: 'specs: 3Ø 2,000kVA, P:6,600V, S:380V/220V, MOLD TYPE'
+    source_pages:
+    - 2
+    tag: 'TR #3'
+    type: 변압기
+  - confidence: 0.98
+    discipline: ELECTRICAL
+    function_category: CONTROL
+    name: 인버터/레귤레이터
+    note: 'specs: 1,500kVA, P:440, S:320~550V, OIL TYPE'
+    source_pages:
+    - 2
+    tag: IVR 1
+    type: 인버터/레귤레이터
+  - confidence: 0.98
+    discipline: ELECTRICAL
+    function_category: CONTROL
+    name: 인버터/레귤레이터
+    note: 'specs: 300kVA, P:440, S:320~550V, OIL TYPE'
+    source_pages:
+    - 2
+    tag: IVR 2
+    type: 인버터/레귤레이터
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: PROTECTION_METERING
+    name: 보호/계측 릴레이
+    note: null
+    source_pages:
+    - 2
+    tag: GIPAM
+    type: 보호/계측 릴레이
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: PROTECTION_METERING
+    name: 보호/계측 릴레이
+    note: null
+    source_pages:
+    - 2
+    tag: GIMAC
+    type: 보호/계측 릴레이
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: SWITCHING
+    name: 진공차단기
+    note: null
+    source_pages:
+    - 2
+    tag: VCB
+    type: 진공차단기
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: SWITCHING
+    name: 공기차단기
+    note: null
+    source_pages:
+    - 2
+    tag: ACB
+    type: 공기차단기
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: SWITCHING
+    name: 배선용차단기
+    note: null
+    source_pages:
+    - 2
+    tag: MCCB
+    type: 배선용차단기
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: MEASUREMENT_PROTECTION
+    name: 영상변류기
+    note: null
+    source_pages:
+    - 2
+    tag: ZCT
+    type: 영상변류기
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: MEASUREMENT_PROTECTION
+    name: 전압변성기
+    note: null
+    source_pages:
+    - 2
+    tag: PTT
+    type: 전압변성기
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: MEASUREMENT_PROTECTION
+    name: 전류변성기
+    note: null
+    source_pages:
+    - 2
+    tag: CTT
+    type: 전류변성기
+  - confidence: 0.95
+    discipline: ELECTRICAL
+    function_category: MEASUREMENT_PROTECTION
+    name: 접지전압변성기
+    note: null
+    source_pages:
+    - 2
+    tag: G.P.T
+    type: 접지전압변성기
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: POWER_SUPPLY
+    name: 배터리
+    note: null
+    source_pages:
+    - 2
+    tag: BATTERY
+    type: 배터리
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    name: 정류기
+    note: null
+    source_pages:
+    - 2
+    tag: RECTIFIER
+    type: 정류기
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: POWER_FACTOR_CORRECTION
+    name: 콘덴서
+    note: null
+    source_pages:
+    - 2
+    tag: CAPACITOR
+    type: 콘덴서
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 저압 패널
+    note: null
+    source_pages:
+    - 2
+    tag: LV PNL
+    type: 저압 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 고압 패널
+    note: null
+    source_pages:
+    - 2
+    tag: HV PNL
+    type: 고압 패널
+  - confidence: 0.85
+    discipline: ELECTRICAL
+    function_category: SPARE
+    name: 예비
+    note: null
+    source_pages:
+    - 2
+    tag: SPARE
+    type: 예비
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: ROOM
+    name: 변전실
+    note: null
+    source_pages:
+    - 2
+    tag: R-Center 변전실
+    type: room
+  - confidence: 0.85
+    discipline: ELECTRICAL
+    function_category: ROOM
+    name: 변전실
+    note: null
+    source_pages:
+    - 2
+    tag: 주변전실
+    type: room
+  - confidence: 0.85
+    discipline: ELECTRICAL
+    function_category: AREA
+    name: 이설 구역
+    note: null
+    source_pages:
+    - 2
+    tag: A동 지하1층 변전실 이설분
+    type: area
+  - confidence: 0.85
+    discipline: ELECTRICAL
+    function_category: AREA
+    name: 이설 구역
+    note: null
+    source_pages:
+    - 2
+    tag: A동 인버터 시험센터 변전실 이설분
+    type: area
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-AC-4PP-1
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-AC-4PP-2
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-AC-4PP-3
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-1
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-2
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-3
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-4
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-5
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-6
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-4PP-7
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-E-4PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-F-4PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-P-4PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-C-4PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-F-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-G-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-I-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-E-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-D-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-AC-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-3PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-OAC-1
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-OAC-2
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-OAC-3
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-F
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-I-2PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-F-2PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-G-2PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-E-2PP-1
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-E-2PP-2
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-2PP-1
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-A-2PP-2
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-D-2PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-EA-2PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: PANEL
+    name: 패널
+    note: null
+    source_pages:
+    - 2
+    tag: P-C-2PP
+    type: 패널
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 1
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 2
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 3
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 4
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 5
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 6(상)
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 고압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: HV 7(하)
+    type: 고압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 1
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 2
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 3(상)
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 3(하)
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 4
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 5
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 6
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 7
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV 8
+    type: 저압 피더
+  - confidence: 0.9
+    discipline: ELECTRICAL
+    function_category: FEEDER
+    name: 저압 피더
+    note: null
+    source_pages:
+    - 2
+    tag: LV R
+    type: 저압 피더
+  meta:
+    entity_count: 84
+    group_name: 05_[LS ELECTRIC R-Center 구축] 5. 전기 단선도
+    primary_discipline: ELECTRICAL
+    relation_count: 54
+    space_count: 4
+    total_pages: 2
+  relations:
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 1
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 2
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 3
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 4
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 5
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 6(상)
+  - confidence: 0.99
+    direction: downstream
+    from: TR-3204
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: HV 7(하)
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 1
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 2
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 3(상)
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 3(하)
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 4
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 5
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 6
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 7
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV 8
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #1'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: LV R
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-AC-4PP-1
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-AC-4PP-2
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-AC-4PP-3
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-1
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-2
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-3
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-4
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-5
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-6
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-4PP-7
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-E-4PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-F-4PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-P-4PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #2'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-C-4PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-F-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-G-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-I-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-E-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-D-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-AC-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-3PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-OAC-1
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-OAC-2
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-OAC-3
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-F
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-I-2PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-F-2PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-G-2PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-E-2PP-1
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-E-2PP-2
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-2PP-1
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-A-2PP-2
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-D-2PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-EA-2PP
+  - confidence: 0.99
+    direction: downstream
+    from: 'TR #3'
+    medium: power
+    relation: feeds
+    source_pages:
+    - 2
+    to: P-C-2PP
+  - confidence: 0.98
+    direction: UNKNOWN
+    from: IVR 1
+    medium: UNKNOWN
+    relation: connected_via
+    source_pages:
+    - 2
+    to: UNKNOWN
+  - confidence: 0.98
+    direction: UNKNOWN
+    from: IVR 2
+    medium: UNKNOWN
+    relation: connected_via
+    source_pages:
+    - 2
+    to: UNKNOWN
+  relationship_patterns:
+  - example_from: TR-3204
+    example_to: HV 1
+    frequency: 54
+    pattern: 변압기 → 피더(feeds)
+  - example_from: null
+    example_to: null
+    frequency: 0
+    pattern: 변압기 → 패널(feeds)
+  - example_from: IVR 1
+    example_to: UNKNOWN
+    frequency: 2
+    pattern: 인버터/레귤레이터 → UNKNOWN(connected_via)
+  spaces:
+  - name: LS ELECTRIC 천안 R-Center
+    parent: null
+    source_pages:
+    - 1
+    space_id: SITE-001
+    type: site
+  - name: 변전실
+    parent: SITE-001
+    source_pages:
+    - 2
+    space_id: R-Center 변전실
+    type: room
+  - name: 변전실
+    parent: SITE-001
+    source_pages:
+    - 2
+    space_id: 주변전실
+    type: room
+  - name: 이설 구역
+    parent: null
+    source_pages:
+    - 2
+    space_id: A동 지하1층 변전실 이설분
+    type: area
+  - name: 이설 구역
+    parent: null
+    source_pages:
+    - 2
+    space_id: A동 인버터 시험센터 변전실 이설분
+    type: area
+  systems:
+  - members:
+    - TR-3204
+    - 'TR #1'
+    - 'TR #2'
+    - 'TR #3'
+    - IVR 1
+    - IVR 2
+    - GIPAM
+    - GIMAC
+    - VCB
+    - ACB
+    - MCCB
+    - ZCT
+    - PTT
+    - CTT
+    - G.P.T
+    - BATTERY
+    - RECTIFIER
+    - CAPACITOR
+    - LV PNL
+    - HV PNL
+    - SPARE
+    - HV 1
+    - HV 2
+    - HV 3
+    - HV 4
+    - HV 5
+    - HV 6(상)
+    - HV 7(하)
+    - LV 1
+    - LV 2
+    - LV 3(상)
+    - LV 3(하)
+    - LV 4
+    - LV 5
+    - LV 6
+    - LV 7
+    - LV 8
+    - LV R
+    - P-AC-4PP-1
+    - P-AC-4PP-2
+    - P-AC-4PP-3
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-3
+    - P-A-4PP-4
+    - P-A-4PP-5
+    - P-A-4PP-6
+    - P-A-4PP-7
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    - P-C-4PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    - P-E-3PP
+    - P-D-3PP
+    - P-AC-3PP
+    - P-A-3PP
+    - P-OAC-1
+    - P-OAC-2
+    - P-OAC-3
+    - P-F
+    - P-I-2PP
+    - P-F-2PP
+    - P-G-2PP
+    - P-E-2PP-1
+    - P-E-2PP-2
+    - P-A-2PP-1
+    - P-A-2PP-2
+    - P-D-2PP
+    - P-EA-2PP
+    - P-C-2PP
+    name: 전기 단선도
+    source_pages:
+    - 2
+    system_id: SYS-ELECTRICAL-01

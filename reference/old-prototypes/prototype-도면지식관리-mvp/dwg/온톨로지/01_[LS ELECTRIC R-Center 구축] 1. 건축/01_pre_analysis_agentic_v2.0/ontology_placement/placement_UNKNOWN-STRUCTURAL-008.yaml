@@ -1,0 +1,78 @@
+placement:
+  tag: UNKNOWN-STRUCTURAL-008
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - DocumentEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118,
+          119, 120, 121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 메타 정보이며, 엔티티의 직접 속성으로 승격 가능
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 안내/주석 성격의 문장으로, 도면 객체의 물리적 속성은 아님
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    raw:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지 목록은 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 실체 설비/부품/관계가 아니라 페이지 안내 문구로만 구성됨
+    preservation_note: AnnotationOnly로 보존하고, 페이지 목록은 free_notes로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 STRUCTURAL이지만 원문은 페이지 목록과 안내 문장만 포함하여 물리적 구조물인지 주석인지 단정 불가
+    recommended_handling: AnnotationOnly로 유지하되, 후속 페이지 원문에서 동일 태그의 실제 등장 여부를 재검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그군은 unresolved_document_component / unresolved_reference_marker 가능성이
+      높으므로 raw 중심 보존
+    - 분류 불가 정보는 free_notes에 promotion_hint와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:37.092304'
+  confidence: 0.86

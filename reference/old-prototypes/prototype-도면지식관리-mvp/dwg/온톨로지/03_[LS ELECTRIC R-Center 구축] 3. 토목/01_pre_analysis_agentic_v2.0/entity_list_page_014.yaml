@@ -1,0 +1,54 @@
+page_14_entities:
+- tag: PLAN-01
+  name: 원형맨홀(Φ900) 평면도
+  type: MANHOLE_PLAN
+  discipline: CIVIL
+  confidence: 0.99
+- tag: SLAB-DTL
+  name: 맨홀 슬래브 상세도
+  type: MANHOLE_DETAIL
+  discipline: CIVIL
+  confidence: 0.99
+- tag: TABLE-MAT
+  name: 원형맨홀(Φ900) 재료표
+  type: MATERIAL_TABLE
+  discipline: CIVIL
+  confidence: 0.99
+- tag: SEC-AA
+  name: 원형맨홀(Φ900) A-A 단면도
+  type: MANHOLE_SECTION
+  discipline: CIVIL
+  confidence: 0.99
+- tag: SEC-BB
+  name: 원형맨홀(Φ900) B-B 단면도
+  type: MANHOLE_SECTION
+  discipline: CIVIL
+  confidence: 0.99
+- tag: DTL-RUNG
+  name: 수지코팅 디딤쇠 상세도
+  type: RUNG_STEP_DETAIL
+  discipline: CIVIL
+  confidence: 0.99
+- tag: TITLE-BLOCK
+  name: 도면 표제란
+  type: TITLE_BLOCK
+  discipline: CIVIL
+  confidence: 0.99
+- tag: DRAWING-TITLE
+  name: 도면 제목 및 축척
+  type: TITLE_AND_SCALE
+  discipline: CIVIL
+  confidence: 0.99
+page_14_relations:
+- from: PLAN-01
+  to: SEC-AA
+  relation: connects_to
+- from: PLAN-01
+  to: SEC-BB
+  relation: connects_to
+- from: SLAB-DTL
+  to: SEC-AA
+  relation: references
+- from: DTL-RUNG
+  to: SEC-AA
+  relation: references

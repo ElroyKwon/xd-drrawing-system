@@ -1,0 +1,84 @@
+tag: PB-001
+name: PULL BOX (하부/인입부)
+type: DISTRIBUTE
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 6
+specs:
+  labels_near:
+  - 'FROM : UTIL동 지상1층 방재실'
+  - F/O SM 4C x1(22C)
+  - FR-3 2.5㎟/5Cx1(22C)
+  equipment_symbols:
+  - type: PULL BOX 심볼 (사각형)
+    count: 1
+  - type: PULL BOX 심볼 (사각형+X)
+    count: 1
+  legend_sizes:
+  - PULL BOX SIZE 150 x 150 x 100mm
+  - PULL BOX SIZE 200 x 200 x 150mm
+  - PULL BOX SIZE 300 x 300 x 200mm
+relations:
+- from: EXTERNAL-UTIL-BLDG
+  to: PB-001
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: PB-001
+  to: WF-001
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: WF-001
+  to: PB-001
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: PB-001
+  to: SPACE-PIT-001
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: PB-001
+  to: PB-002
+  relation: connects_to
+  source_page: 6
+  origin: cross_validated
+  line_style: solid
+  note: 상하 PULL BOX 간 연결
+- from: LEGEND-001
+  to: PB-001
+  relation: legend_refers_to
+  source_page: 6
+  origin: cross_validated
+  line_style: null
+  note: PULL BOX SIZE 150/200/300
+collection_sources:
+  cross_validated: true
+position: center-right
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: JunctionBox
+  observed_attributes:
+  - labels_near
+  - equipment_symbols
+  - legend_sizes
+  similar_equipment:
+  - PB-002
+  function_candidates:
+  - CableRouting
+  - WireConnection
+  - SignalDistribution

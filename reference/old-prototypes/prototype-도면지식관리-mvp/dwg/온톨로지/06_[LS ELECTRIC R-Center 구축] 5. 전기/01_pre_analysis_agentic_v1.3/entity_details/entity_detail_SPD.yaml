@@ -1,0 +1,142 @@
+entity_detail:
+  tag: SPD
+  type: surge_protective_device
+  specs:
+    name:
+      value: Surge Protective Device
+      unit: null
+      source: page 20
+      confidence: 0.9
+    description:
+      value: 서지 보호 장치
+      unit: null
+      source: page 20
+      confidence: 0.9
+    observed_installation:
+      value: 각 분전반 내 SPD 표기 확인
+      unit: null
+      source: pages 19, 20, 21, 22
+      confidence: 0.92
+    observed_rating:
+      value: 3Ø 40KA/mode
+      unit: null
+      source: page 19
+      confidence: 0.9
+    observed_voltage:
+      value: 3Ø 440V
+      unit: null
+      source: page 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: 각 분전반에는 MAIN, MCCB, SPD, 접지(E3) 및 분기 회로가 반복되며, 우측 주기사항 영역에 차단기 정격(30AF~600AF)과
+      차단용량(5KA 이상~50KA 이상) 표가 보인다.
+  - source: page 19
+    page_number: 19
+    text: SPD 3Ø 40KA/mode
+  - source: page 20
+    page_number: 20
+    text: SPD
+  - source: page 20
+    page_number: 20
+    text: 서지 보호 장치
+  - source: page 21
+    page_number: 21
+    text: 각 분전반에는 MCCB, SPD, E3 접지 표기가 확인되며, 설치 위치는 1층 Drive 시험실로 보인다.
+  - source: page 22
+    page_number: 22
+    text: '각 분전반은 FROM: 전기실, R/S/T 3상 전원 라인, MCCB, SPD, 접지(E3) 표기가 반복되며, 우측에는 주기사항과
+      차단용량 표가 있다.'
+  - source: page 22
+    page_number: 22
+    text: 3상 440V 서지 보호기
+  requirements:
+  - text: 각 분전반에 SPD 표기 및 설치가 반복됨
+    source: pages 19, 20, 21, 22
+    type: installation_requirement
+  - text: 3Ø 40KA/mode
+    source: page 19
+    type: performance_requirement
+  - text: 3상 440V
+    source: page 22
+    type: electrical_condition
+  connection_specs:
+  - relation: connected_via
+    partner: 분전반
+    details:
+      source: page 19
+      text: P-EA-2PP 분전반 내 설치 / P-F-2PP 분전반 내 설치 / P-G-2PP 분전반 내 설치 / P-I-2PP 분전반
+        내 설치
+  - relation: contains
+    partner: 분전반
+    details:
+      source: page 22
+      text: P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP, P-F-4PP, P-P-4PP 각각에 SPD (Surge
+        Protective Device) 포함
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: P-EA-2PP
+      direction: downstream
+      source: page 19
+    - relation_type: connected_via
+      partner_tag: P-F-2PP
+      direction: downstream
+      source: page 19
+    - relation_type: connected_via
+      partner_tag: P-G-2PP
+      direction: downstream
+      source: page 19
+    - relation_type: connected_via
+      partner_tag: P-I-2PP
+      direction: downstream
+      source: page 19
+    - relation_type: contains
+      partner_tag: P-A-4PP-7
+      direction: internal
+      source: page 22
+    - relation_type: contains
+      partner_tag: P-AC-4PP-1
+      direction: internal
+      source: page 22
+    - relation_type: contains
+      partner_tag: P-C-4PP
+      direction: internal
+      source: page 22
+    - relation_type: contains
+      partner_tag: P-E-4PP
+      direction: internal
+      source: page 22
+    - relation_type: contains
+      partner_tag: P-F-4PP
+      direction: internal
+      source: page 22
+    - relation_type: contains
+      partner_tag: P-P-4PP
+      direction: internal
+      source: page 22
+    observed_attributes:
+    - name
+    - description
+    - observed_installation
+    - observed_rating
+    - observed_voltage
+    similar_equipment:
+    - SPD-EA
+    - SPD-F
+    - SPD-G
+    - SPD-I
+    - SPD-P-A-4PP-7
+    - SPD-P-AC-4PP-1
+    - SPD-P-C-4PP
+    - SPD-P-E-4PP
+    - SPD-P-F-4PP
+    - SPD-P-P-4PP
+    suggested_parent_class: ProtectiveDevice
+    cross_discipline: []
+  notes:
+  - 페이지 19에서는 SPD가 3Ø 40KA/mode로 표기됨.
+  - 페이지 20의 태그 SPD는 범용 항목으로 'Surge Protective Device'와 '서지 보호 장치'가 확인됨.
+  - 페이지 21, 22에서는 각 분전반 내 SPD 표기가 반복되나 개별 정격은 일부만 명확히 확인됨.
+tag: SPD

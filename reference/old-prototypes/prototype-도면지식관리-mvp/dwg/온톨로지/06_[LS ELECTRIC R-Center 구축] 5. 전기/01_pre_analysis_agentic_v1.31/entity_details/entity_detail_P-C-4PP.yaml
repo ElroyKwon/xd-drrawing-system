@@ -1,0 +1,99 @@
+entity_detail:
+  tag: P-C-4PP
+  type: Power Panelboard
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 22
+      confidence: 0.98
+    panel_location:
+      value: 챔버룸
+      unit: null
+      source: page 22
+      confidence: 0.98
+    source_volt:
+      value: 440
+      unit: V
+      source: page 22
+      confidence: 0.98
+    main_cb_type:
+      value: MCCB 3F 30/20AT
+      unit: null
+      source: page 22
+      confidence: 0.98
+    surge_protective_device:
+      value: 3Ø S.P.D 40KA/mode
+      unit: null
+      source: page 22
+      confidence: 0.98
+  drawing_texts:
+  - source: page 22
+    page_number: 22
+    text: 'P-C-4PP 분전반
+
+      COVER TYPE: 노출형(STEEL); PANEL LOCATION: 챔버룸; SOURCE VOLT: 440V; MAIN C.B TYPE:
+      MCCB 3F 30/20AT; 3Ø S.P.D 40KA/mode'
+  - source: page 22
+    page_number: 22
+    text: 전기실 -> P-C-4PP
+  - source: page 22
+    page_number: 22
+    text: P-C-4PP -> E3
+  - source: page 23
+    page_number: 23
+    text: P-C-4PP
+  requirements:
+  - text: 'COVER TYPE: 노출형(STEEL)'
+    source: page 22
+    type: installation_requirement
+  - text: 'SOURCE VOLT: 440V'
+    source: page 22
+    type: electrical_requirement
+  - text: 'MAIN C.B TYPE: MCCB 3F 30/20AT'
+    source: page 22
+    type: protection_requirement
+  - text: 3Ø S.P.D 40KA/mode
+    source: page 22
+    type: protection_requirement
+  - text: E3 접지
+    source: page 22
+    type: grounding_requirement
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 22
+      text: 전기실 -> P-C-4PP
+  - relation: grounded_to
+    partner: E3
+    details:
+      source: page 22
+      text: P-C-4PP -> E3
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: ELECTRICAL-ROOM
+      direction: source_to_target
+      source: page 22
+    - relation_type: grounded_to
+      partner_tag: E3-GROUNDING
+      direction: source_to_target
+      source: page 22
+    observed_attributes:
+    - cover_type
+    - panel_location
+    - source_volt
+    - main_cb_type
+    - surge_protective_device
+    similar_equipment:
+    - P-A-4PP-7
+    - P-AC-4PP-1
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: Power Panelboard
+    cross_discipline: []
+  notes:
+  - page 23에는 P-C-4PP가 태그 목록에 재등장하지만 상세 사양은 제공되지 않음.
+tag: P-C-4PP

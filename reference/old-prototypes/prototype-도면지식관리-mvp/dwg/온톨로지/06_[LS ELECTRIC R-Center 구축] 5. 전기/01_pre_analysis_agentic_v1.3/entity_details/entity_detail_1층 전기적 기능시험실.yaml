@@ -1,0 +1,121 @@
+entity_detail:
+  tag: 1층 전기적 기능시험실
+  type: room_name
+  specs:
+    floor:
+      value: 1
+      unit: 층
+      source: page 20
+      confidence: 0.98
+    room_name:
+      value: 1층 전기적 기능시험실
+      unit: null
+      source: page 20
+      confidence: 0.99
+    associated_panel:
+      value: P-D-3PP
+      unit: null
+      source: page 20
+      confidence: 0.98
+    panel_spec:
+      value: 노출형(STEEL), 3상 380V
+      unit: null
+      source: page 20
+      confidence: 0.98
+    panel_location:
+      value: 1층 전기적 기능시험실
+      unit: null
+      source: page 20
+      confidence: 0.98
+    main_breaker:
+      value: 3상 380V
+      unit: null
+      source: page 20
+      confidence: 0.98
+    enclosure_material_thickness:
+      value: 전면 STEEL 1.6t, 속판 STEEL 1.6t
+      unit: null
+      source: page 20
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20 / page_020_context.yaml
+    page_number: 20
+    text: 'title: 생산동력(3Ø 380V) 분전반 결선도'
+  - source: page 20 / page_020_context.yaml
+    page_number: 20
+    text: P-D-3PP
+  - source: page 20 / page_020_context.yaml
+    page_number: 20
+    text: 'spec: ''노출형(STEEL), 3상 380V, 위치: 1층 전기적 기능시험실'''
+  - source: page 20 / page_020_context.yaml
+    page_number: 20
+    text: 1층 전기적 기능시험실
+  - source: page 20 / page_020_context.yaml
+    page_number: 20
+    text: EPS내 노출형 분전반 외함 전면 STEEL 1.6t, 속판 STEEL 1.6t
+  requirements:
+  - text: 노출형(STEEL)
+    source: page 20
+    type: installation_condition
+  - text: 3상 380V
+    source: page 20
+    type: electrical_condition
+  - text: EPS내 노출형 분전반 외함 전면 STEEL 1.6t, 속판 STEEL 1.6t
+    source: page 20
+    type: material_requirement
+  connection_specs:
+  - relation: associated_with
+    partner: P-D-3PP
+    details:
+      source: page 20
+  - relation: power_supply_related
+    partner: 전기실
+    details:
+      source: page 20
+  - relation: contains_panel
+    partner: MAIN
+    details:
+      source: page 20
+  - relation: contains_panel
+    partner: MCCB
+    details:
+      source: page 20
+  - relation: contains_panel
+    partner: CBR
+    details:
+      source: page 20
+  - relation: contains_grounding
+    partner: E3
+    details:
+      source: page 20
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: SP-ROOM-03
+      direction: N/A
+      source: page 20
+    - relation_type: associated_equipment
+      partner_tag: P-D-3PP
+      direction: N/A
+      source: page 20
+    observed_attributes:
+    - floor
+    - room_name
+    - associated_panel
+    - panel_spec
+    - panel_location
+    - main_breaker
+    - enclosure_material_thickness
+    similar_equipment:
+    - SP-ROOM-01
+    - SP-ROOM-02
+    - SP-ROOM-04
+    - SP-ROOM-05
+    - SP-ROOM-06
+    - SP-ROOM-07
+    suggested_parent_class: TestRoom
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 도면에서 공간 자체의 별도 상세 사양은 제한적이며, 주로 P-D-3PP 분전반의 위치 정보로 확인됨.
+tag: 1층 전기적 기능시험실

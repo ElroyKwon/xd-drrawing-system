@@ -1,0 +1,432 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: SECTION_DRAWING
+  drawing_genre: elevation_section
+  title_block:
+    drawing_number: C20-102
+    title: 굴착계획단면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 상단 중앙에 A-A 단면 표기와 우측 상단 Key Plan이 보임
+  - 표제란에 LS Electric / R-Center 구축, 도면번호 C20-102, 제목 굴착계획단면도 확인
+  - 페이지는 건축/토목 성격의 단면도이며, 범례 전용 페이지는 아님
+  confidence: 0.96
+  note: 도면번호 접두사 C가 보이나, 제공된 분류 체계에 C는 COMMUNICATION으로 정의되어 있으나 시각적 내용은 굴착계획단면도(건축/토목
+    성격)임. 접두사 우선 규칙은 도면번호 표제란 확인 시 적용되나, 현재 페이지는 통신 도면으로 보기 어려워 discipline은 ARCHITECTURAL로
+    1차 판정함.
+  recommended_supplements: &id001
+    P-4.5: discipline/communication/genre_elevation_section/supplement_p4_05.yaml
+  routing_confidence: 0.62
+  routing_reason: 페이지는 단면도 성격의 건축 도면으로 보이며, available_supplements_catalog에서 architectural의
+    P-4.5에 genre_plan_elevation이 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: Key Plan
+    position: top-right
+    labels_near:
+    - Key Plan
+    - A-A 단면 위치 표시
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 굴착계획단면도
+    position: center
+    labels_near:
+    - A - A 단면
+    - FINAL EXC. EL.+94.81m
+    - EL.+92.94m
+    - EL.+93.44m
+    - EL.+91.14m
+    - S = 1:1.0
+    - S = 1:1.0
+    - 1,870
+    - 2,810
+    - '990'
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: dashed
+    annotation: 단면 위치 참조
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 그리드 버블 (1~7)
+  - shape: circle
+    label: '1'
+    note: 도면 번호/축척 표시 (우측 하단)
+  - shape: dashed_box
+    label: 굴착 단면선
+    note: 지반 굴착 계획을 나타내는 점선
+  - shape: shaded_box
+    label: 구조물 단면
+    note: 건물 지하 구조물 단면 (연한 회색)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 페이지는 굴착 계획을 보여주는 단면도이며, 범례 표나 심볼 목록이 존재하지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: elevation_section
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.92
+  routing_reason: 도면번호 접두사 C(COMMUNICATION)에 따라 discipline을 갱신함. 시각적 내용은 굴착계획단면도이므로
+    genre는 elevation_section으로 유지. 카탈로그에 communication/genre_elevation_section 경로가
+    존재하지 않아, 일반적인 elevation_section supplement를 매핑함 (실제로는 토목/건축 도면이나 규칙 준수).
+classification: SECTION_DRAWING
+discipline: ARCHITECTURAL
+key_elements_from_text:
+- A-A 단면
+- Key Plan
+- LS Electric
+- R-Center 구축
+- 굴착계획단면도
+- 도면번호 224001
+- 도면번호 C20-102
+- '축척 A1: 1/150'
+- '축척 A2: 1/300'
+- 날짜 2024.05
+title_block:
+  drawing_number: C20-102
+  title: 굴착계획단면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=COMMUNICATION은 표제란의 도면번호 접두사 C를 근거로 한 판정으로 보이나, 시각적 내용은 굴착계획단면도와
+  A-A 단면, Key Plan이 있는 건축/토목 성격의 단면도이다. 따라서 discipline은 ARCHITECTURAL로 교정하였다. 페이지
+  22에는 범례 전용 섹션은 보이지 않는다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: KEYPLAN-01
+    shape: rectangle
+    labels_inside:
+    - Key Plan
+    - A-A 단면 위치 표시
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: key_plan_thumbnail
+      count: 1
+    - type: section_cut_marker
+      count: 1
+    inferred_name: Key Plan (단면 위치 참조도)
+    position: top-right
+  - panel_id: SECTION-AA
+    shape: other
+    labels_inside:
+    - A - A 단면
+    - FINAL EXC. EL.+94.81m
+    - EL.+92.94m
+    - EL.+93.44m (반복 다수)
+    - EL.+91.14m
+    - FINAL EXC. EL.+91.14m
+    - FINAL EXC. EL.+93.14m
+    - EL.+92.14m
+    - S = 1:1.0 (좌측 사면)
+    - S = 1:1.0 (우측 사면)
+    - 1,870
+    - 2,810
+    - '990'
+    labels_above:
+    - ① ② ③ ④ ⑤ ⑥ ⑦ (구조 그리드 버블, 좌→우)
+    labels_below:
+    - 굴착계획단면도
+    - 축척 1/150
+    equipment_symbols:
+    - type: grid_bubble
+      count: 7
+    - type: section_cut_line
+      count: 1
+    - type: slope_annotation
+      count: 2
+    - type: elevation_marker
+      count: 10
+    - type: dimension_line
+      count: 3
+    inferred_name: A-A 굴착계획단면도 (지반 굴착 단면 및 구조물 단면)
+    position: center
+  - panel_id: STRUCT-LEFT
+    shape: shaded_box
+    labels_inside:
+    - FINAL EXC. EL.+94.81m
+    - EL.+92.94m
+    - 1,870
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: concrete_section
+      count: 1
+    inferred_name: 좌측 구조물 단면 (지하 구조체)
+    position: center-left
+  - panel_id: STRUCT-RIGHT
+    shape: shaded_box
+    labels_inside:
+    - FINAL EXC. EL.+93.14m
+    - EL.+92.14m
+    - '990'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: concrete_section
+      count: 1
+    inferred_name: 우측 구조물 단면 (지하 구조체)
+    position: center-right
+  - panel_id: EXCAV-CENTER
+    shape: dashed_box
+    labels_inside:
+    - FINAL EXC. EL.+91.14m
+    - S = 1:1.0 (좌측)
+    - S = 1:1.0 (우측)
+    - 2,810
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: excavation_slope_line
+      count: 2
+    - type: final_excavation_level
+      count: 1
+    inferred_name: 중앙 굴착 구간 (최저 굴착 레벨 EL.+91.14m)
+    position: center
+  - panel_id: GROUND-LINE
+    shape: other
+    labels_inside:
+    - EL.+93.44m (다수 반복)
+    - EL.+92.94m
+    - EL.+92.14m
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: natural_ground_line
+      count: 1
+    - type: dashed_excavation_line
+      count: 1
+    inferred_name: 자연지반선 및 굴착 계획선
+    position: bottom-center
+  connections:
+  - from: KEYPLAN-01
+    to: SECTION-AA
+    line_type: other
+    line_style: dashed
+    annotation: A-A 단면 절단 위치 참조
+  - from: STRUCT-LEFT
+    to: EXCAV-CENTER
+    line_type: other
+    line_style: solid
+    annotation: S = 1:1.0 사면 연결 (좌측)
+  - from: STRUCT-RIGHT
+    to: EXCAV-CENTER
+    line_type: other
+    line_style: solid
+    annotation: S = 1:1.0 사면 연결 (우측)
+  - from: GROUND-LINE
+    to: EXCAV-CENTER
+    line_type: other
+    line_style: dashed
+    annotation: 굴착 계획선 (점선) — 자연지반 대비 굴착 깊이 표시
+  groups:
+  - group_id: GRP-GRID
+    label: 구조 그리드 (① ~ ⑦)
+    members:
+    - SECTION-AA
+  - group_id: GRP-EXCAV
+    label: 굴착 계획 구간 (FINAL EXC. 레벨 표시)
+    members:
+    - STRUCT-LEFT
+    - EXCAV-CENTER
+    - STRUCT-RIGHT
+    - GROUND-LINE
+  legend_references:
+  - text: 콘크리트 (SYM-012)
+    linked_to: STRUCT-LEFT
+  - text: 콘크리트 (SYM-012)
+    linked_to: STRUCT-RIGHT
+  diagram_meta:
+    title: 굴착계획단면도 (A-A 단면)
+    drawing_number: C20-102
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: 1:150
+    scale_secondary: 1:300
+    date: '2024.05'
+    discipline: ARCHITECTURAL
+    arch_subsystem: civil_excavation
+    view_type: elevation_section
+    section_cut_id: A-A
+    floor_label: null
+    has_legend: false
+    has_grid: true
+    grid_labels:
+    - ①
+    - ②
+    - ③
+    - ④
+    - ⑤
+    - ⑥
+    - ⑦
+    key_elevations:
+    - label: FINAL EXC. (좌측)
+      value: EL.+94.81m
+    - label: 자연지반 (좌측 인접)
+      value: EL.+92.94m
+    - label: 자연지반 (중간 반복)
+      value: EL.+93.44m
+    - label: FINAL EXC. (중앙 최저)
+      value: EL.+91.14m
+    - label: 자연지반 (우측)
+      value: EL.+92.14m
+    - label: FINAL EXC. (우측)
+      value: EL.+93.14m
+    slope_annotations:
+    - location: 중앙 좌측 사면
+      value: S = 1:1.0
+    - location: 중앙 우측 사면
+      value: S = 1:1.0
+    dimensions_noted:
+    - label: 좌측 구조물 폭 관련
+      value: 1,870
+      unit: mm
+    - label: 중앙 굴착 폭 관련
+      value: 2,810
+      unit: mm
+    - label: 우측 구조물 폭 관련
+      value: '990'
+      unit: mm
+    flow_direction: UNKNOWN
+    classification: SECTION_DRAWING
+    confidence: 0.97
+    note: 도면번호 C20-102의 접두사 C는 통신(COMMUNICATION) 분류 코드로 보이나, 시각적 내용은 굴착계획단면도(토목/건축
+      성격)이므로 discipline은 ARCHITECTURAL로 교정 유지. A-A 단면은 Key Plan의 절단선 위치를 참조하며, 그리드
+      ①~⑦ 범위에 걸쳐 지반 굴착 계획과 지하 구조물 단면을 표현한다. 점선은 굴착 계획선, 실선은 구조물 외곽선을 나타낸다.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01-SECTION_AA
+    shape: other
+    labels_inside:
+    - FINAL EXC. EL.+94.81m
+    - EL.+92.94m
+    - EL.+93.44m
+    - EL.+93.44m
+    - EL.+93.44m
+    - EL.+93.44m
+    - EL.+93.44m
+    - EL.+93.44m
+    - FINAL EXC. EL.+91.14m
+    - EL.+92.14m
+    - FINAL EXC. EL.+93.14m
+    - 1,870
+    - 2,810
+    - '990'
+    - S = 1:1.0
+    - S = 1:1.0
+    labels_above:
+    - A - A 단면
+    - ①
+    - ②
+    - ③
+    - ④
+    - ⑤
+    - ⑥
+    - ⑦
+    labels_below:
+    - 굴착계획단면도
+    - 축척 1/150
+    equipment_symbols:
+    - type: grid_bubble
+      count: 7
+    - type: elevation_marker
+      count: 11
+    - type: dimension_line
+      count: 3
+    - type: slope_indicator
+      count: 2
+    - type: ground_line
+      count: 1
+    - type: excavation_line
+      count: 1
+    - type: structure_outline
+      count: 1
+    inferred_name: A-A 굴착계획단면도
+    position: center
+  - panel_id: P02-KEY_PLAN
+    shape: rectangle
+    labels_inside:
+    - A
+    - A
+    labels_above:
+    - Key Plan
+    labels_below: []
+    equipment_symbols:
+    - type: section_cut_line
+      count: 1
+    - type: plan_view_thumbnail
+      count: 1
+    inferred_name: Key Plan (단면 위치도)
+    position: top-right
+  - panel_id: P03-TITLE_BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - R-Center
+    - 굴착계획단면도
+    - A1: 1/150
+    - A3: 1/300
+    - '2024.05'
+    - C20 - 102
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란 (Title Block)
+    position: right
+  connections:
+  - from: P02-KEY_PLAN
+    to: P01-SECTION_AA
+    line_type: other
+    line_style: dashed
+    annotation: 단면 위치 참조
+  groups:
+  - group_id: GRP-GRID
+    label: 구조 그리드
+    members:
+    - P01-SECTION_AA
+  legend_references: []
+  diagram_meta:
+    title: 굴착계획단면도
+    drawing_number: C20-102
+    project_name: LS Electric R-Center 구축
+    project_number: '224001'
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: 1:150
+    scale_secondary: 1:300
+    date: '2024.05'
+    discipline: ARCHITECTURAL
+    arch_subsystem: civil_excavation
+    view_type: elevation_section
+    section_id: A-A
+    has_grid: true
+    grid_labels:
+    - ①
+    - ②
+    - ③
+    - ④
+    - ⑤
+    - ⑥
+    - ⑦
+    flow_direction: UNKNOWN

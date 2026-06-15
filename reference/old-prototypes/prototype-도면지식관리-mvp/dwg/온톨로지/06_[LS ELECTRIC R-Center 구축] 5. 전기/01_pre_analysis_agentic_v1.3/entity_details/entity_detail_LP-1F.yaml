@@ -1,0 +1,48 @@
+entity_detail:
+  tag: LP-1F
+  type: equipment
+  specs:
+    spec: 1층 배전반
+    source_page: 23
+    confidence: 0.95
+  drawing_texts:
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 전원은 S/S R-Center에서 시작하며 6.6kV, 380/220V, 440V, 220V 표기가 혼재하고, LP-1F/LP-2F
+      및 다수의 P-* 분기반이 연결된다.
+  - source: page_023_context.yaml
+    page_number: 23
+    text: LP-1F
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 1층 배전반
+  requirements: []
+  connection_specs:
+  - relation: connected_from
+    partner: S/S R-Center
+    details:
+      source: page_23_context
+  - relation: connected_to
+    partner: P-* 분기반
+    details:
+      source: page_23_context
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_from
+      partner_tag: S/S R-Center
+      direction: from S/S R-Center to LP-1F
+      source: page_23_context
+    - relation_type: connected_to
+      partner_tag: P-* 분기반
+      direction: from LP-1F to P-* 분기반
+      source: page_23_context
+    observed_attributes:
+    - spec
+    - floor
+    - distribution_panel
+    similar_equipment:
+    - LP-2F
+    suggested_parent_class: ElectricalDistributionPanel
+    cross_discipline: []
+  notes: []
+tag: LP-1F

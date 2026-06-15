@@ -1,0 +1,149 @@
+page_4_entities:
+- tag: R-Center 변전실
+  name: R-Center 변전실
+  type: electrical_substation_room
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: UT동 1층 변전실
+  name: UT동 1층 변전실
+  type: electrical_substation_room
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: A동 지상1층 인버터 시험센타
+  name: A동 지상1층 인버터 시험센타
+  type: room_area
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: A동 지하1층 전기실
+  name: A동 지하1층 전기실
+  type: electrical_room
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: 사무동
+  name: 사무동
+  type: building
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: B동
+  name: B동
+  type: building
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: U.T.동
+  name: U.T.동
+  type: building
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: 공동구
+  name: 공동구
+  type: utility_tunnel
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: '전력용 맨홀 #1'
+  name: 전력용 맨홀
+  type: manhole
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: '전력용 맨홀 #2'
+  name: 전력용 맨홀
+  type: manhole
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: 'PULL BOX #1'
+  name: PULL BOX
+  type: pull_box
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: 'PULL BOX #2'
+  name: PULL BOX
+  type: pull_box
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: EMPTY PIPE (ELP100)
+  name: EMPTY PIPE
+  type: empty_pipe_conduit
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: CONCRETE DUCT BANK
+  name: CONCRETE DUCT BANK
+  type: duct_bank
+  discipline: STRUCTURAL
+  confidence: 0.95
+- tag: SPACER
+  name: SPACER
+  type: spacer
+  discipline: STRUCTURAL
+  confidence: 0.9
+- tag: 지중선표시기(전기공사분)
+  name: 지중선표시기
+  type: underground_cable_marker
+  discipline: STRUCTURAL
+  confidence: 0.9
+- tag: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  name: 고압 전력 케이블
+  type: power_cable
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2)
+  name: 고압 전력 케이블
+  type: power_cable
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SECTION '1'
+  name: 단면 상세 1
+  type: section_detail
+  discipline: STRUCTURAL
+  confidence: 0.9
+- tag: SECTION '2'
+  name: 단면 상세 2
+  type: section_detail
+  discipline: STRUCTURAL
+  confidence: 0.9
+- tag: 지하공동구 현황도
+  name: 지하공동구 현황 사진
+  type: reference_photo
+  discipline: STRUCTURAL
+  confidence: 0.85
+page_4_relations:
+- from: R-Center 변전실
+  to: UT동 1층 변전실
+  relation: 전력 인입 연결
+- from: R-Center 변전실
+  to: UT동 1층 변전실
+  relation: 전력 인입 연결
+- from: R-Center 변전실
+  to: A동 지상1층 인버터 시험센타
+  relation: 연결 표기
+- from: R-Center 변전실
+  to: A동 지하1층 전기실
+  relation: 연결 표기
+- from: UT동 1층 변전실
+  to: R-Center 변전실
+  relation: feeds
+- from: UT동 1층 변전실
+  to: R-Center 변전실
+  relation: connected_via
+- from: R-Center 변전실
+  to: '전력용 맨홀 #1'
+  relation: connected_via
+- from: '전력용 맨홀 #1'
+  to: CONCRETE DUCT BANK
+  relation: connected_via
+- from: CONCRETE DUCT BANK
+  to: '전력용 맨홀 #2'
+  relation: connected_via
+- from: '전력용 맨홀 #2'
+  to: PULL BOX
+  relation: connected_via
+- from: PULL BOX
+  to: 공동구
+  relation: connected_via
+- from: 공동구
+  to: UT동 1층 변전실
+  relation: connected_via
+- from: A동 지상1층 인버터 시험센타
+  to: 공동구
+  relation: connected_via
+- from: A동 지하1층 전기실
+  to: 공동구
+  relation: connected_via

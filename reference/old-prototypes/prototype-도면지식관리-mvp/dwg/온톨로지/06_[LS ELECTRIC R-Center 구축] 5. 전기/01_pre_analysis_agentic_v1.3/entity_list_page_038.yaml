@@ -1,0 +1,116 @@
+page_38_entities:
+- tag: null
+  name: 피뢰침
+  type: Lightning Rod / Air Terminal
+  discipline: ELECTRICAL
+  confidence: 0.98
+  sources:
+  - executive_summary.equipment
+  - pass1_설비식별
+  - pass3_공간.equipment_placement
+- tag: null
+  name: 수평도체
+  type: Horizontal Conductor
+  discipline: ELECTRICAL
+  confidence: 0.97
+  sources:
+  - executive_summary.equipment
+  - pass1_설비식별
+  - pass3_공간.equipment_placement
+- tag: null
+  name: 주 인하도선
+  type: Main Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.85
+  sources:
+  - executive_summary.equipment
+  - pass1_설비식별
+  - pass3_공간.equipment_placement
+- tag: null
+  name: 보조 인하도선
+  type: Auxiliary Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.85
+  sources:
+  - executive_summary.equipment
+  - pass1_설비식별
+  - pass3_공간.equipment_placement
+- tag: null
+  name: 구조체 접속
+  type: Structural Connection
+  discipline: STRUCTURAL
+  confidence: 0.8
+  sources:
+  - executive_summary.equipment
+  - pass1_설비식별
+  - pass4_검증.corrections
+- tag: null
+  name: 옥탑지붕층
+  type: Rooftop Level / Roof Structure
+  discipline: STRUCTURAL
+  confidence: 0.95
+  sources:
+  - pass1_설비식별
+  - pass3_공간.spaces
+  note: pass4에서 설비가 아닌 공간으로 정정됨
+- tag: null
+  name: LS Electric R-Center
+  type: site
+  discipline: null
+  confidence: 0.98
+  sources:
+  - pass3_공간.spaces
+- tag: null
+  name: R-Center
+  type: building
+  discipline: null
+  confidence: 0.98
+  sources:
+  - pass3_공간.spaces
+- tag: null
+  name: 층간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+  type: Vertical Conductor / Inter-floor Connection
+  discipline: null
+  confidence: 0.85
+  sources:
+  - pass4_검증.missing_entities
+- tag: null
+  name: 구조체 GTR 8㎜
+  type: Structural Conductor
+  discipline: null
+  confidence: 0.8
+  sources:
+  - pass4_검증.missing_entities
+page_38_relations:
+- from: 피뢰침
+  to: 수평도체
+  relation: connected_via
+  medium: conductor
+  direction: downstream
+  confidence: 0.98
+  sources:
+  - executive_summary.relationships
+  - pass2_토폴로지
+  - pass3_공간.spatial_relationships
+- from: 수평도체
+  to: 주 인하도선
+  relation: connected_via
+  medium: conductor
+  direction: downstream
+  confidence: 0.6
+  sources:
+  - executive_summary.relationships
+  - pass2_토폴로지
+  - pass3_공간.spatial_relationships
+  - pass4_검증.relationship_issues
+- from: 수평도체
+  to: 보조 인하도선
+  relation: connected_via
+  medium: conductor
+  direction: downstream
+  confidence: 0.6
+  sources:
+  - executive_summary.relationships
+  - pass2_토폴로지
+  - pass3_공간.spatial_relationships
+  - pass4_검증.relationship_issues

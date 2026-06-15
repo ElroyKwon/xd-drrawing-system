@@ -1,0 +1,80 @@
+tag: IDF-1
+name: IDF-1
+type: DISTRIBUTE
+discipline: COMMUNICATION
+function_category: DISTRIBUTION_FRAME
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - IDF-1
+  - VOICE
+  - HUB RACK-1 (RACK TYPE)
+  - DATA IN 12CORE
+  - OUT 2PORT
+  - FDF 광 FDF(SM) 24CORE
+  labels_inside:
+  - IDF-1
+  - VOICE
+  - HUB RACK-1 (RACK TYPE)
+  - DATA IN 12CORE
+  - OUT 2PORT
+  - FDF 광 FDF(SM) 24CORE
+  labels_above:
+  - IDF-1
+  labels_below:
+  - 통신실
+  inferred_name: IDF-1 (1층 통신실 허브랙)
+  position: center-left
+  equipment_symbols:
+  - type: rack
+    count: 1
+relations:
+- from: EXT-1F-COMM
+  to: IDF-1
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: UTP 0.5mm/25Px1,CAT.5 / FIBER OPTICAL S.M 12CORE (지하공동구 경유)
+- from: IDF-1
+  to: HUB-RACK-2
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: F4 F/O CABLE S.M 12CORE (광케이블 수직 간선)
+- from: IDF-1
+  to: ROOM-1F-ZONES
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: T1~T6 UTP CAT.5e 수평배선
+- from: CABLE-SCHEDULE
+  to: IDF-1
+  relation: signal
+  source_page: 5
+  origin: visual_semantics
+  annotation: 케이블 번호 참조 (F, F1~F4, T1~T6, E1~E2, G1~G2)
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: center-left
+equipment_symbols:
+- type: rack
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_above
+  - labels_below
+  - inferred_name
+  - position
+  - equipment_symbols
+  similar_equipment:
+  - HUB-RACK-2
+  function_candidates:
+  - SignalDistribution
+  - DataRouting
+  - VoiceDistribution
+  - FiberTermination

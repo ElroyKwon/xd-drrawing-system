@@ -1,0 +1,59 @@
+entity_detail:
+  tag: MAIN-CB-3
+  type: equipment
+  specs:
+    voltage:
+      value: 3Ø 440V
+      unit: V
+      source: page 21
+      confidence: 0.85
+    breaker_type:
+      value: MCB 또는 MCCB
+      unit: ''
+      source: page 21
+      confidence: 0.85
+  drawing_texts:
+  - source: page 21
+    page_number: 21
+    text: 'MAIN-CB-3
+
+      name: Main Circuit Breaker (P-A-4PP-3)
+
+      spec: MCB 또는 MCCB, 3Ø 440V
+
+      location: P-A-4PP-3 내부'
+  requirements:
+  - text: 차단기 정격/차단용량 참고표와 일반 주기사항이 함께 존재한다.
+    source: page 21
+    type: design_note
+  connection_specs:
+  - relation: feeds
+    partner: P-A-4PP-3
+    details:
+      source: page 21
+      note: 'search_entity_by_tag 결과에 from: MAIN-CB-3, to: P-A-4PP-3, relation: feeds,
+        medium: power'
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: P-A-4PP-3
+      direction: MAIN-CB-3 -> P-A-4PP-3
+      source: search_entity_by_tag(MAIN-CB-3)
+    observed_attributes:
+    - breaker_type
+    - voltage
+    - location
+    - discipline
+    - function_category
+    similar_equipment:
+    - MAIN-CB-1
+    - MAIN-CB-2
+    - MAIN-CB-4
+    - MAIN-CB-5
+    - MAIN-CB-6
+    suggested_parent_class: ElectricalCircuitBreaker
+    cross_discipline: []
+  notes:
+  - 도면에서 MAIN-CB-3은 P-A-4PP-3 내부의 Main Circuit Breaker로 표기됨.
+  - 정확한 기종은 'MCB 또는 MCCB'로만 확인됨.
+tag: MAIN-CB-3

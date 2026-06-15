@@ -1,0 +1,156 @@
+tag: LV-2
+name: 440V 저압 ACB 피더 LV-2
+type: ACB
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  bus_section: LV
+  rated_voltage_V: 440
+  poles: 3
+  rated_current_A: 2500
+  interrupting_capacity_kA: 65
+  ct_ratio: 2500/5A
+  relay_model: GIMAC 1000
+  relay_number:
+  - 50/51
+  - 50/51N
+  - '27'
+  - '59'
+  raw_labels:
+  - 2 LV
+  - ACB 3P
+  - 440V
+  - GIMAC
+  - 50/51
+  - CTT
+  - LV 2
+relations:
+- from: TR-2
+  to: LV-2
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 2차측 → LV-2 / F-CV 300SQ/1C x 6 (CABLE TRAY)
+- from: LV-1
+  to: LV-2
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V BUS
+- from: LV-2
+  to: LV-3U
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V BUS
+- from: LV-2
+  to: PANEL-4PP-AC4
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: LV-2
+  to: PANEL-4PP-AC5
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: LV-2
+  to: PANEL-4PP-AC6
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: LV-2
+  to: PANEL-4PP-AC7
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V 피더
+- from: TR-2
+  to: LV-2
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 2차측 → LV-2
+- from: LV-1
+  to: LV-2
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V BUS
+- from: LV-2
+  to: LV-3U
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V BUS
+- from: LV-2
+  to: PANEL-4PP-AC4
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+- from: LV-2
+  to: PANEL-4PP-AC5
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+- from: LV-2
+  to: PANEL-4PP-AC6
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+- from: LV-2
+  to: PANEL-4PP-AC7
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V 피더
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: middle-right
+confidence: 0.95
+equipment_symbols:
+- type: ACB
+  count: 1
+- type: CT
+  count: 3
+- type: protection_relay
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: CircuitBreaker
+  observed_attributes:
+  - bus_section
+  - rated_voltage_V
+  - poles
+  - rated_current_A
+  - interrupting_capacity_kA
+  - ct_ratio
+  - relay_model
+  - relay_number
+  - raw_labels
+  similar_equipment:
+  - LV-1
+  - LV-3U
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection
+  - OvercurrentProtection

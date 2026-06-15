@@ -1,0 +1,11 @@
+tag: P023-SP-001
+verdict: demoted
+confidence: 0.97
+missing_fields:
+- name
+missing_relations: []
+reason: 도면 메타데이터 성격이 강한 엔티티이다. tag와 specs는 있으나 title, drawing_number, classification,
+  discipline, location은 물리적 설비의 자체 사양이라기보다 도면 정보/문서 정보에 해당한다. page 23 context에서도 본
+  엔티티는 'R-Center 전력간선설비 계통도'라는 도면 자체로 확인되며, 독립 설비가 아니라 문서 메타데이터(document_metadata)로
+  강등하는 것이 적절하다. 관계는 power_infeed, power_supply_from, distribution_to 등으로 다수 확인되지만
+  이는 도면 내 연결 관계이며 독립 설비 판정 근거가 되지 않는다.

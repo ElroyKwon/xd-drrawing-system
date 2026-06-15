@@ -1,0 +1,160 @@
+placement:
+  tag: UNKNOWN-PANEL-004
+  name: 도면 번호/개정란
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: DrawingMetadata
+    alternative_class_hints:
+    - TitleBlock
+    - RevisionBlock
+    related_assertions: []
+    applicable_axioms:
+    - AX012
+    applicable_constraints:
+    - CN005
+    confirmed_class: dks:DrawingMetadata
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'panel_id: TITLE-BLOCK-BOX'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: panelId
+          suggested_datatype: xsd:string
+          rationale: 식별자 형태의 문자열 값
+      - raw_text: 'shape: rectangle'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 속성 값
+      - raw_text: 'labels_inside: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 목록 속성
+      - raw_text: 'labels_above: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: labelsAbove
+          suggested_datatype: xsd:string
+          rationale: 상단 라벨 목록 속성
+      - raw_text: 'labels_below: []'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: labelsBelow
+          suggested_datatype: xsd:string
+          rationale: 하단 라벨 목록 속성
+      - raw_text: 'equipment_symbols: type=대각선이 있는 직사각형, count=1'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: equipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 도면 기호의 종류와 개수 정보
+      - raw_text: 'inferred_name: 도면 번호/개정란 (공란)'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론명 문자열
+      - raw_text: 'position: top-right'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'function_category: TITLE_BLOCK'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'name: 도면 번호/개정란'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 텍스트
+      - raw_text: 'type: DOCUMENT'
+        source_page: 1
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 문자열
+  provenance:
+    name:
+      source_pages:
+      - 1
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 1
+      method: inferred_from_type_and_function_category
+    ontology_core.class_hint:
+      source_pages:
+      - 1
+      method: inferred_from_suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 1
+      method: inferred_from_function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 1
+      method: direct_preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 1
+      method: evaluated_from_entity_detail
+  unresolved:
+  - field_candidate: specs.labels_inside
+    raw_text: '[]'
+    source_page: 1
+    reason: 빈 목록이라 해석할 추가 정보 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 1
+    reason: 빈 목록이라 해석할 추가 정보 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 1
+    reason: 빈 목록이라 해석할 추가 정보 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 1
+    reason: 관계 항목이 없음
+    preservation_note: 관계 부재 정보 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 1
+    reason: 원문 값은 명확하나 별도 의미 확정 불가
+    preservation_note: 생성/합성 출처 플래그로 보이나 확정하지 않음
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 도면 번호/개정란으로 보이는 문서 메타데이터이며 물리 설비가 아님
+    recommended_handling: AnnotationOnly로 유지하고 title block/revision block 후보로 후속 분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CommunicationDocumentEntity 계열로 분류
+    - TITLE-BLOCK 및 문서/메타데이터 패턴 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:13.176334'
+  confidence: 0.93

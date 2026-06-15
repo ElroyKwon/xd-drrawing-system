@@ -1,0 +1,920 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: PLUMBING
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: M32-002
+    title: 지상1층 위생배관 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 0
+  next_step_hints:
+  - 도면 제목은 위생배관 평면도이며, 평면 내 실명과 배관/공동구 표기가 다수 보임
+  - '표제란 도면번호 접두사 M과 제목 내용이 충돌함: M 접두사 우선 규칙에 따라 PLUMBING으로 분류'
+  - 페이지 내 심볼/치수/실명은 보이나 설비 태그 형식의 식별 코드는 확인되지 않음
+  confidence: 0.93
+  note: 표제란 도면번호 M32-002가 확인되며, 제목은 '지상1층 위생배관 평면도'로 시각적 내용과도 부합하나 접두사 M 우선 규칙에 따라
+    PLUMBING으로 판단함.
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: null
+  routing_confidence: 0.88
+  routing_reason: PLUMBING 도면의 floor_plan 성격으로 보이며, 카탈로그에서 mechanical/genre_floor_plan의
+    P-4.5만 직접 매칭되고 P-10은 해당 genre가 없어 null로 기록함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 지상1층 위생배관 평면도
+    position: bottom-right
+    labels_near:
+    - M32-002
+    - LS Electric
+  - panel_id: FLOOR_PLAN
+    shape: rectangle
+    primary_label: 지상1층 위생배관 평면도
+    position: center
+    labels_near:
+    - 진동시험실
+    - 환경시험실
+    - EMC 챔버실
+    - 공동구
+  connections: []
+  notable_shapes:
+  - shape: circle
+    label: '1'
+    note: 도면 하단 중앙의 도면 번호 식별자
+  - shape: circle
+    label: A, B, C, D
+    note: 도면 좌측의 그리드 열 식별자
+  - shape: circle
+    label: 1, 2, 3, 4, 5, 6, 7
+    note: 도면 상단의 그리드 행 식별자
+  - shape: dashed_box
+    label: 공동구
+    note: 도면 우측 하단에 점선으로 표기된 영역
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 도면 전체가 지상1층 평면도로 구성되어 있으며, 별도의 범례 표나 섹션이 확인되지 않음.
+supplement_routing:
+  discipline: PLUMBING
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '지상1층 위생배관 평면도'와 도면번호 접두사 'M'이 일치하며, 시각적으로도 위생배관 평면도임이 명확함.
+    기존 분류를 유지함.
+classification: FLOOR_LAYOUT
+discipline: PLUMBING
+key_elements_from_text:
+- '도면 제목: 지상1층 위생배관 평면도'
+- '도면번호: M32-002'
+- '프로젝트 제목: LS Electric / R-Center 구축'
+- '건물명: R-Center'
+- '축척: A1:1/200, A3:1/400'
+- '페이지 내 실명: 진동시험실, 극한환경시험실, 시험 전원실, EMC 챔버실, 컨트롤실, AMP 실, 로비, 고객 접견실, Drive 시험실,
+  환경시험실, 공동구'
+- '배관/설비 표기: PS, RD, UP, DN'
+- 1층 화장실 확대 평면도 참조
+title_block:
+  drawing_number: M32-002
+  title: 지상1층 위생배관 평면도
+  revision: UNKNOWN
+confidence: 0.97
+note: 기존 분석의 PLUMBING / FLOOR_LAYOUT / floor_plan 판정을 유지한다. 근거는 표제란의 '지상1층 위생배관 평면도'와
+  도면번호 'M32-002'이며, 페이지 전체가 1층 평면 배치와 위생배관 관련 표기로 구성되어 있다. 리비전 값은 텍스트에서 확인되지 않아 UNKNOWN으로
+  둔다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - 진동시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 진동시험실
+    position: top-left
+    grid_x: A-B
+    grid_y: 1-2
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 극한환경시험실
+    - 제어룸
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 극한환경시험실 (제어룸 포함)
+    position: top-left
+    grid_x: A-B
+    grid_y: 2-3
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 환경시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 환경시험실
+    position: top-center
+    grid_x: A-B
+    grid_y: 3-4
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - EMI/EMS Shield실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: EMI/EMS 차폐실
+    position: top-center
+    grid_x: A-B
+    grid_y: '4'
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 컨트롤실
+    position: top-center
+    grid_x: A-B
+    grid_y: 4-5
+  - panel_id: BLK-M06
+    shape: rectangle
+    labels_inside:
+    - AMP 실
+    - 광기 통합운영실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: AMP실 / 광기 통합운영실
+    position: top-center
+    grid_x: A
+    grid_y: 4-5
+  - panel_id: BLK-M07
+    shape: rectangle
+    labels_inside:
+    - EMC 챔버실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: EMC 챔버실
+    position: top-right
+    grid_x: A-B
+    grid_y: 5-7
+  - panel_id: BLK-M08
+    shape: rectangle
+    labels_inside:
+    - 로비
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 로비
+    position: center-right
+    grid_x: B-C
+    grid_y: '6'
+  - panel_id: BLK-M09
+    shape: rectangle
+    labels_inside:
+    - 방문실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 방문실
+    position: center-right
+    grid_x: B
+    grid_y: '7'
+  - panel_id: BLK-M10
+    shape: rectangle
+    labels_inside:
+    - 고객 접견실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 고객 접견실
+    position: center-right
+    grid_x: C
+    grid_y: 6-7
+  - panel_id: BLK-M11
+    shape: rectangle
+    labels_inside:
+    - Drive 기계시험실
+    - Drive 시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: Drive 시험실
+    position: bottom-right
+    grid_x: C-D
+    grid_y: 4-7
+  - panel_id: BLK-M12
+    shape: rectangle
+    labels_inside:
+    - 다목적 포트부실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 다목적 포트부실
+    position: bottom-left
+    grid_x: C-D
+    grid_y: 1-2
+  - panel_id: BLK-M13
+    shape: rectangle
+    labels_inside:
+    - BIM 장비 기계시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: BIM 장비 기계시험실
+    position: bottom-left
+    grid_x: C-D
+    grid_y: 2-3
+  - panel_id: BLK-M14
+    shape: rectangle
+    labels_inside:
+    - 시험 전원실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 시험 전원실
+    position: bottom-center
+    grid_x: C-D
+    grid_y: '3'
+  - panel_id: BLK-M15
+    shape: rectangle
+    labels_inside:
+    - 지상1층 소방공조용 배관
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 소방공조용 배관 구역 (하부)
+    position: bottom-center
+    grid_x: C-D
+    grid_y: 3-4
+  - panel_id: BLK-M16
+    shape: dashed_box
+    labels_inside:
+    - 지상1층 대전력 시험 공조용 배관
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 대전력 시험 공조용 배관 구역 (점선 박스)
+    position: center-left
+    grid_x: B-C
+    grid_y: 1-4
+  - panel_id: BLK-M17
+    shape: rectangle
+    labels_inside:
+    - 1층 화장실 확대 평면도 참조
+    - W(340) 평면도 참조
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화장실 위생기구 심볼 (WC, BASIN 등)
+      count: 4
+    inferred_name: 1층 화장실 (확대 평면도 참조)
+    position: center
+    grid_x: B-C
+    grid_y: 4-5
+  - panel_id: BLK-M18
+    shape: rectangle
+    labels_inside:
+    - 공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 공동구 (shared pipe space)
+    position: bottom-right
+    grid_x: D
+    grid_y: 6-7
+    duct_type: shared_pipe_space
+  - panel_id: BLK-TITLE
+    shape: rectangle
+    labels_inside:
+    - 지상1층 위생배관 평면도
+    - 축척 1/400
+    - M32-002
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - A1:1/200 A3:1/400
+    - '2024.05'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: BLK-DRAWNO
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_above: []
+    labels_below:
+    - 지상1층 위생배관 평면도
+    - 축척 1/400
+    equipment_symbols: []
+    inferred_name: 도면 번호 식별자
+    position: bottom-center
+  connections:
+  - from: BLK-M17
+    to: BLK-M08
+    line_type: pipe
+    line_style: solid
+    annotation: 급수/오수 배관 연결 (화장실→로비 방향)
+  - from: BLK-M18
+    to: BLK-M11
+    line_type: pipe
+    line_style: solid
+    annotation: 공동구 → Drive 시험실 배관 경로
+  - from: BLK-M16
+    to: BLK-M03
+    line_type: pipe
+    line_style: dashed
+    annotation: 대전력 시험 공조용 배관 (점선 박스 내부)
+  groups:
+  - group_id: GRP-TEST-ROOMS
+    label: 시험실 구역 (A-B 행)
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+    - BLK-M06
+    - BLK-M07
+  - group_id: GRP-COMMON
+    label: 공용 구역 (로비/접견/방문)
+    members:
+    - BLK-M08
+    - BLK-M09
+    - BLK-M10
+  - group_id: GRP-DRIVE
+    label: Drive 시험 구역
+    members:
+    - BLK-M11
+    - BLK-M12
+    - BLK-M13
+    - BLK-M14
+    - BLK-M15
+  - group_id: GRP-UTILITY
+    label: 공동구 / 유틸리티 구역
+    members:
+    - BLK-M18
+  legend_references:
+  - text: FD (바닥배수구 / FLOOR DRAIN)
+    linked_to: BLK-M17
+  - text: VTR (통기관 / VENT THRU ROOF)
+    linked_to: BLK-M17
+  - text: S (오수관 / SOIL)
+    linked_to: BLK-M17
+  - text: D (배수관 / DRAIN)
+    linked_to: BLK-M17
+  - text: RD (우수배수관 / RAINWATER DRAIN)
+    linked_to: BLK-M18
+  - text: 공동구 (shared_pipe_space)
+    linked_to: BLK-M18
+  - text: UP / DN (덕트의 오르내림)
+    linked_to: BLK-M17
+  - text: PS (압력스위치 / PRESSURE SWITCH)
+    linked_to: BLK-M17
+  diagram_meta:
+    title: 지상1층 위생배관 평면도
+    drawing_number: M32-002
+    project: LS Electric R-Center 구축
+    building: R-Center
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    discipline: PLUMBING
+    mech_subsystem: sanitary_piping
+    mech_floor_subtype: sanitary_floor_plan
+    view_type: plan
+    floor_label: 1F
+    flow_direction: UNKNOWN
+    grid_system: A-D × 1-7
+    grid_x_labels:
+    - A
+    - B
+    - C
+    - D
+    grid_y_labels:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    grid_dimensions:
+      1-2: 12000
+      2-3: 12000
+      3-4: 12000
+      4-5: 14000
+      5-6: 11000
+      6-7: 10000
+      total_width: 71000
+      A-B: 13000
+      B-C: 17900
+      C-D: 13000
+      total_height: 43900
+    room_count: 14
+    pipe_services_present:
+    - sanitary
+    - rainwater
+    - vent
+    has_sump_pit: false
+    has_utility_duct: true
+    utility_duct_label: 공동구
+    has_equipment_list: false
+    fluid_types_present:
+    - S (오수)
+    - D (배수)
+    - RD (우수배수)
+    - V (통기)
+    cross_references:
+    - 1층 화장실 확대 평면도 참조
+    - W(340) 평면도 참조
+    notable_annotations:
+    - UP / DN 표기 (배관 오르내림)
+    - PS 표기 (압력스위치)
+    - RD 표기 (우수배수관)
+    - 공동구 (도면 우측 하단 점선 구역)
+    - 지상1층 대전력 시험 공조용 배관 (점선 박스)
+    - 지상1층 소방공조용 배관
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: rectangle
+    labels_inside:
+    - 진동시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 진동시험실
+    position: top-left
+    grid_x: A-B
+    grid_y: 1-2
+  - panel_id: BLK-M02
+    shape: rectangle
+    labels_inside:
+    - 극한환경시험실
+    - 제어룸
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 극한환경시험실 (제어룸 포함)
+    position: top-left
+    grid_x: A-B
+    grid_y: 2-3
+  - panel_id: BLK-M03
+    shape: rectangle
+    labels_inside:
+    - 환경시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 환경시험실
+    position: top-center
+    grid_x: A-B
+    grid_y: 3-4
+  - panel_id: BLK-M04
+    shape: rectangle
+    labels_inside:
+    - EMI/EMS Shield실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: EMI/EMS 차폐실
+    position: top-center
+    grid_x: A-B
+    grid_y: '4'
+  - panel_id: BLK-M05
+    shape: rectangle
+    labels_inside:
+    - 컨트롤실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 컨트롤실
+    position: top-center
+    grid_x: A-B
+    grid_y: 4-5
+  - panel_id: BLK-M06
+    shape: rectangle
+    labels_inside:
+    - 전기 항온항습실
+    - AMP 실
+    - 광기 통합운영실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 전기 항온항습실 / AMP실 / 광기 통합운영실
+    position: top-center
+    grid_x: A
+    grid_y: 4-5
+  - panel_id: BLK-M07
+    shape: rectangle
+    labels_inside:
+    - EMC 챔버실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: EMC 챔버실
+    position: top-right
+    grid_x: A-B
+    grid_y: 5-7
+  - panel_id: BLK-M08
+    shape: rectangle
+    labels_inside:
+    - 로비
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 로비
+    position: center-right
+    grid_x: B-C
+    grid_y: '6'
+  - panel_id: BLK-M09
+    shape: rectangle
+    labels_inside:
+    - 방문실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 방문실
+    position: center-right
+    grid_x: B
+    grid_y: '7'
+  - panel_id: BLK-M10
+    shape: rectangle
+    labels_inside:
+    - 고객 접견실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 고객 접견실
+    position: center-right
+    grid_x: C
+    grid_y: 6-7
+  - panel_id: BLK-M11
+    shape: rectangle
+    labels_inside:
+    - Drive 기계시험실
+    - Drive 시험실
+    - DN
+    - UP
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: Drive 시험실 구역
+    position: bottom-right
+    grid_x: C-D
+    grid_y: 4-7
+  - panel_id: BLK-M12
+    shape: rectangle
+    labels_inside:
+    - 다목적 포트부실
+    - UP
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 다목적 포트부실
+    position: bottom-left
+    grid_x: C-D
+    grid_y: 1-2
+  - panel_id: BLK-M13
+    shape: rectangle
+    labels_inside:
+    - BIM 장비 기계시험실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: BIM 장비 기계시험실
+    position: bottom-left
+    grid_x: C-D
+    grid_y: 2-3
+  - panel_id: BLK-M14
+    shape: rectangle
+    labels_inside:
+    - 시험 전원실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 시험 전원실
+    position: bottom-center
+    grid_x: C-D
+    grid_y: '3'
+  - panel_id: BLK-M15
+    shape: rectangle
+    labels_inside:
+    - 지상1층 소방공조용 배관
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 소방공조용 배관 구역 (하부)
+    position: bottom-center
+    grid_x: C-D
+    grid_y: 3-4
+  - panel_id: BLK-M16
+    shape: dashed_box
+    labels_inside:
+    - 지상1층 대전력 시험 공조용 배관
+    - 전기(분도체)시험 In-Line 검증시스템
+    - PLC Drive 및 신사업 검증시스템
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 대전력 시험 공조용 배관 구역 (점선 박스)
+    position: center-left
+    grid_x: B-C
+    grid_y: 1-4
+  - panel_id: BLK-M17
+    shape: rectangle
+    labels_inside:
+    - 1층 화장실 확대 평면도 참조
+    - W(340) 평면도 참조
+    - PS
+    - UP
+    - DN
+    - VTR
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: WC (양변기)
+      count: 3
+    - type: BASIN (세면대)
+      count: 2
+    - type: UD (소변기)
+      count: 2
+    - type: FD (바닥배수구)
+      count: 1
+    inferred_name: 1층 메인 화장실 (확대 평면도 참조)
+    position: center
+    grid_x: B-C
+    grid_y: 4-5
+  - panel_id: BLK-M18
+    shape: rectangle
+    labels_inside:
+    - 공동구
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 공동구 (shared pipe space)
+    position: bottom-right
+    grid_x: D
+    grid_y: 6-7
+    duct_type: shared_pipe_space
+  - panel_id: BLK-M19
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: WC (양변기)
+      count: 1
+    - type: BASIN (세면대)
+      count: 1
+    - type: FD (바닥배수구)
+      count: 1
+    inferred_name: 화장실 (시험 전원실 옆)
+    position: bottom-center
+    grid_x: C-D
+    grid_y: '3'
+  - panel_id: BLK-M20
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: WC (양변기)
+      count: 1
+    - type: BASIN (세면대)
+      count: 1
+    - type: FD (바닥배수구)
+      count: 1
+    inferred_name: 화장실 (다목적 포트부실 옆)
+    position: bottom-left
+    grid_x: C-D
+    grid_y: 1-2
+  - panel_id: BLK-M21
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: WC (양변기)
+      count: 1
+    - type: BASIN (세면대)
+      count: 1
+    - type: FD (바닥배수구)
+      count: 1
+    inferred_name: 화장실 (Drive 기계시험실 옆)
+    position: bottom-center
+    grid_x: C-D
+    grid_y: '4'
+  - panel_id: BLK-TITLE
+    shape: rectangle
+    labels_inside:
+    - 지상1층 위생배관 평면도
+    - 축척 1/400
+    - M32-002
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - A1:1/200 A3:1/400
+    - '2024.05'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: BLK-DRAWNO
+    shape: circle
+    labels_inside:
+    - '1'
+    labels_above: []
+    labels_below:
+    - 지상1층 위생배관 평면도
+    - 축척 1/400
+    equipment_symbols: []
+    inferred_name: 도면 번호 식별자
+    position: bottom-center
+  connections:
+  - from: BLK-M17
+    to: BLK-M18
+    line_type: pipe
+    line_style: solid
+    annotation: 메인 화장실 배수/오수 배관 -> 공동구
+  - from: BLK-M20
+    to: BLK-M18
+    line_type: pipe
+    line_style: solid
+    annotation: 화장실(좌측하단) 배수/오수 배관 -> 복도 배관 -> 공동구
+  - from: BLK-M19
+    to: BLK-M18
+    line_type: pipe
+    line_style: solid
+    annotation: 화장실(중앙하단) 배수/오수 배관 -> 복도 배관 -> 공동구
+  - from: BLK-M21
+    to: BLK-M18
+    line_type: pipe
+    line_style: solid
+    annotation: 화장실(중앙) 배수/오수 배관 -> 복도 배관 -> 공동구
+  - from: BLK-M18
+    to: BLK-M11
+    line_type: pipe
+    line_style: solid
+    annotation: 공동구 인근 배관 -> Drive 시험실 방향
+  - from: BLK-M16
+    to: BLK-M03
+    line_type: pipe
+    line_style: dashed
+    annotation: 대전력 시험 공조용 배관 (점선 박스 내부)
+  groups:
+  - group_id: GRP-TEST-ROOMS
+    label: 시험실 구역 (A-B 행)
+    members:
+    - BLK-M01
+    - BLK-M02
+    - BLK-M03
+    - BLK-M04
+    - BLK-M05
+    - BLK-M06
+    - BLK-M07
+  - group_id: GRP-COMMON
+    label: 공용 구역 (로비/접견/방문)
+    members:
+    - BLK-M08
+    - BLK-M09
+    - BLK-M10
+  - group_id: GRP-DRIVE
+    label: Drive 시험 구역
+    members:
+    - BLK-M11
+    - BLK-M12
+    - BLK-M13
+    - BLK-M14
+    - BLK-M15
+  - group_id: GRP-UTILITY
+    label: 공동구 / 유틸리티 구역
+    members:
+    - BLK-M18
+  - group_id: GRP-RESTROOMS
+    label: 화장실 구역
+    members:
+    - BLK-M17
+    - BLK-M19
+    - BLK-M20
+    - BLK-M21
+  legend_references:
+  - text: FD (바닥배수구 / FLOOR DRAIN)
+    linked_to: BLK-M17
+  - text: FD (바닥배수구 / FLOOR DRAIN)
+    linked_to: BLK-M19
+  - text: FD (바닥배수구 / FLOOR DRAIN)
+    linked_to: BLK-M20
+  - text: FD (바닥배수구 / FLOOR DRAIN)
+    linked_to: BLK-M21
+  - text: VTR (통기관 / VENT THRU ROOF)
+    linked_to: BLK-M17
+  - text: S (오수관 / SOIL)
+    linked_to: BLK-M17
+  - text: D (배수관 / DRAIN)
+    linked_to: BLK-M17
+  - text: RD (우수배수관 / RAINWATER DRAIN)
+    linked_to: BLK-M18
+  - text: 공동구 (shared_pipe_space)
+    linked_to: BLK-M18
+  - text: UP / DN (덕트의 오르내림)
+    linked_to: BLK-M17
+  - text: UP / DN (덕트의 오르내림)
+    linked_to: BLK-M11
+  - text: UP (덕트의 오르내림)
+    linked_to: BLK-M12
+  - text: PS (압력스위치 / PRESSURE SWITCH)
+    linked_to: BLK-M17
+  diagram_meta:
+    title: 지상1층 위생배관 평면도
+    drawing_number: M32-002
+    project: LS Electric R-Center 구축
+    building: R-Center
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    discipline: PLUMBING
+    mech_subsystem: sanitary_piping
+    mech_floor_subtype: sanitary_floor_plan
+    view_type: plan
+    floor_label: 1F
+    flow_direction: UNKNOWN
+    grid_system: A-D × 1-7
+    grid_x_labels:
+    - A
+    - B
+    - C
+    - D
+    grid_y_labels:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    grid_dimensions:
+      1-2: 12000
+      2-3: 12000
+      3-4: 12000
+      4-5: 14000
+      5-6: 11000
+      6-7: 10000
+      total_width: 71000
+      A-B: 13000
+      B-C: 17900
+      C-D: 13000
+      total_height: 43900
+    room_count: 17
+    pipe_services_present:
+    - sanitary
+    - rainwater
+    - vent
+    - domestic_cold_water
+    - domestic_hot_water
+    has_sump_pit: false
+    has_utility_duct: true
+    utility_duct_label: 공동구
+    has_equipment_list: false
+    fluid_types_present:
+    - S (오수)
+    - D (배수)
+    - RD (우수배수)
+    - V (통기)
+    - W (급수 - implied by fixtures)
+    - HW (급탕 - implied by fixtures)
+    cross_references:
+    - 1층 화장실 확대 평면도 참조
+    - W(340) 평면도 참조
+    notable_annotations:
+    - UP / DN 표기 (배관 오르내림)
+    - PS 표기 (Pipe Shaft / Pressure Switch)
+    - RD 표기 (우수배수관)
+    - VTR 표기 (통기관)
+    - 공동구 (도면 우측 하단 점선 구역)
+    - 지상1층 대전력 시험 공조용 배관 (점선 박스)
+    - 지상1층 소방공조용 배관

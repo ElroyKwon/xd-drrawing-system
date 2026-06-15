@@ -1,0 +1,406 @@
+ontology_readiness:
+  tag: P-P-4PP
+  verdict: qualified
+  confidence: 0.98
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 18
+    reason: 고유 tag P-P-4PP가 있으며, 440V/3Ø, main CB, SPD, grounding, branch circuits
+      등 자체 사양이 명확히 존재한다. 다른 설비의 부품이 아니라 독립 분전반으로 보인다.
+  relation_completeness:
+    declared_relations: 4
+    discovered_relations: 4
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 18
+    convertible: 15
+    ambiguous_attributes:
+    - key: labels_above
+      value:
+      - PANEL BOARD  P-P-4PP  COVER TYPE  노출형(STEEL)
+      - PANEL LOCATION  고객접견공간  BOX SIZE  —
+      reason: 원문 라벨 텍스트는 보존 필요. 속성 후보가 포함되어 있으나 문장형/복합형이라 annotation으로도 함께 보존해야 함.
+    - key: labels_inside
+      value:
+      - 'FROM: 전기실'
+      - R S T
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'TYPE: MCCB'
+      - 'MAIN C.B: 3P 30/20AT'
+      - 3Ø S.P.D 40KA/mode
+      - 'AT: 50  AF: 125  P: 4  TYPE: MCCB  NO: (회로)'
+      - 'AT: 75  AF: 125  P: 3  TYPE: MCCB  SP'
+      - CCM NO TYPE P AF AT (회로 그리드 헤더)
+      - MCCB 3P 30/20AT (MAIN C.B)
+      - SP MCCB 3 125 75
+      reason: 원문 텍스트와 구조화 속성이 혼재되어 있어 전량 annotation 보존 필요.
+    - key: labels_below
+      value:
+      - E3 (접지)
+      reason: 접지 표기와 설명이 결합된 원문 텍스트로 보존 필요.
+    - key: branch_circuits_parsed
+      value:
+      - circuit_id: 회로
+        at: 50
+        af: 125
+        poles: 4
+        type: MCCB
+      - circuit_id: SP
+        at: 75
+        af: 125
+        poles: 3
+        type: MCCB
+      reason: 구조화 가능하지만 circuit_id '회로'는 일반명이라 후속 검토용 annotation 보존이 유리함.
+    - key: raw_labels
+      value:
+      - 'PANEL BOARD: P-P-4PP'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 고객접견공간'
+      - 'BOX SIZE: —'
+      - 'FROM: 전기실'
+      - R S T
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B TYPE: MCCB'
+      - 'MAIN C.B: 3P 125AF 100AT'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'AT: 50, AF: 50, P: 3, TYPE: MCCB, NO: 시험용'
+      - 'AT: 75, AF: 125, P: 3, TYPE: MCCB, NO: SP'
+      - E3
+      reason: 원문 보존 대상이며, 일부 값은 다른 분석 결과와 충돌 가능성이 있어 provenance로 전수 보존 필요.
+    - key: panel_board
+      value: P-P-4PP
+      reason: 식별자이자 속성값으로 중복 표현됨.
+    - key: location
+      value: 고객접견공간
+      reason: 공간 속성으로 convert 가능하나 spatial_context에도 보존 필요.
+    - key: cover_type
+      value: 노출형(STEEL)
+      reason: 명확한 속성이나 원문 표기 보존 필요.
+    - key: box_size
+      value: —
+      reason: 값 부재를 나타내는 표기이므로 속성화보다 원문 annotation 보존이 적절함.
+    - key: source
+      value: 전기실
+      reason: 전원 공급 위치로 해석 가능하나 원문 보존 필요.
+    - key: rated_voltage
+      value: 440V
+      reason: 명확한 수치 속성.
+    - key: phase
+      value: 3Ø
+      reason: 명확한 전기 속성.
+    - key: main_cb_type
+      value: MCCB
+      reason: 명확한 장치 타입 속성.
+    - key: main_cb_spec
+      value: 3P 30/20AT
+      reason: 명확한 차단기 정격 속성.
+    - key: main_cb_poles
+      value: 3
+      reason: 명확한 수치 속성.
+    - key: main_cb_at_rating
+      value: 30A
+      reason: 명확한 수치 속성.
+    - key: main_cb_af_rating
+      value: 20A
+      reason: 명확한 수치 속성.
+    - key: spd_spec
+      value: 3Ø S.P.D 40KA/mode
+      reason: 명확한 보호장치 사양이지만 원문 표기 보존 필요.
+    - key: grounding
+      value: E3
+      reason: 접지 식별자이자 관계 대상.
+    - key: branch_circuits
+      value:
+      - circuit_id: 회로
+        at: 50
+        af: 125
+        poles: 4
+        type: MCCB
+      - circuit_id: SP
+        at: 75
+        af: 125
+        poles: 3
+        type: MCCB
+      reason: 구조화 가능하지만 원문과 함께 보존 필요.
+    - key: equipment_count
+      value:
+        mccb: 3
+        spd: 1
+        ct: 1
+        earth_ground: 1
+      reason: 집계값은 보조 정보로 보존.
+    auxiliary_attributes:
+    - labels_above
+    - labels_inside
+    - labels_below
+    - branch_circuits_parsed
+    - raw_labels
+    - panel_board
+    - location
+    - cover_type
+    - box_size
+    - source
+    - rated_voltage
+    - phase
+    - main_cb_type
+    - main_cb_spec
+    - main_cb_poles
+    - main_cb_at_rating
+    - main_cb_af_rating
+    - spd_spec
+    - grounding
+    - branch_circuits
+    - equipment_count
+    requirement_attributes: []
+    extracted_attributes:
+    - 'PANEL BOARD: P-P-4PP'
+    - 'COVER TYPE: 노출형(STEEL)'
+    - 'PANEL LOCATION: 고객접견공간'
+    - 'BOX SIZE: —'
+    - 'FROM: 전기실'
+    - 'SOURCE: 전기실'
+    - 'VOLT: 440V'
+    - 'MAIN C.B: 3P 30/20AT'
+    - 3Ø S.P.D 40KA/mode
+    - E3 (접지)
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    - key: collection_sources.cross_validated
+      value: true
+      source: cross_validated
+      conflict_with: null
+    - key: collection_sources.visual_semantics_gemini
+      value: true
+      source: visual_semantics_gemini
+      conflict_with: null
+    - key: collection_sources.entity_synthesis
+      value: true
+      source: entity_synthesis
+      conflict_with: null
+    - key: confidence
+      value: 0.98
+      source: entity_detail
+      conflict_with: null
+    conflicts:
+    - key: main_cb_spec
+      values:
+      - 3P 30/20AT
+      - 3P 125AF 100AT
+      sources:
+      - entity_detail.specs.main_cb_spec
+      - entity_detail.raw_labels
+    - key: branch_circuit_spec
+      values:
+      - 'AT: 50  AF: 125  P: 4  TYPE: MCCB  NO: (회로)'
+      - 'AT: 50, AF: 50, P: 3, TYPE: MCCB, NO: 시험용'
+      sources:
+      - entity_detail.specs.labels_inside
+      - entity_detail.raw_labels
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from: P-P-4PP
+      to: E3
+      relation: grounds_to
+    - from: POWER-SOURCE-EE
+      to: P-P-4PP
+      relation: feeds
+    hints_added:
+    - No cross-discipline partner explicitly identified in connection_specs/relations;
+      all observed links are within ELECTRICAL discipline.
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - DistributionPanel
+    - PowerDistributionPanel
+    - CircuitProtectionEquipment
+  spatial_context:
+    position: bottom-right
+    source_pages:
+    - 22
+    room_or_zone: 고객접견공간
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_above:
+      - PANEL BOARD  P-P-4PP  COVER TYPE  노출형(STEEL)
+      - PANEL LOCATION  고객접견공간  BOX SIZE  —
+      labels_inside:
+      - 'FROM: 전기실'
+      - R S T
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'TYPE: MCCB'
+      - 'MAIN C.B: 3P 30/20AT'
+      - 3Ø S.P.D 40KA/mode
+      - 'AT: 50  AF: 125  P: 4  TYPE: MCCB  NO: (회로)'
+      - 'AT: 75  AF: 125  P: 3  TYPE: MCCB  SP'
+      - CCM NO TYPE P AF AT (회로 그리드 헤더)
+      - MCCB 3P 30/20AT (MAIN C.B)
+      - SP MCCB 3 125 75
+      labels_below:
+      - E3 (접지)
+      branch_circuits_parsed:
+      - circuit_id: 회로
+        at: 50
+        af: 125
+        poles: 4
+        type: MCCB
+      - circuit_id: SP
+        at: 75
+        af: 125
+        poles: 3
+        type: MCCB
+      raw_labels:
+      - 'PANEL BOARD: P-P-4PP'
+      - 'COVER TYPE: 노출형(STEEL)'
+      - 'PANEL LOCATION: 고객접견공간'
+      - 'BOX SIZE: —'
+      - 'FROM: 전기실'
+      - R S T
+      - 'SOURCE: 전기실'
+      - 'VOLT: 440V'
+      - 'MAIN C.B TYPE: MCCB'
+      - 'MAIN C.B: 3P 125AF 100AT'
+      - MCCB 3P 30/20AT
+      - 3Ø S.P.D 40KA/mode
+      - 'AT: 50, AF: 50, P: 3, TYPE: MCCB, NO: 시험용'
+      - 'AT: 75, AF: 125, P: 3, TYPE: MCCB, NO: SP'
+      - E3
+      panel_board: P-P-4PP
+      location: 고객접견공간
+      cover_type: 노출형(STEEL)
+      box_size: —
+      source: 전기실
+      rated_voltage: 440V
+      phase: 3Ø
+      main_cb_type: MCCB
+      main_cb_spec: 3P 30/20AT
+      main_cb_poles: 3
+      main_cb_at_rating: 30A
+      main_cb_af_rating: 20A
+      spd_spec: 3Ø S.P.D 40KA/mode
+      grounding: E3
+      branch_circuits:
+      - circuit_id: 회로
+        at: 50
+        af: 125
+        poles: 4
+        type: MCCB
+      - circuit_id: SP
+        at: 75
+        af: 125
+        poles: 3
+        type: MCCB
+      equipment_count:
+        mccb: 3
+        spd: 1
+        ct: 1
+        earth_ground: 1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics_gemini: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.labels_above
+  - specs.labels_inside
+  - specs.labels_below
+  - specs.branch_circuits_parsed
+  - specs.raw_labels
+  - specs.panel_board
+  - specs.location
+  - specs.cover_type
+  - specs.box_size
+  - specs.source
+  - specs.rated_voltage
+  - specs.phase
+  - specs.main_cb_type
+  - specs.main_cb_spec
+  - specs.main_cb_poles
+  - specs.main_cb_at_rating
+  - specs.main_cb_af_rating
+  - specs.spd_spec
+  - specs.grounding
+  - specs.branch_circuits
+  - specs.equipment_count
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - source_pages
+  - read_page_context.page_22_context.yaml
+  - page_context.cross_validated.entities
+  - page_context.cross_validated.relationships
+  - page_context.cross_validated.spaces
+  - page_context.cross_validated.diagram_spec
+  - page_context.cross_validated.page_common_notes
+  - page_context.cross_validated.diagram_meta
+  - page_context.cross_validated.disagreements
+  - page_context.initial_scan
+  - page_context.visual_sketch
+  - page_context.visual_semantics
+  - page_context.visual_semantics_gemini
+  - page_context.entity_synthesis
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :DistributionPanel
+    annotations_to_emit:
+    - specs_full
+    - source_attribution
+    - collection_sources
+    - ambiguous_attributes
+    - provenance_attributes
+    - conflicts
+    - spatial_context
+    - notes
+    - drawing_texts
+    - requirements
+    relations_to_emit:
+    - feeds
+    - grounds_to
+    - protects
+    needs_human_review: false
+tag: P-P-4PP
+discovered_relations: 4

@@ -1,0 +1,187 @@
+placement:
+  tag: SPACE-SoftwareLab
+  name: Software Lab
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-SoftwareLab
+    class_hint: Space
+    alternative_class_hints:
+    - Laboratory
+    - EquipmentInstallationZone
+    - FireProtectionZone
+    related_assertions:
+    - type: connects_to
+      target_hint: CTRL-GATEWAY
+      note: SMFD 제어 신호선 (A) CV 2.5 3C / VP 0.6 2P
+    - type: signal
+      target_hint: CTRL-GATEWAY
+      note: SMFD 제어 신호선 (A) CV 2.5 3C / VP 0.6 2P
+    applicable_axioms:
+    - AX019
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:ArchitecturalSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: Software Lab'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 문자열
+      - raw_text: 'inferred_name: Software Lab 공간 — SMFD 설치 구역'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 공간명과 용도 설명
+      - raw_text: 'position: center-right-upper'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 표기
+      - raw_text: 'raw_labels: Software Lab'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원문 라벨 보존
+      - raw_text: 'equipment_symbols: SMFD (스마트 방화댐퍼) count 4; F.C (Field Controller)
+          count 1'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolSummary
+          suggested_datatype: xsd:string
+          rationale: 공간 내 관찰된 설비 심볼 요약
+      - raw_text: 'source_panel_id: SPACE-SoftwareLab'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasSourcePanelId
+          suggested_datatype: xsd:string
+          rationale: 원본 패널/도면 식별자
+      - raw_text: 'cross_discipline_ref: null'
+        source_page: 52
+        promotion_hint:
+          suggested_property_label: hasCrossDisciplineRef
+          suggested_datatype: xsd:string
+          rationale: 교차 분야 참조 부재 상태 보존
+  provenance:
+    name:
+      source_pages:
+      - 52
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 52
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 52
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 52
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 52
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 52
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 52
+      method: entity_detail.full_scan
+    specs.labels_inside:
+      source_pages:
+      - 52
+      method: specs
+    specs.inferred_name:
+      source_pages:
+      - 52
+      method: specs
+    specs.position:
+      source_pages:
+      - 52
+      method: specs
+    specs.raw_labels:
+      source_pages:
+      - 52
+      method: specs
+    specs.equipment_symbols:
+      source_pages:
+      - 52
+      method: specs
+    specs.source_panel_id:
+      source_pages:
+      - 52
+      method: specs
+    specs.cross_discipline_ref:
+      source_pages:
+      - 52
+      method: specs
+    relations:
+      source_pages:
+      - 52
+      method: relations
+    equipment_symbols:
+      source_pages:
+      - 52
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 52
+      method: source_attribution
+    position:
+      source_pages:
+      - 52
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 52
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: specs.cross_discipline_ref
+    raw_text: 'null'
+    source_page: 52
+    reason: 원문 값이 null로 제공되어 구체 참조를 해석할 수 없음
+    preservation_note: null 상태 자체를 보존
+  - field_candidate: relations[1].relation
+    raw_text: signal
+    source_page: 52
+    reason: 관계 원형은 관찰되나 확정 property IRI는 미정
+    preservation_note: 0-9d에서 정식 속성으로 승격 가능
+  - field_candidate: specs.equipment_symbols
+    raw_text: SMFD (스마트 방화댐퍼) count 4; F.C (Field Controller) count 1
+    source_page: 52
+    reason: 공간 내 심볼 요약은 있으나 개별 실체 식별은 아님
+    preservation_note: 공간의 관찰된 설비 구성으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SPACE-SoftwareLab는 Space로 보이지만, SMFD 설치 구역 및 Laboratory/EquipmentInstallationZone/FireProtectionZone
+      후보가 함께 관찰되어 기능적 해석이 복수 가능함
+    recommended_handling: 0-9c에서 Space 상위 클래스 아래 공간/구역 계층으로 유지하고, 기능 후보는 class_hint
+      후보로만 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:46.677034'
+  confidence: 0.95

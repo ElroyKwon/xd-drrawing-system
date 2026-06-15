@@ -1,0 +1,334 @@
+initial_scan:
+  page_type: legend
+  is_legend: true
+  has_legend_section: true
+  legend_type: 범례 + 장비일람표
+  discipline: FIRE_PROTECTION
+  classification: null
+  drawing_genre: legend
+  title_block:
+    drawing_number: MF-002
+    title: 범례,장비일람표
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 상단 중앙에 '범례' 표와 심볼-설명 쌍이 나열되어 있음
+  - 하단에 '장비일람표' 표가 있으며 펌프/탱크 항목이 포함됨
+  - 표제란 도면번호는 MF-002로 보이며, 페이지 제목은 '범례,장비일람표'
+  confidence: 0.98
+  note: 페이지는 범례 전용은 아니지만 범례 섹션이 명확하고, 하단에 장비일람표가 함께 있음. 도면번호 접두사 M(F)로 보이나 표제란의 시각적
+    내용은 범례/장비일람표 중심.
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_legend/supplement_p4_05.yaml
+  routing_confidence: 0.0
+  routing_reason: legend/other 성격의 페이지로, 제공된 supplement 카탈로그에 legend 전용 경로가 없어 매칭
+    불가.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND_TABLE
+    shape: rectangle
+    primary_label: 범례
+    position: top-center
+    labels_near:
+    - 기호
+    - 기호명
+    - 비고
+    - H (옥내소화전배관)
+    - SP (스프링클러배관)
+    - SC (연결송수구배관)
+    - 게이트밸브
+    - 체크밸브
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+  - panel_id: EQUIPMENT_SCHEDULE
+    shape: rectangle
+    primary_label: 장비일람표
+    position: bottom-center
+    labels_near:
+    - 펌프
+    - 탱크
+    - 기호
+    - 명칭
+    - 용도
+    - 형식
+    - 설치위치
+    - 유량
+    - 양정
+    - 접속구경
+    - 단수
+    - 모타
+    - 전원
+    - 방진
+    - 내진
+    - 비고
+    - FP-1 (옥내소화전,스프링클러 주펌프)
+    - FP-2 (옥내소화전,스프링클러 충압펌프)
+    - FT-1 (압력탱크)
+  connections: []
+  notable_shapes:
+  - shape: other
+    label: 범례
+    note: 상단 표 제목, 리본 모양 장식 테두리
+  - shape: other
+    label: 장비일람표
+    note: 하단 표 제목, 리본 모양 장식 테두리
+  - shape: rectangle
+    label: 표제란
+    note: 우측 하단, 도면 정보 포함
+legend_candidate:
+  is_legend_page: true
+  has_legend_section: true
+  legend_region: top-center
+  confidence: 1.0
+  note: 페이지 상단에 '범례' 표가 독립적으로 배치되어 있으며, 하단에는 '장비일람표'가 함께 구성됨.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: legend
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 0-0에서 ELECTRICAL로 오분류됨. vision으로 '소화전', '스프링클러', '연결송수구' 등 소방 키워드
+    다수 확인 및 도면번호 MF-002(Mechanical Fire)로 FIRE_PROTECTION 확정. 장르 legend 유지.
+classification: LEGEND
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- 범례
+- 장비일람표
+- 'H: 옥내소화전배관'
+- 'SP: 스프링클러배관'
+- 'SC: 연결송수구배관'
+- 게이트밸브
+- 체크밸브
+- 스트레이너
+- 여과망
+- 후렉시블 조인트
+- A.B.C 분말소화기
+- K급소화기
+- 옥내소화전함
+- 쌍구형연결송수구
+- '배관부속: 50ø이하 그루브조인트, 65ø이상(그루브조인트)'
+- '관보온: 80ø이하(25t 가교발포폴리에틸렌+마직테이프), 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+- FP-1
+- FP-2
+- FT-1
+title_block:
+  drawing_number: MF-002
+  title: 범례,장비일람표
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 FIRE_PROTECTION / legend 판정과 일치함. 페이지 상단에 범례 표, 하단에 장비일람표가 함께 보이며, 표제란에는
+  도면번호 MF-002와 제목 '범례,장비일람표'가 확인됨. 리비전은 보이지 않아 UNKNOWN.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: LEGEND
+    shape: rectangle
+    labels_inside:
+    - 기호 | 기호명 | 비고
+    - H — 옥내소화전배관 | 백강관 KSD-3507
+    - SP — 스프링클러배관 | 백강관 KSD-3507
+    - SC — 연결송수구배관 | 백강관 KSD-3507
+    - 게이트밸브 (OS&Y형) | 과류표시용
+    - 게이트밸브 (일반형)
+    - 체크밸브 | 스모렌스키
+    - 스트레이너
+    - 여과망
+    - 후렉시블 조인트
+    - A.B.C 분말소화기
+    - K급소화기
+    - 옥내소화전함
+    - 쌍구형연결송수구
+    - '* 배관부속 : 50ø이하(그루브조인트), 65ø이상(그루브조인트)'
+    - '* 관보온 : 80ø이하(25t 가교발포폴리에틸렌+마직테이프), 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+    labels_above:
+    - 범례
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 심볼 (실선, H/SP/SC 라벨)
+      count: 3
+    - type: 게이트밸브 심볼 (OS&Y형)
+      count: 1
+    - type: 게이트밸브 심볼 (일반형)
+      count: 1
+    - type: 체크밸브 심볼
+      count: 1
+    - type: 스트레이너 심볼
+      count: 1
+    - type: 여과망 심볼 (직사각형)
+      count: 1
+    - type: 후렉시블 조인트 심볼 (파형)
+      count: 1
+    - type: A.B.C 분말소화기 심볼 (원형)
+      count: 1
+    - type: K급소화기 심볼 (원형)
+      count: 1
+    - type: 옥내소화전함 심볼 (사각형+부속)
+      count: 1
+    - type: 쌍구형연결송수구 심볼
+      count: 1
+    inferred_name: 소방 배관 및 설비 범례표
+    position: top-center
+  - panel_id: EQUIP-SCHEDULE-PUMP
+    shape: rectangle
+    labels_inside:
+    - 펌 프
+    - 기호 | 수량 | 명칭 | 용도 | 형식 | 설치위치 | 유량(LPM) | 양정(M) | 접속구경(흡입ø/토출ø) | 단수(S) | 모타(KW/(HF))
+      | 전원(PH×V×HZ) | 방진 | 내진 | 비고
+    - FP-1 | 1 | 옥내소화전,스프링클러 주펌프 | 소화용 | 다단볼류트 | 1F동 기계실 | 1500 | 150 | 150/150 |
+      6 | 37(50) | 3×380×60 | 방진스프링 | 없음 | 횡형볼류트 멀티펌프,고효율모터
+    - FP-2 | 1 | 옥내소화전,스프링클러 충압펌프 | 소화용 | 횡스크로 | 1F동 기계실 | 60 | 73 | 40/40 | - | 3.75(5)
+      | 3×380×60 | 방진스프링 | 없음 | 횡형볼류트 멀티펌프,고효율모터
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 펌프 일람표 행
+      count: 2
+    inferred_name: 소화펌프 장비일람표
+    position: bottom-center-upper
+  - panel_id: EQUIP-SCHEDULE-TANK
+    shape: rectangle
+    labels_inside:
+    - 탱 크
+    - 기호 | 수량 | 명칭 | 용도 | 형수 | 설치위치 | 용량(LIT) | 규격(W/L/H) | 재질 | 상부(MM) | 앙면(MM) |
+      하부(MM) | 도장 | 보온 | 비고
+    - FT-1 | 1 | 압력탱크 | 소화용 | 횡형 둥근통 | 1F동 기계실 | 100 | 380ø | - | 920 | SS-41 | 3.2
+      | 3.2 | 3.2 | - | - | 10KG/CM형 (압력스위치3개)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 탱크 일람표 행
+      count: 1
+    inferred_name: 소화탱크 장비일람표
+    position: bottom-center-lower
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축 GAUN | Architects & Engineers
+    - R-Center
+    - 범례,장비일람표
+    - MF-002
+    - 'SCALE: A1:1/NONE, A3:1/NONE'
+    - '2024.04'
+    - (주)정연엔지니어링
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 표제란
+    position: bottom-right
+  connections: []
+  groups:
+  - group_id: GRP-LEGEND
+    label: 범례 (소방 배관 및 설비 심볼)
+    members:
+    - LEGEND
+  - group_id: GRP-EQUIP
+    label: 장비일람표 (펌프 + 탱크)
+    members:
+    - EQUIP-SCHEDULE-PUMP
+    - EQUIP-SCHEDULE-TANK
+  legend_references:
+  - text: H — 옥내소화전배관 (백강관 KSD-3507)
+    linked_to: LEGEND
+  - text: SP — 스프링클러배관 (백강관 KSD-3507)
+    linked_to: LEGEND
+  - text: SC — 연결송수구배관 (백강관 KSD-3507)
+    linked_to: LEGEND
+  - text: 게이트밸브 (OS&Y형, 과류표시용)
+    linked_to: LEGEND
+  - text: 게이트밸브 (일반형)
+    linked_to: LEGEND
+  - text: 체크밸브 (스모렌스키)
+    linked_to: LEGEND
+  - text: 스트레이너
+    linked_to: LEGEND
+  - text: 여과망
+    linked_to: LEGEND
+  - text: 후렉시블 조인트
+    linked_to: LEGEND
+  - text: A.B.C 분말소화기
+    linked_to: LEGEND
+  - text: K급소화기
+    linked_to: LEGEND
+  - text: 옥내소화전함
+    linked_to: LEGEND
+  - text: 쌍구형연결송수구
+    linked_to: LEGEND
+  - text: FP-1 — 옥내소화전,스프링클러 주펌프
+    linked_to: EQUIP-SCHEDULE-PUMP
+  - text: FP-2 — 옥내소화전,스프링클러 충압펌프
+    linked_to: EQUIP-SCHEDULE-PUMP
+  - text: FT-1 — 압력탱크
+    linked_to: EQUIP-SCHEDULE-TANK
+  diagram_meta:
+    title: 범례,장비일람표
+    drawing_number: MF-002
+    project: LS Electric R-Center 구축
+    discipline: FIRE_PROTECTION
+    drawing_genre: LEGEND
+    scale: A1:1/NONE, A3:1/NONE
+    date: '2024.04'
+    revision: null
+    flow_direction: UNKNOWN
+    notes:
+    - '배관부속: 50ø이하(그루브조인트), 65ø이상(그루브조인트)'
+    - '관보온: 80ø이하(25t 가교발포폴리에틸렌+마직테이프), 100ø이상(40t 가교발포폴리에틸렌+마직테이프)'
+    - 장비일람표 하단에 '기존 변경 없음' 표기 확인
+    equipment_summary:
+      pumps:
+      - tag: FP-1
+        name: 옥내소화전,스프링클러 주펌프
+        type: 다단볼류트
+        location: 1F동 기계실
+        flow_lpm: 1500
+        head_m: 150
+        suction_dia_mm: 150
+        discharge_dia_mm: 150
+        stages: 6
+        motor_kw: 37
+        motor_hp: 50
+        power: 3×380×60
+        vibration_isolation: 방진스프링
+        seismic: 없음
+        remark: 횡형볼류트 멀티펌프,고효율모터
+      - tag: FP-2
+        name: 옥내소화전,스프링클러 충압펌프
+        type: 횡스크로
+        location: 1F동 기계실
+        flow_lpm: 60
+        head_m: 73
+        suction_dia_mm: 40
+        discharge_dia_mm: 40
+        stages: null
+        motor_kw: 3.75
+        motor_hp: 5
+        power: 3×380×60
+        vibration_isolation: 방진스프링
+        seismic: 없음
+        remark: 횡형볼류트 멀티펌프,고효율모터
+      tanks:
+      - tag: FT-1
+        name: 압력탱크
+        type: 횡형 둥근통
+        location: 1F동 기계실
+        capacity_lit: 100
+        diameter_mm: 380
+        length_mm: 920
+        material: SS-41
+        thickness_top_mm: 3.2
+        thickness_side_mm: 3.2
+        thickness_bottom_mm: 3.2
+        remark: 10KG/CM형 (압력스위치3개)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview

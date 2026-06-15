@@ -1,0 +1,115 @@
+placement:
+  tag: A12.03
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:A12.03
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 원문 정보이며, 태그 A12.03의 확인 가능 범위를 나타내는 주석성 텍스트
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시는 페이지 번호나 태그를 알려주시면 확인해드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasInstructionText
+          suggested_datatype: xsd:string
+          rationale: 사용자 안내 문구로서 도면 객체의 물리적 속성은 아니지만 주석/응답 텍스트로 보존 가치가 있음
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail header
+    name:
+      source_pages:
+      - 0
+      method: absent in entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification from raw text only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw preservation
+    ambiguous:
+      source_pages:
+      - 0
+      method: text indicates reference/annotation nature
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시는 페이지 번호나 태그를 알려주시면 확인해드리겠습니다.'
+    source_page: 0
+    reason: 원문이 설비 스펙이나 관계가 아니라 안내/주석 텍스트임
+    preservation_note: 페이지 목록과 안내 문구를 분리하지 않고 원문 그대로 보존
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 name 필드가 제공되지 않음
+    preservation_note: 빈 값으로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 A12.03은 물리 설비라기보다 페이지 확인 가능 범위를 안내하는 주석/참조 텍스트로 보이며, 독립 실체인지 문서 참조인지
+      경계가 불명확함
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 문서 참조 엔티티 또는 시트/목차 계열과의 연결
+      여부를 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - sheet_or_drawing_reference_entities
+    - unknown_symbol_note_table_reference_entities
+    - AnnotationOrReferenceEntity
+    deviations:
+    - plan상 다수 태그는 시트/참조형으로 관찰되지만, A12.03은 관계나 스펙 없이 안내 문구만 있어 AnnotationOnly로 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:16.049160'
+  confidence: 0.93

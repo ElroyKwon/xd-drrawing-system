@@ -1,0 +1,196 @@
+object_properties:
+- iri: dks:feeds
+  label: feeds
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:isFedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: EXT-HV-SOURCE
+    object: INCOMING-01
+    source_page: 2
+    note: 6.6kV 3Φ 60Hz 인입
+  - subject: HV-3
+    object: TR-1
+    source_page: 2
+    note: 6.6kV 피더 → TR#1
+  - subject: TR-1
+    object: LV-1
+    source_page: 2
+    note: TR-1 → LV-1, 440V 2차측 공급
+  - subject: LV-1
+    object: PANEL-4PP-AC1
+    source_page: 2
+    note: 440V 피더
+  - subject: LV-6
+    object: IVR-1
+    source_page: 2
+    note: 440V → IVR-1
+  - subject: RECTIFIER-01
+    object: BATTERY-01
+    source_page: 2
+    note: DC 110V 충전
+  total_evidence: 58
+  derivation: related_assertions.type=feeds가 전원→인입, 차단기→변압기/패널, 변환기→배터리 등에서 반복 관찰됨.
+    subject/object 모두 class_taxonomy 상 ElectricalEquipment 하위로 귀속됨.
+  confidence: 0.97
+- iri: dks:supplies
+  label: supplies
+  domain: dks:CircuitBreaker
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:isSuppliedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: HV-1
+    object: HV-2
+    source_page: 2
+    note: 6.6kV BUS-1 연속 버스 연결
+  - subject: HV-2
+    object: HV-1
+    source_page: 2
+    note: 6.6kV BUS-1, source_page 2
+  - subject: LV-6
+    object: LV-7
+    source_page: 2
+    note: 440V BUS
+  - subject: LV-8
+    object: LV-R
+    source_page: 2
+    note: 440V BUS 연속 공급 관계
+  total_evidence: 21
+  derivation: related_assertions.type=supplies는 주로 HV/LV 버스 상 인접 피더 간 연속 공급 관계에서 반복됨.
+    대부분 CircuitBreaker 인스턴스 간 연결이나 INCOMING-01→HV-1 사례도 있어 range는 ElectricalEquipment로
+    넓게 둠.
+  confidence: 0.9
+- iri: dks:cable
+  label: cable
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:connectedByCableTo
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: EXT-HV-SOURCE
+    object: INCOMING-01
+    source_page: 2
+    note: 6.6kV 3Φ 60Hz 인입
+  - subject: HV-4
+    object: TR-2
+    source_page: 2
+    note: 6.6kV 피더 → TR#2 / F-CV 70SQ/1C x 3 (CABLE TRENCH)
+  - subject: LV-2
+    object: PANEL-4PP-AC4
+    source_page: 2
+    note: 440V 피더
+  - subject: SWGR-380V-MAIN
+    object: PANEL-LP-1F
+    source_page: 2
+    note: 380V 조명 피더
+  - subject: RECTIFIER-01
+    object: BATTERY-01
+    source_page: 2
+    note: DC 110V 충전
+  total_evidence: 56
+  derivation: related_assertions.type=cable이 전 계통에서 feeds와 병행하여 반복됨. 전기적 공급 의미와 별도로
+    도면상 케이블 연결 표현을 보존하는 객체속성으로 귀납.
+  confidence: 0.96
+- iri: dks:bus_bar
+  label: bus_bar
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: dks:connectedByBusBarTo
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: HV-1
+    object: HV-2
+    source_page: 2
+    note: 6.6kV BUS-1
+  - subject: HV-1
+    object: INCOMING-01
+    source_page: 2
+    note: 6.6kV BUS
+  - subject: LV-3L
+    object: LV-4
+    source_page: 2
+    note: 440V BUS
+  - subject: LV-R
+    object: LV-8
+    source_page: 2
+    note: 440V BUS
+  total_evidence: 21
+  derivation: related_assertions.type=bus_bar가 HV/LV 연속 버스 구간에서 반복 관찰됨. supplies와
+    병행되지만 도면 연결 매체가 버스바임을 별도 보존.
+  confidence: 0.93
+- iri: dks:hasEquipmentSymbol
+  label: hasEquipmentSymbol
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: ''
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SPARE-LV-01
+    object: ACB
+    source_page: 2
+    note: equipment_symbols.type=ACB, count=1
+  - subject: SPARE-MCCB-01
+    object: MCCB
+    source_page: 2
+    note: equipment_symbols count=1; raw_labels include 'MCCB 3P'
+  total_evidence: 2
+  derivation: 일부 placement에서 related_assertions 자체가 hasEquipmentSymbol로 기록됨. object가
+    태그가 아닌 심볼 문자열이지만 관계형 assertion으로 관찰되어 후보 ObjectProperty로 유지.
+  confidence: 0.42
+- iri: dks:locatedInPageRegion
+  label: locatedInPageRegion
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SPARE-LV-01
+    object: middle-right
+    source_page: 2
+    note: position=middle-right
+  total_evidence: 1
+  derivation: 일부 placement에서 related_assertions로 직접 기록됨. 본질적으로 데이터값 성격이 강하지만 관계 assertion으로
+    1건 관찰되어 삭제하지 않고 낮은 신뢰 후보로 유지.
+  confidence: 0.18
+- iri: dks:hasSourcePage
+  label: hasSourcePage
+  domain: dks:ElectricalEquipment
+  range: dks:ElectricalEquipment
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SPARE-LV-01
+    object: '2'
+    source_page: 2
+    note: source_pages=[2]
+  - subject: SPARE-MCCB-01
+    object: page 2
+    source_page: 2
+    note: source_pages provided
+  total_evidence: 2
+  derivation: 일부 placement에서 related_assertions로 직접 기록됨. 실제로는 페이지 번호 데이터값이므로 DataProperty
+    성격이 강하나 관계 assertion evidence가 존재하여 낮은 신뢰 ObjectProperty 후보로도 남김.
+  confidence: 0.16
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T16:10:28.124684'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.88

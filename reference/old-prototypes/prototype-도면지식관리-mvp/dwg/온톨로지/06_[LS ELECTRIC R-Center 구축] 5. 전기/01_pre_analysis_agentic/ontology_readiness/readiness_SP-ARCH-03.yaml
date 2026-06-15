@@ -1,0 +1,12 @@
+tag: SP-ARCH-03
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: entity_detail에 보이는 SP-ARCH-03은 page 19/20의 '중앙 4분할 도면 영역'으로 확인되는 도면 메타/영역
+  요소이며, 물리적 설비가 아니다. 자체 설비 사양이라기보다 subtitle, field_label, date, drawing_number, title,
+  project_number, section_list 등 문서 메타데이터와 도면 영역 정보만 있다. connection_specs는 패널보드 내부
+  결선/접지 관련 설명이지만 SP-ARCH-03 자체의 독립 설비 관계로 보기 어렵고, read_page_context에서도 SP-ARCH-03은
+  ARCHITECTURAL의 BOUNDARY 영역으로 분류된다. 따라서 독립 엔티티가 아니며 document_metadata로 강등한다.

@@ -1,0 +1,118 @@
+tag: '1101'
+name: SHV 수전 VCB 패널 1101
+type: SWITCHGEAR_PANEL
+discipline: ELECTRICAL
+function_category: SWITCHGEAR_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - '1101'
+  - SHV
+  - VCB 3P
+  - 3P 7.2kV 630A
+  - 520MVA
+  - CT×3
+  - 300/5A
+  - 12.5kV 15kA
+  - GIPAM-2000FI
+  - 50/51
+  - 50/51G
+  bus_section: SHV
+  vcb_rating: 3P 7.2kV 630A 520MVA
+  ct_ratio: 300/5A
+  protection_functions:
+  - 50/51
+  - 50/51G
+  panel_id: '1101'
+  voltage_kV: 22.9
+  vcb_poles: 3
+  vcb_rated_voltage_kV: 24
+  vcb_rated_current_A_sonnet: 630
+  vcb_rated_current_A_gemini: 630
+  vcb_breaking_capacity_MVA_sonnet: 520
+  vcb_breaking_capacity_MVA_gemini: 520
+  vcb_breaking_capacity_kA_gemini: 12.5
+  ct_count: 3
+  ct_ratio_sonnet: 300/5A
+  ct_ratio_gemini: 400/5A
+  ct_breaking_capacity_kA_sonnet: 15
+  ct_breaking_capacity_kA_gemini: 12.5
+  ct_time_constant_sec_gemini: 1
+  ct_n_factor_gemini: '>10'
+  protection_relay_model: GIPAM-2000FI
+  protection_relay_indicators_gemini:
+  - F
+  - A
+  - V
+  - KW
+  - PF
+relations:
+- from: BLK-MOF
+  to: '1101'
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV → SHV VCB 1101
+- from: '1101'
+  to: '1102'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+- from: '1101'
+  to: TR-001
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: '22.9kV → TR #1 1차측'
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: top-right
+confidence: 0.95
+equipment_symbols:
+- type: VCB
+  count: 1
+- type: CT
+  count: 3
+- type: GIPAM-2000FI
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - vcb_rating
+  - ct_ratio
+  - protection_functions
+  - panel_id
+  - voltage_kV
+  - vcb_poles
+  - vcb_rated_voltage_kV
+  - vcb_rated_current_A_sonnet
+  - vcb_rated_current_A_gemini
+  - vcb_breaking_capacity_MVA_sonnet
+  - vcb_breaking_capacity_MVA_gemini
+  - vcb_breaking_capacity_kA_gemini
+  - ct_count
+  - ct_ratio_sonnet
+  - ct_ratio_gemini
+  - ct_breaking_capacity_kA_sonnet
+  - ct_breaking_capacity_kA_gemini
+  - ct_time_constant_sec_gemini
+  - ct_n_factor_gemini
+  - protection_relay_model
+  - protection_relay_indicators_gemini
+  similar_equipment: []
+  function_candidates:
+  - IncomingFeeder
+  - Protection
+  - Switching

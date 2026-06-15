@@ -1,0 +1,12 @@
+tag: P040-ROOM-003
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- name
+- discipline
+- specifications as independent physical equipment
+missing_relations: []
+reason: entity_detail와 page_040_context.yaml을 보면 이 tag는 room이지만 실제 내용은 '수뢰부 설치 상세도'라는
+  도면 메타데이터/상세도 페이지이다. 프로젝트명, 도면번호, 날짜, 축척 등은 물리적 설비 사양이 아니므로 독립 엔티티로 볼 수 없다. 또한 observed_relations는
+  detail_title 중심이며, connection_specs는 상세도 내 연결 표기 수준으로 확인되지만 독립 설비의 관계로 보기 어렵다. 따라서
+  document_metadata로 강등한다.

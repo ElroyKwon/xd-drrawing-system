@@ -1,0 +1,58 @@
+tag: GND-ELEC-TEST-001
+name: 접지극(E극)
+type: GROUNDING
+discipline: ELECTRICAL
+function_category: GROUNDING
+source_pages:
+- 39
+specs:
+  electrode_type: Test Rod (Ø 14 x 1,000 ㎜)
+  spacing_requirement: 10m 이상 이격
+  note: Test Rod의 위치는 현장여건에 따라 변경될 수 있다.
+  diameter_mm: 14
+  length_mm: 1000
+  purpose: 접지 저항 측정용 주 접지극
+  spacing_requirement_m: 10m 이상 이격
+relations:
+- from: GND-ELEC-TEST-001
+  to: GND-ELEC-TEST-002
+  relation: spaced_from
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 10m 이상 이격
+- from: GND-ELEC-TEST-001
+  to: GND-ELEC-TEST-003
+  relation: spaced_from
+  source_page: 39
+  origin: cross_validated
+  line_style: solid
+  note: 10m 이상 이격
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: bottom-left
+confidence: 0.95
+equipment_symbols:
+- type: 접지극 심볼 (원형, E/P/C극)
+  count: 3
+- type: Test Rod 심볼
+  count: 2
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingElectrode
+  observed_attributes:
+  - electrode_type
+  - spacing_requirement
+  - note
+  - diameter_mm
+  - length_mm
+  - purpose
+  - spacing_requirement_m
+  similar_equipment: []
+  function_candidates:
+  - GroundingResistanceMeasurement
+  - TestElectrode

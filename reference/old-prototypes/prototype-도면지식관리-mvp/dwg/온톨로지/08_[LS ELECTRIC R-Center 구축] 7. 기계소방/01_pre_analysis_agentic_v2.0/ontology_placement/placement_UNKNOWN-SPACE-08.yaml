@@ -1,0 +1,194 @@
+placement:
+  tag: UNKNOWN-SPACE-08
+  name: OA/항온항습실
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SPACE-08
+    class_hint: Space
+    alternative_class_hints:
+    - ConstantTemperatureAndHumidityRoom
+    - ServerRoom
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-SPACE-03
+      note: source relation from entity_detail.relations; solid line; cross_validated
+    applicable_axioms:
+    - AX001
+    - AX037
+    - AX040
+    - AX041
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'labels_inside: OA/항온항습실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트 보존
+      - raw_text: 'type: SPACE'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: entity_type
+          suggested_datatype: xsd:string
+          rationale: 엔티티 유형 원문 보존
+      - raw_text: 'function_category: SPACE'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'position: top-right'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보 보존
+      - raw_text: 'confidence: 0.85'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 값 보존
+      - raw_text: 'source_attribution: sonnet=false, gemini=true, mini=true'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: source_attribution
+          suggested_datatype: xsd:string
+          rationale: 출처 속성 메타데이터 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: ConstantTemperatureAndHumidityRoom,
+          ServerRoom'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 후보 기능 분류 보존
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: cross_validated
+          suggested_datatype: xsd:boolean
+          rationale: 교차 검증 여부 보존
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: entity_detail
+    name:
+      source_pages:
+      - 8
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 8
+      method: relations
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 8
+      method: relations
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 8
+      method: relations
+    discipline_context.free_notes[0]:
+      source_pages:
+      - 8
+      method: specs.labels_inside
+    discipline_context.free_notes[1]:
+      source_pages:
+      - 8
+      method: entity_detail.type
+    discipline_context.free_notes[2]:
+      source_pages:
+      - 8
+      method: entity_detail.function_category
+    discipline_context.free_notes[3]:
+      source_pages:
+      - 8
+      method: position
+    discipline_context.free_notes[4]:
+      source_pages:
+      - 8
+      method: confidence
+    discipline_context.free_notes[5]:
+      source_pages:
+      - 8
+      method: source_attribution
+    discipline_context.free_notes[6]:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    discipline_context.free_notes[7]:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes[8]:
+      source_pages:
+      - 8
+      method: collection_sources.cross_validated
+  unresolved:
+  - field_candidate: specs
+    raw_text: 'labels_inside: OA/항온항습실'
+    source_page: 8
+    reason: supplement가 정의한 sub_kind가 없어 free_notes로 보존
+    preservation_note: 실내 공간명 표기이므로 추후 Space 관련 데이터 속성 승격 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: ConstantTemperatureAndHumidityRoom, ServerRoom
+    source_page: 8
+    reason: 후보 기능명은 확정 분류가 아니므로 class_hint 후보로만 보존
+    preservation_note: 다음 단계에서 class 정제 시 참고
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SPACE 유형이지만 OA/항온항습실이 실제 공간명인지, 기능 중심 명칭인지 도면만으로 단정하기 어려움
+    recommended_handling: Space로 유지하되 class_hint 후보를 보존하고, 다음 단계에서 주변 공간/설비 관계와 함께
+      재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/실 구획 계열로 분류
+    - 관계(connects_to) 원형 보존
+    - ontology_hints의 후보 class를 class_hint로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:07:59.884661'
+  confidence: 0.85

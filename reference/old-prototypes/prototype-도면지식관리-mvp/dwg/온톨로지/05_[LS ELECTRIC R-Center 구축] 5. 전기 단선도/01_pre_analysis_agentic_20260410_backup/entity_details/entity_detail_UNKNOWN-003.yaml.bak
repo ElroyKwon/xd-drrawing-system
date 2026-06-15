@@ -1,0 +1,70 @@
+entity_detail:
+  tag: UNKNOWN-003
+  type: UNKNOWN
+  specs:
+    book_classification:
+      value: '- 실시설계 도서 -'
+      unit: null
+      source: page 1
+      confidence: 0.99
+  drawing_texts:
+  - source: page 1
+    page_number: 1
+    text: '- 실시설계 도서 -'
+  - source: page 1
+    page_number: 1
+    text: LS ELECTRIC 천안 R-Center 구축설계
+  - source: page 1
+    page_number: 1
+    text: '[ 전기 ]'
+  - source: page 1
+    page_number: 1
+    text: '2024.05'
+  - source: page 1
+    page_number: 1
+    text: (주)가운종합건축사사무소
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations: []
+    observed_attributes:
+    - book_classification
+    similar_equipment: []
+    suggested_parent_class: UNKNOWN
+    cross_discipline: []
+  notes:
+  - 도서 구분 텍스트로 보이며, 설비/공간의 연결 관계나 추가 사양은 확인되지 않음.
+  - 페이지 1의 표지/제목 페이지에서 확인된 원문 텍스트를 포함함.
+  - read_page_context(page 1) 확인 결과, 본 항목은 COVER_PAGE의 중앙 텍스트로 확인되며 전력 계통, 설비, 연결선,
+    용량 정보는 보이지 않음.
+  - read_entity_detail(tag=UNKNOWN-002), read_entity_detail(tag=UNKNOWN-004) 확인 결과,
+    페이지 1의 다른 텍스트 항목은 제목 텍스트 및 전기 구분 텍스트로 식별되었으나 본 항목의 추가 specs 또는 connection_specs는
+    확인되지 않음.
+  - read_page_context(page 1) 추가 확인 결과, 본 항목은 COVER_PAGE의 중앙 '도서 구분 텍스트'로 분류됨.
+  - 독립 설비가 아니라 문서 메타데이터(document_metadata)로 처리하는 것이 적절함.
+  - 페이지 1에서 관계(relationships) 및 연결 설비는 확인되지 않음.
+  - 페이지 1에서 이미지상 추가 specs/치수/마감 정보는 확인되지 않음.
+  - 사용한 도구: read_page_context(page 1), read_entity_detail(tag=UNKNOWN-002), read_entity_detail(tag=UNKNOWN-004),
+      read_entity_list
+  - 교정 지침 확인 결과, 본 항목은 물리적 설비가 아닌 표지 메타데이터이며 독립 엔티티가 아님.
+  - read_page_context(page 1) 및 read_entity_list 확인 결과, 연결 관계나 추가 설비는 확인되지 않음.
+  - 사용한 도구: read_page_context(page 1), read_entity_detail(tag=UNKNOWN-002), read_entity_detail(tag=UNKNOWN-004),
+      read_entity_list
+  - read_page_context(page 1) 재확인 결과, page 1은 COVER_PAGE이며 relationships는 0개이고, 전력
+    계통/설비/연결선/용량 정보는 보이지 않음.
+  - read_entity_detail(tag=UNKNOWN-002) 및 read_entity_detail(tag=UNKNOWN-004) 재확인
+    결과, 동일 페이지의 인접 텍스트는 도면 제목 텍스트와 전기 구분 텍스트로만 식별되며 본 항목과의 연결 관계는 확인되지 않음.
+  - read_entity_list 확인 결과, UNKNOWN-003은 page 1의 도서 구분 텍스트로 분류되며, page 2의 전기 단선도 설비들과
+    직접 관계는 확인되지 않음.
+  - read_page_image는 사용하지 않음. 텍스트/페이지 컨텍스트만으로 본 항목이 표지 메타데이터임을 확인 가능했음.
+  - 사용한 도구: read_page_context(page 1), read_entity_detail(tag=UNKNOWN-002), read_entity_detail(tag=UNKNOWN-004),
+      read_entity_list
+  - read_page_context(page 1) 재시도 결과, page_001_context.yaml은 [NOT FOUND]로 반환되어 별도
+    관계/연결 정보는 확인되지 않음.
+  - read_page_image(page 1) 확인 결과, 중앙 상단에 제목 'LS ELECTRIC 천안 R-Center 구축설계', 중앙에 '-
+    실시설계 도서 -' 및 '[ 전기 ]', 하단에 '2024.05'와 '(주)가운종합건축사사무소'가 보임.
+  - read_page_image(page 1)에서 추가 specs, 치수, 마감, 연결선, 관계는 확인되지 않음.
+  - read_page_image(page 1)에서 우상단에 작은 사각형 도형 1개가 보이나, UNKNOWN-003의 connection_specs로
+    연결할 근거는 없음.
+  - 사용한 도구: read_page_context(page 1), read_entity_detail(tag=UNKNOWN-002), read_entity_detail(tag=UNKNOWN-004),
+      read_entity_list, read_page_image(page 1)

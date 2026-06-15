@@ -1,0 +1,69 @@
+page_4_entities:
+- tag: BLDG-A
+  name: A동 건물
+  type: SPACE
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: BLDG-B
+  name: B동 건물
+  type: SPACE
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: BLDG-UT
+  name: U.T.동 건물
+  type: SPACE
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: BLDG-OFFICE
+  name: 사무동 건물
+  type: SPACE
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: BLDG-AB
+  name: A동/B동 복합 구역
+  type: SPACE
+  discipline: FIRE_PROTECTION
+  confidence: 0.85
+- tag: FDC-001
+  name: 쌍구형 연결송수구
+  type: DISTRIBUTE
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: FHY-001
+  name: 옥외소화전
+  type: PROTECT
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: DUCT-CORRIDOR
+  name: 공동구
+  type: SPACE
+  discipline: FIRE_PROTECTION
+  confidence: 0.95
+- tag: TITLE-BLOCK
+  name: 표제란
+  type: TITLE_BLOCK
+  discipline: FIRE_PROTECTION
+  confidence: 0.65
+- tag: UNKNOWN-NOTE-001
+  name: 방위표시 N
+  type: NOTABLE_SHAPE
+  discipline: FIRE_PROTECTION
+  confidence: 0.6
+- tag: UNKNOWN-NOTE-002
+  name: 주차구역 표시
+  type: NOTABLE_SHAPE
+  discipline: FIRE_PROTECTION
+  confidence: 0.6
+page_4_relations:
+- from: FDC-001
+  to: DUCT-CORRIDOR
+  relation: connects_to
+- from: DUCT-CORRIDOR
+  to: FHY-001
+  relation: supplies
+- from: BLDG-B
+  to: DUCT-CORRIDOR
+  relation: connects_to
+- from: DUCT-CORRIDOR
+  to: BLDG-UT
+  relation: connects_to

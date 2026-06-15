@@ -1,0 +1,177 @@
+placement:
+  tag: PW2
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PW2
+    class_hint: PitWallMark
+    alternative_class_hints:
+    - MemberMark
+    - GroupingMember
+    related_assertions:
+    - type: contains
+      target_hint: GRP-PIT-WALL
+      note: incoming relation; group contains PW2
+      confirmed_property: dks:isContainedIn
+      confirmed_target: dks:GRP-PIT-WALL
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: linked_to
+      target_hint: PLAN-PIT
+      note: PW2 linked to PLAN-PIT
+      confirmed_property: dks:linked_to
+      confirmed_target: dks:PLAN-PIT
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX001
+    - AX012
+    - AX014
+    applicable_constraints:
+    - CN002
+    - CN003
+    - CN013
+    - CN015
+    confirmed_class: dks:PitWallMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: GRP-PIT-WALL contains PW2
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: isContainedIn
+          suggested_datatype: owl:ObjectProperty
+          rationale: group containment relation observed
+      - raw_text: PW2 linked_to PLAN-PIT
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: linkedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: explicit link relation observed
+      - raw_text: 'tag: PW2'
+        source_page: 34
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: entity identifier present as tag
+  provenance:
+    tag:
+      source_pages:
+      - 34
+      method: direct
+    name:
+      source_pages:
+      - 34
+      method: absent_in_source
+    discipline:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 34
+      method: inferred_from_relations_and_entity_presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 34
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 34
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 34
+      method: plan_based_candidate
+    ontology_core.related_assertions:
+      source_pages:
+      - 34
+      method: direct
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 34
+      method: direct
+    plan_reference.guidance_applied:
+      source_pages:
+      - 34
+      method: applied
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail에 name 필드가 없음
+    preservation_note: 빈 값 자체를 보존
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 34
+    reason: specs 정보가 제공되지 않음
+    preservation_note: 추가 스펙 없음
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 34
+    reason: connection_specs 정보가 제공되지 않음
+    preservation_note: 추가 연결 스펙 없음
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 34
+    reason: requirements 정보가 제공되지 않음
+    preservation_note: 추가 요구사항 없음
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 34
+    reason: drawing_texts 정보가 제공되지 않음
+    preservation_note: 도면 텍스트 미제공
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 34
+    reason: ontology_hints 정보가 제공되지 않음
+    preservation_note: 추가 힌트 없음
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 34
+    reason: notes 정보가 제공되지 않음
+    preservation_note: 노트 미제공
+  - field_candidate: source_pages
+    raw_text: ''
+    source_page: 34
+    reason: entity_detail 최상위 source_pages 필드가 없음
+    preservation_note: 관계 레코드 source_page만 존재
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 34
+    reason: source_attribution 정보가 제공되지 않음
+    preservation_note: 출처 귀속 미제공
+  - field_candidate: position
+    raw_text: ''
+    source_page: 34
+    reason: position 정보가 제공되지 않음
+    preservation_note: 위치 정보 미제공
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PW2는 PW 계열로 보이며 PitWallMark 후보가 강하지만, supplement가 없어 sub_kind를 확정할 수 없고
+      관계만으로는 물리 실체/부품 여부가 완전히 단정되지 않음.
+    recommended_handling: 0-9c에서 MemberMark 계열 후보로 검토하고, 0-9d에서 contains/linked_to
+      관계 정규화 후 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - member mark -> located_in -> plan
+    - group -> contains -> member mark
+    - plan guidance for pit-wall marks and linked_to patterns
+    deviations:
+    - plan의 located_in 패턴이 아니라 incoming contains와 linked_to만 관찰되어 located_in으로 치환하지
+      않음
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:57.151940'
+  confidence: 0.84

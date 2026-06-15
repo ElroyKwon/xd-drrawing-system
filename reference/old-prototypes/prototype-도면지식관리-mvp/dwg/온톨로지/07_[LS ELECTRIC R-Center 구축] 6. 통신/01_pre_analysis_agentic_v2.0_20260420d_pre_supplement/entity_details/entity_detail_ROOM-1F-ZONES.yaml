@@ -1,0 +1,81 @@
+tag: ROOM-1F-ZONES
+name: 1층 단말 구역
+type: SPACE
+discipline: COMMUNICATION
+function_category: COMMUNICATION_ZONE
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - 복 및 기계실
+  - 통신실
+  - 경비실
+  - 안내데스크
+  - One Stop 기업지원
+  - 지식 기업지원
+  - Star 사업실
+  - 통신방송실
+  - 3개 회의실
+  - 1층
+  labels_inside:
+  - 복 및 기계실
+  - 통신실
+  - 경비실
+  - 안내데스크
+  - One Stop 기업지원
+  - 지식 기업지원
+  - Star 사업실
+  - 통신실
+  - 통신방송실
+  - 3개 회의실
+  labels_above:
+  - 1층
+  equipment_symbols:
+  - type: LAN_OUTLET_2PORT
+    count: 10
+  - type: LAN_OUTLET_1PORT
+    count: 5
+  - type: SYSTEM_BOX_LAN_2PORT
+    count: 3
+  - type: AP
+    count: 2
+  - type: ITB
+    count: 1
+  inferred_name: 1층 각 실 단말 그룹
+  position: center-bottom
+relations:
+- from: IDF-1
+  to: ROOM-1F-ZONES
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: T1~T6 UTP CAT.5e 수평배선
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: center-bottom
+equipment_symbols:
+- type: LAN_OUTLET_2PORT
+  count: 10
+- type: LAN_OUTLET_1PORT
+  count: 5
+- type: SYSTEM_BOX_LAN_2PORT
+  count: 3
+- type: AP
+  count: 2
+- type: ITB
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationSpace
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_above
+  - equipment_symbols
+  - inferred_name
+  - position
+  similar_equipment: []
+  function_candidates:
+  - DataConnectivity
+  - WirelessNetworkAccess
+  - TerminalDistribution

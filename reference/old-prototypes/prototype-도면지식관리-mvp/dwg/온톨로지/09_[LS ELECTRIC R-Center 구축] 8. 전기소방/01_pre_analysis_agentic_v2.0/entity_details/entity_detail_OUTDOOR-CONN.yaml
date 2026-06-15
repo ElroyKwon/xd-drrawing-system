@@ -1,0 +1,67 @@
+tag: OUTDOOR-CONN
+name: 외부 인입 연결점
+type: DISTRIBUTE
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+specs:
+  inferred_name: 외부 인입 연결점 (사무동 지상1층 방송실)
+  labels_inside:
+  - 'FROM : 사무동 지상1층 방송실'
+  - ELP 50
+  - IN TRAY
+  - FR-3 2.5sq / 10C
+  - 지하공동구 사용
+  labels_above: []
+  labels_below:
+  - 지하공동구 사용
+  shape: other
+  position: bottom-center
+  floor: 1층 F.L
+  raw_labels:
+  - 'FROM : 사무동 지상1층 방송실'
+  - ELP 50
+  - IN TRAY
+  - FR-3 2.5sq / 10C
+  - 지하공동구 사용
+relations:
+- from: OUTDOOR-CONN
+  to: PULL-BOX-01
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: FROM 사무동 지상1층 방송실 / ELP 50 IN TRAY / FR-3 2.5sq/10C / 지하공동구 사용
+- from: OUTDOOR-CONN
+  to: PULL-BOX-01
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: FROM 사무동 지상1층 방송실 / ELP 50 IN TRAY / FR-3 2.5sq/10C / 지하공동구 사용
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-center
+confidence: 0.95
+equipment_symbols: []
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ConnectionPoint
+  observed_attributes:
+  - inferred_name
+  - labels_inside
+  - labels_above
+  - labels_below
+  - shape
+  - position
+  - floor
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - ExternalInlet
+  - CableDistribution

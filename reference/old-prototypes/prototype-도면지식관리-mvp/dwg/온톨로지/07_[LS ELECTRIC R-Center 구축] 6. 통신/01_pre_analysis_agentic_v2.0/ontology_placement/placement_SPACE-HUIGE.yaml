@@ -1,0 +1,146 @@
+placement:
+  tag: SPACE-HUIGE
+  name: 휴게공간
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-HUIGE
+    class_hint: Space
+    alternative_class_hints:
+    - Resting Area
+    - CommunicationSpace
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 휴게공간
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 한글 라벨 원문
+      - raw_text: 휴게공간
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: inferred_name과 동일한 표기
+      - raw_text: right-center
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'function_candidates: Resting Area'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트
+      - raw_text: 'suggested_parent_class: Space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문
+      - raw_text: 'observed_attributes: raw_labels, labels_inside, labels_above, labels_below,
+          equipment_symbols, inferred_name, position'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: observedAttributesText
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 원문 보존
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: inferred_from_type_and_function_category
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: direct_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: inferred_from_ontology_hints_and_name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: inferred_from_function_candidates_and_discipline
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: preserved_from_entity_detail
+    provenance:
+      source_pages:
+      - 8
+      method: compiled_from_entity_detail_fields
+    ambiguous:
+      source_pages:
+      - 8
+      method: assessed_from_entity_detail
+    plan_reference.guidance_applied:
+      source_pages:
+      - 8
+      method: applied_ontology_plan_focus
+  unresolved:
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 8
+    reason: 상위 클래스 힌트이지만 이 단계에서 확정 class로 승격하지 않음
+    preservation_note: 후속 단계에서 class hierarchy 후보로 재검토
+  - field_candidate: ontology_hints.function_candidates[0]
+    raw_text: Resting Area
+    source_page: 8
+    reason: 기능 후보는 있으나 supplement sub_kind가 없어 확정 분류 불가
+    preservation_note: free_notes에 보존
+  - field_candidate: specs.position
+    raw_text: right-center
+    source_page: 8
+    reason: 위치 문자열은 해석 가능하나 별도 구조화 키가 이 단계에서 없음
+    preservation_note: positionText 후보로 승격 가능
+  - field_candidate: specs.raw_labels[0]
+    raw_text: 휴게공간
+    source_page: 8
+    reason: 원문 라벨이지만 별도 표준 sub_kind 없음
+    preservation_note: rawLabelText 후보로 승격 가능
+  - field_candidate: specs.labels_inside[0]
+    raw_text: 휴게공간
+    source_page: 8
+    reason: 내부 라벨 원문 보존 필요
+    preservation_note: labels_inside 원문 유지
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: raw_labels, labels_inside, labels_above, labels_below, equipment_symbols,
+      inferred_name, position
+    source_page: 8
+    reason: 관찰 속성 목록은 메타 정보로서 구조화 대상이 아님
+    preservation_note: 후속 추출 시 필드 커버리지 점검용
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 도면상 휴게공간이라는 공간 실체가 명시되어 있고, type=space 및 function_category=SPACE로 일관됨
+    recommended_handling: Space 계열 개체로 유지하고 후속 단계에서 세부 class만 보강
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴에 따라 CommunicationSpaceEntity 계열로 해석
+    - raw_labels, labels_inside, inferred_name, position 등 관찰 속성 보존
+    - function_candidates와 suggested_parent_class를 free_notes/unresolved로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:15:41.337099'
+  confidence: 0.96

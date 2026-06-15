@@ -1,0 +1,260 @@
+placement:
+  tag: ROUTE-TO-RCENTER
+  name: 'TO : R-Conter EPS/TPS'
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:ROUTE-TO-RCENTER
+    class_hint: CableRoute
+    alternative_class_hints:
+    - CableRouting
+    - Interconnection
+    related_assertions:
+    - type: connectedTo
+      target_hint: TRAY-GONGDONG
+      note: relation=cable; route arrow from TRAY-GONGDONG to this route entity
+    - type: routesThrough
+      target_hint: TRAY-GONGDONG
+      note: raw label includes '/IN TRAY' and relation annotation indicates cable
+        route via tray
+    - type: terminatesAt
+      target_hint: R-Conter EPS/TPS
+      note: destination explicitly stated in specs.destination
+    - type: hasCableSpec
+      target_hint: ELP 50 /IN TRAY
+      note: cable_specifications entry
+    - type: hasCableSpec
+      target_hint: UTP 0.5mm/25Px1,CAT.5
+      note: cable_specifications entry
+    - type: hasCableSpec
+      target_hint: FIBER OPTICAL S.M 12CORE
+      note: cable_specifications entry
+    - type: referencesDocumentSection
+      target_hint: 옥외 정보통신 인입 배치도
+      note: reference_note indicates external drawing reference
+    applicable_axioms:
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:CableRoute
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: ELP 50 /IN TRAY
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: cable specification string preserved as-is
+      - raw_text: UTP 0.5mm/25Px1,CAT.5
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: cable specification string preserved as-is
+      - raw_text: FIBER OPTICAL S.M 12CORE
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: cable specification string preserved as-is
+      - raw_text: 지하공동구 사용
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: routeUsageNote
+          suggested_datatype: xsd:string
+          rationale: route usage / installation note
+      - raw_text: (옥외 정보통신 인입 배치도 참조)
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: referenceNote
+          suggested_datatype: xsd:string
+          rationale: explicit reference to another drawing
+      - raw_text: 'TO : R-Conter EPS/TPS'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: destinationLabel
+          suggested_datatype: xsd:string
+          rationale: destination text preserved verbatim
+      - raw_text: route_arrow_up
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: visualSymbolType
+          suggested_datatype: xsd:string
+          rationale: visual symbol/arrow semantics observed
+      - raw_text: 'count: 1'
+        source_page: 9
+        promotion_hint:
+          suggested_property_label: symbolCount
+          suggested_datatype: xsd:integer
+          rationale: count information attached to route arrow symbol
+  provenance:
+    tag:
+      source_pages:
+      - 9
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 9
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 9
+      method: entity_detail.discipline
+    function_category:
+      source_pages:
+      - 9
+      method: entity_detail.function_category
+    ontology_core.owl_role:
+      source_pages:
+      - 9
+      method: classification_by_observation
+    ontology_core.iri_hint:
+      source_pages:
+      - 9
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 9
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 9
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 9
+      method: relations + specs + ontology_hints
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 9
+      method: specs + relations + equipment_symbols
+    specs.raw_labels:
+      source_pages:
+      - 9
+      method: entity_detail.specs.raw_labels
+    specs.destination:
+      source_pages:
+      - 9
+      method: entity_detail.specs.destination
+    specs.cable_specifications:
+      source_pages:
+      - 9
+      method: entity_detail.specs.cable_specifications
+    specs.note:
+      source_pages:
+      - 9
+      method: entity_detail.specs.note
+    specs.reference_note:
+      source_pages:
+      - 9
+      method: entity_detail.specs.reference_note
+    relations:
+      source_pages:
+      - 9
+      method: entity_detail.relations
+    position:
+      source_pages:
+      - 9
+      method: entity_detail.position
+    equipment_symbols:
+      source_pages:
+      - 9
+      method: entity_detail.equipment_symbols
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 9
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.visual_semantics:
+      source_pages:
+      - 9
+      method: entity_detail.collection_sources.visual_semantics
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 9
+      method: entity_detail.collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: name
+    raw_text: 'TO : R-Conter EPS/TPS'
+    source_page: 9
+    reason: destination spelling appears nonstandard/possibly OCR-derived, but cannot
+      correct by external knowledge
+    preservation_note: keep verbatim; destination also stored separately in specs.destination
+  - field_candidate: specs.raw_labels
+    raw_text: ELP 50
+    source_page: 9
+    reason: standalone label fragment without explicit semantic role
+    preservation_note: preserve as raw cable/route label fragment
+  - field_candidate: specs.raw_labels
+    raw_text: /IN TRAY
+    source_page: 9
+    reason: fragmentary route annotation
+    preservation_note: preserve as raw text; likely indicates tray routing
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO : R-Conter EPS/TPS'
+    source_page: 9
+    reason: already captured as name/destination but still preserved as raw label
+    preservation_note: retain verbatim for traceability
+  - field_candidate: specs.raw_labels
+    raw_text: UTP 0.5mm/25Px1,CAT.5
+    source_page: 9
+    reason: cable spec string not decomposed
+    preservation_note: preserve exact punctuation and spacing
+  - field_candidate: specs.raw_labels
+    raw_text: FIBER OPTICAL S.M 12CORE
+    source_page: 9
+    reason: cable spec string not decomposed
+    preservation_note: preserve exact wording
+  - field_candidate: specs.note
+    raw_text: 지하공동구 사용
+    source_page: 9
+    reason: usage note rather than classifiable structural attribute
+    preservation_note: route/environment note
+  - field_candidate: specs.reference_note
+    raw_text: (옥외 정보통신 인입 배치도 참조)
+    source_page: 9
+    reason: external reference only; target drawing not present in input
+    preservation_note: keep as cross-drawing reference
+  - field_candidate: relations.annotation
+    raw_text: ELP 50 /IN TRAY, UTP 0.5mm/25Px1 CAT.5, FIBER OPTICAL S.M 12CORE, 지하공동구
+      사용
+    source_page: 9
+    reason: combined annotation mixes multiple cable specs and route note
+    preservation_note: split only if later step requires property normalization
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: Entity is a route/destination annotation with cable specifications and
+      a visual arrow, but it may also function as a connection fact rather than a
+      physical asset.
+    recommended_handling: Keep as NamedIndividual at this stage with CableRoute hint;
+      downstream step may refine to ObjectPropertyAssertion if the project treats
+      route labels as relation instances.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CableRoute / Interconnection focus from ontology_plan guidance_for_next_steps
+    - Preserved route-related raw labels, destination, cable specs, and reference
+      note
+    - Used connectedTo, routesThrough, terminatesAt, hasCableSpec as relation-fact
+      prototypes
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:21.586428'
+  confidence: 0.86

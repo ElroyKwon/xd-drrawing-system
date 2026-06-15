@@ -1,0 +1,102 @@
+placement:
+  tag: S02.23
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S02.23
+    class_hint: SheetIdentifier
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    - SeriesIdentifier
+    related_assertions: []
+    applicable_axioms:
+    - AX004
+    - AX011
+    applicable_constraints: []
+    confirmed_class: dks:SheetIdentifier
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 추후 정규화 시 문자열 또는 페이지 리스트 속성으로 승격 가능
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: analysisAvailabilityNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아니라 응답 안내 문구로, 주석/메타 설명 성격의 텍스트
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text
+    iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    class_hint:
+      source_pages:
+      - 0
+      method: plan_guidance + raw_text
+    alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_guidance + raw_text
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 페이지 목록과 안내 문구는 도면 설비 실체나 관계로 직접 해석되지 않음
+    preservation_note: 문서 메타/응답 안내로 보존; 페이지 번호는 후속 페이지 참조 후보
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 name 필드가 제공되지 않음
+    preservation_note: 빈 값 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 S02.23은 도면 설비 실체라기보다 시트/페이지 식별자 또는 문서 메타로 보이며, raw_text도 페이지 안내만 포함함
+    recommended_handling: 후속 단계에서 DocumentEntity 또는 Note/Legend 계열로 재검토하되, 현재 단계에서는
+      AnnotationOnly로 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - document metadata / sheet identifier 계열로 보수적 분류
+    - unknown discipline에서 문서 메타 또는 미해결 구조 엔티티 가능성 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:32.871368'
+  confidence: 0.86

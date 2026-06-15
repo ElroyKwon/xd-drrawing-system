@@ -1,0 +1,2309 @@
+entity_list_data:
+  meta:
+    group_name: 06_[LS ELECTRIC R-Center 구축] 5. 전기
+    total_pages: 15
+    primary_discipline: ELECTRICAL
+    entity_count: 171
+    space_count: 38
+    relation_count: 115
+  entities:
+  - tag: KEPCO-INCOMING
+    name: 한전 수전 라인
+    type: power_source
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 22.9kV 한전 인입선. page5에서 KEPCO-INCOMING 태그 중복 등장(power_source 동일 개체)
+  - tag: MOF
+    name: M.O.F (Metering Out Fit)
+    type: metering_device
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 22.9kV 계량 장치. 범례 SYM-006 확인
+  - tag: SHV-1101
+    name: 1101 SHV 22.9kV 피더
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5에서 '1101 SHV'와 '1101 SHV 22.9kV 피더' 두 번 등장 → 동일 개체로 병합
+  - tag: SHV-1102
+    name: 1102 SHV 22.9kV 계량
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합
+  - tag: SHV-1103
+    name: 1103 SHV PT 패널
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합
+  - tag: SHV-1104
+    name: 1104 SHV 22.9kV 피더
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: SHV-1105
+    name: 1105 SHV 22.9kV 피더
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: SHV-1106
+    name: 1106 SHV 22.9kV 피더
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: SHV-1107
+    name: 1107 SHV 22.9kV 피더
+    type: switchgear_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: SHV-1310
+    name: 1310 SHV JUNCTION BOX
+    type: junction_box
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합
+  - tag: TR-1201
+    name: 'TR #1 변압기'
+    type: transformer
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 'page5에서 ''TR #1 변압기''(tag TR-1201)와 ''TR #1''(tag TR-1201) 중복 → 병합. page5_context에서
+      TR #1~#4 모두 확인되나 TR-1203/TR-1204는 page5 entities에 명시 태그 없음 → consolidation_issues
+      기록'
+  - tag: TR-1202
+    name: 'TR #2 변압기'
+    type: transformer
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합
+  - tag: TR-1203
+    name: 'TR #3 변압기'
+    type: transformer
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    source_pages:
+    - 5
+    confidence: 0.95
+    note: 'page5_context executive_summary에서 TR #3 언급 확인. entities 목록에 명시 태그 없어 태그
+      부여'
+  - tag: TR-1204
+    name: 'TR #4 변압기'
+    type: transformer
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    source_pages:
+    - 5
+    confidence: 0.95
+    note: 'page5_context executive_summary에서 TR #4 언급 확인. entities 목록에 명시 태그 없어 태그
+      부여'
+  - tag: HV-1301A
+    name: 1301A HV 6.6kV 피더 - U/T 비상
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합 (상세명 우선 채택)
+  - tag: HV-1301B
+    name: 1301B HV 6.6kV 피더 - SPARE
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1302A
+    name: 1302A HV 6.6kV 피더 - UT동 부속동력
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1302B
+    name: 1302B HV 6.6kV 피더 - 오폐수처리장동력
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1303A
+    name: 1303A HV 6.6kV 피더 - 냉동기 LSPS장치
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1303B
+    name: 1303B HV 6.6kV 피더 - 냉동기 4호기
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1304A
+    name: 1304A HV 6.6kV 피더 - 사무동력
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1304B
+    name: 1304B HV 6.6kV 피더 - 이오스솔라 동력
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1305A
+    name: 1305A HV 6.6kV 피더 - 냉동기 1호기
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1305B
+    name: 1305B HV 6.6kV 피더 - SPARE
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1306
+    name: 1306 HV 6.6kV 피더
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1308
+    name: 1308 HV 6.6kV 피더
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1309
+    name: 1309 HV 6.6kV BUS TIE (INTER-LOCK)
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: CONTROL
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합. BUS TIE 기능
+  - tag: HV-1310A
+    name: 1310A HV 6.6kV 피더 - 공장B2동 동력
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1310B
+    name: 1310B HV 6.6kV 피더 - 냉동기 1호기
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1311A
+    name: 1311A HV 6.6kV 피더 - SPARE
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1311B
+    name: 1311B HV 6.6kV 피더 - 냉동기 1호기
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1312
+    name: 1312 HV 6.6kV 피더 - 공장B2동 동력
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1313A
+    name: 1313A HV 6.6kV 피더 - SPARE
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1313B
+    name: 1313B HV 6.6kV 피더 - 냉동기 1호기
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: HV-1319A
+    name: 1319A HV 6.6kV 피더
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 entities에만 등장. 부하명 미확인
+  - tag: HV-1319B
+    name: 1319B HV 6.6kV 피더
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 entities에만 등장. 부하명 미확인
+  - tag: GP-1402A
+    name: 1402A GP 6.6kV 피더 - U/T 비상
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합
+  - tag: GP-1402B
+    name: 1402B GP 6.6kV 피더 - 공장 A동
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: GP-1403A
+    name: 1403A GP 6.6kV 피더 - SPARE
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: GP-1403B
+    name: 1403B GP 6.6kV 피더 - 비트동 비상
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: GP-1404A
+    name: 1404A GP 6.6kV 피더 - 사무동 비상
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: GP-1404B
+    name: 1404B GP 6.6kV 피더 - 오폐수동 비상
+    type: breaker_bay
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: GEN
+    name: 비상발전기 6.6kV
+    type: generator
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: page5 중복 등장 병합
+  - tag: GIPAM-2000FI
+    name: GIPAM-2000FI 보호계전기
+    type: protection_relay
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: CT
+    name: Current Transformer
+    type: current_transformer
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 범례 SYM-017 확인. 단선도 내 공통 심볼로 사용
+  - tag: PT
+    name: Potential Transformer
+    type: potential_transformer
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 범례 SYM-008 확인
+  - tag: ZCT
+    name: Zero Sequence Current Transformer
+    type: zero_sequence_ct
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 범례 SYM-018 확인
+  - tag: SA
+    name: Surge Arrester
+    type: surge_arrester
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 범례 SYM-009 확인
+  - tag: LA
+    name: Lightning Arrester
+    type: lightning_arrester
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: 범례 SYM-005 확인
+  - tag: BUS-22.9kV-MAIN
+    name: 22.9kV 주 모선
+    type: bus
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: BUS-6.6kV-1
+    name: '6.6kV 모선 #1'
+    type: bus
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: BUS-6.6kV-2
+    name: '6.6kV 모선 #2'
+    type: bus
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: BUS-6.6kV-GEN
+    name: 6.6kV 발전기 모선
+    type: bus
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: DC-LIGHTING-SYSTEM
+    name: DC LIGHTING 시스템
+    type: dc_power_system
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 5
+    confidence: 1.0
+    note: null
+  - tag: PNL-INCOMING
+    name: 전력 인입용 전력판넬
+    type: Power Inlet Panel
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 'spec: 2,000x2,000x2,000mm, 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L, 지하공동구 경유'
+  - tag: SS-R-CENTER
+    name: S/S R-Center 수전반
+    type: Main Distribution Panel / Switchboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 원본 tag 'S/S R-Center' → 전역 태그 SS-R-CENTER로 정규화. 1층 전기실 위치, ACB 1개
+  - tag: IVR-2
+    name: IVR-2 인버터
+    type: Inverter
+    discipline: ELECTRICAL
+    function_category: CONVERT
+    source_pages:
+    - 23
+    confidence: 0.95
+    note: 3Ф 3W 440V, F-CV 240㎟ -1C x3
+  - tag: LV-6
+    name: LV-6 저압반
+    type: Low Voltage Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.9
+    note: null
+  - tag: LP-1F
+    name: LP-1F 조명분전반
+    type: Lighting Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ф 4W 380/220V, F-CV 50㎟ -1C x4, 1층
+  - tag: LP-2F
+    name: LP-2F 조명분전반
+    type: Lighting Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.95
+    note: 2층, LP-1F에서 공급
+  - tag: P-OAC-1
+    name: P-OAC-1 외기조화기 분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ф 4W 380/220V, F-CV 150㎟ -1C x4, 지붕층
+  - tag: P-OAC-2
+    name: P-OAC-2 외기조화기 분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ф 4W 380/220V, F-CV 240㎟ -1C x4, 지붕층
+  - tag: P-OAC-3
+    name: P-OAC-3 외기조화기 분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ф 4W 380/220V, F-CV 120㎟ -1C x4, 지붕층
+  - tag: P-F
+    name: P-F 소방 분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ф 4W 380/220V, F-CV 35㎟ -4C x1, 1층
+  - tag: P-A-2PP-1
+    name: P-A-2PP-1 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ø 220V 계통. 상세 사양 page23_context에서 미확인
+  - tag: P-A-2PP-2
+    name: P-A-2PP-2 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: null
+  - tag: P-C-2PP
+    name: P-C-2PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: null
+  - tag: P-D-2PP
+    name: P-D-2PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: null
+  - tag: P-E-2PP-1
+    name: P-E-2PP-1 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: null
+  - tag: P-E-2PP-2
+    name: P-E-2PP-2 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: null
+  - tag: P-EA-2PP
+    name: P-EA-2PP 동력분전반 (1층 극한환경 시험실)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 19
+    - 23
+    confidence: 0.98
+    note: 3Ø 220V, MAIN MCCB 3P 125AF/100AT, SPD 40KA/mode. page19와 page23 일치
+  - tag: P-F-2PP
+    name: P-F-2PP 동력분전반 (1층 진동시험실)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 19
+    - 23
+    confidence: 0.98
+    note: 3Ø 220V, MAIN MCCB 3P 400AF/350AT, SPD 40KA/mode
+  - tag: P-G-2PP
+    name: P-G-2PP 동력분전반 (1층 검증시스템)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 19
+    - 23
+    confidence: 0.98
+    note: 3Ø 220V, MAIN MCCB 3P 250AF/175AT, SPD 40KA/mode
+  - tag: P-I-2PP
+    name: P-I-2PP 동력분전반 (1층 PLC/Drive 검증시스템)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 19
+    - 23
+    confidence: 0.98
+    note: 3Ø 220V, MAIN MCCB 3P 250AF/150AT, SPD 40KA/mode
+  - tag: P-A-3PP
+    name: P-A-3PP 분전반 (1층 Drive 시험실)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    - 23
+    confidence: 0.92
+    note: 3Ø 380V, MCCB 3P, SPD 40KA/mode. page23에서 P-A-3PP-1/2/3으로 분리 표기 → consolidation_issues
+      기록
+  - tag: P-A-3PP-1
+    name: P-A-3PP-1 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: page23 계통도에서 P-A-3PP와 별도로 P-A-3PP-1/2/3 표기. page20에서는 P-A-3PP 단일 태그 사용.
+      동일 설비 여부 HITL 확인 필요
+  - tag: P-A-3PP-2
+    name: P-A-3PP-2 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 상동
+  - tag: P-A-3PP-3
+    name: P-A-3PP-3 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 상동
+  - tag: P-AC-3PP
+    name: P-AC-3PP 분전반 (1층 대용량 모터부하설(방음))
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    confidence: 0.92
+    note: 3Ø 380V, MCCB 3P, SPD 40KA/mode
+  - tag: P-C-3PP
+    name: P-C-3PP 챔버룸 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: 3Ф 4W 380/220V, F-CV 185㎟ -1C x4, 챔버룸
+  - tag: P-D-3PP
+    name: P-D-3PP 분전반 (1층 전기적 기능시험실)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    - 23
+    confidence: 0.9
+    note: 3Ø 380V, MCCB 3P, SPD 40KA/mode
+  - tag: P-E-3PP
+    name: P-E-3PP 분전반 (1층 환경시험실)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    - 23
+    confidence: 0.85
+    note: 3Ø 380V, MCCB 3P 50/20AT, SPD 40KA/mode
+  - tag: P-F-3PP
+    name: P-F-3PP 분전반 (1층 진동시험실)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    - 23
+    confidence: 0.92
+    note: 3Ø 380V, MCCB 3P 50/20AT, SPD 40KA/mode
+  - tag: P-G-3PP
+    name: P-G-3PP 분전반 (1층 검증시스템)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    - 23
+    confidence: 0.9
+    note: 3Ø 380V, MCCB 3P 50/20AT, SPD 40KA/mode, 설비용 100KW
+  - tag: P-I-3PP
+    name: P-I-3PP 분전반 (1층 PLC/Drive 검증시스템)
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 20
+    - 23
+    confidence: 0.9
+    note: 3Ø 380V, MCCB 3P 50/20AT, SPD 40KA/mode
+  - tag: P-A-4PP-1
+    name: P-A-4PP-1 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 21
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-A-4PP-2
+    name: P-A-4PP-2 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 21
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-A-4PP-3
+    name: P-A-4PP-3 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 21
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-A-4PP-4
+    name: P-A-4PP-4 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 21
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-A-4PP-5
+    name: P-A-4PP-5 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 21
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-A-4PP-6
+    name: P-A-4PP-6 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 21
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-A-4PP-7
+    name: P-A-4PP-7 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 22
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 Drive 시험실
+  - tag: P-AC-4PP-1
+    name: P-AC-4PP-1 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 22
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 대용량 모터부하실(방음)
+  - tag: P-C-4PP
+    name: P-C-4PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 22
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 챔버룸
+  - tag: P-E-4PP
+    name: P-E-4PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 22
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 환경시험실
+  - tag: P-F-4PP
+    name: P-F-4PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 22
+    - 23
+    confidence: 0.98
+    note: 3Ø 440V, 1층 진동시험실
+  - tag: P-P-4PP
+    name: P-P-4PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 22
+    confidence: 0.98
+    note: 3Ø 440V, 고객접견공간
+  - tag: P-K-4PP
+    name: P-K-4PP 동력분전반
+    type: Power Panelboard
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 23
+    confidence: 0.98
+    note: page23 계통도에만 등장. 위치/사양 미확인
+  - tag: SPD-001
+    name: 3Ø 서지보호기 (P-EA-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 19
+    confidence: 0.9
+    note: 3Ø S.P.D 40KA/mode. page19_context에서 480kA/mode 불일치 언급 → ambiguities 기록
+  - tag: SPD-002
+    name: 3Ø 서지보호기 (P-F-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 19
+    confidence: 0.9
+    note: 상동
+  - tag: SPD-003
+    name: 3Ø 서지보호기 (P-G-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 19
+    confidence: 0.9
+    note: 상동
+  - tag: SPD-004
+    name: 3Ø 서지보호기 (P-I-2PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 19
+    confidence: 0.9
+    note: 상동
+  - tag: SPD-P-A-4PP-7
+    name: SPD (P-A-4PP-7용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 22
+    confidence: 0.95
+    note: 3Ø S.P.D 40KA/mode
+  - tag: SPD-P-AC-4PP-1
+    name: SPD (P-AC-4PP-1용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 22
+    confidence: 0.95
+    note: null
+  - tag: SPD-P-C-4PP
+    name: SPD (P-C-4PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 22
+    confidence: 0.95
+    note: null
+  - tag: SPD-P-E-4PP
+    name: SPD (P-E-4PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 22
+    confidence: 0.95
+    note: null
+  - tag: SPD-P-F-4PP
+    name: SPD (P-F-4PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 22
+    confidence: 0.95
+    note: null
+  - tag: SPD-P-P-4PP
+    name: SPD (P-P-4PP용)
+    type: Surge Protective Device
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 22
+    confidence: 0.95
+    note: null
+  - tag: E3
+    name: E3 접지 기준점 (보호접지)
+    type: Grounding Reference
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 20
+    - 21
+    - 22
+    confidence: 0.95
+    note: page20 tag E3, page21 tag E3, page22 tag E3-GROUNDING → 동일 개체. 전력접지 단자함(EQ-E006)의
+      보호접지(E3) 구성요소와 연결
+  - tag: GND-E3
+    name: 접지 시스템 E3 (page19)
+    type: Grounding Reference
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 19
+    confidence: 0.85
+    note: page19 tag GND-E3. E3와 동일 개체로 추정되나 태그 상이 → ambiguities 기록
+  - tag: LTN-001
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 37
+    - 38
+    - 40
+    confidence: 0.99
+    note: H:3,000mm, 1개소. page37 tag LTN-001, page38 tag LP-001, page40 tag null →
+      동일 개체 병합. 최종 tag LTN-001 채택
+  - tag: CND-001
+    name: 수평도체 (STS 환봉 8mm)
+    type: Horizontal Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 37
+    - 38
+    - 40
+    confidence: 0.99
+    note: page37 tag CND-001, page38 tag HC-001, page40 tag null → 병합
+  - tag: BND-001
+    name: 구조체 접속
+    type: Structural Bonding Point
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 37
+    - 38
+    confidence: 0.99
+    note: 12개소. page37 tag BND-001, page38 tag SC-001 → 병합
+  - tag: BND-002
+    name: 금속 사다리 접속
+    type: Metal Ladder Bonding Point
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 37
+    - 40
+    confidence: 0.99
+    note: 2개소
+  - tag: GND-001
+    name: 피뢰기초접지극
+    type: Grounding Electrode
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 37
+    confidence: 0.98
+    note: 2개소. 개별 태그 구분 미확인
+  - tag: CND-002
+    name: 보조 인하도선 (F-GV 50㎟ HI-PVC 28C)
+    type: Auxiliary Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 37
+    - 38
+    confidence: 0.98
+    note: page37 tag CND-002, page38 tag AUX-DC-001 → 병합
+  - tag: CND-003
+    name: 주 인하도선 (기초철골)
+    type: Primary Down Conductor
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 37
+    - 38
+    confidence: 0.9
+    note: page37 tag CND-003, page38 tag DC-001 → 병합
+  - tag: EQ-E001
+    name: STS 316 접지판
+    type: 접지판
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: '500mm x 500mm, Material: STS 316'
+  - tag: EQ-E002
+    name: 토양매설 기초접지극
+    type: 기초접지극
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: null
+  - tag: EQ-E003
+    name: 접지단자함
+    type: 접지단자함
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: null
+  - tag: EQ-E004
+    name: 절연수막처리봉
+    type: 절연수막처리봉
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E005
+    name: 피뢰접지 단자함
+    type: 피뢰접지 단자함
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: F-GV 50㎟ (HI-PVC 28C), 1CCT
+  - tag: EQ-E006
+    name: 전력접지 단자함
+    type: 전력접지 단자함
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: F-GV 16㎟ (HI-PVC 16C), 10CCT, CU-Busbar, Bakelite. E1/E2/E3 구성
+  - tag: EQ-E007
+    name: 통신접지 단자함
+    type: 통신접지 단자함
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: 5CCT, CU-Busbar, Bakelite. MDF실/방재실 적용
+  - tag: EQ-E008
+    name: 접지극(E극)
+    type: 접지극
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: 3극법 접지저항 측정용
+  - tag: EQ-E009
+    name: 보조극(P극)
+    type: 보조극
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: Test Rod Ø14 x 1,000mm
+  - tag: EQ-E010
+    name: 보조극(C극)
+    type: 보조극
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: Test Rod Ø14 x 1,000mm
+  - tag: EQ-E011
+    name: Test Rod
+    type: Test Rod
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: Ø14 x 1,000mm, 2개
+  - tag: EQ-E012
+    name: F-GV Wire
+    type: 접지선
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    - 40
+    confidence: 0.98
+    note: F-GV 50㎟ / F-GV 16㎟
+  - tag: EQ-E013
+    name: HI-PVC 전선관
+    type: 전선관
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.98
+    note: HI-PVC 28C / HI-PVC 16C
+  - tag: EQ-E014
+    name: CU-Busbar
+    type: 구리 버스바
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E015
+    name: Bakelite
+    type: 절연재료
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E016
+    name: Test (접지 시험점)
+    type: 테스트 포인트
+    discipline: ELECTRICAL
+    function_category: SENSE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E017
+    name: 수도관 (등전위 접속 대상)
+    type: 수도관
+    discipline: PLUMBING
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: 등전위 접속 상세도 내 표기. discipline PLUMBING으로 정정
+  - tag: EQ-E018
+    name: 가스관 (등전위 접속 대상)
+    type: 가스관
+    discipline: PLUMBING
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: 등전위 접속 상세도 내 표기
+  - tag: EQ-E019
+    name: 기계관 (등전위 접속 대상)
+    type: 기계관
+    discipline: MECHANICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: 등전위 접속 상세도 내 표기
+  - tag: EQ-E023
+    name: H-Beam
+    type: H형강
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 39
+    - 40
+    confidence: 0.97
+    note: 접지 접속 대상 구조 부재
+  - tag: EQ-E024
+    name: Steel Plate
+    type: 강판
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 39
+    - 40
+    confidence: 0.97
+    note: null
+  - tag: EQ-E025
+    name: 철근
+    type: 철근
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E026
+    name: 철근클램프
+    type: 철근클램프
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E027
+    name: 동관단자 2HOLE
+    type: 동관단자
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    - 40
+    confidence: 0.97
+    note: null
+  - tag: EQ-E028
+    name: 압착단자
+    type: 압착단자
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E029
+    name: 압착 슬리브
+    type: 압착 슬리브
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 39
+    confidence: 0.97
+    note: null
+  - tag: EQ-E031
+    name: 웨더캡
+    type: 웨더캡
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 39
+    - 40
+    confidence: 0.97
+    note: null
+  - tag: EQ-P40-001
+    name: 지지금구
+    type: 지지금구/클립
+    discipline: ELECTRICAL
+    function_category: BOUNDARY
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: 수평도체 지지용
+  - tag: EQ-P40-002
+    name: Flexible Connector
+    type: 유연 연결기
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-003
+    name: Straight Connector
+    type: 직선 연결기
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 40
+    confidence: 0.95
+    note: null
+  - tag: EQ-P40-004
+    name: Tee Connector
+    type: T자형 연결기
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-005
+    name: Tee Connector (이질커넥터)
+    type: T자형 이질 연결기
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-006
+    name: 일체형 지지대 (STS 304)
+    type: 일체형 지지대
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-007
+    name: 지지대 (STS 304)
+    type: 지지대
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-008
+    name: 난간접지 클램프 (STS + CU)
+    type: 접지 클램프
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-009
+    name: 이질커넥터 (STS + CU)
+    type: 이질 연결기
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-010
+    name: 금속 사다리
+    type: 금속 사다리
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-011
+    name: 파라펫트
+    type: 파라펫
+    discipline: ARCHITECTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-P40-012
+    name: 콘크리트 기초 (전기공사)
+    type: 콘크리트 기초
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 40
+    confidence: 0.98
+    note: null
+  - tag: EQ-LT-001
+    name: 조명기구
+    type: Lighting Fixture
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 41
+    confidence: 0.92
+    note: null
+  - tag: EQ-DL-001
+    name: 다운라이트
+    type: Downlight
+    discipline: ELECTRICAL
+    function_category: DISTRIBUTE
+    source_pages:
+    - 41
+    confidence: 0.93
+    note: null
+  - tag: EQ-SS-001
+    name: 현수구조 (볼트)
+    type: Suspension Structure - Bolt Type
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 41
+    confidence: 0.9
+    note: null
+  - tag: EQ-SS-002
+    name: 현수구조 (파이프)
+    type: Suspension Structure - Pipe Type
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 41
+    confidence: 0.9
+    note: null
+  - tag: EQ-ASB-001
+    name: 흔들림 방지 지지 (고정)
+    type: Anti-Sway Brace - Fixed Type
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    source_pages:
+    - 41
+    confidence: 0.9
+    note: null
+  - null
+  relations:
+  - from: PNL-001
+    to: PNL-008
+    relation: power_cable
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP100 X 2) / DUCT BANK 경유
+  - from: PNL-008
+    to: PNL-009
+    relation: power_cable
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 지중 전력 경로 (공동구 진입)
+  - from: PNL-009
+    to: PNL-010
+    relation: power_cable
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 공동구 내 TRAY 경유 / 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (IN TRAY)
+  - from: PNL-010
+    to: PNL-002
+    relation: power_cable
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 공동구 경유 UT동 1층 변전실 연결
+  - from: PNL-002
+    to: PNL-003
+    relation: power_cable
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 철거 후 R-Center 이설 예정 (SEE.DWG.NO EE-01-011)
+  - from: PNL-003
+    to: PNL-004
+    relation: power_cable
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 철거 후 R-Center 이설 예정 (SEE.DWG.NO EE-01-011)
+  - from: PNL-001
+    to: PNL-011
+    relation: duct
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 공동구 내 기존 TRAY 사용 경로
+  - from: PNL-011
+    to: PNL-002
+    relation: duct
+    source_pages:
+    - 4
+    origin: visual_semantics
+    annotation: 공동구 내 기존 TRAY 사용 경로
+  - from: PNL-KEPCO-INCOMING
+    to: PNL-MOF
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV ACSR-OC 160sq×3
+  - from: PNL-MOF
+    to: PNL-SHV-1101
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV
+  - from: PNL-SHV-1101
+    to: PNL-SHV-1102
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV Bus
+  - from: PNL-SHV-1102
+    to: PNL-SHV-1103
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV Bus
+  - from: PNL-SHV-1103
+    to: PNL-SHV-1104
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV Bus
+  - from: PNL-SHV-1104
+    to: PNL-SHV-1105
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV Bus
+  - from: PNL-SHV-1105
+    to: PNL-SHV-1106
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV Bus
+  - from: PNL-SHV-1106
+    to: PNL-SHV-1107
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV Bus
+  - from: PNL-GEN
+    to: PNL-GP-1402A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV PR 8 100SQ 1C×1LINE(CABLE TRAY)
+  - from: PNL-GP-1402A
+    to: PNL-GP-1402B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-GP-1402B
+    to: PNL-GP-1403A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-GP-1403A
+    to: PNL-GP-1403B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-GP-1403B
+    to: PNL-GP-1404A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-GP-1404A
+    to: PNL-GP-1404B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-INCOMING-22KV-LEFT
+    to: PNL-TR-1201
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV
+  - from: PNL-INCOMING-22KV-RIGHT
+    to: PNL-TR-1202
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV
+  - from: PNL-TR-1201
+    to: PNL-HV-1301A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV
+  - from: PNL-TR-1202
+    to: PNL-HV-1309
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV
+  - from: PNL-HV-1301A
+    to: PNL-HV-1301B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1301B
+    to: PNL-HV-1302A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1302A
+    to: PNL-HV-1302B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1302B
+    to: PNL-HV-1303A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1303A
+    to: PNL-HV-1303B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1303B
+    to: PNL-HV-1304A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1304A
+    to: PNL-HV-1304B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1304B
+    to: PNL-BUS-TIE-1309
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: INTER-LOCK
+  - from: PNL-HV-1309
+    to: PNL-BUS-TIE-1309
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: INTER-LOCK
+  - from: PNL-HV-1309
+    to: PNL-HV-1310A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1310A
+    to: PNL-HV-1310B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1310B
+    to: PNL-HV-1311A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1311A
+    to: PNL-HV-1311B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1311B
+    to: PNL-HV-1312
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1312
+    to: PNL-HV-1313A
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-HV-1313A
+    to: PNL-HV-1313B
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 6.6kV Bus
+  - from: PNL-SHV-1104
+    to: PNL-INCOMING-22KV-LEFT
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV CNCV-W 100SQ 1C×3LINE(CABLE TRAY)
+  - from: PNL-SHV-1107
+    to: PNL-INCOMING-22KV-RIGHT
+    relation: power_cable
+    source_pages:
+    - 5
+    origin: visual_semantics
+    annotation: 22.9kV CNCV-W 100SQ 1C×3LINE(CABLE TRAY)
+  - from: 전기실
+    to: PNL-001
+    relation: power_cable
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T 3상 인입 / MAIN 화살표'
+  - from: 전기실
+    to: PNL-002
+    relation: power_cable
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T 3상 인입 / MAIN 화살표'
+  - from: 전기실
+    to: PNL-003
+    relation: power_cable
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T 3상 인입 / MAIN 화살표'
+  - from: 전기실
+    to: PNL-004
+    relation: power_cable
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T 3상 인입 / MAIN 화살표'
+  - from: PNL-001
+    to: E3
+    relation: ground
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: PNL-002
+    to: E3
+    relation: ground
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: PNL-003
+    to: E3
+    relation: ground
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: PNL-004
+    to: E3
+    relation: ground
+    source_pages:
+    - 19
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: 전기실
+    to: PNL-005
+    relation: power_cable
+    source_pages:
+    - 20
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T N 3상4선 인입'
+  - from: 전기실
+    to: PNL-006
+    relation: power_cable
+    source_pages:
+    - 20
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T N 3상4선 인입'
+  - from: 전기실
+    to: PNL-007
+    relation: power_cable
+    source_pages:
+    - 20
+    origin: visual_semantics
+    annotation: 'FROM: 전기실 / R S T N 3상4선 인입'
+  - from: PNL-005
+    to: E3
+    relation: ground
+    source_pages:
+    - 20
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: PNL-006
+    to: E3
+    relation: ground
+    source_pages:
+    - 20
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: PNL-007
+    to: E3
+    relation: ground
+    source_pages:
+    - 20
+    origin: visual_semantics
+    annotation: 접지 E3
+  - from: PNL-001
+    to: PNL-002
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ① 3Ф 3W 6.6kV F-CV 150㎟ -1C x6L (ELP 100Ø X2.)
+  - from: PNL-002
+    to: PNL-004
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ③ 3Ф 4W 380/220V F-CV 185㎟ -1C x4, E-95㎟ (104C)
+  - from: PNL-002
+    to: PNL-005
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ④ 3Ф 4W 380/220V F-CV 150㎟ -1C x4, E-95㎟ (104C)
+  - from: PNL-002
+    to: PNL-006
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ⑤ 3Ф 4W 380/220V F-CV 240㎟ -1C x4, E-120㎟ (104C)
+  - from: PNL-002
+    to: PNL-007
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ⑥ 3Ф 4W 380/220V F-CV 120㎟ -1C x4, E-70㎟ (82C)
+  - from: PNL-002
+    to: PNL-008
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ⑦ 3Ф 4W 380/220V F-CV 35㎟ -4C x1, E-16㎟ (54C)
+  - from: PNL-002
+    to: PNL-009
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ⑧ 3Ф 3W 440V F-CV 240㎟ -1C x3 (82C)
+  - from: PNL-003
+    to: PNL-010
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: ⑨ 3Ф 4W 380/220V F-CV 10㎟ -4C x1, E-10㎟ (42C)
+  - from: PNL-002
+    to: PNL-A1
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A1 3Ф 3W 220V F-CV 240㎟ -1C x3, E-120㎟ (104C)
+  - from: PNL-002
+    to: PNL-A2
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A2 3Ф 3W 220V F-CV 185㎟ -1C x3, E-95㎟ (104C)
+  - from: PNL-002
+    to: PNL-A3
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A3 3Ф 3W 220V F-CV 35㎟ -3C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-A4
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A4 3Ф 3W 220V F-CV 35㎟ -3C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-A5
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A5 3Ф 3W 220V F-CV 300㎟ -1C x3, E-150㎟ (104C)
+  - from: PNL-002
+    to: PNL-A6
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A6 3Ф 3W 220V F-CV 240㎟ -1C x3, E-120㎟ (104C)
+  - from: PNL-002
+    to: PNL-A7
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A7 3Ф 3W 220V F-CV 35㎟ -3C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-A8
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A8 3Ф 3W 220V F-CV 150㎟ -1C x3, E-95㎟ (82C)
+  - from: PNL-002
+    to: PNL-A9
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A9 3Ф 3W 220V F-CV 70㎟ -1C x3, E-35㎟ (54C)
+  - from: PNL-002
+    to: PNL-A10
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: A10 3Ф 3W 220V F-CV 50㎟ -1C x3, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-B1
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B1 3Ф 4W 380V F-CV 120㎟ -1C x4, E-70㎟ (82C)
+  - from: PNL-002
+    to: PNL-B2
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B2 3Ф 4W 380V F-CV 35㎟ -4C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-B3
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B3 3Ф 4W 380V F-CV 35㎟ -4C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-B4
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B4 3Ф 4W 380V F-CV 120㎟ -1C x4, E-70㎟ (82C)
+  - from: PNL-002
+    to: PNL-B5
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B5 3Ф 4W 380V F-CV 120㎟ -1C x4, E-70㎟ (82C)
+  - from: PNL-002
+    to: PNL-B6
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B6 3Ф 4W 380V F-CV 120㎟ -1C x4, E-70㎟ (82C)
+  - from: PNL-002
+    to: PNL-B7
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B7 3Ф 4W 380V F-CV 35㎟ -4C x1, E-16㎟ (54C)
+  - from: PNL-002
+    to: PNL-B8
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: B8 3Ф 4W 380V F-CV 35㎟ -4C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-C1
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C1 3Ф 3W 440V F-CV 240㎟ -1C x3, E-120㎟ (104C)
+  - from: PNL-002
+    to: PNL-C2
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C2 3Ф 3W 440V F-CV 150㎟ -1C x3, E-95㎟ (28C)
+  - from: PNL-002
+    to: PNL-C3
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C3 3Ф 3W 440V F-CV 300㎟ -1C x3, E-150㎟ (104C)
+  - from: PNL-002
+    to: PNL-C4
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C4 3Ф 3W 440V F-CV 300㎟ -1C x3, E-150㎟ (104C)
+  - from: PNL-002
+    to: PNL-C5
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C5 3Ф 3W 440V F-CV 300㎟ -1C x3, E-150㎟ (104C)
+  - from: PNL-002
+    to: PNL-C6
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C6 3Ф 3W 440V F-CV 95㎟ -1C x3, E-50㎟ (70C)
+  - from: PNL-002
+    to: PNL-C7
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C7 3Ф 3W 440V F-CV 150㎟ -1C x3, E-95㎟ (82C)
+  - from: PNL-002
+    to: PNL-C8
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C8 3Ф 3W 440V F-CV 50㎟ -1C x3, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-C9
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C9 3Ф 3W 440V F-CV 35㎟ -3C x1, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-C10
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C10 3Ф 3W 440V F-CV 50㎟ -1C x3, E-25㎟ (54C)
+  - from: PNL-002
+    to: PNL-C11
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C11 3Ф 3W 440V F-CV 300㎟ -1C x3, E-150㎟ (104C)
+  - from: PNL-002
+    to: PNL-C12
+    relation: power_cable
+    source_pages:
+    - 23
+    origin: visual_semantics
+    annotation: C12 3Ф 3W 440V F-CV 35㎟ -3C x1, E-25㎟ (54C)
+  - from: PNL-001
+    to: GROUND-피뢰기초접지극-LEFT
+    relation: ground
+    source_pages:
+    - 37
+    origin: visual_semantics
+    annotation: 'DN to : 피뢰기초접지극 (좌측 하단, B열 1열 부근)'
+  - from: PNL-001
+    to: GROUND-피뢰기초접지극-RIGHT
+    relation: ground
+    source_pages:
+    - 37
+    origin: visual_semantics
+    annotation: 'DN to : 피뢰기초접지극 (우측 중단, B~C열 6열 부근)'
+  - from: PNL-001
+    to: PNL-001
+    relation: other
+    source_pages:
+    - 37
+    origin: visual_semantics
+    annotation: 수평도체 (STS 환봉 8㎜) - 지붕 외곽 및 내부 루프 배선
+  - from: PNL-001
+    to: PNL-001
+    relation: ground
+    source_pages:
+    - 37
+    origin: visual_semantics
+    annotation: 구조체 접속 12개소 - 수평도체와 구조체 철골 연결
+  - from: PNL-003
+    to: PNL-004
+    relation: other
+    source_pages:
+    - 38
+    origin: visual_semantics
+    annotation: 피뢰침 설치 위치 강조 (점선 박스로 표시)
+  - from: PNL-003
+    to: PNL-002
+    relation: other
+    source_pages:
+    - 38
+    origin: visual_semantics
+    annotation: 범례 참조 관계
+  - from: PNL-004
+    to: PNL-003
+    relation: ground
+    source_pages:
+    - 38
+    origin: visual_semantics
+    annotation: 수평도체(STS 환봉 8mm) 연결 - 피뢰침에서 구조체 접속으로 인하
+  - from: PNL-002
+    to: PNL-001
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: STS 316 접지판 → 기초접지극 포설 연결
+  - from: PNL-003
+    to: PNL-002
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: 나동선(토양매설 기초접지극) → 접지단자함 연결
+  - from: PNL-006
+    to: PNL-002
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: F-GV 50㎟ (HI-PVC 28C) 기초접지극과 연결
+  - from: PNL-007
+    to: PNL-002
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: 전력 계통 F-GV 회로 기초접지극과 연결
+  - from: PNL-008
+    to: PNL-002
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: 통신접지 F-GV 50㎟ 기초접지극과 연결
+  - from: PNL-010
+    to: PNL-006
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: 주접지 단자함과 연결 (F-GV Wire)
+  - from: PNL-009
+    to: PNL-002
+    relation: ground
+    source_pages:
+    - 39
+    origin: visual_semantics
+    annotation: 접지극(E극) F-GV Wire 연결
+  - from: PNL-001
+    to: PNL-LEGEND
+    relation: signal
+    source_pages:
+    - 40
+    origin: visual_semantics
+    annotation: 번호 ①~⑨ 지시선으로 부품 식별
+  - from: PNL-002
+    to: PNL-002
+    relation: signal
+    source_pages:
+    - 40
+    origin: visual_semantics
+    annotation: Flexible Connector → T Connector → 이질커넥터 접속 흐름
+  - from: PNL-003
+    to: PNL-003
+    relation: signal
+    source_pages:
+    - 40
+    origin: visual_semantics
+    annotation: T Connector(이질커넥터) → Steel Plate 용접 접속
+  - from: PNL-004
+    to: PNL-004
+    relation: ground
+    source_pages:
+    - 40
+    origin: visual_semantics
+    annotation: F-GV Wire → 피뢰시스템과 연결
+  - from: PNL-005
+    to: PNL-005
+    relation: ground
+    source_pages:
+    - 40
+    origin: visual_semantics
+    annotation: 이질커넥터(STS+CU) → 난간접지 클램프 → 금속사다리 접속

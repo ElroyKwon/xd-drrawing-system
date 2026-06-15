@@ -1,0 +1,187 @@
+placement:
+  tag: UNKNOWN-VALVE-04
+  name: 스트레이너 / 여과망
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: Strainer
+    alternative_class_hints:
+    - Filter
+    - ProtectiveComponent
+    related_assertions: []
+    applicable_axioms:
+    - AX021
+    - AX038
+    - AX040
+    - AX042
+    applicable_constraints:
+    - CN015
+    confirmed_class: dks:Strainer
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: PROTECT'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 type 값 보존
+      - raw_text: 'function_category: PROTECT'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값 보존
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: isCrossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 출처 검증 상태 보존
+      - raw_text: 'position: floor-plan'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 문맥 보존
+      - raw_text: 'confidence: 0.6'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 원문 신뢰도 값 보존
+      - raw_text: 'source_attribution.sonnet: false'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: sourceAttributionSonnet
+          suggested_datatype: xsd:boolean
+          rationale: 출처 속성 보존
+      - raw_text: 'source_attribution.gemini: false'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: sourceAttributionGemini
+          suggested_datatype: xsd:boolean
+          rationale: 출처 속성 보존
+      - raw_text: 'source_attribution.mini: true'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: sourceAttributionMini
+          suggested_datatype: xsd:boolean
+          rationale: 출처 속성 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Strainer'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.observed_attributes: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록이 비어 있음도 보존
+      - raw_text: 'ontology_hints.similar_equipment: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 설비 목록이 비어 있음도 보존
+      - raw_text: 'ontology_hints.function_candidates: Filtration, Debris Removal,
+          Protection of downstream components'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 텍스트 보존
+      - raw_text: 'relations: []'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: relations
+          suggested_datatype: xsd:string
+          rationale: 관계 부재 상태 보존
+      - raw_text: 'source_pages: [8]'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: sourcePages
+          suggested_datatype: xsd:integer
+          rationale: 출처 페이지 보존
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 8
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 8
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: rule_based
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class + name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: rule_based
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: verbatim_preservation
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 8
+      method: rule_based
+    confidence:
+      source_pages:
+      - 8
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Strainer
+    source_page: 8
+    reason: 상위 클래스 힌트는 있으나 이 단계에서 class 확정 금지
+    preservation_note: 후속 단계에서 class taxonomy와 대조 필요
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Filtration; Debris Removal; Protection of downstream components
+    source_page: 8
+    reason: 기능 후보는 있으나 정식 속성으로 승격하지 않음
+    preservation_note: 후속 단계에서 기능 분류 후보로 검토
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 8
+    reason: 관계가 명시되지 않음
+    preservation_note: 관계 부재 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name은 스트레이너/여과망으로 물리 설비처럼 보이나, relations가 비어 있고 상세 연결 정보가 없어 단독 설비인지 부속품인지
+      도면만으로 확정하기 어려움
+    recommended_handling: NamedIndividual로 우선 보존하되, 후속 단계에서 주변 배관/밸브와의 연결 여부를 확인해
+      PartOf 가능성 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/밸브/부속 계열로 보이는 태그를 물리 설비 Individual로 우선 보존
+    - ontology_hints와 name을 함께 사용해 class_hint 후보를 유지
+    - 관계가 없을 때는 free_notes와 unresolved로 원문 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:08:10.169731'
+  confidence: 0.78

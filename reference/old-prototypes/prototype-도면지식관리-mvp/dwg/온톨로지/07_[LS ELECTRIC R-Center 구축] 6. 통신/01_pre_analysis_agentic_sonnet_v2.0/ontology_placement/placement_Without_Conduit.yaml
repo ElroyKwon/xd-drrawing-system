@@ -1,0 +1,157 @@
+placement:
+  tag: Without_Conduit
+  name: Without Conduit
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: Boundary
+    alternative_class_hints:
+    - RoutingConditionSpecification
+    - BoundaryDemarcation
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Boundary
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: without_conduit'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 원문 type 값 보존 필요
+      - raw_text: 'function_category: BOUNDARY'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 경계/구분 성격을 나타내는 분류값
+      - raw_text: 'suggested_parent_class: Boundary'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보
+      - raw_text: 'observed_attributes: []'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록의 원문 보존
+      - raw_text: 'similar_equipment: []'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: xsd:string
+          rationale: 유사 장비 후보 목록의 원문 보존
+      - raw_text: 'function_candidates: Routing condition specification; Boundary
+          demarcation'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 설명을 원문 그대로 보존
+      - raw_text: 'relations: []'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: relations
+          suggested_datatype: xsd:string
+          rationale: 관계 정보가 비어 있음을 보존
+      - raw_text: 'source_pages: [3]'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourcePages
+          suggested_datatype: xsd:string
+          rationale: 출처 페이지 보존
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_annotation_and_boundary_function
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: from_ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: from_ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 3
+      method: preservation
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+    relations:
+      source_pages:
+      - 3
+      method: direct
+    source_pages:
+      source_pages:
+      - 3
+      method: direct
+  unresolved:
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Routing condition specification; Boundary demarcation
+    source_page: 3
+    reason: 기능 후보는 있으나 물리 설비/관계/주석 중 어느 축으로 확정할지 불명확함
+    preservation_note: 경계 표기 또는 라우팅 조건 주석으로 재해석 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Boundary
+    source_page: 3
+    reason: 상위 클래스 후보는 있으나 확정 클래스는 아님
+    preservation_note: 0-9c에서 class hierarchy 검증 필요
+  - field_candidate: type
+    raw_text: without_conduit
+    source_page: 3
+    reason: 도면 표기상 의미는 있으나 표준화된 분류로 단정 불가
+    preservation_note: 원문 태그와 함께 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 물리 설비라기보다 경계/조건 표기 또는 주석성 엔티티로 보이며, 실제 객체 존재 여부가 불명확함
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 Boundary 관련 주석/문서 엔티티로 검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - boundary/annotation 성격 우선 검토
+    - ontology_hints의 suggested_parent_class를 class_hint 후보로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:39.966212'
+  confidence: 0.78

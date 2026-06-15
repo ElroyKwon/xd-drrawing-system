@@ -1,0 +1,187 @@
+back_update_instructions:
+  per_tag_assertion_confirmations:
+    CTRL-GATEWAY:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:connects_to
+        confirmed_target: SPACE-SoftwareLab
+      - index: 1
+        confirmed_property: dks:connects_to
+        confirmed_target: SPACE-휴게공간
+      - index: 10
+        confirmed_property: dks:signal
+        confirmed_target: SPACE-SoftwareLab
+    CTRL-PANEL-1F:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:connects_to
+        confirmed_target: SMFD-CTRL-ZONE-A
+      - index: 3
+        confirmed_property: dks:connects_to
+        confirmed_target: SMFD-GRP-001
+      - index: 22
+        confirmed_property: dks:cable
+        confirmed_target: SMFD-CTRL-ZONE-A
+    JB-A-01:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:connects_to
+        confirmed_target: SMFD-01
+      - index: 1
+        confirmed_property: dks:connects_to
+        confirmed_target: JB-A-02
+    LEGEND-CABLE:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:references
+        confirmed_target: SMFD-01
+      - index: 2
+        confirmed_property: dks:signal
+        confirmed_target: SMFD-01
+    LOAD-DCF1:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:feeds
+        confirmed_target: FEEDER-DCF1
+      - index: 1
+        confirmed_property: dks:cable
+        confirmed_target: FEEDER-DCF1
+    MAIN-MCCB:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:feeds
+        confirmed_target: EXT-MAIN-POWER
+      - index: 1
+        confirmed_property: dks:feeds
+        confirmed_target: MCP-PANEL
+    MCP-PANEL:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:feeds
+        confirmed_target: MAIN-MCCB
+      - index: 1
+        confirmed_property: dks:supplies
+        confirmed_target: FEEDER-DCF1
+    PANEL-ROOF-PLAN:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:contains
+        confirmed_target: SMFD-01
+      - index: 2
+        confirmed_property: dks:contains
+        confirmed_target: SPACE-MECH-ROOM-ROOF
+    SF-1:
+      related_assertions:
+      - index: 0
+        confirmed_property: dks:related_to_space
+        confirmed_target: 1F 시험실구역
+      - index: 1
+        confirmed_property: dks:installed_in
+        confirmed_target: 1F 검증시스템실
+  per_tag_promoted_notes:
+    100T-IAC:
+      free_notes:
+      - match:
+          raw_text_contains: 'function_category: CATALOG'
+        promoted_to: dks:hasFunctionCategory
+      - match:
+          raw_text_contains: 'category_path: 시스템에어컨 실내기'
+        promoted_to: dks:hasCategoryPath
+      - match:
+          raw_text_contains: 'model: R-W1000A2U'
+        promoted_to: dks:hasModel
+      - match:
+          raw_text_contains: 'quantity: 4'
+        promoted_to: dks:hasQuantity
+      - match:
+          raw_text_contains: '정격냉방능력_W: 10000'
+        promoted_to: dks:hasCoolingCapacity_W
+      - match:
+          raw_text_contains: '정격난방능력_W: 11200'
+        promoted_to: dks:hasHeatingCapacity_W
+      - match:
+          raw_text_contains: '전원_전압_V: 220'
+        promoted_to: dks:hasVoltage_V
+      - match:
+          raw_text_contains: '전원_주파수_Hz: 60'
+        promoted_to: dks:hasFrequency_Hz
+      - match:
+          raw_text_contains: '송풍기_풍량_CMM: 28/24/21'
+        promoted_to: dks:hasAirflow_CMM
+      - match:
+          raw_text_contains: '제품중량_kg: 135'
+        promoted_to: dks:hasWeight_kg
+      - match:
+          raw_text_contains: '본체치수_WxHxD_mm: 840×288×840'
+        promoted_to: dks:hasBodyDimensions_WxHxD_mm
+      - match:
+          raw_text_contains: '전원_상수: 1'
+        promoted_to: dks:hasPowerPhaseCount
+      - match:
+          raw_text_contains: '통신선_mm2: 0.75~1.5×2C'
+        promoted_to: dks:hasCommunicationCableSpec
+      - match:
+          raw_text_contains: '전원선_mm2: 2.5×3C'
+        promoted_to: dks:hasPowerCableSpec
+      - match:
+          raw_text_contains: 'raw_row: 100T IAC'
+        promoted_to: dks:hasRawRow
+    EF-1:
+      free_notes:
+      - match:
+          raw_text_contains: '풍량_CMH: 22940'
+        promoted_to: dks:hasAirflow_CMH
+      - match:
+          raw_text_contains: '모터_kW: 5.5'
+        promoted_to: dks:hasMotorPower_kW
+      - match:
+          raw_text_contains: '정압_Pa: 295'
+        promoted_to: dks:hasStaticPressure_Pa
+      - match:
+          raw_text_contains: 'column_headers: 기호, 형식'
+        promoted_to: dks:hasColumnHeaders
+    CTRL-PANEL-1F:
+      free_notes:
+      - match:
+          raw_text_contains: 'shape: rectangle'
+        promoted_to: dks:hasShape
+      - match:
+          raw_text_contains: 'position: center / grid B-C / 4-5'
+        promoted_to: dks:hasPosition
+      - match:
+          raw_text_contains: 'raw_labels: 전기기기 / 통신 / 방송실 인근'
+        promoted_to: dks:hasRawLabel
+      - match:
+          raw_text_contains: 'equipment_symbols: type=control_panel, count=1'
+        promoted_to: dks:hasEquipmentSymbolCount
+    JB-A-01:
+      free_notes:
+      - match:
+          raw_text_contains: 'labels_inside: A'
+        promoted_to: dks:hasLabelInside
+      - match:
+          raw_text_contains: 'inferred_name: 전선 접속함 A #1'
+        promoted_to: dks:hasInferredName
+      - match:
+          raw_text_contains: 'equipment_symbols: junction_box_symbol x1'
+        promoted_to: dks:hasEquipmentSymbol
+    LOAD-DCF1:
+      free_notes:
+      - match:
+          raw_text_contains: 'capacity_kW: 1.6'
+        promoted_to: dks:hasCapacity_kW
+    290P-IAC:
+      free_notes:
+      - match:
+          raw_text_contains: 'ontology_hints.suggested_parent_class: HVACEquipment'
+        promoted_to: dks:suggestedParentClass
+    130T-IAC:
+      free_notes:
+      - match:
+          raw_text_contains: 'function_candidates: Air Conditioning / Cooling / Heating'
+        promoted_to: dks:hasFunctionCandidate
+      - match:
+          raw_text_contains: 'observed_attributes: []'
+        promoted_to: dks:observedAttributes
+  by: step_0-9d
+  confirmed_at: '2026-04-20T08:45:00Z'

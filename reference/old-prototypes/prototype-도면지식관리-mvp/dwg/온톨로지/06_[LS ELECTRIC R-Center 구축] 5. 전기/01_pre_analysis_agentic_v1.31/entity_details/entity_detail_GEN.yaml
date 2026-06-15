@@ -1,0 +1,93 @@
+entity_detail:
+  tag: GEN
+  type: generator
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source:
+      - 5
+      - 23
+      confidence: 0.96
+    related_system_voltage:
+      value: 22.9kV, 6.6kV, 440V
+      unit: V/kV
+      source:
+      - 5
+      confidence: 0.9
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "22.9kV 수전설비 단선결선도로, KEPCO 인입, MOF, VCB, TR, GIPAM 보호계전기, CT/PT/SA/LA 및\n\
+      \    BUS TIE, GEN, LV/HV PNL 계통이 단선결선 형태로 연결되어 있다.\n\n    도면상 22.9kV, 6.6kV,\
+      \ 440V 전압 표기가 보이며, TR #1~#4와 다수의 VCB/배전반 베이, 비상·동력 부하 계통이 함께\n    표시된다."
+  - source: page_023_context.yaml
+    page_number: 23
+    text: "S/S R-Center 수전반에서 LP-1F, LP-2F, P-C-3PP, P-OAC-1/2/3, P-F, IVR-2, LV-6\
+      \ 및 다수의\n    2PP/3PP/4PP 패널로 연결된다.\n\n    표기 전압은 6.6kV, 380/220V, 440V, 220V가\
+      \ 보이며, 인입은 UT동 전기실에서 오는 것으로 표시된다."
+  requirements:
+  - text: 비상·동력 부하 계통이 단선결선 형태로 연결되어 있다.
+    source: page_005_context.yaml
+    type: system_configuration
+  - text: 도면상 6.6kV 전압 표기가 보인다.
+    source: page_005_context.yaml
+    type: voltage_requirement
+  - text: 인입은 UT동 전기실에서 오는 것으로 표시된다.
+    source: page_023_context.yaml
+    type: supply_condition
+  connection_specs:
+  - relation: connected_in_single_line_diagram
+    partner: BUS TIE
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line_diagram
+    partner: LV/HV PNL
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line_diagram
+    partner: TR
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line_diagram
+    partner: VCB
+    details:
+      source: page_005_context.yaml
+  - relation: connected_in_single_line_diagram
+    partner: GEN
+    details:
+      source: page_005_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_in_single_line_diagram
+      partner_tag: BUS TIE
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_in_single_line_diagram
+      partner_tag: LV/HV PNL
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_in_single_line_diagram
+      partner_tag: TR
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_in_single_line_diagram
+      partner_tag: VCB
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: connected_in_single_line_diagram
+      partner_tag: GEN
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    observed_attributes:
+    - voltage
+    - related_system_voltage
+    - generator
+    similar_equipment:
+    - GEN
+    suggested_parent_class: ElectricalGenerator
+    cross_discipline: []
+  notes:
+  - 페이지 5와 23에서 GEN 관련 표기가 확인되나, 상세 정격/용량은 확인되지 않음.
+  - 연결 방향은 도면 분석 결과에서 명확히 확인되지 않아 UNKNOWN으로 기록함.
+tag: GEN

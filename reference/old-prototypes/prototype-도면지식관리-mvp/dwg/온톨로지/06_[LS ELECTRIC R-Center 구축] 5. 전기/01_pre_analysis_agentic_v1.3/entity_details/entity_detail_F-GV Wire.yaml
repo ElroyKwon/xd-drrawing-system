@@ -1,0 +1,143 @@
+entity_detail:
+  tag: F-GV Wire
+  type: grounding_wire
+  specs:
+    cable_spec_50sq:
+      value: F-GV 50㎟ (HI-PVC 28C)
+      unit: ㎟
+      source: 39
+      confidence: 0.98
+    cable_spec_16sq:
+      value: F-GV 16㎟ (HI-PVC 16C)
+      unit: ㎟
+      source: 39
+      confidence: 0.98
+    connection_note:
+      value: F-GV Wire로 연결
+      unit: null
+      source: 39
+      confidence: 0.95
+    related_detail_note:
+      value: F-GV Wire
+      unit: null
+      source: 40
+      confidence: 0.98
+  drawing_texts:
+  - source: page_039_context.yaml
+    page_number: 39
+    text: F-GV Wire, HI PVC 전선관, CU-Busbar, Bakelite를 포함한 접속 상세와 Test 접지(E극/P극/C극,
+      Test Rod) 및 등전위 접속(수도관/가스관/기계관)이 함께 보인다.
+  - source: page_039_context.yaml
+    page_number: 39
+    text: 'GRD-WIRE-001
+
+      name: F-GV Wire
+
+      spec: F-GV 50㎟ (HI-PVC 28C), F-GV 16㎟ (HI-PVC 16C)
+
+      discipline: ELECTRICAL
+
+      function_category: PROTECT
+
+      location: 주접지 단자함 및 각 접지 단자함 연결부
+
+      confidence: 0.98'
+  - source: page_039_context.yaml
+    page_number: 39
+    text: 'GRD-TERM-002
+
+      name: 주접지 단자함
+
+      spec: F-GV Wire로 연결
+
+      discipline: ELECTRICAL
+
+      function_category: DISTRIBUTE
+
+      location: 중단 상세도
+
+      confidence: 0.95'
+  - source: page_040_context.yaml
+    page_number: 40
+    text: 주요 설비는 F-GV Wire, Tee Connector, Straight Connector, Flexible Connector,
+      지지금구, 동관단자 2Hole, 피뢰침, 난간접지 클램프(STS + CU), 금속 사다리, 콘크리트 기초 등이다.
+  - source: page_040_context.yaml
+    page_number: 40
+    text: "F-GV Wire\n    to: 동관단자 2Hole\n    relation: 접속\n    medium: 실선\n    direction:\
+      \ F-GV Wire -> 동관단자 2Hole\n    confidence: 0.95"
+  - source: page_040_context.yaml
+    page_number: 40
+    text: "명시된 주요 용어: F-GV Wire, Tee Connector, Straight Connector, Flexible Connector,\n\
+      \    Set Anchor 3/8\", Screw Bolt, 동관단자 2Hole, 지지금구, 지지대(STS 304), 난간접지 클램프(STS\
+      \ + CU),\n    금속 사다리, Steel Plate, 웨더캡"
+  requirements:
+  - text: HI-PVC 전선관 사용
+    source: page 39
+    type: installation_requirement
+  - text: F-GV 50㎟ (HI-PVC 28C)
+    source: page 39
+    type: cable_requirement
+  - text: F-GV 16㎟ (HI-PVC 16C)
+    source: page 39
+    type: cable_requirement
+  - text: F-GV Wire로 연결
+    source: page 39
+    type: connection_requirement
+  - text: F-GV Wire
+    source: page 40
+    type: component_requirement
+  connection_specs:
+  - relation: connected_by
+    partner: 주접지 단자함
+    details:
+      source: 39
+      text: F-GV Wire로 연결
+  - relation: connected_to
+    partner: 각 접지 단자함
+    details:
+      source: 39
+      text: 주접지 단자함 및 각 접지 단자함 연결부
+  - relation: 접속
+    partner: 동관단자 2Hole
+    details:
+      source: 40
+      text: F-GV Wire -> 동관단자 2Hole
+  - relation: 보호용 연결부
+    partner: HI PVC 전선관
+    details:
+      source: 39
+      text: F-GV Wire 보호용 연결부
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_by
+      partner_tag: GRD-TERM-002
+      direction: bidirectional
+      source: page 39
+    - relation_type: connected_to
+      partner_tag: GRD-TERM-004
+      direction: bidirectional
+      source: page 39
+    - relation_type: connected_to
+      partner_tag: GRD-TERM-005
+      direction: bidirectional
+      source: page 39
+    - relation_type: 접속
+      partner_tag: LP-COMP-013
+      direction: F-GV Wire -> 동관단자 2Hole
+      source: page 40
+    observed_attributes:
+    - F-GV 50㎟ (HI-PVC 28C)
+    - F-GV 16㎟ (HI-PVC 16C)
+    - F-GV Wire로 연결
+    - 주접지 단자함 및 각 접지 단자함 연결부
+    - F-GV Wire 보호용 연결부
+    similar_equipment:
+    - GRD-WIRE-001
+    - LP-COMP-009
+    suggested_parent_class: ElectricalGroundingConductor
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 페이지 39와 40에서 F-GV Wire 관련 표기가 확인됨.
+  - 페이지 37, 38에는 F-GV Wire가 직접 태그로 확인되지는 않음.
+tag: F-GV Wire

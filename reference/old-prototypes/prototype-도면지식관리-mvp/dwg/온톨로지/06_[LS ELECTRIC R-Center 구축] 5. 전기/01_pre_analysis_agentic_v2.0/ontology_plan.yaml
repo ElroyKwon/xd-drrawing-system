@@ -1,0 +1,184 @@
+ontology_plan:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: entity_details/*.yaml (n=283)
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-17T13:05:40.673227'
+  project_overview:
+    discipline_mix:
+      electrical: 263
+      structural: 16
+      mechanical: 3
+      architectural: 1
+    dominant_equipment_types:
+    - type: SwitchgearPanel
+      count: 35
+      reasoning: 수배전반 단선도(Single Line Diagram)에서 VCB, MOF, PT, BUS-TIE 등을 포함하는 고압/특고압
+        패널이 다수 관찰됨
+    - type: DistributionPanel
+      count: 45
+      reasoning: 동력 및 전등/전열 분전반(LP, PP, P-A-4PP 등)이 다수 존재하며, 내부에 다수의 분기회로(MCCB)를 포함함
+    - type: GroundingAndLightning
+      count: 50
+      reasoning: 피뢰침, 수평/인하도선, 접지단자함, 기초접지극, 등전위 접속 등 피뢰/접지 상세도에서 추출된 객체가 큰 비중을 차지함
+    - type: CircuitBreaker_Protection
+      count: 60
+      reasoning: 분전반 내부의 Main/Branch MCCB, SPD, CT, ZCT, GIPAM(보호계전기) 등이 개별 또는 종속
+        객체로 다수 도출됨
+    complexity_estimate: high
+    estimated_class_count: 45
+    estimated_individual_count: 350
+    estimated_property_count:
+      object: 15
+      data: 45
+  predicted_ontology_structure:
+    class_hierarchy_hint:
+      top_level:
+      - ElectricalEquipment
+      - GroundingSystem
+      - StructuralElement
+      - InformationEntity
+      expected_depth: 4
+      likely_disjoint_pairs:
+      - - ElectricalEquipment
+        - InformationEntity
+      - - PowerSource
+        - Load
+      - - Conductor
+        - ProtectionDevice
+      reasoning: 전력 분배(수배전반->분전반->부하), 보호/제어(차단기, 계전기), 접지/피뢰(도선, 전극), 도면 정보(범례, 표제란)로
+        명확히 구분되는 계층 구조를 가짐
+    expected_object_properties:
+    - label: feeds
+      signal: 전원 공급 흐름 (TR -> VCB, Panel -> Branch, Source -> Panel)
+      est_evidence: 150
+      inverse_hint: is_fed_by
+    - label: connects_to
+      signal: Busbar 연결, 도선 간 물리적 접속, 이종 금속 접속 (Straight/Tee Connector)
+      est_evidence: 120
+      inverse_hint: connected_to
+    - label: grounds_to
+      signal: 패널에서 E3 접지단자로의 연결, 피뢰침에서 인하도선/기초접지극으로의 연결
+      est_evidence: 60
+      inverse_hint: provides_ground_for
+    - label: contains
+      signal: 분전반(Panel) 내부에 설치된 차단기(MCCB), 서지보호기(SPD), 변류기(CT) 포함 관계
+      est_evidence: 80
+      inverse_hint: is_contained_in
+    - label: controls
+      signal: VCB 패널 간의 INTER-LOCK 관계
+      est_evidence: 10
+      inverse_hint: is_controlled_by
+    - label: bonded_to
+      signal: 수도관, 가스관 등 기계 배관이 접지단자함에 등전위 접속됨
+      est_evidence: 5
+      inverse_hint: bonds
+    expected_data_properties:
+    - label: voltage_kV
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.7
+      reasoning: 수배전반 및 변압기의 정격 전압(22.9, 6.6, 3.3, 0.38 등) 표기 빈번
+    - label: rated_current_A
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.6
+      reasoning: VCB, MCCB, ACB 등의 AT/AF 정격 전류 표기
+    - label: breaking_capacity_kA
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.4
+      reasoning: 차단기 및 퓨즈의 단락 용량(kA) 표기
+    - label: material
+      datatype_hint: xsd:string
+      coverage_estimate: 0.3
+      reasoning: 접지선(F-GV, 나동선), 구조물(STS 304, H-Beam) 재질 명시
+    - label: protection_functions
+      datatype_hint: xsd:string
+      coverage_estimate: 0.2
+      reasoning: GIPAM 등 보호계전기의 ANSI 코드(50/51, 67, 64 등) 배열
+    expected_axioms:
+    - type: SubClassOf
+      example: SwitchgearPanel SubClassOf ElectricalPanel
+      evidence_hint: VCB 패널, 분전반 모두 전력을 분배/제어하는 패널의 하위 개념으로 동작
+    - type: DomainRange
+      example: grounds_to domain ElectricalEquipment, range GroundingSystem
+      evidence_hint: 모든 grounds_to 관계는 패널/피뢰침에서 접지극/접지단자로 향함
+    - type: TransitiveProperty
+      example: feeds is Transitive (Source -> Panel -> Branch)
+      evidence_hint: 전력 계통도 상의 전원 흐름이 계층적으로 이어짐
+    expected_constraints:
+    - type: Cardinality
+      target: Transformer
+      expected: exactly 1 primary_voltage and at least 1 secondary_voltage
+      reasoning: TR-001, TR-002 모두 1차측(22.9kV)과 2차측(3.3kV) 전압을 명확히 가짐
+  discipline_context_plan:
+    electrical:
+      focus: 전력 분배 계통(수전->변압->배전->부하)의 위계적 모델링 및 보호 협조(차단기, 계전기, 인터록) 관계 구축. 피뢰/접지
+        시스템의 물리적 연결망(수뢰부->인하도선->접지극) 상세화.
+    structural:
+      focus: 전기 설비(수평도체, 피뢰침, 케이블 트레이)를 지지하는 물리적 기반(H-Beam, 파라펫트, 콘크리트 기초) 및 자연적 인하도선으로
+        활용되는 기초철골 모델링.
+    mechanical:
+      focus: 등전위 접속의 대상이 되는 금속성 배관(수도관, 가스관, 기계관) 식별 및 접지 시스템과의 연동.
+    architectural:
+      focus: 건물 윤곽(A동, B동, 사무동) 및 공간(전기실, 챔버룸)을 설비의 위치(Location) 컨텍스트로 활용.
+  merge_candidates_hint:
+    likely_duplicates:
+    - pattern: E3 vs EARTH-E3 vs GND-E3-*
+      estimate: 10~15건
+      resolution_hint: 동일한 E3(보호접지) 계통을 나타내는 논리적 노드이므로, 하나의 'E3_Grounding_Network'
+        인스턴스로 병합하거나 상위 클래스로 묶어 처리
+    - pattern: 전기실 vs EXT-전기실 vs SOURCE-CCW
+      estimate: 3~5건
+      resolution_hint: 도면 간 연결을 나타내는 외부 전원 소스이므로, 물리적으로 동일한 전기실 전원 노드로 병합
+    - pattern: UNKNOWN-LIGHTNING-ROD-001 vs UNKNOWN-LIGHTNING-ROD-01
+      estimate: 2건
+      resolution_hint: 도면 번호 차이로 발생한 중복 태그일 가능성이 높으므로 속성 비교 후 병합
+  ambiguity_risk_areas:
+  - tag_pattern: BRANCH-*
+    reason: 분전반 내부의 분기회로들이 별도의 LOAD 엔티티로 추출되었으나, 실제로는 패널에 종속된 차단기(MCCB)와 부하의 결합 정보임
+    recommended_handling: Branch 엔티티를 Panel의 'contains' 관계로 종속시키고, 내부 속성(at, af, poles)을
+      Data Property로 변환하여 구조화
+  - tag_pattern: UNKNOWN-*
+    reason: 상세도(Detail)에서 추출된 접지/구조물 부품들로, 도면상 명확한 Tag가 없어 임의 부여됨
+    recommended_handling: Tag 이름에 의존하지 않고 `type`과 `function_category`를 기준으로 Class를
+      분류하여 인스턴스화
+  guidance_for_next_steps:
+    for_0_9b_placement:
+      focus:
+      - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+        Network)의 분리
+      - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+      expected_owl_role_distribution:
+        NamedIndividual: 250
+        PartOf: 80
+        ObjectPropertyAssertion: 200
+        DataPropertyValue: 400
+        AnnotationOnly: 30
+      watch_outs:
+      - BRANCH-* 엔티티가 독립된 장비로 오분류되지 않도록 주의
+    for_0_9c_taxonomy:
+      focus:
+      - ElectricalEquipment 하위에 Switchgear, DistributionPanel, Transformer, ProtectionDevice
+        세분화
+      - GroundingSystem 하위에 Electrode, Conductor, TerminalBox, Connector 세분화
+      seed_top_classes:
+      - PowerDistributionEquipment
+      - ProtectionAndControlDevice
+      - GroundingAndLightningSystem
+      - StructuralSupport
+    for_0_9d_properties:
+      focus:
+      - 전력 흐름(feeds)과 물리적/전기적 접속(connects_to, grounds_to)의 명확한 구분
+      priority_properties:
+      - feeds
+      - grounds_to
+      - contains
+      - voltage_kV
+      - rated_current_A
+    for_0_9e_axioms:
+      focus:
+      - 전원 공급의 방향성 및 접지망의 무방향성(Symmetric) 정의
+      priority_axioms:
+      - connects_to is SymmetricProperty
+      - contains is InverseOf is_contained_in
+  confidence: 0.92
+  self_assessment: 전력 분배 및 접지/피뢰 시스템에 대한 데이터가 매우 상세하여 고품질의 온톨로지 설계가 가능함. 단, 분전반 내
+    분기회로(Branch)와 외부 연결 노드(EXT-*)의 중복/종속 관계를 깔끔하게 정리하는 것이 핵심 과제임.

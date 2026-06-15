@@ -1,0 +1,182 @@
+placement:
+  tag: UNKNOWN-CONNECTOR-TEE-DISSIMILAR-01
+  name: Tee Connector(이질커넥터)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-CONNECTOR-TEE-DISSIMILAR-01
+    class_hint: ElectricalConnector
+    alternative_class_hints:
+    - BranchConnection
+    - DissimilarMetalConnection
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-CONDUCTOR-01
+      note: 이종금속 T자 연결
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalConnector
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: T자형 이질 커넥터
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasConnectorType
+          suggested_datatype: xsd:string
+          rationale: 형태를 나타내는 문자열 표현
+      - raw_text: 'material_interface: STS ↔ CU (스테인리스 ↔ 동)'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasMaterialInterface
+          suggested_datatype: xsd:string
+          rationale: 이종 금속 접속 재질 조합을 나타내는 문자열 표현
+      - raw_text: 이종금속 T자 분기 연결
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasPurpose
+          suggested_datatype: xsd:string
+          rationale: 용도 설명 문자열
+      - raw_text: T Connector (이질커넥터)
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols의 심볼 유형 설명 문자열
+  provenance:
+    name:
+      source_pages:
+      - 40
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 40
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 40
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 40
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 40
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 40
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 40
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 40
+      method: relations.note
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 40
+      method: entity_detail.specs.type
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 40
+      method: entity_detail.specs.material_interface
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 40
+      method: entity_detail.specs.purpose
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 40
+      method: entity_detail.equipment_symbols.type
+    unresolved:
+      source_pages:
+      - 40
+      method: scanned_all_fields
+    orphan_relations:
+      source_pages:
+      - 40
+      method: relations.scan
+    ambiguous:
+      source_pages:
+      - 40
+      method: rule_based_assessment
+    merge_info:
+      source_pages:
+      - 40
+      method: tag_similarity_check
+    plan_reference.guidance_applied:
+      source_pages:
+      - 40
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: collection_sources.cross_validated
+    raw_text: 'true'
+    source_page: 40
+    reason: 출처 검증 여부는 사실이지만 분류 대상 속성으로 승격하지 않음
+    preservation_note: 검증 플래그로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 40
+    reason: 합성 여부는 메타 정보이며 현재 레이어에서 별도 분류하지 않음
+    preservation_note: 생성/합성 메타로 보존
+  - field_candidate: position
+    raw_text: BLK-001, BLK-003
+    source_page: 40
+    reason: 위치 표기는 있으나 supplement sub_kind에 직접 배치할 적절한 카테고리가 없음
+    preservation_note: 블록 위치 정보로 보존
+  - field_candidate: confidence
+    raw_text: '0.95'
+    source_page: 40
+    reason: 엔티티 자체의 신뢰도 메타값
+    preservation_note: 추후 품질 판단용
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true; gemini: true; mini: true'
+    source_page: 40
+    reason: 다중 출처 귀속 메타
+    preservation_note: 출처 합의 정보로 보존
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: type, material_interface, purpose
+    source_page: 40
+    reason: 관찰 속성 목록은 분류 결과가 아니라 힌트 메타
+    preservation_note: 속성 후보 목록으로 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 40
+    reason: 유사 장비 없음
+    preservation_note: 빈 목록 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: BranchConnection, DissimilarMetalConnection
+    source_page: 40
+    reason: 후보 기능명은 확정 분류가 아님
+    preservation_note: 기능 후보로 보존
+  - field_candidate: equipment_symbols
+    raw_text: 'type: T Connector (이질커넥터), count: 1'
+    source_page: 40
+    reason: 심볼 정보는 있으나 별도 표준 sub_kind 없음
+    preservation_note: 도면 심볼 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 태그, name, type, relations, ontology_hints가 모두 일관되게 이질 T자 커넥터를 가리킴
+    recommended_handling: NamedIndividual로 유지하고 0-9c에서 ElectricalConnector 계열로 세분화
+      검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Connector)와 논리적 관계(connects_to)의 분리
+    - 도면 정보가 아닌 설비 실체로 인스턴스화
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:14:15.656248'
+  confidence: 0.95

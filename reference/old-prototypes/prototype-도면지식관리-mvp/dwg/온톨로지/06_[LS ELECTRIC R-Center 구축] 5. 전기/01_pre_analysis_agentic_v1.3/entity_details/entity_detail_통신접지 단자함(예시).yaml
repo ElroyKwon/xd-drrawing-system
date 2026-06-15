@@ -1,0 +1,76 @@
+entity_detail:
+  tag: 통신접지 단자함(예시)
+  type: grounding_terminal_box
+  specs:
+  - key: wire_spec
+    value: F-GV 16㎟ (HI-PVC 16C)
+    unit: ㎟
+    source: page 39
+    confidence: 0.95
+  - key: cct
+    value: 5CCT
+    unit: CCT
+    source: page 39
+    confidence: 0.95
+  - key: busbar
+    value: CU-Busbar
+    unit: ''
+    source: page 39
+    confidence: 0.95
+  - key: insulation_material
+    value: Bakelite
+    unit: ''
+    source: page 39
+    confidence: 0.95
+  drawing_texts:
+  - source: page 39
+    page_number: 39
+    text: '통신접지 단자함
+
+      F-GV 16㎟ (HI-PVC 16C), 5CCT, CU-Busbar, Bakelite 포함'
+  requirements:
+  - text: CU-Busbar, Bakelite 포함
+    source: page 39
+    type: material_requirement
+  - text: F-GV 16㎟ (HI-PVC 16C), 5CCT
+    source: page 39
+    type: connection_requirement
+  connection_specs:
+  - relation: connected_via
+    partner: F-GV Wire
+    details:
+      source: page 39
+      text: F-GV 16㎟ (HI-PVC 16C)
+  - relation: includes
+    partner: CU-Busbar
+    details:
+      source: page 39
+      text: CU-Busbar
+  - relation: includes
+    partner: Bakelite
+    details:
+      source: page 39
+      text: Bakelite 포함
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: GRD-WIRE-001
+      direction: source_to_target
+      source: page 39
+    - relation_type: includes
+      partner_tag: ELC-BUSBAR-001
+      direction: source_to_target
+      source: page 39
+    observed_attributes:
+    - wire_spec
+    - cct
+    - busbar
+    - insulation_material
+    similar_equipment:
+    - GRD-TERM-003
+    - GRD-TERM-004
+    suggested_parent_class: grounding_terminal_box
+    cross_discipline: []
+  notes:
+  - 도면상 '예시' 표기가 포함됨.
+tag: 통신접지 단자함(예시)

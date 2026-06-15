@@ -1,0 +1,196 @@
+placement:
+  tag: PANEL-A-3PP
+  name: 380V 분전반 P-A-3PP
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:PANEL-A-3PP
+    class_hint: DistributionPanel
+    alternative_class_hints:
+    - ElectricalPanel
+    - DistributionBoard
+    - MCCBPanel
+    related_assertions:
+    - type: feeds
+      target_hint: SWGR-380V-MAIN
+      note: 380V 피더
+      confirmed_property: dks:feeds
+      confirmed_target: dks:SWGR-380V-MAIN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: SWGR-380V-MAIN
+      note: visual_semantics 기반 연결
+      confirmed_property: dks:cable
+      confirmed_target: dks:SWGR-380V-MAIN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX010
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN026
+    - CN027
+    - CN011
+    - CN012
+    confirmed_class: dks:DistributionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: MCCB'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 장비 타입 표기이며 태그와 별개로 관찰된 문자열 값
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 표기
+      - raw_text: 'specs.rated_voltage_V: 380'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRatedVoltage
+          suggested_datatype: xsd:decimal
+          rationale: 전압 수치 값
+      - raw_text: 'specs.rated_current_A: 125'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRatedCurrent
+          suggested_datatype: xsd:decimal
+          rationale: 정격 전류 수치 값
+      - raw_text: 'specs.frame_A: 100'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFrameCurrent
+          suggested_datatype: xsd:decimal
+          rationale: 프레임 전류 수치 값
+      - raw_text: 'specs.poles: 3'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasPoles
+          suggested_datatype: xsd:integer
+          rationale: 극수 수치 값
+      - raw_text: 'specs.raw_labels: [P-A-3PP, MCCB 3P, 380V]'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 라벨 보존용 문자열 배열
+      - raw_text: 'equipment_symbols: type=MCCB, count=1'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 심볼 종류와 개수 정보
+      - raw_text: 'position: bottom-center'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: locatedInPageRegion
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'confidence: 0.95'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 수치
+  provenance:
+    name:
+      source_pages:
+      - 2
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: placement_rule
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: derived_from_ontology_hints_and_observed_attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 2
+      method: preservation_of_unclassified_observations
+    specs.rated_voltage_V:
+      source_pages:
+      - 2
+      method: direct
+    specs.rated_current_A:
+      source_pages:
+      - 2
+      method: direct
+    specs.frame_A:
+      source_pages:
+      - 2
+      method: direct
+    specs.poles:
+      source_pages:
+      - 2
+      method: direct
+    specs.raw_labels:
+      source_pages:
+      - 2
+      method: direct
+    relations:
+      source_pages:
+      - 2
+      method: direct
+    position:
+      source_pages:
+      - 2
+      method: direct
+    equipment_symbols:
+      source_pages:
+      - 2
+      method: direct
+    source_attribution:
+      source_pages:
+      - 2
+      method: direct
+    confidence:
+      source_pages:
+      - 2
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - MCCB 기반 PANEL-* 개체를 DistributionPanel/DistributionBoard/ElectricalPanel 계열로
+      보는 guidance 적용
+    - feeds 및 cable 관계 사실을 related_assertions 원형으로 보존
+    - raw_labels, position, equipment_symbols 등 관찰 텍스트 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T15:59:45.857083'
+  confidence: 0.95

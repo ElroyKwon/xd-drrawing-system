@@ -1,0 +1,114 @@
+placement:
+  tag: UNKNOWN-NOTE-02
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: NoteOrLegend
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    related_assertions:
+    - type: references
+      target_hint: PF1B
+      note: UNKNOWN-NOTE-02가 PF1B를 참조함. note 텍스트에 '미끄기 내부 기초 PF1B 참조'가 있음.
+      confirmed_property: dks:references
+      confirmed_target: dks:PF1B
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX008
+    - AX009
+    - AX012
+    applicable_constraints: []
+    confirmed_class: dks:NoteOrLegend
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 미끄기 내부 기초 PF1B 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 성격의 자연어 메모이며 references 관계의 보조 설명으로 보임.
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 'from: UNKNOWN-NOTE-02 to: PF1B relation: references source_page:
+          33 origin: cross_validated line_style: dashed'
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 레코드 원문이며 참조 관계 사실을 보존할 필요가 있음.
+  provenance:
+    tag:
+      source_pages:
+      - 33
+      method: entity_detail.tag
+    ontology_core.owl_role:
+      source_pages:
+      - 33
+      method: inferred_from_note_entity
+    ontology_core.class_hint:
+      source_pages:
+      - 33
+      method: inferred_from_entity_type
+    ontology_core.related_assertions:
+      source_pages:
+      - 33
+      method: direct_relation_extraction
+    discipline_context.free_notes:
+      source_pages:
+      - 33
+      method: verbatim_preservation
+  unresolved:
+  - field_candidate: relations.relation_type
+    raw_text: references
+    source_page: 33
+    reason: 관계는 읽히지만 0-9d에서 확정 property IRI를 부여하지 않음.
+    preservation_note: PF1B를 향한 참조 관계로 보존.
+  - field_candidate: relations.note
+    raw_text: 미끄기 내부 기초 PF1B 참조
+    source_page: 33
+    reason: 자연어 설명이므로 구조화된 속성으로 단정하지 않음.
+    preservation_note: 관계 주석으로 free_notes에 보존.
+  - field_candidate: relations.line_style
+    raw_text: dashed
+    source_page: 33
+    reason: 선 스타일 정보는 관계 의미를 보조하지만 ontology core로 승격하지 않음.
+    preservation_note: 시각적 관계 표현으로 보존.
+  - field_candidate: relations.origin
+    raw_text: cross_validated
+    source_page: 33
+    reason: 출처 메타이지만 별도 표준 필드로 확정하지 않음.
+    preservation_note: 관계 신뢰도/검증 메타로 보존.
+  - field_candidate: relations.partner
+    raw_text: PF1B
+    source_page: 33
+    reason: 관계 상대는 확인되나 태그 자체의 클래스/역할은 확정하지 않음.
+    preservation_note: 참조 대상 태그로 보존.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명이 NOTE 계열이지만 실제로는 PF1B를 참조하는 주석/노트인지, 별도 문서 엔티티인지 경계가 불명확함.
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 references 관계의 정규화 여부를 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline에서 문서 메타 또는 미해결 구조 엔티티로 보수적으로 보존
+    - 관계 사실은 related_assertions로 원형 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:06.452847'
+  confidence: 0.78

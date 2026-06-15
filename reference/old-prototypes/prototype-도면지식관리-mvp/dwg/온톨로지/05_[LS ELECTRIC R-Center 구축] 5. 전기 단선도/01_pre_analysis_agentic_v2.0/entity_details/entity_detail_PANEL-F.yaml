@@ -1,0 +1,55 @@
+tag: PANEL-F
+name: 380V 분전반 P-F
+type: MCCB
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  rated_voltage_V: 380
+  rated_current_A: 125
+  frame_A: 100
+  poles: 3
+  raw_labels:
+  - P-F
+  - MCCB 3P
+  - 380V
+relations:
+- from: SWGR-380V-MAIN
+  to: PANEL-F
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 380V 피더
+- from: SWGR-380V-MAIN
+  to: PANEL-F
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 380V 피더
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-right
+confidence: 0.95
+equipment_symbols:
+- type: MCCB
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: DistributionBoard
+  observed_attributes:
+  - rated_voltage_V
+  - rated_current_A
+  - frame_A
+  - poles
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection

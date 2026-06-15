@@ -1,0 +1,133 @@
+entity_detail:
+  tag: MCCB
+  type: circuit_breaker
+  specs:
+    정격전압:
+      value: 3P/4P 600V, 2P 250V
+      unit: V
+      source: page 20
+      confidence: 0.95
+    정격용량:
+      value: 30AF~600AF
+      unit: AF
+      source: page 20
+      confidence: 0.95
+    차단용량:
+      value: 5KA 이상~50KA 이상
+      unit: KA
+      source: page 20
+      confidence: 0.95
+    차단용량_표기:
+      value: 30AF 5KA 이상, 50AF 10KA 이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF 25KA 이상,
+        400AF 35KA 이상, 600AF 50KA 이상
+      unit: '-'
+      source: page 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: 각 분전반에는 MAIN, MCCB, CBR, E3 접지 및 일부 SPD가 표시되며, 분기 회로가 다수 포함된 패널이 보인다.
+  - source: page 20
+    page_number: 20
+    text: 우측 표제란과 주기사항에 차단기 정격, 외함 재질/두께, 설치 조건, 주의사항이 함께 표기되어 있다.
+  - source: page 20
+    page_number: 20
+    text: '정격전압: 3P/4P 600V, 2P 250V, 정격용량: 30AF~600AF, 차단용량: 5KA 이상~50KA 이상'
+  - source: page 22
+    page_number: 22
+    text: '각 분전반은 FROM: 전기실, R/S/T 3상 전원 라인, MCCB, SPD, 접지(E3) 표기가 반복되며, 우측에는 주기사항과
+      차단용량 표가 있다.'
+  - source: page 22
+    page_number: 22
+    text: 차단용량 표에는 30AF 5KA 이상, 50AF 10KA 이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF
+      25KA 이상, 400AF 35KA 이상, 600AF 50KA 이상이 보인다.
+  requirements:
+  - text: 정격전압은 3P/4P 600V, 2P 250V로 표기됨
+    source: page 20
+    type: performance
+  - text: 정격용량은 30AF~600AF 범위로 표기됨
+    source: page 20
+    type: performance
+  - text: 차단용량은 5KA 이상~50KA 이상으로 표기됨
+    source: page 20
+    type: performance
+  - text: 차단용량 표에 30AF 5KA 이상, 50AF 10KA 이상, 100AF 25KA 이상, 125AF 25KA 이상, 250AF 25KA
+      이상, 400AF 35KA 이상, 600AF 50KA 이상이 표기됨
+    source: page 22
+    type: performance
+  - text: 우측 주기사항에 차단기 정격, 외함 재질/두께, 설치 조건, 주의사항이 함께 표기됨
+    source: page 20
+    type: design_note
+  connection_specs:
+  - relation: contains
+    partner: MAIN
+    details:
+      source: page 20
+  - relation: contains
+    partner: CBR
+    details:
+      source: page 20
+  - relation: contains
+    partner: SPD
+    details:
+      source: page 20
+  - relation: contains
+    partner: E3
+    details:
+      source: page 20
+  - relation: feeds/protects
+    partner: MAIN
+    details:
+      source: page 20
+  - relation: branches to
+    partner: CBR
+    details:
+      source: page 20
+  ontology_hints:
+    observed_relations:
+    - relation_type: contains
+      partner_tag: MAIN
+      direction: internal
+      source: page 20
+    - relation_type: contains
+      partner_tag: CBR
+      direction: internal
+      source: page 20
+    - relation_type: contains
+      partner_tag: SPD
+      direction: internal
+      source: page 20
+    - relation_type: contains
+      partner_tag: E3
+      direction: internal
+      source: page 20
+    - relation_type: feeds/protects
+      partner_tag: MAIN
+      direction: 상류→하류
+      source: page 20
+    - relation_type: branches to
+      partner_tag: CBR
+      direction: 상류→하류
+      source: page 20
+    observed_attributes:
+    - 정격전압
+    - 정격용량
+    - 차단용량
+    - 3P/4P
+    - 2P
+    - AF
+    - KA
+    similar_equipment:
+    - MCCB-P-A-4PP-7
+    - MCCB-P-AC-4PP-1
+    - MCCB-P-C-4PP
+    - MCCB-P-E-4PP
+    - MCCB-P-F-4PP
+    - MCCB-P-P-4PP
+    suggested_parent_class: CircuitBreaker
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - page 20과 page 22에서 MCCB 관련 사양이 확인됨
+  - page 19, 21, 22에는 분전반 내 MCCB 표기가 반복되나, 대상 태그 MCCB의 직접 사양은 page 20이 가장 명확함
+tag: MCCB

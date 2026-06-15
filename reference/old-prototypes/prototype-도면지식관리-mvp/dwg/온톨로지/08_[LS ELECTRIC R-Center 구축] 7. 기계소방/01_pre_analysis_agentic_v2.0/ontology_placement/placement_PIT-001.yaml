@@ -1,0 +1,220 @@
+placement:
+  tag: PIT-001
+  name: PIT
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: PIT-001
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - FireProtectionSpace
+    - SpatialStructure
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN
+      note: PIT 소화 배관 평면도에 연결
+    applicable_axioms:
+    - AX037
+    - AX040
+    - AX041
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: SPACE'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기
+      - raw_text: 'function_category: PIT'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'specifications.shape: other'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 형상 속성 표기
+      - raw_text: 'specifications.labels_inside: PIT'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 라벨 텍스트
+      - raw_text: 'specifications.labels_near: PIT 소화 배관 평면도에 연결'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: labelsNear
+          suggested_datatype: xsd:string
+          rationale: 인접 라벨/주석 텍스트
+      - raw_text: 'specifications.note: PIT 구역은 도면상 하부 중앙 가장자리의 공간 요소로 확인됨'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 공간 위치 설명 주석
+      - raw_text: 'position: bottom-center edge'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'source_pages: [6, 7, 11]'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: sourcePages
+          suggested_datatype: xsd:string
+          rationale: 출처 페이지 목록 보존
+      - raw_text: 'relations.from_tag: PIT-001 / to_tag: UNKNOWN / relation_type:
+          connects_to / line_type: pipe / line_style: solid / annotation: PIT 소화 배관
+          평면도에 연결'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: connectsTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실 원문 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: SpatialStructure'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.observed_attributes: shape, labels_inside, labels_near,
+          position'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: Drainage, Containment, FireProtectionSpace'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록 보존
+      - raw_text: 'tool_usage: functions.search_entity_by_tag(PIT-001)'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: toolUsage
+          suggested_datatype: xsd:string
+          rationale: 도구 사용 흔적 보존
+      - raw_text: 'tool_usage: functions.read_page_context(7)'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: toolUsage
+          suggested_datatype: xsd:string
+          rationale: 도구 사용 흔적 보존
+  provenance:
+    tag:
+      source_pages:
+      - 6
+      method: entity_detail
+    name:
+      source_pages:
+      - 6
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 6
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 6
+      method: ontology_hint
+    ontology_core.related_assertions:
+      source_pages:
+      - 6
+      method: relation_extraction
+    discipline_context.free_notes:
+      source_pages:
+      - 6
+      - 7
+      - 11
+      method: preservation
+    ambiguous:
+      source_pages:
+      - 6
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 6
+      method: plan_alignment
+  unresolved:
+  - field_candidate: relations.to_tag
+    raw_text: UNKNOWN
+    source_page: 6
+    reason: 상대 태그 식별 불가
+    preservation_note: connects_to 관계의 반대편 대상 미확정
+  - field_candidate: relations.relation_type
+    raw_text: connects_to
+    source_page: 6
+    reason: 관계 원형은 보존하되 확정 property IRI는 다음 단계에서 결정
+    preservation_note: object property 후보
+  - field_candidate: relations.line_type
+    raw_text: pipe
+    source_page: 6
+    reason: 관계 부가 속성으로는 보존 가능하나 정식 속성 미확정
+    preservation_note: 배관 연결 맥락
+  - field_candidate: relations.line_style
+    raw_text: solid
+    source_page: 6
+    reason: 관계 부가 속성으로는 보존 가능하나 정식 속성 미확정
+    preservation_note: 선 스타일 정보
+  - field_candidate: specifications.shape
+    raw_text: other
+    source_page: 6
+    reason: 구체 형상 분류 불가
+    preservation_note: 원문 값 그대로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: SpatialStructure
+    source_page: 6
+    reason: 후보 클래스 힌트이나 확정 불가
+    preservation_note: 상위 개념 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Drainage, Containment, FireProtectionSpace
+    source_page: 6
+    reason: 복수 후보이며 확정 불가
+    preservation_note: 기능 후보 목록
+  - field_candidate: tool_usage
+    raw_text: functions.search_entity_by_tag(PIT-001); functions.read_page_context(7)
+    source_page: 6
+    reason: 분류 속성이 아닌 작업 로그
+    preservation_note: 추적용 메타정보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PIT가 공간 요소(SPACE)로 보이지만 배관 연결 주석과 함께 나타나며, 물리 공간/도면 주석/연결 지점 해석이 혼재함.
+    recommended_handling: 다음 단계에서 SpatialEntity 우선으로 검증하되, connects_to 관계와 공간 주석을
+      분리 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/실 구획 계열로 보이는 태그를 SpatialEntity 후보로 우선 배치
+    - 도면 주석 및 연결 관계를 분리 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:04:26.487209'
+  confidence: 0.84

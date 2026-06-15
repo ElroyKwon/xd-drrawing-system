@@ -1,0 +1,66 @@
+tag: RECTIFIER-01
+name: 정류기 (AC→DC 110V)
+type: RECTIFIER
+discipline: ELECTRICAL
+function_category: CONVERT
+source_pages:
+- 2
+specs:
+  input_voltage_V: 440
+  output_voltage_V: 110
+  current_A: 10
+  raw_labels:
+  - RECTIFIER
+  - AC 440V → DC 110V
+  - 10A
+relations:
+- from: LV-R
+  to: RECTIFIER-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: AC 440V 입력
+- from: RECTIFIER-01
+  to: BATTERY-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: DC 110V 충전
+- from: LV-R
+  to: RECTIFIER-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: AC 440V 입력
+- from: RECTIFIER-01
+  to: BATTERY-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: DC 110V 충전
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-left
+confidence: 0.95
+equipment_symbols:
+- type: rectifier
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: PowerConverter
+  observed_attributes:
+  - input_voltage_V
+  - output_voltage_V
+  - current_A
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - AC_TO_DC_CONVERSION
+  - BATTERY_CHARGING

@@ -1,0 +1,1126 @@
+initial_scan:
+  page_type: legend
+  is_legend: true
+  has_legend_section: true
+  legend_type: ducts / utility / fittings / sanitary / abbreviations legend sheet
+  discipline: MECHANICAL
+  classification: null
+  drawing_genre: legend
+  title_block:
+    drawing_number: M03-001
+    title: 범례 표
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: HIGH
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 범례 전용 페이지로 보이며, DUCTS / UTILITY / FITTINGS(STEEL) / SANITARY / ABBREVIATIONS 섹션이
+    함께 존재함
+  - 도면번호 접두사 M 확인됨 → MECHANICAL 우선
+  - 심볼-설명 쌍과 약어 테이블이 모두 보임
+  confidence: 0.99
+  note: null
+  recommended_supplements: {}
+  routing_confidence: 1.0
+  routing_reason: 범례 전용 페이지이며 drawing_genre=legend는 카탈로그 대상이 아니므로 recommended_supplements는
+    빈 dict로 처리함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND_SHEET
+    shape: rectangle
+    primary_label: 범례 표
+    position: center
+    labels_near:
+    - DUCTS
+    - UTILITY
+    - FITTINGS(STEEL)
+    - SANITARY
+    - VALVES & OTHERS
+    - ABBREVIATIONS
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: M03-001
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 범례 표
+  connections: []
+  notable_shapes:
+  - shape: dashed_box
+    label: DUCTS / UTILITY / SANITARY / FITTINGS / ABBREVIATIONS
+    note: 5개 이상의 주요 기계 설비 범례 섹션이 표 형식으로 배치됨
+  - shape: circle
+    label: M
+    note: 유량계(FLOW METER) 심볼
+  - shape: hexagon
+    label: '1'
+    note: ABBREVIATIONS 섹션 내 NUMBER 예시 기호
+legend_candidate:
+  is_legend_page: true
+  has_legend_section: true
+  legend_region: center
+  confidence: 1.0
+  note: 페이지 전체가 DUCTS, UTILITY, FITTINGS, SANITARY, ABBREVIATIONS 등 5개 이상의 기계 설비 범례
+    표로 구성됨.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: legend
+  changed_from_p00: false
+  recommended_supplements: {}
+  routing_confidence: 1.0
+  routing_reason: 도면번호 접두사 M과 시각적 정보(5개 이상의 기계 범례 섹션)가 일치하여 MECHANICAL/legend로 확정.
+    카탈로그 대상 아님.
+classification: LEGEND
+discipline: MECHANICAL
+key_elements_from_text:
+- 범례 표
+- DUCTS
+- UTILITY
+- FITTINGS(STEEL)
+- SANITARY
+- VALVES & OTHERS
+- ABBREVIATIONS
+- 덕트/배관/밸브/기기 심볼과 설명
+- 도면번호 M03-001
+- 프로젝트명 LS Electric R-Center 구축
+title_block:
+  drawing_number: M03-001
+  title: 범례 표
+  revision: NONE
+confidence: 0.99
+note: 페이지 상단 제목 '범례 표'와 중앙의 심볼-설명 표, 우측 표제란의 도면번호 M03-001이 시각적으로 확인됨. 기존 분석의 MECHANICAL/legend
+  판정과 일치함. 페이지 내 FD는 DUCTS 섹션의 Fire Damper와 SANITARY 섹션의 Floor Drain으로 각각 보이며, 약어
+  중복은 그대로 유지함.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-DUCTS
+    shape: rectangle
+    labels_inside:
+    - DUCTS
+    - 급기 덕트 SUPPLY AIR DUCT SECTION
+    - 환기 덕트 RETURN AIR DUCT SECTION
+    - 배기 덕트 EXHAUST AIR DUCT SECTION
+    - 외기 덕트 FRESH AIR DUCT SECTION
+    - 풍량조절댐퍼 VOLUME DAMPER
+    - 방화댐퍼 FIRE DAMPER
+    - 풍량조절방화댐퍼 FIRE VOLUME DAMPER
+    - 전자식개폐댐퍼 SOLENOID DAMPER
+    - 전동풍량조절댐퍼 MOTORIZED VOLUME DAMPER
+    - 역류방지댐퍼 BACKDRAFT DAMPER
+    - 캔버스이음 CANVAS DUCT CONNECTION
+    - 플렉시블덕트 FLEXIBLE DUCT
+    - 분할댐퍼 SPLIT DAMPER
+    - 터닝베인 TURNING VANE
+    - 원형디퓨저 ROUND TYPE DIFFUSER
+    - 각형디퓨저 SQUARE TYPE DIFFUSER
+    - 레지스터그릴 REGISTER OR GRILLE
+    - 루버 LOUVER
+    - 가변풍량유니트 VAV VARIABLE AIR VOLUME UNIT
+    - 정풍량유니트 CAV CONSTANT AIR VOLUME UNIT
+    - 덕트소음기 DUCT SOUND ATTENUATOR
+    - 덕트의오르내림(UP상승,DN:하강) CHANGE OF ELEVATION
+    - 덕트크기(폭×높이) DUCT SIZE (WIDTH X DEPTH)
+    - 유체의흐름방향 DIRECTION OF FLOW
+    - 덕트의확대축소 TRANSITION
+    - 덕트분기공급 BRANCH SUPPLY OR RETURN
+    - 라인디퓨저 LINE DIFFUSER
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: duct_section_supply
+      count: 1
+    - type: duct_section_return
+      count: 1
+    - type: duct_section_exhaust
+      count: 1
+    - type: duct_section_fresh
+      count: 1
+    - type: volume_damper
+      count: 1
+    - type: fire_damper
+      count: 1
+    - type: fire_volume_damper
+      count: 1
+    - type: solenoid_damper
+      count: 1
+    - type: motorized_volume_damper
+      count: 1
+    - type: backdraft_damper
+      count: 1
+    - type: canvas_duct_connection
+      count: 1
+    - type: flexible_duct
+      count: 1
+    - type: split_damper
+      count: 1
+    - type: turning_vane
+      count: 1
+    - type: round_type_diffuser
+      count: 1
+    - type: square_type_diffuser
+      count: 1
+    - type: register_or_grille
+      count: 1
+    - type: louver
+      count: 1
+    - type: vav_unit
+      count: 1
+    - type: cav_unit
+      count: 1
+    - type: duct_sound_attenuator
+      count: 1
+    - type: change_of_elevation
+      count: 1
+    - type: duct_size_annotation
+      count: 1
+    - type: direction_of_flow_arrow
+      count: 1
+    - type: transition
+      count: 1
+    - type: branch_supply_return
+      count: 1
+    - type: line_diffuser
+      count: 1
+    inferred_name: 덕트 심볼 범례 섹션
+    position: left
+    material_notes:
+    - '급기/환기/배기/외기 덕트: 1종 아연도 강판 (KSD-3506)'
+  - panel_id: BLK-UTILITY
+    shape: rectangle
+    labels_inside:
+    - UTILITY
+    - 압축공기공급배관 COMPRESSED AIR SUPPLY — A
+    - 순수공급배관 D.I WATER SUPPLY — DIS
+    - 순수공급배관 D.I WATER RETURN — DIR
+    - 배관용 탄소강관(백강관) KSD-3507
+    - 배관용 스테인레스강관 KSD-3576(지중)
+    - C-PVC관
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: compressed_air_supply_line
+      count: 1
+    - type: di_water_supply_line
+      count: 1
+    - type: di_water_return_line
+      count: 1
+    inferred_name: 유틸리티 배관 심볼 범례 섹션
+    position: center-top
+    fluid_types:
+    - abbreviation: A
+      fluid: 압축공기
+      fluid_type: compressed_air
+    - abbreviation: DIS
+      fluid: 순수공급
+      fluid_type: di_water_supply
+    - abbreviation: DIR
+      fluid: 순수환수
+      fluid_type: di_water_return
+  - panel_id: BLK-SANITARY
+    shape: rectangle
+    labels_inside:
+    - SANITARY
+    - 급수관 DOMESTIC COLD WATER — (single dot line)
+    - 급탕관 DOMESTIC HOT WATER SUPPLY — (double dot line)
+    - 환탕관 DOMESTIC HOT WATER RETURN — (triple dot line)
+    - 지하수관 UNDERGROUND WATER — (dash line)
+    - 배수관 DRAIN — D
+    - 오수관 SOIL — S
+    - 통기관 VENT — V
+    - 펌핑배수관 PUMPING DRAIN — PD
+    - 우수배수관 RAINWATER DRAIN — RD
+    - 장비배수관 EQUIPMENT DRAIN — ED
+    - 일반배관용 스테인레스강관 KSD-3595 STS 304 K-TYPE
+    - 배관용 스테인레스강관(지중 매립관) KSD-3576
+    - 배관용 스테인레스강관 KSD-3576
+    - 경질염화비닐관(VG1) KSM-3404
+    - 경질염화비닐관(VG2) KSM-3454
+    - 배관용 탄소강관(백강관) KSD-3507
+    - 경질염화비닐관(VG1) KSM-3404
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: domestic_cold_water_line
+      count: 1
+    - type: domestic_hot_water_supply_line
+      count: 1
+    - type: domestic_hot_water_return_line
+      count: 1
+    - type: underground_water_line
+      count: 1
+    - type: drain_line
+      count: 1
+    - type: soil_line
+      count: 1
+    - type: vent_line
+      count: 1
+    - type: pumping_drain_line
+      count: 1
+    - type: rainwater_drain_line
+      count: 1
+    - type: equipment_drain_line
+      count: 1
+    inferred_name: 위생 배관 심볼 범례 섹션
+    position: center
+    fluid_types:
+    - abbreviation: CW
+      fluid: 급수(냉수)
+      fluid_type: domestic_cold_water
+    - abbreviation: HW
+      fluid: 급탕
+      fluid_type: domestic_hot_water_supply
+    - abbreviation: RHW
+      fluid: 환탕
+      fluid_type: domestic_hot_water_return
+    - abbreviation: D
+      fluid: 배수
+      fluid_type: drain
+    - abbreviation: S
+      fluid: 오수
+      fluid_type: soil
+    - abbreviation: V
+      fluid: 통기
+      fluid_type: vent
+    - abbreviation: PD
+      fluid: 펌핑배수
+      fluid_type: pumping_drain
+    - abbreviation: RD
+      fluid: 우수배수
+      fluid_type: rainwater_drain
+    - abbreviation: ED
+      fluid: 장비배수
+      fluid_type: equipment_drain
+  - panel_id: BLK-FITTINGS
+    shape: rectangle
+    labels_inside:
+    - FITTINGS(STEEL)
+    - 바닥배수관 FLOOR DRAIN — FD
+    - 소제구 CLEANOUT — CO
+    - 옥상통기구 VENT THRU ROOF — VTR
+    - 90도 엘보 ELBOW 90°
+    - 하향 꺾임 ELBOW TURNED DOWN
+    - 상향 꺾임 ELBOW TURNED UP
+    - 레듀서 CONCENTRIC REDUCER
+    - KSD-3576 MATERIAL
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: floor_drain
+      count: 1
+    - type: cleanout
+      count: 1
+    - type: vent_thru_roof
+      count: 1
+    - type: elbow_90deg
+      count: 1
+    - type: elbow_turned_down
+      count: 1
+    - type: elbow_turned_up
+      count: 1
+    - type: concentric_reducer
+      count: 1
+    inferred_name: 배관 피팅 심볼 범례 섹션 (강관)
+    position: center-right
+    note: FD는 DUCTS 섹션의 Fire Damper와 구별되는 Floor Drain 의미로 사용됨 — 약어 중복 주의
+  - panel_id: BLK-VALVES
+    shape: rectangle
+    labels_inside:
+    - VALVES & OTHERS
+    - 게이트밸브 GATE VALVE
+    - 글로브밸브 GLOBE VALVE
+    - 체크밸브 CHECK VALVE
+    - 스트레이너 STRAINER
+    - 버터플라이밸브 BUTTERFLY VALVE
+    - 볼밸브 BALL VALVE
+    - 플렉시블이음 FLEXIBLE JOINT
+    - 신축이음(벨로우즈형단식) EXPANSION JOINT (SINGLE TYPE)
+    - 신축이음(벨로우즈형복식) EXPANSION JOINT (DOUBLE TYPE)
+    - 볼조인트 BALL JOINT
+    - 밸런싱밸브 BALANCING VALVE
+    - 2방자동밸브장치 2-WAY CONTROL VALVE ASSEMBLY
+    - 3방자동밸브장치 3-WAY CONTROL VALVE ASSEMBLY
+    - 차압밸브 PRESS. DIFF. CONTROL VALVE
+    - 솔레노이드밸브 SOLENOID VALVE
+    - 안전밸브 SAFETY VALVE
+    - 감압밸브 PRESSURE REDUCING VALVE
+    - 고정철물,지지철물 PIPE ANCHOR, HANGER
+    - 파이프가이드 PIPE GUIDE
+    - 신축접수 EXPANSION JOINT
+    - 신축접수 EXPANSION JOINT
+    - 자동공기빼기밸브 AUTOMATIC AIR VENT — AAV
+    - 온도계및압력계 THERMOMETER & PRESSURE GAUGE — AAV/PG
+    - 압력스위치 PRESSURE SWITCH — PS
+    - 플로우스위치 FLOW SWITCH — FS
+    - 가스메타기 GAS METER — GM
+    - 유량계 FLOW METER — M
+    - 유체의흐름방향 DIRECTION OF FLOW
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: gate_valve
+      count: 1
+    - type: globe_valve
+      count: 1
+    - type: check_valve
+      count: 1
+    - type: strainer
+      count: 1
+    - type: butterfly_valve
+      count: 1
+    - type: ball_valve
+      count: 1
+    - type: flexible_joint
+      count: 1
+    - type: expansion_joint_single
+      count: 1
+    - type: expansion_joint_double
+      count: 1
+    - type: ball_joint
+      count: 1
+    - type: balancing_valve
+      count: 1
+    - type: 2way_control_valve_assembly
+      count: 1
+    - type: 3way_control_valve_assembly
+      count: 1
+    - type: press_diff_control_valve
+      count: 1
+    - type: solenoid_valve
+      count: 1
+    - type: safety_valve
+      count: 1
+    - type: pressure_reducing_valve
+      count: 1
+    - type: pipe_anchor_hanger
+      count: 1
+    - type: pipe_guide
+      count: 1
+    - type: expansion_joint_generic_1
+      count: 1
+    - type: expansion_joint_generic_2
+      count: 1
+    - type: automatic_air_vent
+      count: 1
+    - type: thermometer_pressure_gauge
+      count: 1
+    - type: pressure_switch
+      count: 1
+    - type: flow_switch
+      count: 1
+    - type: gas_meter
+      count: 1
+    - type: flow_meter
+      count: 1
+    - type: direction_of_flow_arrow
+      count: 1
+    inferred_name: 밸브 및 기타 기기 심볼 범례 섹션
+    position: right
+  - panel_id: BLK-ABBREVIATIONS
+    shape: rectangle
+    labels_inside:
+    - ABBREVIATIONS
+    - NUMBER 심볼 (육각형 안에 숫자 1)
+    - AHU 심볼 (사각형 안에 AHU)
+    - ABBREVIATION 심볼 (사각형 안에 약어)
+    - ABBREV. / DESCRIPTION 테이블
+    - AHU — 공조합실 공기조화기
+    - CHU — 천장형 공기조화기
+    - ODU — 공조기실 실외기
+    - OAC — 냉난방 실외기
+    - ERV — 전열교환기
+    - P — 펌프류
+    - SP — 배수 펌프류
+    - SF — 급기 FAN
+    - EF — 배기 FAN
+    - EHW — 전기온수기
+    - T — 탱크류
+    - IAC — 공냉식 실내기
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: hexagon_number_symbol
+      count: 1
+    - type: rectangle_ahu_symbol
+      count: 1
+    - type: rectangle_abbreviation_symbol
+      count: 1
+    inferred_name: 약어 및 기기 심볼 범례 섹션
+    position: top-right
+    note: 육각형 심볼은 도면 내 번호 참조용, 사각형 심볼은 기기 태그 표기용
+  - panel_id: BLK-TITLE
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - M03-001
+    - 범례 표
+    - 'CHKD: 정영호'
+    - 'CHKD1: 안동식'
+    - 'CHKD2: 이은진'
+    - 'CHKD3: 정재재'
+    - 'DATE: 2024.05'
+    - 'SCALE: NONE'
+    - 'DRAWING NO: M03-001'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란 (Title Block)
+    position: bottom-right
+  - panel_id: BLK-PAGE-TITLE
+    shape: rectangle
+    labels_inside:
+    - 범례 표
+    - 축척 NONE
+    - '1'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 페이지 제목 및 도면 번호 표기
+    position: bottom-center
+  connections: []
+  groups:
+  - group_id: GRP-LEGEND-MAIN
+    label: 범례 표 (Legend Sheet)
+    members:
+    - BLK-DUCTS
+    - BLK-UTILITY
+    - BLK-SANITARY
+    - BLK-FITTINGS
+    - BLK-VALVES
+    - BLK-ABBREVIATIONS
+  - group_id: GRP-DUCT-SYMBOLS
+    label: DUCTS — 덕트 심볼 그룹
+    members:
+    - BLK-DUCTS
+  - group_id: GRP-PIPE-SYMBOLS
+    label: UTILITY + SANITARY + FITTINGS — 배관 심볼 그룹
+    members:
+    - BLK-UTILITY
+    - BLK-SANITARY
+    - BLK-FITTINGS
+  - group_id: GRP-VALVE-INSTRUMENT
+    label: VALVES & OTHERS — 밸브 및 계측기기 심볼 그룹
+    members:
+    - BLK-VALVES
+  legend_references:
+  - text: 급기 덕트 SUPPLY AIR DUCT SECTION
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-001
+    material: 1종 아연도 강판 (KSD-3506)
+  - text: 환기 덕트 RETURN AIR DUCT SECTION
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-002
+    material: 1종 아연도 강판 (KSD-3506)
+  - text: 배기 덕트 EXHAUST AIR DUCT SECTION
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-003
+    material: 1종 아연도 강판 (KSD-3506)
+  - text: 외기 덕트 FRESH AIR DUCT SECTION
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-004
+    material: 1종 아연도 강판 (KSD-3506)
+  - text: 풍량조절댐퍼 VOLUME DAMPER (VD)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-005
+  - text: 방화댐퍼 FIRE DAMPER (FD)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-006
+    note: FD 약어는 FITTINGS 섹션의 Floor Drain과 중복 — 문맥으로 구분 필요
+  - text: 풍량조절방화댐퍼 FIRE VOLUME DAMPER (FVD)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-007
+  - text: 전자식개폐댐퍼 SOLENOID DAMPER (S.D)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-008
+  - text: 전동풍량조절댐퍼 MOTORIZED VOLUME DAMPER (M.V.D)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-009
+  - text: 역류방지댐퍼 BACKDRAFT DAMPER (B.D.D)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-010
+  - text: 캔버스이음 CANVAS DUCT CONNECTION
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-011
+  - text: 플렉시블덕트 FLEXIBLE DUCT
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-012
+  - text: 분할댐퍼 SPLIT DAMPER
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-013
+  - text: 터닝베인 TURNING VANE
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-014
+  - text: 원형디퓨저 ROUND TYPE DIFFUSER
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-015
+  - text: 각형디퓨저 SQUARE TYPE DIFFUSER
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-016
+  - text: 레지스터그릴 REGISTER OR GRILLE
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-017
+  - text: 루버 LOUVER
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-018
+  - text: 가변풍량유니트 VAV VARIABLE AIR VOLUME UNIT
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-019
+  - text: 정풍량유니트 CAV CONSTANT AIR VOLUME UNIT
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-020
+  - text: 덕트소음기 DUCT SOUND ATTENUATOR
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-021
+  - text: 덕트의오르내림 CHANGE OF ELEVATION (UP상승, DN:하강)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-022
+  - text: 덕트크기(폭×높이) DUCT SIZE (WIDTH X DEPTH)
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-022
+  - text: 유체의흐름방향 DIRECTION OF FLOW
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-023
+  - text: 덕트의확대축소 TRANSITION
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-024
+  - text: 덕트분기공급 BRANCH SUPPLY OR RETURN
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-025
+  - text: 라인디퓨저 LINE DIFFUSER
+    linked_to: BLK-DUCTS
+    symbol_id: SYM-026
+  - text: 압축공기공급배관 COMPRESSED AIR SUPPLY (A)
+    linked_to: BLK-UTILITY
+    symbol_id: SYM-027
+    material: 배관용 탄소강관(백강관) KSD-3507 / 배관용 스테인레스강관 KSD-3576(지중)
+  - text: 순수공급배관 D.I WATER SUPPLY (DIS)
+    linked_to: BLK-UTILITY
+    symbol_id: SYM-028
+    material: C-PVC관
+  - text: 순수환수배관 D.I WATER RETURN (DIR)
+    linked_to: BLK-UTILITY
+    symbol_id: SYM-029
+    material: C-PVC관
+  - text: 급수관 DOMESTIC COLD WATER
+    linked_to: BLK-SANITARY
+    material: 일반배관용 스테인레스강관 KSD-3595 STS 304 K-TYPE
+  - text: 급탕관 DOMESTIC HOT WATER SUPPLY
+    linked_to: BLK-SANITARY
+    material: 배관용 스테인레스강관(지중 매립관) KSD-3576
+  - text: 환탕관 DOMESTIC HOT WATER RETURN
+    linked_to: BLK-SANITARY
+    material: 배관용 스테인레스강관 KSD-3576
+  - text: 지하수관 UNDERGROUND WATER
+    linked_to: BLK-SANITARY
+    material: 배관용 스테인레스강관 KSD-3576
+  - text: 배수관 DRAIN (D)
+    linked_to: BLK-SANITARY
+    material: 경질염화비닐관(VG1) KSM-3404
+  - text: 오수관 SOIL (S)
+    linked_to: BLK-SANITARY
+    material: 경질염화비닐관(VG1) KSM-3404
+  - text: 통기관 VENT (V)
+    linked_to: BLK-SANITARY
+    material: 경질염화비닐관(VG2) KSM-3454
+  - text: 펌핑배수관 PUMPING DRAIN (PD)
+    linked_to: BLK-SANITARY
+    material: 배관용 탄소강관(백강관) KSD-3507
+  - text: 우수배수관 RAINWATER DRAIN (RD)
+    linked_to: BLK-SANITARY
+    material: 경질염화비닐관(VG1) KSM-3404
+  - text: 장비배수관 EQUIPMENT DRAIN (ED)
+    linked_to: BLK-SANITARY
+    material: 경질염화비닐관(VG1) KSM-3404
+  - text: 바닥배수관 FLOOR DRAIN (FD)
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-030
+    note: FD 약어는 DUCTS 섹션의 Fire Damper와 중복 — 문맥으로 구분 필요
+  - text: 소제구 CLEANOUT (CO)
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-031
+  - text: 옥상통기구 VENT THRU ROOF (VTR)
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-032
+  - text: 90도 엘보 ELBOW 90°
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-033
+  - text: 하향 꺾임 ELBOW TURNED DOWN
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-034
+  - text: 상향 꺾임 ELBOW TURNED UP
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-035
+  - text: 레듀서 CONCENTRIC REDUCER
+    linked_to: BLK-FITTINGS
+    symbol_id: SYM-036
+  - text: 게이트밸브 GATE VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-037
+  - text: 글로브밸브 GLOBE VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-038
+  - text: 체크밸브 CHECK VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-039
+  - text: 스트레이너 STRAINER
+    linked_to: BLK-VALVES
+    symbol_id: SYM-040
+  - text: 버터플라이밸브 BUTTERFLY VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-041
+  - text: 볼밸브 BALL VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-042
+  - text: 플렉시블이음 FLEXIBLE JOINT
+    linked_to: BLK-VALVES
+    symbol_id: SYM-043
+  - text: 신축이음(벨로우즈형단식) EXPANSION JOINT (SINGLE TYPE)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-044
+  - text: 신축이음(벨로우즈형복식) EXPANSION JOINT (DOUBLE TYPE)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-045
+  - text: 볼조인트 BALL JOINT
+    linked_to: BLK-VALVES
+    symbol_id: SYM-046
+  - text: 밸런싱밸브 BALANCING VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-047
+  - text: 2방자동밸브장치 2-WAY CONTROL VALVE ASSEMBLY
+    linked_to: BLK-VALVES
+    symbol_id: SYM-048
+  - text: 3방자동밸브장치 3-WAY CONTROL VALVE ASSEMBLY
+    linked_to: BLK-VALVES
+    symbol_id: SYM-049
+  - text: 차압밸브 PRESS. DIFF. CONTROL VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-050
+  - text: 솔레노이드밸브 SOLENOID VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-051
+  - text: 안전밸브 SAFETY VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-052
+  - text: 감압밸브 PRESSURE REDUCING VALVE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-053
+  - text: 고정철물,지지철물 PIPE ANCHOR, HANGER
+    linked_to: BLK-VALVES
+    symbol_id: SYM-054
+  - text: 파이프가이드 PIPE GUIDE
+    linked_to: BLK-VALVES
+    symbol_id: SYM-055
+  - text: 신축접수 EXPANSION JOINT (generic 1)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-056
+  - text: 신축접수 EXPANSION JOINT (generic 2)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-057
+  - text: 자동공기빼기밸브 AUTOMATIC AIR VENT (AAV)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-058
+  - text: 온도계및압력계 THERMOMETER & PRESSURE GAUGE (AAV/PG)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-059
+  - text: 압력스위치 PRESSURE SWITCH (PS)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-060
+  - text: 플로우스위치 FLOW SWITCH (FS)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-061
+  - text: 가스메타기 GAS METER (GM)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-062
+  - text: 유량계 FLOW METER (M)
+    linked_to: BLK-VALVES
+    symbol_id: SYM-063
+  - text: 유체의흐름방향 DIRECTION OF FLOW
+    linked_to: BLK-VALVES
+  - text: AHU — 공조합실 공기조화기
+    linked_to: BLK-ABBREVIATIONS
+  - text: CHU — 천장형 공기조화기
+    linked_to: BLK-ABBREVIATIONS
+  - text: ODU — 공조기실 실외기
+    linked_to: BLK-ABBREVIATIONS
+  - text: OAC — 냉난방 실외기
+    linked_to: BLK-ABBREVIATIONS
+  - text: ERV — 전열교환기
+    linked_to: BLK-ABBREVIATIONS
+  - text: P — 펌프류
+    linked_to: BLK-ABBREVIATIONS
+  - text: SP — 배수 펌프류
+    linked_to: BLK-ABBREVIATIONS
+  - text: SF — 급기 FAN
+    linked_to: BLK-ABBREVIATIONS
+  - text: EF — 배기 FAN
+    linked_to: BLK-ABBREVIATIONS
+  - text: EHW — 전기온수기
+    linked_to: BLK-ABBREVIATIONS
+  - text: T — 탱크류
+    linked_to: BLK-ABBREVIATIONS
+  - text: IAC — 공냉식 실내기
+    linked_to: BLK-ABBREVIATIONS
+  diagram_meta:
+    title: 범례 표
+    drawing_number: M03-001
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    discipline: MECHANICAL
+    mech_subsystem: legend
+    view_type: legend
+    floor_label: null
+    scale: NONE
+    date: '2024.05'
+    revision: NONE
+    flow_direction: UNKNOWN
+    fluid_types_present:
+    - compressed_air
+    - di_water_supply
+    - di_water_return
+    - domestic_cold_water
+    - domestic_hot_water_supply
+    - domestic_hot_water_return
+    - underground_water
+    - drain
+    - soil
+    - vent
+    - pumping_drain
+    - rainwater_drain
+    - equipment_drain
+    has_equipment_list: false
+    legend_sections:
+    - section: DUCTS
+      entry_count: 26
+    - section: UTILITY
+      entry_count: 3
+    - section: SANITARY
+      entry_count: 10
+    - section: FITTINGS(STEEL)
+      entry_count: 7
+    - section: VALVES & OTHERS
+      entry_count: 27
+    - section: ABBREVIATIONS
+      entry_count: 12
+    known_abbreviation_conflicts:
+    - abbreviation: FD
+      meanings:
+      - context: DUCTS 섹션
+        meaning: Fire Damper (방화댐퍼)
+      - context: FITTINGS(STEEL) 섹션
+        meaning: Floor Drain (바닥배수관)
+    material_standards_referenced:
+    - KSD-3506 (아연도 강판)
+    - KSD-3507 (배관용 탄소강관 백강관)
+    - KSD-3576 (배관용 스테인레스강관)
+    - KSD-3595 (일반배관용 스테인레스강관 STS 304 K-TYPE)
+    - KSM-3404 (경질염화비닐관 VG1)
+    - KSM-3454 (경질염화비닐관 VG2)
+    - C-PVC관
+    designer:
+      architect: 가운건축 (GAUN Architects & Engineers)
+      checker: 정영호
+      checker1: 안동식
+      checker2: 이은진
+      checker3: 정재재
+    is_legend_page: true
+    confirmed_legend_page: true
+    confidence: 0.99
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-DUCTS
+    shape: rectangle
+    labels_inside:
+    - DUCTS
+    - SYMBOL
+    - DESCRIPTIONS
+    - MATERIAL
+    - 급기 덕트 SUPPLY AIR DUCT SECTION
+    - 1종 아연도 강판 (KSD-3506)
+    - 환기 덕트 RETURN AIR DUCT SECTION
+    - 1종 아연도 강판 (KSD-3506)
+    - 배기 덕트 EXHAUST AIR DUCT SECTION
+    - 1종 아연도 강판 (KSD-3506)
+    - 외기 덕트 FRESH AIR DUCT SECTION
+    - 1종 아연도 강판 (KSD-3506)
+    - V.D
+    - 풍량조절댐퍼 VOLUME DAMPER
+    - F.D
+    - 방화댐퍼 FIRE DAMPER
+    - F.V.D
+    - 풍량조절방화댐퍼 FIRE VOLUME DAMPER
+    - S.D
+    - 전자식개폐댐퍼 SOLENOID DAMPER
+    - M.V.D
+    - 전동풍량조절댐퍼 MOTORIZED VOLUME DAMPER
+    - B.D.D
+    - 역류방지댐퍼 BACKDRAFT DAMPER
+    - 캔버스이음 CANVAS DUCT CONNECTION
+    - 후렉시블덕트 FLEXIBLE DUCT
+    - S.D
+    - 분할댐퍼 SPLIT DAMPER
+    - 터닝베인 TURNING VANE
+    - 원형디퓨저 ROUND TYPE DIFFUSER
+    - 각형디퓨저 SQUARE TYPE DIFFUSER
+    - 레지스터및그릴 REGISTER OR GRILLE
+    - 루버 LOUVER
+    - VAV
+    - 가변풍량유니트 VARIABLE AIR VOLUME UNIT
+    - CAV
+    - 정풍량유니트 CONSTANT AIR VOLUME UNIT
+    - 덕트소음기 DUCT SOUND ATTENUATOR
+    - UP
+    - DN
+    - 덕트의오르내림(UP:상승,DN:하강) CHANGE OF ELEVATION
+    - 500x300 (W x H)
+    - 덕트크기(폭x높이) DUCT SIZE ( WIDTH X DEPTH )
+    - 유체의흐름방향 DIRECTION OF FLOW
+    - 덕트의확대축소 TRANSITION
+    - 덕트의분기 BRANCH SUPPLY OR RETURN
+    - 라인디퓨저 LINE DIFFUSER
+    equipment_symbols: []
+    inferred_name: 덕트 범례 섹션
+    position: left
+  - panel_id: BLK-UTILITY
+    shape: rectangle
+    labels_inside:
+    - UTILITY
+    - SYMBOL
+    - DESCRIPTIONS
+    - KSD - 3576 MATERIAL
+    - A
+    - 압축공기공급배관 COMPRESSED AIR SUPPLY
+    - 배관용 탄소강관(백강관) KSD - 3507
+    - 배관용 스테인레스강관 KSD - 3576(지중)
+    - DIS
+    - 순수공급배관 D.I WATER SUPPLY
+    - C-PVC관
+    - DIR
+    - 순수환수배관 D.I WATER RETURN
+    - C-PVC관
+    equipment_symbols: []
+    inferred_name: 유틸리티 배관 범례 섹션
+    position: center-top
+  - panel_id: BLK-SANITARY
+    shape: rectangle
+    labels_inside:
+    - SANITARY
+    - SYMBOL
+    - DESCRIPTIONS
+    - KSD - 3576 MATERIAL
+    - 급수관 DOMESTIC COLD WATER
+    - 일반배관용 스테인레스강관 KSD-3595 STS 304 K - TYPE
+    - 급탕관 DOMESTIC HOT WATER SUPPLY
+    - 배관용 스테인레스강관(지중 매립관) KSD - 3576
+    - 환탕관 DOMESTIC HOT WATER RETURN
+    - 배관용 스테인레스강관 KSD - 3576
+    - 지하수관 UNDERGROUND WATER
+    - 배관용 스테인레스강관 KSD - 3576
+    - D
+    - 배수관 DRAIN
+    - 경질염화비닐관 (VG1) KSM - 3404
+    - S
+    - 오수관 SOIL
+    - 경질염화비닐관 (VG1) KSM - 3404
+    - V
+    - 통기관 VENT
+    - 경질염화비닐관 (VG2) KSM - 3404
+    - PD
+    - 펌핑배수관 PUMPING DRAIN
+    - 배관용 탄소강관(백강관) KSD - 3507
+    - RD
+    - 우수배수관 RAINWATER DRAIN
+    - 배관용 탄소강관(백강관) KSD - 3507
+    - ED
+    - 장비배수관 EQUIPMENT DRAIN
+    - 경질염화비닐관 (VG1) KSM - 3404
+    equipment_symbols: []
+    inferred_name: 위생 배관 범례 섹션
+    position: center
+  - panel_id: BLK-FITTINGS
+    shape: rectangle
+    labels_inside:
+    - FITTINGS(STEEL)
+    - SYMBOL
+    - DESCRIPTIONS
+    - FD
+    - 바닥배수관 FLOOR DRAIN
+    - CO
+    - 소제구 CLEANOUT
+    - VTR
+    - 옥상통기구 VENT THRU ROOF
+    - 90도엘보 90° ELBOW
+    - 하향곡관 ELBOW TURNED DOWN
+    - 상향곡관 ELBOW TURNED UP
+    - 레듀샤 CONCENTRIC REDUCER
+    equipment_symbols: []
+    inferred_name: 배관 부속 범례 섹션
+    position: center-right
+  - panel_id: BLK-VALVES
+    shape: rectangle
+    labels_inside:
+    - VALVES & OTHERS
+    - SYMBOL
+    - DESCRIPTIONS
+    - 게이트밸브 GATE VALVE
+    - 글로브밸브 GLOBE VALVE
+    - 체크밸브 CHECK VALVE
+    - 스트레이너 STRAINER
+    - 버터플라이밸브 BUTTERFLY VALVE
+    - 볼밸브 BALL VALVE
+    - 플렉시블이음 FLEXIBLE JOINT
+    - 신축이음쇠(벨로우즈형단식) EXPANSION JOINT (SINGLE TYPE)
+    - 신축이음쇠(벨로우즈형복식) EXPANSION JOINT (DOUBLE TYPE)
+    - 볼조인트 BALL JOINT
+    - 밸런싱밸브 BALANCING VALVE
+    - 2방자동밸브장치 2-WAY CONTROL VALVE ASSEMBLY
+    - 3방자동밸브장치 3-WAY CONTROL VALVE ASSEMBLY
+    - 차압밸브 PRESS. DIFF. CONTROL VALVE
+    - 솔레노이드밸브 SOLENOID VALVE
+    - 안전밸브 SAFETY VALVE
+    - 감압밸브 PRESSURE REDUCING VALVE
+    - 고정철물,지지철물 PIPE ANCHOR, HANGER
+    - 파이프가이드 PIPE GUIDE
+    - 신축접수 EXPANSION JOINT
+    - 신축접수 EXPANSION JOINT
+    - 자동공기빼기밸브 AUTOMATIC AIR VENT
+    - AAV
+    - PG
+    - 온도계및압력계 THERMOMETER & PRESSURE GAUGE
+    - PS
+    - 압력스위치 PRESSURE SWITCH
+    - FS
+    - 플로우스위치 FLOW SWITCH
+    - GM
+    - 가스메타기 GAS METER
+    - M
+    - 유량계 FLOW METER
+    - 유체의흐름방향 DIRECTION OF FLOW
+    equipment_symbols: []
+    inferred_name: 밸브 및 기타 범례 섹션
+    position: right
+  - panel_id: BLK-ABBREVIATIONS
+    shape: rectangle
+    labels_inside:
+    - ABBREVIATIONS
+    - SYMBOL
+    - NUMBER
+    - 1
+    - AHU
+    - ABBREVIATION
+    - ABBREV.
+    - DESCRIPTION
+    - AHU
+    - 항온항습 공기조화기
+    - CHU
+    - 천장형 공기조화기
+    - ODU
+    - 공조기용 실외기
+    - CTCH
+    - 공냉식 항온항습기
+    - IAC
+    - 냉난방 실내기
+    - OAC
+    - 냉난방 실외기
+    - ERV
+    - 전열교환기
+    - P
+    - 펌프류
+    - SP
+    - 배수 펌프류
+    - SF
+    - 급기 FAN
+    - EF
+    - 배기 FAN
+    - EHW
+    - 전기온수기
+    - T
+    - 탱크류
+    equipment_symbols: []
+    inferred_name: 약어 및 심볼 범례 섹션
+    position: top-right
+  - panel_id: BLK-TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - PROJECT TITLE
+    - LS Electric R-Center 구축
+    - PROJECT NUMBER
+    - 224001
+    - DESIGN CONSULTANT
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 609, 10층 (논현동, 팍스타워)
+    - Tel.02-2-3443-7799
+    - Fax.02-2-3443-3807
+    - www.gaun.co.kr
+    - NOTES
+    - KEY PLAN
+    - NO.
+    - DESCRIPTION
+    - DATE
+    - ISSUES & REVISIONS
+    - BUILDING NAME
+    - R-Center
+    - DRAWING TITLE
+    - 범례표
+    - DRAWN
+    - 정영호
+    - CHECK 1
+    - 안동식
+    - CHECK 2
+    - 이은진
+    - APPD.
+    - 정용재
+    - SCALE
+    - NONE
+    - DATE
+    - 2024.05
+    - DRAWING NO.
+    - M03-001
+    - (주)선진이앤씨
+    - 엔지니어링 사업자 신고증 제19-121-1072588호
+    - 대표이사 김정훈
+    - 성남시 분당구 판교로 704
+    - (야탑동, 분당테크노파크 D-604) 이만재
+    - 221-88-02203
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: BLK-MAIN-TITLE
+    shape: rectangle
+    labels_inside:
+    - 1
+    - 범례표
+    - 축척 NONE
+    equipment_symbols: []
+    inferred_name: 메인 타이틀
+    position: bottom-center
+  connections: []
+  groups:
+  - group_id: GRP-LEGEND
+    label: 범례 전체
+    members:
+    - BLK-DUCTS
+    - BLK-UTILITY
+    - BLK-SANITARY
+    - BLK-FITTINGS
+    - BLK-VALVES
+    - BLK-ABBREVIATIONS
+  legend_references: []
+  diagram_meta:
+    title: 범례표
+    drawing_number: M03-001
+    project: LS Electric R-Center 구축
+    discipline: MECHANICAL
+    mech_subsystem: legend
+    view_type: legend
+    scale: NONE
+    date: 2024.05
+    flow_direction: UNKNOWN

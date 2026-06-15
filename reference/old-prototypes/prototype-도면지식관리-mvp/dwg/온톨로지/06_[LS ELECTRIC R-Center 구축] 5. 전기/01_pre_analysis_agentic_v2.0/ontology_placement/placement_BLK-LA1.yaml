@@ -1,0 +1,240 @@
+placement:
+  tag: BLK-LA1
+  name: 피뢰기 LA1/LA2
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: BLK-LA1
+    class_hint: LightningArrester
+    alternative_class_hints:
+    - SurgeProtectionDevice
+    - OvervoltageProtectionDevice
+    related_assertions:
+    - type: feeds
+      target_hint: BLK-22KV-ACSR
+      note: 22.9kV 가공 인입 → LA
+    - type: feeds
+      target_hint: '1104'
+      note: 22.9kV → SHV VCB 1104
+    - type: cable
+      target_hint: BLK-22KV-ACSR
+      note: 22.9kV 가공 인입 → LA
+    - type: cable
+      target_hint: BLK-1104
+      note: 22.9kV → SHV VCB 1104
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:LightningArrester
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: LA1/LA2
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentIdentifier
+          suggested_datatype: xsd:string
+          rationale: 장비 식별자 표기이며 개별 명칭이 아닌 복수 표기 형태로 관찰됨
+      - raw_text: 2.9kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDischargeCurrent
+          suggested_datatype: xsd:decimal
+          rationale: 전류 단위 kA가 포함된 방전전류 표기
+      - raw_text: CABLE TRAY(M)(P)-250m 이하
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRouting
+          suggested_datatype: xsd:string
+          rationale: 배선/라우팅 경로로 보이는 문자열이며 길이 조건(250m 이하)이 포함됨
+      - raw_text: G/S
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasGroundingMark
+          suggested_datatype: xsd:string
+          rationale: 접지 관련 약어로 보이는 표기이나 도면 내 정확한 의미는 확정 불가
+      - raw_text: 25.8kV
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasVoltageRating
+          suggested_datatype: xsd:decimal
+          rationale: 전압 단위 kV가 포함된 정격 전압 표기
+      - raw_text: 630A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRatedCurrent
+          suggested_datatype: xsd:decimal
+          rationale: 전류 단위 A가 포함된 정격 전류 표기
+      - raw_text: E1
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasGroundingMark
+          suggested_datatype: xsd:string
+          rationale: 접지 마크로 보이는 단일 코드 표기
+      - raw_text: LAx3
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentCount
+          suggested_datatype: xsd:integer
+          rationale: 수량을 나타내는 x3 표기
+      - raw_text: 18kV 2.5kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasVoltageAndDischargeRating
+          suggested_datatype: xsd:string
+          rationale: 전압(kV)과 방전전류(kA)가 결합된 복합 정격 표기
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: placement_decision
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + specs.equipment_type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates + specs.equipment_type
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels + specs + ontology_hints
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail.confidence
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.discharge_current:
+      source_pages:
+      - 5
+      method: entity_detail.specs.discharge_current
+    specs.routing:
+      source_pages:
+      - 5
+      method: entity_detail.specs.routing
+    specs.equipment_type:
+      source_pages:
+      - 5
+      method: entity_detail.specs.equipment_type
+    specs.count:
+      source_pages:
+      - 5
+      method: entity_detail.specs.count
+    specs.voltage_rating_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_rating_kV
+    specs.discharge_current_kA:
+      source_pages:
+      - 5
+      method: entity_detail.specs.discharge_current_kA
+    specs.voltage_rating_kV_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_rating_kV_gemini
+    specs.current_rating_A_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.current_rating_A_gemini
+    specs.grounding_mark:
+      source_pages:
+      - 5
+      method: entity_detail.specs.grounding_mark
+    relations:
+      source_pages:
+      - 5
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.function_candidates
+    equipment_symbols:
+      source_pages:
+      - 5
+      method: entity_detail.equipment_symbols
+    collection_sources:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources
+  unresolved:
+  - field_candidate: specs.voltage_rating_kV vs specs.voltage_rating_kV_gemini
+    raw_text: 18kV / 25.8kV
+    source_page: 5
+    reason: 동일 태그에 대해 전압 정격 값이 두 개 관찰됨
+    preservation_note: 둘 다 원문 값으로 보존하고 후속 단계에서 도면 맥락으로 판정
+  - field_candidate: specs.discharge_current vs specs.discharge_current_kA
+    raw_text: 2.9kA / 2.5kA
+    source_page: 5
+    reason: 방전전류 값이 두 개 관찰됨
+    preservation_note: 출처별 값 차이를 유지
+  - field_candidate: relations.relation=cable
+    raw_text: cable
+    source_page: 5
+    reason: 관계 의미는 보이지만 확정 property IRI 미정
+    preservation_note: 0-9d에서 connects_to 또는 유사 관계로 정규화 가능
+  - field_candidate: specs.grounding_mark
+    raw_text: G/S, E1
+    source_page: 5
+    reason: 접지 표기인지 단순 라벨인지 확정 불가
+    preservation_note: 원문 약어 그대로 유지
+  - field_candidate: specs.routing
+    raw_text: CABLE TRAY(M)(P)-250m 이하
+    source_page: 5
+    reason: 라우팅/설치 조건이 혼합된 문자열
+    preservation_note: 경로와 길이 조건을 분리하지 않고 원문 보존
+  - field_candidate: equipment_symbols
+    raw_text: lightning_arrester x2
+    source_page: 5
+    reason: specs.count=3과 심볼 수량 count=2가 상이함
+    preservation_note: 도면 표기와 추출 심볼 수량의 차이를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 피뢰기 LA1/LA2로 표기되지만 specs.count=3, equipment_symbols.count=2, 전압/전류 정격
+      값이 복수로 관찰되어 단일 장비인지 복수 장비 묶음인지 불명확함
+    recommended_handling: NamedIndividual로 우선 배치하되, 후속 단계에서 LA1/LA2/LAx3의 개별 인스턴스
+      분리 여부를 검토하고 관련 정격값을 출처별로 분해
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속(cable) 관계 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:07:29.783136'
+  confidence: 0.95

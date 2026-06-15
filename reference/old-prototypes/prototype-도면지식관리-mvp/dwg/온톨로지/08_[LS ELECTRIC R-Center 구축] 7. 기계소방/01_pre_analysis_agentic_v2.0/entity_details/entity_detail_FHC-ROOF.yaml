@@ -1,0 +1,77 @@
+tag: FHC-ROOF
+name: 지붕층 옥내소화전함 그룹
+type: PROTECT
+discipline: FIRE_PROTECTION
+function_category: PROTECT
+source_pages:
+- 5
+specs:
+  shape: rectangle
+  labels_inside:
+  - 지붕층
+  labels_above: []
+  labels_below: []
+  notes: 지붕층 우측 2개 소화전함 - RISER-06, RISER-07 계통에서 분기
+  raw_labels:
+  - 지붕층
+  position: top
+  equipment_symbols:
+  - type: 옥내소화전함(호스릴형)
+    count: 2
+    floor: 지붕층
+relations:
+- from: RISER-06
+  to: FHC-ROOF
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 지붕층 T-100 분기
+- from: RISER-07
+  to: FHC-ROOF
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 지붕층 T-50 분기
+- from: RISER-06
+  to: FHC-ROOF
+  relation: pipe
+  source_page: 5
+  origin: visual_semantics
+  annotation: 지붕층 T-100 분기
+- from: RISER-07
+  to: FHC-ROOF
+  relation: pipe
+  source_page: 5
+  origin: visual_semantics
+  annotation: 지붕층 T-50 분기
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top
+confidence: 0.85
+equipment_symbols:
+- type: 옥내소화전함(호스릴형)
+  count: 2
+  floor: 지붕층
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionEquipment
+  observed_attributes:
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - notes
+  - raw_labels
+  - position
+  - equipment_symbols
+  similar_equipment: []
+  function_candidates:
+  - FireSuppression
+  - WaterDistribution

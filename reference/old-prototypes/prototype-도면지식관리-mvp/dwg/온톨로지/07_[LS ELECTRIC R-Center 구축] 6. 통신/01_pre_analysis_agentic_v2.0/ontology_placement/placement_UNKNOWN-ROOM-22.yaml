@@ -1,0 +1,149 @@
+placement:
+  tag: UNKNOWN-ROOM-22
+  name: 3개 창업
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-22
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationSpace
+    - Office Space
+    - Communication Service Area
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-1F-9
+      note: specs.members에 포함된 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: ROOM-3개 창업'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별자 형태의 문자열
+      - raw_text: 'members: OUTLET-1F-9'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간/그룹에 포함된 멤버 태그
+      - raw_text: 'function_candidates: Office Space, Communication Service Area'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문구 보존
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: isEntitySynthesized
+          suggested_datatype: xsd:boolean
+          rationale: 합성 생성 여부 메타정보
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: direct
+    name:
+      source_pages:
+      - 5
+      method: direct
+    discipline:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_space_entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: direct_from_specs
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: preserved_raw
+    specs.group_id:
+      source_pages:
+      - 5
+      method: direct
+    specs.members:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: direct
+  unresolved:
+  - field_candidate: specs.group_id
+    raw_text: ROOM-3개 창업
+    source_page: 5
+    reason: 그룹 ID의 정확한 의미/정규화 규칙이 도면 원문만으로 확정되지 않음
+    preservation_note: 원문 문자열 그대로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Office Space; Communication Service Area
+    source_page: 5
+    reason: 후보 기능명 중 하나로 확정할 근거 부족
+    preservation_note: 후보 목록 그대로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Space
+    source_page: 5
+    reason: 상위 클래스 힌트이지만 확정 클래스는 아님
+    preservation_note: class_hint 후보로만 반영
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 공간(space)로 보이지만 name이 '3개 창업'처럼 문구형이며, group_id와 members가 함께 있어 실제
+      공간/그룹/라벨 혼합 가능성이 있음.
+    recommended_handling: 0-9c에서 Space 계열로 검토하되, 그룹/구역/라벨 중 어느 역할인지 추가 관계와 도면 위치로
+      재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - members, group_id, function_candidates, ontology_hints를 보존
+    - free_notes에 승격 후보를 raw_text와 함께 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:41.969028'
+  confidence: 0.86

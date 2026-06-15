@@ -1,0 +1,170 @@
+placement:
+  tag: R1-FDF-IN
+  name: F.D.F - IN (SM 12C)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: R1-FDF-IN
+    class_hint: FiberDistributionFrame
+    alternative_class_hints:
+    - CommunicationEquipment
+    - SignalTermination
+    related_assertions:
+    - type: belongsToSystem
+      target_hint: communication
+      note: FDF 계열 장비로 통신 시스템에 속하는 것으로 보임
+    - type: connectedTo
+      target_hint: BB-FDF-DATA
+      note: 인근 태그에 FDF 데이터 계열이 존재하나 직접 관계는 원문에 없음
+    applicable_axioms:
+    - AX014
+    - AX058
+    applicable_constraints: []
+    confirmed_class: dks:FiberDistributionFrame
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: F.D.F - IN (SM 12C)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 문자열
+      - raw_text: FDF Input (Rack 1)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭
+      - raw_text: middle-center
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면상 위치 정보
+      - raw_text: rectangle
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'labels_inside: F.D.F - IN (SM 12C)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 원문 보존
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 분류 힌트
+      - raw_text: 'function_candidates: FIBER_OPTIC_DISTRIBUTION'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: function_candidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+      - raw_text: 'function_candidates: SIGNAL_TERMINATION'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: function_candidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: direct
+    name:
+      source_pages:
+      - 18
+      method: direct
+    discipline:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: inferred_from_context
+    discipline_context.free_notes:
+      source_pages:
+      - 18
+      method: preservation
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: direct
+    specs.position:
+      source_pages:
+      - 18
+      method: direct
+    specs.shape:
+      source_pages:
+      - 18
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: FDF 입력용 장비로 보이나, 원문에는 독립 설비인지 부품인지 명시적 관계가 없고 relations도 비어 있음.
+    recommended_handling: 0-9c에서 class 확정 시 CommunicationEquipment 계열로 검토하고, 0-9d에서
+      관계가 확보되면 연결 사실을 정식화.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'suggested_parent_class: CommunicationEquipment'
+    - 'function_candidates: FIBER_OPTIC_DISTRIBUTION'
+    - 'function_candidates: SIGNAL_TERMINATION'
+    - position/shape/raw_labels/labels_inside 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:44:37.157369'
+  confidence: 0.86

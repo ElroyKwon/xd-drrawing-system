@@ -1,0 +1,317 @@
+constraints:
+- id: CN001
+  type: Cardinality
+  target_class: dks:MemberMark
+  property: dks:located_in
+  params:
+    min: 0
+    max: 1
+  derivation: placement에서 MemberMark/PitWallMark 개체 중 located_in 사용은 PF1·PF1A·PF1B·PF1C·PF2·PF2A·PF3·PF21·MF1·WF1의
+    10건에서 모두 1회씩만 관찰되었고, MF2·MF3·PW1·PW2·PW3·W1 등은 0회였다. 1개 초과 사례는 없다. 따라서 max=1은
+    강하고, min=1은 전체 MemberMark에 대해 성립하지 않아 채택하지 않는다.
+  evidence_tags:
+  - PF1
+  - PF1A
+  - PF1B
+  - PF1C
+  - PF2
+  - PF2A
+  - PF3
+  - PF21
+  - MF1
+  - WF1
+  - MF2
+  - MF3
+  - PW1
+  - PW2
+  - PW3
+  - W1
+  confidence: 0.94
+- id: CN002
+  type: Cardinality
+  target_class: dks:PitWallMark
+  property: dks:linked_to
+  params:
+    min: 1
+    max: 1
+  derivation: PitWallMark로 확인된 PW2·PW3 두 인스턴스 모두 PLAN-PIT에 linked_to 1회씩만 가진다. 누락이나
+    다중값 사례가 없다.
+  evidence_tags:
+  - PW2
+  - PW3
+  - PLAN-PIT
+  confidence: 0.9
+- id: CN003
+  type: Cardinality
+  target_class: dks:PitWallMark
+  property: dks:isContainedIn
+  params:
+    min: 1
+    max: 1
+  derivation: PitWallMark로 확인된 PW2·PW3 두 인스턴스 모두 GRP-PIT-WALL에 isContainedIn 1회씩만
+    가진다. 누락이나 다중 그룹 소속 사례가 없다.
+  evidence_tags:
+  - PW2
+  - PW3
+  - GRP-PIT-WALL
+  confidence: 0.9
+- id: CN004
+  type: Cardinality
+  target_class: dks:PlanOrView
+  property: dks:hasLinkedMember
+  params:
+    min: 0
+    max: 4
+  derivation: PlanOrView 인스턴스 중 PLAN-PIT만 hasLinkedMember를 가지며 PW1·PW2·PW3·W1의 4건이
+    관찰된다. FOUNDATION-PLAN·GRID-SYSTEM·MAIN-PLAN은 0건이다. 현재 evidence 범위에서 관찰 최대치는 4이다.
+  evidence_tags:
+  - PLAN-PIT
+  - PW1
+  - PW2
+  - PW3
+  - W1
+  - FOUNDATION-PLAN
+  - GRID-SYSTEM
+  - MAIN-PLAN
+  confidence: 0.72
+- id: CN005
+  type: Cardinality
+  target_class: dks:PlanOrView
+  property: dks:hosts
+  params:
+    min: 0
+    max: 10
+  derivation: PlanOrView 인스턴스 중 FOUNDATION-PLAN이 PF1·PF1A·PF1B·PF1C·PF2·PF2A·PF3·PF21·WF1·MF1의
+    10건 hosts를 가진다. PLAN-PIT·GRID-SYSTEM·MAIN-PLAN은 hosts evidence가 없다. 현재 evidence
+    범위에서 관찰 최대치는 10이다.
+  evidence_tags:
+  - FOUNDATION-PLAN
+  - PF1
+  - PF1A
+  - PF1B
+  - PF1C
+  - PF2
+  - PF2A
+  - PF3
+  - PF21
+  - WF1
+  - MF1
+  - PLAN-PIT
+  - GRID-SYSTEM
+  - MAIN-PLAN
+  confidence: 0.71
+- id: CN006
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasTag
+  params: {}
+  derivation: data_properties.hasTag가 functional_candidate=true이며, 제공된 evidence 34건과
+    promotion_integrations 50건에서 각 subject는 단일 대표 tag 문자열만 가진다. 동일 subject에 복수 hasTag
+    값 충돌 사례가 제시되지 않았다.
+  evidence_tags:
+  - B1
+  - PF1B
+  - PW2
+  - PW3
+  - W1
+  - EXP-JOINT-01
+  - GRP-GRID-Y
+  - INDEX-S00.01
+  - MC-01
+  - MC-02
+  - MC-03
+  - MF1
+  - S0-SERIES
+  - S00.01
+  - S06.11-2
+  - S06.21-1
+  - S06.31-7
+  - S06.41-3
+  - SC3A
+  confidence: 0.97
+- id: CN007
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasAvailablePages
+  params: {}
+  derivation: data_properties.hasAvailablePages가 functional_candidate=true이며, evidence
+    90건에서 각 subject는 하나의 페이지 목록 문자열만 가진다. 동일 subject에 상충하는 복수 값 사례가 없다.
+  evidence_tags:
+  - B1
+  - S00.01
+  - SC1~SC21
+  - ES1A
+  - FG2
+  - INDEX-S00.01
+  - MC-01
+  - MC-02
+  - S01.01
+  - S02.24
+  - S03.13
+  - S05.31
+  - S1-SERIES
+  - SC1A
+  confidence: 0.95
+- id: CN008
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasDiscipline
+  params: {}
+  derivation: data_properties.hasDiscipline가 functional_candidate=true이며, evidence
+    12건에서 GRID-SYSTEM, EXP-JOINT-01, S02.33 등 각 subject는 단일 discipline 값만 가진다. 복수
+    discipline 충돌 사례가 없다.
+  evidence_tags:
+  - GRID-SYSTEM
+  - EXP-JOINT-01
+  - S02.33
+  - INDEX-S00.01
+  - MF2_MF3
+  - S02.02
+  - S06.11-4
+  - S06.21-7
+  - S6-SERIES
+  confidence: 0.88
+- id: CN009
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasName
+  params: {}
+  derivation: data_properties.hasName가 functional_candidate=true이며, evidence 4건에서
+    GRID-SYSTEM, VBR2, S06.31-3, S06.31-4 각각 하나의 이름만 가진다. 동일 subject의 복수 이름 충돌 사례가
+    없다.
+  evidence_tags:
+  - GRID-SYSTEM
+  - VBR2
+  - S06.31-3
+  - S06.31-4
+  confidence: 0.83
+- id: CN010
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasFunctionCategory
+  params: {}
+  derivation: data_properties.hasFunctionCategory가 functional_candidate=true이며, evidence는
+    GRID-SYSTEM=grid, VBR2=BEAM 두 건뿐이지만 각 subject당 단일 값만 관찰된다.
+  evidence_tags:
+  - GRID-SYSTEM
+  - VBR2
+  confidence: 0.79
+- id: CN011
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasRawText
+  params: {}
+  derivation: data_properties.hasRawText가 functional_candidate=true이며, evidence 18건에서
+    각 subject는 하나의 raw text 블록만 가진다. 동일 subject의 복수 raw text 충돌 사례가 없다.
+  evidence_tags:
+  - B1
+  - MC-01
+  - S00.34
+  - MC-02
+  - MC-05
+  - MF2_MF3
+  - S02.11
+  - S06.11-2
+  - SC3A
+  confidence: 0.86
+- id: CN012
+  type: DomainRange
+  target_class: dks:MemberMark
+  property: dks:located_in
+  params:
+    domain_expected: dks:MemberMark
+    range_expected: dks:PlanOrView
+    status: no_conflict_observed
+  derivation: object_properties.located_in에 domain=dks:MemberMark, range=dks:PlanOrView가
+    이미 선언되어 있다. placement의 모든 located_in 사례(PF1·PF1A·PF1B·PF1C·PF2·PF2A·PF3·PF21·WF1·MF1
+    -> FOUNDATION-PLAN)는 이 선언과 충돌하지 않는다.
+  evidence_tags:
+  - PF1
+  - PF1A
+  - PF1B
+  - PF1C
+  - PF2
+  - PF2A
+  - PF3
+  - PF21
+  - WF1
+  - MF1
+  - FOUNDATION-PLAN
+  confidence: 0.96
+- id: CN013
+  type: DomainRange
+  target_class: dks:MemberMark
+  property: dks:linked_to
+  params:
+    domain_expected: dks:MemberMark
+    range_expected: dks:PlanOrView
+    status: no_conflict_observed
+  derivation: object_properties.linked_to에 domain=dks:MemberMark, range=dks:PlanOrView가
+    이미 선언되어 있다. placement의 모든 linked_to 사례(PW1·PW2·PW3·W1 -> PLAN-PIT)는 이 선언과 충돌하지
+    않는다.
+  evidence_tags:
+  - PW1
+  - PW2
+  - PW3
+  - W1
+  - PLAN-PIT
+  confidence: 0.94
+- id: CN014
+  type: DomainRange
+  target_class: dks:GroupingEntity
+  property: dks:contains
+  params:
+    domain_expected: dks:GroupingEntity
+    range_expected: owl:Thing
+    status: no_conflict_observed
+  derivation: object_properties.contains에 domain=dks:GroupingEntity, range=owl:Thing가
+    이미 선언되어 있다. placement의 contains 사례는 모두 GRP-PIT-WALL·GRP-GENERAL-WALL·GRP-GRID-Y·PIT-ZONE·PIT-ZONE___UNKNOWN-SHAPE-01에서
+    시작하며 선언과 충돌하지 않는다.
+  evidence_tags:
+  - GRP-PIT-WALL
+  - GRP-GENERAL-WALL
+  - GRP-GRID-Y
+  - PIT-ZONE
+  - PIT-ZONE___UNKNOWN-SHAPE-01
+  - PW1
+  - PW2
+  - PW3
+  - W1
+  - GRID-SYSTEM
+  - FOUNDATION-PLAN
+  - UNKNOWN-SHAPE-01
+  confidence: 0.84
+- id: CN015
+  type: DomainRange
+  target_class: dks:MemberMark
+  property: dks:isContainedIn
+  params:
+    domain_expected: dks:MemberMark
+    range_expected: dks:GroupingEntity
+    status: no_conflict_observed
+  derivation: object_properties.isContainedIn에 domain=dks:MemberMark, range=dks:GroupingEntity가
+    이미 선언되어 있다. placement의 isContainedIn 사례(PW1·PW2·PW3 -> GRP-PIT-WALL, W1 -> GRP-GENERAL-WALL,
+    FOUNDATION-PLAN -> PIT-ZONE)는 FOUNDATION-PLAN 사례 때문에 잠재 충돌을 검토했으나 해당 방향은 contains의
+    역방향 배치로 기록된 것으로 보이며 직접 isContainedIn object_properties evidence는 MemberMark 사례만
+    제시된다. 따라서 현재 선언 자체와 직접 evidence 간 충돌은 없다.
+  evidence_tags:
+  - PW1
+  - PW2
+  - PW3
+  - W1
+  - GRP-PIT-WALL
+  - GRP-GENERAL-WALL
+  - FOUNDATION-PLAN
+  - PIT-ZONE
+  confidence: 0.7
+summary_by_type:
+  Cardinality: 5
+  FunctionalProperty: 6
+  DomainRange: 4
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T10:21:55.742905'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.87

@@ -1,0 +1,131 @@
+tag: FA-1F
+name: 자동화재탐지 발신기/중계기 세트 FA-1F
+type: CONTROL
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+- 7
+- 9
+specs:
+  inferred_name: 소방 중계기/발신기 FA-1F
+  labels_inside:
+  - FA-1F
+  shape: circle
+  floor: 1층
+  raw_labels:
+  - FA-1F
+  labels_above: []
+  labels_below: []
+  position: bottom-center
+  equipment_symbols:
+  - type: fire_alarm_panel_or_relay
+    count: 1
+relations:
+- from: RISER-MAIN
+  to: FA-1F
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 1층 FA-1F 분기
+- from: FACP-MAIN
+  to: FA-1F
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: ①
+- from: RISER-MAIN
+  to: FA-1F
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 1층 FA-1F 분기
+- from: FD-1B
+  to: FA-1F
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선
+- from: FA-1F
+  to: FA-1E
+  relation: connects_to
+  source_page: 7
+  origin: cross_validated
+  line_style: solid
+  note: 소방간선 배선 (Gemini Loop Topology)
+- from: FD-1B
+  to: FA-1F
+  relation: cable
+  source_page: 7
+  origin: visual_semantics
+  annotation: 소방간선 배선
+- from: FA-1F
+  to: ZONE-신사업검증시스템
+  relation: connects_to
+  source_page: 9
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선 / 16C (HFIX 4-1.5㎟)
+- from: FA-1F
+  to: ZONE-시험전원실
+  relation: connects_to
+  source_page: 9
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선 / 16C (HFIX 2-1.5㎟)
+- from: FA-1F
+  to: ZONE-CORRIDOR
+  relation: connects_to
+  source_page: 9
+  origin: cross_validated
+  line_style: solid
+  note: 16C (HFIX 2-1.5㎟)
+- from: FA-1F
+  to: ZONE-신사업검증시스템
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: 감지기 배관배선
+- from: FA-1F
+  to: ZONE-시험전원실
+  relation: cable
+  source_page: 9
+  origin: visual_semantics
+  annotation: 감지기 배관배선
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+  visual_semantics_gemini: true
+position: bottom-center
+confidence: 0.95
+equipment_symbols:
+- type: 수동발신기 SET (소화전 상단형)
+  count: 1
+- type: 전원반(중계기)
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireAlarmRelay
+  observed_attributes:
+  - inferred_name
+  - labels_inside
+  - shape
+  - floor
+  - raw_labels
+  - labels_above
+  - labels_below
+  - position
+  - equipment_symbols
+  similar_equipment:
+  - FA-1E
+  function_candidates:
+  - SIGNAL_RELAY
+  - MANUAL_ALARM_STATION
+  - ZONE_MONITORING

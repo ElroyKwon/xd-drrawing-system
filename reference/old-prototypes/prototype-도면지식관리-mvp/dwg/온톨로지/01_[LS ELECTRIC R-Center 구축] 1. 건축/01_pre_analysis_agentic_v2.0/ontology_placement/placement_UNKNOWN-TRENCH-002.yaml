@@ -1,0 +1,159 @@
+placement:
+  tag: UNKNOWN-TRENCH-002
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-TRENCH-002
+    class_hint: ServiceNetworkElement
+    alternative_class_hints:
+    - DrainageElement
+    - TrenchOrDrainageReceiver
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX032
+    - AX035
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN010
+    confirmed_class: dks:ServiceNetworkElement
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: tag indicates trench; no additional entity_detail fields provided
+          beyond available pages list
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: Tag contains TRENCH, but no observed page-specific descriptive
+            text or relations are provided in the entity_detail.
+        promoted_to: dks:hasFunctionCategory
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'available pages: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120,
+          121, 122'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePage
+          suggested_datatype: xsd:integer
+          rationale: Page availability is preserved as provenance context, but not
+            a semantic property of the entity itself.
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail header
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification by tag pattern and plan context
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed from tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidate set
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: preservation of unclassified available-page context
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: entity_detail.specs
+    raw_text: ''
+    source_page: 0
+    reason: No specs provided in the entity_detail.
+    preservation_note: No observable spec fields to preserve.
+  - field_candidate: entity_detail.relations
+    raw_text: ''
+    source_page: 0
+    reason: No relations provided in the entity_detail.
+    preservation_note: Relation facts cannot be extracted from the supplied text.
+  - field_candidate: entity_detail.connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: No connection_specs provided in the entity_detail.
+    preservation_note: Keep open for later extraction if source pages are reprocessed.
+  - field_candidate: entity_detail.requirements
+    raw_text: ''
+    source_page: 0
+    reason: No requirements provided in the entity_detail.
+    preservation_note: No requirement text available.
+  - field_candidate: entity_detail.drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: No drawing_texts provided in the entity_detail.
+    preservation_note: No drawing annotation text available.
+  - field_candidate: entity_detail.ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: No ontology_hints provided in the entity_detail.
+    preservation_note: No hint payload available.
+  - field_candidate: entity_detail.notes
+    raw_text: ''
+    source_page: 0
+    reason: No notes provided in the entity_detail.
+    preservation_note: No note content available.
+  - field_candidate: entity_detail.source_pages
+    raw_text: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120, 121, 122
+    source_page: 0
+    reason: Only page availability list is provided, not page-specific observations.
+    preservation_note: Preserved as context for later page-level extraction.
+  - field_candidate: entity_detail.source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: No source_attribution provided in the entity_detail.
+    preservation_note: No attribution text available.
+  - field_candidate: entity_detail.position
+    raw_text: ''
+    source_page: 0
+    reason: No position provided in the entity_detail.
+    preservation_note: No spatial placement data available.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: Tag suggests a trench-related service element, but the supplied entity_detail
+      contains no page-specific descriptive content, specs, or relations.
+    recommended_handling: Keep as NamedIndividual with conservative ServiceNetworkElement/DrainageElement
+      candidate classes until page-level evidence is extracted.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Applied plan guidance for drainage_or_service_network_entities and expected
+      focus on connects_to/hasName/hasRelationNote/hasDiscipline.
+    - Applied plan guidance for unknown entities as unresolved_building_element /
+      unresolved_reference_marker style preservation.
+    deviations:
+    - No relation assertions were recorded because the supplied entity_detail did
+      not include relation facts.
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:51.019346'
+  confidence: 0.42

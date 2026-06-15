@@ -1,0 +1,78 @@
+tag: EXT-UT-ELEC
+name: 외부 전원 인입 (UT동 전기실)
+type: SOURCE
+discipline: ELECTRICAL
+function_category: SOURCE
+source_pages:
+- 23
+specs:
+  labels_inside:
+  - 'FROM: UT동 전기실'
+  - 3Ø 3W 6.6kV
+  - F-CV 150㎟ -1C x6L (ELP 100Ø X2)
+  - EMPTY PIPE (ELP100)
+  - 지하공동구 사용
+  - SEE DWG.NO 'EE-06-003'
+  voltage: 3Ø 3W 6.6kV
+  cable: F-CV 150㎟ -1C x6L
+  conduit: ELP 100Ø X2
+  remark: 지하공동구 사용
+  raw_labels:
+  - 'FROM: UT동 전기실'
+  - 3Ø 3W 6.6kV
+  - F-CV 150㎟ -1C x6L (ELP 100Ø X2)
+  - EMPTY PIPE (ELP100)
+  - 지하공동구 사용
+  - SEE DWG.NO 'EE-06-003'
+  - SEE DWG.NO 'EE-00-003'
+  voltage_kV: 6.6
+  phase_wire: 3Ø 3W
+  cable_type: F-CV 150㎟ -1C x6L
+relations:
+- from: EXT-UT-ELEC
+  to: BLK-SS-RCENTER
+  relation: feeds
+  source_page: 23
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: EXT-UT-ELEC
+  to: BLK-MANHOLE
+  relation: connects_to
+  source_page: 23
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: EXT-UT-ELEC
+  to: BLK-SS-RCENTER
+  relation: cable
+  source_page: 23
+  origin: visual_semantics
+  annotation: ① 3Ø 3W 6.6kV / F-CV 150㎟ -1C v6L (ELP 100ØX2)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: bottom-left
+confidence: 0.98
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalSource
+  observed_attributes:
+  - labels_inside
+  - voltage
+  - cable
+  - conduit
+  - remark
+  - raw_labels
+  - voltage_kV
+  - phase_wire
+  - cable_type
+  similar_equipment: []
+  function_candidates:
+  - PowerSupply
+  - ExternalFeeder

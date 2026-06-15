@@ -1,0 +1,95 @@
+entity_detail:
+  tag: HV-1304A
+  type: breaker_bay
+  specs:
+    voltage:
+      value: 6.6kV
+      unit: kV
+      source: 5
+      confidence: 0.96
+    feeder_name:
+      value: 1304A HV 6.6kV 피더 - 사무동력
+      unit: null
+      source: 5
+      confidence: 0.95
+    panel_id:
+      value: PNL-HV-1304A
+      unit: null
+      source: 5
+      confidence: 0.95
+    label:
+      value: 1304A
+      unit: null
+      source: 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 1304A HV 6.6kV 피더 - 사무동력
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'panel_id: PNL-HV-1304A'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'primary_label: 1304A'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'labels_near:
+
+      - HV'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "from: PNL-HV-1303B\n    to: PNL-HV-1304A\n    line_type: power_cable\n\
+      \    line_style: solid\n    annotation: 6.6kV Bus"
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "from: PNL-HV-1304A\n    to: PNL-HV-1304B\n    line_type: power_cable\n\
+      \    line_style: solid"
+  requirements:
+  - text: 6.6kV Bus
+    source: page 5
+    type: electrical_connection_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-HV-1304B
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+  - relation: feeds
+    partner: PNL-HV-1303B
+    details:
+      source: page 5
+      line_type: power_cable
+      line_style: solid
+      annotation: 6.6kV Bus
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-HV-1304B
+      direction: outgoing
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-HV-1303B
+      direction: incoming
+      source: page 5
+    observed_attributes:
+    - voltage
+    - feeder_name
+    - panel_id
+    - label
+    - line_type
+    - line_style
+    - annotation
+    similar_equipment:
+    - 1304B
+    - 1303A
+    - 1303B
+    - 1305A
+    - 1305B
+    suggested_parent_class: breaker
+    cross_discipline: []
+  notes:
+  - page 5 context indicates the entity is a breaker bay / breaker associated with
+    HV 6.6kV feeder.
+tag: HV-1304A

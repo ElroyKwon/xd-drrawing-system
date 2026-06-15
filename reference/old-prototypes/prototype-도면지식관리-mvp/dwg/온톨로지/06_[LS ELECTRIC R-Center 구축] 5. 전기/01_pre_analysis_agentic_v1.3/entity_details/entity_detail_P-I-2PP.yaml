@@ -1,0 +1,143 @@
+entity_detail:
+  tag: P-I-2PP
+  type: equipment
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: 19
+      confidence: 0.92
+    power_source:
+      value: FROM 전기실
+      unit: null
+      source: 19
+      confidence: 0.95
+    main_breaker:
+      value: MCCB 3P
+      unit: null
+      source: 19
+      confidence: 0.92
+    surge_protective_device:
+      value: 3Ø SPD 40KA/mode
+      unit: null
+      source: 19
+      confidence: 0.92
+    grounding:
+      value: E3
+      unit: null
+      source: 19
+      confidence: 0.92
+    breaker_ratings_note:
+      value: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+      unit: null
+      source: 19
+      confidence: 0.88
+    breaking_capacity_note:
+      value: 5KA 이상, 10KA 이상, 25KA 이상, 35KA 이상, 50KA 이상
+      unit: null
+      source: 19
+      confidence: 0.88
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page 19
+    page_number: 19
+    text: 전기실에서 4개 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)으로 전원이 공급되는 결선도이다.
+  - source: page 19
+    page_number: 19
+    text: 각 분전반에는 MAIN, MCCB, SPD, 접지(E3) 및 분기 회로가 반복되며, 우측 주기사항 영역에 차단기 정격(30AF~600AF)과
+      차단용량(5KA 이상~50KA 이상) 표가 보인다.
+  - source: page 19
+    page_number: 19
+    text: '도면은 2x2 패널 배치의 전기 계통이며, 노출형(STEEL) 커버 타입과 FROM: 전기실 표기가 확인된다.'
+  - source: page 19
+    page_number: 19
+    text: P-I-2PP
+  - source: page 19
+    page_number: 19
+    text: 분전반 P-I-2PP
+  - source: page 19
+    page_number: 19
+    text: '커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode, 접지 E3,
+      분기 회로 MCCBs 포함'
+  - source: page 19
+    page_number: 19
+    text: 전기실
+  - source: page 19
+    page_number: 19
+    text: E3
+  - source: page 19
+    page_number: 19
+    text: MCCB
+  - source: page 19
+    page_number: 19
+    text: SPD
+  requirements:
+  - text: 노출형(STEEL) 커버 타입
+    source: page 19
+    type: installation_condition
+  - text: '전원: FROM 전기실'
+    source: page 19
+    type: power_supply_condition
+  - text: MAIN MCCB 3P
+    source: page 19
+    type: protection_condition
+  - text: SPD 3Ø 40KA/mode
+    source: page 19
+    type: protection_condition
+  - text: 접지 E3
+    source: page 19
+    type: grounding_condition
+  - text: 분기 회로 MCCBs 포함
+    source: page 19
+    type: distribution_condition
+  - text: 차단기 정격(30AF~600AF)
+    source: page 19
+    type: rating_requirement
+  - text: 차단용량(5KA 이상~50KA 이상)
+    source: page 19
+    type: rating_requirement
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 19
+      text: FROM 전기실
+  - relation: connected_via
+    partner: SPD-I
+    details:
+      source: page 19
+      text: P-I-2PP to SPD-I
+  - relation: internal_components
+    partner: MCCB / SPD / 접지(E3) / 분기 회로
+    details:
+      source: page 19
+      text: 각 분전반에는 MAIN, MCCB, SPD, 접지(E3) 및 분기 회로가 반복
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: incoming
+      source: page 19
+    - relation_type: connected_via
+      partner_tag: SPD-I
+      direction: downstream
+      source: page 19
+    observed_attributes:
+    - cover_type
+    - power_source
+    - main_breaker
+    - surge_protective_device
+    - grounding
+    - breaker_ratings_note
+    - breaking_capacity_note
+    similar_equipment:
+    - P-EA-2PP
+    - P-F-2PP
+    - P-G-2PP
+    suggested_parent_class: Panelboard
+    cross_discipline: []
+  notes:
+  - page 23에는 P-I-2PP가 목록에 보이나, 상세 사양은 page 19에서 확인된 내용만 반영함.
+tag: P-I-2PP

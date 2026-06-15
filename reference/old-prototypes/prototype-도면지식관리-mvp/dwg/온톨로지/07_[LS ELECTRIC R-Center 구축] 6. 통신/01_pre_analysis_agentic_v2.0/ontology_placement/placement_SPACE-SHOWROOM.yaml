@@ -1,0 +1,241 @@
+placement:
+  tag: SPACE-SHOWROOM
+  name: SHOW ROOM
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-SHOWROOM
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - DataCommunication
+    - Broadcasting
+    related_assertions:
+    - type: hasEquipmentSymbol
+      target_hint: LAN_OUTLET
+      note: space_symbol_matrix 및 equipment_symbols에 LAN_OUTLET 관찰
+    - type: hasEquipmentSymbol
+      target_hint: SYSTEM_BOX
+      note: space_symbol_matrix 및 equipment_symbols에 SYSTEM_BOX 관찰
+    - type: connectedTo
+      target_hint: COMM-ROOM-1F
+      note: source_page 10, LAN 배선
+    - type: connectedTo
+      target_hint: SPACE-COMM-ROOM
+      note: source_page 17, 방송용 배관배선 (16C HFIX)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: SHOW ROOM'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 라벨 문자열
+      - raw_text: 'inferred_name: 쇼룸 공간'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 공간명
+      - raw_text: 'labels_inside: SHOW ROOM'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: labelInside
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 표기 문자열
+      - raw_text: 'equipment_symbols: LAN_OUTLET'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내 설비 심볼
+      - raw_text: 'equipment_symbols: SYSTEM_BOX'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내 설비 심볼
+      - raw_text: 'symbol_counts: LAN_OUTLET_OA_2PORT: null'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: symbolCountText
+          suggested_datatype: xsd:string
+          rationale: 심볼 수량 정보이나 값이 비어 있음
+      - raw_text: 'symbol_counts: SYSTEM_BOX_OA_2PORT: null'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: symbolCountText
+          suggested_datatype: xsd:string
+          rationale: 심볼 수량 정보이나 값이 비어 있음
+      - raw_text: 'space_symbol_matrix: SPACE-SHOWROOM -> LAN_OUTLET_OA_2PORT: null'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: spaceSymbolMatrix
+          suggested_datatype: xsd:string
+          rationale: 공간-심볼 매트릭스 원문 보존
+      - raw_text: 'space_symbol_matrix: SPACE-SHOWROOM -> SYSTEM_BOX_OA_2PORT: null'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: spaceSymbolMatrix
+          suggested_datatype: xsd:string
+          rationale: 공간-심볼 매트릭스 원문 보존
+      - raw_text: 'position: top-left'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'relation: cable; annotation: LAN 배선'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간 간 케이블 연결 사실
+      - raw_text: 'relation: cable; annotation: 방송용 배관배선 (16C HFIX)'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간 간 케이블/배관 배선 사실
+      - raw_text: 'function_category: COMMUNICATION_SPACE'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationSpace'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문
+      - raw_text: 'ontology_hints.function_candidates: DataCommunication, Broadcasting'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: 'collection_sources.visual_semantics: true'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: collectionSourceVisualSemantics
+          suggested_datatype: xsd:boolean
+          rationale: 수집 출처 메타정보
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 10
+        promotion_hint:
+          suggested_property_label: collectionSourceEntitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 수집 출처 메타정보
+  provenance:
+    name:
+      source_pages:
+      - 10
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 10
+      - 17
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 10
+      - 17
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 10
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 10
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 10
+      - 17
+      method: relations + specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 10
+      - 17
+      method: preservation
+    specs.raw_labels:
+      source_pages:
+      - 10
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 10
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 10
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 10
+      method: direct
+    specs.symbol_counts:
+      source_pages:
+      - 10
+      method: direct
+    specs.space_symbol_matrix:
+      source_pages:
+      - 10
+      method: direct
+    relations:
+      source_pages:
+      - 10
+      - 17
+      method: direct
+    position:
+      source_pages:
+      - 10
+      - 17
+      method: direct
+    ontology_hints:
+      source_pages:
+      - 10
+      method: direct
+    collection_sources:
+      source_pages:
+      - 10
+      method: direct
+    discipline:
+      source_pages:
+      - 10
+      - 17
+      method: direct
+    function_category:
+      source_pages:
+      - 10
+      method: direct
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 공간(space)으로 보이지만 LAN 배선과 방송용 배관배선 관계가 함께 관찰되어 DataCommunication/Broadcasting
+      기능 후보가 공존함.
+    recommended_handling: 0-9c에서 공간 개체로 유지하되 기능 클래스는 후속 판정; 관계는 connectedTo 계열로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 계열로 분류
+    - connectedTo 관계 원형 보존
+    - hasEquipmentSymbol 관찰값 보존
+    - position 및 raw_labels/inferred_name 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:07.708107'
+  confidence: 0.91

@@ -1,0 +1,12 @@
+tag: 공장B2동 동력
+verdict: demoted
+confidence: 0.96
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: entity_detail과 page 5 context에서 이 태그는 ELECTRICAL 분야의 LOAD 명칭으로 보이지만, 자체 spec은
+  voltage_level 1개뿐이고 connection_specs도 비어 있어 독립 설비로 보기 어렵다. read_entity_list에서 동일
+  원본 태그가 FEEDER-공장B2동-동력으로 정규화되어 있으며 type도 Named Load Feeder로 나타나, 본 태그는 물리 설비가 아니라
+  부하/피더 명칭(로드 라벨) 성격이 강하다. 관계는 observed_relations에 LOAD 1개만 확인되며 추가 연결은 확인되지 않았다.
+  따라서 독립 엔티티가 아니라 다른 설비의 부하/피더 표기 또는 명칭으로 강등한다.

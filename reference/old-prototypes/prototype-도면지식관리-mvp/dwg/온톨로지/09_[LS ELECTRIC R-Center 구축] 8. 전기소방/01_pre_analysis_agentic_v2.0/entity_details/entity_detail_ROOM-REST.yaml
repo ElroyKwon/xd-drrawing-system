@@ -1,0 +1,71 @@
+tag: ROOM-REST
+name: 휴게공간
+type: SPACE
+discipline: FIRE_PROTECTION
+function_category: SPACE
+source_pages:
+- 8
+- 10
+- 12
+- 13
+specs:
+  raw_labels:
+  - 휴게공간
+  shape: rectangle
+  labels_inside:
+  - 휴게공간
+  equipment_symbols:
+  - type: 차동식 감지기
+    count: 1
+  - type: 차동식 감지기(2종 스포트형)-LED 부착형
+    count: 1
+  - type: 피난구 유도등
+    count: 1
+  position: grid 6-7, A-B
+  contains:
+  - EX-REST-01
+relations:
+- from: FA-2B
+  to: ROOM-REST
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용/유도등용 배관배선
+- from: AREA-CORRIDOR-CORE
+  to: ROOM-REST
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기/유도등 배선
+- from: SHAFT-FA-2B
+  to: ROOM-REST
+  relation: cable
+  source_page: 8
+  origin: visual_semantics
+  annotation: 감지기용/유도등용 배관배선
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-right
+equipment_symbols:
+- type: 차동식 감지기
+  count: 1
+- type: 피난구 유도등
+  count: 1
+ontology_hints:
+  suggested_parent_class: Space
+  observed_attributes:
+  - raw_labels
+  - shape
+  - labels_inside
+  - equipment_symbols
+  - position
+  - contains
+  similar_equipment:
+  - AREA-CORRIDOR-CORE
+  function_candidates:
+  - RestArea
+  - FireDetectionZone

@@ -1,0 +1,56 @@
+tag: UNKNOWN-DOWN-CONDUCTOR-MAIN-001
+name: 주 인하도선
+type: entity
+discipline: ELECTRICAL
+function_category: GROUNDING_CONDUCTOR
+source_pages:
+- 38
+specs:
+  material: 기초철골
+  type: 자연적 구성부재
+  electrical_resistance_requirement: 0.2 Ω 이하
+  electrical_resistance_ohm: ≤0.2
+  connection_method: 구조체 접속
+  applicable_standards:
+  - 한국전기설비규정(KEC) 150 피뢰시스템
+  - KS C IEC 62305-3/5.2.5절
+  note: 전기저항이 0.2 Ω 이하인 경우 수평도체 생략 가능
+relations:
+- from: UNKNOWN-LIGHTNING-ROD-001
+  to: UNKNOWN-DOWN-CONDUCTOR-MAIN-001
+  relation: grounds_to
+  source_page: 38
+  origin: cross_validated
+  line_style: dashed
+  note: 피뢰침에서 주 인하도선(기초철골)으로 접지
+- from: UNKNOWN-DOWN-CONDUCTOR-MAIN-001
+  to: UNKNOWN-STRUCTURAL-CONNECTION-001
+  relation: connects_to
+  source_page: 38
+  origin: cross_validated
+  line_style: dashed
+  note: '인하도선 (주: 기초철골 / 보조: F-GV 50㎟ HI-PVC 28C) - 구조체 접속'
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: center-left
+confidence: 0.95
+equipment_symbols: []
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: GroundingConductor
+  observed_attributes:
+  - material
+  - type
+  - electrical_resistance_requirement
+  - electrical_resistance_ohm
+  - connection_method
+  - applicable_standards
+  - note
+  similar_equipment: []
+  function_candidates:
+  - LightningProtection
+  - Grounding

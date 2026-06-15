@@ -1,0 +1,587 @@
+constraints:
+- id: CN001
+  type: FunctionalProperty
+  target_class: dks:owlThing
+  property: dks:position
+  params: {}
+  derivation: data_properties.position에서 functional_candidate=true이며 total_evidence
+    20건에서 각 subject당 단일 위치 문자열만 관찰됨. 장비와 공간 모두에 적용됨.
+  evidence_tags:
+  - GPT-01
+  - IVR-2
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  confidence: 0.96
+- id: CN002
+  type: FunctionalProperty
+  target_class: dks:ElectricalEquipment
+  property: dks:rated_voltage_V
+  params: {}
+  derivation: data_properties.rated_voltage_V에서 functional_candidate=true. 관찰된 18건에서
+    동일 장비당 단일 정격전압만 보고됨.
+  evidence_tags:
+  - CAPACITOR-02
+  - LV-6
+  - PANEL-4PP-A3
+  confidence: 0.96
+- id: CN003
+  type: FunctionalProperty
+  target_class: dks:ElectricalEquipment
+  property: dks:rated_current_A
+  params: {}
+  derivation: data_properties.rated_current_A에서 functional_candidate=true. 관찰된 17건에서
+    subject별 충돌값 없이 1회만 나타남.
+  evidence_tags:
+  - HV-5
+  - LV-6
+  - PANEL-4PP-A3
+  confidence: 0.95
+- id: CN004
+  type: FunctionalProperty
+  target_class: dks:ElectricalEquipment
+  property: dks:poles
+  params: {}
+  derivation: data_properties.poles에서 functional_candidate=true. 관찰된 19건에서 각 장비당 극수는
+    단일값으로만 나타남.
+  evidence_tags:
+  - HV-5
+  - LV-6
+  - PANEL-F-4PP
+  confidence: 0.96
+- id: CN005
+  type: FunctionalProperty
+  target_class: dks:ElectricalEquipment
+  property: dks:relay_model
+  params: {}
+  derivation: data_properties.relay_model에서 functional_candidate=true. 관찰된 12건에서 동일
+    장비에 복수 relay_model 충돌이 없음.
+  evidence_tags:
+  - GPT-01
+  - HV-5
+  - LV-6
+  - SWGR-380V-MAIN
+  confidence: 0.95
+- id: CN006
+  type: FunctionalProperty
+  target_class: dks:Transformer
+  property: dks:capacity_kVA
+  params: {}
+  derivation: data_properties.capacity_kVA에서 functional_candidate=true. 변압기와 변환기 계열
+    총 6건에서 각 subject당 단일 용량값만 관찰됨. Transformer 적용 예시는 TR-1, TR-2, TR-3, TR-3204 패턴.
+  evidence_tags:
+  - TR-1
+  - TR-2
+  - TR-3
+  - TR-3204
+  confidence: 0.9
+- id: CN007
+  type: FunctionalProperty
+  target_class: dks:CircuitBreaker
+  property: dks:ct_ratio
+  params: {}
+  derivation: data_properties.ct_ratio에서 functional_candidate=true. 관찰된 5건에서 차단기별
+    CT 비율은 단일 문자열로만 나타남.
+  evidence_tags:
+  - HV-5
+  - HV-6
+  - LV-1
+  confidence: 0.91
+- id: CN008
+  type: FunctionalProperty
+  target_class: dks:VCB
+  property: dks:zct_ratio
+  params: {}
+  derivation: data_properties.zct_ratio에서 functional_candidate=true. HV VCB 계열 관찰
+    2건에서 subject별 단일값만 나타남.
+  evidence_tags:
+  - HV-5
+  - HV-6
+  confidence: 0.84
+- id: CN009
+  type: FunctionalProperty
+  target_class: dks:ElectricalEquipment
+  property: dks:phase
+  params: {}
+  derivation: 'data_properties.phase에서 functional_candidate=true. 관찰된 8건에서 각 장비당 단일
+    상수(예: 3Φ)만 나타남.'
+  evidence_tags:
+  - CAPACITOR-02
+  - EXT-HV-SOURCE
+  - TR-1
+  - IVR-1
+  confidence: 0.9
+- id: CN010
+  type: FunctionalProperty
+  target_class: dks:ElectricalEquipment
+  property: dks:hasEquipmentType
+  params: {}
+  derivation: data_properties.hasEquipmentType에서 functional_candidate=true. 관찰된 28건에서
+    각 장비당 단일 형식 문자열(VCB/ACB/MCCB 등)만 나타남.
+  evidence_tags:
+  - HV-5
+  - LV-1
+  - PANEL-4PP-A1
+  - SPARE-MCCB-01
+  confidence: 0.95
+- id: CN011
+  type: FunctionalProperty
+  target_class: dks:owlThing
+  property: dks:hasDisplayName
+  params: {}
+  derivation: data_properties.hasDisplayName에서 functional_candidate=true. 관찰된 8건에서
+    개체당 단일 표시명만 나타남.
+  evidence_tags:
+  - CAPACITOR-01
+  - IVR-2
+  - PANEL-C-2PP
+  - UNKNOWN-SPACE-03
+  confidence: 0.86
+- id: CN012
+  type: FunctionalProperty
+  target_class: dks:owlThing
+  property: dks:hasTag
+  params: {}
+  derivation: data_properties.hasTag에서 functional_candidate=true. 태그 문자열은 개체 식별자이므로
+    관찰된 3건 모두 subject당 1회만 나타남.
+  evidence_tags:
+  - CAPACITOR-01
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  confidence: 0.8
+- id: CN013
+  type: Cardinality
+  target_class: dks:owlThing
+  property: dks:source_pages
+  params:
+    min: 1
+  derivation: ontology_plan.expected_constraints에 모든 엔티티가 source_pages 보유라고 명시되며 est_evidence=78.
+    전체 태그 수 78건 기준 최소 1페이지 출처가 반복 관찰됨.
+  evidence_tags:
+  - BATTERY-01
+  - HV-1
+  - PANEL-4PP-A1
+  - UNKNOWN-SPACE-03
+  confidence: 0.9
+- id: CN014
+  type: Cardinality
+  target_class: dks:ElectricalRoom
+  property: dks:feeds
+  params:
+    max: 0
+  derivation: placement에서 UNKNOWN-SPACE-02, UNKNOWN-SPACE-03의 related_assertions가
+    모두 비어 있음. 관찰된 ElectricalRoom 2/2건에서 feeds 사용이 0회.
+  evidence_tags:
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  confidence: 0.96
+- id: CN015
+  type: Cardinality
+  target_class: dks:ElectricalRoom
+  property: dks:cable
+  params:
+    max: 0
+  derivation: placement에서 UNKNOWN-SPACE-02, UNKNOWN-SPACE-03의 related_assertions가
+    모두 비어 있음. 관찰된 ElectricalRoom 2/2건에서 cable 사용이 0회.
+  evidence_tags:
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  confidence: 0.96
+- id: CN016
+  type: Cardinality
+  target_class: dks:ElectricalSpace
+  property: dks:supplies
+  params:
+    max: 0
+  derivation: placement에서 UNKNOWN-SPACE-01, UNKNOWN-SPACE-02, UNKNOWN-SPACE-03 모두
+    related_assertions가 비어 있음. 관찰된 ElectricalSpace 3/3건에서 supplies 사용이 0회.
+  evidence_tags:
+  - UNKNOWN-SPACE-01
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  confidence: 0.95
+- id: CN017
+  type: Cardinality
+  target_class: dks:ElectricalSpace
+  property: dks:bus_bar
+  params:
+    max: 0
+  derivation: placement에서 UNKNOWN-SPACE-01, UNKNOWN-SPACE-02, UNKNOWN-SPACE-03 모두
+    related_assertions가 비어 있음. 관찰된 ElectricalSpace 3/3건에서 bus_bar 사용이 0회.
+  evidence_tags:
+  - UNKNOWN-SPACE-01
+  - UNKNOWN-SPACE-02
+  - UNKNOWN-SPACE-03
+  confidence: 0.95
+- id: CN018
+  type: Cardinality
+  target_class: dks:Battery
+  property: dks:feeds
+  params:
+    min: 1
+    max: 1
+  derivation: placement에서 BATTERY-01은 feeds를 정확히 1회 사용(RECTIFIER-01과 연결)함. 관찰된 Battery
+    인스턴스가 1건뿐이지만 100% 일치.
+  evidence_tags:
+  - BATTERY-01
+  - RECTIFIER-01
+  confidence: 0.9
+- id: CN019
+  type: Cardinality
+  target_class: dks:Battery
+  property: dks:cable
+  params:
+    min: 1
+    max: 1
+  derivation: placement에서 BATTERY-01은 cable을 정확히 1회 사용(RECTIFIER-01과 연결)함. 관찰된 Battery
+    인스턴스 1/1건 일치.
+  evidence_tags:
+  - BATTERY-01
+  - RECTIFIER-01
+  confidence: 0.9
+- id: CN020
+  type: Cardinality
+  target_class: dks:Transformer
+  property: dks:cable
+  params:
+    min: 2
+    max: 2
+  derivation: placement에서 TR-1, TR-2, TR-3, TR-3204 모두 cable 관계가 정확히 2회씩 관찰됨(HV측 1회,
+    LV/SWGR측 1회). 4/4건 100% 일치.
+  evidence_tags:
+  - TR-1
+  - TR-2
+  - TR-3
+  - TR-3204
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-2
+  - LV-1
+  - LV-2
+  - LV-3U
+  - SWGR-380V-MAIN
+  confidence: 0.95
+- id: CN021
+  type: Cardinality
+  target_class: dks:Transformer
+  property: dks:feeds
+  params:
+    min: 2
+    max: 2
+  derivation: placement에서 TR-1, TR-2, TR-3, TR-3204 모두 feeds 관계가 정확히 2회씩 관찰됨(HV측 1회,
+    LV/SWGR측 1회). 4/4건 100% 일치.
+  evidence_tags:
+  - TR-1
+  - TR-2
+  - TR-3
+  - TR-3204
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-2
+  - LV-1
+  - LV-2
+  - LV-3U
+  - SWGR-380V-MAIN
+  confidence: 0.95
+- id: CN022
+  type: Cardinality
+  target_class: dks:VoltageRegulator
+  property: dks:cable
+  params:
+    min: 3
+  derivation: placement에서 IVR-1은 cable 3회(LV-6, PANEL-E-2PP-1, PANEL-E-2PP-2), IVR-2는
+    cable 6회(LV-6 및 5개 패널)로 관찰됨. VoltageRegulator 2/2건 모두 cable이 3회 이상.
+  evidence_tags:
+  - IVR-1
+  - IVR-2
+  - LV-6
+  - PANEL-E-2PP-1
+  - PANEL-E-2PP-2
+  - PANEL-A-2PP-1
+  - PANEL-A-2PP-2
+  - PANEL-D-2PP
+  - PANEL-C-2PP
+  - PANEL-EA-2PP
+  confidence: 0.93
+- id: CN023
+  type: Cardinality
+  target_class: dks:VoltageRegulator
+  property: dks:feeds
+  params:
+    min: 3
+  derivation: placement에서 IVR-1은 feeds 3회, IVR-2는 feeds 6회로 관찰됨. VoltageRegulator
+    2/2건 모두 feeds가 3회 이상.
+  evidence_tags:
+  - IVR-1
+  - IVR-2
+  - LV-6
+  - PANEL-E-2PP-1
+  - PANEL-E-2PP-2
+  - PANEL-A-2PP-1
+  - PANEL-A-2PP-2
+  - PANEL-D-2PP
+  - PANEL-C-2PP
+  - PANEL-EA-2PP
+  confidence: 0.93
+- id: CN024
+  type: Cardinality
+  target_class: dks:DistributionBoard
+  property: dks:feeds
+  params:
+    min: 1
+    max: 1
+  derivation: placement에서 confirmed_class가 DistributionBoard인 PANEL-* 32건 모두 feeds
+    관계가 정확히 1회 관찰됨. 예외가 관찰되지 않음.
+  evidence_tags:
+  - PANEL-4PP-A2
+  - PANEL-4PP-A4
+  - PANEL-4PP-A5
+  - PANEL-4PP-A7
+  - PANEL-4PP-AC1
+  - PANEL-4PP-AC2
+  - PANEL-4PP-AC3
+  - PANEL-4PP-AC4
+  - PANEL-4PP-AC5
+  - PANEL-4PP-AC6
+  - PANEL-4PP-AC7
+  - PANEL-A-2PP-1
+  - PANEL-A-2PP-2
+  - PANEL-C-2PP
+  - PANEL-C-4PP
+  - PANEL-D-2PP
+  - PANEL-D-3PP
+  - PANEL-E-2PP-1
+  - PANEL-E-2PP-2
+  - PANEL-E-3PP
+  - PANEL-E-4PP
+  - PANEL-EA-2PP
+  - PANEL-F-3PP
+  - PANEL-F
+  - PANEL-G-3PP
+  - PANEL-I-3PP
+  - PANEL-LP-1F
+  - PANEL-LP-C-3PP
+  - PANEL-OAC-1
+  - PANEL-OAC-2
+  - PANEL-OAC-3
+  - PANEL-P-4PP
+  confidence: 0.95
+- id: CN025
+  type: Cardinality
+  target_class: dks:DistributionBoard
+  property: dks:cable
+  params:
+    min: 1
+    max: 1
+  derivation: placement에서 confirmed_class가 DistributionBoard인 PANEL-* 32건 모두 cable
+    관계가 정확히 1회 관찰됨. 예외가 관찰되지 않음.
+  evidence_tags:
+  - PANEL-4PP-A2
+  - PANEL-4PP-A4
+  - PANEL-4PP-A5
+  - PANEL-4PP-A7
+  - PANEL-4PP-AC1
+  - PANEL-4PP-AC2
+  - PANEL-4PP-AC3
+  - PANEL-4PP-AC4
+  - PANEL-4PP-AC5
+  - PANEL-4PP-AC6
+  - PANEL-4PP-AC7
+  - PANEL-A-2PP-1
+  - PANEL-A-2PP-2
+  - PANEL-C-2PP
+  - PANEL-C-4PP
+  - PANEL-D-2PP
+  - PANEL-D-3PP
+  - PANEL-E-2PP-1
+  - PANEL-E-2PP-2
+  - PANEL-E-3PP
+  - PANEL-E-4PP
+  - PANEL-EA-2PP
+  - PANEL-F-3PP
+  - PANEL-F
+  - PANEL-G-3PP
+  - PANEL-I-3PP
+  - PANEL-LP-1F
+  - PANEL-LP-C-3PP
+  - PANEL-OAC-1
+  - PANEL-OAC-2
+  - PANEL-OAC-3
+  - PANEL-P-4PP
+  confidence: 0.95
+- id: CN026
+  type: Cardinality
+  target_class: dks:DistributionPanel
+  property: dks:feeds
+  params:
+    min: 1
+    max: 1
+  derivation: placement에서 confirmed_class가 DistributionPanel인 5건(PANEL-4PP-A1, A3,
+    A6, PANEL-A-3PP, PANEL-AC-3PP) 모두 feeds 관계가 정확히 1회 관찰됨.
+  evidence_tags:
+  - PANEL-4PP-A1
+  - PANEL-4PP-A3
+  - PANEL-4PP-A6
+  - PANEL-A-3PP
+  - PANEL-AC-3PP
+  confidence: 0.94
+- id: CN027
+  type: Cardinality
+  target_class: dks:DistributionPanel
+  property: dks:cable
+  params:
+    min: 1
+    max: 1
+  derivation: placement에서 confirmed_class가 DistributionPanel인 5건 모두 cable 관계가 정확히
+    1회 관찰됨.
+  evidence_tags:
+  - PANEL-4PP-A1
+  - PANEL-4PP-A3
+  - PANEL-4PP-A6
+  - PANEL-A-3PP
+  - PANEL-AC-3PP
+  confidence: 0.94
+- id: CN028
+  type: Cardinality
+  target_class: dks:Switchgear
+  property: dks:feeds
+  params:
+    min: 15
+    max: 15
+  derivation: placement에서 Switchgear 인스턴스 SWGR-380V-MAIN 1건이 feeds를 정확히 15회 사용(TR-3204,
+    13개 패널류, CAPACITOR-02)함. 관찰된 Switchgear 1/1건 일치.
+  evidence_tags:
+  - SWGR-380V-MAIN
+  - TR-3204
+  - PANEL-F-3PP
+  - PANEL-G-3PP
+  - PANEL-I-3PP
+  - PANEL-E-3PP
+  - PANEL-D-3PP
+  - PANEL-AC-3PP
+  - PANEL-A-3PP
+  - PANEL-OAC-1
+  - PANEL-OAC-2
+  - PANEL-OAC-3
+  - PANEL-F
+  - PANEL-LP-1F
+  - PANEL-LP-C-3PP
+  - CAPACITOR-02
+  confidence: 0.9
+- id: CN029
+  type: Cardinality
+  target_class: dks:Switchgear
+  property: dks:cable
+  params:
+    min: 14
+    max: 14
+  derivation: placement에서 SWGR-380V-MAIN은 cable을 정확히 14회 사용함(TR-3204 및 13개 패널류). CAPACITOR-02에
+    대한 cable은 관찰되지 않음. 관찰된 Switchgear 1/1건 일치.
+  evidence_tags:
+  - SWGR-380V-MAIN
+  - TR-3204
+  - PANEL-F-3PP
+  - PANEL-G-3PP
+  - PANEL-I-3PP
+  - PANEL-E-3PP
+  - PANEL-D-3PP
+  - PANEL-AC-3PP
+  - PANEL-A-3PP
+  - PANEL-OAC-1
+  - PANEL-OAC-2
+  - PANEL-OAC-3
+  - PANEL-F
+  - PANEL-LP-1F
+  - PANEL-LP-C-3PP
+  confidence: 0.9
+- id: CN030
+  type: Cardinality
+  target_class: dks:VCB
+  property: dks:supplies
+  params:
+    min: 1
+    max: 2
+  derivation: placement에서 HV-1~HV-7의 supplies 사용 횟수는 각각 2,2,2,2,2,2,1회로 관찰됨. 모든 VCB가
+    최소 1회, 최대 2회 범위에 있음.
+  evidence_tags:
+  - HV-1
+  - HV-2
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-6
+  - HV-7
+  confidence: 0.93
+- id: CN031
+  type: Cardinality
+  target_class: dks:VCB
+  property: dks:bus_bar
+  params:
+    min: 1
+    max: 2
+  derivation: placement에서 HV-1~HV-7의 bus_bar 사용 횟수는 각각 2,2,2,2,2,2,1회로 관찰됨. 모든 VCB가
+    최소 1회, 최대 2회 범위에 있음.
+  evidence_tags:
+  - HV-1
+  - HV-2
+  - HV-3
+  - HV-4
+  - HV-5
+  - HV-6
+  - HV-7
+  confidence: 0.93
+- id: CN032
+  type: Cardinality
+  target_class: dks:ACB
+  property: dks:supplies
+  params:
+    min: 0
+    max: 2
+  derivation: placement에서 ACB 인스턴스 LV-1~LV-8, LV-R, SPARE-LV-01의 supplies 사용 횟수는 1,2,2,2,2,2,2,2,1,0회로
+    관찰됨. 모든 ACB가 최대 2회 이내이며 SPARE-LV-01은 0회 예외가 아니라 관찰 범위 내.
+  evidence_tags:
+  - LV-1
+  - LV-2
+  - LV-3L
+  - LV-3U
+  - LV-4
+  - LV-5
+  - LV-6
+  - LV-7
+  - LV-8
+  - LV-R
+  - SPARE-LV-01
+  confidence: 0.92
+- id: CN033
+  type: Cardinality
+  target_class: dks:ACB
+  property: dks:bus_bar
+  params:
+    min: 0
+    max: 2
+  derivation: placement에서 ACB 인스턴스들의 bus_bar 사용 횟수는 1,2,2,2,2,2,2,2,1,0회로 관찰됨. 모든
+    ACB가 최대 2회 이내.
+  evidence_tags:
+  - LV-1
+  - LV-2
+  - LV-3L
+  - LV-3U
+  - LV-4
+  - LV-5
+  - LV-6
+  - LV-7
+  - LV-8
+  - LV-R
+  - SPARE-LV-01
+  confidence: 0.92
+summary_by_type:
+  FunctionalProperty: 12
+  Cardinality: 21
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T16:13:49.115847'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.91

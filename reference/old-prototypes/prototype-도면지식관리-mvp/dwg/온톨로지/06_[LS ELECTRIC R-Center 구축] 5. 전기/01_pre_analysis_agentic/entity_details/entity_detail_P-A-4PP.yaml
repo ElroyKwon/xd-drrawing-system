@@ -1,0 +1,222 @@
+entity_detail:
+  tag: P-A-4PP
+  type: panel_board
+  specs:
+    panel_board_name:
+      value: P-A-4PP
+      unit: null
+      source:
+      - 21
+      - 22
+      - 23
+      confidence: 0.99
+    discipline:
+      value: ELECTRICAL
+      unit: null
+      source:
+      - 21
+      - 22
+      - 23
+      confidence: 0.99
+    drawing_number:
+      value: EE-01-017
+      unit: null
+      source:
+      - 21
+      confidence: 0.98
+    drawing_title:
+      value: 생산동력(3Ø 440V) 분전반 결선도-1
+      unit: null
+      source:
+      - 21
+      confidence: 0.98
+    panel_location:
+      value: 1층 Drive 시험실
+      unit: null
+      source:
+      - 21
+      - 22
+      confidence: 0.99
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source:
+      - 21
+      - 22
+      confidence: 0.99
+    box_size:
+      value: —
+      unit: null
+      source:
+      - 21
+      - 22
+      confidence: 0.98
+    power_source:
+      value: 전기실
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    voltage:
+      value: 3Ø 440V
+      unit: null
+      source:
+      - 21
+      confidence: 0.95
+    protective_device:
+      value: MCCB
+      unit: null
+      source:
+      - 21
+      - 22
+      confidence: 0.98
+    surge_protection:
+      value: SPD
+      unit: null
+      source:
+      - 21
+      - 22
+      confidence: 0.98
+    grounding:
+      value: E3
+      unit: null
+      source:
+      - 21
+      - 22
+      confidence: 0.97
+    repeated_panel_instances:
+      value: P-A-4PP-1~6
+      unit: null
+      source:
+      - 21
+      confidence: 0.99
+    related_instance_on_other_page:
+      value: P-A-4PP-7
+      unit: null
+      source:
+      - 22
+      confidence: 0.99
+  drawing_texts:
+  - source: page_021_context.yaml
+    page_number: 21
+    text: '3Ø 440V 전원을 전기실에서 받아 1층 Drive 시험실의 6개 분전반(P-A-4PP-1~6)으로 분기하는 단선 결선도이다.
+
+
+      각 분전반에는 MCCB, SPD, 접지(E3) 표기가 반복되며, 본문에서 6개 반복 구성이 확인된다.
+
+
+      도면은 생산동력 분전반 계통이며, 표제란 기준 도면번호는 EE-01-017, 제목은 생산동력(3Ø 440V) 분전반 결선도-1이다.'
+  - source: page_021_context.yaml
+    page_number: 21
+    text: 'PANEL BOARD / COVER TYPE 노출형(STEEL) / PANEL LOCATION 1층 Drive 시험실 / BOX
+      SIZE — / FROM: 전기실 / 3Ø 440V / MCCB / SPD / E3'
+  - source: page_022_context.yaml
+    page_number: 22
+    text: '3Ø 440V 생산동력 분전반 6개(P-A-4PP-7, P-AC-4PP-1, P-C-4PP, P-E-4PP, P-F-4PP, P-P-4PP)가
+      한 페이지에 배치된 단선결선도이다.
+
+
+      각 분전반에는 R/S/T 전원 유입, MCCB, SPD, 접지(E3) 표기가 반복되며, 우측 표제란에 LS Electric, R-Center
+      구축, 프로젝트 번호 624001이 보인다.
+
+
+      도면 제목과 도면 번호는 하단 중앙 및 우측 표제란에 확인되며, 리비전은 페이지 내에서 판독되지 않아 UNKNOWN이다.'
+  - source: page_022_context.yaml
+    page_number: 22
+    text: PANEL BOARD / P-A-4PP-7 / COVER TYPE 노출형(STEEL) / PANEL LOCATION 1층 Drive
+      시험실 / BOX SIZE —
+  - source: page_023_context.yaml
+    page_number: 23
+    text: R-Center 전력간선설비 계통도
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 3Ø 3W 220V
+  requirements:
+  - text: 3Ø 440V 전원을 전기실에서 받아 1층 Drive 시험실의 분전반으로 분기
+    source: page_021_context.yaml
+    type: power_supply_condition
+  - text: 각 분전반에는 MCCB, SPD, 접지(E3) 표기가 반복
+    source: page_021_context.yaml
+    type: protection_and_grounding_condition
+  - text: R/S/T 전원 유입, MCCB, SPD, 접지(E3) 표기가 반복
+    source: page_022_context.yaml
+    type: protection_and_grounding_condition
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page_021_context.yaml
+      text: 'FROM: 전기실 / 3Ø 440V'
+  - relation: feeds
+    partner: P-A-4PP-1~6
+    details:
+      source: page_021_context.yaml
+      text: 3Ø 440V 전원을 전기실에서 받아 1층 Drive 시험실의 6개 분전반(P-A-4PP-1~6)으로 분기
+  - relation: feeds
+    partner: P-A-4PP-7
+    details:
+      source: page_022_context.yaml
+      text: PANEL BOARD / P-A-4PP-7 / COVER TYPE 노출형(STEEL) / PANEL LOCATION 1층 Drive
+        시험실 / BOX SIZE —
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-1
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-2
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-3
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-4
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-5
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-6
+      direction: source_to_target
+      source: page_021_context.yaml
+    - relation_type: feeds
+      partner_tag: P-A-4PP-7
+      direction: source_to_target
+      source: page_022_context.yaml
+    observed_attributes:
+    - panel_board_name
+    - drawing_number
+    - drawing_title
+    - panel_location
+    - cover_type
+    - box_size
+    - power_source
+    - voltage
+    - protective_device
+    - surge_protection
+    - grounding
+    - repeated_panel_instances
+    - related_instance_on_other_page
+    similar_equipment:
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-3
+    - P-A-4PP-4
+    - P-A-4PP-5
+    - P-A-4PP-6
+    - P-A-4PP-7
+    suggested_parent_class: panel_board
+    cross_discipline: []
+  notes:
+  - 페이지 21, 22에서 P-A-4PP 계열 분전반의 상세가 확인됨.
+  - 페이지 23은 관련 전력간선설비 계통도이며 P-A-4PP 자체의 상세 사양은 제한적으로만 확인됨.
+tag: P-A-4PP

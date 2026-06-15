@@ -1,0 +1,141 @@
+placement:
+  tag: UNKNOWN-ROOM-12
+  name: Software Lab
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-ROOM-12
+    class_hint: Room
+    alternative_class_hints:
+    - Space
+    - CommunicationSpace
+    - ITLaboratory
+    related_assertions:
+    - type: hasMember
+      target_hint: OUTLET-2F-11
+      note: specs.members에 포함된 공간 구성원
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Room
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'group_id: ROOM-Software Lab'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: groupId
+          suggested_datatype: xsd:string
+          rationale: 그룹 식별 문자열
+      - raw_text: 'members: OUTLET-2F-11'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasMember
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간에 포함된 구성원 목록
+      - raw_text: 'ontology_hints.suggested_parent_class: Room'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.function_candidates: Software Development, IT Laboratory'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entitySynthesisFlag
+          suggested_datatype: xsd:boolean
+          rationale: 생성/합성 출처 플래그
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_type_space
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: direct_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: direct_from_specs
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: preserved_raw
+    provenance:
+      source_pages:
+      - 5
+      method: self
+    ambiguous:
+      source_pages:
+      - 5
+      method: evaluated
+    merge_info:
+      source_pages:
+      - 5
+      method: evaluated
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      method: applied_plan_focus
+  unresolved:
+  - field_candidate: specs.group_id
+    raw_text: ROOM-Software Lab
+    source_page: 5
+    reason: group_id의 정확한 OWL 속성명은 확정 불가
+    preservation_note: 공간 그룹 식별 문자열로 보존
+  - field_candidate: specs.members
+    raw_text: OUTLET-2F-11
+    source_page: 5
+    reason: members의 관계 방향과 정식 속성명은 확정 불가
+    preservation_note: 구성원 태그 원형 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Room
+    source_page: 5
+    reason: 힌트이므로 확정 클래스 아님
+    preservation_note: 후속 단계에서 class 정제 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Software Development, IT Laboratory
+    source_page: 5
+    reason: 기능 후보이며 단일 확정 불가
+    preservation_note: 공간 기능 후보로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag는 UNKNOWN-ROOM-12이지만 name은 Software Lab이며, type은 space, function_category는
+      ROOM으로 공간/실 개념이 혼재함
+    recommended_handling: 0-9c에서 Room/Space 계열 후보를 우선 검토하고, 0-9d에서 members 관계와 공간
+      기능을 분리해 정제
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - group_id, members, function_candidates, suggested_parent_class 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:30.045814'
+  confidence: 0.86

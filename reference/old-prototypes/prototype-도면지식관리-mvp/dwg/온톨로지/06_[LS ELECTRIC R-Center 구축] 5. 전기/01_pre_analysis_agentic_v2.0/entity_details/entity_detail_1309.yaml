@@ -1,0 +1,121 @@
+tag: '1309'
+name: HV 피더 VCB 패널 1309
+type: SWITCHGEAR_PANEL
+discipline: ELECTRICAL
+function_category: SWITCHGEAR_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - '1309'
+  - HV
+  - VCB 3P
+  - 24kV 600A
+  - 750MVA
+  - 2×CT 75/5A
+  - ZCT 200mA
+  - GIPAM
+  - 50/51
+  - '67'
+  - SA 9kV 5kA
+  - 1.5kA
+  - INTER-LOCK
+  bus_section: HV
+  vcb_rating: 3P 24kV 600A 750MVA
+  ct_ratio: 75/5A
+  zct_rating: 200mA
+  sa_rating: 9kV 5kA
+  protection_functions:
+  - 50/51
+  - '67'
+  interlock: true
+  panel_id: '1309'
+  voltage_kV: 3.3
+  vcb_poles: 3
+  vcb_rated_voltage_kV: 24
+  vcb_rated_current_A: 600
+  vcb_breaking_capacity_MVA: 750
+  ct_count: 2
+  zct_count: 1
+  zct_rating_mA: 200
+  sa_voltage_kV: 9
+  sa_discharge_current_kA: 5
+  protection_relay_model: GIPAM
+  has_interlock: true
+  load_name: 경보장치 능력
+  grounding_mark: E1
+relations:
+- from: HV-VCB-TR2
+  to: '1309'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 3.3kV HV BUS-2 인입
+- from: '1309'
+  to: 1310A
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 3.3kV HV BUS-2
+- from: '1309'
+  to: 1310B
+  relation: controls
+  source_page: 5
+  origin: cross_validated
+  line_style: dashed
+  note: INTER-LOCK
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: bottom-right
+confidence: 0.85
+equipment_symbols:
+- type: VCB
+  count: 1
+- type: CT
+  count: 2
+- type: ZCT
+  count: 1
+- type: SA
+  count: 1
+- type: GIPAM
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: true
+ontology_hints:
+  suggested_parent_class: SwitchgearPanel
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - vcb_rating
+  - ct_ratio
+  - zct_rating
+  - sa_rating
+  - protection_functions
+  - interlock
+  - panel_id
+  - voltage_kV
+  - vcb_poles
+  - vcb_rated_voltage_kV
+  - vcb_rated_current_A
+  - vcb_breaking_capacity_MVA
+  - ct_count
+  - zct_count
+  - zct_rating_mA
+  - sa_voltage_kV
+  - sa_discharge_current_kA
+  - protection_relay_model
+  - has_interlock
+  - load_name
+  - grounding_mark
+  similar_equipment:
+  - '1308'
+  - '1310'
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection
+  - Interlocking

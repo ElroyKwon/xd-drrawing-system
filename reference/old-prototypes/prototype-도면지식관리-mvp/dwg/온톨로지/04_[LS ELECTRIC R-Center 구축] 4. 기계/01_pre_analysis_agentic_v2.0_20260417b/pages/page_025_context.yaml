@@ -1,0 +1,2249 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: SINGLE_LINE_DIAGRAM
+  drawing_genre: genre_power_diagram
+  title_block:
+    drawing_number: M22-204
+    title: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM
+    revision: null
+  visible_tags:
+  - tag: MCP PANEL
+    type: panel
+    source: both
+  - tag: MAIN MCCB
+    type: circuit_breaker
+    source: both
+  - tag: ABS-34
+    type: breaker_model
+    source: both
+  - tag: CT
+    type: current_transformer
+    source: both
+  - tag: DCF-1
+    type: feeder
+    source: both
+  - tag: DCF-2
+    type: feeder
+    source: both
+  - tag: DCF-3
+    type: feeder
+    source: both
+  - tag: DCF-4
+    type: feeder
+    source: both
+  - tag: DCF-5
+    type: feeder
+    source: both
+  - tag: EHP-1
+    type: indoor_unit_control_panel
+    source: both
+  - tag: EHP-2
+    type: indoor_unit_control_panel
+    source: both
+  - tag: EHP-3
+    type: indoor_unit_control_panel
+    source: both
+  - tag: EHP-4
+    type: indoor_unit_control_panel
+    source: both
+  - tag: EHP-5
+    type: indoor_unit_control_panel
+    source: both
+  - tag: CONTROL POWER-1
+    type: control_power
+    source: both
+  - tag: CONTROL POWER-2
+    type: control_power
+    source: both
+  - tag: GMC-9
+    type: magnetic_contactor
+    source: both
+  - tag: GMP-22
+    type: protective_relay_or_starter_component
+    source: both
+  - tag: EBS-33
+    type: relay_or_control_component
+    source: both
+  - tag: ELB-1
+    type: breaker
+    source: both
+  - tag: ELB-2
+    type: breaker
+    source: both
+  - tag: ELB-3
+    type: breaker
+    source: both
+  - tag: ELB-4
+    type: breaker
+    source: both
+  - tag: ELB-5
+    type: breaker
+    source: both
+  - tag: ELB-7
+    type: breaker
+    source: both
+  - tag: ELB-8
+    type: breaker
+    source: both
+  - tag: UMG30Ra
+    type: meter
+    source: both
+  - tag: FUSE-2
+    type: fuse
+    source: both
+  - tag: SEQUENCE POWER-1
+    type: power_supply
+    source: both
+  - tag: SEQUENCE POWER-2
+    type: power_supply
+    source: both
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 단선결선도와 하단 자재/회로 표가 함께 있는 복합 전기 도면
+  - 도면번호 접두사 M22-204가 표제란에 보이나 시각적 내용은 전기 POWER DIAGRAM이며, 접두사 우선 규칙과 내용이 충돌함
+  - 하단 표에 Feeder NO., Item NO., Capacity, MCCB/ELCB/NFB, C.T, A-Meter, MAGNETIC CONTACTOR,
+    EOCR/EMPR/DMPR, TRANS, V-Meter, Condenser, Wire, Power T.B, Sequence Type, Remark
+    항목이 보임
+  confidence: 0.97
+  note: 표제란 도면번호는 M22-204로 보이나, 본문은 전기 단선/전원 계통도이며 제목도 POWER DIAGRAM임. 접두사 우선 규칙에
+    따른 discipline 판단과 시각적 내용이 충돌함.
+  recommended_supplements: &id001
+    P-0.5: discipline/mechanical/_general/supplement_p0_05.yaml
+    P-10: discipline/mechanical/genre_power_diagram/supplement_p10.yaml
+    P-4.5: discipline/mechanical/genre_power_diagram/supplement_p4_05.yaml
+  routing_confidence: 0.88
+  routing_reason: 본문이 전기 POWER DIAGRAM/단선결선도 형태이므로 electrical + single_line로 라우팅했으며,
+    카탈로그에 genre_single_line은 없지만 electrical P-10/P-4.5의 single_line 보조가 존재해 해당 경로를
+    우선 기록함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: MCP_PANEL
+    shape: dashed_box
+    primary_label: MCP PANEL
+    position: center-left
+    labels_near:
+    - 메인입력 전기공사
+    - 3Ø4W 380V 60Hz (8.5Kw)
+    - 장비업체 SCOPE
+  - panel_id: MAIN_MCCB
+    shape: rectangle
+    primary_label: MAIN MCCB
+    position: top-left
+    labels_near:
+    - ABS-34
+    - 4P/30AF/30A
+  - panel_id: EHP_1
+    shape: rectangle
+    primary_label: EHP-1
+    position: bottom-center
+    labels_near:
+    - EHP-1 실내기제어반
+  - panel_id: EHP_2
+    shape: rectangle
+    primary_label: EHP-2
+    position: bottom-center
+  - panel_id: EHP_3
+    shape: rectangle
+    primary_label: EHP-3
+    position: bottom-center
+  - panel_id: EHP_4
+    shape: rectangle
+    primary_label: EHP-4
+    position: bottom-center
+  - panel_id: EHP_5
+    shape: rectangle
+    primary_label: EHP-5
+    position: bottom-center
+  - panel_id: CONTROL_POWER_1
+    shape: rectangle
+    primary_label: CONTROL POWER-1
+    position: bottom-right
+  - panel_id: CONTROL_POWER_2
+    shape: rectangle
+    primary_label: CONTROL POWER-2
+    position: bottom-right
+  - panel_id: SCHEDULE_TABLE
+    shape: rectangle
+    primary_label: MOTOR CONTROL CENTER(MCC)
+    position: bottom
+    labels_near:
+    - Feeder NO.
+    - Item NO.
+    - Capacity
+    - MCCB/ELCB/NFB
+    - MAGNETIC CONTACTOR
+    - EOCR/EMPR/DMPR
+    - Wire
+    - Power T.B
+  connections:
+  - from: MAIN_MCCB
+    to: MCP_PANEL
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: MCP_PANEL
+    to: EHP_1
+    line_style: solid
+    annotation: DCF-1
+  - from: MCP_PANEL
+    to: EHP_2
+    line_style: solid
+    annotation: DCF-2
+  - from: MCP_PANEL
+    to: EHP_3
+    line_style: solid
+    annotation: DCF-3
+  - from: MCP_PANEL
+    to: EHP_4
+    line_style: solid
+    annotation: DCF-4
+  - from: MCP_PANEL
+    to: EHP_5
+    line_style: solid
+    annotation: DCF-5
+  notable_shapes:
+  - shape: circle
+    label: V/M
+    note: Voltage Meter
+  - shape: circle
+    label: A/M
+    note: Ampere Meter
+  - shape: circle
+    label: CT
+    note: Current Transformer
+  - shape: circle
+    label: DCF-1
+    note: Feeder number in circle
+  - shape: circle
+    label: DCF-2
+    note: Feeder number in circle
+  - shape: circle
+    label: DCF-3
+    note: Feeder number in circle
+  - shape: circle
+    label: DCF-4
+    note: Feeder number in circle
+  - shape: circle
+    label: DCF-5
+    note: Feeder number in circle
+  - shape: hexagon
+    label: '1'
+    note: Drawing reference number
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 페이지는 단선결선도와 일람표로 구성되어 있으며 범례 섹션은 없음
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: genre_power_diagram
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 접두사 M(M22-204)에 따라 MECHANICAL로 변경. 시각적 내용은 전기 단선도이나 기계 설비(공기조화기)
+    전원 도면이므로 genre_power_diagram으로 라우팅.
+classification: POWER_DIAGRAM
+discipline: MECHANICAL
+key_elements_from_text:
+- '도면 제목: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM'
+- '도면번호: M22-204'
+- '프로젝트명: LS Electric R-Center 구축 / R-Center'
+- '전원 조건: 3Ø4W 380V 60Hz'
+- MCP PANEL
+- 'MAIN MCCB: ABS-34, 4P/30AF/30A'
+- 'CT: 100/5A, 5VA'
+- 'V-Meter: 0~600V'
+- 'A-Meter: 0~100A'
+- 'Feeder: DCF-1, DCF-2, DCF-3, DCF-4, DCF-5'
+- 'Feeder: EHP-1, EHP-2, EHP-3, EHP-4, EHP-5'
+- CONTROL POWER-1
+- CONTROL POWER-2
+- '하단 표 항목: Feeder NO., Item NO., Capacity, MCCB/ELCB/NFB, C.T, A-Meter, MAGNETIC
+  CONTACTOR, EOCR/EMPR/DMPR, TRANS, V-Meter, Condenser, Wire, Power T.B, Sequence
+  Type, Remark'
+title_block:
+  drawing_number: M22-204
+  title: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=MECHANICAL, drawing_genre=genre_power_diagram 판단은 시각적 내용과
+  일치한다. 다만 classification은 SINGLE_LINE_DIAGRAM보다 POWER_DIAGRAM이 더 직접적으로 보인다. 표제란과
+  본문 모두 전기 단선형 전원도이며, 범례 페이지는 아니다.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-MCP
+    shape: dashed_box
+    labels_inside:
+    - MCP PANEL
+    - 3Ø4W 380V 60Hz
+    - 장비업체 SCOPE
+    labels_above:
+    - 메인입력 전기공사
+    - 3Ø4W 380V 60Hz (8.5Kw)
+    labels_below: []
+    equipment_symbols:
+    - type: MCCB
+      count: 1
+      detail: MAIN MCCB, ABS-34, 4P/30AF/30A
+    - type: CT
+      count: 1
+      detail: 100/5A, 5VA
+    - type: voltmeter
+      count: 1
+      detail: V/M 0~600V
+    - type: ammeter
+      count: 1
+      detail: A/M 0~100A
+    inferred_name: MCP 메인 제어 패널
+    position: center-left
+    specs:
+      voltage: 3Ø4W 380V 60Hz
+      capacity: 8.5kW
+  - panel_id: BLK-MAIN-MCCB
+    shape: rectangle
+    labels_inside:
+    - MAIN MCCB
+    - ABS-34
+    - 4P/30AF/30A
+    labels_above:
+    - 메인입력 전기공사
+    labels_below: []
+    equipment_symbols:
+    - type: MCCB
+      count: 1
+      detail: ABS-34, 4P/30AF/30A
+    inferred_name: 메인 배선용 차단기
+    position: top-left
+    specs:
+      model: ABS-34
+      poles: 4P
+      frame: 30AF
+      rated_current: 30A
+  - panel_id: BLK-CT
+    shape: circle
+    labels_inside:
+    - CT
+    - 100/5
+    - 5VA
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: current_transformer
+      count: 1
+      detail: 100/5A, 5VA
+    inferred_name: 변류기
+    position: top-left
+    specs:
+      ratio: 100/5
+      burden: 5VA
+  - panel_id: BLK-VM
+    shape: circle
+    labels_inside:
+    - V/M
+    - 0~600V
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: voltmeter
+      count: 1
+    inferred_name: 전압계
+    position: top-left
+    specs:
+      range: 0~600V
+  - panel_id: BLK-AM
+    shape: circle
+    labels_inside:
+    - A/M
+    - 0~100A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: ammeter
+      count: 1
+    inferred_name: 전류계
+    position: top-left
+    specs:
+      range: 0~100A
+  - panel_id: BLK-DCF1
+    shape: rectangle
+    labels_inside:
+    - ELCR-1
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-1
+    labels_below:
+    - DCF-1 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-1, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-1 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '01'
+      item_no: DCF-1
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF2
+    shape: rectangle
+    labels_inside:
+    - ELCR-2
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-2
+    labels_below:
+    - DCF-2 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-2, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-2 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '02'
+      item_no: DCF-2
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF3
+    shape: rectangle
+    labels_inside:
+    - ELCR-3
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-3
+    labels_below:
+    - DCF-3 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-3, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-3 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '03'
+      item_no: DCF-3
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF4
+    shape: rectangle
+    labels_inside:
+    - ELCR-4
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-4
+    labels_below:
+    - DCF-4 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-4, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-4 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '04'
+      item_no: DCF-4
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF5
+    shape: rectangle
+    labels_inside:
+    - ELCR-5
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-5
+    labels_below:
+    - DCF-5 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-5, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-5 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '05'
+      item_no: DCF-5
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-ELB1
+    shape: rectangle
+    labels_inside:
+    - ELB-1
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-1
+    labels_below:
+    - EHP-1 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-1, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-1 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: '06'
+      item_no: EHP-1
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB2
+    shape: rectangle
+    labels_inside:
+    - ELB-2
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-2
+    labels_below:
+    - EHP-2 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-2, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-2 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: '07'
+      item_no: EHP-2
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB3
+    shape: rectangle
+    labels_inside:
+    - ELB-3
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-3
+    labels_below:
+    - EHP-3 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-3, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-3 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: 08
+      item_no: EHP-3
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB4
+    shape: rectangle
+    labels_inside:
+    - ELB-4
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-4
+    labels_below:
+    - EHP-4 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-4, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-4 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: 09
+      item_no: EHP-4
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB5
+    shape: rectangle
+    labels_inside:
+    - ELB-5
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-5
+    labels_below:
+    - EHP-5 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-5, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-5 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: '10'
+      item_no: EHP-5
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB7
+    shape: rectangle
+    labels_inside:
+    - ELB-7
+    - UMG30Ra
+    - 2P/30AF/10A
+    labels_above:
+    - CONTROL POWER-1
+    labels_below:
+    - SEQUENCE POWER-1
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-7, UMG30Ra, 2P/30AF/10A
+    inferred_name: 시퀀스 전원-1 피더
+    position: right
+    specs:
+      feeder_no: '12'
+      item_no: SEQUENCE POWER-1
+      mccb: 2P/30AF/10A
+      wire: 1.5sqMM
+  - panel_id: BLK-ELB8
+    shape: rectangle
+    labels_inside:
+    - ELB-8
+    - UMG30Ra
+    - 2P/30AF/10A
+    labels_above:
+    - CONTROL POWER-2
+    labels_below:
+    - SEQUENCE POWER-2
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-8, UMG30Ra, 2P/30AF/10A
+    - type: fuse
+      count: 1
+      detail: FUSE-2, 6A
+    inferred_name: 시퀀스 전원-2 피더
+    position: right
+    specs:
+      feeder_no: '13'
+      item_no: SEQUENCE POWER-2
+      mccb: 2P/30AF/10A
+      wire: 1.5sqMM
+  - panel_id: BLK-FUSE2
+    shape: rectangle
+    labels_inside:
+    - FUSE-2
+    - 6A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: fuse
+      count: 1
+      detail: 6A
+    inferred_name: 퓨즈 (제어전원용)
+    position: right
+  - panel_id: BLK-EHP1-LOAD
+    shape: rectangle
+    labels_inside:
+    - EHP-1
+    labels_above: []
+    labels_below:
+    - EHP-1 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-1 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP2-LOAD
+    shape: rectangle
+    labels_inside:
+    - EHP-2
+    labels_above: []
+    labels_below:
+    - EHP-2 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-2 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP3-LOAD
+    shape: rectangle
+    labels_inside:
+    - EHP-3
+    labels_above: []
+    labels_below:
+    - EHP-3 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-3 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP4-LOAD
+    shape: rectangle
+    labels_inside:
+    - EHP-4
+    labels_above: []
+    labels_below:
+    - EHP-4 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-4 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP5-LOAD
+    shape: rectangle
+    labels_inside:
+    - EHP-5
+    labels_above: []
+    labels_below:
+    - EHP-5 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-5 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-CTRL-PWR1
+    shape: rectangle
+    labels_inside:
+    - CONTROL POWER-1
+    labels_above: []
+    labels_below:
+    - SEQUENCE POWER-1
+    equipment_symbols: []
+    inferred_name: 제어전원-1 / 시퀀스 전원-1 (부하)
+    position: bottom-right
+  - panel_id: BLK-CTRL-PWR2
+    shape: rectangle
+    labels_inside:
+    - CONTROL POWER-2
+    labels_above: []
+    labels_below:
+    - SEQUENCE POWER-2
+    equipment_symbols: []
+    inferred_name: 제어전원-2 / 시퀀스 전원-2 (부하)
+    position: bottom-right
+  - panel_id: BLK-SCHEDULE
+    shape: rectangle
+    labels_inside:
+    - MOTOR CONTROL CENTER(MCC)
+    - Feeder NO.
+    - Item NO.
+    - Feeder Name
+    - Capacity
+    - STAB Connector
+    - MCCB/ELCB/NFB
+    - C.T
+    - A-Meter
+    - MAGNETIC CONTACTOR
+    - EOCR/EMPR/DMPR
+    - TRANS
+    - V-Meter
+    - Condenser
+    - Wire
+    - Power T.B
+    - Sequence Type
+    - Remark
+    labels_above:
+    - MOTOR CONTROL CENTER(MCC)
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 부하 일람표 (Motor Control Center Schedule)
+    position: bottom
+    specs:
+      table_id: TBL-MCC-001
+      columns:
+      - Feeder NO.
+      - Item NO.
+      - Feeder Name
+      - Capacity (HP/kW)
+      - STAB Connector
+      - MCCB/ELCB/NFB (AF/AT)
+      - C.T (/A)
+      - A-Meter
+      - MAGNETIC CONTACTOR (MCM/MCD/MCY)
+      - EOCR/EMPR/DMPR
+      - TRANS
+      - V-Meter
+      - Condenser (uF)
+      - Wire (sq)
+      - Power T.B (A)
+      - Sequence Type
+      - Remark
+      rows:
+      - feeder_no: '00'
+        item_no: MAIN
+        feeder_name: MAIN
+        capacity_hp: 8.5kW
+        stab_connector: Fixed
+        mccb: 4P/30AF/30A
+        ct: 100/5A
+        a_meter: 100A
+        magnetic_contactor: null
+        eocr: null
+        trans: null
+        v_meter: 600V
+        condenser: null
+        wire: 4.0sqMM
+        power_tb: 2.5A x 3
+        sequence_type: null
+        remark: null
+      - feeder_no: '01'
+        item_no: DCF-1
+        feeder_name: DCF-1 급기
+        capacity_kw: 1.6kW
+        stab_connector: null
+        mccb: 3P/30AF/10A
+        ct: null
+        a_meter: null
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        trans: null
+        v_meter: null
+        condenser: null
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+        remark: null
+      - feeder_no: '02'
+        item_no: DCF-2
+        feeder_name: DCF-2 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '03'
+        item_no: DCF-3
+        feeder_name: DCF-3 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '04'
+        item_no: DCF-4
+        feeder_name: DCF-4 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '05'
+        item_no: DCF-5
+        feeder_name: DCF-5 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '06'
+        item_no: EHP-1
+        feeder_name: EHP-1 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: '07'
+        item_no: EHP-2
+        feeder_name: EHP-2 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: 08
+        item_no: EHP-3
+        feeder_name: EHP-3 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: 09
+        item_no: EHP-4
+        feeder_name: EHP-4 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: '10'
+        item_no: EHP-5
+        feeder_name: EHP-5 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: '12'
+        item_no: SEQUENCE POWER-1
+        feeder_name: SEQUENCE POWER-1
+        mccb: 2P/30AF/10A
+        wire: 1.5sqMM
+      - feeder_no: '13'
+        item_no: SEQUENCE POWER-2
+        feeder_name: SEQUENCE POWER-2
+        mccb: 2P/30AF/10A
+        wire: 1.5sqMM
+  connections:
+  - from: EXT-UTILITY
+    to: BLK-MAIN-MCCB
+    line_type: cable
+    line_style: solid
+    annotation: 메인입력 전기공사 3Ø4W 380V 60Hz (8.5kW)
+  - from: BLK-MAIN-MCCB
+    to: BLK-CT
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-CT
+    to: BLK-AM
+    line_type: signal
+    line_style: solid
+    annotation: 100/5A
+  - from: BLK-MAIN-MCCB
+    to: BLK-VM
+    line_type: cable
+    line_style: solid
+    annotation: 전압 측정
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF1
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF2
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF3
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF4
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF5
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB1
+    line_type: cable
+    line_style: solid
+    annotation: EHP-1 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB2
+    line_type: cable
+    line_style: solid
+    annotation: EHP-2 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB3
+    line_type: cable
+    line_style: solid
+    annotation: EHP-3 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB4
+    line_type: cable
+    line_style: solid
+    annotation: EHP-4 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB5
+    line_type: cable
+    line_style: solid
+    annotation: EHP-5 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB7
+    line_type: cable
+    line_style: solid
+    annotation: CONTROL POWER-1 / SEQUENCE POWER-1
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB8
+    line_type: cable
+    line_style: solid
+    annotation: CONTROL POWER-2 / SEQUENCE POWER-2
+  - from: BLK-DCF1
+    to: BLK-EHP1-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-1 급기팬 부하
+  - from: BLK-DCF2
+    to: BLK-EHP2-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-2 급기팬 부하
+  - from: BLK-DCF3
+    to: BLK-EHP3-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-3 급기팬 부하
+  - from: BLK-DCF4
+    to: BLK-EHP4-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-4 급기팬 부하
+  - from: BLK-DCF5
+    to: BLK-EHP5-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-5 급기팬 부하
+  - from: BLK-ELB1
+    to: BLK-EHP1-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-1 실내기제어반 전원
+  - from: BLK-ELB2
+    to: BLK-EHP2-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-2 실내기제어반 전원
+  - from: BLK-ELB3
+    to: BLK-EHP3-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-3 실내기제어반 전원
+  - from: BLK-ELB4
+    to: BLK-EHP4-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-4 실내기제어반 전원
+  - from: BLK-ELB5
+    to: BLK-EHP5-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-5 실내기제어반 전원
+  - from: BLK-ELB7
+    to: BLK-CTRL-PWR1
+    line_type: cable
+    line_style: solid
+    annotation: SEQUENCE POWER-1
+  - from: BLK-ELB8
+    to: BLK-CTRL-PWR2
+    line_type: cable
+    line_style: solid
+    annotation: SEQUENCE POWER-2
+  - from: BLK-ELB8
+    to: BLK-FUSE2
+    line_type: cable
+    line_style: solid
+    annotation: FUSE-2 6A 제어전원
+  groups:
+  - group_id: GRP-BUS-380V
+    label: 3Ø4W 380V 60Hz 주모선
+    members:
+    - BLK-MAIN-MCCB
+    - BLK-CT
+    - BLK-VM
+    - BLK-AM
+    - BLK-DCF1
+    - BLK-DCF2
+    - BLK-DCF3
+    - BLK-DCF4
+    - BLK-DCF5
+    - BLK-ELB1
+    - BLK-ELB2
+    - BLK-ELB3
+    - BLK-ELB4
+    - BLK-ELB5
+    - BLK-ELB7
+    - BLK-ELB8
+  - group_id: GRP-MCP
+    label: MCP PANEL (장비업체 SCOPE)
+    members:
+    - BLK-MAIN-MCCB
+    - BLK-CT
+    - BLK-VM
+    - BLK-AM
+    - BLK-DCF1
+    - BLK-DCF2
+    - BLK-DCF3
+    - BLK-DCF4
+    - BLK-DCF5
+    - BLK-ELB1
+    - BLK-ELB2
+    - BLK-ELB3
+    - BLK-ELB4
+    - BLK-ELB5
+    - BLK-ELB7
+    - BLK-ELB8
+    - BLK-FUSE2
+  - group_id: GRP-DCF-FEEDERS
+    label: DCF 급기팬 피더 그룹
+    members:
+    - BLK-DCF1
+    - BLK-DCF2
+    - BLK-DCF3
+    - BLK-DCF4
+    - BLK-DCF5
+  - group_id: GRP-EHP-FEEDERS
+    label: EHP 실내기 제어반 피더 그룹
+    members:
+    - BLK-ELB1
+    - BLK-ELB2
+    - BLK-ELB3
+    - BLK-ELB4
+    - BLK-ELB5
+  - group_id: GRP-CTRL-PWR
+    label: 제어전원 / 시퀀스 전원 그룹
+    members:
+    - BLK-ELB7
+    - BLK-ELB8
+    - BLK-FUSE2
+    - BLK-CTRL-PWR1
+    - BLK-CTRL-PWR2
+  - group_id: GRP-LOADS
+    label: 부하 그룹 (장비업체 SCOPE 외부)
+    members:
+    - BLK-EHP1-LOAD
+    - BLK-EHP2-LOAD
+    - BLK-EHP3-LOAD
+    - BLK-EHP4-LOAD
+    - BLK-EHP5-LOAD
+    - BLK-CTRL-PWR1
+    - BLK-CTRL-PWR2
+  linked_schedules:
+  - table_id: TBL-MCC-001
+    linked_panels:
+    - panel_id: BLK-MAIN-MCCB
+      feeder_no: '00'
+    - panel_id: BLK-DCF1
+      feeder_no: '01'
+    - panel_id: BLK-DCF2
+      feeder_no: '02'
+    - panel_id: BLK-DCF3
+      feeder_no: '03'
+    - panel_id: BLK-DCF4
+      feeder_no: '04'
+    - panel_id: BLK-DCF5
+      feeder_no: '05'
+    - panel_id: BLK-ELB1
+      feeder_no: '06'
+    - panel_id: BLK-ELB2
+      feeder_no: '07'
+    - panel_id: BLK-ELB3
+      feeder_no: 08
+    - panel_id: BLK-ELB4
+      feeder_no: 09
+    - panel_id: BLK-ELB5
+      feeder_no: '10'
+    - panel_id: BLK-ELB7
+      feeder_no: '12'
+    - panel_id: BLK-ELB8
+      feeder_no: '13'
+  legend_references:
+  - text: GMC-9 (Magnetic Contactor)
+    linked_to: BLK-DCF1
+  - text: GMP-22 (Motor Protection Relay / EOCR)
+    linked_to: BLK-DCF1
+  - text: EBS-33 (Relay/Control Component)
+    linked_to: BLK-DCF1
+  - text: ELCR (ELCB 모델)
+    linked_to: BLK-DCF1
+  - text: UMG30Ra (ELCB 모델)
+    linked_to: BLK-ELB7
+  diagram_meta:
+    title: 공기조화기(천정형) 감시반 POWER DIAGRAM / 천장취출형 냉난방 유니트 C/P POWER DIAGRAM
+    drawing_number: M22-204
+    project: LS Electric R-Center 구축
+    client: 가운건축 (GAUN Architects & Engineers)
+    issue_date: '2024.05'
+    discipline: MECHANICAL (전기 POWER DIAGRAM)
+    drawing_genre: genre_power_diagram
+    flow_direction: top-to-bottom
+    main_voltage: 3Ø4W 380V 60Hz
+    main_voltage_kV: 0.38
+    sub_voltage_kV: null
+    system_type: 단선결선도 (Power Diagram)
+    has_generator: false
+    has_bus_tie: false
+    has_load_schedule: true
+    schedule_columns:
+    - Feeder NO.
+    - Item NO.
+    - Feeder Name
+    - Capacity (HP/kW)
+    - STAB Connector
+    - MCCB/ELCB/NFB (AF/AT)
+    - C.T (/A)
+    - A-Meter
+    - MAGNETIC CONTACTOR (MCM/MCD/MCY)
+    - EOCR/EMPR/DMPR
+    - TRANS
+    - V-Meter
+    - Condenser (uF)
+    - Wire (sq)
+    - Power T.B (A)
+    - Sequence Type
+    - Remark
+    protection_relay_models:
+    - GMP-22
+    - EBS-33
+    mccb_models:
+    - ABS-34
+    - EBC-13
+    - UMG30Ra
+    contactor_models:
+    - GMC-9
+    total_capacity_kW: 8.5
+    feeder_count: 13
+    scope_boundary: MCP PANEL 내부 = 장비업체 SCOPE / 외부 부하 = 별도 SCOPE
+    notes:
+    - '도면 상단 제목: 공기조화기(천정형) 감시반 POWER DIAGRAM'
+    - '도면 하단 제목: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM'
+    - DCF 피더(01~05)는 GMC-9 마그네틱 컨택터 + GMP-22 모터보호계전기 포함
+    - EHP 피더(06~10)는 단순 ELCB만 적용 (컨택터/보호계전기 없음)
+    - CONTROL POWER 피더(12,13)는 UMG30Ra ELCB 적용
+    - Feeder NO. 11은 도면에서 확인되지 않음 (SPARE 또는 미사용)
+    - 'DCF 피더 기동방식: 적입기동 (직입기동)'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-MCP
+    shape: dashed_box
+    labels_inside:
+    - MCP PANEL
+    - 3Ø4W 380V 60Hz
+    - 장비업체 SCOPE
+    labels_above:
+    - 메인입력 전기공사
+    - 3Ø4W 380V 60Hz (8.5Kw)
+    labels_below: []
+    equipment_symbols:
+    - type: MCCB
+      count: 1
+      detail: MAIN MCCB, ABS-34, 4P/30AF/30A
+    - type: CT
+      count: 1
+      detail: 100/5A, 5VA
+    - type: voltmeter
+      count: 1
+      detail: V/M 0~600V
+    - type: ammeter
+      count: 1
+      detail: A/M 0~100A
+    inferred_name: MCP 메인 제어 패널
+    position: center-left
+    specs:
+      voltage: 3Ø4W 380V 60Hz
+      capacity: 8.5kW
+  - panel_id: BLK-MAIN-MCCB
+    shape: rectangle
+    labels_inside:
+    - MAIN MCCB
+    - ABS-34
+    - 4P/30AF/30A
+    labels_above:
+    - 메인입력 전기공사
+    labels_below: []
+    equipment_symbols:
+    - type: MCCB
+      count: 1
+      detail: ABS-34, 4P/30AF/30A
+    inferred_name: 메인 배선용 차단기
+    position: top-left
+    specs:
+      model: ABS-34
+      poles: 4P
+      frame: 30AF
+      rated_current: 30A
+  - panel_id: BLK-CT
+    shape: circle
+    labels_inside:
+    - CT
+    - 100/5
+    - 5VA
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: current_transformer
+      count: 1
+      detail: 100/5A, 5VA
+    inferred_name: 변류기
+    position: top-left
+    specs:
+      ratio: 100/5
+      burden: 5VA
+  - panel_id: BLK-VM
+    shape: circle
+    labels_inside:
+    - V/M
+    - 0~600V
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: voltmeter
+      count: 1
+    inferred_name: 전압계
+    position: top-left
+    specs:
+      range: 0~600V
+  - panel_id: BLK-AM
+    shape: circle
+    labels_inside:
+    - A/M
+    - 0~100A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: ammeter
+      count: 1
+    inferred_name: 전류계
+    position: top-left
+    specs:
+      range: 0~100A
+  - panel_id: BLK-DCF1
+    shape: rectangle
+    labels_inside:
+    - ELCR-1
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-1
+    labels_below:
+    - DCF-1 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-1, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-1 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '01'
+      item_no: DCF-1
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF2
+    shape: rectangle
+    labels_inside:
+    - ELCR-2
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-2
+    labels_below:
+    - DCF-2 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-2, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-2 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '02'
+      item_no: DCF-2
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF3
+    shape: rectangle
+    labels_inside:
+    - ELCR-3
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-3
+    labels_below:
+    - DCF-3 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-3, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-3 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '03'
+      item_no: DCF-3
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF4
+    shape: rectangle
+    labels_inside:
+    - ELCR-4
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-4
+    labels_below:
+    - DCF-4 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-4, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-4 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '04'
+      item_no: DCF-4
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-DCF5
+    shape: rectangle
+    labels_inside:
+    - ELCR-5
+    - EBC-13
+    - 3P/30AF/10A
+    - GMC-9
+    - GMP-22
+    - EBS-33
+    labels_above:
+    - DCF-5
+    labels_below:
+    - DCF-5 급기
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELCR-5, EBC-13, 3P/30AF/10A
+    - type: magnetic_contactor
+      count: 1
+      detail: GMC-9
+    - type: motor_protection_relay
+      count: 1
+      detail: GMP-22
+    - type: relay
+      count: 1
+      detail: EBS-33
+    inferred_name: DCF-5 급기 팬 피더
+    position: center
+    specs:
+      feeder_no: '05'
+      item_no: DCF-5
+      capacity: 1.6kW
+      mccb: 3P/30AF/10A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 3
+      sequence_type: 적입기동
+  - panel_id: BLK-ELB1
+    shape: rectangle
+    labels_inside:
+    - ELB-1
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-1
+    labels_below:
+    - EHP-1 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-1, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-1 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: '06'
+      item_no: EHP-1
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB2
+    shape: rectangle
+    labels_inside:
+    - ELB-2
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-2
+    labels_below:
+    - EHP-2 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-2, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-2 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: '07'
+      item_no: EHP-2
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB3
+    shape: rectangle
+    labels_inside:
+    - ELB-3
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-3
+    labels_below:
+    - EHP-3 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-3, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-3 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: 08
+      item_no: EHP-3
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB4
+    shape: rectangle
+    labels_inside:
+    - ELB-4
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-4
+    labels_below:
+    - EHP-4 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-4, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-4 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: 09
+      item_no: EHP-4
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB5
+    shape: rectangle
+    labels_inside:
+    - ELB-5
+    - EBC-13
+    - 2P/30AF/15A
+    labels_above:
+    - EHP-5
+    labels_below:
+    - EHP-5 실내기제어반
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-5, EBC-13, 2P/30AF/15A
+    inferred_name: EHP-5 실내기 제어반 피더
+    position: center-right
+    specs:
+      feeder_no: '10'
+      item_no: EHP-5
+      mccb: 2P/30AF/15A
+      wire: 2.5sqMM
+      power_tb: 2.5A x 2
+  - panel_id: BLK-ELB7
+    shape: rectangle
+    labels_inside:
+    - ELB-7
+    - UMG30Ra
+    - 2P/30AF/10A
+    labels_above:
+    - CONTROL POWER-1
+    labels_below:
+    - SEQUENCE POWER-1
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-7, UMG30Ra, 2P/30AF/10A
+    inferred_name: 시퀀스 전원-1 피더
+    position: right
+    specs:
+      feeder_no: '12'
+      item_no: SEQUENCE POWER-1
+      mccb: 2P/30AF/10A
+      wire: 1.5sqMM
+  - panel_id: BLK-ELB8
+    shape: rectangle
+    labels_inside:
+    - ELB-8
+    - UMG30Ra
+    - 2P/30AF/10A
+    labels_above:
+    - CONTROL POWER-2
+    labels_below:
+    - SEQUENCE POWER-2
+    equipment_symbols:
+    - type: ELCB
+      count: 1
+      detail: ELB-8, UMG30Ra, 2P/30AF/10A
+    - type: fuse
+      count: 1
+      detail: FUSE-2, 6A
+    inferred_name: 시퀀스 전원-2 피더
+    position: right
+    specs:
+      feeder_no: '13'
+      item_no: SEQUENCE POWER-2
+      mccb: 2P/30AF/10A
+      wire: 1.5sqMM
+  - panel_id: BLK-FUSE2
+    shape: rectangle
+    labels_inside:
+    - FUSE-2
+    - 6A
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: fuse
+      count: 1
+      detail: 6A
+    inferred_name: 퓨즈 (제어전원용)
+    position: right
+  - panel_id: BLK-EHP1-LOAD
+    shape: circle
+    labels_inside:
+    - EHP-1
+    labels_above: []
+    labels_below:
+    - EHP-1 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-1 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP2-LOAD
+    shape: circle
+    labels_inside:
+    - EHP-2
+    labels_above: []
+    labels_below:
+    - EHP-2 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-2 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP3-LOAD
+    shape: circle
+    labels_inside:
+    - EHP-3
+    labels_above: []
+    labels_below:
+    - EHP-3 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-3 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP4-LOAD
+    shape: circle
+    labels_inside:
+    - EHP-4
+    labels_above: []
+    labels_below:
+    - EHP-4 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-4 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-EHP5-LOAD
+    shape: circle
+    labels_inside:
+    - EHP-5
+    labels_above: []
+    labels_below:
+    - EHP-5 실내기제어반
+    equipment_symbols: []
+    inferred_name: EHP-5 실내기 제어반 (부하)
+    position: bottom-center
+  - panel_id: BLK-CTRL-PWR1
+    shape: circle
+    labels_inside:
+    - CONTROL POWER-1
+    labels_above: []
+    labels_below:
+    - SEQUENCE POWER-1
+    equipment_symbols: []
+    inferred_name: 제어전원-1 / 시퀀스 전원-1 (부하)
+    position: bottom-right
+  - panel_id: BLK-CTRL-PWR2
+    shape: circle
+    labels_inside:
+    - CONTROL POWER-2
+    labels_above: []
+    labels_below:
+    - SEQUENCE POWER-2
+    equipment_symbols: []
+    inferred_name: 제어전원-2 / 시퀀스 전원-2 (부하)
+    position: bottom-right
+  - panel_id: BLK-SCHEDULE
+    shape: rectangle
+    labels_inside:
+    - MOTOR CONTROL CENTER(MCC)
+    - Feeder NO.
+    - Item NO.
+    - Feeder Name
+    - Capacity
+    - STAB Connector
+    - MCCB/ELCB/NFB
+    - C.T
+    - A-Meter
+    - MAGNETIC CONTACTOR
+    - EOCR/EMPR/DMPR
+    - TRANS
+    - V-Meter
+    - Condenser
+    - Wire
+    - Power T.B
+    - Sequence Type
+    - Remark
+    labels_above:
+    - MOTOR CONTROL CENTER(MCC)
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 부하 일람표 (Motor Control Center Schedule)
+    position: bottom
+    specs:
+      table_id: TBL-MCC-001
+      columns:
+      - Feeder NO.
+      - Item NO.
+      - Feeder Name
+      - Capacity (HP/kW)
+      - STAB Connector
+      - MCCB/ELCB/NFB (AF/AT)
+      - C.T (/A)
+      - A-Meter
+      - MAGNETIC CONTACTOR (MCM/MCD/MCY)
+      - EOCR/EMPR/DMPR
+      - TRANS
+      - V-Meter
+      - Condenser (uF)
+      - Wire (sq)
+      - Power T.B (A)
+      - Sequence Type
+      - Remark
+      rows:
+      - feeder_no: '00'
+        item_no: MAIN
+        feeder_name: MAIN
+        capacity_hp: 8.5kW
+        stab_connector: Fixed
+        mccb: 4P/30AF/30A
+        ct: 100/5A
+        a_meter: 100A
+        magnetic_contactor: null
+        eocr: null
+        trans: null
+        v_meter: 600V
+        condenser: null
+        wire: 4.0sqMM
+        power_tb: 2.5A x 3
+        sequence_type: null
+        remark: null
+      - feeder_no: '01'
+        item_no: DCF-1
+        feeder_name: DCF-1 급기
+        capacity_kw: 1.6kW
+        stab_connector: null
+        mccb: 3P/30AF/10A
+        ct: null
+        a_meter: null
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        trans: null
+        v_meter: null
+        condenser: null
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+        remark: null
+      - feeder_no: '02'
+        item_no: DCF-2
+        feeder_name: DCF-2 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '03'
+        item_no: DCF-3
+        feeder_name: DCF-3 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '04'
+        item_no: DCF-4
+        feeder_name: DCF-4 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '05'
+        item_no: DCF-5
+        feeder_name: DCF-5 급기
+        capacity_kw: 1.6kW
+        mccb: 3P/30AF/10A
+        magnetic_contactor: GMC-9
+        eocr: GMP-22
+        wire: 2.5sqMM
+        power_tb: 2.5A x 3
+        sequence_type: 적입기동
+      - feeder_no: '06'
+        item_no: EHP-1
+        feeder_name: EHP-1 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: '07'
+        item_no: EHP-2
+        feeder_name: EHP-2 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: 08
+        item_no: EHP-3
+        feeder_name: EHP-3 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: 09
+        item_no: EHP-4
+        feeder_name: EHP-4 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: '10'
+        item_no: EHP-5
+        feeder_name: EHP-5 실내기제어반
+        mccb: 2P/30AF/15A
+        wire: 2.5sqMM
+        power_tb: 2.5A x 2
+      - feeder_no: '12'
+        item_no: SEQUENCE POWER-1
+        feeder_name: SEQUENCE POWER-1
+        mccb: 2P/30AF/10A
+        wire: 1.5sqMM
+      - feeder_no: '13'
+        item_no: SEQUENCE POWER-2
+        feeder_name: SEQUENCE POWER-2
+        mccb: 2P/30AF/10A
+        wire: 1.5sqMM
+  connections:
+  - from: EXT-UTILITY
+    to: BLK-MAIN-MCCB
+    line_type: cable
+    line_style: solid
+    annotation: 메인입력 전기공사 3Ø4W 380V 60Hz (8.5kW)
+  - from: BLK-MAIN-MCCB
+    to: BLK-CT
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-CT
+    to: BLK-AM
+    line_type: signal
+    line_style: solid
+    annotation: 100/5A
+  - from: BLK-MAIN-MCCB
+    to: BLK-VM
+    line_type: cable
+    line_style: solid
+    annotation: 전압 측정
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF1
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF2
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF3
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF4
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-DCF5
+    line_type: cable
+    line_style: solid
+    annotation: 3Ø4W 380V 60Hz
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB1
+    line_type: cable
+    line_style: solid
+    annotation: EHP-1 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB2
+    line_type: cable
+    line_style: solid
+    annotation: EHP-2 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB3
+    line_type: cable
+    line_style: solid
+    annotation: EHP-3 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB4
+    line_type: cable
+    line_style: solid
+    annotation: EHP-4 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB5
+    line_type: cable
+    line_style: solid
+    annotation: EHP-5 피더
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB7
+    line_type: cable
+    line_style: solid
+    annotation: CONTROL POWER-1 / SEQUENCE POWER-1
+  - from: BLK-MAIN-MCCB
+    to: BLK-ELB8
+    line_type: cable
+    line_style: solid
+    annotation: CONTROL POWER-2 / SEQUENCE POWER-2
+  - from: BLK-DCF1
+    to: BLK-EHP1-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-1 급기팬 부하
+  - from: BLK-DCF2
+    to: BLK-EHP2-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-2 급기팬 부하
+  - from: BLK-DCF3
+    to: BLK-EHP3-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-3 급기팬 부하
+  - from: BLK-DCF4
+    to: BLK-EHP4-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-4 급기팬 부하
+  - from: BLK-DCF5
+    to: BLK-EHP5-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: DCF-5 급기팬 부하
+  - from: BLK-ELB1
+    to: BLK-EHP1-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-1 실내기제어반 전원
+  - from: BLK-ELB2
+    to: BLK-EHP2-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-2 실내기제어반 전원
+  - from: BLK-ELB3
+    to: BLK-EHP3-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-3 실내기제어반 전원
+  - from: BLK-ELB4
+    to: BLK-EHP4-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-4 실내기제어반 전원
+  - from: BLK-ELB5
+    to: BLK-EHP5-LOAD
+    line_type: cable
+    line_style: solid
+    annotation: EHP-5 실내기제어반 전원
+  - from: BLK-ELB7
+    to: BLK-CTRL-PWR1
+    line_type: cable
+    line_style: solid
+    annotation: SEQUENCE POWER-1
+  - from: BLK-ELB8
+    to: BLK-CTRL-PWR2
+    line_type: cable
+    line_style: solid
+    annotation: SEQUENCE POWER-2
+  - from: BLK-ELB8
+    to: BLK-FUSE2
+    line_type: cable
+    line_style: solid
+    annotation: FUSE-2 6A 제어전원
+  groups:
+  - group_id: GRP-BUS-380V
+    label: 3Ø4W 380V 60Hz 주모선
+    members:
+    - BLK-MAIN-MCCB
+    - BLK-CT
+    - BLK-VM
+    - BLK-AM
+    - BLK-DCF1
+    - BLK-DCF2
+    - BLK-DCF3
+    - BLK-DCF4
+    - BLK-DCF5
+    - BLK-ELB1
+    - BLK-ELB2
+    - BLK-ELB3
+    - BLK-ELB4
+    - BLK-ELB5
+    - BLK-ELB7
+    - BLK-ELB8
+  - group_id: GRP-MCP
+    label: MCP PANEL (장비업체 SCOPE)
+    members:
+    - BLK-MAIN-MCCB
+    - BLK-CT
+    - BLK-VM
+    - BLK-AM
+    - BLK-DCF1
+    - BLK-DCF2
+    - BLK-DCF3
+    - BLK-DCF4
+    - BLK-DCF5
+    - BLK-ELB1
+    - BLK-ELB2
+    - BLK-ELB3
+    - BLK-ELB4
+    - BLK-ELB5
+    - BLK-ELB7
+    - BLK-ELB8
+    - BLK-FUSE2
+  - group_id: GRP-DCF-FEEDERS
+    label: DCF 급기팬 피더 그룹
+    members:
+    - BLK-DCF1
+    - BLK-DCF2
+    - BLK-DCF3
+    - BLK-DCF4
+    - BLK-DCF5
+  - group_id: GRP-EHP-FEEDERS
+    label: EHP 실내기 제어반 피더 그룹
+    members:
+    - BLK-ELB1
+    - BLK-ELB2
+    - BLK-ELB3
+    - BLK-ELB4
+    - BLK-ELB5
+  - group_id: GRP-CTRL-PWR
+    label: 제어전원 / 시퀀스 전원 그룹
+    members:
+    - BLK-ELB7
+    - BLK-ELB8
+    - BLK-FUSE2
+    - BLK-CTRL-PWR1
+    - BLK-CTRL-PWR2
+  - group_id: GRP-LOADS
+    label: 부하 그룹 (장비업체 SCOPE 외부)
+    members:
+    - BLK-EHP1-LOAD
+    - BLK-EHP2-LOAD
+    - BLK-EHP3-LOAD
+    - BLK-EHP4-LOAD
+    - BLK-EHP5-LOAD
+    - BLK-CTRL-PWR1
+    - BLK-CTRL-PWR2
+  linked_schedules:
+  - table_id: TBL-MCC-001
+    linked_panels:
+    - panel_id: BLK-MAIN-MCCB
+      feeder_no: '00'
+    - panel_id: BLK-DCF1
+      feeder_no: '01'
+    - panel_id: BLK-DCF2
+      feeder_no: '02'
+    - panel_id: BLK-DCF3
+      feeder_no: '03'
+    - panel_id: BLK-DCF4
+      feeder_no: '04'
+    - panel_id: BLK-DCF5
+      feeder_no: '05'
+    - panel_id: BLK-ELB1
+      feeder_no: '06'
+    - panel_id: BLK-ELB2
+      feeder_no: '07'
+    - panel_id: BLK-ELB3
+      feeder_no: 08
+    - panel_id: BLK-ELB4
+      feeder_no: 09
+    - panel_id: BLK-ELB5
+      feeder_no: '10'
+    - panel_id: BLK-ELB7
+      feeder_no: '12'
+    - panel_id: BLK-ELB8
+      feeder_no: '13'
+  legend_references: []
+  diagram_meta:
+    title: 공기조화기(천정형) 감시반 POWER DIAGRAM / 천장취출형 냉난방 유니트 C/P POWER DIAGRAM
+    drawing_number: M22-204
+    project: LS Electric R-Center 구축
+    client: 가운건축 (GAUN Architects & Engineers)
+    issue_date: '2024.05'
+    discipline: MECHANICAL (전기 POWER DIAGRAM)
+    drawing_genre: genre_power_diagram
+    flow_direction: top-to-bottom
+    main_voltage: 3Ø4W 380V 60Hz
+    main_voltage_kV: 0.38
+    sub_voltage_kV: null
+    system_type: 단선결선도 (Power Diagram)
+    has_generator: false
+    has_bus_tie: false
+    has_load_schedule: true
+    schedule_columns:
+    - Feeder NO.
+    - Item NO.
+    - Feeder Name
+    - Capacity (HP/kW)
+    - STAB Connector
+    - MCCB/ELCB/NFB (AF/AT)
+    - C.T (/A)
+    - A-Meter
+    - MAGNETIC CONTACTOR (MCM/MCD/MCY)
+    - EOCR/EMPR/DMPR
+    - TRANS
+    - V-Meter
+    - Condenser (uF)
+    - Wire (sq)
+    - Power T.B (A)
+    - Sequence Type
+    - Remark
+    protection_relay_models:
+    - GMP-22
+    - EBS-33
+    mccb_models:
+    - ABS-34
+    - EBC-13
+    - UMG30Ra
+    contactor_models:
+    - GMC-9
+    total_capacity_kW: 8.5
+    feeder_count: 13
+    scope_boundary: MCP PANEL 내부 = 장비업체 SCOPE / 외부 부하 = 별도 SCOPE
+    notes:
+    - '도면 상단 제목: 공기조화기(천정형) 감시반 POWER DIAGRAM'
+    - '도면 하단 제목: 천장취출형 냉난방 유니트 C/P POWER DIAGRAM'
+    - DCF 피더(01~05)는 GMC-9 마그네틱 컨택터 + GMP-22 모터보호계전기 포함
+    - EHP 피더(06~10)는 단순 ELCB만 적용 (컨택터/보호계전기 없음)
+    - CONTROL POWER 피더(12,13)는 UMG30Ra ELCB 적용
+    - Feeder NO. 11은 도면에서 확인되지 않음 (SPARE 또는 미사용)
+    - 'DCF 피더 기동방식: 적입기동 (직입기동)'

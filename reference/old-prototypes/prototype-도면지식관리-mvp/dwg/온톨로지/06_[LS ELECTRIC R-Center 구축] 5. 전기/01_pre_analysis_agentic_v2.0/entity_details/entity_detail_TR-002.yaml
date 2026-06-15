@@ -1,0 +1,77 @@
+tag: TR-002
+name: '변압기 TR #2'
+type: TRANSFORMER
+discipline: ELECTRICAL
+function_category: TRANSFORMER
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - 'TR. #2'
+  - 'TR #2 3,000kVA'
+  - P 22.9kV
+  - S 3.3kV
+  - MOLD TYPE
+  - ET
+  capacity_kVA: 3000
+  primary_voltage_kV: 22.9
+  secondary_voltage_kV: 3.3
+  type: MOLD TYPE
+  panel_id: '1202'
+  transformer_number: 2
+  secondary_voltage_kV_sonnet: 3.3
+  transformer_type: MOLD TYPE
+  phases: 3Ø
+  grounding_mark: E1
+relations:
+- from: '1104'
+  to: TR-002
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: '22.9kV → TR #2 1차측'
+- from: TR-002
+  to: PT-TR2-2ND
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 'TR #2 2차측 3.3kV PT'
+- from: TR-002
+  to: HV-VCB-TR2
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 'TR #2 2차측 3.3kV → HV VCB'
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-center
+confidence: 0.95
+equipment_symbols:
+- type: transformer
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: Transformer
+  observed_attributes:
+  - raw_labels
+  - capacity_kVA
+  - primary_voltage_kV
+  - secondary_voltage_kV
+  - type
+  - panel_id
+  - transformer_number
+  - secondary_voltage_kV_sonnet
+  - transformer_type
+  - phases
+  - grounding_mark
+  similar_equipment: []
+  function_candidates:
+  - VoltageTransformation
+  - PowerDistribution

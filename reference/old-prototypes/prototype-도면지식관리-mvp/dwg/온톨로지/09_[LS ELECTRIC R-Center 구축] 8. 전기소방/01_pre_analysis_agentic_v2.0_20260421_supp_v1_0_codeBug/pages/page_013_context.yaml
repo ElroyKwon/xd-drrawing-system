@@ -1,0 +1,934 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 유도등 범례/기호 설명 표
+  discipline: ELECTRICAL
+  classification: LIGHTING_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: EF-302
+    title: 2층 유도등설비 평면도
+    revision: '2024.01'
+  visible_tags:
+  - tag: Software Lab
+    type: named_space
+    source: both
+  - tag: 검증시스템 컨트롤실
+    type: named_space
+    source: both
+  - tag: 자료실
+    type: named_space
+    source: both
+  - tag: 세미나/다목적실
+    type: named_space
+    source: both
+  - tag: 라운지
+    type: named_space
+    source: both
+  - tag: 소회의실-1
+    type: named_space
+    source: both
+  - tag: 센터장실
+    type: named_space
+    source: both
+  - tag: 사무실
+    type: named_space
+    source: both
+  - tag: 중회의실
+    type: named_space
+    source: both
+  - tag: 휴게공간
+    type: named_space
+    source: both
+  - tag: 소회의실-2
+    type: named_space
+    source: both
+  - tag: 계단 유도등-60분용(LED)
+    type: lighting_fixture_label
+    source: text
+  - tag: 복도 유도등-60분용(LED)
+    type: lighting_fixture_label
+    source: text
+  - tag: 피난구 유도등 (전체 소형)
+    type: lighting_fixture_label
+    source: text
+  - tag: 피난구 유도등 (전체 소형) 펜던트
+    type: lighting_fixture_label
+    source: text
+  - tag: 거실 유도등-60분용(LED)
+    type: lighting_fixture_label
+    source: text
+  - tag: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    type: wiring_spec
+    source: text
+  - tag: EX
+    type: exit_sign_or_emergency_light_marker
+    source: both
+  - tag: EX1
+    type: exit_sign_or_emergency_light_marker
+    source: text
+  - tag: J
+    type: unknown_symbol_label
+    source: both
+  - tag: DN
+    type: stair_direction_marker
+    source: both
+  - tag: UP
+    type: stair_direction_marker
+    source: both
+  - tag: EF-302
+    type: drawing_number
+    source: both
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 20
+  next_step_hints:
+  - 유도등 범례 표가 좌하단에 포함되어 있음
+  - 실내 평면 위에 EX 표기가 다수 분포
+  - 도면번호 EF-302와 제목이 모두 전기/유도등 설비를 지시함
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/electrical/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/electrical/genre_floor_plan/supplement_p10.yaml
+    P-11: discipline/electrical/_general/supplement_p11.yaml
+  routing_confidence: 0.93
+  routing_reason: 도면번호 EF-302와 제목 '2층 유도등설비 평면도'로 전기 분야의 floor_plan에 명확히 해당하며, 카탈로그에
+    electrical/genre_floor_plan 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 2층 유도등설비 평면도
+    position: center
+    labels_near:
+    - Software Lab
+    - 검증시스템 컨트롤실
+    - 자료실
+    - 세미나/다목적실
+    - 라운지
+    - 소회의실-1
+    - 센터장실
+    - 사무실
+    - 중회의실
+    - 휴게공간
+    - 소회의실-2
+  - panel_id: LEGEND_TABLE
+    shape: rectangle
+    primary_label: 유도등 범례 및 주기사항
+    position: bottom-left
+    labels_near:
+    - 심벌
+    - 명칭 및 규격
+    - 수량
+    - 피난구 유도등 (전체 소형)
+    - 피난구 유도등 (전체 소형) 펜던트
+    - 계단 유도등-60분용(LED)
+    - 복도 유도등-60분용(LED)
+    - 거실 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: R-Center
+    position: bottom-right
+    labels_near:
+    - LS Electric
+    - 가운 건축
+    - 2층 유도등설비 평면도
+    - EF - 302
+  connections:
+  - from: FLOOR_PLAN_AREA
+    to: LEGEND_TABLE
+    line_style: dashed
+    annotation: 심벌 참조
+  notable_shapes:
+  - shape: circle
+    label: EX
+    note: 평면도 내 다수 분포하는 유도등 심벌
+  - shape: circle
+    label: J
+    note: 조인트 박스 심벌
+  - shape: dashed_box
+    label: 경계구역
+    note: 실 구획 또는 설비 범위 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-left
+  confidence: 0.98
+  note: 좌하단에 '유도등 범례 및 주기사항' 표가 명확히 존재함
+supplement_routing:
+  discipline: ELECTRICAL
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 도면 제목 '2층 유도등설비 평면도'와 도면번호 'EF-302' (E 접두사), 그리고 실내 평면 위에 유도등(EX)
+    심벌이 배치된 시각 정보가 일치하여 ELECTRICAL 분야의 floor_plan으로 확정함. 사전 분석 결과가 타당하므로 유지함.
+classification: LIGHTING_LAYOUT
+discipline: ELECTRICAL
+key_elements_from_text:
+- '도면 제목: 2층 유도등설비 평면도'
+- '도면 번호: EF-302'
+- '프로젝트 제목: LS Electric / R-Center 구축'
+- '건물명: R-Center'
+- 유도등 범례 및 주기사항 표
+- 계단 유도등-60분용(LED)
+- 복도 유도등-60분용(LED)
+- 피난구 유도등 (전체 소형)
+- 피난구 유도등 (전체 소형) 펜던트
+- 거실 유도등-60분용(LED)
+- '배선 표기: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)'
+- '실내 공간명: Software Lab'
+- '실내 공간명: 검증시스템 컨트롤실'
+- '실내 공간명: 자료실'
+- '실내 공간명: 세미나/다목적실'
+- '실내 공간명: 라운지'
+- '실내 공간명: 소회의실-1'
+- '실내 공간명: 센터장실'
+- '실내 공간명: 사무실'
+- '실내 공간명: 중회의실'
+- '실내 공간명: 휴게공간'
+- '실내 공간명: 소회의실-2'
+title_block:
+  drawing_number: EF-302
+  title: 2층 유도등설비 평면도
+  revision: '2024.01'
+confidence: 0.99
+note: 기존 분석의 discipline(ELECTRICAL), classification(LIGHTING_LAYOUT), drawing_genre(floor_plan)과
+  일치함. 페이지 하단 좌측에 유도등 범례 표가 있고, 평면 내 EX 표기가 다수 보이며, 표제란에 EF-302와 2024.01이 보임.
+visual_semantics:
+  model: claude-sonnet-4-6
+  diagram_meta:
+    title: 2층 유도등설비 평면도
+    drawing_number: EF-302
+    project: LS Electric R-Center 구축
+    revision: '2024.01'
+    scale: 1/300(A3), 1/150(A1)
+    discipline: ELECTRICAL
+    classification: LIGHTING_LAYOUT
+    drawing_subtype: lighting
+    floor_label: 2F
+    flow_direction: UNKNOWN
+    has_cable_schedule: false
+    has_equipment_list: false
+    grid_axes_horizontal: A-D
+    grid_axes_vertical: 1-7
+    grid_dimensions:
+      total_width_mm: 71000
+      span_1_2: 12000
+      span_2_3: 12000
+      span_3_4: 12000
+      span_4_5: 14000
+      span_5_6: 11000
+      span_6_7: 10000
+      total_height_mm: 43000
+      upper_zone_mm: 17000
+      lower_zone_mm: 13000
+    wiring_spec: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  spaces:
+  - space_id: ROOM-SW-LAB
+    name: Software Lab
+    position: grid B-C, col 5-6 upper area
+    contains:
+    - EX-SW-LAB
+  - space_id: ROOM-CTRL
+    name: 검증시스템 컨트롤실
+    position: grid B-C, col 5-6 center
+    contains:
+    - EX-CTRL
+  - space_id: ROOM-DATA
+    name: 자료실
+    position: grid C-D, col 5 area
+    contains:
+    - EX-DATA
+  - space_id: ROOM-SEMINAR
+    name: 세미나/다목적실
+    position: grid C-D, col 1-4 lower area
+    contains:
+    - EX-SEMINAR
+  - space_id: ROOM-LOUNGE
+    name: 라운지
+    position: grid B-C, col 5-6 lower area
+    contains:
+    - EX-LOUNGE
+  - space_id: ROOM-MTG-S1
+    name: 소회의실-1
+    position: grid A-B, col 5-6 upper area
+    contains:
+    - EX-MTG-S1
+  - space_id: ROOM-CENTER
+    name: 센터장실
+    position: grid C-D, col 6-7 area
+    contains:
+    - EX-CENTER
+  - space_id: ROOM-OFFICE
+    name: 사무실
+    position: grid A-B, col 6-7 upper area
+    contains:
+    - EX-OFFICE
+  - space_id: ROOM-MTG-M
+    name: 중회의실
+    position: grid A-B, col 5-6 center
+    contains:
+    - EX-MTG-M
+  - space_id: ROOM-REST
+    name: 휴게공간
+    position: grid A, col 6-7 upper right
+    contains:
+    - EX-REST
+  - space_id: ROOM-MTG-S2
+    name: 소회의실-2
+    position: grid B, col 6-7 area
+    contains:
+    - EX-MTG-S2
+  panels:
+  - panel_id: EX-SW-LAB
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (Software Lab)
+    position: grid B-C, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+    notes: Software Lab 내 유도등 심볼 다수 배치
+  - panel_id: EX-CTRL
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (검증시스템 컨트롤실)
+    position: grid B-C, col 5-6 center
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 3
+  - panel_id: EX-DATA
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (자료실)
+    position: grid C-D, col 5
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-SEMINAR
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (세미나/다목적실)
+    position: grid C-D, col 1-4
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 4
+  - panel_id: EX-LOUNGE
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (라운지)
+    position: grid B-C, col 5-6 lower
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-MTG-S1
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (소회의실-1)
+    position: grid A-B, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-CENTER
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (센터장실)
+    position: grid C-D, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-OFFICE
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (사무실)
+    position: grid A-B, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 3
+  - panel_id: EX-MTG-M
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (중회의실)
+    position: grid A-B, col 5-6 center
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-REST
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (휴게공간)
+    position: grid A, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 1
+  - panel_id: EX-MTG-S2
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 (소회의실-2)
+    position: grid B, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX1-STAIR
+    shape: circle
+    labels_inside:
+    - EX1
+    inferred_name: 계단 유도등 (계단실)
+    position: grid B-C, col 4-5 stairwell area
+    equipment_symbols:
+    - type: 계단 유도등-60분용(LED)
+      count: 1
+    notes: 계단실 DN/UP 표기 인근 배치
+  - panel_id: J-BOX-01
+    shape: circle
+    labels_inside:
+    - J
+    inferred_name: Junction Box (조인트 박스)
+    position: grid B-C, col 4-5 corridor area
+    equipment_symbols:
+    - type: PULL BOX / Junction Box
+      count: 1
+  - panel_id: STAIR-MARKER
+    shape: other
+    labels_inside:
+    - DN
+    - UP
+    inferred_name: 계단 방향 표시 (계단실)
+    position: grid B-C, col 4-5
+    notes: 계단실 내 DN/UP 방향 표기
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    position: bottom-left
+    labels_inside:
+    - 유도등 범례 및 주기사항
+    - 심벌
+    - 명칭 및 규격
+    - 수량
+    - 피난구 유도등 (전체 소형) 12EA
+    - 피난구 유도등 (전체 소형) 펜던트
+    - 계단 유도등-60분용(LED)
+    - 복도 유도등-60분용(LED)
+    - 거실 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C) 유도등 배선
+    inferred_name: 유도등 범례 및 주기사항 표
+    notes: 범례 표 — panels에 포함하되 legend_references에도 기록
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    position: bottom-right
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - (주)정연엔지니어링
+    - 2층 유도등설비 평면도
+    - EF - 302
+    - '2024.01'
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    inferred_name: 표제란
+  lighting_groups:
+  - group_id: LG-ESCAPE-SIGN
+    type: 피난구 유도등 (전체 소형)
+    symbol_ref: SYM-010
+    total_count: 12
+    unit: EA
+    distribution:
+    - room: ROOM-SW-LAB
+      count: 2
+    - room: ROOM-CTRL
+      count: 3
+    - room: ROOM-DATA
+      count: 2
+    - room: ROOM-SEMINAR
+      count: 4
+    - room: ROOM-LOUNGE
+      count: 2
+    - room: ROOM-MTG-S1
+      count: 2
+    - room: ROOM-CENTER
+      count: 2
+    - room: ROOM-OFFICE
+      count: 3
+    - room: ROOM-MTG-M
+      count: 2
+    - room: ROOM-REST
+      count: 1
+    - room: ROOM-MTG-S2
+      count: 2
+  - group_id: LG-ESCAPE-SIGN-PENDANT
+    type: 피난구 유도등 (전체 소형) 펜던트
+    symbol_ref: SYM-011
+    total_count: null
+    notes: 범례에 표기되나 수량 미기재
+  - group_id: LG-STAIR-GUIDE
+    type: 계단 유도등-60분용(LED)
+    symbol_ref: SYM-012
+    total_count: null
+    notes: 계단실 배치
+  - group_id: LG-CORRIDOR-GUIDE
+    type: 복도 유도등-60분용(LED)
+    symbol_ref: SYM-012
+    total_count: null
+    notes: 복도 배치
+  - group_id: LG-ROOM-GUIDE
+    type: 거실 유도등-60분용(LED)
+    symbol_ref: SYM-012
+    total_count: null
+    notes: 거실/실내 배치
+  connections:
+  - from: LEGEND-TABLE
+    to: EX-SW-LAB
+    line_type: signal
+    line_style: dashed
+    annotation: 심볼 참조 관계
+  - from: EX-SW-LAB
+    to: EX-CTRL
+    line_type: cable
+    line_style: solid
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C) 유도등용 배관배선
+  - from: EX-CTRL
+    to: EX-DATA
+    line_type: cable
+    line_style: solid
+    annotation: 유도등용 배관배선
+  - from: J-BOX-01
+    to: EX-STAIR
+    line_type: cable
+    line_style: solid
+    annotation: 유도등용 배관배선 분기
+  notable_shapes:
+  - shape: dashed_box
+    label: 대형 공간 구획 (좌측 대형 홀/창고 구역)
+    position: grid A-D, col 1-4
+    note: X자 대각선 해치 표기 — 유도등 미설치 구역 또는 별도 공사 구역
+  - shape: rectangle_with_X
+    label: 계단실
+    position: grid B-C, col 4-5
+    note: DN/UP 표기 포함, EX1 계단 유도등 배치
+  - shape: circle
+    label: EX
+    note: 피난구 유도등 심볼 — 평면도 내 다수 분포
+  - shape: circle
+    label: J
+    note: 조인트 박스(Junction Box) 심볼
+  - shape: circle
+    label: EX1
+    note: 계단 유도등 심볼 (계단실 전용)
+  legend_references:
+  - symbol: 피난구 유도등 (전체 소형)
+    count: 12EA
+    symbol_ref: SYM-010
+    linked_to: LG-ESCAPE-SIGN
+  - symbol: 피난구 유도등 (전체 소형) 펜던트
+    count: null
+    symbol_ref: SYM-011
+    linked_to: LG-ESCAPE-SIGN-PENDANT
+  - symbol: 계단 유도등-60분용(LED)
+    count: null
+    symbol_ref: SYM-012
+    linked_to: LG-STAIR-GUIDE
+  - symbol: 복도 유도등-60분용(LED)
+    count: null
+    symbol_ref: SYM-012
+    linked_to: LG-CORRIDOR-GUIDE
+  - symbol: 거실 유도등-60분용(LED)
+    count: null
+    symbol_ref: SYM-012
+    linked_to: LG-ROOM-GUIDE
+  - symbol: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    description: 유도등용 배관배선 규격
+    line_type: cable
+    linked_to: null
+  groups:
+  - group_id: GRP-EAST-ZONE
+    label: 동측 사무/회의 구역 (col 5-7)
+    members:
+    - ROOM-SW-LAB
+    - ROOM-CTRL
+    - ROOM-DATA
+    - ROOM-LOUNGE
+    - ROOM-MTG-S1
+    - ROOM-CENTER
+    - ROOM-OFFICE
+    - ROOM-MTG-M
+    - ROOM-REST
+    - ROOM-MTG-S2
+  - group_id: GRP-WEST-ZONE
+    label: 서측 대형 공간 구역 (col 1-4)
+    members:
+    - ROOM-SEMINAR
+    notes: X자 해치 대형 공간 포함, 유도등 설치 최소화
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  diagram_meta:
+    title: 2층 유도등설비 평면도
+    drawing_number: EF-302
+    project: LS Electric R-Center 구축
+    revision: '2024.01'
+    scale: 1/300(A3), 1/150(A1)
+    discipline: ELECTRICAL
+    classification: LIGHTING_LAYOUT
+    drawing_subtype: lighting
+    floor_label: 2F
+    flow_direction: UNKNOWN
+    has_cable_schedule: false
+    has_equipment_list: false
+    grid_axes_horizontal: A-D
+    grid_axes_vertical: 1-7
+    grid_dimensions:
+      total_width_mm: 71000
+      span_1_2: 12000
+      span_2_3: 12000
+      span_3_4: 12000
+      span_4_5: 14000
+      span_5_6: 11000
+      span_6_7: 10000
+      total_height_mm: 43000
+      upper_zone_mm: 17000
+      lower_zone_mm: 13000
+    wiring_spec: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  spaces:
+  - space_id: ROOM-SW-LAB
+    name: Software Lab
+    position: grid B-C, col 5-6 upper area
+    contains:
+    - EX-GRP-SW-LAB
+  - space_id: ROOM-CTRL
+    name: 검증시스템 컨트롤실
+    position: grid B-C, col 5-6 center
+    contains:
+    - EX-GRP-CTRL
+  - space_id: ROOM-DATA
+    name: 자료실
+    position: grid C, col 5 area
+    contains:
+    - EX-GRP-DATA
+  - space_id: ROOM-SEMINAR
+    name: 세미나/다목적실
+    position: grid C-D, col 1-4 lower area
+    contains:
+    - EX-GRP-SEMINAR
+  - space_id: ROOM-LOUNGE
+    name: 라운지
+    position: grid C, col 5-6 lower area
+    contains:
+    - EX-GRP-LOUNGE
+  - space_id: ROOM-MTG-S1
+    name: 소회의실-1
+    position: grid A-B, col 5-6 upper area
+    contains:
+    - EX-GRP-MTG-S1
+  - space_id: ROOM-CENTER
+    name: 센터장실
+    position: grid C-D, col 6-7 area
+    contains:
+    - EX-GRP-CENTER
+  - space_id: ROOM-OFFICE
+    name: 사무실
+    position: grid A-B, col 6-7 upper area
+    contains:
+    - EX-GRP-OFFICE
+  - space_id: ROOM-MTG-M
+    name: 중회의실
+    position: grid A-B, col 5-6 center
+    contains:
+    - EX-GRP-MTG-M
+  - space_id: ROOM-REST
+    name: 휴게공간
+    position: grid A, col 6-7 upper right
+    contains:
+    - EX-GRP-REST
+  - space_id: ROOM-MTG-S2
+    name: 소회의실-2
+    position: grid B, col 6-7 area
+    contains:
+    - EX-GRP-MTG-S2
+  - space_id: ROOM-STAIR
+    name: 계단실
+    position: grid B-C, col 4-5
+    contains:
+    - EX1-STAIR
+    - STAIR-MARKER
+  - space_id: CORRIDOR-MAIN
+    name: 복도
+    position: grid B-C, col 4-7 various areas
+    contains:
+    - J-BOX-01
+    - J-BOX-02
+  panels:
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    position: bottom-left
+    labels_inside:
+    - 유도등 범례 및 주기사항
+    - 심벌
+    - 명칭 및 규격
+    - 수량
+    - 피난구 유도등 (전체 소형) 12EA
+    - 피난구 유도등 (전체 소형) 펜던트
+    - 계단 유도등-60분용(LED) 1EA
+    - 복도 유도등-60분용(LED)
+    - 거실 유도등-60분용(LED)
+    - HFIX 2.5㎟ x 2 E-2.5㎟ (16C) 유도등 배선
+    inferred_name: 유도등 범례 및 주기사항 표
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    position: bottom-right
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - (주)정연엔지니어링
+    - 2층 유도등설비 평면도
+    - EF - 302
+    - '2024.01'
+    - 'SCALE : 1/300(A3)'
+    - 'SCALE : 1/150(A1)'
+    inferred_name: 표제란
+  - panel_id: J-BOX-01
+    shape: circle
+    labels_inside:
+    - J
+    inferred_name: Junction Box (계단실 앞 복도)
+    position: grid B-C, col 4-5 corridor
+    equipment_symbols:
+    - type: PULL BOX / Junction Box
+      count: 1
+  - panel_id: J-BOX-02
+    shape: circle
+    labels_inside:
+    - J
+    inferred_name: Junction Box (자료실 앞 복도)
+    position: grid C, col 5 corridor
+    equipment_symbols:
+    - type: PULL BOX / Junction Box
+      count: 1
+  - panel_id: EX1-STAIR
+    shape: rectangle
+    labels_inside:
+    - EX1
+    inferred_name: 계단 유도등 (계단실)
+    position: grid B-C, col 4-5 stairwell
+    equipment_symbols:
+    - type: 계단 유도등-60분용(LED)
+      count: 1
+  - panel_id: STAIR-MARKER
+    shape: other
+    labels_inside:
+    - DN
+    - UP
+    inferred_name: 계단 방향 표시
+    position: grid B-C, col 4-5 stairwell
+  - panel_id: EX-GRP-SW-LAB
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (Software Lab)
+    position: grid B-C, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-GRP-CTRL
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (검증시스템 컨트롤실)
+    position: grid B-C, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 3
+  - panel_id: EX-GRP-DATA
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (자료실)
+    position: grid C, col 5
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-GRP-SEMINAR
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (세미나/다목적실)
+    position: grid C-D, col 1-4
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 4
+  - panel_id: EX-GRP-LOUNGE
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (라운지)
+    position: grid C, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-GRP-MTG-S1
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (소회의실-1)
+    position: grid A-B, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-GRP-CENTER
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (센터장실)
+    position: grid C-D, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-GRP-OFFICE
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (사무실)
+    position: grid A-B, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 3
+  - panel_id: EX-GRP-MTG-M
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (중회의실)
+    position: grid A-B, col 5-6
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  - panel_id: EX-GRP-REST
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (휴게공간)
+    position: grid A, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 1
+  - panel_id: EX-GRP-MTG-S2
+    shape: circle
+    labels_inside:
+    - EX
+    inferred_name: 피난구 유도등 그룹 (소회의실-2)
+    position: grid B, col 6-7
+    equipment_symbols:
+    - type: 피난구 유도등 (전체 소형)
+      count: 2
+  lighting_groups:
+  - group_id: LG-ESCAPE-SIGN-EX
+    type: 피난구 유도등 (전체 소형)
+    symbol_ref: SYM-EX-CIRCLE
+    total_count: null
+    unit: EA
+    notes: 범례상 12EA이나 도면상 약 25개 배치됨. 수량 불일치.
+  - group_id: LG-STAIR-GUIDE-EX1
+    type: 계단 유도등-60분용(LED)
+    symbol_ref: SYM-EX1-RECT
+    total_count: 1
+    unit: EA
+    distribution:
+    - room: ROOM-STAIR
+      count: 1
+  connections:
+  - from: J-BOX-01
+    to: EX1-STAIR
+    line_type: cable
+    line_style: solid
+    annotation: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+  - from: J-BOX-01
+    to: EX-GRP-CTRL
+    line_type: cable
+    line_style: solid
+    annotation: 유도등 배선
+  - from: J-BOX-02
+    to: EX-GRP-DATA
+    line_type: cable
+    line_style: solid
+    annotation: 유도등 배선
+  - from: EX-GRP-CTRL
+    to: EX-GRP-SW-LAB
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-SW-LAB
+    to: EX-GRP-MTG-M
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-MTG-M
+    to: EX-GRP-MTG-S1
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-MTG-S1
+    to: EX-GRP-OFFICE
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-OFFICE
+    to: EX-GRP-REST
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-OFFICE
+    to: EX-GRP-CENTER
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-CENTER
+    to: EX-GRP-MTG-S2
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-MTG-S2
+    to: EX-GRP-LOUNGE
+    line_type: cable
+    line_style: solid
+  - from: EX-GRP-DATA
+    to: EX-GRP-SEMINAR
+    line_type: cable
+    line_style: solid
+  notable_shapes:
+  - shape: dashed_box_with_X
+    label: Void/Open Area (Left)
+    position: grid A-D, col 1-4
+    note: 대형 X자 해치 구역, 유도등이 경계에만 배치됨.
+  - shape: dashed_box_with_X
+    label: Void/Open Area (Top Left)
+    position: grid A-B, col 1-4
+    note: 상부 대형 X자 해치 구역.
+  legend_references:
+  - text: 피난구 유도등 (전체 소형)
+    symbol_image: circle_with_EX
+    linked_to: LG-ESCAPE-SIGN-EX
+  - text: 계단 유도등-60분용(LED)
+    symbol_image: rectangle_with_EX1
+    linked_to: LG-STAIR-GUIDE-EX1
+  - text: HFIX 2.5㎟ x 2 E-2.5㎟ (16C)
+    symbol_image: line_with_text
+    description: 유도등 배선 규격
+    line_type: cable
+  - text: J
+    symbol_image: circle_with_J
+    description: Junction Box (조인트 박스)
+    linked_to:
+    - J-BOX-01
+    - J-BOX-02

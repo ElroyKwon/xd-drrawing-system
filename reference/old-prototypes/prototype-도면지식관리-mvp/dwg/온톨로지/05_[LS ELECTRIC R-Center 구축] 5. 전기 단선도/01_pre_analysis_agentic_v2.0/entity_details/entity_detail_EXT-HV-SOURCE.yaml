@@ -1,0 +1,53 @@
+tag: EXT-HV-SOURCE
+name: 외부 6.6kV 인입 전원 (지하1층 변전실)
+type: EXTERNAL_SOURCE
+discipline: ELECTRICAL
+function_category: SUPPLY
+source_pages:
+- 2
+specs:
+  source_text: INCOMING FROM 지 S (지하1층 변전실)
+  rated_voltage_kV: 6.6
+  phase: 3Φ
+  frequency_Hz: 60
+  raw_labels:
+  - INCOMING FROM 지 S (지하1층 변전실)
+  - 6.6kV 3Φ 60Hz
+  - INCOMING
+relations:
+- from: EXT-HV-SOURCE
+  to: INCOMING-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV 3Φ 60Hz 인입
+- from: EXT-HV-SOURCE
+  to: INCOMING-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV 3Φ 60Hz 인입
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-left
+confidence: 0.85
+equipment_symbols: []
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: true
+ontology_hints:
+  suggested_parent_class: PowerSource
+  observed_attributes:
+  - source_text
+  - rated_voltage_kV
+  - phase
+  - frequency_Hz
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - Power Supply
+  - Incoming Feed

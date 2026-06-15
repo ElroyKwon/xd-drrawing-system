@@ -1,0 +1,146 @@
+placement:
+  tag: SPACE-MECH-ROOM-ROOF
+  name: 지붕층 기계실 또는 설비 구획
+  discipline: mechanical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-MECH-ROOM-ROOF
+    class_hint: MechanicalRoom
+    alternative_class_hints:
+    - Equipment Zone
+    - Shaft
+    - Space
+    related_assertions:
+    - type: contains
+      target_hint: PANEL-ROOF-PLAN
+      note: source_page 53, cross_validated; PANEL-ROOF-PLAN이 본 공간을 contains
+    applicable_axioms:
+    - AX020
+    - AX027
+    applicable_constraints: []
+    confirmed_class: dks:MechanicalSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: mechanical
+    sub_kinds:
+      free_notes:
+      - raw_text: 별도 구획으로 표시된 기계실 또는 샤프트 공간. 내부 라벨 불명확.
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasSpaceNote
+          suggested_datatype: xsd:string
+          rationale: 공간 설명 문구이며 내부 라벨이 불명확한 주석성 정보
+      - raw_text: 'location_note: 5-7열, A-B행'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasLocationNote
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치를 나타내는 문자열 정보
+      - raw_text: 'internal_label: null'
+        source_page: 53
+        promotion_hint:
+          suggested_property_label: hasInternalLabel
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 부재 상태를 보존해야 하는 메타 정보
+  provenance:
+    name:
+      source_pages:
+      - 53
+      method: entity_detail.name
+    type:
+      source_pages:
+      - 53
+      method: entity_detail.type
+    discipline:
+      source_pages:
+      - 53
+      method: entity_detail.discipline
+    function_category:
+      source_pages:
+      - 53
+      method: entity_detail.function_category
+    specs.note:
+      source_pages:
+      - 53
+      method: entity_detail.specs.note
+    specs.location_note:
+      source_pages:
+      - 53
+      method: entity_detail.specs.location_note
+    specs.internal_label:
+      source_pages:
+      - 53
+      method: entity_detail.specs.internal_label
+    relations:
+      source_pages:
+      - 53
+      method: entity_detail.relations
+    position:
+      source_pages:
+      - 53
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 53
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 53
+      method: entity_detail.source_attribution
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 53
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 53
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 53
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.cross_validated:
+      source_pages:
+      - 53
+      method: entity_detail.collection_sources.cross_validated
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 53
+      method: entity_detail.collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: specs.internal_label
+    raw_text: 'null'
+    source_page: 53
+    reason: 실제 라벨 값이 없어서 문자열로 해석 불가
+    preservation_note: null 상태 자체를 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: MechanicalRoom
+    source_page: 53
+    reason: 후보 클래스이므로 확정 불가
+    preservation_note: class_hint로만 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Mechanical Room; Equipment Zone; Shaft
+    source_page: 53
+    reason: 복수 후보가 제시되어 단일 확정 불가
+    preservation_note: alternative_class_hints 및 class_hint로 분산 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name과 specs.note상 기계실/설비 구획/샤프트 가능성이 함께 존재하며 내부 라벨이 불명확함
+    recommended_handling: 0-9c에서 Space 계열 상위 클래스로 유지하고, 후속 단계에서 도면 맥락과 인접 공간/장비 관계로
+      세분화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:37:43.464278'
+  confidence: 0.85

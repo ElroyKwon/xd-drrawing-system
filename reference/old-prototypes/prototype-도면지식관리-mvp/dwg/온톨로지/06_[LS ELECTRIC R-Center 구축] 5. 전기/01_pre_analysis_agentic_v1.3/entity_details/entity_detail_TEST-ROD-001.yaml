@@ -1,0 +1,93 @@
+entity_detail:
+  tag: TEST-ROD-001
+  type: test_rod
+  specs:
+    page_number:
+      value: 39
+      unit: page
+      source: page 39
+      confidence: 0.99
+    drawing_number:
+      value: EE-05-005
+      unit: ''
+      source: page 39
+      confidence: 0.98
+    title:
+      value: 피뢰접지설비 상세도-1
+      unit: ''
+      source: page 39
+      confidence: 0.98
+    test_earth_spacing:
+      value: 10m 이상 이격
+      unit: m
+      source: page 39
+      confidence: 0.95
+  drawing_texts:
+  - source: page 39 executive_summary
+    page_number: 39
+    text: '피뢰접지설비 상세도-1로, STS 316 접지판, 토양매설 기초접지극, 접지단자함 및 주접지/전력접지/통신접지/피뢰접지 단자함의
+      상세 구성이 한 페이지에 정리되어 있다.
+
+
+      F-GV Wire, HI PVC 전선관, CU-Busbar, Bakelite를 포함한 접속 상세와 Test 접지(E극/P극/C극, Test
+      Rod) 및 등전위 접속(수도관/가스관/기계관)이 함께 보인다.
+
+
+      표제란에는 도면번호 EE-05-005, 프로젝트명 LS Electric R-Center 구축, 건물명 가운건축, 날짜 2024.04가 확인되며,
+      일부 단자함 상세는 예시로 표기되어 있다.'
+  requirements:
+  - text: Test 접지(E극/P극/C극, Test Rod)
+    source: page 39
+    type: installation_condition
+  - text: 접지극(E극)과 Test Rod는 10m 이상 이격
+    source: page 39
+    type: spacing_requirement
+  connection_specs:
+  - relation: test_grounding_arrangement
+    partner: 접지극(E극)
+    details:
+      source: page 39
+      text: Test 접지(E극/P극/C극, Test Rod)
+  - relation: test_grounding_arrangement
+    partner: 보조극(P극)
+    details:
+      source: page 39
+      text: Test 접지(E극/P극/C극, Test Rod)
+  - relation: test_grounding_arrangement
+    partner: 보조극(C극)
+    details:
+      source: page 39
+      text: Test 접지(E극/P극/C극, Test Rod)
+  - relation: spacing
+    partner: 접지극(E극)
+    details:
+      source: page 39
+      text: 10m 이상 이격
+  ontology_hints:
+    observed_relations:
+    - relation_type: associated_with
+      partner_tag: GRD-ELEC-002
+      direction: UNKNOWN
+      source: page 39
+    - relation_type: associated_with
+      partner_tag: GRD-AUX-001
+      direction: UNKNOWN
+      source: page 39
+    - relation_type: associated_with
+      partner_tag: GRD-AUX-002
+      direction: UNKNOWN
+      source: page 39
+    observed_attributes:
+    - test_grounding
+    - E극
+    - P극
+    - C극
+    - Test Rod
+    - 10m 이상 이격
+    similar_equipment: []
+    suggested_parent_class: Grounding_Test_Electrode
+    cross_discipline: []
+  notes:
+  - 도면 요약에서 Test Rod는 Test 접지 설치 상세도에 포함되어 언급됨.
+  - 정확한 단독 사양은 확인되지 않아 관련 문구만 기록함.
+tag: TEST-ROD-001

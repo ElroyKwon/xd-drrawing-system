@@ -1,0 +1,165 @@
+placement:
+  tag: SPACE-AUTO-LAB
+  name: Automation Lab
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-AUTO-LAB
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationSpace
+    - LaboratorySpace
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 자동화 연구소
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 한글 원문 라벨
+      - raw_text: rectangle
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: center
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 배치 위치 표기
+      - raw_text: Automation Lab
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 영문 추정명/표기명
+      - raw_text: LABORATORY
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값
+      - raw_text: Space
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문
+      - raw_text: COMMUNICATION
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 분야 원문
+      - raw_text: Space
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: suggested_parent_class
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 부모 클래스 후보
+      - raw_text: Automation Testing
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보값
+      - raw_text: Research
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: function_candidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보값
+  provenance:
+    tag:
+      source_pages:
+      - 11
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 11
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 11
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: classification_from_type_and_visual_semantics
+    ontology_core.iri_hint:
+      source_pages:
+      - 11
+      method: entity_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hints.function_candidates + type/function_category context
+    discipline_context.sub_kinds.free_notes[*].raw_text:
+      source_pages:
+      - 11
+      method: entity_detail.all_fields_scan
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 자동화 연구소
+    source_page: 11
+    reason: supplement가 없어 sub_kind로 승격 불가
+    preservation_note: 원문 라벨로 보존
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 11
+    reason: 도형 정보는 있으나 supplement sub_kind 없음
+    preservation_note: 공간 객체의 시각적 형태로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 자동화 연구소
+    source_page: 11
+    reason: 내부 표기이지만 별도 관계로 확정 불가
+    preservation_note: 라벨 중복 가능성 있음
+  - field_candidate: specs.position
+    raw_text: center
+    source_page: 11
+    reason: 정확한 좌표/배치 규칙 불명
+    preservation_note: 중앙 배치 표기로 보존
+  - field_candidate: specs.inferred_name
+    raw_text: Automation Lab
+    source_page: 11
+    reason: 추정명이나 확정 클래스/속성 아님
+    preservation_note: 명칭 후보로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Automation Testing; Research
+    source_page: 11
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 분류 시 기능 후보 참고
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이지만 function_category가 LABORATORY이고 inferred_name이 Automation
+      Lab이라 공간/기능명 혼합 표현임
+    recommended_handling: 0-9c에서 Space 계열로 우선 검토하되, 연구실/실명 공간인지 추가 도면 맥락과 함께 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - label, inferred_name, shape, position, function_category, ontology_hints를 모두
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:15:10.714902'
+  confidence: 0.93

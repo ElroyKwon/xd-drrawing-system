@@ -1,0 +1,242 @@
+axioms:
+- id: AX_SUB_01
+  type: SubClassOf
+  body:
+    sub: dks:Panel
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - '1101'
+  - BLK-LP-1F
+  confidence: 0.95
+- id: AX_SUB_02
+  type: SubClassOf
+  body:
+    sub: dks:SwitchgearPanel
+    super: dks:Panel
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - '1101'
+  - 1301A
+  confidence: 0.95
+- id: AX_SUB_03
+  type: SubClassOf
+  body:
+    sub: dks:DistributionPanel
+    super: dks:Panel
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - BLK-LP-1F
+  - P-A-4PP-1
+  confidence: 0.95
+- id: AX_SUB_04
+  type: SubClassOf
+  body:
+    sub: dks:Transformer
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - TR-001
+  - TR-002
+  confidence: 0.95
+- id: AX_SUB_05
+  type: SubClassOf
+  body:
+    sub: dks:ProtectionAndControlDevice
+    super: dks:ElectricalEquipment
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - MCCB-EA-MAIN
+  - SPD-F-001
+  confidence: 0.95
+- id: AX_SUB_06
+  type: SubClassOf
+  body:
+    sub: dks:CircuitBreaker
+    super: dks:ProtectionAndControlDevice
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - MCCB-EA-MAIN
+  - MCCB-F-MAIN
+  confidence: 0.95
+- id: AX_SUB_07
+  type: SubClassOf
+  body:
+    sub: dks:SurgeProtectiveDevice
+    super: dks:ProtectionAndControlDevice
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - SPD-F-001
+  - SPD-P-A-4PP-7
+  confidence: 0.95
+- id: AX_SUB_08
+  type: SubClassOf
+  body:
+    sub: dks:GroundingSystem
+    super: dks:GroundingAndLightningSystem
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - E3
+  - GND-E3-A
+  confidence: 0.95
+- id: AX_SUB_09
+  type: SubClassOf
+  body:
+    sub: dks:GroundingEquipment
+    super: dks:GroundingAndLightningSystem
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - GND-TERM-BOX-001
+  - GND-ELEC-001
+  confidence: 0.95
+- id: AX_SUB_10
+  type: SubClassOf
+  body:
+    sub: dks:Conductor
+    super: dks:ConductorAndConnection
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - COND-001
+  - BUSBAR-001
+  confidence: 0.95
+- id: AX_SUB_11
+  type: SubClassOf
+  body:
+    sub: dks:ElectricalCable
+    super: dks:ConductorAndConnection
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - BLK-22KV-ACSR
+  confidence: 0.95
+- id: AX_SUB_12
+  type: SubClassOf
+  body:
+    sub: dks:ElectricalConnector
+    super: dks:ConductorAndConnection
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - TERM-001
+  - CLAMP-001
+  confidence: 0.95
+- id: AX_SUB_13
+  type: SubClassOf
+  body:
+    sub: dks:InfrastructureAndSupport
+    super: owl:Thing
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - INF-CABLETRAY-001
+  - COND-TUBE-001
+  confidence: 0.95
+- id: AX_SUB_14
+  type: SubClassOf
+  body:
+    sub: dks:StructuralAndMechanical
+    super: owl:Thing
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - BUILDING-B-001
+  - STRUCT-001
+  - PIPE-001
+  confidence: 0.95
+- id: AX_SUB_15
+  type: SubClassOf
+  body:
+    sub: dks:InformationEntity
+    super: owl:Thing
+  derivation: class_taxonomy.subclass_relations 직접 귀납
+  evidence_tags:
+  - BLK-SEC-GENERAL
+  - PANEL-BLK-L01
+  confidence: 0.95
+- id: AX_DIS_01
+  type: DisjointWith
+  body:
+    classes:
+    - dks:ElectricalEquipment
+    - dks:InformationEntity
+  derivation: 물리적 장비와 도면 메타데이터 간 교집합 없음 관찰
+  evidence_tags:
+  - '1101'
+  - BLK-SEC-GENERAL
+  confidence: 0.99
+- id: AX_DIS_02
+  type: DisjointWith
+  body:
+    classes:
+    - dks:ElectricalEquipment
+    - dks:StructuralAndMechanical
+  derivation: 전기 공종 객체와 타 공종(건축/구조/기계) 객체 간 명확한 구분 관찰
+  evidence_tags:
+  - '1101'
+  - STRUCT-001
+  - PIPE-001
+  confidence: 0.95
+- id: AX_DIS_03
+  type: DisjointWith
+  body:
+    classes:
+    - dks:GroundingAndLightningSystem
+    - dks:InformationEntity
+  derivation: 물리적 접지 시스템과 도면 정보 간 교집합 없음 관찰
+  evidence_tags:
+  - E3
+  - BLK-SEC-GROUNDING
+  confidence: 0.99
+- id: AX_INV_01
+  type: InverseOf
+  body:
+    property1: dks:feeds
+    property2: dks:is_fed_by
+  derivation: BRANCH-P-P-4PP에서 is_fed_by P-P-4PP 관찰, P-P-4PP에서 feeds BRANCH-P-P-4PP
+    관찰
+  evidence_tags:
+  - BRANCH-P-P-4PP
+  - P-P-4PP
+  confidence: 0.9
+- id: AX_INV_02
+  type: InverseOf
+  body:
+    property1: dks:connects_to
+    property2: dks:connected_to
+  derivation: BLK-MCOB, STRUCT-003, TERM-001 등에서 connected_to 관찰, 1101 등에서 connects_to
+    관찰
+  evidence_tags:
+  - BLK-MCOB
+  - STRUCT-003
+  - TERM-001
+  - '1101'
+  confidence: 0.9
+- id: AX_INV_03
+  type: InverseOf
+  body:
+    property1: dks:contains
+    property2: dks:is_contained_in
+  derivation: BRANCH-P-AC-4PP-1에서 is_contained_in P-AC-4PP-1 관찰, P-AC-4PP-1에서 contains
+    BRANCH-P-AC-4PP-1 관찰
+  evidence_tags:
+  - BRANCH-P-AC-4PP-1
+  - P-AC-4PP-1
+  confidence: 0.9
+- id: AX_INV_04
+  type: InverseOf
+  body:
+    property1: dks:supported_by
+    property2: dks:supports
+  derivation: UNKNOWN-HORIZONTAL-CONDUCTOR-001에서 supported_by 관찰, INSUL-001에서 supports
+    관찰
+  evidence_tags:
+  - UNKNOWN-HORIZONTAL-CONDUCTOR-001
+  - INSUL-001
+  confidence: 0.9
+summary_by_type:
+  SubClassOf: 15
+  DisjointWith: 3
+  InverseOf: 4
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-17T13:21:31.415800'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.95

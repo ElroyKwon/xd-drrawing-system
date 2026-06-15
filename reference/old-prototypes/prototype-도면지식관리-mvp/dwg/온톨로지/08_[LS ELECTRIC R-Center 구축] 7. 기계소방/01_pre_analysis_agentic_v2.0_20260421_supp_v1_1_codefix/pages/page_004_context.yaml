@@ -1,0 +1,246 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: FIRE_PROTECTION
+  classification: SITE_PLAN
+  drawing_genre: site_plan
+  title_block:
+    drawing_number: MF-003
+    title: 옥외 소화 배관 평면도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 3
+  next_step_hints:
+  - 도면 제목과 표제란에 '옥외 소화 배관 평면도'가 보이며, 배관 경로가 굵은 실선/점선으로 표시됨.
+  - 페이지 내 설비 태그는 확인되지 않음.
+  - legend_data.yaml 조회 결과 NOT FOUND.
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/_general/supplement_p4_05.yaml
+  routing_confidence: 0.91
+  routing_reason: 표제란 도면번호 MF-003과 제목 '옥외 소화 배관 평면도'가 보이며, fire_protection 분야의 배관
+    배치 성격으로 판단되어 카탈로그의 genre_mechanical 보조자료로 라우팅함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: SITE_PLAN_AREA
+    shape: rectangle
+    primary_label: 옥외 소화 배관 평면도
+    position: center
+    labels_near:
+    - A동
+    - B동
+    - U.T.동
+    - 사무동
+    - 연결송수구(쌍구형)
+    - H 100
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: MF - 003
+    position: bottom-right
+    labels_near:
+    - 옥외 소화 배관 평면도
+    - LS Electric R-Center 구축
+  connections:
+  - from: SITE_PLAN_AREA
+    to: TITLE_BLOCK
+    line_style: solid
+    annotation: 도면 내용과 표제란 정보 일치
+  notable_shapes:
+  - shape: dashed_box
+    label: H 100
+    note: 옥외 소화 배관 경로를 나타내는 굵은 점선
+  - shape: circle
+    label: N
+    note: 방위 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 페이지 전체가 옥외 소화 배관 평면도로 구성되어 있으며, 범례 섹션은 포함되어 있지 않음.
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: site_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 MF-003(Mechanical Fire) 및 제목 '옥외 소화 배관 평면도'를 통해 FIRE_PROTECTION
+    분야 확정. 도면 내용이 옥외 배치도 형식이므로 site_plan 장르 유지. 카탈로그에 fire_protection/genre_site_plan
+    경로가 없으므로 _general 보조자료 추천.
+classification: SITE_PLAN
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: 옥외 소화 배관 평면도'
+- '도면 번호: MF-003'
+- '프로젝트명: LS Electric R-Center 구축'
+- '표제란 회사명: 가온건축'
+- '축척: A1 1/500, A3 1/1000'
+- '날짜: 2024.04'
+- '표시 텍스트: 연결송수구(쌍구형)'
+- '표시 텍스트: H 100'
+- '표시 텍스트: H L100'
+- '표시 텍스트: A동'
+- '표시 텍스트: B동'
+- '표시 텍스트: U.T.동'
+- '표시 텍스트: 사무동'
+title_block:
+  drawing_number: MF-003
+  title: 옥외 소화 배관 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=FIRE_PROTECTION, classification=SITE_PLAN, drawing_genre=site_plan
+  판정과 일치함. 페이지 이미지에서 표제란의 도면번호 MF-003과 제목 '옥외 소화 배관 평면도'가 확인됨. 범례 참고값(H=옥내소화전배관, SC=연결송수구배관)과
+  페이지 내 표기 '연결송수구(쌍구형)', 'H 100', 'H L100'이 보이나, 이 페이지 자체에는 범례 표가 없으므로 범례 페이지(3) 기준으로만
+  보강함. 리비전 표기는 이미지에서 명확히 확인되지 않아 UNKNOWN.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: SITE-MAIN
+    shape: rectangle
+    labels_inside:
+    - A동
+    - B동
+    - U.T.동
+    - 사무동
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: building_outline
+      count: 4
+    - type: fire_hydrant_connection_dual
+      count: 1
+    inferred_name: 옥외 부지 전체 배치 구역
+    position: center-left
+  - panel_id: FDC-01
+    shape: other
+    labels_inside:
+    - 연결송수구(쌍구형)
+    - 100ø × 65ø × 65ø
+    - (압력표시 관설부착)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 쌍구형연결송수구
+      count: 1
+    inferred_name: 쌍구형 연결송수구 (FDC)
+    position: center-top
+  - panel_id: PIPE-H-MAIN
+    shape: dashed_box
+    labels_inside:
+    - H 100
+    - H L100
+    labels_above:
+    - H L100
+    labels_below:
+    - H 100
+    equipment_symbols:
+    - type: 옥내소화전배관
+      count: 1
+    inferred_name: 옥내소화전 옥외 주배관 (100A)
+    position: center
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - MF - 003
+    - 옥외 소화 배관 평면도
+    - LS Electric R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 'A1 : 1/500'
+    - 'A3 : 1/1000'
+    - '2024.04'
+    - 오다일
+    - 명동식
+    - 이은진
+    - 정용재
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: STAMP-BLOCK
+    shape: rectangle
+    labels_inside:
+    - (주)정연엔지니어링
+    - MF 옥외 소화 배관 평면도
+    - 'SCALE : 1:500'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설계사 도장 및 도면 제목 블록
+    position: bottom-center
+  connections:
+  - from: FDC-01
+    to: PIPE-H-MAIN
+    line_type: pipe
+    line_style: dashed
+    annotation: 100ø × 65ø × 65ø 연결송수구에서 H 100 옥내소화전 주배관으로 연결
+  - from: PIPE-H-MAIN
+    to: SITE-MAIN
+    line_type: pipe
+    line_style: dashed
+    annotation: H 100 옥외 배관이 부지 내 건물 방향으로 분기
+  groups:
+  - group_id: GRP-OUTDOOR-FIRE
+    label: 옥외 소화 배관 계통
+    members:
+    - FDC-01
+    - PIPE-H-MAIN
+    - SITE-MAIN
+  legend_references:
+  - text: H (옥내소화전배관)
+    linked_to: PIPE-H-MAIN
+  - text: SC (연결송수구배관) / 쌍구형연결송수구
+    linked_to: FDC-01
+  diagram_meta:
+    title: 옥외 소화 배관 평면도
+    drawing_number: MF-003
+    project: LS Electric R-Center 구축
+    scale: A1:1/500, A3:1/1000
+    date: '2024.04'
+    design_firm: 가운건축 / (주)정연엔지니어링
+    discipline: FIRE_PROTECTION
+    fire_subsystem: mechanical
+    fire_mech_subsystem: site_outdoor
+    has_seismic: false
+    has_equipment_list: false
+    coverage_circles_present: false
+    flow_direction: UNKNOWN
+    discipline_corrected_by: null
+    discipline_correction_reason: null
+    pipes:
+    - abbreviation: H
+      system_type: 옥내소화전배관
+      nominal_diameter_A: 100
+      pipe_role: feed_main
+      line_style: dashed
+      note: 옥외 주배관, 점선으로 표시
+    - abbreviation: SC
+      system_type: 연결송수구배관
+      nominal_diameter_A: 100
+      branch_diameters_A:
+      - 65
+      - 65
+      pipe_role: feed_main
+      note: 연결송수구 100ø × 65ø × 65ø 쌍구형
+    equipment:
+    - tag: FDC-01
+      type: 쌍구형연결송수구
+      spec: 100ø × 65ø × 65ø (압력표시 관설부착)
+      symbol_ref: SYM-013
+      position: center-top of site plan
+    buildings_shown:
+    - A동
+    - B동
+    - U.T.동
+    - 사무동
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview

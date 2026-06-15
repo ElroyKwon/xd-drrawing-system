@@ -1,0 +1,96 @@
+entity_detail:
+  tag: P-F-2PP
+  type: panel_board
+  specs:
+    panel_board:
+      value: PANEL BOARD
+      source: 19
+      confidence: 0.99
+    panel_location:
+      value: PANEL LOCATION
+      source: 19
+      confidence: 0.99
+    cover_type:
+      value: 노출형(STEEL)
+      source: 19
+      confidence: 0.99
+    box_size:
+      value: '-'
+      source: 19
+      confidence: 0.99
+    voltage:
+      value: 3Ø 3W 220V
+      source: 23
+      confidence: 0.99
+  drawing_texts:
+  - source: page_019_context.yaml
+    page_number: 19
+    text: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page_019_context.yaml
+    page_number: 19
+    text: P-F-2PP
+  - source: page_023_context.yaml
+    page_number: 23
+    text: P-F-2PP
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 3Ø 3W 220V
+  - source: page_023_context.yaml
+    page_number: 23
+    text: LP-2F
+  - source: page_023_context.yaml
+    page_number: 23
+    text: 'from: LP-2F to: P-F-2PP'
+  requirements:
+  - text: COVER TYPE 노출형(STEEL)
+    source: 19
+    type: installation_condition
+  - text: BOX SIZE -
+    source: 19
+    type: spec_condition
+  - text: 3Ø 3W 220V
+    source: 23
+    type: electrical_condition
+  connection_specs:
+  - relation: power_feed
+    partner: MAIN
+    details:
+      source: 19
+  - relation: 배전
+    partner: LP-2F
+    details:
+      source: 23
+  - relation: electrical_line_connection
+    partner: MAIN
+    details:
+      source: 19
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_feed
+      partner_tag: MAIN
+      direction: from MAIN to P-F-2PP
+      source: 19
+    - relation_type: 배전
+      partner_tag: LP-2F
+      direction: from LP-2F to P-F-2PP
+      source: 23
+    observed_attributes:
+    - PANEL BOARD
+    - PANEL LOCATION
+    - COVER TYPE
+    - BOX SIZE
+    - 노출형(STEEL)
+    - 3Ø 3W 220V
+    similar_equipment:
+    - P-EA-2PP
+    - P-G-2PP
+    - P-I-2PP
+    suggested_parent_class: panel_board
+    cross_discipline: []
+  notes:
+  - 페이지 19와 23 모두에서 P-F-2PP가 확인됨.
+  - 연결 방향은 도면 분석 결과의 표기(from MAIN to panel board, from LP-2F to P-F-2PP)를 따름.
+tag: P-F-2PP

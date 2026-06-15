@@ -1,0 +1,1604 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (observed excerpt)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:11:49.326073'
+  classes:
+  - iri: dks:SpatialEntity
+    label: SpatialEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - BLDG-AB
+    - DUCT-CORRIDOR
+    - PIT-001
+    - SPACE-09
+    - SPACE-10
+    - UNKNOWN-SPACE-06
+    derivation: class_hint가 SpatialEntity로 직접 관찰됨. 건물/공동구/로비/공정영역/연결통로 등 공간성 개체를 포괄하는
+      상위 공간 클래스.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:Space
+    label: Space
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - BLDG-A
+    - ROOM-drive-기동시험실
+    - ROOM-drive-시험실
+    - ROOM-EMC-CHAMBER
+    - ROOM-계어룸
+    - ROOM-고객접견실
+    - ROOM-로비
+    - ROOM-전기발전기실
+    - ROOM-전기실
+    - ROOM-전류시험실
+    - ROOM-제어룸
+    - ROOM-컨트롤실
+    - ROOM-항온시험실
+    - SPACE-01
+    - SPACE-02
+    - SPACE-04
+    - SPACE-05
+    - SPACE-07
+    - SPACE-08
+    - SPACE-11
+    - SPACE-13
+    - SPACE-14
+    - SPACE-15
+    - SPACE-16
+    - SPACE-17
+    - SPACE-18
+    - SPACE-19
+    - SPACE-20
+    - SPACE-21
+    - SPACE-22
+    - UNKNOWN-SPACE-03
+    - UNKNOWN-SPACE-04
+    - UNKNOWN-SPACE-05
+    - UNKNOWN-SPACE-08
+    - UNKNOWN-SPACE-09
+    - UNKNOWN-SPACE-10
+    - UNKNOWN-SPACE-11
+    derivation: class_hint가 Space로 반복 관찰되며 room/space 명명 패턴과 일치.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Building
+    label: Building
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - BLDG-B
+    - BLDG-OFFICE
+    - BLDG-UT
+    derivation: class_hint가 Building으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:SpatialRegion
+    label: SpatialRegion
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - SPACE-23
+    - UNKNOWN-SPACE-12
+    derivation: class_hint가 SpatialRegion으로 직접 관찰됨. 옥외/층 위치 참조 같은 넓은 영역 표현.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SpatialZone
+    label: SpatialZone
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - UNKNOWN-SPACE-01
+    derivation: class_hint가 SpatialZone으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:BuildingSpace
+    label: BuildingSpace
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - UNKNOWN-SPACE-13
+    derivation: class_hint가 BuildingSpace로 직접 관찰되며 '2층 전체 평면 영역'이라는 이름 패턴상 층 전체 공간.
+    source_pages: []
+    confidence: 0.83
+  - iri: dks:Room
+    label: Room
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - SPACE-06
+    derivation: class_hint가 Room으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:ControlRoom
+    label: ControlRoom
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - UNKNOWN-SPACE-02
+    derivation: class_hint가 ControlRoom으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:FireProtectionSpace
+    label: FireProtectionSpace
+    super_classes:
+    - dks:Space
+    evidence_tags:
+    - ROOM-대용량오리부하실
+    derivation: class_hint가 FireProtectionSpace로 직접 관찰됨. 공간 클래스의 특수형으로 귀납.
+    source_pages: []
+    confidence: 0.76
+  - iri: dks:FireProtectionZone
+    label: FireProtectionZone
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - ROOM-전기발전기실-inline
+    derivation: class_hint가 FireProtectionZone으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.74
+  - iri: dks:Opening
+    label: Opening
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - UNKNOWN-SPACE-07
+    derivation: class_hint가 Opening으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:DocumentEntity
+    label: DocumentEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - COVER-TITLE-001
+    - INDEX-TABLE-001
+    derivation: class_hint가 DocumentEntity로 직접 관찰됨. 문서성 annotation 상위 클래스.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:TitleBlock
+    label: TitleBlock
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - ENGINEER-BLOCK
+    - MF-102
+    - SPACE-TITLE-001
+    - UNKNOWN-PANEL-5
+    derivation: class_hint가 TitleBlock으로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:DrawingMetadata
+    label: DrawingMetadata
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - TITLE-BLOCK-001
+    - TITLE-BLOCK-002
+    derivation: class_hint가 DrawingMetadata로 직접 관찰되며 표제란 메타데이터 블록을 지칭.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DocumentComponent
+    label: DocumentComponent
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - TITLE-BLOCK-SKETCH
+    derivation: class_hint가 DocumentComponent로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:DrawingIndex
+    label: DrawingIndex
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - MF-001
+    derivation: class_hint가 DrawingIndex로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:Legend
+    label: Legend
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - LEGEND-TABLE-001
+    - UNKNOWN-PANEL-4
+    derivation: class_hint가 Legend로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:LegendSection
+    label: LegendSection
+    super_classes:
+    - dks:Legend
+    evidence_tags:
+    - SPACE-NOTE-001
+    derivation: class_hint가 LegendSection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:GeneralNote
+    label: GeneralNote
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - NOTES-BOX
+    derivation: class_hint가 GeneralNote로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:DrawingAnnotation
+    label: DrawingAnnotation
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - NOTES_BOX
+    - STAMP-AREA-001
+    - TITLE-BANNER-001
+    derivation: class_hint가 DrawingAnnotation으로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:DrawingArea
+    label: DrawingArea
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - FLOOR_PLAN_AREA
+    derivation: class_hint가 DrawingArea로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:DrawingZone
+    label: DrawingZone
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - FLOOR-PLAN-AREA
+    derivation: class_hint가 DrawingZone으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Schedule
+    label: Schedule
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SCHEDULE-BRACE
+    - SCHEDULE_BOX
+    - UNKNOWN-PANEL-3
+    derivation: class_hint가 Schedule로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:QuantitySchedule
+    label: QuantitySchedule
+    super_classes:
+    - dks:Schedule
+    evidence_tags:
+    - BRACE-SCHED
+    derivation: class_hint가 QuantitySchedule로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:EquipmentSchedule
+    label: EquipmentSchedule
+    super_classes:
+    - dks:Schedule
+    evidence_tags:
+    - SEISMIC-BRACE-SCHEDULE
+    derivation: class_hint가 EquipmentSchedule로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:FireProtectionPlan
+    label: FireProtectionPlan
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - FLOOR-2F
+    - UNKNOWN-PANEL-1
+    derivation: class_hint가 FireProtectionPlan으로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:IsometricRepresentation
+    label: IsometricRepresentation
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-SHAPE-07
+    derivation: class_hint가 IsometricRepresentation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:InstallationDetail
+    label: InstallationDetail
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-DETAIL-03
+    derivation: class_hint가 InstallationDetail로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:FireProtectionDetail
+    label: FireProtectionDetail
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - DET-03
+    derivation: class_hint가 FireProtectionDetail로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:PipingConnectionDetail
+    label: PipingConnectionDetail
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - DET-04
+    derivation: class_hint가 PipingConnectionDetail로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:FireProtectionSignage
+    label: FireProtectionSignage
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - DET-02
+    - UNKNOWN-DETAIL-02
+    derivation: class_hint가 FireProtectionSignage로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:Signage
+    label: Signage
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-SHAPE-02
+    derivation: class_hint가 Signage로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:SystemMarker
+    label: SystemMarker
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - MF
+    derivation: class_hint가 SystemMarker로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:DirectionIndicator
+    label: DirectionIndicator
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-EQ-7
+    derivation: class_hint가 DirectionIndicator로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:CoverageArea
+    label: CoverageArea
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - COVERAGE-CIRCLE-SEISMIC
+    derivation: class_hint가 CoverageArea로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:FireProtectionCoverageGuide
+    label: FireProtectionCoverageGuide
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - UNKNOWN-SHAPE-01
+    derivation: class_hint가 FireProtectionCoverageGuide로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:PipingAnnotation
+    label: PipingAnnotation
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - PIPE-CONNECT-ANNOTATION
+    derivation: class_hint가 PipingAnnotation으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:FireDepartmentConnectionNote
+    label: FireDepartmentConnectionNote
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - FDC-CONNECTION
+    derivation: class_hint가 FireDepartmentConnectionNote로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:FireProtectionEquipment
+    label: FireProtectionEquipment
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - FDC-001
+    - FDC-01
+    - FE-04
+    - FE-05
+    - FE-08
+    - FE-09
+    - FE-16
+    - FHC-1F-01
+    - FHC-1F-02
+    - FHC-1F-03
+    - FHC-1F-04
+    - FHC-1F-05
+    - FHC-1F-06
+    - FHC-1F-07
+    - FHC-2F-01
+    - FHC-2F-03
+    - FHC-2F-05
+    - FHC-2F-07
+    - FHC-B
+    - FHC-L
+    - FHC-R
+    - FHC-ROOF-01
+    - FHC-ROOF-02
+    - FHC-ROOF
+    - FHY-001
+    - UNKNOWN-DETAIL-01
+    - UNKNOWN-EQUIP-02
+    - UNKNOWN-EQUIP-03
+    - UNKNOWN-SHAPE-03
+    derivation: class_hint가 FireProtectionEquipment로 반복 관찰되는 물리 설비 상위군.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:FireFightingEquipment
+    label: FireFightingEquipment
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FE-02
+    - FE-18
+    - FHC-01
+    - FHC-02
+    - FHC-03
+    - FHC-04
+    - FHC-2F-04
+    - FHC-C
+    - HOSE-REEL-FHC
+    derivation: class_hint가 FireFightingEquipment로 반복 관찰됨. FireProtectionEquipment보다
+      좁은 설비군으로 귀납.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:FireExtinguisher
+    label: FireExtinguisher
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FE-01
+    - FE-03
+    - FE-06
+    - FE-07
+    - FE-10
+    - FE-11
+    - FE-12
+    - FE-13
+    - FE-14
+    - FE-15
+    - FE-17
+    - SYM-010
+    derivation: class_hint가 FireExtinguisher로 반복 관찰되고 이름에 '분말 소화기'가 일관됨.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:FireExtinguishingEquipment
+    label: FireExtinguishingEquipment
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - SYM-009
+    derivation: class_hint가 FireExtinguishingEquipment로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.76
+  - iri: dks:FireHydrantCabinet
+    label: FireHydrantCabinet
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FHC-2F-02
+    - FHC-2F-06
+    derivation: class_hint가 FireHydrantCabinet으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:FireHoseCabinet
+    label: FireHoseCabinet
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FHC-LOBBY
+    - UNKNOWN-EQUIP-01
+    derivation: class_hint가 FireHoseCabinet으로 직접 관찰됨. 이름도 옥내소화전함 계열.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:FireHydrantCabinetDetail
+    label: FireHydrantCabinetDetail
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - DET-01
+    derivation: class_hint가 FireHydrantCabinetDetail로 직접 관찰됨. 상세도이므로 문서 계열로 배치.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:FireFightingConnection
+    label: FireFightingConnection
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - SYM-012
+    derivation: class_hint가 FireFightingConnection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:FireFightingPump
+    label: FireFightingPump
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FP-1
+    derivation: class_hint가 FireFightingPump로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:Pump
+    label: Pump
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FP-2
+    derivation: class_hint가 Pump로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:PressureVessel
+    label: PressureVessel
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - FT-1
+    derivation: class_hint가 PressureVessel로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:Valve
+    label: Valve
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - SYM-005
+    - UNKNOWN-EQ-1
+    - UNKNOWN-EQ-2
+    - UNKNOWN-EQ-5
+    - UNKNOWN-EQ-6
+    - UNKNOWN-VALVE-01
+    - UNKNOWN-VALVE-02
+    - VALVE-AD-001
+    - VALVE-CHECK-001
+    - VALVE-GATE-001
+    - UNKNOWN-SHAPE-05
+    derivation: class_hint가 Valve로 반복 관찰됨. 게이트/체크/자동배수밸브 포함.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Strainer
+    label: Strainer
+    super_classes:
+    - dks:FireProtectionEquipment
+    evidence_tags:
+    - SYM-006
+    - SYM-007
+    - UNKNOWN-VALVE-04
+    derivation: class_hint가 Strainer로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:PipingEntity
+    label: PipingEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - PIPE-UG-001
+    - SYM-002
+    derivation: class_hint가 PipingEntity로 직접 관찰됨. 배관 계열 상위 클래스.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:Pipe
+    label: Pipe
+    super_classes:
+    - dks:PipingEntity
+    evidence_tags:
+    - PIT층-H-동01
+    - PIT층-H-동03
+    - PIT층-SP-동01
+    - UNKNOWN-PIPE-02
+    - UNKNOWN-PIPE-03
+    derivation: class_hint가 Pipe로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:FireProtectionPipe
+    label: FireProtectionPipe
+    super_classes:
+    - dks:Pipe
+    evidence_tags:
+    - PIPE-H-100-EX
+    - PIPE-H-100-NEW
+    - PIPE-H-EXISTING
+    - PIPE-H-MAIN
+    - PIPE-SC-100-NEW
+    - PIPE-SP-150-NEW
+    - PIT층-H-동02
+    - UNKNOWN-PIPE-01
+    - UNKNOWN-PIPE-04
+    - UNKNOWN-PIPE-05
+    - UNKNOWN-PIPE-06
+    - UNKNOWN-PIPE-07
+    - UNKNOWN-PIPE-08
+    - RISER-06
+    derivation: class_hint가 FireProtectionPipe로 반복 관찰됨. 이름 패턴도 배관/옥내소화전배관/연결송수구배관.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:FireProtectionPiping
+    label: FireProtectionPiping
+    super_classes:
+    - dks:PipingEntity
+    evidence_tags:
+    - PIPE-SC-MAIN
+    - PIPE-SP-150-EX
+    - RISER-04
+    - RISER-07
+    - RISER-DN-50a-N
+    - RISER-DN-50a-NE
+    - RISER-DN-50a-NW
+    - RISER-DN-50a-W
+    - RISER-H-05
+    - RISER-H-06
+    - RISER-H-07
+    - RISER-H-08
+    - RISER-UP-100a-NE
+    - SYM-001
+    - SYM-003
+    - UNKNOWN-RISER-01
+    derivation: class_hint가 FireProtectionPiping으로 반복 관찰됨. Pipe보다 넓은 배관/입상관 표현군.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:PipingComponent
+    label: PipingComponent
+    super_classes:
+    - dks:PipingEntity
+    evidence_tags:
+    - CONN-FLEX-001
+    - RISER-BC-1
+    - RISER-CN-50a-CENTER
+    - RISER-DN-50a-S
+    - RISER-TL-1
+    - RISER-TR-2
+    - SYM-008
+    - UNKNOWN-PIPE-RISER-01
+    - UNKNOWN-PIPE-RISER-02
+    - UNKNOWN-RISER-03
+    - UNKNOWN-VALVE-03
+    derivation: class_hint가 PipingComponent로 반복 관찰됨. 조인트/입상관 표식/배관 구성요소를 포함.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:PipeFitting
+    label: PipeFitting
+    super_classes:
+    - dks:PipingComponent
+    evidence_tags:
+    - CONN-PIPE-001
+    derivation: class_hint가 PipeFitting으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:PipeConnection
+    label: PipeConnection
+    super_classes:
+    - dks:PipingComponent
+    evidence_tags:
+    - CONN-UP-100
+    - EXISTING-FHC
+    derivation: class_hint가 PipeConnection으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:PipeRiser
+    label: PipeRiser
+    super_classes:
+    - dks:PipingComponent
+    evidence_tags:
+    - RISER-02
+    - RISER-H-01
+    - RISER-H-03
+    - RISER-UP-100a
+    - UNKNOWN-PIPE-RISER-03
+    - UNKNOWN-PIPE-RISER-04
+    - UNKNOWN-RISER-02
+    derivation: class_hint가 PipeRiser로 반복 관찰됨. 이름 패턴도 RISER.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:PIPE_RISER
+    label: PIPE_RISER
+    super_classes:
+    - dks:PipeRiser
+    evidence_tags:
+    - RISER-H-02
+    - RISER-H-04
+    - RISER-TC-1
+    - RISER-TR-1
+    - UNKNOWN-RISER-04
+    - UNKNOWN-RISER-05
+    - UNKNOWN-RISER-06
+    derivation: class_hint가 PIPE_RISER라는 별도 표기로 반복 관찰됨. PipeRiser와 매우 근접하지만 evidence상
+      별도 hint이므로 하위/표기변형 클래스로 유지.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:FireProtectionRiser
+    label: FireProtectionRiser
+    super_classes:
+    - dks:PipeRiser
+    evidence_tags:
+    - RISER-01
+    - RISER-03
+    - RISER-05
+    derivation: class_hint가 FireProtectionRiser로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:FlexibleJoint
+    label: FlexibleJoint
+    super_classes:
+    - dks:PipingComponent
+    evidence_tags:
+    - UNKNOWN-EQ-3
+    derivation: class_hint가 FlexibleJoint로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:PipeSupport
+    label: PipeSupport
+    super_classes:
+    - dks:PipingComponent
+    evidence_tags:
+    - DET-06
+    derivation: class_hint가 PipeSupport로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:SeismicProtectionEntity
+    label: SeismicProtectionEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-PANEL-2
+    derivation: class_hint가 SeismicProtectionEntity로 직접 관찰됨. 내진 관련 상위군.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:SeismicBrace
+    label: SeismicBrace
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - BRACE-H-17
+    - BRACE-H-19
+    - BRACE-H-20
+    - BRACE-H-21
+    - BRACE-L-21
+    derivation: class_hint가 SeismicBrace로 반복 관찰됨. 이름 패턴도 '내진 버팀대'.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:SeismicRestraint
+    label: SeismicRestraint
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - BRACE-H-18
+    - BRACE-L-20
+    derivation: class_hint가 SeismicRestraint로 직접 관찰됨. SeismicBrace와 근접하지만 evidence상
+      별도 hint 유지.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:SeismicBraceTag
+    label: SeismicBraceTag
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - BRACE-H-23
+    - BRACE-H-24
+    - BRACE-H-25
+    - BRACE-H-26
+    - BRACE-H-27
+    - BRACE-H-30
+    - BRACE-H-33
+    - BRACE-H-36
+    - BRACE-L-24
+    - BRACE-L-25
+    - BRACE-L-28
+    derivation: class_hint가 SeismicBraceTag로 반복 관찰되며 이름에 '식별 태그'가 일관됨.
+    source_pages: []
+    confidence: 0.94
+  - iri: dks:IdentificationTag
+    label: IdentificationTag
+    super_classes:
+    - dks:SeismicBraceTag
+    evidence_tags:
+    - BRACE-H-22
+    - BRACE-H-28
+    - BRACE-H-29
+    - BRACE-H-31
+    - BRACE-H-32
+    - BRACE-H-34
+    - BRACE-H-35
+    - BRACE-H-37
+    - BRACE-H-H-01
+    - BRACE-H-H-02
+    - BRACE-H-H-03
+    - BRACE-H-H-04
+    - BRACE-H-H-05
+    - BRACE-L-23
+    - BRACE-L-26
+    - BRACE-L-27
+    - BRACE-LONG-01
+    - BRACE-LONG-02
+    derivation: class_hint가 IdentificationTag로 반복 관찰되고 모두 내진 버팀대 식별 태그 명명 패턴.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:SeismicBracing
+    label: SeismicBracing
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - BRACE-L-22
+    - UNKNOWN-SHAPE-2
+    derivation: class_hint가 SeismicBracing으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:SeismicBracingDetail
+    label: SeismicBracingDetail
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - DET-05
+    - DET-08
+    derivation: class_hint가 SeismicBracingDetail로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SeismicProtectionComponent
+    label: SeismicProtectionComponent
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - DET-07
+    derivation: class_hint가 SeismicProtectionComponent로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:SeismicProtectionDevice
+    label: SeismicProtectionDevice
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - UNKNOWN-EQ-4
+    derivation: class_hint가 SeismicProtectionDevice로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:SeismicProtectionEquipment
+    label: SeismicProtectionEquipment
+    super_classes:
+    - dks:SeismicProtectionEntity
+    evidence_tags:
+    - UNKNOWN-SHAPE-1
+    derivation: class_hint가 SeismicProtectionEquipment로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Group
+    label: Group
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - GRP-내진설비
+    derivation: class_hint가 Group으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:FireProtectionSystemGroup
+    label: FireProtectionSystemGroup
+    super_classes:
+    - dks:Group
+    evidence_tags:
+    - GRP-소화설비
+    derivation: class_hint가 FireProtectionSystemGroup으로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:FireExtinguisherSymbol
+    label: FireExtinguisherSymbol
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - ABC-EXTINGUISHER
+    derivation: class_hint가 FireExtinguisherSymbol로 직접 관찰됨. 범례 심볼이므로 문서/annotation
+      계열.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:FireProtectionLegendSymbol
+    label: FireProtectionLegendSymbol
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - FDC-LEGEND
+    derivation: class_hint가 FireProtectionLegendSymbol로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:ValveSymbol
+    label: ValveSymbol
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SYM-004
+    - UNKNOWN-SHAPE-04
+    - UNKNOWN-SHAPE-06
+    derivation: class_hint가 ValveSymbol로 반복 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:FireProtectionSymbol
+    label: FireProtectionSymbol
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - SYM-011
+    derivation: class_hint가 FireProtectionSymbol로 직접 관찰됨.
+    source_pages: []
+    confidence: 0.8
+  subclass_relations:
+  - sub: dks:Space
+    super: dks:SpatialEntity
+    derivation: Space class_hint 다수와 SpatialEntity class_hint 다수의 명시적 상하 의미.
+    confidence: 0.95
+  - sub: dks:Building
+    super: dks:SpatialEntity
+    derivation: Building은 공간 실체의 특수형으로 관찰.
+    confidence: 0.94
+  - sub: dks:SpatialRegion
+    super: dks:SpatialEntity
+    derivation: Region은 공간 상위군의 하위 표현.
+    confidence: 0.9
+  - sub: dks:SpatialZone
+    super: dks:SpatialEntity
+    derivation: Zone 명명과 SpatialEntity 대안 힌트 일치.
+    confidence: 0.84
+  - sub: dks:BuildingSpace
+    super: dks:Space
+    derivation: BuildingSpace는 층 전체 공간으로 Space의 특수형.
+    confidence: 0.86
+  - sub: dks:Room
+    super: dks:Space
+    derivation: Room은 Space의 세부형.
+    confidence: 0.9
+  - sub: dks:ControlRoom
+    super: dks:Space
+    derivation: ControlRoom은 room 명명 패턴상 Space 하위.
+    confidence: 0.88
+  - sub: dks:FireProtectionSpace
+    super: dks:Space
+    derivation: 이름상 fire protection 특화 공간.
+    confidence: 0.8
+  - sub: dks:FireProtectionZone
+    super: dks:SpatialEntity
+    derivation: Zone 명명과 공간적 성격.
+    confidence: 0.78
+  - sub: dks:Opening
+    super: dks:SpatialEntity
+    derivation: 개구부는 공간적 요소.
+    confidence: 0.8
+  - sub: dks:TitleBlock
+    super: dks:DocumentEntity
+    derivation: 표제란/설계사 블록은 문서 구성요소.
+    confidence: 0.95
+  - sub: dks:DrawingMetadata
+    super: dks:DocumentEntity
+    derivation: DrawingMetadata 명칭상 문서 메타데이터.
+    confidence: 0.94
+  - sub: dks:DocumentComponent
+    super: dks:DocumentEntity
+    derivation: 명칭상 문서 구성요소.
+    confidence: 0.9
+  - sub: dks:DrawingIndex
+    super: dks:DocumentEntity
+    derivation: 도면목록표는 문서 엔티티.
+    confidence: 0.92
+  - sub: dks:Legend
+    super: dks:DocumentEntity
+    derivation: 범례 표는 문서 엔티티.
+    confidence: 0.94
+  - sub: dks:LegendSection
+    super: dks:Legend
+    derivation: 이름상 범례의 섹션.
+    confidence: 0.9
+  - sub: dks:GeneralNote
+    super: dks:DocumentEntity
+    derivation: 주기는 문서 주석.
+    confidence: 0.9
+  - sub: dks:DrawingAnnotation
+    super: dks:DocumentEntity
+    derivation: 명칭상 도면 주석.
+    confidence: 0.94
+  - sub: dks:DrawingArea
+    super: dks:DocumentEntity
+    derivation: 도면 영역은 문서 구조 요소.
+    confidence: 0.84
+  - sub: dks:DrawingZone
+    super: dks:DocumentEntity
+    derivation: 도면 영역/존은 문서 구조 요소.
+    confidence: 0.84
+  - sub: dks:Schedule
+    super: dks:DocumentEntity
+    derivation: 수량표/스케줄은 문서 엔티티.
+    confidence: 0.94
+  - sub: dks:QuantitySchedule
+    super: dks:Schedule
+    derivation: QuantitySchedule 명칭상 Schedule 하위.
+    confidence: 0.92
+  - sub: dks:EquipmentSchedule
+    super: dks:Schedule
+    derivation: EquipmentSchedule 명칭상 Schedule 하위.
+    confidence: 0.9
+  - sub: dks:FireProtectionPlan
+    super: dks:DocumentEntity
+    derivation: 평면도/패널은 문서 엔티티.
+    confidence: 0.95
+  - sub: dks:IsometricRepresentation
+    super: dks:DocumentEntity
+    derivation: 다이어그램 표현체.
+    confidence: 0.84
+  - sub: dks:InstallationDetail
+    super: dks:DocumentEntity
+    derivation: 상세도 명칭.
+    confidence: 0.88
+  - sub: dks:FireProtectionDetail
+    super: dks:DocumentEntity
+    derivation: 소방 상세도 명칭.
+    confidence: 0.88
+  - sub: dks:PipingConnectionDetail
+    super: dks:DocumentEntity
+    derivation: 배관 연결 상세도 명칭.
+    confidence: 0.88
+  - sub: dks:FireProtectionSignage
+    super: dks:DocumentEntity
+    derivation: 안내표지 상세/표식은 문서 표현체.
+    confidence: 0.84
+  - sub: dks:Signage
+    super: dks:DocumentEntity
+    derivation: 표지 도형은 문서 표현체.
+    confidence: 0.8
+  - sub: dks:SystemMarker
+    super: dks:DocumentEntity
+    derivation: 마커는 annotation 성격.
+    confidence: 0.82
+  - sub: dks:DirectionIndicator
+    super: dks:DocumentEntity
+    derivation: 화살표 표시는 annotation 성격.
+    confidence: 0.84
+  - sub: dks:CoverageArea
+    super: dks:DocumentEntity
+    derivation: 점선원/범위 표시는 annotation 성격.
+    confidence: 0.82
+  - sub: dks:FireProtectionCoverageGuide
+    super: dks:DocumentEntity
+    derivation: 유효반경 표시는 guide/annotation 성격.
+    confidence: 0.84
+  - sub: dks:PipingAnnotation
+    super: dks:DocumentEntity
+    derivation: 배관 연결 주석.
+    confidence: 0.88
+  - sub: dks:FireDepartmentConnectionNote
+    super: dks:DocumentEntity
+    derivation: 연결송수구 관련 주석.
+    confidence: 0.88
+  - sub: dks:FireHydrantCabinetDetail
+    super: dks:DocumentEntity
+    derivation: 상세도 명칭.
+    confidence: 0.92
+  - sub: dks:FireExtinguisherSymbol
+    super: dks:DocumentEntity
+    derivation: 범례 심볼.
+    confidence: 0.9
+  - sub: dks:FireProtectionLegendSymbol
+    super: dks:DocumentEntity
+    derivation: 범례 심볼.
+    confidence: 0.88
+  - sub: dks:ValveSymbol
+    super: dks:DocumentEntity
+    derivation: 밸브 심볼.
+    confidence: 0.92
+  - sub: dks:FireProtectionSymbol
+    super: dks:DocumentEntity
+    derivation: 소방 설비 심볼.
+    confidence: 0.84
+  - sub: dks:FireFightingEquipment
+    super: dks:FireProtectionEquipment
+    derivation: class_hint 명칭상 소방설비의 하위군.
+    confidence: 0.9
+  - sub: dks:FireExtinguisher
+    super: dks:FireProtectionEquipment
+    derivation: 소화기는 소방설비 하위군.
+    confidence: 0.96
+  - sub: dks:FireExtinguishingEquipment
+    super: dks:FireProtectionEquipment
+    derivation: 명칭상 소화설비 하위군.
+    confidence: 0.84
+  - sub: dks:FireHydrantCabinet
+    super: dks:FireProtectionEquipment
+    derivation: 옥내소화전함은 소방설비 하위군.
+    confidence: 0.95
+  - sub: dks:FireHoseCabinet
+    super: dks:FireProtectionEquipment
+    derivation: 이름상 cabinet 계열 소방설비.
+    confidence: 0.92
+  - sub: dks:FireFightingConnection
+    super: dks:FireProtectionEquipment
+    derivation: 연결송수구 계열 설비.
+    confidence: 0.82
+  - sub: dks:FireFightingPump
+    super: dks:FireProtectionEquipment
+    derivation: 펌프는 소방설비 하위군.
+    confidence: 0.9
+  - sub: dks:Pump
+    super: dks:FireProtectionEquipment
+    derivation: 펌프는 설비 하위군.
+    confidence: 0.86
+  - sub: dks:PressureVessel
+    super: dks:FireProtectionEquipment
+    derivation: 압력탱크는 설비 하위군.
+    confidence: 0.86
+  - sub: dks:Valve
+    super: dks:FireProtectionEquipment
+    derivation: 밸브는 소방 배관 설비 구성요소로 반복 관찰.
+    confidence: 0.9
+  - sub: dks:Strainer
+    super: dks:FireProtectionEquipment
+    derivation: 스트레이너/여과망은 설비 구성요소.
+    confidence: 0.86
+  - sub: dks:Pipe
+    super: dks:PipingEntity
+    derivation: Pipe는 배관 엔티티의 직접 하위.
+    confidence: 0.94
+  - sub: dks:FireProtectionPipe
+    super: dks:Pipe
+    derivation: FireProtectionPipe는 Pipe의 특수형.
+    confidence: 0.95
+  - sub: dks:FireProtectionPiping
+    super: dks:PipingEntity
+    derivation: 배관 계통 전체를 가리키는 더 넓은 표현.
+    confidence: 0.9
+  - sub: dks:PipingComponent
+    super: dks:PipingEntity
+    derivation: 배관 구성요소/입상관 표식/조인트 포함.
+    confidence: 0.92
+  - sub: dks:PipeFitting
+    super: dks:PipingComponent
+    derivation: 피팅은 배관 구성요소.
+    confidence: 0.92
+  - sub: dks:PipeConnection
+    super: dks:PipingComponent
+    derivation: 연결부는 배관 구성요소.
+    confidence: 0.92
+  - sub: dks:PipeRiser
+    super: dks:PipingComponent
+    derivation: 입상관은 배관 구성요소/세부형.
+    confidence: 0.94
+  - sub: dks:PIPE_RISER
+    super: dks:PipeRiser
+    derivation: 동일 의미권의 대문자/언더스코어 class_hint 변형.
+    confidence: 0.8
+  - sub: dks:FireProtectionRiser
+    super: dks:PipeRiser
+    derivation: 소방 입상관은 입상관의 특수형.
+    confidence: 0.94
+  - sub: dks:FlexibleJoint
+    super: dks:PipingComponent
+    derivation: 후렉시블 조인트는 배관 구성요소.
+    confidence: 0.94
+  - sub: dks:PipeSupport
+    super: dks:PipingComponent
+    derivation: 배관 지지대/클램프 상세.
+    confidence: 0.84
+  - sub: dks:SeismicBrace
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 버팀대 직접 관찰.
+    confidence: 0.95
+  - sub: dks:SeismicRestraint
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 restraint 직접 관찰.
+    confidence: 0.86
+  - sub: dks:SeismicBraceTag
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 버팀대 식별 태그군.
+    confidence: 0.94
+  - sub: dks:IdentificationTag
+    super: dks:SeismicBraceTag
+    derivation: 관찰된 IdentificationTag 대부분이 내진 버팀대 식별 태그.
+    confidence: 0.93
+  - sub: dks:SeismicBracing
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 브레이싱 일반 표현.
+    confidence: 0.84
+  - sub: dks:SeismicBracingDetail
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 상세도.
+    confidence: 0.92
+  - sub: dks:SeismicProtectionComponent
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 구성요소 상세.
+    confidence: 0.86
+  - sub: dks:SeismicProtectionDevice
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 장치.
+    confidence: 0.86
+  - sub: dks:SeismicProtectionEquipment
+    super: dks:SeismicProtectionEntity
+    derivation: 내진 설비.
+    confidence: 0.86
+  - sub: dks:FireProtectionSystemGroup
+    super: dks:Group
+    derivation: 명칭상 그룹의 특수형.
+    confidence: 0.9
+  disjoint_candidates:
+  - classes:
+    - dks:DocumentEntity
+    - dks:SpatialEntity
+    reason: evidence_tags 교집합 0. 문서/도면 주석 계열과 공간 계열이 관찰상 분리됨.
+    confidence: 0.93
+  - classes:
+    - dks:DocumentEntity
+    - dks:FireProtectionEquipment
+    reason: evidence_tags 교집합 0. 문서성 태그와 물리 설비 태그가 분리됨.
+    confidence: 0.92
+  - classes:
+    - dks:DocumentEntity
+    - dks:PipingEntity
+    reason: evidence_tags 교집합 0. 도면/주석과 배관 엔티티가 분리됨.
+    confidence: 0.92
+  - classes:
+    - dks:SpatialEntity
+    - dks:FireProtectionEquipment
+    reason: evidence_tags 교집합 0. 공간과 설비가 분리됨.
+    confidence: 0.9
+  - classes:
+    - dks:SpatialEntity
+    - dks:PipingEntity
+    reason: evidence_tags 교집합 0. 공간과 배관이 분리됨.
+    confidence: 0.9
+  - classes:
+    - dks:FireProtectionEquipment
+    - dks:PipingEntity
+    reason: evidence_tags 교집합 0. 설비와 배관이 분리됨.
+    confidence: 0.88
+  - classes:
+    - dks:SeismicProtectionEntity
+    - dks:DocumentEntity
+    reason: 현재 분류된 evidence_tags 기준 교집합 0. 다만 내진 상세도는 문서로도 나타나므로 후보 수준 유지.
+    confidence: 0.62
+  hierarchy_summary:
+    total_classes: 58
+    max_depth: 3
+    by_discipline:
+      fire_protection: 58
+  unclassified_tags:
+  - tag: SYM-001
+    reason: AnnotationOnly인데 class_hint가 FireProtectionPiping으로 물리 배관형과 충돌. 심볼/범례인지
+      배관 클래스인지 경계 불명확.
+    hint: legend symbol 계열 재검토
+  - tag: SYM-002
+    reason: AnnotationOnly이며 PipingEntity hint. 실제 배관이 아니라 범례 항목일 가능성 큼.
+    hint: Piping legend symbol 또는 legend item 후보
+  - tag: SYM-003
+    reason: NamedIndividual이나 이름상 범례 항목 가능성. FireProtectionPiping 실체/심볼 혼재.
+    hint: symbol vs piping instance 재검토
+  - tag: HOSE-REEL-FHC
+    reason: 범례 심볼 이름인데 class_hint는 FireFightingEquipment. 문서 심볼과 설비 클래스가 충돌.
+    hint: cabinet symbol 하위 클래스 후보
+  - tag: UNKNOWN-DETAIL-01
+    reason: 이름과 assertions는 상세도인데 class_hint는 FireProtectionEquipment.
+    hint: FireHydrantCabinetDetail 계열로 재평가
+  - tag: UNKNOWN-SHAPE-03
+    reason: 심볼 이름인데 class_hint는 FireProtectionEquipment.
+    hint: FireProtectionLegendSymbol 또는 FireFightingConnection symbol 후보
+  - tag: UNKNOWN-SHAPE-05
+    reason: 심볼 이름인데 class_hint는 Valve.
+    hint: ValveSymbol 후보
+  - tag: SPACE-03
+    reason: AnnotationOnly인데 class_hint가 Space. 실제 공간 개체인지 텍스트 라벨인지 불명확.
+    hint: space label vs space instance 재검토
+  plan_deviations:
+  - plan_item: predicted top_level에 AnnotationEntity 포함
+    actual_finding: 관찰 evidence에서는 AnnotationEntity가 안정적 class_hint로 거의 직접 등장하지 않았고,
+      DocumentEntity/ DrawingAnnotation/Legend/Schedule 등 더 구체적 문서 계열이 우세함.
+    action_taken: 최상위는 DocumentEntity로 통합하고 AnnotationEntity는 별도 클래스 생성하지 않음.
+  - plan_item: FireProtectionEquipment와 PipingEntity를 완전히 분리한 상위 구조
+    actual_finding: 일부 태그는 심볼/상세/설비/배관 hint가 혼재함(SYM-001, SYM-003, UNKNOWN-DETAIL-01
+      등).
+    action_taken: 명확한 evidence가 있는 태그만 클래스 증거로 사용하고 혼재 태그는 unclassified_tags에 기록.
+  - plan_item: SeismicProtectionEntity 내부에서 Brace/BraceTag/SeismicDetail 분화
+    actual_finding: 실제 evidence에서 IdentificationTag와 SeismicBraceTag가 강하게 나타나 별도 계층이
+      필요했음.
+    action_taken: IdentificationTag를 SeismicBraceTag 하위로 추가.
+  - plan_item: DocumentEntity, SpatialEntity, FireProtectionEquipment, PipingEntity,
+      SeismicProtectionEntity 5대 군집
+    actual_finding: Group 계열이 독립적으로 관찰됨.
+    action_taken: Group을 별도 최상위 보조군으로 추가.
+  back_update_instructions:
+    per_tag_confirmed_class:
+      ABC-EXTINGUISHER: dks:FireExtinguisherSymbol
+      BLDG-A: dks:Space
+      BLDG-AB: dks:SpatialEntity
+      BLDG-B: dks:Building
+      BLDG-OFFICE: dks:Building
+      BLDG-UT: dks:Building
+      BRACE-H-17: dks:SeismicBrace
+      BRACE-H-18: dks:SeismicRestraint
+      BRACE-H-19: dks:SeismicBrace
+      BRACE-H-20: dks:SeismicBrace
+      BRACE-H-21: dks:SeismicBrace
+      BRACE-H-22: dks:IdentificationTag
+      BRACE-H-23: dks:SeismicBraceTag
+      BRACE-H-24: dks:SeismicBraceTag
+      BRACE-H-25: dks:SeismicBraceTag
+      BRACE-H-26: dks:SeismicBraceTag
+      BRACE-H-27: dks:SeismicBraceTag
+      BRACE-H-28: dks:IdentificationTag
+      BRACE-H-29: dks:IdentificationTag
+      BRACE-H-30: dks:SeismicBraceTag
+      BRACE-H-31: dks:IdentificationTag
+      BRACE-H-32: dks:IdentificationTag
+      BRACE-H-33: dks:SeismicBraceTag
+      BRACE-H-34: dks:IdentificationTag
+      BRACE-H-35: dks:IdentificationTag
+      BRACE-H-36: dks:SeismicBraceTag
+      BRACE-H-37: dks:IdentificationTag
+      BRACE-H-H-01: dks:IdentificationTag
+      BRACE-H-H-02: dks:IdentificationTag
+      BRACE-H-H-03: dks:IdentificationTag
+      BRACE-H-H-04: dks:IdentificationTag
+      BRACE-H-H-05: dks:IdentificationTag
+      BRACE-L-20: dks:SeismicRestraint
+      BRACE-L-21: dks:SeismicBrace
+      BRACE-L-22: dks:SeismicBracing
+      BRACE-L-23: dks:IdentificationTag
+      BRACE-L-24: dks:SeismicBraceTag
+      BRACE-L-25: dks:SeismicBraceTag
+      BRACE-L-26: dks:IdentificationTag
+      BRACE-L-27: dks:IdentificationTag
+      BRACE-L-28: dks:SeismicBraceTag
+      BRACE-LONG-01: dks:IdentificationTag
+      BRACE-LONG-02: dks:IdentificationTag
+      BRACE-SCHED: dks:QuantitySchedule
+      CONN-FLEX-001: dks:PipingComponent
+      CONN-PIPE-001: dks:PipeFitting
+      CONN-UP-100: dks:PipeConnection
+      COVER-TITLE-001: dks:DocumentEntity
+      COVERAGE-CIRCLE-SEISMIC: dks:CoverageArea
+      DET-01: dks:FireHydrantCabinetDetail
+      DET-02: dks:FireProtectionSignage
+      DET-03: dks:FireProtectionDetail
+      DET-04: dks:PipingConnectionDetail
+      DET-05: dks:SeismicBracingDetail
+      DET-06: dks:PipeSupport
+      DET-07: dks:SeismicProtectionComponent
+      DET-08: dks:SeismicBracingDetail
+      DUCT-CORRIDOR: dks:SpatialEntity
+      ENGINEER-BLOCK: dks:TitleBlock
+      EXISTING-FHC: dks:PipeConnection
+      FDC-001: dks:FireProtectionEquipment
+      FDC-01: dks:FireProtectionEquipment
+      FDC-CONNECTION: dks:FireDepartmentConnectionNote
+      FDC-LEGEND: dks:FireProtectionLegendSymbol
+      FE-01: dks:FireExtinguisher
+      FE-02: dks:FireFightingEquipment
+      FE-03: dks:FireExtinguisher
+      FE-04: dks:FireProtectionEquipment
+      FE-05: dks:FireProtectionEquipment
+      FE-06: dks:FireExtinguisher
+      FE-07: dks:FireExtinguisher
+      FE-08: dks:FireProtectionEquipment
+      FE-09: dks:FireProtectionEquipment
+      FE-10: dks:FireExtinguisher
+      FE-11: dks:FireExtinguisher
+      FE-12: dks:FireExtinguisher
+      FE-13: dks:FireExtinguisher
+      FE-14: dks:FireExtinguisher
+      FE-15: dks:FireExtinguisher
+      FE-16: dks:FireProtectionEquipment
+      FE-17: dks:FireExtinguisher
+      FE-18: dks:FireFightingEquipment
+      FHC-01: dks:FireFightingEquipment
+      FHC-02: dks:FireFightingEquipment
+      FHC-03: dks:FireFightingEquipment
+      FHC-04: dks:FireFightingEquipment
+      FHC-1F-01: dks:FireProtectionEquipment
+      FHC-1F-02: dks:FireProtectionEquipment
+      FHC-1F-03: dks:FireProtectionEquipment
+      FHC-1F-04: dks:FireProtectionEquipment
+      FHC-1F-05: dks:FireProtectionEquipment
+      FHC-1F-06: dks:FireProtectionEquipment
+      FHC-1F-07: dks:FireProtectionEquipment
+      FHC-2F-01: dks:FireProtectionEquipment
+      FHC-2F-02: dks:FireHydrantCabinet
+      FHC-2F-03: dks:FireProtectionEquipment
+      FHC-2F-04: dks:FireFightingEquipment
+      FHC-2F-05: dks:FireProtectionEquipment
+      FHC-2F-06: dks:FireHydrantCabinet
+      FHC-2F-07: dks:FireProtectionEquipment
+      FHC-B: dks:FireProtectionEquipment
+      FHC-C: dks:FireFightingEquipment
+      FHC-L: dks:FireProtectionEquipment
+      FHC-LOBBY: dks:FireHoseCabinet
+      FHC-R: dks:FireProtectionEquipment
+      FHC-ROOF-01: dks:FireProtectionEquipment
+      FHC-ROOF-02: dks:FireProtectionEquipment
+      FHC-ROOF: dks:FireProtectionEquipment
+      FHY-001: dks:FireProtectionEquipment
+      FLOOR-2F: dks:FireProtectionPlan
+      FLOOR-PLAN-AREA: dks:DrawingZone
+      FLOOR_PLAN_AREA: dks:DrawingArea
+      FP-1: dks:FireFightingPump
+      FP-2: dks:Pump
+      FT-1: dks:PressureVessel
+      GRP-내진설비: dks:Group
+      GRP-소화설비: dks:FireProtectionSystemGroup
+      INDEX-TABLE-001: dks:DocumentEntity
+      LEGEND-TABLE-001: dks:Legend
+      MF-001: dks:DrawingIndex
+      MF-102: dks:TitleBlock
+      MF: dks:SystemMarker
+      NOTES-BOX: dks:GeneralNote
+      NOTES_BOX: dks:DrawingAnnotation
+      PIPE-CONNECT-ANNOTATION: dks:PipingAnnotation
+      PIPE-H-100-EX: dks:FireProtectionPipe
+      PIPE-H-100-NEW: dks:FireProtectionPipe
+      PIPE-H-EXISTING: dks:FireProtectionPipe
+      PIPE-H-MAIN: dks:FireProtectionPipe
+      PIPE-SC-100-NEW: dks:FireProtectionPipe
+      PIPE-SC-MAIN: dks:FireProtectionPiping
+      PIPE-SP-150-EX: dks:FireProtectionPiping
+      PIPE-SP-150-NEW: dks:FireProtectionPipe
+      PIPE-UG-001: dks:PipingEntity
+      PIT-001: dks:SpatialEntity
+      PIT층-H-동01: dks:Pipe
+      PIT층-H-동02: dks:FireProtectionPipe
+      PIT층-H-동03: dks:Pipe
+      PIT층-SP-동01: dks:Pipe
+      PIT층-SP-동02: dks:FireProtectionPipe
+      RISER-01: dks:FireProtectionRiser
+      RISER-02: dks:PipeRiser
+      RISER-03: dks:FireProtectionRiser
+      RISER-04: dks:FireProtectionPiping
+      RISER-05: dks:FireProtectionRiser
+      RISER-06: dks:FireProtectionPipe
+      RISER-07: dks:FireProtectionPiping
+      RISER-BC-1: dks:PipingComponent
+      RISER-CN-50a-CENTER: dks:PipingComponent
+      RISER-DN-50a-N: dks:FireProtectionPiping
+      RISER-DN-50a-NE: dks:FireProtectionPiping
+      RISER-DN-50a-NW: dks:FireProtectionPiping
+      RISER-DN-50a-S: dks:PipingComponent
+      RISER-DN-50a-W: dks:FireProtectionPiping
+      RISER-H-01: dks:PipeRiser
+      RISER-H-02: dks:PIPE_RISER
+      RISER-H-03: dks:PipeRiser
+      RISER-H-04: dks:PIPE_RISER
+      RISER-H-05: dks:FireProtectionPiping
+      RISER-H-06: dks:FireProtectionPiping
+      RISER-H-07: dks:FireProtectionPiping
+      RISER-H-08: dks:FireProtectionPiping
+      RISER-TC-1: dks:PIPE_RISER
+      RISER-TL-1: dks:PipingComponent
+      RISER-TR-1: dks:PIPE_RISER
+      RISER-TR-2: dks:PipingComponent
+      RISER-UP-100a-NE: dks:FireProtectionPiping
+      RISER-UP-100a: dks:PipeRiser
+      ROOM-drive-기동시험실: dks:Space
+      ROOM-drive-시험실: dks:Space
+      ROOM-EMC-CHAMBER: dks:Space
+      ROOM-계어룸: dks:Space
+      ROOM-고객접견실: dks:Space
+      ROOM-대용량오리부하실: dks:FireProtectionSpace
+      ROOM-로비: dks:Space
+      ROOM-전기발전기실-inline: dks:FireProtectionZone
+      ROOM-전기발전기실: dks:Space
+      ROOM-전기실: dks:Space
+      ROOM-전류시험실: dks:Space
+      ROOM-제어룸: dks:Space
+      ROOM-컨트롤실: dks:Space
+      ROOM-항온시험실: dks:Space
+      SCHEDULE-BRACE: dks:Schedule
+      SCHEDULE_BOX: dks:Schedule
+      SEISMIC-BRACE-SCHEDULE: dks:EquipmentSchedule
+      SPACE-01: dks:Space
+      SPACE-02: dks:Space
+      SPACE-04: dks:Space
+      SPACE-05: dks:Space
+      SPACE-06: dks:Room
+      SPACE-07: dks:Space
+      SPACE-08: dks:Space
+      SPACE-09: dks:SpatialEntity
+      SPACE-10: dks:SpatialEntity
+      SPACE-11: dks:Space
+      SPACE-12: dks:Space
+      SPACE-13: dks:Space
+      SPACE-14: dks:Space
+      SPACE-15: dks:Space
+      SPACE-16: dks:Space
+      SPACE-17: dks:Space
+      SPACE-18: dks:Space
+      SPACE-19: dks:Space
+      SPACE-20: dks:Space
+      SPACE-21: dks:Space
+      SPACE-22: dks:Space
+      SPACE-23: dks:SpatialRegion
+      SPACE-NOTE-001: dks:LegendSection
+      SPACE-TITLE-001: dks:TitleBlock
+      STAMP-AREA-001: dks:DrawingAnnotation
+      SYM-004: dks:ValveSymbol
+      SYM-005: dks:Valve
+      SYM-006: dks:Strainer
+      SYM-007: dks:Strainer
+      SYM-008: dks:PipingComponent
+      SYM-009: dks:FireExtinguishingEquipment
+      SYM-010: dks:FireExtinguisher
+      SYM-011: dks:FireProtectionSymbol
+      SYM-012: dks:FireFightingConnection
+      TITLE-BANNER-001: dks:DrawingAnnotation
+      TITLE-BLOCK-001: dks:DrawingMetadata
+      TITLE-BLOCK-002: dks:DrawingMetadata
+      TITLE-BLOCK-SKETCH: dks:DocumentComponent
+      UNKNOWN-DETAIL-02: dks:FireProtectionSignage
+      UNKNOWN-DETAIL-03: dks:InstallationDetail
+      UNKNOWN-EQ-1: dks:Valve
+      UNKNOWN-EQ-2: dks:Valve
+      UNKNOWN-EQ-3: dks:FlexibleJoint
+      UNKNOWN-EQ-4: dks:SeismicProtectionDevice
+      UNKNOWN-EQ-5: dks:Valve
+      UNKNOWN-EQ-6: dks:Valve
+      UNKNOWN-EQ-7: dks:DirectionIndicator
+      UNKNOWN-EQUIP-01: dks:FireHoseCabinet
+      UNKNOWN-EQUIP-02: dks:FireProtectionEquipment
+      UNKNOWN-EQUIP-03: dks:FireProtectionEquipment
+      UNKNOWN-PANEL-1: dks:FireProtectionPlan
+      UNKNOWN-PANEL-2: dks:SeismicProtectionEntity
+      UNKNOWN-PANEL-3: dks:Schedule
+      UNKNOWN-PANEL-4: dks:Legend
+      UNKNOWN-PANEL-5: dks:TitleBlock
+      UNKNOWN-PIPE-01: dks:FireProtectionPipe
+      UNKNOWN-PIPE-02: dks:Pipe
+      UNKNOWN-PIPE-03: dks:Pipe
+      UNKNOWN-PIPE-04: dks:FireProtectionPipe
+      UNKNOWN-PIPE-05: dks:FireProtectionPipe
+      UNKNOWN-PIPE-06: dks:FireProtectionPipe
+      UNKNOWN-PIPE-07: dks:FireProtectionPipe
+      UNKNOWN-PIPE-08: dks:FireProtectionPipe
+      UNKNOWN-PIPE-RISER-01: dks:PipingComponent
+      UNKNOWN-PIPE-RISER-02: dks:PipingComponent
+      UNKNOWN-PIPE-RISER-03: dks:PipeRiser
+      UNKNOWN-PIPE-RISER-04: dks:PipeRiser
+      UNKNOWN-RISER-01: dks:FireProtectionPiping
+      UNKNOWN-RISER-02: dks:PipeRiser
+      UNKNOWN-RISER-03: dks:PipingComponent
+      UNKNOWN-RISER-04: dks:PIPE_RISER
+      UNKNOWN-RISER-05: dks:PIPE_RISER
+      UNKNOWN-RISER-06: dks:PIPE_RISER
+      UNKNOWN-SHAPE-01: dks:FireProtectionCoverageGuide
+      UNKNOWN-SHAPE-02: dks:Signage
+      UNKNOWN-SHAPE-04: dks:ValveSymbol
+      UNKNOWN-SHAPE-06: dks:ValveSymbol
+      UNKNOWN-SHAPE-07: dks:IsometricRepresentation
+      UNKNOWN-SHAPE-1: dks:SeismicProtectionEquipment
+      UNKNOWN-SHAPE-2: dks:SeismicBracing
+      UNKNOWN-SPACE-01: dks:SpatialZone
+      UNKNOWN-SPACE-02: dks:ControlRoom
+      UNKNOWN-SPACE-03: dks:Space
+      UNKNOWN-SPACE-04: dks:Space
+      UNKNOWN-SPACE-05: dks:Space
+      UNKNOWN-SPACE-06: dks:SpatialEntity
+      UNKNOWN-SPACE-07: dks:Opening
+      UNKNOWN-SPACE-08: dks:Space
+      UNKNOWN-SPACE-09: dks:Space
+      UNKNOWN-SPACE-10: dks:Space
+      UNKNOWN-SPACE-11: dks:Space
+      UNKNOWN-SPACE-12: dks:SpatialRegion
+      UNKNOWN-SPACE-13: dks:BuildingSpace
+      UNKNOWN-VALVE-01: dks:Valve
+      UNKNOWN-VALVE-02: dks:Valve
+      UNKNOWN-VALVE-03: dks:PipingComponent
+      UNKNOWN-VALVE-04: dks:Strainer
+      VALVE-AD-001: dks:Valve
+      VALVE-CHECK-001: dks:Valve
+      VALVE-GATE-001: dks:Valve
+    confirmed_at: '2026-04-21T14:00:46Z'
+    by: step_0-9c
+  confidence_overall: 0.84
+  self_assessment: 관찰 evidence만으로 문서/공간/설비/배관/내진의 큰 군집은 안정적으로 귀납되었다. 다만 심볼·범례·상세와
+    실제 물리 설비가 혼재한 태그들(SYM, HOSE-REEL-FHC, UNKNOWN-DETAIL/SHAPE 일부)은 보수적으로 unclassified
+    처리하거나 문서 계열로 분리했다. PIPE_RISER와 PipeRiser는 동일 의미권일 가능성이 높지만 evidence상 표기 차이를 보존했다.

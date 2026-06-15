@@ -1,0 +1,130 @@
+entity_detail:
+  tag: P-AC-3PP
+  type: Power Panelboard
+  specs:
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page 20
+      confidence: 0.92
+    main_cb:
+      value: MCCB 3P 30/20AT (380V)
+      unit: null
+      source: page 20
+      confidence: 0.92
+    spd:
+      value: 3Ø S.P.D 40KA/mode
+      unit: null
+      source: page 20
+      confidence: 0.92
+    branch_count:
+      value: MCCB 5개
+      unit: ea
+      source: page 20
+      confidence: 0.92
+    incoming:
+      value: R S T N (3상 4선)
+      unit: null
+      source: page 20
+      confidence: 0.92
+    supply_voltage:
+      value: 3Ø 380V
+      unit: null
+      source: page 20
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20
+    page_number: 20
+    text: P-AC-3PP 분전반 (1층 대용량 모터부하설(방음))
+  - source: page 20
+    page_number: 20
+    text: 'COVER TYPE: 노출형(STEEL), MAIN C.B: MCCB 3P 30/20AT (380V), SPD: 3Ø S.P.D
+      40KA/mode, 분기: MCCB 5개, 인입: R S T N (3상 4선)'
+  - source: page 20
+    page_number: 20
+    text: 3Ø 380V 생산동력 분전반 결선도
+  - source: page 20
+    page_number: 20
+    text: 전기실에서 7개 분전반(P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP)으로
+      독립 방사형 공급
+  - source: page 20
+    page_number: 20
+    text: 모든 분전반은 공통 접지점 E3에 연결
+  - source: page 20
+    page_number: 20
+    text: P-AC-3PP 분전반 위치
+  - source: page 20
+    page_number: 20
+    text: 1층 대용량 모터부하설(방음)
+  requirements:
+  - text: 노출형(STEEL)
+    source: page 20
+    type: installation_condition
+  - text: 3Ø 380V
+    source: page 20
+    type: electrical_supply_condition
+  - text: 3상 4선
+    source: page 20
+    type: incoming_condition
+  - text: 공통 접지점 E3에 연결
+    source: page 20
+    type: grounding_requirement
+  - text: 독립 방사형 공급
+    source: page 20
+    type: distribution_requirement
+  - text: 방음
+    source: page 20
+    type: space_condition
+  connection_specs:
+  - relation: power_supply
+    partner: 전기실
+    details:
+      source: page 20
+      text: 전기실에서 7개 분전반(P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP, P-I-3PP)으로
+        독립 방사형 공급
+  - relation: grounding_connection
+    partner: E3
+    details:
+      source: page 20
+      text: 모든 분전반은 공통 접지점 E3에 연결
+  - relation: incoming_power
+    partner: R S T N
+    details:
+      source: page 20
+      text: '인입: R S T N (3상 4선)'
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_supply
+      partner_tag: SPACE-ELEC-ROOM
+      direction: from source to target
+      source: page 20
+    - relation_type: grounding_connection
+      partner_tag: E3
+      direction: from source to target
+      source: page 20
+    - relation_type: location_in_space
+      partner_tag: SPACE-MOTOR-LOAD
+      direction: contains
+      source: page 20
+    observed_attributes:
+    - cover_type
+    - main_cb
+    - spd
+    - branch_count
+    - incoming
+    - supply_voltage
+    - location
+    - function_category
+    similar_equipment:
+    - P-A-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    suggested_parent_class: Electrical Panelboard
+    cross_discipline: []
+  notes:
+  - page 20의 분석 결과에서 P-AC-3PP는 생산동력 분전반 계열로 확인됨
+  - page 20의 관계 정보에 따르면 전기실에서 공급되고 E3에 접지 연결됨
+tag: P-AC-3PP

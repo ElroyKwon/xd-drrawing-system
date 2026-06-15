@@ -1,0 +1,68 @@
+tag: JB-A-02
+name: '전선 접속함 A #2'
+type: junction_box
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 50
+specs:
+  shape: circle
+  labels_inside:
+  - A
+  labels_above: []
+  labels_below: []
+  inferred_name: '전선 접속함 A #2'
+  position: inside PIT-ZONE, near SMFD-02
+  raw_labels:
+  - A
+  equipment_symbols:
+  - type: junction_box_symbol
+    count: 1
+  panel_id: JB-A-02
+  source_model: visual_semantics_gemini
+relations:
+- from: SMFD-02
+  to: JB-A-02
+  relation: connects_to
+  source_page: 50
+  origin: cross_validated
+  line_style: solid
+  note: UTP 0.6 4P (추정)
+- from: JB-A-02
+  to: JB-A-01
+  relation: connects_to
+  source_page: 50
+  origin: cross_validated
+  line_style: solid
+  note: CV 2.5 3C / C3052 2P
+collection_sources:
+  cross_validated: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+confidence: 0.85
+equipment_symbols:
+- type: junction_box_symbol
+  count: 1
+source_attribution:
+  sonnet: false
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: JunctionBox
+  observed_attributes:
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - inferred_name
+  - position
+  - raw_labels
+  - equipment_symbols
+  - panel_id
+  - source_model
+  similar_equipment:
+  - JB-A-01
+  function_candidates:
+  - WireConnection
+  - CableBranching
+  - CircuitDistribution

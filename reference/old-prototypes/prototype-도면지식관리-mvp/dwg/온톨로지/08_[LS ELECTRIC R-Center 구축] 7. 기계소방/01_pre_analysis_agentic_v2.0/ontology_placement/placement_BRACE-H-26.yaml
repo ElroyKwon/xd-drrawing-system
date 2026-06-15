@@ -1,0 +1,175 @@
+placement:
+  tag: BRACE-H-26
+  name: '내진 버팀대 식별 태그 — 횡방향 #26'
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: BRACE-H-26
+    class_hint: SeismicBraceTag
+    alternative_class_hints:
+    - SeismicBracingIdentification
+    - SeismicSupportMarking
+    - SeismicBraceTag
+    related_assertions:
+    - type: connects_to
+      target_hint: FLOOR-2F
+      note: source_page 13에서 FLOOR-2F가 BRACE-H-26과 연결됨
+    applicable_axioms:
+    - AX034
+    applicable_constraints:
+    - CN017
+    confirmed_class: dks:SeismicBraceTag
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 2층 H-H-횡26
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트로 관찰됨
+      - raw_text: 'shape: dashed_box'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 표현 속성으로 관찰됨
+      - raw_text: 'position: center'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'inferred_name: 내진 버팀대 (횡방향 26)'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: inferred_name
+          suggested_datatype: xsd:string
+          rationale: 관찰 기반 추론명
+      - raw_text: 'relation: connects_to from FLOOR-2F to BRACE-H-26'
+        source_page: 13
+        promotion_hint:
+          suggested_property_label: connects_to
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 사실이 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 13
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 13
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 13
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 13
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 13
+      method: ontology_hints.suggested_parent_class + observed text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 13
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 13
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 13
+      method: relations.from
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 13
+      method: relations.to + note
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 13
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 13
+      method: specs.shape
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 13
+      method: specs.position
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 13
+      method: specs.inferred_name
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 13
+      method: relations
+    confidence:
+      source_pages:
+      - 13
+      method: entity_detail.confidence
+    model:
+      source_pages:
+      - 13
+      method: source_attribution.gemini + source_attribution.mini
+    assigned_at:
+      source_pages:
+      - 13
+      method: current_run_timestamp
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 2층 H-H-횡26
+    source_page: 13
+    reason: 원문은 관찰되나 별도 정규화 없이 보존 필요
+    preservation_note: labels_inside와 동일 맥락의 OCR/표기 원문으로 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: LateralSeismicBracingIdentification; SeismicSupportMarking
+    source_page: 13
+    reason: 후보 기능명은 있으나 확정 분류 불가
+    preservation_note: 후속 단계에서 class/property 후보로 재검토
+  - field_candidate: collection_sources
+    raw_text: cross_validated=true; visual_semantics_gemini=true; entity_synthesis=true
+    source_page: 13
+    reason: 출처 메타데이터는 의미 해석 대상이 아님
+    preservation_note: 판정 근거 메타로 보존
+  - field_candidate: source_attribution
+    raw_text: sonnet=false; gemini=true; mini=true
+    source_page: 13
+    reason: 모델 출처 정보로서 해석 대상 아님
+    preservation_note: 생성/검증 출처 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 자체는 물리 설비가 아니라 내진 버팀대 식별용 표식으로 보이며, AnnotationOnly와 실제 부품 표식 사이 경계가
+      있음
+    recommended_handling: 후속 단계에서 SeismicBracingComponent 또는 AnnotationEntity 계열과의
+      연결 여부를 검증하고, 실제 부품이 별도 존재하면 part_of/annotates 관계로 분리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/입상관, 옥내소화전함, 내진 버팀대, 공간, 문서/범례/스케줄 등 반복 패턴 중 내진 버팀대 태그 계열로 배치
+    - 관계 사실(connects_to) 원형만 보존
+    - supplement 부재로 sub_kinds는 free_notes에 보존
+    deviations:
+    - supplement가 정의되지 않아 standard_sub_kinds를 직접 적용하지 못함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:01:12.642650'
+  confidence: 0.85

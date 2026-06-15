@@ -1,0 +1,105 @@
+placement:
+  tag: UNKNOWN-PANEL-01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:UNKNOWN-PANEL-01
+    class_hint: AnnotationOrReferenceEntity
+    alternative_class_hints:
+    - DocumentEntity
+    - UnknownEntity
+    - PlanOrPanelContainerEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX033
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:AnnotationOrReferenceEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122.'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasSourcePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 출처 안내 문구이며, 태그 자체의 의미보다 참조 가능 페이지 범위를 보존하는 정보임.
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시는 페이지 번호나 태그를 알려주시면 확인해드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasRelationNote
+          suggested_datatype: xsd:string
+          rationale: 도면 객체의 실체 정보가 아니라 응답 안내 문구로, 주석/안내 텍스트로 보존하는 것이 적절함.
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    raw:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based_classification
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_hint
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시는 페이지 번호나 태그를 알려주시면 확인해드리겠습니다.'
+    source_page: 0
+    reason: 태그 자체의 물리적 실체나 설비 속성으로 해석되지 않음.
+    preservation_note: 페이지 안내 및 확인 요청 문구로 보존. 후속 단계에서 annotation/note 계열로 승격 가능.
+  - field_candidate: name
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 name 필드가 제공되지 않음.
+    preservation_note: 빈 값 유지.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 PANEL이지만 원문은 페이지 확인 안내 문구만 포함하여 실제 패널/컨테이너 실체인지, 단순 주석/참조인지 단정할 수
+      없음.
+    recommended_handling: AnnotationOnly로 우선 보존하고, 이후 동일 태그의 관계/도면 위치 정보가 추가되면 DocumentEntity
+      또는 PlanOrPanelContainerEntity 후보로 재검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown_symbol_note_table_reference_entities
+    - plan_or_panel_container_entities
+    - AnnotationOrReferenceEntity
+    deviations:
+    - plan상 UNKNOWN-PANEL-*는 컨테이너/패널 후보로 보이나, 현재 entity_detail에는 패널 실체를 지시하는 도면 정보가
+      없고 안내 문구만 존재하여 AnnotationOnly로 분류함.
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:02.658480'
+  confidence: 0.78

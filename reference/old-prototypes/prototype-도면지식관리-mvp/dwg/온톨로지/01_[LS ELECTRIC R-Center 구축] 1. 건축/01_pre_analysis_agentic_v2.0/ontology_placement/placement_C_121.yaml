@@ -1,0 +1,132 @@
+placement:
+  tag: C_121
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:C_121
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX035
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+          120, 121, 122'
+        source_page: 121
+        promotion_hint:
+          suggested_property_label: hasAvailablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 목록 형태의 원문 정보이며, 도면/문서 참조 가능 범위를 나타내는 메타 정보로 승격 후보
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드릴게요.
+        source_page: 121
+        promotion_hint:
+          suggested_property_label: hasUserInstruction
+          suggested_datatype: xsd:string
+          rationale: 도면 실체가 아닌 안내 문구/주석 성격의 텍스트
+        promoted_to: dks:hasInstructionText
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'tag: C/121'
+        source_page: 121
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 식별자 원문 보존 필요
+        promoted_to: dks:hasTag
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+      - raw_text: 'raw: ''사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64,
+          118, 119, 120, 121, 122
+
+
+
+          원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'''
+        source_page: 121
+        promotion_hint:
+          suggested_property_label: hasRawText
+          suggested_datatype: xsd:string
+          rationale: 원문 전체 보존이 필요하며, 후속 분류 시 텍스트 주석/참조로 활용 가능
+        promoted_to: dks:hasSourcePages
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+  provenance:
+    tag:
+      source_pages:
+      - 121
+      method: direct_from_entity_detail
+    name:
+      source_pages:
+      - 121
+      method: absent_in_entity_detail
+    discipline:
+      source_pages:
+      - 121
+      method: direct_from_input
+    ontology_core.owl_role:
+      source_pages:
+      - 121
+      method: inferred_from_raw_text_annotation
+    ontology_core.iri_hint:
+      source_pages:
+      - 121
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 121
+      method: inferred_from_annotation_text
+    discipline_context.free_notes:
+      source_pages:
+      - 121
+      method: verbatim_preservation
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드릴게요.'
+    source_page: 121
+    reason: 도면 설비 실체가 아니라 안내성 텍스트로, 구체 설비/관계/속성으로 해석 불가
+    preservation_note: AnnotationOnly로 보존하고 원문은 free_notes 및 unresolved에 그대로 유지
+  - field_candidate: entity_detail.tag
+    raw_text: C/121
+    source_page: 121
+    reason: 슬래시 포함 태그의 의미를 외부 표준 없이 확정할 수 없음
+    preservation_note: 원문 태그는 보존하되, IRI는 임시 힌트로만 사용
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 형식은 식별자처럼 보이지만, 원문 내용은 페이지 안내 문구로 물리 설비 실체가 없음
+    recommended_handling: 후속 단계에서 문서/주석 엔티티로 유지하고, 페이지 목록은 메타데이터로만 취급
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown discipline의 annotation/reference 성격 텍스트를 free_notes로 보존
+    - raw 텍스트와 source_page를 함께 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:32.523603'
+  confidence: 0.93

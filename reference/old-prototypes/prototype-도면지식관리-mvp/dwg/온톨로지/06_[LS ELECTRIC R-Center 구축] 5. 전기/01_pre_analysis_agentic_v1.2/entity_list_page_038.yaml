@@ -1,0 +1,71 @@
+page_38_entities:
+- tag: LPS-SYSTEM-001
+  name: 피뢰 시스템 (전체)
+  type: Lightning Protection System
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: LPS-ROD-001
+  name: 피뢰침
+  type: Lightning Rod / Air Terminal
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: LPS-COND-H-001
+  name: 수평도체
+  type: Horizontal Conductor
+  discipline: ELECTRICAL
+  confidence: 0.97
+- tag: LPS-BRACKET-001
+  name: 지지금구
+  type: Support Bracket / Clamp
+  discipline: ELECTRICAL
+  confidence: 0.85
+- tag: LPS-DOWN-MAIN-001
+  name: 주 인하도선
+  type: Main Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.92
+- tag: LPS-DOWN-AUX-001
+  name: 보조 인하도선
+  type: Auxiliary Down Conductor
+  discipline: ELECTRICAL
+  confidence: 0.92
+- tag: LPS-BOND-STRUCT-001
+  name: 구조체 접속
+  type: Structural Bonding Connection
+  discipline: ELECTRICAL
+  confidence: 0.9
+- tag: LPS-INTERSTORY-001
+  name: 층간연결 입상/입하
+  type: Interstory Connection (Vertical/Horizontal)
+  discipline: ELECTRICAL
+  confidence: 0.88
+- tag: ARCH-ROOFTOP-001
+  name: 옥탑지붕층
+  type: Rooftop Floor / Building Footprint
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+page_38_relations:
+- from: LPS-ROD-001
+  to: LPS-COND-H-001
+  relation: connected_via
+- from: LPS-COND-H-001
+  to: LPS-DOWN-MAIN-001
+  relation: connected_via
+- from: LPS-COND-H-001
+  to: LPS-DOWN-AUX-001
+  relation: connected_via
+- from: LPS-COND-H-001
+  to: LPS-BOND-STRUCT-001
+  relation: connected_via
+- from: LPS-DOWN-MAIN-001
+  to: LPS-INTERSTORY-001
+  relation: connected_via
+- from: LPS-DOWN-AUX-001
+  to: LPS-INTERSTORY-001
+  relation: connected_via
+- from: LPS-ROD-001
+  to: ARCH-ROOFTOP-001
+  relation: mounted_on
+- from: LPS-COND-H-001
+  to: ARCH-ROOFTOP-001
+  relation: mounted_on

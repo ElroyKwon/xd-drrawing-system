@@ -1,0 +1,96 @@
+entity_detail:
+  tag: P-A-3PP-LOCATION
+  type: equipment
+  specs:
+    location:
+      value: 'null'
+      unit: ''
+      source: page 20
+      confidence: 0.95
+  drawing_texts:
+  - source: page 20 executive_summary
+    page_number: 20
+    text: 생산동력(3Ø 380V) 분전반 결선도
+  - source: page 20 executive_summary
+    page_number: 20
+    text: 페이지 내에 7개의 분전반 태그(P-A-3PP, P-AC-3PP, P-D-3PP, P-E-3PP, P-F-3PP, P-G-3PP,
+      P-I-3PP)가 병렬 배치되어 있다.
+  - source: page 20 executive_summary
+    page_number: 20
+    text: 우측 표제란에는 LS Electric / R-Center 구축, 도면번호 EE-01-016이 보이며, 차단기 정격 30AF~600AF와
+      차단용량 5KA 이상~50KA 이상 표기가 확인된다.
+  - source: page 20 executive_summary
+    page_number: 20
+    text: 도면은 각 분전반 내부 결선과 보호기기/접지 관련 심볼을 포함하나, 분전반 간 외부 연결이나 공간 계층 정보는 확인되지 않는다.
+  - source: page 20 equipment
+    page_number: 20
+    text: P-A-3PP
+  - source: page 20 equipment
+    page_number: 20
+    text: 분전반
+  - source: page 20 equipment
+    page_number: 20
+    text: 3Ø 380V, 노출형(STEEL) 또는 매입형(STS/STEEL), 차단기 정격 30AF~600AF, 차단용량 5KA~50KA
+      이상
+  - source: page 20 equipment
+    page_number: 20
+    text: 주 전원 인입
+  - source: page 20 equipment
+    page_number: 20
+    text: 3Ø 380V 생산동력 전원 인입
+  requirements:
+  - text: 3Ø 380V
+    source: page 20 equipment
+    type: electrical_condition
+  - text: 노출형(STEEL) 또는 매입형(STS/STEEL)
+    source: page 20 equipment
+    type: installation_condition
+  - text: 차단기 정격 30AF~600AF
+    source: page 20 equipment
+    type: performance_requirement
+  - text: 차단용량 5KA~50KA 이상
+    source: page 20 equipment
+    type: performance_requirement
+  connection_specs:
+  - relation: main power inlet
+    partner: 3Ø 380V 생산동력 전원 인입
+    details:
+      source: page 20 equipment
+  - relation: internal wiring
+    partner: 분전반 내부 결선
+    details:
+      source: page 20 executive_summary
+  - relation: ground connection
+    partner: 접지(Ground)
+    details:
+      source: page 20 executive_summary
+  ontology_hints:
+    observed_relations:
+    - relation_type: has_main_inlet
+      partner_tag: MAIN-INLET
+      direction: UNKNOWN
+      source: page 20 executive_summary
+    - relation_type: has_ground_connection
+      partner_tag: GND-001
+      direction: UNKNOWN
+      source: page 20 executive_summary
+    observed_attributes:
+    - 3Ø 380V
+    - 노출형(STEEL)
+    - 매입형(STS/STEEL)
+    - 차단기 정격 30AF~600AF
+    - 차단용량 5KA~50KA 이상
+    similar_equipment:
+    - P-AC-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    - P-I-3PP
+    suggested_parent_class: 분전반
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - page 20에서 P-A-3PP의 location 값은 null로만 확인됨.
+  - 분전반 간 외부 연결이나 공간 계층 정보는 확인되지 않음.
+tag: P-A-3PP-LOCATION

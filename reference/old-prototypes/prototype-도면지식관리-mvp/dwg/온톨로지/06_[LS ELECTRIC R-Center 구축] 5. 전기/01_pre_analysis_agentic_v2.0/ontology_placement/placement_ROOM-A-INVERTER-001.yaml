@@ -1,0 +1,179 @@
+placement:
+  tag: ROOM-A-INVERTER-001
+  name: A동 지상1층 인버터 시험센타
+  discipline: electrical
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: Room
+    alternative_class_hints:
+    - InformationEntity
+    - SpatialMarker
+    - DocumentMetadata
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      spatial_markers:
+      - raw_text: A동 지상1층
+        source_page: 4
+      references:
+      - raw_text: 'cross_reference_drawing: EE-01-011'
+        source_page: 4
+      free_notes:
+      - raw_text: 'status: 철거 후 이설'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasOperationalStatus
+          suggested_datatype: xsd:string
+          rationale: 상태를 나타내는 문자열 표기
+      - raw_text: 'room_type: room_area'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasRoomType
+          suggested_datatype: xsd:string
+          rationale: 공간 유형을 나타내는 문자열 표기
+      - raw_text: 'description: 철거후 R-Center로 이설'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasDescription
+          suggested_datatype: xsd:string
+          rationale: 공간의 설명 문구
+      - raw_text: 'function_candidates: INVERTER_TEST_CENTER'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보를 나타내는 라벨 문자열
+      - raw_text: 'type: space'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasEntityType
+          suggested_datatype: xsd:string
+          rationale: 도면 추출 엔티티의 타입 표기
+      - raw_text: 'function_category: ROOM'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 카테고리 문자열
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: isSynthesizedFromCollectionSources
+          suggested_datatype: xsd:boolean
+          rationale: 수집/합성 출처 여부를 나타내는 불리언 표기
+  provenance:
+    name:
+      source_pages:
+      - 4
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 4
+    discipline_context.sub_kinds.references:
+      source_pages:
+      - 4
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 4
+    specs.status:
+      source_pages:
+      - 4
+    specs.room_type:
+      source_pages:
+      - 4
+    specs.cross_reference_drawing:
+      source_pages:
+      - 4
+    specs.description:
+      source_pages:
+      - 4
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 4
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 4
+    ontology_hints.function_candidates:
+      source_pages:
+      - 4
+    type:
+      source_pages:
+      - 4
+    function_category:
+      source_pages:
+      - 4
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 4
+  unresolved:
+  - field_candidate: specs.status
+    raw_text: 철거 후 이설
+    source_page: 4
+    reason: 운영 상태는 확인되지만 OWL Core의 물리 설비/관계로 직접 승격할 근거가 부족함
+    preservation_note: 후속 단계에서 operational status 데이터 속성 후보로 검토
+  - field_candidate: specs.room_type
+    raw_text: room_area
+    source_page: 4
+    reason: 도면 내부 표기이지만 supplement의 sub_kind로 직접 분류하지 않음
+    preservation_note: 공간 유형 속성 후보로 보존
+  - field_candidate: specs.cross_reference_drawing
+    raw_text: EE-01-011
+    source_page: 4
+    reason: 참조 도면 번호이지만 관계 대상 태그가 없어 단독 보존
+    preservation_note: reference 문자열로 유지
+  - field_candidate: specs.description
+    raw_text: 철거후 R-Center로 이설
+    source_page: 4
+    reason: 이설 대상은 언급되나 대상 태그가 없어 관계로 확정 불가
+    preservation_note: 이설/이동 설명으로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: INVERTER_TEST_CENTER
+    source_page: 4
+    reason: 후보 기능명이나 확정 class로 승격하지 않음
+    preservation_note: 기능 후보 문자열로 유지
+  - field_candidate: type
+    raw_text: space
+    source_page: 4
+    reason: 공간/장소를 뜻하지만 OWL Core에서 AnnotationOnly로 처리
+    preservation_note: 공간 엔티티 메타로 보존
+  - field_candidate: function_category
+    raw_text: ROOM
+    source_page: 4
+    reason: 분류 라벨이지만 supplement sub_kind로 직접 배치하지 않음
+    preservation_note: 기능 카테고리 문자열로 유지
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 4
+    reason: 생성/합성 출처 플래그이며 설비 속성은 아님
+    preservation_note: 출처 메타데이터로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 실제 설비가 아니라 공간/실명 성격의 엔티티이며, 인버터 시험센타라는 기능명과 철거 후 이설 상태가 함께 존재함
+    recommended_handling: AnnotationOnly로 유지하고, 공간 위치(spatial_markers)와 참조 도면(references)만
+      구조화. 기능 후보는 free_notes로 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:12:49.014847'
+  confidence: 0.92

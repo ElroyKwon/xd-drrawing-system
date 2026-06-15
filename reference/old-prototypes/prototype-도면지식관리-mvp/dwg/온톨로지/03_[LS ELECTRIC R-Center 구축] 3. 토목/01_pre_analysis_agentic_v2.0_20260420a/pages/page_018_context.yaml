@@ -1,0 +1,284 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: COMMUNICATION
+  classification: other
+  drawing_genre: other
+  title_block:
+    drawing_number: C10-307
+    title: CCTV 및 수밀검사 예시도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 0
+  next_step_hints:
+  - 상단에 CCTV 검사, 하단에 수밀검사 예시가 함께 있는 시공/검사 예시 도면으로 보임
+  - 표제란 도면번호는 C10-307, 제목은 CCTV 및 수밀검사 예시도
+  - 페이지 내 명시적 설비 태그는 확인되지 않음
+  confidence: 0.93
+  note: 도면번호 접두사 C는 통신(communication) 근거이나, 현재 페이지는 CCTV 및 수밀검사 예시도라는 시공/검사 예시 성격의
+    그림으로 보여 classification은 other로 둠. 범례 전용 페이지는 아님.
+  recommended_supplements: {}
+  routing_confidence: 0.0
+  routing_reason: page_type가 drawing이지만 discipline/classification이 카탈로그의 보조 프롬프트와
+    정확히 매칭되지 않아 recommended_supplements를 비움.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: other
+    primary_label: C.C.TV 검사
+    position: top-center
+    labels_near:
+    - TV 카메라차
+    - 관로조사작업원
+    - 지수 플러그
+  - panel_id: BLK-002
+    shape: other
+    primary_label: 수밀검사
+    position: bottom-center
+    labels_near:
+    - 물탱크
+    - 맨홀
+    - 지반
+    - 공기
+    - 물
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: solid
+    annotation: 상하 배치된 시공/검사 예시
+  notable_shapes:
+  - shape: other
+    label: TV 카메라차
+    note: CCTV 검사 장비를 갖춘 차량 일러스트
+  - shape: other
+    label: 지수 플러그
+    note: 관로를 막는 장비의 단면도
+  - shape: other
+    label: 맨홀
+    note: 수밀검사를 위한 맨홀 및 배관 단면도
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 페이지 전체가 CCTV 및 수밀검사 시공 예시도로 구성되어 있으며, 범례 표나 섹션은 존재하지 않음.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: other
+  changed_from_p00: true
+  recommended_supplements: {}
+  routing_confidence: 0.95
+  routing_reason: 도면번호 접두사 C(Communication)를 근거로 discipline을 COMMUNICATION으로 갱신함.
+    그러나 도면 내용이 시공/검사 예시도(other)이므로 카탈로그의 통신 분야 장르(floor_plan, rack_detail, system_diagram)와
+    매칭되지 않아 recommended_supplements는 비워둠.
+classification: OTHER
+discipline: COMMUNICATION
+key_elements_from_text:
+- C.C.TV 검사
+- 수밀검사
+- TV 카메라차
+- 관로조사작업원
+- 관로조사차수
+- 지수 플러그
+- 물탱크
+- 맨홀
+- 공기
+- 물
+- 반침대
+title_block:
+  drawing_number: C10-307
+  title: CCTV 및 수밀검사 예시도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=COMMUNICATION, drawing_number=C10-307, title=CCTV 및 수밀검사 예시도는
+  이미지 표제란과 일치함(우측 하단 표제란). classification은 표준 예시 목록에 직접 대응되는 도면 유형이 보이지 않아 OTHER로
+  유지함. 페이지는 상단 C.C.TV 검사와 하단 수밀검사 예시가 함께 있는 시공/검사 예시도이며, 범례 페이지는 아님.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: CCTV-INSP
+    shape: other
+    labels_inside:
+    - C.C.TV 검사
+    - TV 카메라차
+    - 관로조사작업원
+    - 관로조사차수
+    - 관로조사기사
+    - 밀차운전수
+    - TV 카메라
+    - 지수 플러그
+    labels_above:
+    - C.C.TV 검 사
+    labels_below: []
+    equipment_symbols:
+    - type: CCTV 검사 차량 (TV 카메라차)
+      count: 1
+    - type: 지수 플러그 (관로 차단 장비)
+      count: 2
+    - type: TV 카메라 (관내 촬영 장비)
+      count: 1
+    - type: 작업원 인물 일러스트
+      count: 4
+    inferred_name: CCTV 관로 내부 검사 예시도
+    position: top-center
+  - panel_id: WATER-TIGHT-INSP
+    shape: other
+    labels_inside:
+    - 수밀검사
+    - 물탱크
+    - 맨홀
+    - 지반
+    - 공기
+    - 물
+    - 낮은쪽
+    - 높은쪽
+    - 반침대
+    - 1,000
+    labels_above:
+    - 수 밀 검 사
+    labels_below:
+    - 지 반
+    equipment_symbols:
+    - type: 물탱크 (수밀검사용 급수 탱크)
+      count: 1
+    - type: 맨홀 단면 (상류측)
+      count: 1
+    - type: 맨홀 단면 (하류측)
+      count: 1
+    - type: 반침대 (관로 지지대)
+      count: 1
+    - type: 공기/물 주입 배관
+      count: 1
+    inferred_name: 수밀검사 예시도 (관로 누수 시험)
+    position: bottom-center
+  connections:
+  - from: CCTV-INSP
+    to: WATER-TIGHT-INSP
+    line_type: other
+    line_style: solid
+    annotation: 상단 CCTV 검사, 하단 수밀검사 — 동일 도면 내 두 가지 검사 방법 예시 배치
+  - from: WATER-TIGHT-INSP
+    to: WATER-TIGHT-INSP
+    line_type: pipe
+    line_style: solid
+    annotation: 물탱크 → 공기/물 주입 배관 → 관로 내부 (높은쪽 맨홀에서 낮은쪽 맨홀 방향으로 수압 시험)
+  groups:
+  - group_id: GRP-CCTV
+    label: CCTV 관로 검사 구성 요소
+    members:
+    - CCTV-INSP
+  - group_id: GRP-WATERTIGHT
+    label: 수밀검사 구성 요소
+    members:
+    - WATER-TIGHT-INSP
+  legend_references:
+  - text: 통신맨홀 (통)
+    linked_to: CCTV-INSP
+  - text: 우수맨홀 (우)
+    linked_to: WATER-TIGHT-INSP
+  - text: 오수맨홀 (오)
+    linked_to: WATER-TIGHT-INSP
+  notes:
+  - id: NOTE-01
+    text: 1. 1000mm 미만의 하수관에 대해 성게유량 전부실시 1000mm 이상의 하수관로는 육안검사.
+    position: right-center
+  - id: NOTE-02
+    text: 2. 관로조사 보고서는 환경부 하수도 시공관리지침 양식에 의해 작성.
+    position: right-center
+  diagram_meta:
+    title: CCTV 및 수밀검사 예시도
+    drawing_number: C10-307
+    project: LS Electric R-Center 구축
+    client: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: NONE
+    scale_secondary: 'A1: NONE / A3: NONE'
+    date: '2024.05'
+    flow_direction: top-to-bottom
+    discipline: CIVIL / COMMUNICATION
+    classification: OTHER (시공·검사 예시도)
+    coordinate_system: null
+    notes:
+    - '상단: CCTV 검사 — TV 카메라차가 관로 위에 위치하고, 지수 플러그로 관로를 차단한 후 TV 카메라를 삽입하여 내부 촬영'
+    - '하단: 수밀검사 — 물탱크에서 공기/물을 주입하여 관로 내 수압을 유지하고 누수 여부를 확인하는 방법'
+    - '수밀검사 치수 표기: 1,000 (단위 mm 추정, 관경 또는 검사 구간 길이)'
+    - '관로 내 흐름 방향: 높은쪽(상류) → 낮은쪽(하류)'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01-CCTV-INSP
+    shape: other
+    labels_above:
+    - C.C.TV 검 사
+    labels_inside:
+    - TV 카메라차
+    - 관로조사작업원
+    - 일반운전수
+    - 관로조사조수
+    - 관로조사기사
+    - 지수 플러그
+    - TV 카메라
+    equipment_symbols:
+    - type: TV 카메라차 (Truck)
+      count: 1
+    - type: 작업원 (Worker)
+      count: 5
+    - type: TV 카메라 (CCTV Robot)
+      count: 1
+    - type: 지수 플러그 (Pipe Plug)
+      count: 2
+    inferred_name: CCTV 관로 검사 예시
+    position: top-center
+  - panel_id: P02-WATERTIGHT-TEST
+    shape: other
+    labels_above:
+    - 수 밀 검 사
+    labels_inside:
+    - 물탱크
+    - 맨홀
+    - 지 반
+    - 공기
+    - 물
+    - 높은쪽
+    - 낮은쪽
+    - 방침대
+    - 1,000
+    equipment_symbols:
+    - type: 물탱크 (Water Tank)
+      count: 1
+    - type: 맨홀 (Manhole Section)
+      count: 2
+    - type: 관로 (Pipe Section)
+      count: 1
+    - type: 방침대 (Reaction Support)
+      count: 1
+    inferred_name: 수밀검사 예시
+    position: bottom-center
+  connections:
+  - from: P01-CCTV-INSP
+    to: P01-CCTV-INSP
+    line_type: cable
+    line_style: solid
+    annotation: TV 카메라차와 TV 카메라 간 연결 케이블
+  - from: P02-WATERTIGHT-TEST
+    to: P02-WATERTIGHT-TEST
+    line_type: pipe
+    line_style: solid
+    annotation: 물탱크에서 맨홀로의 급수 호스
+  diagram_meta:
+    title: CCTV 및 수밀검사 예시도
+    drawing_number: C10 - 307
+    project: LS Electric R-Center 구축
+    scale_primary: NONE
+    scale_secondary: 'A1: NONE / A3: NONE'
+    date: '2024.05'
+    flow_direction: UNKNOWN
+    notes:
+    - ※ 주 기 ※
+    - 1. 1000mm 미만의 하수관에 대해 설계물량 전부실시 1000mm 이상의 하수관로는 육안검사.
+    - 2. 관로조사 보고서는 환경부 하수도 시공관리지침 양식에 의해 작성

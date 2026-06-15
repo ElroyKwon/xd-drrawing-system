@@ -1,0 +1,145 @@
+placement:
+  tag: UNKNOWN-SPACE-001
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SPACE-001
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - UnknownEntity
+    - BuildingElement
+    related_assertions:
+    - type: adjacent_to
+      target_hint: T01
+      note: incoming relation observed; cross_validated
+      confirmed_property: dks:adjacent_to
+      confirmed_target: T01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    - type: adjacent_to
+      target_hint: T01
+      note: from T01 to UNKNOWN-SPACE-001; source_page 63
+      confirmed_property: dks:adjacent_to
+      confirmed_target: T01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX032
+    - AX033
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: 'relations: partner=T01, relation_type=adjacent_to, direction=incoming'
+      source_page: 63
+      promotion_hint:
+        suggested_property_label: adjacent_to
+        suggested_datatype: ''
+        rationale: 관계 사실이 직접 관찰됨
+    - raw_text: 'from: T01 to: UNKNOWN-SPACE-001 relation: adjacent_to source_page:
+        63 origin: cross_validated line_style: null note: null'
+      source_page: 63
+      promotion_hint:
+        suggested_property_label: adjacent_to
+        suggested_datatype: ''
+        rationale: 방향성 있는 관계 레코드가 존재함
+  provenance:
+    tag:
+      source_pages:
+      - 63
+      method: direct
+    name:
+      source_pages: []
+      method: absent
+    discipline:
+      source_pages: []
+      method: inherited_from_input
+    ontology_core.owl_role:
+      source_pages:
+      - 63
+      method: inferred_from_relation_presence
+    ontology_core.iri_hint:
+      source_pages:
+      - 63
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 63
+      method: plan_guided_inference
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 63
+      method: plan_guided_inference
+    ontology_core.related_assertions:
+      source_pages:
+      - 63
+      method: direct
+    discipline_context.free_notes:
+      source_pages:
+      - 63
+      method: direct
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 63
+      method: inferred
+    plan_reference.guidance_applied:
+      source_pages:
+      - 63
+      method: plan_guided
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: T01
+    source_page: 63
+    reason: 관계는 해석 가능하나, 이 단계에서는 확정 property IRI를 부여하지 않음
+    preservation_note: adjacent_to 관계 원형으로 보존
+  - field_candidate: relations[0].direction
+    raw_text: incoming
+    source_page: 63
+    reason: 방향 정보는 있으나 OWL assertion 확정 단계 아님
+    preservation_note: 역방향 관계 가능성 보존
+  - field_candidate: relations[0].origin
+    raw_text: cross_validated
+    source_page: 63
+    reason: 메타 정보로서 관계 출처 설명이며 분류 대상 아님
+    preservation_note: 관계 신뢰도 힌트로 보존
+  - field_candidate: relations[0].line_style
+    raw_text: 'null'
+    source_page: 63
+    reason: 값 없음
+    preservation_note: 후속 원문 복원 시 null 유지
+  - field_candidate: relations[0].note
+    raw_text: 'null'
+    source_page: 63
+    reason: 값 없음
+    preservation_note: 후속 원문 복원 시 null 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 UNKNOWN-SPACE-001로 공간성은 강하지만, entity_detail에 name/specs/position이
+      없고 관계도 adjacent_to 1건만 있어 SpatialEntity와 UnknownEntity 사이 해석 여지가 남음
+    recommended_handling: 0-9c에서 공간/실/구획 후보로 우선 검토하되, 관계망 확장 시 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space_room_like_entities
+    - expected_object_properties.adjacent_to
+    - discipline_context_plan.unknown
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:24:30.387831'
+  confidence: 0.74

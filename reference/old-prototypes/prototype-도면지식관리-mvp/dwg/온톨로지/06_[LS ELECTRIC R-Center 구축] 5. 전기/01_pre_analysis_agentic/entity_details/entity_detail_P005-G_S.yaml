@@ -1,0 +1,115 @@
+entity_detail:
+  tag: P005-G/S
+  type: equipment
+  specs:
+    panel_board:
+      value: P-G-2PP
+      source: page_019_context.yaml
+      confidence: 0.99
+    panel_location:
+      value: 1층 접합시험실
+      source: page_019_context.yaml
+      confidence: 0.99
+    cover_type:
+      value: 노출형(STEEL)
+      source: page_019_context.yaml
+      confidence: 0.99
+    box_size:
+      value: '-'
+      source: page_019_context.yaml
+      confidence: 0.99
+    title:
+      value: 생산동력(3Ø 220V) 분전반 결선도-2
+      source: page_019_context.yaml
+      confidence: 0.97
+    drawing_number:
+      value: EE-01-015
+      source: page_019_context.yaml
+      confidence: 0.97
+    breaker_rating_table:
+      value: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+      source: page_019_context.yaml
+      confidence: 0.93
+  drawing_texts:
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PANEL BOARD: P-G-2PP'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: PANEL BOARD / PANEL LOCATION / COVER TYPE 노출형(STEEL) / BOX SIZE -
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 1층 접합시험실
+  - source: page_019_context.yaml
+    page_number: 19
+    text: EE-01-015
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+  requirements:
+  - text: COVER TYPE 노출형(STEEL)
+    source: page_019_context.yaml
+    type: construction_requirement
+  - text: 3Ø 220V
+    source: page_019_context.yaml
+    type: electrical_requirement
+  - text: '차단기 정격 관련 주기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF'
+    source: page_019_context.yaml
+    type: design_condition
+  connection_specs:
+  - relation: feeds
+    partner: MAIN
+    details:
+      source: page_019_context.yaml
+  - relation: protection
+    partner: MCCB
+    details:
+      source: page_019_context.yaml
+  - relation: surge_protection
+    partner: SPD
+    details:
+      source: page_019_context.yaml
+  - relation: grounding
+    partner: E3
+    details:
+      source: page_019_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: MAIN
+      direction: UNKNOWN
+      source: page_019_context.yaml
+    - relation_type: protection
+      partner_tag: MCCB
+      direction: UNKNOWN
+      source: page_019_context.yaml
+    - relation_type: protection
+      partner_tag: SPD
+      direction: UNKNOWN
+      source: page_019_context.yaml
+    - relation_type: grounding
+      partner_tag: E3
+      direction: UNKNOWN
+      source: page_019_context.yaml
+    observed_attributes:
+    - panel_board
+    - panel_location
+    - cover_type
+    - box_size
+    - title
+    - drawing_number
+    - breaker_rating_table
+    similar_equipment:
+    - P-EA-2PP
+    - P-F-2PP
+    - P-I-2PP
+    suggested_parent_class: panel_board
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - search_entity_by_tag('P005-G/S') 결과 없음
+  - 대상 태그와 도면 내 표기(P-G-2PP)가 직접 일치하지 않아, 제공된 페이지 분석 결과에서 가장 근접한 패널 보드로 수집함
+tag: P005-G/S

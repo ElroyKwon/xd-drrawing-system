@@ -1,0 +1,62 @@
+tag: FD-2A
+name: 소방간선 수직 샤프트 (북측) - FD-2A 구역
+type: 소방간선 수직 샤프트 (방화구획 관통)
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 8
+- 10
+specs:
+  shape: dashed_box
+  labels_inside:
+  - FD-2A
+  inferred_name: 소방간선 수직 샤프트 (북측) - FD-2A 구역
+  equipment_symbols:
+  - type: 방화셔터 연동제어반
+    count: 1
+  inferred_type: 소방간선 수직 샤프트 (방화구획 관통)
+  position: center-upper
+  note: 점선 박스
+  label_inside: FD-2A
+relations:
+- from: FD-2A
+  to: FA-2B
+  relation: connects_to
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 소방간선 배관배선 (천정 은폐) / 간선 연결
+- from: FA-2A
+  to: FD-2A
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 방화셔터 연동 신호
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: center
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireProtectionShaft
+  observed_attributes:
+  - shape
+  - labels_inside
+  - inferred_name
+  - equipment_symbols
+  - inferred_type
+  - position
+  - note
+  - label_inside
+  similar_equipment:
+  - FA-2A
+  - FA-2B
+  function_candidates:
+  - DISTRIBUTE
+  - PROTECT
+  - CONTROL

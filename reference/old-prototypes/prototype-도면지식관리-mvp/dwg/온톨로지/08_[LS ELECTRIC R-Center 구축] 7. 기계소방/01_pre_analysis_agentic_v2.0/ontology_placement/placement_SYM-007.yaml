@@ -1,0 +1,168 @@
+placement:
+  tag: SYM-007
+  name: 여과망
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: Strainer
+    alternative_class_hints:
+    - FiltrationSymbol
+    - EquipmentProtectionSymbol
+    - DebrisRemovalSymbol
+    related_assertions:
+    - type: annotates
+      target_hint: 배관 선
+      note: 배관 선 위에 스트레이너 형상 심볼이 표시됨
+    - type: has_symbol_definition
+      target_hint: Strainer
+      note: ontology_hints.suggested_parent_class에 기반한 후보
+    applicable_axioms:
+    - AX021
+    - AX038
+    - AX040
+    - AX042
+    applicable_constraints:
+    - CN015
+    confirmed_class: dks:Strainer
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'visual_description: 배관 선 위에 스트레이너 형상 심볼이 표시됨'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visual_description
+          suggested_datatype: xsd:string
+          rationale: 도면 상 심볼의 시각적 형상 설명
+      - raw_text: 'function_candidates: Filtration, Debris Removal, Equipment Protection'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: function_category
+          suggested_datatype: xsd:string
+          rationale: 심볼의 기능 후보를 나타내는 분류 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: Strainer'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: parent_class_hint
+          suggested_datatype: xsd:string
+          rationale: 상위 클래스 후보를 직접 제시하는 온톨로지 힌트
+      - raw_text: 'specs.abbreviation: null'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: abbreviation
+          suggested_datatype: xsd:string
+          rationale: 원본 필드 존재하나 값이 비어 있음
+      - raw_text: 'specs.note: null'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 원본 필드 존재하나 값이 비어 있음
+  provenance:
+    name:
+      source_pages:
+      - 3
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: symbol entity with visual depiction
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: derived from function_candidates and visual_description
+    ontology_core.related_assertions:
+      source_pages:
+      - 3
+      method: relations empty; inferred from visual_description and ontology_hints
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: entity_detail.specs.visual_description
+    specs.abbreviation:
+      source_pages:
+      - 3
+      method: entity_detail.specs.abbreviation
+    specs.note:
+      source_pages:
+      - 3
+      method: entity_detail.specs.note
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.function_candidates
+    source_attribution:
+      source_pages:
+      - 3
+      method: entity_detail.source_attribution
+    position:
+      source_pages:
+      - 3
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 3
+      method: entity_detail.confidence
+    collection_sources:
+      source_pages:
+      - 3
+      method: entity_detail.collection_sources
+  unresolved:
+  - field_candidate: specs.abbreviation
+    raw_text: 'null'
+    source_page: 3
+    reason: 값이 비어 있어 약어를 판독할 수 없음
+    preservation_note: 추후 동일 심볼의 다른 페이지/태그와 대조 필요
+  - field_candidate: specs.note
+    raw_text: 'null'
+    source_page: 3
+    reason: 값이 비어 있어 주석 내용을 판독할 수 없음
+    preservation_note: 추후 동일 심볼의 다른 페이지/태그와 대조 필요
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 3
+    reason: 명시된 관계가 없음
+    preservation_note: 주변 태그와의 관계는 후속 단계에서 추출 가능
+  - field_candidate: iri_hint
+    raw_text: ''
+    source_page: 3
+    reason: 원문에 IRI 정보가 없음
+    preservation_note: 0-9c 이후 생성 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 도면상 스트레이너 형상 심볼로 보이나, 실제 물리 설비인지 범례용 심볼인지 단독 정보만으로 확정 불가
+    recommended_handling: AnnotationOnly와 NamedIndividual 후보를 병행 검토하되, 현재는 심볼 실체를
+      보존하는 NamedIndividual로 배치하고 후속 단계에서 범례/연결관계 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서/범례/심볼 계열로 보이는 태그를 AnnotationEntity 후보로 검토
+    - visual_description 및 ontology_hints를 보존
+    deviations:
+    - plan의 예상 top-level에는 AnnotationEntity가 있으나, 본 태그는 심볼이면서도 개별 태그와 자체 설명을 가지므로
+      NamedIndividual로 우선 배치
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:06:30.286802'
+  confidence: 0.95

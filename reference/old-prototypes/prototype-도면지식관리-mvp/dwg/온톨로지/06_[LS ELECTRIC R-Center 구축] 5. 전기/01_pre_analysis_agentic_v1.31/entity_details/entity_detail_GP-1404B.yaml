@@ -1,0 +1,64 @@
+entity_detail:
+  tag: GP-1404B
+  type: breaker_bay
+  specs:
+    panel_id:
+      value: PNL-GP-1404B
+      source: 5
+      confidence: 0.95
+    feeder_name:
+      value: 1404B GP 6.6kV 피더 - 오폐수동 비상
+      source: 5
+      confidence: 0.95
+    voltage_annotation:
+      value: 6.6kV Bus
+      unit: kV
+      source: 5
+      confidence: 0.95
+    shape:
+      value: hexagon
+      source: 5
+      confidence: 0.95
+    label_inside:
+      value: 1404B
+      source: 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: "panel_id: PNL-GP-1404B\nshape: hexagon\nlabels_inside:\n- 1404B\n...\n\
+      annotation: 6.6kV Bus\n- from: PNL-GP-1404A\n  to: PNL-GP-1404B\n  line_type:\
+      \ power_cable\n  line_style: solid\n  annotation: 6.6kV Bus\n...\n- PNL-GP-1403B\n\
+      - PNL-GP-1404A\n- PNL-GP-1404B\nlegend_references:\n- text: VCB\n  linked_to:\
+      \ SYM-011"
+  requirements:
+  - text: 6.6kV Bus
+    source: page 5
+    type: operating_condition
+  connection_specs:
+  - relation: feeds
+    partner: PNL-GP-1404B
+    details:
+      source: page 5
+      text: 'from: PNL-GP-1404A to: PNL-GP-1404B line_type: power_cable line_style:
+        solid annotation: 6.6kV Bus'
+      direction: PNL-GP-1404A -> PNL-GP-1404B
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-GP-1404A
+      direction: PNL-GP-1404A -> PNL-GP-1404B
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - annotation
+    similar_equipment:
+    - 1404A
+    - PNL-GP-1403B
+    suggested_parent_class: breaker_bay
+    cross_discipline: []
+  notes:
+  - 도면 컨텍스트에서 확인 가능한 정보만 기록함.
+tag: GP-1404B

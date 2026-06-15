@@ -1,0 +1,114 @@
+entity_detail:
+  tag: SHV-1101
+  type: switchgear_bay
+  specs:
+    panel_id:
+      value: PNL-SHV-1101
+      unit: null
+      source: page 5
+      confidence: 0.95
+    label_inside:
+      value: '1101'
+      unit: null
+      source: page 5
+      confidence: 0.95
+    voltage:
+      value: 22.9kV
+      unit: kV
+      source: page 5
+      confidence: 0.96
+    cable_annotation:
+      value: 22.9kV ACSR-OC 160sq×3
+      unit: null
+      source: page 5
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 'panel_id: PNL-SHV-1101
+
+      shape: hexagon
+
+      labels_inside:
+
+      - ''1101''
+
+      annotation: 22.9kV ACSR-OC 160sq×3
+
+      from: PNL-MOF
+
+      to: PNL-SHV-1101
+
+      line_type: power_cable
+
+      line_style: solid
+
+      annotation: 22.9kV
+
+      from: PNL-SHV-1101
+
+      to: PNL-SHV-1102
+
+      line_type: power_cable
+
+      line_style: solid'
+  requirements:
+  - text: 22.9kV
+    source: page 5
+    type: electrical_rating
+  - text: 22.9kV ACSR-OC 160sq×3
+    source: page 5
+    type: connection_spec
+  connection_specs:
+  - relation: feeds
+    partner: PNL-SHV-1101
+    details:
+      source: page 5
+      text: 'from: PNL-MOF
+
+        to: PNL-SHV-1101
+
+        line_type: power_cable
+
+        line_style: solid
+
+        annotation: 22.9kV'
+  - relation: feeds
+    partner: PNL-SHV-1102
+    details:
+      source: page 5
+      text: 'from: PNL-SHV-1101
+
+        to: PNL-SHV-1102
+
+        line_type: power_cable
+
+        line_style: solid'
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: PNL-SHV-1101
+      direction: from PNL-MOF to PNL-SHV-1101
+      source: page 5
+    - relation_type: feeds
+      partner_tag: PNL-SHV-1102
+      direction: from PNL-SHV-1101 to PNL-SHV-1102
+      source: page 5
+    observed_attributes:
+    - panel_id
+    - shape
+    - labels_inside
+    - annotation
+    - voltage
+    similar_equipment:
+    - '1102'
+    - '1103'
+    - '1104'
+    - '1105'
+    - '1106'
+    - '1107'
+    suggested_parent_class: switchgear_bay
+    cross_discipline: []
+  notes:
+  - 도면 원문에서 확인 가능한 정보만 기록함.
+tag: SHV-1101

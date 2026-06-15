@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>arch_p062 — 3D 재구성 (MVP)</title>
+<style>
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
+               font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+               background: #1e2025; color: #e6e6e6; }
+  #scene-root { position: absolute; inset: 0; }
+  #hud {
+    position: absolute; top: 12px; left: 12px; padding: 10px 14px;
+    background: rgba(25,28,34,0.85); border: 1px solid #3a404a;
+    border-radius: 6px; font-size: 12px; line-height: 1.5; max-width: 320px;
+    pointer-events: none; z-index: 10;
+  }
+  #hud h1 { font-size: 13px; margin: 0 0 6px; color: #8fd3ff; font-weight: 600; }
+  #hud .k { color: #9aa0a6; }
+  #hud .v { color: #f0f0f0; }
+  #legend {
+    position: absolute; bottom: 12px; left: 12px; padding: 8px 12px;
+    background: rgba(25,28,34,0.85); border: 1px solid #3a404a;
+    border-radius: 6px; font-size: 11px; line-height: 1.8; z-index: 10;
+  }
+  #legend .row { display: flex; align-items: center; gap: 8px; }
+  #legend .sw { width: 14px; height: 14px; border-radius: 2px; border: 1px solid #555; }
+  #controls {
+    position: absolute; top: 12px; right: 12px; padding: 8px;
+    background: rgba(25,28,34,0.85); border: 1px solid #3a404a;
+    border-radius: 6px; font-size: 11px; z-index: 10;
+  }
+  #controls button {
+    background: #2a2f38; border: 1px solid #3a404a; color: #e6e6e6;
+    padding: 4px 8px; margin: 2px; cursor: pointer; border-radius: 3px; font-size: 11px;
+  }
+  #controls button:hover { background: #3a404a; }
+  #controls label { display: block; margin: 4px 0; }
+  .label-room {
+    font-size: 10px; color: #f0f0f0; background: rgba(20,23,28,0.6);
+    padding: 1px 4px; border-radius: 2px; pointer-events: none; white-space: nowrap;
+  }
+  .label-floor {
+    font-size: 13px; color: #8fd3ff; background: rgba(20,23,28,0.75);
+    padding: 2px 6px; border-radius: 3px; font-weight: 600;
+    pointer-events: none; white-space: nowrap;
+  }
+  .label-grid {
+    font-size: 9px; color: #ffd080; background: rgba(20,23,28,0.6);
+    padding: 1px 3px; border-radius: 2px; pointer-events: none;
+  }
+  #status { color: #f8b060; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="scene-root"></div>
+
+<div id="hud">
+  <h1>arch_p062 — 3D 재구성</h1>
+  <div><span class="k">시트:</span> <span class="v" id="hud-sheet">...</span></div>
+  <div><span class="k">글로벌 신뢰도:</span> <span class="v" id="hud-conf">...</span></div>
+  <div><span class="k">층 스택:</span> <span class="v" id="hud-levels">...</span></div>
+  <div><span class="k">렌더 상태:</span> <span id="status">로딩...</span></div>
+</div>
+
+<div id="controls">
+  <div><strong>표시 옵션</strong></div>
+  <label><input type="checkbox" id="opt-slabs" checked> 슬래브</label>
+  <label><input type="checkbox" id="opt-rooms" checked> 실 (room)</label>
+  <label><input type="checkbox" id="opt-walls" checked> 벽</label>
+  <label><input type="checkbox" id="opt-cores" checked> 계단·샤프트</label>
+  <label><input type="checkbox" id="opt-voids" checked> 보이드</label>
+  <label><input type="checkbox" id="opt-grid" checked> 그리드</label>
+  <label><input type="checkbox" id="opt-labels" checked> 라벨</label>
+  <label><input type="checkbox" id="opt-parapet" checked> 파라펫</label>
+  <hr style="border-color:#3a404a;">
+  <button id="cam-top">상면뷰</button>
+  <button id="cam-iso">등축뷰</button>
+  <button id="cam-fit">전체 맞춤</button>
+</div>
+
+<div id="legend">
+  <div class="row"><div class="sw" style="background:#5a6f88"></div>슬래브</div>
+  <div class="row"><div class="sw" style="background:#e0c080"></div>실(room)</div>
+  <div class="row"><div class="sw" style="background:#6a6a7a"></div>벽</div>
+  <div class="row"><div class="sw" style="background:#e08040"></div>계단</div>
+  <div class="row"><div class="sw" style="background:#40c0b0"></div>샤프트/PS</div>
+  <div class="row"><div class="sw" style="background:#555;opacity:0.35"></div>보이드</div>
+  <div class="row"><div class="sw" style="background:#a06040"></div>장비패드</div>
+  <div class="row"><div class="sw" style="background:#aaaaaa"></div>파라펫</div>
+</div>
+
+<script type="module" src="./scene.js"></script>
+</body>
+</html>

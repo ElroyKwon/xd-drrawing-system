@@ -1,0 +1,256 @@
+ontology_readiness:
+  tag: BLK-TITLE-BLOCK
+  verdict: demoted
+  confidence: 0.98
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 2
+    reason: type=PANEL이지만 내용은 표제란/도면 메타데이터이며, labels_inside/raw_labels에 프로젝트명, 회사명,
+      주소, 연락처, 등록번호, 도면번호, 날짜, 축척 표기 등 문서 정보만 존재한다. 물리적 설비가 아니므로 document_metadata로
+      demoted.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 0
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 2
+    convertible: 0
+    ambiguous_attributes:
+    - key: labels_inside
+      value:
+      - LS Electric R-Center 구축
+      - '624001'
+      - 가운 건축
+      - GAUNI Architects & Engineers
+      - 서울시 강남구 언주로 111길 6, 5층 (논현동, 백암빌딩)
+      - Tel:02-2-3443-7799  Fax:02-2-3443-3805
+      - www.gaun.co.kr
+      - 전력시설물통합설계용 제서류 E-1-055호
+      - 엔지니어링 활동주체 제E6-378호
+      - 전기·정보통신 설계감리 및 소방설계
+      - (주) 정 명 기 술 단
+      - 대표·기술사  이  정  환
+      - 전력용 도면목록표
+      - '안 동 시  A3 : 1/NONE'
+      - 이 운 찬
+      - 정 문 학
+      - '2024.04'
+      - EE-00-001
+      reason: 문서 표제란의 혼합 텍스트로, 단일 온톨로지 속성으로 정규화하기 어렵고 회사/프로젝트/등록정보/도면번호/축척/날짜가 함께
+        섞여 있음.
+    - key: raw_labels
+      value:
+      - LS Electric R-Center 구축
+      - '624001'
+      - 가운 건축
+      - GAUNI Architects & Engineers
+      - 서울시 강남구 언주로 111길 6, 5층 (논현동, 백암빌딩)
+      - Tel:02-2-3443-7799  Fax:02-2-3443-3805
+      - www.gaun.co.kr
+      - 전력시설물통합설계용 제서류 E-1-055호
+      - 엔지니어링 활동주체 제E6-378호
+      - 전기·정보통신 설계감리 및 소방설계
+      - (주) 정 명 기 술 단
+      - 대표·기술사  이  정  환
+      - 전력용 도면목록표
+      - '안 동 시  A3 : 1/NONE'
+      - 이 운 찬
+      - 정 문 학
+      - '2024.04'
+      - EE-00-001
+      - GAUN Architects & Engineers
+      - 서울시 강남구 언주로 141길 6, 5층 (논현동, 백암빌딩)
+      - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+      - 전력시설물종합설계업 제서울 E-1-055호
+      - 엔지니어링 활동주체 제E06-378호
+      - 전기·정보통신 설계·감리 및 소방설계
+      - 대표·기술사 이 정 환
+      - 안 동 식
+      - 이 은 진
+      - 정 용 재
+      - 'A3 : 1/NONE'
+      - 'A1 : 1/NONE'
+      reason: 원문 라벨 목록으로 보존 필요. 문서 메타데이터와 인명/주소/연락처/축척/도면번호가 혼재되어 있어 단일 속성 변환 불가.
+    auxiliary_attributes:
+    - labels_inside
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: false
+      source: mini
+      conflict_with: null
+    conflicts:
+    - key: address
+      values:
+      - 서울시 강남구 언주로 111길 6, 5층 (논현동, 백암빌딩)
+      - 서울시 강남구 언주로 141길 6, 5층 (논현동, 백암빌딩)
+      sources:
+      - labels_inside
+      - raw_labels
+    - key: company_name
+      values:
+      - 가운 건축
+      - GAUNI Architects & Engineers
+      - (주) 정 명 기 술 단
+      - GAUN Architects & Engineers
+      sources:
+      - labels_inside
+      - raw_labels
+    - key: contact
+      values:
+      - Tel:02-2-3443-7799  Fax:02-2-3443-3805
+      - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+      sources:
+      - labels_inside
+      - raw_labels
+    - key: registration_number
+      values:
+      - 전력시설물통합설계용 제서류 E-1-055호
+      - 전력시설물종합설계업 제서울 E-1-055호
+      - 엔지니어링 활동주체 제E6-378호
+      - 엔지니어링 활동주체 제E06-378호
+      sources:
+      - labels_inside
+      - raw_labels
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added:
+    - ELECTRICAL
+    - 전기·정보통신 설계감리 및 소방설계
+  ontology_class_hint:
+    suggested_parent_class: DrawingInformation
+    alternative_parent_classes:
+    - DocumentMetadata
+    - TitleBlock
+    - ProjectIdentification
+    - DrawingIdentification
+  spatial_context:
+    position: bottom-right
+    source_pages:
+    - 2
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - LS Electric R-Center 구축
+      - '624001'
+      - 가운 건축
+      - GAUNI Architects & Engineers
+      - 서울시 강남구 언주로 111길 6, 5층 (논현동, 백암빌딩)
+      - Tel:02-2-3443-7799  Fax:02-2-3443-3805
+      - www.gaun.co.kr
+      - 전력시설물통합설계용 제서류 E-1-055호
+      - 엔지니어링 활동주체 제E6-378호
+      - 전기·정보통신 설계감리 및 소방설계
+      - (주) 정 명 기 술 단
+      - 대표·기술사  이  정  환
+      - 전력용 도면목록표
+      - '안 동 시  A3 : 1/NONE'
+      - 이 운 찬
+      - 정 문 학
+      - '2024.04'
+      - EE-00-001
+      raw_labels:
+      - LS Electric R-Center 구축
+      - '624001'
+      - 가운 건축
+      - GAUNI Architects & Engineers
+      - 서울시 강남구 언주로 111길 6, 5층 (논현동, 백암빌딩)
+      - Tel:02-2-3443-7799  Fax:02-2-3443-3805
+      - www.gaun.co.kr
+      - 전력시설물통합설계용 제서류 E-1-055호
+      - 엔지니어링 활동주체 제E6-378호
+      - 전기·정보통신 설계감리 및 소방설계
+      - (주) 정 명 기 술 단
+      - 대표·기술사  이  정  환
+      - 전력용 도면목록표
+      - '안 동 시  A3 : 1/NONE'
+      - 이 운 찬
+      - 정 문 학
+      - '2024.04'
+      - EE-00-001
+      - GAUN Architects & Engineers
+      - 서울시 강남구 언주로 141길 6, 5층 (논현동, 백암빌딩)
+      - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+      - 전력시설물종합설계업 제서울 E-1-055호
+      - 엔지니어링 활동주체 제E06-378호
+      - 전기·정보통신 설계·감리 및 소방설계
+      - 대표·기술사 이 정 환
+      - 안 동 식
+      - 이 은 진
+      - 정 용 재
+      - 'A3 : 1/NONE'
+      - 'A1 : 1/NONE'
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.labels_inside
+  - specs.raw_labels
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields: []
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :BLK-TITLE-BLOCK rdf:type :DocumentMetadata ; rdfs:comment "Title
+      Block / 표제란"
+  owl_export_hints:
+    create_individual: true
+    individual_type: :DocumentMetadata
+    annotations_to_emit:
+    - specs.labels_inside
+    - specs.raw_labels
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    - collection_sources.cross_validated
+    - collection_sources.visual_semantics
+    - collection_sources.visual_semantics_gemini
+    - ontology_hints.suggested_parent_class
+    - ontology_hints.observed_attributes
+    - position
+    - source_pages
+    - confidence
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: BLK-TITLE-BLOCK
+discovered_relations: 0

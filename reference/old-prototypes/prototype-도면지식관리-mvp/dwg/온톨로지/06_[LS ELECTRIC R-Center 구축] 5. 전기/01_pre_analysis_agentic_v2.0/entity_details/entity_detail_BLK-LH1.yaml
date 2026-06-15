@@ -1,0 +1,63 @@
+tag: BLK-LH1
+name: 케이블 헤드 LH-1
+type: CABLE_HEAD
+discipline: ELECTRICAL
+function_category: CABLE_HEAD
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - LH-1
+  - 케이블헤드
+  equipment_type: Cable Head
+  designation: LH-1
+relations:
+- from: EXT-KEPCO
+  to: BLK-LH1
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV-Y 60Hz 수전 인입
+- from: BLK-LH1
+  to: BLK-MOF
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV 계량 회로
+- from: EXT-KEPCO
+  to: BLK-LH1
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV-Y 60Hz 수전 인입
+- from: BLK-LH1
+  to: BLK-MOF
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV 계량 회로
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-center
+confidence: 0.85
+equipment_symbols:
+- type: cable_head
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - raw_labels
+  - equipment_type
+  - designation
+  similar_equipment: []
+  function_candidates:
+  - CableTermination
+  - PowerInput

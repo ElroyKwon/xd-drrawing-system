@@ -1,0 +1,54 @@
+{
+  "id": "report-daily-20260418",
+  "report_type": "daily",
+  "period": { "start": "2026-04-18T00:00:00Z", "end": "2026-04-18T23:59:59Z" },
+  "status": "reviewed",
+  "revision": 1,
+  "sections": [
+    {
+      "id": "s1",
+      "title": "1. 냉방 계통 운전 현황",
+      "python_data": {
+        "chiller_units_running": 2,
+        "chiller_units_standby": 1,
+        "chw_supply_temp_c": 7.1,
+        "chw_return_temp_c": 12.4,
+        "delta_t_c": 5.3,
+        "cooling_load_kw": 1840
+      },
+      "slm_narrative": "냉동기 2대 운전 중(1대 예비). 냉수 공급 7.1°C — 설계 기준 7.0±0.5°C 정상 범위. 냉수 환수 12.4°C로 Δt=5.3°C 확보. 냉각 부하 1,840 kW로 전일 대비 6% 증가. 외기 온도 상승(최고 24°C) 영향."
+    },
+    {
+      "id": "s2",
+      "title": "2. 펌프·AHU 운전 상태",
+      "python_data": {
+        "primary_pumps_ok": 4,
+        "secondary_pumps_ok": 6,
+        "ahu_units_ok": 8,
+        "ahu_units_alarm": 1,
+        "alarm_unit": "AHU-3F-02"
+      },
+      "slm_narrative": "1차 펌프 4대, 2차 펌프 6대 전량 정상. AHU-3F-02 필터 압차 경보 발생(기준 150 Pa 초과 → 172 Pa). 필터 교체 작업 지시 완료(예정 2026-04-20). 나머지 7대 AHU 정상."
+    },
+    {
+      "id": "s3",
+      "title": "3. 에너지 소비 현황",
+      "python_data": {
+        "cooling_energy_kwh": 4416,
+        "pue_cooling": 1.18,
+        "cop_chiller": 4.2,
+        "target_cop": 4.0
+      },
+      "slm_narrative": "냉방 에너지 4,416 kWh 소비. 냉동기 COP 4.2 — 설계 목표(4.0) 초과 달성. 냉수 계통도(M-001 계통도) 기준 운전 최적화 유지 중. 야간 부분부하 운전으로 에너지 절감 기여."
+    },
+    {
+      "id": "s4",
+      "title": "4. 이상 징후 및 권고",
+      "python_data": {
+        "anomalies": 1,
+        "recommended_actions": 2
+      },
+      "slm_narrative": "TR-001 변압기 과온 알람(04/18 23:22) 발생 — 냉방 부하 증가와 변압기 냉각팬 필터 오염 복합 원인으로 추정. 변압기 설명서(기계도면 M14-004 참조) 기준 긴급 점검 권장. AHU 필터 교체 및 변압기 냉각팬 점검 2건 후속 조치 지시."
+    }
+  ]
+}

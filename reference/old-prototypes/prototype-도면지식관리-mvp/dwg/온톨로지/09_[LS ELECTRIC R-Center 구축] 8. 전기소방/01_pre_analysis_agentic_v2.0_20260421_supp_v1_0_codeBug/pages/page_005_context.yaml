@@ -1,0 +1,1128 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 범례 및 주기사항(기호-설명 표 포함)
+  discipline: FIRE_PROTECTION
+  classification: FIRE_ALARM_SYSTEM_DIAGRAM
+  drawing_genre: system_diagram
+  title_block:
+    drawing_number: EF-003
+    title: 소방 간선설비 계통도
+    revision: null
+  visible_tags:
+  - tag: FA-1A
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FA-1C
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FA-1D
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FA-1E
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FA-1F
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FD-1A
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FD-1B
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FD-2A
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FD-2B
+    type: fire_alarm_device_tag
+    source: image
+  - tag: FR-3
+    type: cable_spec_tag
+    source: text
+  - tag: FR-8
+    type: cable_spec_tag
+    source: text
+  - tag: SR
+    type: cable_spec_tag
+    source: text
+  - tag: MG
+    type: cable_spec_tag
+    source: text
+  - tag: SVP
+    type: panel_tag
+    source: text
+  - tag: PULL BOX
+    type: architectural_element
+    source: both
+  - tag: CABLE TRAY
+    type: architectural_element
+    source: both
+  - tag: 지하공동구
+    type: space_name
+    source: both
+  - tag: 옥내
+    type: space_name
+    source: text
+  - tag: 옥외
+    type: space_name
+    source: text
+  - tag: 연결통로
+    type: space_name
+    source: text
+  - tag: 기존동
+    type: space_name
+    source: text
+  complexity:
+    symbol_density: HIGH
+    has_connections: true
+    estimated_entity_count: 9
+  next_step_hints:
+  - 범례 표에 감지기/수동발신기/시각경보기/수신반/전원반/사이렌/제어반 기호가 함께 정리되어 있음
+  - 도면 하단 계통도와 우측 범례/규격표가 함께 있는 복합 페이지
+  - 도면번호 EF-003과 제목 '소방 간선설비 계통도'가 표제란에 명시됨
+  confidence: 0.98
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/fire_protection/genre_system_diagram/supplement_p4_05.yaml
+    P-10: discipline/fire_protection/genre_electrical_alarm/supplement_p10.yaml
+    P-11: discipline/fire_protection/_general/supplement_p11.yaml
+  routing_confidence: 0.96
+  routing_reason: 표제란의 'EF-003'과 '소방 간선설비 계통도'로 fire_protection/system_diagram에 명확히
+    매칭되며, 카탈로그에 해당 genre 보조프롬프트가 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: DIAGRAM-01
+    shape: rectangle
+    primary_label: 소방 간선설비 계통도
+    position: bottom-left
+    labels_near:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    - 지하공동구
+    - 연결통로
+    - 기존동
+  - panel_id: LEGEND-01
+    shape: rectangle
+    primary_label: 범례 및 주기사항
+    position: top-right
+    labels_near:
+    - 심벌
+    - 내용
+    - 비고
+    - 자동식 감지기(2종 스포트형)-LED 부착형
+    - 수동발신기 SET (소화전 상단형)
+    - 화재 주 수신반
+    - SUPER VISORY PANEL
+  - panel_id: SCHEDULE-01
+    shape: rectangle
+    primary_label: 배관, 배선 규격표
+    position: top-right
+    labels_near:
+    - 번호
+    - 배관 및 배선
+    - 규격
+    - 비고
+    - '22C (TSP AWG #18 - 2PR)'
+    - F/O SM 8C x1(IN TRAY)
+  connections:
+  - from: DIAGRAM-01
+    to: LEGEND-01
+    line_style: dashed
+    annotation: 심볼 매칭
+  - from: DIAGRAM-01
+    to: SCHEDULE-01
+    line_style: dashed
+    annotation: 배선 규격 매칭
+  notable_shapes:
+  - shape: circle
+    label: 감지기 심볼
+    note: 계통도 내 다수 배치
+  - shape: rectangle
+    label: 발신기/수신반 심볼
+    note: 계통도 내 배치
+  - shape: dashed_box
+    label: 지하공동구
+    note: 공간 경계 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 1.0
+  note: 우측 상단에 '범례 및 주기사항' 표와 '배관, 배선 규격표'가 명확히 존재함
+supplement_routing:
+  discipline: FIRE_PROTECTION
+  drawing_genre: system_diagram
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 0-0 판정 유지. 제목 '소방 간선설비 계통도'와 도면번호 'EF-003'으로 FIRE_PROTECTION/system_diagram
+    확정. 카탈로그에서 해당 경로 추출. P-10은 전기소방(electrical_alarm) 서브시스템용으로 지정.
+classification: FIRE_ALARM_SYSTEM_DIAGRAM
+discipline: FIRE_PROTECTION
+key_elements_from_text:
+- '도면 제목: 소방 간선설비 계통도'
+- '도면 번호: EF-003'
+- '프로젝트 제목: R-Center 구축'
+- '건물명: R-Center'
+- '설계사무소: 가운건축 / GAUN'
+- 배관,배선 규격표
+- 범례 및 주기사항
+- 감지기 배관 배선
+- 시각경보기 배관 배선
+- 싸이렌 배관 배선
+- 자동화재탐지설비의 수신기 관련 주기사항
+- 지하공동구
+- 연결통로
+- 기존동
+- 옥내
+- 옥외
+title_block:
+  drawing_number: EF-003
+  title: 소방 간선설비 계통도
+  revision: UNKNOWN
+confidence: 0.99
+note: 표제란과 본문 텍스트 모두 소방 간선설비 계통도임을 직접 표시함. 기존 분석의 FIRE_PROTECTION / system_diagram
+  판정과 일치하며, 페이지에는 범례 및 배관·배선 규격표가 함께 있는 복합 도면으로 보임.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: FACP-MAIN
+    shape: rectangle
+    labels_inside:
+    - 화재 주 수신반
+    - R형
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화재수신반(FACP)
+      count: 1
+    inferred_name: 화재 주 수신반 (R형)
+    position: center-right
+  - panel_id: SVP-01
+    shape: rectangle
+    labels_inside:
+    - SUPER VISORY PANEL
+    - SVP
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SUPER VISORY PANEL
+      count: 1
+    inferred_name: 수퍼바이저리 패널 (SVP)
+    position: center-right
+  - panel_id: PULL-BOX-01
+    shape: rectangle
+    labels_inside:
+    - PULL BOX
+    - 400×400×500(H)
+    labels_above:
+    - CABLE TRAY (중앙부)
+    labels_below: []
+    equipment_symbols:
+    - type: PULL BOX
+      count: 1
+    inferred_name: 풀박스 (케이블 트레이 연결부)
+    position: center
+  - panel_id: CABLE-TRAY-01
+    shape: rectangle
+    labels_inside:
+    - CABLE TRAY
+    - 중앙부
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: CABLE TRAY
+      count: 1
+    inferred_name: 케이블 트레이 (중앙 간선 경로)
+    position: center
+  - panel_id: FA-1A
+    shape: rectangle
+    labels_inside:
+    - FA-1A
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 전원반(중계기/발신기세트 포함)
+      count: 1
+    inferred_name: 소방 분전반 FA-1A (1층)
+    position: bottom-left
+  - panel_id: FA-1C
+    shape: rectangle
+    labels_inside:
+    - FA-1C
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1C (1층)
+    position: bottom-left
+  - panel_id: FA-1D
+    shape: rectangle
+    labels_inside:
+    - FA-1D
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1D (1층)
+    position: bottom-center-left
+  - panel_id: FA-1E
+    shape: rectangle
+    labels_inside:
+    - FA-1E
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1E (1층)
+    position: bottom-center
+  - panel_id: FA-1F
+    shape: rectangle
+    labels_inside:
+    - FA-1F
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1F (1층)
+    position: bottom-center
+  - panel_id: FD-1A
+    shape: rectangle
+    labels_inside:
+    - FD-1A
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-1A (1층)
+    position: bottom-center
+  - panel_id: FD-1B
+    shape: rectangle
+    labels_inside:
+    - FD-1B
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-1B (1층)
+    position: bottom-center
+  - panel_id: FD-2A
+    shape: rectangle
+    labels_inside:
+    - FD-2A
+    labels_above:
+    - 2층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-2A (2층)
+    position: center-left
+  - panel_id: FD-2B
+    shape: rectangle
+    labels_inside:
+    - FD-2B
+    labels_above:
+    - 2층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-2B (2층)
+    position: center-left
+  - panel_id: UNDERGROUND-DUCT
+    shape: dashed_box
+    labels_inside:
+    - 지하공동구
+    - ELP 50 /IN TRAY
+    - 'FROM: 자두동 지하1층 분전반 FR-8 2.5sq / 10C'
+    - 지하공동구 사용
+    labels_above: []
+    labels_below:
+    - 지하공동구
+    equipment_symbols:
+    - type: 지중 배관 경로
+      count: 1
+    inferred_name: 지하공동구 (케이블 경로)
+    position: bottom-center
+  - panel_id: CORRIDOR-ZONE
+    shape: dashed_box
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 연결통로 구간
+    position: center-right
+  - panel_id: EXISTING-BLDG
+    shape: dashed_box
+    labels_inside:
+    - 기존동
+    - 자두동 지하1층 분전반
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 기존동 (자두동) 연결부
+    position: right
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 범례 및 주기사항
+    - 심벌 / 내용 / 비고
+    - 자동식 감지기(2종 스포트형)-LED 부착형
+    - 정온식 감지기(1종 스포트형)-LED 부착형
+    - 연기식 감지기(1종 2층 광전식)-LED 부착형
+    - 수동발신기 SET (소화전 상단형)
+    - 청각장애인을 위한 시각경보기
+    - 화재 주 수신반
+    - 전원반(중계기,시각경보기,불꽃감지기)
+    - SUPER VISORY PANEL
+    - 모터 싸이렌
+    - 방화셔터 연동 제어반
+    - 비연동 작동 제어반
+    labels_above:
+    - 범례 및 주기사항
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례 및 주기사항 표
+    position: top-right
+  - panel_id: CABLE-SPEC-TABLE
+    shape: rectangle
+    labels_inside:
+    - 배관, 배선 규격표
+    - 번호 / 배관 및 배선 규격 / 비고
+    - '① 22C (TSP AWG #18 - 2PR)'
+    - ② 28C (HFIX 8-2.5㎟) / 16C (HFIX 2-2.5㎟)
+    - '③ 22C (TSP AWG #18 - 2PR) / 중계기기함'
+    - ④ F/O SM 8C x1(1/2C) / FR-8 2.5㎟/10Cx1(ELP 30φ)
+    - ⑤ F/O SM 8C x1 / FR-8 2.5㎟/10Cx1(IN TRAY)
+    - ⑥ F/O SM 8C x1(IN TRAY) / FR-8 2.5㎟/35x1(IN TRAY)
+    - 수신반변동 옥내
+    - 수신반변동 옥외
+    - 수신반변동 기존동
+    - 중계기기함
+    - 경보기기함
+    labels_above:
+    - 배관, 배선 규격표
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 배관·배선 규격표
+    position: top-right
+  - panel_id: CABLE-SPEC-NOTES
+    shape: rectangle
+    labels_inside:
+    - '감지기 배관 배선: F — 16C (HFIX 2-1.5㎟)'
+    - '감지기 배관 배선: F — 16C (HFIX 4-1.5㎟)'
+    - '감지기 배관 배선: F — 22C (HFIX 8-1.5㎟)'
+    - '시각경보기 배관 배선: —SR— 16C (HFIX 2-2.5㎟)'
+    - '싸이렌 배관 배선: —MG— 16C (HFIX 2-2.5㎟)'
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할 수 있도록 한다.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 배선 규격 주기사항 (감지기/시각경보기/싸이렌)
+    position: bottom-right
+  - panel_id: GENERAL-NOTES
+    shape: rectangle
+    labels_inside:
+    - 자동화재탐지설비의 수신기는 화재로 인하여 하나의 층의 지구회로탐지선의 배선이 단락되어도 다른 층의 화재탐지에 지장이 없도록 배선한다.
+    - 각 지구단락보호장치를 설치하거나 감지, 경보공통선을 별개로 연결되도록 한다.
+    - 전선은 소방시설공사에 적합한것을 사용한다.
+    - 전선분수는 제작사의 시스템에 따라 변경될 수 있다.
+    - 모든 소방간선 케이블은 배선에서 TRAY로, F-FR-8 CABLE을 사용토록 한다. (BFTC, BFTC 내화내열선 성능 충족할 것.)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 일반 주기사항
+    position: bottom-left
+  connections:
+  - from: FACP-MAIN
+    to: PULL-BOX-01
+    line_type: cable
+    line_style: solid
+    annotation: FR-8 / F/O SM 8C (간선 케이블)
+  - from: PULL-BOX-01
+    to: CABLE-TRAY-01
+    line_type: cable
+    line_style: solid
+    annotation: CABLE TRAY 경유
+  - from: CABLE-TRAY-01
+    to: FA-1A
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1C
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1D
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1E
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1F
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FD-1A
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: FD-1B
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: FD-2A
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: FD-2B
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: SVP-01
+    line_type: cable
+    line_style: solid
+    annotation: ⑤ F/O SM 8C x1 / FR-8 2.5㎟/10Cx1 (IN TRAY)
+  - from: UNDERGROUND-DUCT
+    to: PULL-BOX-01
+    line_type: cable
+    line_style: solid
+    annotation: ELP 50 /IN TRAY, FR-8 2.5sq/10C, 지하공동구 경유
+  - from: EXISTING-BLDG
+    to: UNDERGROUND-DUCT
+    line_type: cable
+    line_style: solid
+    annotation: 'FROM: 자두동 지하1층 분전반 FR-8 2.5sq/10C'
+  - from: FACP-MAIN
+    to: CORRIDOR-ZONE
+    line_type: cable
+    line_style: solid
+    annotation: ⑥ F/O SM 8C x1(IN TRAY) / FR-8 2.5㎟/35x1(IN TRAY) — 기존동 연결
+  - from: CORRIDOR-ZONE
+    to: EXISTING-BLDG
+    line_type: cable
+    line_style: solid
+    annotation: 연결통로 경유 기존동 연결
+  groups:
+  - group_id: GRP-1F
+    label: 1층 소방 분전반 및 제어반 그룹
+    members:
+    - FA-1A
+    - FA-1C
+    - FA-1D
+    - FA-1E
+    - FA-1F
+    - FD-1A
+    - FD-1B
+  - group_id: GRP-2F
+    label: 2층 방화셔터 연동제어반 그룹
+    members:
+    - FD-2A
+    - FD-2B
+  - group_id: GRP-MAIN-PANEL
+    label: 주 수신반 및 SVP 그룹 (지붕층)
+    members:
+    - FACP-MAIN
+    - SVP-01
+  - group_id: GRP-CABLE-ROUTE
+    label: 간선 케이블 경로 그룹
+    members:
+    - CABLE-TRAY-01
+    - PULL-BOX-01
+    - UNDERGROUND-DUCT
+  legend_references:
+  - text: 화재 주 수신반
+    linked_to: FACP-MAIN
+  - text: SUPER VISORY PANEL
+    linked_to: SVP-01
+  - text: PULL BOX
+    linked_to: PULL-BOX-01
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-1A
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-1B
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-2A
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-2B
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1A
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1C
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1D
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1E
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1F
+  diagram_meta:
+    title: 소방 간선설비 계통도
+    drawing_number: EF-003
+    project: R-Center 구축
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    drawing_genre: system_diagram
+    scale: A3:1/NONE, A1:1/NONE
+    date: '2024.01'
+    design_firm: 가운건축 / GAUN Architects & Engineers
+    engineering_firm: (주)정연엔지니어링
+    flow_direction: top-to-bottom
+    has_seismic: false
+    has_equipment_list: false
+    riser_count: null
+    floor_count: 4
+    floor_labels:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    pump_count: 0
+    panel_count: 7
+    cable_specs:
+    - id: ①
+      spec: '22C (TSP AWG #18 - 2PR)'
+      usage: 중계기 신호 전송2
+    - id: ②
+      spec: 28C (HFIX 8-2.5㎟) / 16C (HFIX 2-2.5㎟)
+      usage: 소화전 기동기능, 경보, 표시등, 밸브개폐, 기타 / 수신반, 발신기
+    - id: ③
+      spec: '22C (TSP AWG #18 - 2PR) / 중계기기함'
+      usage: 중계기 신호 전송2 / 경보기기함
+    - id: ④
+      spec: F/O SM 8C x1(1/2C) / FR-8 2.5㎟/10Cx1 (ELP 30φ)
+      usage: 수신반변동 옥내
+    - id: ⑤
+      spec: F/O SM 8C x1 / FR-8 2.5㎟/10Cx1 (IN TRAY)
+      usage: 수신반변동 옥외
+    - id: ⑥
+      spec: F/O SM 8C x1(IN TRAY) / FR-8 2.5㎟/35x1(IN TRAY)
+      usage: 수신반변동 기존동
+    cable_line_types:
+    - symbol: F
+      spec: 16C (HFIX 2-1.5㎟)
+      usage: 감지기 배관 배선
+    - symbol: F
+      spec: 16C (HFIX 4-1.5㎟)
+      usage: 감지기 배관 배선
+    - symbol: F
+      spec: 22C (HFIX 8-1.5㎟)
+      usage: 감지기 배관 배선
+    - symbol: SR
+      spec: 16C (HFIX 2-2.5㎟)
+      usage: 시각경보기 배관 배선
+    - symbol: MG
+      spec: 16C (HFIX 2-2.5㎟)
+      usage: 싸이렌 배관 배선
+    special_notes:
+    - 모든 소방간선 케이블은 배선에서 TRAY로, F-FR-8 CABLE을 사용토록 한다. (BFTC, BFTC 내화내열선 성능 충족할 것.)
+    - 전선분수는 제작사의 시스템에 따라 변경될 수 있다.
+    - 자동화재탐지설비의 수신기는 화재로 인하여 하나의 층의 지구회로탐지선의 배선이 단락되어도 다른 층의 화재탐지에 지장이 없도록 배선한다.
+    - 각 지구단락보호장치를 설치하거나 감지, 경보공통선을 별개로 연결되도록 한다.
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할 수 있도록 한다.
+    external_connection:
+      description: 기존동(자두동) 지하1층 분전반에서 FR-8 2.5sq/10C 케이블이 지하공동구를 통해 신축동 PULL BOX로
+        인입
+      from_location: 자두동 지하1층 분전반
+      route: 지하공동구 (ELP 50 /IN TRAY)
+      to_location: PULL BOX (400×400×500H)
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FACP-MAIN
+    shape: rectangle
+    labels_inside:
+    - 화재 주 수신반
+    - R형
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 화재수신반(FACP)
+      count: 1
+    inferred_name: 화재 주 수신반 (R형)
+    position: center-right
+  - panel_id: SVP-01
+    shape: rectangle
+    labels_inside:
+    - SUPER VISORY PANEL
+    - SVP
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SUPER VISORY PANEL
+      count: 1
+    inferred_name: 수퍼바이저리 패널 (SVP)
+    position: center-right
+  - panel_id: PULL-BOX-01
+    shape: rectangle
+    labels_inside:
+    - PULL BOX
+    - 400×400×500(H)
+    labels_above:
+    - CABLE TRAY (중앙부)
+    labels_below: []
+    equipment_symbols:
+    - type: PULL BOX
+      count: 1
+    inferred_name: 풀박스 (케이블 트레이 연결부)
+    position: center
+  - panel_id: CABLE-TRAY-01
+    shape: rectangle
+    labels_inside:
+    - CABLE TRAY
+    - 중앙부
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: CABLE TRAY
+      count: 1
+    inferred_name: 케이블 트레이 (중앙 간선 경로)
+    position: center
+  - panel_id: FA-1A
+    shape: rectangle
+    labels_inside:
+    - FA-1A
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 전원반(중계기/발신기세트 포함)
+      count: 1
+    inferred_name: 소방 분전반 FA-1A (1층)
+    position: bottom-left
+  - panel_id: FA-1C
+    shape: rectangle
+    labels_inside:
+    - FA-1C
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1C (1층)
+    position: bottom-left
+  - panel_id: FA-1D
+    shape: rectangle
+    labels_inside:
+    - FA-1D
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1D (1층)
+    position: bottom-center-left
+  - panel_id: FA-1E
+    shape: rectangle
+    labels_inside:
+    - FA-1E
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1E (1층)
+    position: bottom-center
+  - panel_id: FA-1F
+    shape: rectangle
+    labels_inside:
+    - FA-1F
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 소방 분전반
+      count: 1
+    inferred_name: 소방 분전반 FA-1F (1층)
+    position: bottom-center
+  - panel_id: FD-1A
+    shape: rectangle
+    labels_inside:
+    - FD-1A
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-1A (1층)
+    position: bottom-center
+  - panel_id: FD-1B
+    shape: rectangle
+    labels_inside:
+    - FD-1B
+    labels_above:
+    - 1층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-1B (1층)
+    position: bottom-center
+  - panel_id: FD-2A
+    shape: rectangle
+    labels_inside:
+    - FD-2A
+    labels_above:
+    - 2층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-2A (2층)
+    position: center-left
+  - panel_id: FD-2B
+    shape: rectangle
+    labels_inside:
+    - FD-2B
+    labels_above:
+    - 2층 F.L
+    labels_below: []
+    equipment_symbols:
+    - type: 방화셔터 연동제어반
+      count: 1
+    inferred_name: 방화셔터 연동제어반 FD-2B (2층)
+    position: center-left
+  - panel_id: UNDERGROUND-DUCT
+    shape: dashed_box
+    labels_inside:
+    - 지하공동구
+    - ELP 50 /IN TRAY
+    - 'FROM: 자두동 지하1층 분전반 FR-8 2.5sq / 10C'
+    - 지하공동구 사용
+    labels_above: []
+    labels_below:
+    - 지하공동구
+    equipment_symbols:
+    - type: 지중 배관 경로
+      count: 1
+    inferred_name: 지하공동구 (케이블 경로)
+    position: bottom-center
+  - panel_id: CORRIDOR-ZONE
+    shape: dashed_box
+    labels_inside:
+    - 연결통로
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 연결통로 구간
+    position: center-right
+  - panel_id: EXISTING-BLDG
+    shape: dashed_box
+    labels_inside:
+    - 기존동
+    - 자두동 지하1층 분전반
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 기존동 (자두동) 연결부
+    position: right
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 범례 및 주기사항
+    - 심벌 / 내용 / 비고
+    - 자동식 감지기(2종 스포트형)-LED 부착형
+    - 정온식 감지기(1종 스포트형)-LED 부착형
+    - 연기식 감지기(1종 2층 광전식)-LED 부착형
+    - 수동발신기 SET (소화전 상단형)
+    - 청각장애인을 위한 시각경보기
+    - 화재 주 수신반
+    - 전원반(중계기,시각경보기,불꽃감지기)
+    - SUPER VISORY PANEL
+    - 모터 싸이렌
+    - 방화셔터 연동 제어반
+    - 비연동 작동 제어반
+    labels_above:
+    - 범례 및 주기사항
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례 및 주기사항 표
+    position: top-right
+  - panel_id: CABLE-SPEC-TABLE
+    shape: rectangle
+    labels_inside:
+    - 배관, 배선 규격표
+    - 번호 / 배관 및 배선 규격 / 비고
+    - '① 22C (TSP AWG #18 - 2PR)'
+    - ② 28C (HFIX 8-2.5㎟) / 16C (HFIX 2-2.5㎟)
+    - '③ 22C (TSP AWG #18 - 2PR) / 중계기기함'
+    - ④ F/O SM 8C x1(1/2C) / FR-8 2.5㎟/10Cx1(ELP 30φ)
+    - ⑤ F/O SM 8C x1 / FR-8 2.5㎟/10Cx1(IN TRAY)
+    - ⑥ F/O SM 8C x1(IN TRAY) / FR-8 2.5㎟/35x1(IN TRAY)
+    - 수신반변동 옥내
+    - 수신반변동 옥외
+    - 수신반변동 기존동
+    - 중계기기함
+    - 경보기기함
+    labels_above:
+    - 배관, 배선 규격표
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 배관·배선 규격표
+    position: top-right
+  - panel_id: CABLE-SPEC-NOTES
+    shape: rectangle
+    labels_inside:
+    - '감지기 배관 배선: F — 16C (HFIX 2-1.5㎟)'
+    - '감지기 배관 배선: F — 16C (HFIX 4-1.5㎟)'
+    - '감지기 배관 배선: F — 22C (HFIX 8-1.5㎟)'
+    - '시각경보기 배관 배선: —SR— 16C (HFIX 2-2.5㎟)'
+    - '싸이렌 배관 배선: —MG— 16C (HFIX 2-2.5㎟)'
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할 수 있도록 한다.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 배선 규격 주기사항 (감지기/시각경보기/싸이렌)
+    position: bottom-right
+  - panel_id: GENERAL-NOTES
+    shape: rectangle
+    labels_inside:
+    - 자동화재탐지설비의 수신기는 화재로 인하여 하나의 층의 지구회로탐지선의 배선이 단락되어도 다른 층의 화재탐지에 지장이 없도록 배선한다.
+    - 각 지구단락보호장치를 설치하거나 감지, 경보공통선을 별개로 연결되도록 한다.
+    - 전선은 소방시설공사에 적합한것을 사용한다.
+    - 전선분수는 제작사의 시스템에 따라 변경될 수 있다.
+    - 모든 소방간선 케이블은 배선에서 TRAY로, F-FR-8 CABLE을 사용토록 한다. (BFTC, BFTC 내화내열선 성능 충족할 것.)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 일반 주기사항
+    position: bottom-left
+  connections:
+  - from: FACP-MAIN
+    to: PULL-BOX-01
+    line_type: cable
+    line_style: solid
+    annotation: FR-8 / F/O SM 8C (간선 케이블)
+  - from: PULL-BOX-01
+    to: CABLE-TRAY-01
+    line_type: cable
+    line_style: solid
+    annotation: CABLE TRAY 경유
+  - from: CABLE-TRAY-01
+    to: FA-1A
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1C
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1D
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1E
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FA-1F
+    line_type: cable
+    line_style: solid
+    annotation: '① 22C TSP AWG #18-2PR'
+  - from: CABLE-TRAY-01
+    to: FD-1A
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: FD-1B
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: FD-2A
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: FD-2B
+    line_type: cable
+    line_style: solid
+    annotation: ② 28C HFIX 8-2.5㎟
+  - from: CABLE-TRAY-01
+    to: SVP-01
+    line_type: cable
+    line_style: solid
+    annotation: ⑤ F/O SM 8C x1 / FR-8 2.5㎟/10Cx1 (IN TRAY)
+  - from: UNDERGROUND-DUCT
+    to: PULL-BOX-01
+    line_type: cable
+    line_style: solid
+    annotation: ELP 50 /IN TRAY, FR-8 2.5sq/10C, 지하공동구 경유
+  - from: EXISTING-BLDG
+    to: UNDERGROUND-DUCT
+    line_type: cable
+    line_style: solid
+    annotation: 'FROM: 자두동 지하1층 분전반 FR-8 2.5sq/10C'
+  - from: FACP-MAIN
+    to: CORRIDOR-ZONE
+    line_type: cable
+    line_style: solid
+    annotation: ⑥ F/O SM 8C x1(IN TRAY) / FR-8 2.5㎟/35x1(IN TRAY) — 기존동 연결
+  - from: CORRIDOR-ZONE
+    to: EXISTING-BLDG
+    line_type: cable
+    line_style: solid
+    annotation: 연결통로 경유 기존동 연결
+  groups:
+  - group_id: GRP-1F
+    label: 1층 소방 분전반 및 제어반 그룹
+    members:
+    - FA-1A
+    - FA-1C
+    - FA-1D
+    - FA-1E
+    - FA-1F
+    - FD-1A
+    - FD-1B
+  - group_id: GRP-2F
+    label: 2층 방화셔터 연동제어반 그룹
+    members:
+    - FD-2A
+    - FD-2B
+  - group_id: GRP-MAIN-PANEL
+    label: 주 수신반 및 SVP 그룹 (지붕층)
+    members:
+    - FACP-MAIN
+    - SVP-01
+  - group_id: GRP-CABLE-ROUTE
+    label: 간선 케이블 경로 그룹
+    members:
+    - CABLE-TRAY-01
+    - PULL-BOX-01
+    - UNDERGROUND-DUCT
+  legend_references:
+  - text: 화재 주 수신반
+    linked_to: FACP-MAIN
+  - text: SUPER VISORY PANEL
+    linked_to: SVP-01
+  - text: PULL BOX
+    linked_to: PULL-BOX-01
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-1A
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-1B
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-2A
+  - text: 방화셔터 연동 제어반
+    linked_to: FD-2B
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1A
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1C
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1D
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1E
+  - text: 전원반(중계기,시각경보기,불꽃감지기)
+    linked_to: FA-1F
+  diagram_meta:
+    title: 소방 간선설비 계통도
+    drawing_number: EF-003
+    project: R-Center 구축
+    discipline: FIRE_PROTECTION
+    fire_subsystem: electrical_alarm
+    fire_elec_subsystem: backbone
+    drawing_genre: system_diagram
+    scale: A3:1/NONE, A1:1/NONE
+    date: '2024.01'
+    design_firm: 가운건축 / GAUN Architects & Engineers
+    engineering_firm: (주)정연엔지니어링
+    flow_direction: top-to-bottom
+    has_seismic: false
+    has_equipment_list: false
+    riser_count: null
+    floor_count: 4
+    floor_labels:
+    - 지붕층 F.L
+    - 2층 F.L
+    - 1층 F.L
+    - PIT층 F.L
+    pump_count: 0
+    panel_count: 7
+    cable_specs:
+    - id: ①
+      spec: '22C (TSP AWG #18 - 2PR)'
+      usage: 중계기 신호 전송2
+    - id: ②
+      spec: 28C (HFIX 8-2.5㎟) / 16C (HFIX 2-2.5㎟)
+      usage: 소화전 기동기능, 경보, 표시등, 밸브개폐, 기타 / 수신반, 발신기
+    - id: ③
+      spec: '22C (TSP AWG #18 - 2PR) / 중계기기함'
+      usage: 중계기 신호 전송2 / 경보기기함
+    - id: ④
+      spec: F/O SM 8C x1(1/2C) / FR-8 2.5㎟/10Cx1 (ELP 30φ)
+      usage: 수신반변동 옥내
+    - id: ⑤
+      spec: F/O SM 8C x1 / FR-8 2.5㎟/10Cx1 (IN TRAY)
+      usage: 수신반변동 옥외
+    - id: ⑥
+      spec: F/O SM 8C x1(IN TRAY) / FR-8 2.5㎟/35x1(IN TRAY)
+      usage: 수신반변동 기존동
+    cable_line_types:
+    - symbol: F
+      spec: 16C (HFIX 2-1.5㎟)
+      usage: 감지기 배관 배선
+    - symbol: F
+      spec: 16C (HFIX 4-1.5㎟)
+      usage: 감지기 배관 배선
+    - symbol: F
+      spec: 22C (HFIX 8-1.5㎟)
+      usage: 감지기 배관 배선
+    - symbol: SR
+      spec: 16C (HFIX 2-2.5㎟)
+      usage: 시각경보기 배관 배선
+    - symbol: MG
+      spec: 16C (HFIX 2-2.5㎟)
+      usage: 싸이렌 배관 배선
+    special_notes:
+    - 모든 소방간선 케이블은 배선에서 TRAY로, F-FR-8 CABLE을 사용토록 한다. (BFTC, BFTC 내화내열선 성능 충족할 것.)
+    - 전선분수는 제작사의 시스템에 따라 변경될 수 있다.
+    - 자동화재탐지설비의 수신기는 화재로 인하여 하나의 층의 지구회로탐지선의 배선이 단락되어도 다른 층의 화재탐지에 지장이 없도록 배선한다.
+    - 각 지구단락보호장치를 설치하거나 감지, 경보공통선을 별개로 연결되도록 한다.
+    - 노출 배관 공사시에는 STEEL 배관으로 시공 할 수 있도록 한다.
+    external_connection:
+      description: 기존동(자두동) 지하1층 분전반에서 FR-8 2.5sq/10C 케이블이 지하공동구를 통해 신축동 PULL BOX로
+        인입
+      from_location: 자두동 지하1층 분전반
+      route: 지하공동구 (ELP 50 /IN TRAY)
+      to_location: PULL BOX (400×400×500H)

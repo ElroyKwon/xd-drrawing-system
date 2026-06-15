@@ -1,0 +1,69 @@
+entity_detail:
+  tag: IVR-2
+  type: Inverter
+  specs:
+    voltage:
+      value: 440V
+      unit: V
+      source: page 23
+      confidence: 0.98
+    phase_wire:
+      value: 3Ф 3W
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    cable_spec:
+      value: F-CV 240㎟ -1C x3 (82C)
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    breaker:
+      value: MCCB 1개
+      unit: ea
+      source: page 23
+      confidence: 0.98
+  drawing_texts:
+  - source: page 23 executive_summary
+    page_number: 23
+    text: S/S R-Center 수전반에서 LP-1F, LP-2F, P-C-3PP, P-OAC-1/2/3, P-F, IVR-2, LV-6
+      및 다수의 2PP/3PP/4PP 패널로 연결된다.
+  - source: page 23 equipment
+    page_number: 23
+    text: IVR-2 인버터
+  - source: page 23 equipment
+    page_number: 23
+    text: 3Ф 3W 440V, F-CV 240㎟ -1C x3 (82C), MCCB 1개
+  requirements:
+  - text: 3Ф 3W 440V
+    source: page 23
+    type: electrical_supply
+  - text: MCCB 1개
+    source: page 23
+    type: protection
+  connection_specs:
+  - relation: feeds
+    partner: IVR-2
+    details:
+      source: page 23
+      text: S/S R-Center 수전반에서 ... IVR-2 ... 로 연결된다.
+  - relation: power_connection
+    partner: IVR-2
+    details:
+      source: page 23
+      text: 3Ф 3W 440V, F-CV 240㎟ -1C x3 (82C), MCCB 1개
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: IVR-2
+      direction: S/S R-Center 수전반 -> IVR-2
+      source: page 23 executive_summary
+    observed_attributes:
+    - voltage
+    - phase_wire
+    - cable_spec
+    - breaker
+    similar_equipment: []
+    suggested_parent_class: Inverter
+    cross_discipline: []
+  notes: []
+tag: IVR-2

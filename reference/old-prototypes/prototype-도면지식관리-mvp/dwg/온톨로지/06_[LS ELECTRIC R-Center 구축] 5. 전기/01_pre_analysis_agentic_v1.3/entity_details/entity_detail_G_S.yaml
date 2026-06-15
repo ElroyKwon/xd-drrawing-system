@@ -1,0 +1,93 @@
+entity_detail:
+  tag: G/S
+  type: equipment
+  specs:
+    rated_voltage:
+      value: 25.8kV
+      unit: kV
+      source: page 5
+      confidence: 0.98
+    rated_current:
+      value: 630A
+      unit: A
+      source: page 5
+      confidence: 0.98
+    breaking_capacity:
+      value: 12.5kA
+      unit: kA
+      source: page 5
+      confidence: 0.98
+    lightning_arrester:
+      value: LAx3 W/DISCON.
+      unit: null
+      source: page 5
+      confidence: 0.98
+    insulation_level:
+      value: 18kV
+      unit: kV
+      source: page 5
+      confidence: 0.98
+    short_time_current:
+      value: 2.5kA
+      unit: kA
+      source: page 5
+      confidence: 0.98
+  drawing_texts:
+  - source: page 5 / executive_summary
+    page_number: 5
+    text: '22.9kV 수전설비 단선결선도로, 상단 수전/발전기 계통에서 중간 변압기(TR), 보호계전(GIPAM/GIPAM-2000FI),
+      계량(MOF) 및 개폐기(VCB, G/S)를 거쳐 하단 다수 피더로 분기되는 구조가 보인다.
+
+
+      주요 설비로 TR #1, TR #2, GENERATOR, G/S, MOF, PT, CT, LA, SA, BUS TIE, JUNCTION
+      BOX, REC, SCR, LV PNL, HV PNL, DC LIGHTING, NVR, MG가 관찰된다.
+
+
+      도면 내 전압 표기는 22.9kV, 6.6kV, 440V가 보이며, 발전기 용량은 비상출력 1,250kVA / 1,000KW, 연속출력
+      1,125kVA / 900KW로 표기되어 있다.'
+  requirements:
+  - text: 22.9kV 수전설비 단선결선도
+    source: page 5
+    type: drawing_title
+  - text: 25.8kV 630A, 12.5kA, LAx3 W/DISCON., 18kV 2.5kA
+    source: page 5
+    type: equipment_spec
+  connection_specs:
+  - relation: feeds
+    partner: 하단 다수 피더
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: MOF
+    details:
+      source: page 5
+  - relation: connected_to
+    partner: VCB
+    details:
+      source: page 5
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 하단 다수 피더
+      direction: G/S -> 하단 다수 피더
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: MOF
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: connected_to
+      partner_tag: VCB
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - rated_voltage
+    - rated_current
+    - breaking_capacity
+    - lightning_arrester
+    - insulation_level
+    - short_time_current
+    similar_equipment: []
+    suggested_parent_class: Switchgear
+    cross_discipline: []
+  notes: []
+tag: G/S

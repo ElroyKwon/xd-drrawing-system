@@ -1,0 +1,893 @@
+executive_summary:
+  drawing_number: EE-05-004
+  title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+  classification: GROUNDING_DIAGRAM
+  discipline: ELECTRICAL
+  confidence: 0.98
+  summary: '옥탑지붕층의 피뢰 및 접지 설비 평면도로, 피뢰침 1개소와 STS 환봉 8mm 수평도체 격자망, 구조체 접속이 함께 표현되어
+    있다.
+
+    인하도선은 주 인하도선(기초철골)과 보조 인하도선(F-GV 50㎟, HI-PVC 28C)으로 텍스트에 명시되며, 보호등급은 IV등급이다.
+
+    적용기준은 KEC 150 및 KS C IEC 62305이며, 도면 축척은 A1 1/200, A3 1/400, 도면번호는 EE-05-004이다.
+
+    '
+  equipment:
+  - tag: LP-001
+    name: 피뢰침
+    spec: H:3,000mm 1개소; STS 환봉 8mm + 피뢰침; 옥상구조물보다 최소 250mm 이상 높아야 함
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 옥탑 중앙부 / 그리드 4-5/A-B 근처
+    confidence: 0.98
+  - tag: HC-001
+    name: 수평도체
+    spec: STS 환봉 8mm; 지지금구 1m마다 설치; 옥탑 지붕 전체 격자 배선
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 옥탑지붕층 전체
+    confidence: 0.98
+  - tag: SC-001
+    name: 구조체 접속
+    spec: 철근 및 철골 접속; 접지전극과 수뢰부 사이 전기저항 0.2Ω 이하
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: 그리드 교점
+    confidence: 0.95
+  - tag: DC-001
+    name: 입상/입하
+    spec: '범례 심볼: ↗'
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.7
+  - tag: DC-002
+    name: 중간연결 입상/입하
+    spec: F-GV Wire 또는 구조체 접속; 보조 인하도선과 관련
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.7
+  - tag: AUX-DC-001
+    name: 보조 인하도선
+    spec: F-GV 50㎟ (HI-PVC 28C)
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    location: null
+    confidence: 0.9
+  - tag: ROOF-001
+    name: 옥탑지붕층
+    spec: 전체 폭 71,000mm; 전체 높이 43,000mm; 그리드 축 A-D / 1-7
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    location: 옥탑지붕층
+    confidence: 0.95
+  relationships:
+  - from: 피뢰침
+    to: 수평도체
+    relation: connected_via
+    medium: STS 환봉 8mm
+    direction: bidirectional
+    confidence: 0.85
+  - from: 수평도체
+    to: 구조체 접속
+    relation: connected_via
+    medium: STS 환봉 8mm
+    direction: bidirectional
+    confidence: 0.8
+  - from: 피뢰침
+    to: 옥탑지붕층
+    relation: located_in
+    medium: null
+    direction: unidirectional
+    confidence: 0.95
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center
+    parent: null
+  - space_id: BLDG-001
+    type: building
+    name: LS Electric R-Center 구축
+    parent: SITE-001
+  - space_id: FLOOR-ROOFTOP
+    type: floor
+    name: 옥탑지붕층
+    parent: BLDG-001
+  flow_paths:
+  - - 피뢰침
+    - 수평도체
+    - 구조체 접속
+  top_equipment:
+  - 피뢰침 1개소 (H:3,000mm)
+  - 수평도체 STS 환봉 8mm
+  - 구조체 접속 (철근 및 철골 접속)
+  - 보조 인하도선 F-GV 50㎟ (HI-PVC 28C)
+  - 옥탑지붕층 피뢰 및 접지 설비
+  stats:
+    equipment: 7
+    relationships: 3
+    spaces: 3
+    flow_paths: 1
+  uncertainties:
+  - 입상/입하, 중간연결 입상/입하, 보조 인하도선은 텍스트 범례 기반이며 도면 내 명시적 배치 위치는 확인되지 않음
+  - 인하도선(주 인하도선 기초철골, 보조 인하도선 F-GV 50㎟)은 텍스트에만 있고 도면 선형 표현은 확인되지 않음
+  - 작성/검토/승인명은 일부 오기록 수정 정보가 있으나 최종 완전한 인명 문자열은 제공된 내용에서 일부만 확인됨
+  - 도면 내 별도 설비 태그는 확인되지 않음
+  related_pages:
+  - 37
+  - 39
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례 및 개요/특기사항 섹션
+  discipline: ELECTRICAL
+  classification: LIGHTNING_PROTECTION_LAYOUT
+  title_block:
+    drawing_number: EE-05-004
+    title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: null
+    type: lightning_rod
+    source: both
+  - tag: null
+    type: horizontal_conductor_STS_round_bar_8mm
+    source: both
+  - tag: null
+    type: support_bracket_every_1m
+    source: both
+  - tag: null
+    type: down_conductor_main_structure_connection
+    source: text
+  - tag: null
+    type: down_conductor_aux_F-GV_50sqmm_HI-PVC_28C
+    source: text
+  - tag: null
+    type: structure_connection_rebar_or_steel_frame
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 범례와 특기사항이 우측 상단에 함께 배치되어 있음
+  - 도면 내 설비 식별 태그는 보이지 않음; 피뢰설비 구성요소 명칭만 확인됨
+  - '그리드 축 A-D, 1-7 및 치수(예: 71,000 / 43,000 / 13,000 / 12,000 / 11,500)가 보임'
+  confidence: 0.96
+  note: null
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: PNL-001
+    shape: rectangle
+    primary_label: 피뢰설비 개요 및 특기사항
+    position: top-right
+    labels_near:
+    - 적용기준
+    - 보호등급
+    - 수뢰부
+  - panel_id: PNL-002
+    shape: rectangle
+    primary_label: 피뢰설비 범례
+    position: top-right-below-PNL-001
+    labels_near:
+    - 피뢰침
+    - 구조체 접속
+    - 수평도체
+  - panel_id: PNL-003
+    shape: rectangle
+    primary_label: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    position: center-left
+    labels_near:
+    - GRID A-D
+    - GRID 1-7
+  - panel_id: PNL-004
+    shape: rectangle
+    primary_label: TITLE BLOCK
+    position: bottom-right
+    labels_near:
+    - LS Electric
+    - EE-05-004
+  - panel_id: PNL-005
+    shape: rectangle
+    primary_label: KEY PLAN
+    position: right-center
+    labels_near:
+    - KEY PLAN
+  connections:
+  - from: PNL-003
+    to: PNL-002
+    line_style: dashed
+    annotation: 범례 참조 (추론)
+  notable_shapes:
+  - shape: dashed_box
+    label: 피뢰침 (H:3,000mm) 1개소
+    note: 도면 내 특정 설비 강조 영역
+  - shape: dashed_box
+    label: 수평도체(STS 환봉 8mm) 지지금구 1m마다 설치
+    note: 도면 내 특정 설비 강조 영역
+  - shape: circle
+    label: 피뢰침 심볼
+    note: dashed_box 내 위치
+  - shape: hexagon
+    label: '5'
+    note: 범례 및 도면 내 수평도체 식별
+  - shape: hexagon
+    label: '6'
+    note: 범례 내 F-GV 도체 식별
+  - shape: triangle
+    label: 'null'
+    note: KEY PLAN 및 REVISIONS 섹션 내 삼각형 심볼
+classification: GROUNDING_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 옥탑지붕층 피뢰 및 접지 설비 평면도
+- 피뢰침 (H:3,000㎜) 1개소
+- 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+- '보호등급: IV등급'
+- '수뢰부: 회전구체법, 회전구체반경 60 m'
+- '인하도선: 주 인하도선 기초철골, 보조 인하도선 F-GV 50㎟ (HI-PVC 28C)'
+- 구조체 접속 (철근 및 철골 접속)
+- '도면번호: EE-05-004'
+- '축척: A1 1/200, A3 1/400'
+title_block:
+  drawing_number: EE-05-004
+  title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+  revision: null
+confidence: 0.98
+note: 표제란에 프로젝트명 'LS Electric R-Center 구축', 건물명 '가운건축', 작성/검토/승인명으로 보이는 텍스트가 보이나 리비전
+  값은 확인되지 않음.
+classification_confirmed: true
+override_classification: null
+visual_pattern: 옥탑지붕층 평면 위에 피뢰설비 배치와 접지 관련 표기를 함께 표시한 전기 설비 평면도. 우측 상단에 '피뢰설비 개요 및
+  특기사항'과 '피뢰설비 범례' 박스가 있고, 중앙에는 옥탑 지붕 형상과 피뢰침/수평도체/접속부가 배치되어 있음. 하단 제목란에 '옥탑지붕층 피뢰
+  및 접지 설비 평면도', 도면번호 'EE-05-004'가 보임.
+symbol_density: MEDIUM
+detected_symbols:
+- type: 피뢰침
+  count: 1
+- type: 구조체 접속(철근 및 철골 접속)
+  count: 1
+- type: 수평도체(STS 형봉 8mm)
+  count: 1
+- type: 입상/입하
+  count: 1
+- type: 중간연결 입상/입하(F-GV Wire 또는 구조체 접속)
+  count: 1
+- type: 피뢰침 보호구역/범례 표기
+  count: 1
+line_types_observed:
+- 실선
+- 점선
+- 일점쇄선
+- 화살표 선
+additional_findings:
+- 우측 상단 범례와 개요/특기사항 섹션이 함께 배치되어 있음
+- 그리드 축 A-D, 1-7 및 치수(12,000 / 11,500 / 13,000 / 43,000 / 71,000)가 보임
+- 도면 성격은 전기 분야의 피뢰 및 접지 설비 평면도로 보이며, 기존 분류(LIGHTNING_PROTECTION_LAYOUT)와 일치함
+- 범례에 없는 별도 설비 태그는 확인되지 않음
+analysis_modes:
+- mode: entity_extraction
+  priority: 1
+  reason: 범례와 도면 내 피뢰설비 심볼/표기를 대응해 식별해야 함
+- mode: spatial_mapping
+  priority: 2
+  reason: 옥탑 지붕 평면과 피뢰설비 배치 관계를 확인해야 함
+- mode: power_flow_topology
+  priority: 3
+  reason: 접지/피뢰 연결 흐름이 선형 연결로 표현되어 있어 연결 관계 확인에 유효함
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PNL-001
+    shape: rectangle
+    labels_inside:
+    - '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+    - '보호등급: IV등급'
+    - '수뢰부: 회전구체법, 회전구체반경 60 m'
+    - '수뢰부: STS 환봉 8mm + 피뢰침'
+    - '인하도선: 주 인하도선 기초철골'
+    - '인하도선: 보조 인하도선 F-GV 50㎟ (HI-PVC 28C)'
+    - 1. KS C IEC 62305의 기기 건축물은 수뢰부 시스템의 자연적구성부재(KS C IEC 62305-3/5.2.5항)를 충족하고,
+      전기저항이 0.2Ω 이하인 경우, 수평도체를 생략할 수 있다.
+    - 2. 피뢰인하도선 자연적 구성부재인 철골 또는 철근 등을 이용하는 경우에는 접지전극과 수뢰부 사이의 전기저항이 0.2Ω 이하로 확인되어야
+      하며 구조체 접속방법을 따른다.
+    - 3. 수뢰부를 설치하여 구조물을 보호하는 경우 피뢰침 높이는 옥상구조물 보다 최소 250mm이상 높아야 한다.
+    - 4. 옥상에 노출된 전선성 부분은 수뢰부와 접속한다.
+    - 5. 높은 구조물의 상층부의 높이가 60m 이상이면 구조물 높이의 최상부 20%이상 부분에 설치한 설비를 보호할 수 있도록 수뢰부시스템을
+      설치하여야 한다.
+    labels_above:
+    - 피뢰설비 개요 및 특기사항
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 피뢰설비 개요 및 특기사항 박스
+    position: top-right
+  - panel_id: PNL-002
+    shape: rectangle
+    labels_inside:
+    - '피뢰침 (심볼: ⊙)'
+    - '구조체 접속 (철근 및 철골 접속) (심볼: □)'
+    - '구조물 접속 (심볼: ●)'
+    - '입상, 입하 (심볼: ↗)'
+    - '중간연결 입상, 입하 (F-GV Wire 또는 구조체 접속) (심볼: ↗)'
+    - '수평도체 (STS 환봉 8mm) (심볼: ⑤ --------)'
+    - 'F-GV 50㎟ (HI-PVC 28C) (심볼: ⑥ ————)'
+    labels_above:
+    - 피뢰설비 범례
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    - type: 구조체 접속
+      count: 1
+    - type: 구조물 접속
+      count: 1
+    - type: 입상/입하
+      count: 1
+    - type: 중간연결 입상/입하
+      count: 1
+    - type: 수평도체 STS 환봉 8mm
+      count: 1
+    - type: F-GV 50sqmm HI-PVC 28C
+      count: 1
+    inferred_name: 피뢰설비 범례 박스
+    position: right-center-below-PNL-001
+  - panel_id: PNL-003
+    shape: rectangle
+    labels_inside:
+    - 그리드 축 A, B, C, D (수평)
+    - 그리드 축 1, 2, 3, 4, 5, 6, 7 (수직)
+    - '전체 폭: 71,000mm'
+    - '전체 높이: 43,000mm'
+    - '스팬 1-2: 12,000mm'
+    - '스팬 2-3: 12,000mm'
+    - '스팬 3-4: 12,000mm'
+    - '스팬 4-5: 12,000mm'
+    - '스팬 5-6: 11,500mm'
+    - '스팬 6-7: 11,500mm'
+    - 'A-B 간격: 10,000mm'
+    - 'B-C 간격: 17,000mm (추정)'
+    - 'C-D 간격: 13,000mm'
+    - 수평도체(STS 환봉 8mm) 배선 (실선 격자 패턴)
+    - 피뢰침 (H:3,000mm) 1개소
+    - 수평도체(STS 환봉8mm) 지지금구 1m마다 설치
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    - type: 수평도체 STS 환봉 8mm
+      count: 1
+    - type: 구조체 접속
+      count: 1
+    inferred_name: 옥탑지붕층 피뢰 및 접지 설비 평면도 (메인 도면 영역)
+    position: center-left
+  - panel_id: PNL-004
+    shape: dashed_box
+    labels_inside:
+    - 피뢰침 (H:3,000mm) 1개소
+    - ⊙ (피뢰침 심볼)
+    - 수평도체(STS 환봉8mm) 지지금구 1m마다 설치
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    inferred_name: 피뢰침 설치 위치 강조 점선 박스
+    position: center (도면 내 옥탑 부근)
+  - panel_id: PNL-005
+    shape: rectangle
+    labels_inside:
+    - KEY PLAN (삼각형 심볼 다수)
+    - REVISION 섹션 (삼각형 심볼)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: KEY PLAN 및 REVISION 섹션
+    position: right-bottom
+  - panel_id: PNL-006
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운 건축 GAUN I Architects & Engineers
+    - 서울시 강남구 언주로 111길 6, 5층 (논현동, 백암빌딩)
+    - Tel:02-3443-7799 Fax:02-3443-3805
+    - www.gaun.co.kr
+    - 옥탑지붕층 피뢰 및 접지 설비 평면도
+    - 안 동 식
+    - 이 운 찬
+    - 정 문 학
+    - '2024.04'
+    - 'A1: 1/200'
+    - 'A3: 1/400'
+    - EE-05-004
+    - (주)정명기술단
+    - 대표·기술사 이 정 환
+    - 전력시설물통합설계업 제서울 E-1-0535호
+    - 엔지니어링 활동주체 제 엔86-378호
+    - 전기·정보통신 설계·감리 및 소방설계
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란 (Title Block)
+    position: bottom-right
+  connections:
+  - from: PNL-003
+    to: PNL-004
+    line_type: other
+    line_style: dashed
+    annotation: 피뢰침 설치 위치 강조 (점선 박스로 표시)
+  - from: PNL-003
+    to: PNL-002
+    line_type: other
+    line_style: solid
+    annotation: 범례 참조 관계
+  - from: PNL-004
+    to: PNL-003
+    line_type: ground
+    line_style: solid
+    annotation: 수평도체(STS 환봉 8mm) 연결 - 피뢰침에서 구조체 접속으로 인하
+  buses:
+  - bus_id: BUS-HORIZONTAL-CONDUCTOR
+    voltage: null
+    members:
+    - PNL-003
+    - PNL-004
+    note: 수평도체(STS 환봉 8mm) 격자 배선망 - 옥탑 지붕 전체 커버
+  legend_references:
+  - text: 피뢰침 (H:3,000mm) 1개소
+    linked_to: PNL-004
+  - text: 수평도체(STS 환봉 8mm)
+    linked_to: PNL-003
+  - text: 구조체 접속 (철근 및 철골 접속)
+    linked_to: PNL-003
+  - text: F-GV 50㎟ (HI-PVC 28C)
+    linked_to: PNL-003
+  - text: 지지금구 1m마다 설치
+    linked_to: PNL-004
+  diagram_meta:
+    title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-004
+    project: LS Electric R-Center 구축
+    client: 가운 건축 (GAUN I Architects & Engineers)
+    contractor: (주)정명기술단
+    date: '2024.04'
+    scale_A1: 1/200
+    scale_A3: 1/400
+    discipline: ELECTRICAL
+    classification: LIGHTNING_PROTECTION_LAYOUT
+    main_voltage: null
+    direction: top-to-bottom
+    grid_axes_horizontal:
+    - A
+    - B
+    - C
+    - D
+    grid_axes_vertical:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    overall_dimensions:
+      width_mm: 71000
+      height_mm: 43000
+    span_dimensions:
+    - span: 1-2
+      mm: 12000
+    - span: 2-3
+      mm: 12000
+    - span: 3-4
+      mm: 12000
+    - span: 4-5
+      mm: 12000
+    - span: 5-6
+      mm: 11500
+    - span: 6-7
+      mm: 11500
+    - span: A-B
+      mm: 10000
+    - span: C-D
+      mm: 13000
+    lightning_protection_spec:
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      protection_level: IV등급
+      air_termination_method: 회전구체법
+      rolling_sphere_radius_m: 60
+      air_termination_material: STS 환봉 8mm + 피뢰침
+      down_conductor_main: 기초철골 (주 인하도선)
+      down_conductor_aux: F-GV 50㎟ (HI-PVC 28C) (보조 인하도선)
+      lightning_rod_height_mm: 3000
+      lightning_rod_count: 1
+      horizontal_conductor_support_spacing_m: 1
+    symbols_detected:
+    - type: 피뢰침
+      count: 1
+      position: 옥탑 중앙부 (점선 박스 내)
+    - type: 수평도체 STS 환봉 8mm
+      count: 1
+      note: 격자 패턴으로 옥탑 지붕 전체 배선
+    - type: 구조체 접속 (철근 및 철골 접속)
+      count: 1
+    - type: 입상/입하
+      count: 1
+    - type: 중간연결 입상/입하
+      count: 1
+    line_types_observed:
+    - 실선 (수평도체 배선)
+    - 점선 (피뢰침 설치 위치 강조 박스)
+    - 일점쇄선 (그리드 축선)
+    - 화살표 선 (치수 표기)
+    confidence: 0.97
+    notes:
+    - 도면 내 설비 식별 태그(번호)는 별도로 부여되지 않음; 범례 심볼로만 구분
+    - 수평도체는 옥탑 지붕 전체에 격자 형태로 배선되어 있음
+    - 피뢰침 1개소는 옥탑 중앙부 점선 박스 내에 위치
+    - 인하도선은 주로 기초철골(구조체)을 이용하며, 보조로 F-GV 50㎟ 케이블 사용
+    - 범례 심볼 ⑤는 수평도체(STS 환봉 8mm), ⑥은 F-GV 50㎟ (HI-PVC 28C)를 나타냄
+visual_semantics_gemini:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PNL-001
+    shape: rectangle
+    labels_inside:
+    - 적용기준
+    - 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    - 방식
+    - 회전 구체법
+    - 보호등급
+    - IV등급
+    - 회전구체반경 60 m
+    - 수뢰부
+    - STS 환봉 8 mm + 피뢰침
+    - 인하도선
+    - '주 인하도선 : 기초철골'
+    - '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+    - 1. KS C IEC 62305 의거 건축 구조물은 수뢰부 시스템의 자연적구성부재요건(KS C IEC 62305-3/5.2.5절)을 충족하고,
+      전기저항이 0.2 Ω 이하인 경우, 수평도체를 생략할 수 있다.
+    - 2. 피뢰인하도선을 자연적 구성부재인 철골 또는 철근 등을 이용하는 경우에는 접지전극과 수뢰부 사이의 전기저항이 0.2 Ω 이하로 확보되어야
+      하며 구조체 접속방법을 따른다.
+    - 3. 수뢰부를 설치하여 구조물을 보호하는 경우 피뢰침 높이는 옥상구조물 보다 최소 250 ㎜이상 높아야 한다.
+    - 4. 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+    - 5. 높은 구조물의 상층부의 높이가 60 m 이상이면 구조물 높이의 최상부 20%와 이부분에 설치한 설비를 보호할 수 있도록 수뢰부시스템을
+      설치해야 한다.
+    labels_above:
+    - 피뢰설비 개요 및 특기사항
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 피뢰설비 개요 및 특기사항
+    position: top-right
+  - panel_id: PNL-002
+    shape: rectangle
+    labels_inside:
+    - 구 분
+    - 내 용
+    - 피뢰침
+    - 구조체 접속 (철근 및 철골 접속)
+    - 구조물 접속
+    - 입상, 입하
+    - 중간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    - 수평도체 (STS 환봉 8mm)
+    - F-GV 50㎟ (HI-PVC 28C)
+    labels_above:
+    - 피뢰설비 범례
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    - type: 구조체 접속
+      count: 1
+    - type: 구조물 접속
+      count: 1
+    - type: 입상, 입하
+      count: 1
+    - type: 중간연결 입상, 입하
+      count: 1
+    - type: 수평도체
+      count: 1
+    - type: F-GV
+      count: 1
+    inferred_name: 피뢰설비 범례
+    position: right-center
+  - panel_id: PNL-003
+    shape: rectangle
+    labels_inside:
+    - 옥탑지붕층 피뢰 및 접지 설비 평면도
+    - '축척:A1 : 1/200'
+    - 'A3 : 1/400'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - A
+    - B
+    - C
+    - D
+    - 71,000
+    - 12,000
+    - 12,000
+    - 12,000
+    - 12,000
+    - 11,500
+    - 11,500
+    - 43,000
+    - 13,000
+    - 17,000
+    - 13,000
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    position: center
+  - panel_id: PNL-004
+    shape: dashed_box
+    labels_inside:
+    - 피뢰침 (H:3,000mm)
+    - 1개소
+    - 수평도체(STS 환봉8mm)
+    - 지지금구 1m마다 설치
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침
+      count: 1
+    inferred_name: 피뢰침 상세
+    position: center-right
+  - panel_id: PNL-005
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '624001'
+    - 가 운 건 축
+    - GAUN | Architects & Engineers
+    - 서울시 강남구 언주로 141길 6, 5층 (논현동, 백암빌딩)
+    - Tel:82-2-3443-7799 Fax:82-2-3443-3807
+    - www.gaun.co.kr
+    - 옥탑지붕층 피뢰 및
+    - 접지 설비평면도
+    - 안 동 식
+    - 이 은 진
+    - 정 용 재
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.04'
+    - EE-05-004
+    - 전력시설물종합설계업 제서울 E-1-055호
+    - 엔지니어링 활동주체 제06-378호
+    - 전기,정보통신 설계,감리 및 소방설계
+    - (주) 정 명 기 술 단
+    - 대표·기술사 이 정 환
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: Title Block
+    position: bottom-right
+  connections: []
+  buses: []
+  legend_references:
+  - text: 피뢰침
+    linked_to: PNL-002
+  - text: 구조체 접속 (철근 및 철골 접속)
+    linked_to: PNL-002
+  - text: 구조물 접속
+    linked_to: PNL-002
+  - text: 입상, 입하
+    linked_to: PNL-002
+  - text: 중간연결 입상, 입하 (F-GV Wire 또는 구조체 접속)
+    linked_to: PNL-002
+  - text: 수평도체 (STS 환봉 8mm)
+    linked_to: PNL-002
+  - text: F-GV 50㎟ (HI-PVC 28C)
+    linked_to: PNL-002
+  diagram_meta:
+    title: 옥탑지붕층 피뢰 및 접지 설비 평면도
+    main_voltage: null
+    direction: top-to-bottom
+pass1_설비식별:
+  entities:
+  - tag: LP-001
+    name: 피뢰침
+    type: Lightning Rod / Air Terminal
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 피뢰침 (H:3,000mm) 1개소, STS 환봉 8mm + 피뢰침, 옥상구조물 보다 최소 250mm이상 높아야 함
+    confidence: 0.98
+    note: 도면 내 점선 박스(PNL-004)에 명시된 설비, 옥탑 중앙부에 위치
+  - tag: HC-001
+    name: 수평도체 (STS 환봉 8mm)
+    type: Horizontal Conductor / STS Round Bar
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 수평도체 (STS 환봉 8mm), 격자 패턴으로 옥탑 지붕 전체 배선, 지지금구 1m마다 설치
+    confidence: 0.98
+    note: 도면 내 실선 격자 패턴으로 표현, 범례 심볼 ⑤로 식별
+  - tag: SC-001
+    name: 구조체 접속 (철근 및 철골 접속)
+    type: Structure Connection / Rebar & Steel Frame Connection
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: 구조체 접속 (철근 및 철골 접속), 접지전극과 수뢰부 사이의 전기저항이 0.2Ω 이하로 확보되어야 함
+    confidence: 0.95
+    note: 도면 내 범례 심볼 □로 식별, 주 인하도선으로 기초철골 이용
+  - tag: DC-001
+    name: 입상/입하
+    type: Vertical Conductor / Ascending/Descending Conductor
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: '입상, 입하 (범례 심볼: ↗)'
+    confidence: 0.7
+    note: detected_symbols에서 확인, 도면 내 명시적 배치는 visual_semantics PNL-003에서 미확인
+  - tag: DC-002
+    name: 중간연결 입상/입하
+    type: Intermediate Vertical Conductor / F-GV Wire Connection
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: '중간연결 입상, 입하 (F-GV Wire 또는 구조체 접속), 보조 인하도선: F-GV 50㎟ (HI-PVC 28C)'
+    confidence: 0.7
+    note: detected_symbols에서 확인, 범례 심볼 ↗로 식별
+  - tag: AUX-DC-001
+    name: 보조 인하도선 (F-GV 50㎟ HI-PVC 28C)
+    type: Auxiliary Down Conductor / F-GV Cable
+    discipline: ELECTRICAL
+    function_category: PROTECT
+    spec_text: F-GV 50㎟ (HI-PVC 28C), 보조 인하도선, 범례 심볼 ⑥
+    confidence: 0.9
+    note: 범례(PNL-002)에 명시, 도면 내 배치 위치는 특정되지 않음
+  - tag: ROOF-001
+    name: 옥탑지붕층
+    type: Rooftop / Building Roof Structure
+    discipline: STRUCTURAL
+    function_category: BOUNDARY
+    spec_text: '옥탑지붕층, 전체 폭: 71,000mm, 전체 높이: 43,000mm, 그리드 축 A-D (수평), 1-7 (수직),
+      스팬: 12,000mm / 12,000mm / 12,000mm / 12,000mm / 11,500mm / 11,500mm'
+    confidence: 0.95
+    note: 도면의 메인 평면도 영역(PNL-003)에서 확인된 건축/구조 요소, 피뢰설비 배치의 기준 구조
+pass2_토폴로지:
+  relationships:
+  - from: 피뢰침-옥탑중앙
+    to: 수평도체-격자망
+    relation: connected_via
+    medium: STS_환봉_8mm
+    direction: bidirectional
+    confidence: 0.85
+    source: page_38_visual_semantics
+    note: 피뢰침이 수평도체 격자망에 연결되어 있음 (점선 박스 PNL-004 내 표시)
+  - from: 수평도체-격자망
+    to: 구조체-접속점
+    relation: connected_via
+    medium: STS_환봉_8mm
+    direction: bidirectional
+    confidence: 0.8
+    source: page_38_visual_semantics
+    note: 수평도체가 구조체(철근/철골)에 접속됨
+  conduits: []
+  flow_sequence:
+  - - 피뢰침-옥탑중앙
+    - 수평도체-격자망
+    - 구조체-접속점
+  isolated_entities:
+  - 인하도선-주(기초철골)
+  - 인하도선-보조(F-GV_50sqmm_HI-PVC_28C)
+  notes:
+  - 도면 내 모든 설비에 식별 태그(번호) 없음
+  - 범례 심볼 ⑤, ⑥은 선 유형 식별자이며 설비 태그 아님
+  - 인하도선은 텍스트 설명에만 있고 도면에 명시적 선으로 표현되지 않음
+  - 수평도체 지지금구는 1m마다 설치되나 개별 연결점으로 표현되지 않음
+  - '도면번호: EE-05-004, 축척: A1 1/200, A3 1/400'
+pass3_공간:
+  spaces:
+  - space_id: SITE-001
+    type: site
+    name: LS Electric R-Center
+    parent: null
+    location: 서울시 강남구 언주로 141길 6
+  - space_id: BLDG-001
+    type: building
+    name: LS Electric R-Center 구축
+    parent: SITE-001
+    project_number: '624001'
+  - space_id: FLOOR-ROOFTOP
+    type: floor
+    name: 옥탑지붕층
+    parent: BLDG-001
+    floor_level: rooftop
+    dimensions:
+      width_mm: 71000
+      height_mm: 43000
+    grid_axes:
+      horizontal:
+      - A
+      - B
+      - C
+      - D
+      vertical:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+  equipment_placement:
+  - tag: LR-001
+    name: 피뢰침
+    type: lightning_rod
+    located_in: FLOOR-ROOFTOP
+    specification: H:3,000mm
+    quantity: 1
+    position: 그리드 4-5/A-B 근처 중앙부
+    confidence: 0.95
+    source: 도면 평면도 점선 박스 표시
+  - tag: HC-001
+    name: 수평도체
+    type: horizontal_conductor
+    located_in: FLOOR-ROOFTOP
+    specification: STS 환봉 8mm
+    pattern: 격자 배선
+    support_spacing_m: 1
+    confidence: 0.95
+    source: 도면 평면도 실선 격자 패턴
+  - tag: SC-001
+    name: 구조체 접속
+    type: structure_connection
+    located_in: FLOOR-ROOFTOP
+    specification: 철근 및 철골 접속
+    position: 그리드 교점
+    confidence: 0.9
+    source: 도면 평면도 □ 심볼
+pass4_검증:
+  corrections:
+  - target: visual_semantics.panels[PNL-003].labels_inside - A-B 간격
+    resolution: A-B 간격은 10,000mm이 아니라 13,000mm이어야 함. 전체 폭 71,000mm = 12,000+12,000+12,000+12,000+11,500+11,500
+      (수평 스팬) 및 A-B(13,000) + B-C(17,000) + C-D(13,000) = 43,000 (수직 간격)
+    evidence: OCR 텍스트 및 gemini visual_semantics_gemini 분석에서 모두 13,000 / 17,000 / 13,000으로
+      확인됨. visual_semantics만 10,000으로 오기록
+    confidence: 0.98
+  - target: visual_semantics.panels[PNL-006].labels_inside - 주소 및 연락처
+    resolution: 주소는 '언주로 111길'이 아니라 '언주로 141길'이고, Fax는 '3805'가 아니라 '3807'이어야 함
+    evidence: OCR 텍스트 및 gemini visual_semantics_gemini 분석에서 모두 '141길' 및 '3807'로 확인됨.
+      visual_semantics만 '111길' 및 '3805'로 오기록
+    confidence: 0.99
+  - target: visual_semantics.panels[PNL-006].labels_inside - 라이선스 번호
+    resolution: 라이선스 번호는 'E-1-0535호'가 아니라 'E-1-055호'이어야 함
+    evidence: OCR 텍스트 및 gemini visual_semantics_gemini 분석에서 모두 'E-1-055호'로 확인됨. visual_semantics만
+      'E-1-0535호'로 오기록
+    confidence: 0.99
+  - target: visual_semantics.panels[PNL-006].labels_inside - 작성/검토/승인자명
+    resolution: 작성자 '이 운 찬'은 '이 은 진'이고, 검토자 '정 문 학'은 '정 용 재'이어야 함
+    evidence: OCR 텍스트 및 gemini visual_semantics_gemini 분석에서 모두 '이 은 진' 및 '정 용 재'로
+      확인됨. visual_semantics만 '이 운 찬' 및 '정 문 학'으로 오기록
+    confidence: 0.99
+  - target: top-level classification 필드
+    resolution: classification을 'GROUNDING_DIAGRAM'에서 'LIGHTNING_PROTECTION_LAYOUT'으로
+      변경. 도면 제목 '옥탑지붕층 피뢰 및 접지 설비 평면도'에서 피뢰(lightning protection)가 주요 대상이며, initial_scan.classification과
+      일치시켜야 함
+    evidence: 도면 제목 및 내용상 피뢰설비가 주요 대상. initial_scan.classification = LIGHTNING_PROTECTION_LAYOUT과
+      일치
+    confidence: 0.95
+  missing_entities: []
+  relationship_issues:
+  - issue: 구조체 접속(□) 심볼의 실제 도면 내 위치 불명확
+    recommendation: '범례에는 ''구조체 접속 (철근 및 철골 접속)'' 심볼(□)이 정의되어 있으나, 도면 내에서 이 심볼의 실제
+      배치 위치가 명확하게 표시되지 않음. detected_symbols count: 1은 범례 정의만을 의미하는 것으로 보임. 도면 내 실제
+      구조체 접속점의 위치 표기 필요 여부 확인 필요'
+    confidence: 0.7
+  consistency_check:
+    entity_count_before: 6
+    entity_count_after: 6
+    relation_count_before: 3
+    relation_count_after: 3
+    note: 설비 개수 및 관계 수는 변경 없음. 수정 사항은 텍스트 오류 및 분류 일관성 문제
+  overall_confidence: 0.96

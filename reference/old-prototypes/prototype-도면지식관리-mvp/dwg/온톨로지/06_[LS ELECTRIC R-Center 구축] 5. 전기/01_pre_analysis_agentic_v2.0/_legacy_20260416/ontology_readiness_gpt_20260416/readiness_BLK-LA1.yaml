@@ -1,0 +1,221 @@
+ontology_readiness:
+  tag: BLK-LA1
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 9
+    reason: 고유 tag가 있고 Lightning Arrester 자체 사양이 존재하며, 도면에서 독립 설비로 표기됨. 다만 raw_labels와
+      이중 출처 값에 표기 충돌이 있어 provenance로 보존함.
+  relation_completeness:
+    declared_relations: 4
+    discovered_relations: 4
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 9
+    convertible: 6
+    ambiguous_attributes:
+    - key: raw_labels
+      value:
+      - LA1
+      - LA2
+      - 2.9kA
+      - CABLE TRAY(M)(P)-250m 이하
+      - G/S
+      - 25.8kV
+      - 630A
+      - E1
+      - LAx3
+      - 18kV 2.5kA
+      reason: 원문 라벨 묶음으로, 개별 속성으로 단정 분해 시 정보 손실 가능성이 있어 원문 보존 필요
+    - key: routing
+      value: CABLE TRAY(M)(P)-250m 이하
+      reason: 경로/배선 정보로는 변환 가능하나, 정확한 관계 속성인지 공간/설치 속성인지 도면 맥락상 혼재 가능
+    - key: equipment_type
+      value: Lightning Arrester
+      reason: 설비 유형이지만 동일 엔티티의 클래스 힌트이기도 하므로 annotation으로도 보존
+    - key: count
+      value: 3
+      reason: 도면 내 심볼 수와 상충 가능성이 있어 단일 사실로 확정하지 않고 provenance와 함께 보존
+    - key: voltage_rating_kV
+      value: 18
+      reason: 동일 개념의 다른 출처 값(25.8kV)과 충돌
+    - key: discharge_current_kA
+      value: 2.5
+      reason: 동일 개념의 다른 출처 값(2.9kA)과 충돌
+    - key: voltage_rating_kV_gemini
+      value: 25.8
+      reason: 출처 접미사 필드로 단일 통합 금지, provenance로 전수 보존
+    - key: current_rating_A_gemini
+      value: 630
+      reason: 출처 접미사 필드로 단일 통합 금지, provenance로 전수 보존
+    - key: grounding_mark
+      value: E1
+      reason: 접지/마킹 정보로 속성화 가능하나 annotation으로도 보존 필요
+    auxiliary_attributes:
+    - raw_labels
+    - routing
+    - equipment_type
+    - count
+    - voltage_rating_kV
+    - discharge_current_kA
+    - voltage_rating_kV_gemini
+    - current_rating_A_gemini
+    - grounding_mark
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: discharge_current
+      value: 2.9kA
+      source: entity_detail.specs
+      conflict_with: discharge_current_kA=2.5
+    - key: voltage_rating_kV
+      value: 18
+      source: entity_detail.specs
+      conflict_with: voltage_rating_kV_gemini=25.8
+    - key: discharge_current_kA
+      value: 2.5
+      source: entity_detail.specs
+      conflict_with: discharge_current=2.9kA
+    - key: voltage_rating_kV_gemini
+      value: 25.8
+      source: entity_detail.specs
+      conflict_with: voltage_rating_kV=18
+    - key: current_rating_A_gemini
+      value: 630
+      source: entity_detail.specs
+      conflict_with: null
+    - key: source_attribution.sonnet
+      value: true
+      source: entity_detail.source_attribution
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: entity_detail.source_attribution
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: entity_detail.source_attribution
+      conflict_with: null
+    conflicts:
+    - key: voltage_rating
+      values:
+      - 18kV
+      - 25.8kV
+      sources:
+      - specs.voltage_rating_kV
+      - specs.voltage_rating_kV_gemini
+    - key: discharge_current
+      values:
+      - 2.9kA
+      - 2.5kA
+      sources:
+      - specs.discharge_current
+      - specs.discharge_current_kA
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: SurgeProtectionDevice
+    alternative_parent_classes:
+    - LightningArrester
+    - OvervoltageProtectionDevice
+  spatial_context:
+    position: top-right
+    source_pages:
+    - 5
+    room_or_zone: U/T 동 주변전실-1(기존)
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - LA1
+      - LA2
+      - 2.9kA
+      - CABLE TRAY(M)(P)-250m 이하
+      - G/S
+      - 25.8kV
+      - 630A
+      - E1
+      - LAx3
+      - 18kV 2.5kA
+      discharge_current: 2.9kA
+      routing: CABLE TRAY(M)(P)-250m 이하
+      equipment_type: Lightning Arrester
+      count: 3
+      voltage_rating_kV: 18
+      discharge_current_kA: 2.5
+      voltage_rating_kV_gemini: 25.8
+      current_rating_A_gemini: 630
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  - read_page_context.page_5.relationships
+  - read_page_context.page_5.spaces
+  - read_page_context.page_5.diagram_spec
+  - read_page_context.page_5.key_elements_from_text
+  - read_page_context.page_5.disagreements
+  - read_page_context.page_5.visual_semantics
+  - read_page_context.page_5.entity_synthesis
+  - read_page_context.page_5.source_attribution
+  - read_page_context.page_5.initial_scan
+  - read_page_context.page_5.visual_sketch
+  - read_page_context.page_5.visual_semantics_gemini
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SurgeProtectionDevice
+    annotations_to_emit:
+    - raw_labels
+    - source_attribution
+    - collection_sources
+    - conflicts
+    - ambiguous_attributes
+    - provenance_attributes
+    - spatial_context
+    relations_to_emit:
+    - feeds
+    - cable
+    needs_human_review: false
+tag: BLK-LA1
+discovered_relations: 4

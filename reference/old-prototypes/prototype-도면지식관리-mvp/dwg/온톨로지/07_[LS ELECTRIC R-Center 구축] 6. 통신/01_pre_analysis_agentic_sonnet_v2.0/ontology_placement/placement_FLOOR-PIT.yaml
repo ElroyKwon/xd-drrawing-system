@@ -1,0 +1,151 @@
+placement:
+  tag: FLOOR-PIT
+  name: PIT층 F.L
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:FLOOR-PIT
+    class_hint: SpatialRegion
+    alternative_class_hints:
+    - Floor Level Indication
+    - Spatial Boundary Definition
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: PIT층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFloorLevelLabel
+          suggested_datatype: xsd:string
+          rationale: 층/레벨 표기 문자열로 보이며 공간 경계 또는 층 표시에 해당할 가능성이 있음
+      - raw_text: 'inferred_name: PIT층 레이어'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: 도면 추론명으로 보이는 문자열
+      - raw_text: 'position: left-bottom'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'suggested_parent_class: SpatialRegion'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 후보 상위 클래스 정보
+      - raw_text: 'function_candidates: Floor Level Indication; Spatial Boundary Definition'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열이지만 확정 분류는 불가
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 5
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 5
+      method: entity_detail.function_category
+    source_pages:
+      source_pages:
+      - 5
+      method: entity_detail.source_pages
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.labels_inside:
+      source_pages:
+      - 5
+      method: entity_detail.specs.labels_inside
+    specs.inferred_name:
+      source_pages:
+      - 5
+      method: entity_detail.specs.inferred_name
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: PIT층 F.L
+    source_page: 5
+    reason: 도면 표기 문자열이지만 약어 F.L의 정확한 의미를 외부 표준 없이 확정할 수 없음
+    preservation_note: 층/레벨 관련 표기 후보로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: PIT층 F.L
+    source_page: 5
+    reason: 내부 라벨이지만 물리 설비인지 주석인지 단정 불가
+    preservation_note: 공간 경계 또는 레벨 표시 가능성 보존
+  - field_candidate: specs.inferred_name
+    raw_text: PIT층 레이어
+    source_page: 5
+    reason: 추론명이며 원문 확정 명칭이 아님
+    preservation_note: 추후 공간/층 레이어 엔티티로 재검토 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: SpatialRegion
+    source_page: 5
+    reason: 힌트일 뿐 확정 클래스 아님
+    preservation_note: 0-9c에서 클래스 확정 시 참고
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Floor Level Indication; Spatial Boundary Definition
+    source_page: 5
+    reason: 기능 후보가 복수이며 확정 불가
+    preservation_note: 주석/공간경계/층표시 가능성 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SPACE로 표기되었으나 실제로는 층 레벨 표기, 공간 경계, 또는 주석성 라벨일 수 있어 물리적 공간 개체로 단정하기 어려움
+    recommended_handling: 0-9c에서 SpatialRegion 계열 후보와 AnnotationOnly 가능성을 함께 검토하고,
+      필요 시 주석성 엔티티로 재분류
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - ontology_hints의 suggested_parent_class와 function_candidates를 반영해 class_hint
+      후보를 보존
+    - raw_labels, labels_inside, inferred_name, position을 모두 provenance/unresolved로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:49.264362'
+  confidence: 0.62

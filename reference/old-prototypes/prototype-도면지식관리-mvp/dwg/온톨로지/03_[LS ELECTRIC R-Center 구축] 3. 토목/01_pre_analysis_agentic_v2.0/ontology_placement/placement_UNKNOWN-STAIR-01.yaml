@@ -1,0 +1,146 @@
+placement:
+  tag: UNKNOWN-STAIR-01
+  name: 계단 심볼
+  discipline: civil
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: CivilDrawingElement
+    alternative_class_hints:
+    - CivilStructure
+    - VerticalAccessSymbol
+    - ExcavationAccessSymbol
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CivilDrawingElement
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: STAIR_SYMBOL'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: hasSymbolType
+          suggested_datatype: xsd:string
+          rationale: 도면 기호 유형을 나타내는 문자열 정보
+      - raw_text: 'function_category: STAIRWAY'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주를 나타내는 분류 문자열
+      - raw_text: 'specs.count: 4'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: hasCount
+          suggested_datatype: xsd:integer
+          rationale: 수량을 나타내는 정수 값
+      - raw_text: 'specs.note: 굴착 경계 모서리부'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: hasNote
+          suggested_datatype: xsd:string
+          rationale: 도면상 위치/설명 메모 문자열
+      - raw_text: 'ontology_hints.suggested_parent_class: CivilStructure'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스 후보
+      - raw_text: 'ontology_hints.observed_attributes: count, note'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰된 속성 목록을 보존하기 위한 문자열 기록
+      - raw_text: 'ontology_hints.function_candidates: Vertical Access, Excavation
+          Access'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보를 보존하는 문자열 목록
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 21
+        promotion_hint:
+          suggested_property_label: entitySynthesisFlag
+          suggested_datatype: xsd:boolean
+          rationale: 엔티티 합성 여부를 나타내는 불리언 정보
+  provenance:
+    tag:
+      source_pages:
+      - 21
+      method: direct
+    name:
+      source_pages:
+      - 21
+      method: direct
+    discipline:
+      source_pages:
+      - 21
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 21
+      method: inferred_from_type_and_name
+    ontology_core.class_hint:
+      source_pages:
+      - 21
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 21
+      method: inferred_from_ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 21
+      method: direct_and_preserved
+  unresolved:
+  - field_candidate: specs.count
+    raw_text: '4'
+    source_page: 21
+    reason: 수량 값 자체는 해석 가능하나, 이 단계에서는 정식 DataProperty로 승격하지 않고 보존만 수행
+    preservation_note: count 속성 후보로 유지
+  - field_candidate: specs.note
+    raw_text: 굴착 경계 모서리부
+    source_page: 21
+    reason: 설명 문구는 있으나 supplement sub_kind가 없어 free_notes로 보존
+    preservation_note: 위치/설명 메모로 재활용 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CivilStructure
+    source_page: 21
+    reason: 힌트는 있으나 확정 클래스 아님
+    preservation_note: class_hint 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Vertical Access; Excavation Access
+    source_page: 21
+    reason: 기능 후보가 복수이며 확정 불가
+    preservation_note: 기능 후보 문자열로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 21
+    reason: 메타 정보로서 의미는 있으나 분류 체계에 직접 배치할 sub_kind 없음
+    preservation_note: 합성 출처 플래그로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: STAIR_SYMBOL은 물리적 계단 구조물인지 도면상의 계단 기호인지 경계가 있으며, name/type/function_category가
+      혼재함
+    recommended_handling: 0.9c에서 CivilDrawingElement 우선으로 유지하되, 필요 시 CivilStructure
+      관련 후보와 분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:44:21.810397'
+  confidence: 0.95

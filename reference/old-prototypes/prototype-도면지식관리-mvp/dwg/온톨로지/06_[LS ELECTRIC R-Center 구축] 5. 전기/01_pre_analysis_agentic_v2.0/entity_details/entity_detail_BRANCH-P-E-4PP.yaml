@@ -1,0 +1,58 @@
+tag: BRANCH-P-E-4PP
+name: P-E-4PP 분기회로
+type: LOAD
+discipline: ELECTRICAL
+function_category: LOAD
+specifications:
+  branch_circuits:
+  - circuit_id: M1
+    at: 50
+    af: 250
+    poles: 4
+    type: MCCB
+    status: 사용/예비
+  - circuit_id: SP
+    at: 75
+    af: 125
+    poles: 4
+    type: MCCB
+  source_panel: P-E-4PP
+  source_voltage: 440V
+  phase: 3Ø
+  parent_location: 1층 환경시험실
+  equipment_symbols:
+  - type: MCCB (Molded Case Circuit Breaker)
+    count: 2
+source_pages:
+- 22
+relations:
+- from: P-E-4PP
+  to: BRANCH-P-E-4PP
+  relation: feeds
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: 분기 MCCB 회로 (50AT/250AF/4P M1 사용/예비, 75AT/125AF/4P SP)
+collection_sources:
+  cross_validated: true
+confidence: 0.95
+source_attribution:
+  sonnet: true
+  gemini: false
+  mini: false
+ontology_hints:
+  suggested_parent_class: BranchCircuit
+  observed_attributes:
+  - branch_circuit_count: 2
+  - mccb_count: 2
+  - rated_voltage: 440V
+  - phase_type: 3Ø
+  similar_equipment:
+  - BRANCH-P-A-4PP-7
+  - BRANCH-P-AC-4PP-1
+  - BRANCH-P-C-4PP
+  - BRANCH-P-F-4PP
+  - BRANCH-P-P-4PP
+  function_candidates:
+  - PowerDistribution
+  - LoadConnection

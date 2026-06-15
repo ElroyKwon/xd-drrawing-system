@@ -1,0 +1,49 @@
+entity_detail:
+  tag: REC
+  type: equipment
+  specs:
+    voltage_levels:
+      value: 22.9kV, 6.6kV, 440V
+      unit: kV / V
+      source: page 5
+      confidence: 0.97
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 본문에는 22.9kV, 6.6kV, 440V 전압 레벨이 함께 보이며, MOF/DM, SA/LA/PF/PT/CT/ZCT, BUS
+      TIE, JUNCTION BOX, REC/RECTIFIER/SCR, LV PNL/HV PNL, NVR, DC LIGHTING, DEMAND
+      관련 표기가 확인된다.
+  requirements:
+  - text: REC/RECTIFIER/SCR 관련 표기가 확인된다.
+    source: page 5
+    type: equipment_presence
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: co-mentioned_with
+      partner_tag: RECTIFIER
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: co-mentioned_with
+      partner_tag: SCR
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: co-mentioned_with
+      partner_tag: LV PNL
+      direction: UNKNOWN
+      source: page 5
+    - relation_type: co-mentioned_with
+      partner_tag: HV PNL
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - voltage_levels
+    - co-mentioned equipment tags
+    similar_equipment:
+    - RECTIFIER
+    suggested_parent_class: ElectricalEquipment
+    cross_discipline: []
+  notes:
+  - 제공된 도면 분석 결과에서 REC 자체의 상세 사양은 확인되지 않음.
+  - 페이지 5에서 REC는 RECTIFIER/SCR 등과 함께 표기된 것으로만 확인됨.
+tag: REC

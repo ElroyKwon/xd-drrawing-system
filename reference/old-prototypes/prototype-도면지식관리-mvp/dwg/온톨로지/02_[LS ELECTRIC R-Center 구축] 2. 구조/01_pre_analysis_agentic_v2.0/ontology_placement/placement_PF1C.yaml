@@ -1,0 +1,126 @@
+placement:
+  tag: PF1C
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:PF1C
+    class_hint: MemberMark
+    alternative_class_hints:
+    - FoundationMemberMark
+    - StructuralMemberMark
+    related_assertions:
+    - type: located_in
+      target_hint: FOUNDATION-PLAN
+      note: 도면 내 기초 심볼
+      confirmed_property: dks:located_in
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: references
+      target_hint: UNKNOWN-SCHEDULE-01
+      note: 부재 태그 → 일람표 치수 참조
+      confirmed_property: dks:isReferencedBy
+      confirmed_target: dks:UNKNOWN-SCHEDULE-01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX007
+    - AX010
+    - AX012
+    - AX013
+    applicable_constraints:
+    - CN001
+    - CN012
+    confirmed_class: dks:MemberMark
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 도면 내 기초 심볼
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 관계 주석으로 보이는 자연어 설명
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 부재 태그 → 일람표 치수 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 참조 관계의 의미를 설명하는 주석
+      - raw_text: located_in -> FOUNDATION-PLAN
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: locatedIn
+          suggested_datatype: owl:ObjectProperty
+          rationale: 부재 태그가 플랜에 위치하는 관계가 명시됨
+      - raw_text: references -> UNKNOWN-SCHEDULE-01
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: owl:ObjectProperty
+          rationale: 일람표가 태그를 참조하는 관계가 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      - 33
+      method: entity_detail
+    owl_role:
+      source_pages:
+      - 32
+      - 33
+      method: inferred_from_relations
+    iri_hint:
+      source_pages:
+      - 32
+      - 33
+      method: constructed_from_tag
+    class_hint:
+      source_pages:
+      - 32
+      - 33
+      method: plan-guided_candidate
+    related_assertions:
+      source_pages:
+      - 32
+      - 33
+      method: cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 32
+      - 33
+      method: preserved_raw
+    plan_reference.guidance_applied:
+      source_pages:
+      - 32
+      - 33
+      method: applied
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - PF/WF/MF 계열을 MemberMark 후보로 우선 배치
+    - FOUNDATION-PLAN에 located_in 되는 패턴 반영
+    - UNKNOWN-SCHEDULE-01의 references 관계 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:46.754282'
+  confidence: 0.93

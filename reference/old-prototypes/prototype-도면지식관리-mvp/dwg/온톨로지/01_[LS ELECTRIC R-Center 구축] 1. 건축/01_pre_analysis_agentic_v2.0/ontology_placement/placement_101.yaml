@@ -1,0 +1,151 @@
+placement:
+  tag: '101'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:101
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - UnknownEntity
+    related_assertions: []
+    applicable_axioms:
+    - AX035
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePage
+        suggested_datatype: xsd:string
+        rationale: 확인 가능한 페이지 목록이 원문으로 제시됨
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasRelationNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내용이 아니라 응답 안내 문구로, 주석성 텍스트로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: input_header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: placement_inference_from_raw_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: constructed_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비/객체의 속성값이 아니라 안내 문장으로, 구조화된 specs/relations로 해석 불가
+    preservation_note: 페이지 목록은 원문 그대로 보존하고, 후속 단계에서 문서 참조 메타로 승격 가능
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 specs 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: relations
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 relations 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 connection_specs 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 requirements 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 drawing_texts 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 ontology_hints 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 notes 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: source_pages
+    raw_text: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120, 121, 122
+    source_page: 0
+    reason: 원문 내 페이지 목록은 있으나 개별 속성 출처로 분해되지 않음
+    preservation_note: 문서 참조 메타로 보존
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 별도 source_attribution 필드 없음
+    preservation_note: 빈 필드 부재 자체를 기록
+  - field_candidate: position
+    raw_text: ''
+    source_page: 0
+    reason: entity_detail에 위치 정보 없음
+    preservation_note: 위치 미상
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 101은 도면 객체 자체의 속성이나 관계가 아니라, 확인 가능한 페이지 목록을 안내하는 문장만 제공됨. 물리 실체인지 문서
+      주석인지 단정하기 어려움.
+    recommended_handling: 문서/주석성 엔티티로 유지하되, 후속 단계에서 페이지 참조 메타 또는 AnnotationOnly 노드로
+      재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야에서 raw만 존재하는 엔티티는 unresolved와 free_notes에 원문 보존
+    - DocumentEntity / AnnotationOrReferenceEntity 후보를 우선 고려
+    deviations:
+    - plan상 다수는 시트/참조형이지만, 본 태그는 실제 도면 객체가 아니라 페이지 안내 문장만 있어 DocumentEntity 후보를 강하게
+      두지 않고 AnnotationOnly로 보수 분류
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:01.596981'
+  confidence: 0.62

@@ -1,0 +1,136 @@
+ontology_readiness:
+  tag: ACC-001
+  verdict: qualified
+  confidence: 0.96
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 4
+    reason: 고유 tag가 있고, ACCESSORY로서 자체 specs(type, installation_height, purpose, installation_height_mm)를
+      보유함. 다른 설비의 부품으로만 보이지 않으며 독립 Individual로 유지 가능.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 4
+    convertible: 4
+    ambiguous_attributes: []
+    auxiliary_attributes:
+    - type
+    - installation_height
+    - purpose
+    - installation_height_mm
+    requirement_attributes: []
+    extracted_attributes:
+    - 접속박스의 설치높이는 바닥에서 2,000㎜ 이상으로 할것
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - from_tag: ACC-001
+      to_tag: PIPE-001
+      relation_type: part_of/equipotential_accessory_context
+      evidence: bottom-center 등전위 접속 상세도에서 수도/가스/기계 배관 접속박스 방수 캡으로 관찰됨
+    hints_added:
+    - MECHANICAL 배관 등전위 접속 상세와 연결되는 ELECTRICAL accessory
+  ontology_class_hint:
+    suggested_parent_class: ElectricalAccessory
+    alternative_parent_classes:
+    - Accessory
+    - WaterproofingAccessory
+  spatial_context:
+    position: bottom-center
+    source_pages:
+    - 39
+    room_or_zone: 등전위 접속 영역
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      type: 웨더캡
+      installation_height: 바닥에서 2,000㎜ 이상
+      purpose: 배관 접속박스 방수 캡
+      installation_height_mm: 2000 이상 (바닥으로부터)
+    notes: []
+    drawing_texts:
+    - 접속박스의 설치높이는 바닥에서 2,000㎜ 이상으로 할것
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - page_context.spaces
+  - page_context.relationships
+  - page_context.diagram_spec.notes
+  - page_context.key_elements_from_text
+  - page_context.visual_semantics
+  - page_context.entity_synthesis.relationships
+  - page_context.entity_synthesis.spaces
+  - page_context.entity_synthesis.specifications
+  - page_context.entity_synthesis.position
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (entity_detail에 직접 필드 없음; page_context에서 보강)
+  - notes (entity_detail에 직접 필드 없음)
+  - ontology_hints.observed_relations (entity_detail에 없음)
+  - ontology_hints.cross_discipline (entity_detail에 없음)
+  - ontology_hints.similar_equipment (비어 있음)
+  - relations (declared 0이지만 page_context에서 연결 1건 확인)
+  - source_attribution.*_sonnet/*_gemini/*_mini 외 추가 이중출처 필드 없음
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :ElectricalAccessory
+    annotations_to_emit:
+    - source_attribution.sonnet=true
+    - source_attribution.gemini=true
+    - source_attribution.mini=true
+    - collection_sources.cross_validated=true
+    - collection_sources.entity_synthesis=true
+    - 'drawing_texts: 접속박스의 설치높이는 바닥에서 2,000㎜ 이상으로 할것'
+    - specs_full
+    relations_to_emit:
+    - connected_to/part_of context with PIPE-001 equipotential bonding area
+    needs_human_review: false
+tag: ACC-001
+discovered_relations: 0

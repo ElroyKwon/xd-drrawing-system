@@ -1,0 +1,105 @@
+placement:
+  tag: UNKNOWN-PAD-002
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: UNKNOWN-PAD-002
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - DocumentEntity
+    - SpatialEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePage
+        suggested_datatype: xsd:integer
+        rationale: 페이지 목록 형태의 출처 정보이며, 엔티티의 관찰 가능 페이지 범위를 보존할 수 있음
+    - raw_text: 원하시면 특정 페이지의 내용을 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 내용 자체가 아니라 안내성 문구이므로 주석/설명 텍스트로 보존 가능
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 0
+      method: absent_in_entity_detail
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_from_raw_text_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: entity_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan_based_candidate_only
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate_only
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 0
+      method: inferred_from_generic_page-list_text
+    plan_reference.guidance_applied:
+      source_pages:
+      - 0
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122
+
+
+      원하시면 특정 페이지의 내용을 읽어드리겠습니다.'
+    source_page: 0
+    reason: 태그 자체의 물리적/도면적 실체를 직접 설명하지 않고, 페이지 접근 안내만 포함
+    preservation_note: 페이지 범위 정보는 free_notes로 보존했고, 원문은 그대로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 UNKNOWN-PAD-002이지만 원문에는 페이지 안내만 있어 실제 도면 객체인지 주석인지 단정 불가
+    recommended_handling: 후속 단계에서 해당 페이지(1,2,3,4,5,60-64,118-122)의 실제 표기/주석 여부를 확인해
+      AnnotationOnly 또는 다른 실체로 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 태그는 우선 미확정/주석성 정보로 보존
+    - page-range 같은 비구조 텍스트는 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:59.922255'
+  confidence: 0.86

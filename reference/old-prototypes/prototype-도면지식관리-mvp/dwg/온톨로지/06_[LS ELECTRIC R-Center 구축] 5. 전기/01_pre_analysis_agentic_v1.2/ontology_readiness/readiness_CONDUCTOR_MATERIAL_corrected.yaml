@@ -1,0 +1,18 @@
+verdict: demoted
+confidence: 0.97
+reason: "재평가 결과 이전 verdict(demoted)를 유지한다.\n근거는 다음과 같다:\n1. **독립 엔티티 요건 미충족**: entity_detail의\
+  \ type이 'equipment'로 분류되어 있으나,\n   실질적 내용은 수평도체(HORIZONTAL_CONDUCTOR_001)의 재질 속성(STS\
+  \ 환봉 8㎜)에\n   불과하다. 설비 온톨로지에서 재질(material)은 장비의 has_material 속성값이지\n   독립 엔티티가 아니다.\n\
+  \n2. **도면 내 직접 태그 부재**: notes에 명시된 바와 같이 도면에서 CONDUCTOR_MATERIAL에\n   직접 대응하는 별도\
+  \ 기호·태그가 존재하지 않으며, 원문 텍스트(피뢰설비 개요 및 특기사항)\n   로부터 추출된 파생 정보다. 이는 독립 개체가 아닌 기술 사양\
+  \ 문장의 일부임을 방증한다.\n\n3. **관계의 비독립성**: observed_relations 3개(HORIZONTAL_CONDUCTOR_001,\n\
+  \   MAIN_DOWNCONDUCTOR, AUXILIARY_DOWNCONDUCTOR) 모두 방향이 UNKNOWN이며,\n   관계 유형도 단순\
+  \ related_to로서 부품·속성 참조 수준에 머문다.\n   이는 엔티티 간 구조적 연결이 아닌 동일 텍스트 블록 내 공출현(co-occurrence)이다.\n\
+  \n4. **suggested_parent_class 근거**: 온톨로지 힌트 자체가 ElectricalMaterial을\n   부모 클래스로\
+  \ 제안하고 있어, 설비(Equipment) 계층이 아닌 재료(Material) 속성\n   계층에 해당함을 시사한다.\n\n5. **처리 방향**:\
+  \ CONDUCTOR_MATERIAL은 독립 노드로 생성하지 않고,\n   HORIZONTAL_CONDUCTOR_001의 has_material\
+  \ 속성값\n   (value: \"STS 환봉 8㎜\", standard: KS C IEC 62305)으로 병합 처리한다.\n"
+demoted_to: attribute
+demoted_property: has_material
+demoted_target: HORIZONTAL_CONDUCTOR_001
+tag: CONDUCTOR_MATERIAL

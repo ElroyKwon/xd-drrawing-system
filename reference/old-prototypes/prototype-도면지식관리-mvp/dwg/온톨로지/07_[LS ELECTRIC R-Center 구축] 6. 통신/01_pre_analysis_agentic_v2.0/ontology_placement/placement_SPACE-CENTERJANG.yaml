@@ -1,0 +1,160 @@
+placement:
+  tag: SPACE-CENTERJANG
+  name: 센터장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-CENTERJANG
+    class_hint: Space
+    alternative_class_hints:
+    - Office
+    - Workspace
+    related_assertions:
+    - type: cable
+      target_hint: HUB-RACK-2F
+      note: '도면상 HUB-RACK-2F에서 SPACE-CENTERJANG으로 케이블 관계가 표시됨; annotation: T-16C UTP
+        CAT.5e'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 센터장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 라벨 텍스트
+      - raw_text: 'labels_inside: 센터장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: labelsInsideText
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트
+      - raw_text: 'equipment_symbols: LAN_OUTLET_2PORT x2, LAN_OUTLET_TEL_1PORT x1,
+          WIRELESS_AP x1'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내 장비/심볼 구성 정보
+      - raw_text: 'inferred_name: 센터장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭
+      - raw_text: 'position: right'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'function_category: OFFICE'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 텍스트
+      - raw_text: 'type: space'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 분야 표기
+      - raw_text: 'relation: cable; from HUB-RACK-2F to SPACE-CENTERJANG; annotation:
+          T-16C UTP CAT.5e'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간과 랙 사이의 케이블 연결 관계
+      - raw_text: 'equipment_symbols in ontology_hints: none additional'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: ontology_hints와 specs의 심볼 정보 일치 여부 보존
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: inferred_from_space_entity_with_own_name_and_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 8
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 8
+      method: preserve_unclassified_fields
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 8
+      method: assessment_based_on_single_entity_detail
+    plan_reference.guidance_applied:
+      source_pages:
+      - 8
+      method: applied_ontology_plan_focus_for_0_9b_placement
+  unresolved:
+  - field_candidate: specs.equipment_symbols
+    raw_text: LAN_OUTLET_2PORT x2; LAN_OUTLET_TEL_1PORT x1; WIRELESS_AP x1
+    source_page: 8
+    reason: supplement sub_kind가 없어 구조화 배치하지 않고 보존
+    preservation_note: 후속 단계에서 공간 내 심볼/설비 포함 관계로 승격 가능
+  - field_candidate: relations.annotation
+    raw_text: T-16C UTP CAT.5e
+    source_page: 8
+    reason: 관계 주석은 연결 사실의 보조 텍스트이나 별도 속성으로 확정하지 않음
+    preservation_note: 케이블 규격/주석으로 승격 가능
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 8
+    reason: 비어 있음
+    preservation_note: 유사 태그 비교 시 참고
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 센터장실은 자체 명칭과 공간 타입을 가지며, HUB-RACK-2F와의 케이블 관계도 관찰되어 독립 공간 개체로 분류 가능
+    recommended_handling: NamedIndividual로 유지하고, 연결 관계는 후속 단계에서 정식 object property로
+      확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/구역/실 패턴에 따라 CommunicationSpaceEntity 계열로 해석
+    - 공간과 장비/연결 관계를 분리하여 보존
+    - 관계 사실 원형(cable)을 related_assertions에 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:15:23.425158'
+  confidence: 0.93

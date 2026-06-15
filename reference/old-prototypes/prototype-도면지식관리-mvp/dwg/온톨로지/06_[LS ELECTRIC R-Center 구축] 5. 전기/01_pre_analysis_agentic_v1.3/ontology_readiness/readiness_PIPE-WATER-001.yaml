@@ -1,0 +1,15 @@
+tag: PIPE-WATER-001
+verdict: demoted
+confidence: 0.97
+missing_fields:
+- specifications
+missing_relations:
+- 등전위 접속 상세도에서 타 설비(접지/전기 설비)와의 연결은 보이지만, PIPE-WATER-001 자체의 connection_specs는 없음
+reason: entity_detail에 tag/type/discipline는 있으나, PIPE-WATER-001의 자체 사양(specs)은 discipline만
+  존재하고 독립 설비로 볼 만한 구체 사양이 확인되지 않았다. page 39 context에서는 '수도 배관'이 등전위 접속 대상의 하나로 나타나며,
+  다른 설비의 접속 대상/부속 성격으로 보인다. 따라서 독립 엔티티가 아니라 component_of 성격으로 강등한다.
+demoted_to: component_of
+target_entity: 등전위 접속 상세도의 접지/전기 설비
+preserved_info:
+  spec: 'discipline: PLUMBING'
+  relation: connected_to / associated_with (등전위 접속 대상)

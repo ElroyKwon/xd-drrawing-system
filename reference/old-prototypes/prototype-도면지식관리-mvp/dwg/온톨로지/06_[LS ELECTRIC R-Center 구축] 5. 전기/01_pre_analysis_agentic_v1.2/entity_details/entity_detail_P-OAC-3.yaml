@@ -1,0 +1,71 @@
+entity_detail:
+  tag: P-OAC-3
+  type: panel
+  specs:
+    voltage:
+      value: 380/220V 3Ф 4W
+      unit: V
+      source: page 23 / cable_schedule_row_6
+      confidence: 0.95
+    cable_spec:
+      value: F-CV 240㎟ -1C x 4, E-120㎟ (104C)
+      unit: null
+      source: page 23 / cable_schedule_row_6
+      confidence: 0.95
+  drawing_texts:
+  - source: page 23 / search_entity_by_tag(P-OAC-3)
+    page_number: 23
+    text: 'from: S/S R-Center
+
+      to: P-OAC-3
+
+      relation: feeds
+
+      medium: power_cable
+
+      direction: downstream
+
+      ...
+
+      spec: F-CV 240㎟ -1C x 4, E-120㎟ (104C)
+
+      from: S/S R-Center
+
+      to: P-OAC-3
+
+      voltage: 380/220V 3Ф 4W
+
+      source: cable_schedule_row_6
+
+      confidence: 0.95'
+  requirements:
+  - text: feeds
+    source: page 23 / search_entity_by_tag(P-OAC-3)
+    type: connection_requirement
+  connection_specs:
+  - relation: feeds
+    partner: S/S R-Center
+    details:
+      source: page 23 / search_entity_by_tag(P-OAC-3)
+      medium: power_cable
+      direction: downstream
+      spec: F-CV 240㎟ -1C x 4, E-120㎟ (104C)
+      voltage: 380/220V 3Ф 4W
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: S/S R-Center
+      direction: downstream
+      source: page 23 / search_entity_by_tag(P-OAC-3)
+    observed_attributes:
+    - voltage
+    - cable_spec
+    - feeds
+    - medium
+    - direction
+    similar_equipment: []
+    suggested_parent_class: panel
+    cross_discipline: []
+  notes:
+  - page 23 context에서 P-OAC-3의 직접 항목은 확인되지 않았고, search 결과의 cable schedule row에서만 확인됨.
+tag: P-OAC-3

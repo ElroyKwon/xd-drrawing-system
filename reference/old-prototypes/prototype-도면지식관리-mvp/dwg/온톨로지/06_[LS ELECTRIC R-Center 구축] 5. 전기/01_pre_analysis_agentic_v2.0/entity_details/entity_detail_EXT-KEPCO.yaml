@@ -1,0 +1,64 @@
+tag: EXT-KEPCO
+name: 한전 수전 인입선
+type: INCOMING_SOURCE
+discipline: ELECTRICAL
+function_category: INCOMING_SOURCE
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - 'FROM: KEPCO LINE(3/1)'
+  - 3Ø 4W 22.9kV-Y 60Hz
+  - '전산화번호 : 0881A-821'
+  - '전주번호 : 금성산S1L7L3L1호주'
+  voltage_phase: 3Ø 4W
+  voltage_kV: 22.9kV-Y
+  frequency_Hz: 60Hz
+  system_type: Y-connected
+  source_id: KEPCO LINE(3/1)
+  source_id_gemini: KEPCO LINE(D/L)
+  utility_code: 0881A-821
+  pole_number: 금성산S1L7L3L1호주
+relations:
+- from: EXT-KEPCO
+  to: BLK-LH1
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV-Y 60Hz 수전 인입
+- from: EXT-KEPCO
+  to: BLK-LH1
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 22.9kV-Y 60Hz 수전 인입
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-center
+confidence: 0.95
+equipment_symbols:
+- type: incoming_line
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalSource
+  observed_attributes:
+  - raw_labels
+  - voltage_phase
+  - voltage_kV
+  - frequency_Hz
+  - system_type
+  - source_id
+  - source_id_gemini
+  - utility_code
+  - pole_number
+  similar_equipment: []
+  function_candidates:
+  - UtilityPowerSupply
+  - IncomingFeeder

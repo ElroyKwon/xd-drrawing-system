@@ -1,0 +1,193 @@
+placement:
+  tag: UNKNOWN-BRACKET-01
+  name: 지지금구
+  discipline: electrical
+  ontology_core:
+    owl_role: PartOf
+    iri_hint: ''
+    class_hint: ElectricalSupportBracket
+    alternative_class_hints:
+    - SupportBracket
+    - ConductorSupportBracket
+    - StructuralSupport
+    related_assertions:
+    - type: connects_to
+      target_hint: UNKNOWN-CONDUCTOR-01
+      note: 수평도체가 지지금구로 1m간격 지지
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SupportStructure
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 수평도체 지지 브래킷
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasSupportFunction
+          suggested_datatype: xsd:string
+          rationale: 기능 설명 문구로, 설비의 지지 역할을 나타냄
+      - raw_text: 1m간격마다 설치
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasInstallationInterval
+          suggested_datatype: xsd:string
+          rationale: 간격 설치 조건을 나타내는 수치+단위 표현
+      - raw_text: 'count_in_BLK001: 3'
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasCountInBlock
+          suggested_datatype: xsd:integer
+          rationale: 블록 내 수량을 나타내는 정수형 표현
+      - raw_text: support_bracket
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolType
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols의 심볼 유형 표기
+      - raw_text: support
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 기능
+      - raw_text: spacing
+        source_page: 40
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 기능
+  provenance:
+    name:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 40
+      method: rule_based
+    ontology_core.class_hint:
+      source_pages:
+      - 40
+      method: ontology_hints + type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 40
+      method: ontology_hints + type
+    ontology_core.related_assertions:
+      source_pages:
+      - 40
+      method: relation_scan
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 40
+      method: field_preservation
+    position:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    confidence:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    source_attribution:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    collection_sources:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    equipment_symbols:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    specs.type:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    specs.installation_interval:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    specs.count_in_BLK001:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    relations:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 40
+      method: direct_from_entity_detail
+  unresolved:
+  - field_candidate: specs.type
+    raw_text: 수평도체 지지 브래킷
+    source_page: 40
+    reason: 원문은 기능/형태 설명이며, 확정 class 또는 datatype으로 단정하지 않음
+    preservation_note: 지지금구의 핵심 설명으로 보존
+  - field_candidate: specs.installation_interval
+    raw_text: 1m간격마다 설치
+    source_page: 40
+    reason: 정규화된 수치형 단위로 변환하지 않음
+    preservation_note: 간격 조건 원문 보존
+  - field_candidate: specs.count_in_BLK001
+    raw_text: '3'
+    source_page: 40
+    reason: 수량 값이지만 별도 데이터 속성으로 승격하지 않고 원문 보존
+    preservation_note: 블록별 수량 정보
+  - field_candidate: position
+    raw_text: multiple (BLK-001, 002, 003, 005)
+    source_page: 40
+    reason: 복수 위치 표기이며 개별 좌표/블록 매핑이 없음
+    preservation_note: 복수 블록에 걸친 배치 정보
+  - field_candidate: equipment_symbols.type
+    raw_text: 지지금구 (support_bracket)
+    source_page: 40
+    reason: 심볼 유형 표기이지만 표준화된 클래스명으로 확정하지 않음
+    preservation_note: 도면 심볼 표기 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ElectricalSupportSystem
+    source_page: 40
+    reason: 힌트 값이며 확정 분류가 아님
+    preservation_note: 상위 분류 후보로만 보존
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: type, installation_interval, count_in_BLK001
+    source_page: 40
+    reason: 관찰 속성 목록이며 개별 속성 의미는 별도 해석 필요
+    preservation_note: 관찰된 속성 목록 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: support, spacing
+    source_page: 40
+    reason: 기능 후보 목록이며 확정 기능 아님
+    preservation_note: 기능 후보 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전기 설비의 구조적 지지 요소를 Structural/Support 관점으로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:13:58.443744'
+  confidence: 0.95

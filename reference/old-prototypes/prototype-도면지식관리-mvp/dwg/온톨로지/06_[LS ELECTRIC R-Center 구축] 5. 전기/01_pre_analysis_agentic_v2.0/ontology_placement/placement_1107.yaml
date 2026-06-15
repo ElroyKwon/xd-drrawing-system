@@ -1,0 +1,237 @@
+placement:
+  tag: '1107'
+  name: SHV 연락 패널 1107
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:1107
+    class_hint: JunctionPanel
+    alternative_class_hints:
+    - JunctionBox
+    - ConnectionPoint
+    - DistributionPoint
+    related_assertions:
+    - type: connects_to
+      target_hint: '1106'
+      note: 22.9kV SHV BUS-1
+    - type: feeds
+      target_hint: EXT-2100-SHV
+      note: 'TO: 2100 SHV'
+    - type: feeds
+      target_hint: 1310-SHV
+      note: 'JUNCTION BOX TO: 1107 SHV'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:JunctionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: SHV
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasSectionLabel
+          suggested_datatype: xsd:string
+          rationale: 섹션/계통 식별 문자열로 보이며 raw label에 반복 표기됨
+      - raw_text: 'TO: 2100 SHV'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDestinationLabel
+          suggested_datatype: xsd:string
+          rationale: 도면상 목적지 표기 문자열이며 destination 필드와 동일 의미의 라벨로 보임
+      - raw_text: 22.9kV SHV BUS-1
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasBusLabel
+          suggested_datatype: xsd:string
+          rationale: 버스 구간 및 전압이 함께 표기된 계통 라벨
+      - raw_text: 'JUNCTION BOX TO: 1107 SHV'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasIncomingConnectionLabel
+          suggested_datatype: xsd:string
+          rationale: 유입 연결을 설명하는 도면 주석 문자열
+      - raw_text: middle-right
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치를 나타내는 공간 표기
+      - raw_text: JUNCTION_PANEL
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasEquipmentTypeLabel
+          suggested_datatype: xsd:string
+          rationale: type/function_category의 원문 라벨 보존
+      - raw_text: ConnectionPoint
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 제시된 기능 후보
+      - raw_text: DistributionPoint
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates에 제시된 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    type:
+      source_pages:
+      - 5
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 5
+      method: entity_detail.function_category
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.bus_section:
+      source_pages:
+      - 5
+      method: entity_detail.specs.bus_section
+    specs.panel_id:
+      source_pages:
+      - 5
+      method: entity_detail.specs.panel_id
+    specs.voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_kV
+    specs.destination:
+      source_pages:
+      - 5
+      method: entity_detail.specs.destination
+    relations:
+      source_pages:
+      - 5
+      method: entity_detail.relations
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.similar_equipment
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.cross_validated:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources.cross_validated
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources.entity_synthesis
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail.confidence
+  unresolved:
+  - field_candidate: ontology_core.class_hint
+    raw_text: JunctionBox
+    source_page: 5
+    reason: ontology_hints.suggested_parent_class로 제시되었으나, 실제 type은 JUNCTION_PANEL이며
+      확정 불가
+    preservation_note: 후속 단계에서 JunctionPanel/JunctionBox 관계 검토 가능
+  - field_candidate: ontology_core.class_hint
+    raw_text: ConnectionPoint
+    source_page: 5
+    reason: function_candidates 중 하나이나 물리 설비 클래스인지 기능 라벨인지 불명확
+    preservation_note: 기능 후보로만 보존
+  - field_candidate: ontology_core.class_hint
+    raw_text: DistributionPoint
+    source_page: 5
+    reason: function_candidates 중 하나이나 물리 설비 클래스인지 기능 라벨인지 불명확
+    preservation_note: 기능 후보로만 보존
+  - field_candidate: specs.destination
+    raw_text: 2100 SHV
+    source_page: 5
+    reason: 실제 설비 태그인지 외부 노드/문자열인지 이 단계에서 확정 불가
+    preservation_note: feeds 관계의 target_hint와 함께 보존
+  - field_candidate: relations.to
+    raw_text: EXT-2100-SHV
+    source_page: 5
+    reason: 외부 노드로 보이나 실체 설비인지 논리 노드인지 불명확
+    preservation_note: 외부 연결 대상 노드로 원형 보존
+  - field_candidate: relations.from
+    raw_text: 1310-SHV
+    source_page: 5
+    reason: 태그 형식은 있으나 별도 entity_detail이 제공되지 않음
+    preservation_note: 오르판 관계 후보로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: '1107'
+    source_page: 5
+    reason: 패널 번호로 해석되나 별도 의미 분해는 불필요
+    preservation_note: 식별자 라벨로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: SHV
+    source_page: 5
+    reason: 계통/섹션 표기로 보이나 정확한 의미 확정 불가
+    preservation_note: bus_section과 함께 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO: 2100 SHV'
+    source_page: 5
+    reason: 목적지 표기이지만 구조화된 속성 외 원문 보존 필요
+    preservation_note: destination 관련 원문
+  - field_candidate: position
+    raw_text: middle-right
+    source_page: 5
+    reason: 도면 배치 위치는 구조화 기준이 없으므로 문자열로만 보존
+    preservation_note: 공간 컨텍스트 힌트
+  orphan_relations:
+  - raw_from: 1310-SHV
+    raw_to: '1107'
+    raw_relation: feeds
+    source_page: 5
+    reason: from 태그가 별도 entity_detail로 제공되지 않음
+  ambiguous:
+    is_ambiguous: true
+    reason: JUNCTION_PANEL이 물리 패널인지 접속점/분기점인지 도면상 혼재되어 있으며, ontology_hints도 JunctionBox/ConnectionPoint/DistributionPoint로
+      분산됨
+    recommended_handling: NamedIndividual로 유지하되, 0-9c에서 JunctionPanel 계열 하위 분류와 기능
+      라벨을 분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:06:09.030130'
+  confidence: 0.95

@@ -1,0 +1,92 @@
+placement:
+  tag: S00.23
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S00.23
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 시트/문서 접근 가능 범위를 나타내는 문자열 값으로 보존 가능
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: analysisAvailabilityNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아닌 안내 문구로, 주석/메타 설명 성격의 문자열 정보
+  provenance:
+    owl_role:
+      source_pages:
+      - 0
+      method: entity_detail.raw interpretation
+    iri_hint:
+      source_pages:
+      - 0
+      method: tag normalization
+    class_hint:
+      source_pages:
+      - 0
+      method: plan-guided candidate selection
+    alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided candidate selection
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: raw preservation
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail header
+  unresolved:
+  - field_candidate: entity_detail.raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63,
+      64, 65
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 도면 설비 실체 정보가 아니라 페이지 안내 문구이며, 설비/관계/속성으로 직접 해석 불가
+    preservation_note: 문서 메타 또는 주석성 텍스트로 보존; 후속 단계에서 AnnotationOnly 주석으로 승격 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그 S00.23은 실체 설비라기보다 페이지 안내/문서 메타로 보이며, DocumentEntity/PlanOrView/ScheduleOrList/NoteOrLegend
+      가능성이 모두 남아 있음
+    recommended_handling: 0-9c에서 문서 메타 계층으로 우선 검토하고, 실제 시트/페이지 엔티티와의 연결 여부를 추가 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'plan_overview: 도면/시트 식별자 계열 및 문서 메타 계층 우세'
+    - 'predicted_ontology_structure: DocumentEntity / PlanOrView / ScheduleOrList
+      / NoteOrLegend 후보 반영'
+    - 'guidance_for_next_steps.for_0_9b_placement.focus: 문서 메타성 태그는 AnnotationOnly
+      또는 DocumentEntity 후보로 보수 배치'
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:12.630830'
+  confidence: 0.86

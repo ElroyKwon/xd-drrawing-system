@@ -1,0 +1,179 @@
+placement:
+  tag: SPACE-03
+  name: 제어룸
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:SPACE-03
+    class_hint: Space
+    alternative_class_hints:
+    - ControlRoom
+    - MonitoringRoom
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: SPACE'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 타입 표기가 존재함
+      - raw_text: 'function_category: SPACE'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값이 직접 표기됨
+      - raw_text: 'specs.shape: rectangle'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형상 값이 명시됨
+      - raw_text: 'specs.labels_inside: 제어룸'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 텍스트 보존 필요
+      - raw_text: 'position: top-left, below P02'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 상대 위치 정보가 직접 제공됨
+      - raw_text: 'confidence: 0.9'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 값이 존재함
+      - raw_text: 'source_attribution: sonnet=false, gemini=true, mini=true'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: sourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처 귀속 메타데이터 보존 필요
+      - raw_text: 'ontology_hints.suggested_parent_class: Space'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로서 상위 클래스 후보가 제시됨
+      - raw_text: 'ontology_hints.observed_attributes: shape, labels_inside'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존 필요
+      - raw_text: 'ontology_hints.function_candidates: Control, Monitoring'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 제시되었으나 확정 아님
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 7
+        promotion_hint:
+          suggested_property_label: crossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 교차 검증 여부 메타데이터 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 7
+      method: direct
+    name:
+      source_pages:
+      - 7
+      method: direct
+    discipline:
+      source_pages:
+      - 7
+      method: direct
+    type:
+      source_pages:
+      - 7
+      method: direct
+    function_category:
+      source_pages:
+      - 7
+      method: direct
+    source_pages:
+      source_pages:
+      - 7
+      method: direct
+    specs.shape:
+      source_pages:
+      - 7
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 7
+      method: direct
+    relations:
+      source_pages:
+      - 7
+      method: direct_empty
+    collection_sources.cross_validated:
+      source_pages:
+      - 7
+      method: direct
+    position:
+      source_pages:
+      - 7
+      method: direct
+    confidence:
+      source_pages:
+      - 7
+      method: direct
+    source_attribution:
+      source_pages:
+      - 7
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 7
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 7
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 7
+      method: direct
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 7
+    reason: 관계 항목이 비어 있어 해석할 관계 사실이 없음
+    preservation_note: 빈 배열 상태 자체를 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Control, Monitoring
+    source_page: 7
+    reason: 기능 후보이지만 확정 클래스/속성으로 승격 불가
+    preservation_note: 후속 단계에서 class_hint 또는 주석으로 재검토 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SPACE 타입의 공간 엔티티이지만 제어룸/모니터링룸 해석이 가능하여 세부 클래스가 단정되지 않음
+    recommended_handling: 0-9c에서 Space 계열 하위 클래스 후보를 검토하고, 필요 시 공간 주석 엔티티와 분리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/실 구획 계열로 분류
+    - 도면 내 위치 및 labels_inside 보존
+    - ontology_hints의 parent_class 및 function_candidates를 후보로만 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:05:54.038094'
+  confidence: 0.9

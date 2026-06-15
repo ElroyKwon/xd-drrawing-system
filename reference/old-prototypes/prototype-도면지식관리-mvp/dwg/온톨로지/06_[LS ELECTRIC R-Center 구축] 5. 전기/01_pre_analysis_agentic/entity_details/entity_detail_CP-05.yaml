@@ -1,0 +1,144 @@
+entity_detail:
+  tag: CP-05
+  type: Circuit
+  specs:
+    voltage:
+      value: 3Ø 220V
+      unit: V
+      source: page_019_context.yaml
+      confidence: 0.97
+    drawing_number:
+      value: EE-01-015
+      unit: null
+      source: page_019_context.yaml
+      confidence: 0.97
+    drawing_title:
+      value: 생산동력(3Ø 220V) 분전반 결선도-2
+      unit: null
+      source: page_019_context.yaml
+      confidence: 0.97
+    breaker_rating_notes:
+      value: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF
+      unit: AF
+      source: page_019_context.yaml
+      confidence: 0.93
+    project_title:
+      value: LS Electric R-Center 구축
+      unit: null
+      source: page_019_context.yaml
+      confidence: 0.94
+    project_number:
+      value: '624001'
+      unit: null
+      source: page_019_context.yaml
+      confidence: 0.94
+    cover_type:
+      value: 노출형(STEEL)
+      unit: null
+      source: page_019_context.yaml
+      confidence: 0.96
+  drawing_texts:
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 생산동력(3Ø 220V) 분전반 결선도-2
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PROJECT TITLE: LS Electric R-Center 구축'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'DRAWING NUMBER: EE-01-015'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PANEL BOARD: P-EA-2PP'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PANEL BOARD: P-F-2PP'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PANEL BOARD: P-G-2PP'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'PANEL BOARD: P-I-2PP'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: 'COVER TYPE: 노출형(STEEL)'
+  - source: page_019_context.yaml
+    page_number: 19
+    text: MAIN CB / MCCB / SPD / E3 접지 표기
+  - source: page_019_context.yaml
+    page_number: 19
+    text: '차단기 정격 관련 주기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF 및 차단용량 표기'
+  requirements:
+  - text: 'COVER TYPE: 노출형(STEEL)'
+    source: page_019_context.yaml
+    type: installation_condition
+  - text: MAIN CB / MCCB / SPD / E3 접지 표기
+    source: page_019_context.yaml
+    type: protection_and_grounding
+  - text: '차단기 정격 관련 주기: 30AF, 50AF, 100AF, 125AF, 250AF, 400AF, 600AF 및 차단용량 표기'
+    source: page_019_context.yaml
+    type: breaker_rating_requirement
+  connection_specs:
+  - relation: power_feed
+    partner: MAIN
+    details:
+      source: page_019_context.yaml
+  - relation: protection
+    partner: MCCB
+    details:
+      source: page_019_context.yaml
+  - relation: surge_protection_to_ground
+    partner: SPD
+    details:
+      source: page_019_context.yaml
+  - relation: grounding
+    partner: E3
+    details:
+      source: page_019_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: power_feed
+      partner_tag: MAIN
+      direction: from MAIN to panel board
+      source: page_019_context.yaml
+    - relation_type: protection
+      partner_tag: MCCB
+      direction: inline
+      source: page_019_context.yaml
+    - relation_type: surge_protection_to_ground
+      partner_tag: SPD
+      direction: to ground
+      source: page_019_context.yaml
+    - relation_type: grounding
+      partner_tag: E3
+      direction: to ground
+      source: page_019_context.yaml
+    observed_attributes:
+    - PANEL BOARD
+    - PANEL LOCATION
+    - COVER TYPE
+    - BOX SIZE
+    - MAIN CB
+    - MCCB
+    - SPD
+    - E3
+    - 3Ø 220V
+    - 30AF
+    - 50AF
+    - 100AF
+    - 125AF
+    - 250AF
+    - 400AF
+    - 600AF
+    similar_equipment:
+    - P-EA-2PP
+    - P-F-2PP
+    - P-G-2PP
+    - P-I-2PP
+    suggested_parent_class: Circuit
+    cross_discipline: []
+  notes:
+  - CP-05 자체 태그는 검색되지 않아, 제공된 페이지 분석 결과 중 가장 직접적으로 대응되는 전기 분전반 결선도 페이지(page 19)에서
+    관련 정보를 수집함.
+  - feeds 관계는 원문에서 MAIN -> panel board 방향으로 확인된 내용만 반영함.
+tag: CP-05

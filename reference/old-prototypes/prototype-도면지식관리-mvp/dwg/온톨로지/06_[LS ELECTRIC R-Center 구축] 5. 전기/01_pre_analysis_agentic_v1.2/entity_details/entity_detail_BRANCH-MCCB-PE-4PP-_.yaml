@@ -1,0 +1,59 @@
+entity_detail:
+  tag: BRANCH-MCCB-PE-4PP-*
+  type: Molded Cased Circuit Breaker (Branch)
+  specs:
+    breaker_spec:
+      value: MCB P 80/40T
+      unit: null
+      source: page 22
+      confidence: 0.95
+  drawing_texts:
+  - source: page 22
+    page_number: 22
+    text: 'MCCB-PE-4PP
+
+      MCCB (P-E-4PP용)
+
+      MCB P 80/40T'
+  requirements:
+  - text: 분전반 P-E-4PP 패널에 설치되는 보호장치
+    source: page 22
+    type: installation
+  - text: 3Ø 440V 생산동력 분전반 결선도-2
+    source: page 22
+    type: electrical_context
+  connection_specs:
+  - relation: protects / installed_on
+    partner: P-E-4PP
+    details:
+      source: page 22
+  - relation: associated_with
+    partner: PWR-3PH-440V
+    details:
+      source: page 22
+  ontology_hints:
+    observed_relations:
+    - relation_type: installed_on
+      partner_tag: P-E-4PP
+      direction: to_panel
+      source: page 22
+    - relation_type: associated_with
+      partner_tag: PWR-3PH-440V
+      direction: input_to_panel_context
+      source: page 22
+    observed_attributes:
+    - spec
+    - location
+    - function_category
+    similar_equipment:
+    - MCCB-PA-4PP-7
+    - MCCB-PAC-4PP-1
+    - MCCB-PC-4PP
+    - MCCB-PF-4PP
+    - MCCB-PP-4PP
+    suggested_parent_class: Circuit Breaker
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 도면 분석 결과에서 확인 가능한 정보만 기록함.
+tag: BRANCH-MCCB-PE-4PP-*

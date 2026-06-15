@@ -1,0 +1,198 @@
+entity_detail:
+  tag: '4'
+  type: detail_item
+  specs:
+    drawing_number:
+      value: UNKNOWN
+      unit: null
+      source: pages 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64, 65
+      confidence: 0.0
+    title:
+      value: 모멘트 접합 상세 4
+      unit: null
+      source: user provided target
+      confidence: 1.0
+    discipline:
+      value: STRUCTURAL
+      unit: null
+      source: user provided target
+      confidence: 1.0
+  drawing_texts:
+  - source: page 34
+    page_number: 34
+    text: 'tag: ''4''
+
+      name: 그리드 축
+
+      spec: null
+
+      discipline: STRUCTURAL
+
+      function_category: BOUNDARY
+
+      location: 상단 그리드
+
+      confidence: 0.95'
+  - source: page 34
+    page_number: 34
+    text: 그리드(A, B, B1, B2, C, D / 1, 2, 2A, 3, 4, 5, 5A, 5B, 6, 7)와 재료강도(fck=27MPa,
+      fy=400/500MPa, SS275, SM355)가 함께 확인된다.
+  - source: page 61
+    page_number: 61
+    text: 전단 접합 상세도(SHEAR CONNECTION DETAIL)로, 구조용 H형강 부재와 볼트/플레이트 접합 사양이 반복적으로 제시된
+      도면이다.
+  - source: page 61
+    page_number: 61
+    text: 표제란에서 도면번호 S06.11, 제목 SHEAR CONNECTION DETAIL, 리비전 0(24.05.17), 프로젝트명 R-Center,
+      발주처 LS Electric이 확인된다.
+  - source: page 61
+    page_number: 61
+    text: 주석에는 콘크리트 fck=27MPa, 철근 SD400/SD500, 강재 SS275/SM355, 앵커볼트 Fy=660MPa의 재료
+      강도 정의가 보인다.
+  - source: page 63
+    page_number: 63
+    text: 기둥 이음)까지 보이고, M20(F10T) 및 M22(F10T) 고장력볼트가 반복된다.
+  - source: page 63
+    page_number: 63
+    text: 우측 표제란에는 fck=27MPa, SD400, SD500, SS275, SM355, SHN275, 앵커볼트 Fy=660MPa 등의
+      재료강도 표기가 보인다.
+  - source: page 64
+    page_number: 64
+    text: LS Electric R-Center 구축 공사의 철골 접합 상세도이며, WC1/WC2 RC 접합, 크레인 접합(1톤, 5톤),
+      보 이음 접합, T-BAR 보강, TSG+SP1 접합 등 여러 구조 접합 상세가 한 페이지에 배치되어 있다.
+  - source: page 64
+    page_number: 64
+    text: TSG1, SP1, ST2가 확인되며, H형강 단면, 플레이트, 볼트/앵커, 용접 기호가 함께 표기된다.
+  - source: page 64
+    page_number: 64
+    text: 재료강도는 콘크리트 fck=27MPa, 철근 fy=400/500MPa, 강재 SS275/SM355/SHN275, 앵커볼트 Fy=660MPa,
+      볼트 등급 F10T가 표기되어 있다.
+  requirements:
+  - text: 콘크리트 fck=27MPa
+    source: pages 34, 61, 64
+    type: material_requirement
+  - text: 철근 SD400/SD500
+    source: pages 61, 64
+    type: material_requirement
+  - text: 강재 SS275/SM355/SHN275
+    source: pages 34, 61, 63, 64
+    type: material_requirement
+  - text: 앵커볼트 Fy=660MPa
+    source: pages 61, 63, 64
+    type: material_requirement
+  - text: M20(F10T) 및 M22(F10T) 고장력볼트
+    source: page 63
+    type: connection_requirement
+  - text: WC1/WC2 RC 접합
+    source: page 64
+    type: connection_requirement
+  - text: 크레인 접합(1톤, 5톤)
+    source: page 64
+    type: connection_requirement
+  - text: 보 이음 접합
+    source: page 64
+    type: connection_requirement
+  - text: T-BAR 보강
+    source: page 64
+    type: connection_requirement
+  - text: TSG+SP1 접합
+    source: page 64
+    type: connection_requirement
+  connection_specs:
+  - relation: 접합 상세
+    partner: H형강 부재
+    details:
+      source: page 61
+  - relation: 접합 상세
+    partner: 볼트/플레이트
+    details:
+      source: page 61
+  - relation: 접합 상세
+    partner: M20(F10T) 고장력볼트
+    details:
+      source: page 63
+  - relation: 접합 상세
+    partner: M22(F10T) 고장력볼트
+    details:
+      source: page 63
+  - relation: 접합 상세
+    partner: WC1/WC2 RC
+    details:
+      source: page 64
+  - relation: 접합 상세
+    partner: 크레인 접합
+    details:
+      source: page 64
+  - relation: 접합 상세
+    partner: 보 이음 접합
+    details:
+      source: page 64
+  - relation: 접합 상세
+    partner: T-BAR
+    details:
+      source: page 64
+  - relation: 접합 상세
+    partner: TSG+SP1
+    details:
+      source: page 64
+  ontology_hints:
+    observed_relations:
+    - relation_type: grid_reference
+      partner_tag: '4'
+      direction: self
+      source: page 34
+    - relation_type: connection_detail
+      partner_tag: H형강 부재
+      direction: self
+      source: page 61
+    - relation_type: connection_detail
+      partner_tag: M20(F10T)
+      direction: self
+      source: page 63
+    - relation_type: connection_detail
+      partner_tag: M22(F10T)
+      direction: self
+      source: page 63
+    - relation_type: connection_detail
+      partner_tag: WC1
+      direction: self
+      source: page 64
+    - relation_type: connection_detail
+      partner_tag: WC2
+      direction: self
+      source: page 64
+    - relation_type: connection_detail
+      partner_tag: TSG1
+      direction: self
+      source: page 64
+    - relation_type: connection_detail
+      partner_tag: SP1
+      direction: self
+      source: page 64
+    - relation_type: connection_detail
+      partner_tag: ST2
+      direction: self
+      source: page 64
+    observed_attributes:
+    - drawing_number
+    - title
+    - discipline
+    - fck=27MPa
+    - SD400
+    - SD500
+    - SS275
+    - SM355
+    - SHN275
+    - Fy=660MPa
+    - F10T
+    - M20
+    - M22
+    similar_equipment:
+    - '4'
+    suggested_parent_class: StructuralDetail
+    cross_discipline: []
+  notes:
+  - 대상 tag '4'는 제공된 분석 결과에서 별도 설비가 아니라 페이지 34의 그리드 축 표기로 확인됨.
+  - 모멘트 접합 상세 4라는 대상명과 직접 일치하는 도면 텍스트는 제공된 컨텍스트에서 확인되지 않아, 관련 구조 접합 상세 페이지의 원문만 수집함.
+  - 추측값은 넣지 않음.
+tag: '4'

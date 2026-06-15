@@ -1,0 +1,230 @@
+placement:
+  tag: PANEL-F-3PP
+  name: 380V 분전반 P-F-3PP
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:PANEL-F-3PP
+    class_hint: DistributionBoard
+    alternative_class_hints:
+    - DistributionPanel
+    - ElectricalPanel
+    - MCCB Panel
+    related_assertions:
+    - type: feeds
+      target_hint: SWGR-380V-MAIN
+      note: 380V 피더
+      confirmed_property: dks:feeds
+      confirmed_target: dks:SWGR-380V-MAIN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    - type: cable
+      target_hint: SWGR-380V-MAIN
+      note: visual_semantics 기반 연결
+      confirmed_property: dks:cable
+      confirmed_target: dks:SWGR-380V-MAIN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-21T16:10:28.283834'
+    applicable_axioms:
+    - AX011
+    - AX024
+    - AX025
+    applicable_constraints:
+    - CN013
+    - CN001
+    - CN024
+    - CN025
+    - CN011
+    - CN012
+    confirmed_class: dks:DistributionBoard
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T16:02:07.906037'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T16:13:49.198027'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 내 기능 분류 문자열이며 분전 기능을 직접 표기함
+      - raw_text: 'type: MCCB'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 장비 타입 표기이며 MCCB로 관찰됨
+      - raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처/생성 계열 메타 정보로 보존 필요
+      - raw_text: 'collection_sources: cross_validated=true, visual_semantics=true,
+          entity_synthesis=true'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasCollectionSource
+          suggested_datatype: xsd:string
+          rationale: 엔티티 수집/판정 방식 메타 정보
+      - raw_text: 'confidence: 0.95'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 판정 신뢰도 수치
+      - raw_text: 'equipment_symbols: MCCB count 1'
+        source_page: 2
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 관찰값이며 MCCB 심볼 1개가 확인됨
+  provenance:
+    tag:
+      source_pages:
+      - 2
+      method: entity_detail
+    name:
+      source_pages:
+      - 2
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 2
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 2
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 2
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 2
+      method: ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 2
+      method: relations
+    specs.rated_voltage_V:
+      source_pages:
+      - 2
+      method: entity_detail
+    specs.rated_current_A:
+      source_pages:
+      - 2
+      method: entity_detail
+    specs.frame_A:
+      source_pages:
+      - 2
+      method: entity_detail
+    specs.poles:
+      source_pages:
+      - 2
+      method: entity_detail
+    specs.raw_labels:
+      source_pages:
+      - 2
+      method: entity_detail
+    relations:
+      source_pages:
+      - 2
+      method: entity_detail
+    collection_sources:
+      source_pages:
+      - 2
+      method: entity_detail
+    position:
+      source_pages:
+      - 2
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 2
+      method: entity_detail
+    equipment_symbols:
+      source_pages:
+      - 2
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 2
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 2
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: P-F-3PP
+    source_page: 2
+    reason: 원문 라벨이지만 정규 속성으로 승격하지 않고 보존 필요
+    preservation_note: 태그와 대응되는 장비 표기
+  - field_candidate: specs.raw_labels
+    raw_text: MCCB 3P
+    source_page: 2
+    reason: 원문 라벨이지만 정규 속성으로 승격하지 않고 보존 필요
+    preservation_note: 차단기/극수 표기
+  - field_candidate: specs.raw_labels
+    raw_text: 380V
+    source_page: 2
+    reason: 원문 라벨이지만 정규 속성으로 승격하지 않고 보존 필요
+    preservation_note: 정격 전압 표기
+  - field_candidate: relations.note
+    raw_text: 380V 피더
+    source_page: 2
+    reason: 관계 주석은 관계 사실의 보조 설명이며 정규 관계명 자체는 feeds/cable로만 보존
+    preservation_note: 인입/공급 방향 설명
+  - field_candidate: relations.annotation
+    raw_text: 380V 피더
+    source_page: 2
+    reason: 관계 주석은 관계 사실의 보조 설명이며 정규 관계명 자체는 feeds/cable로만 보존
+    preservation_note: visual_semantics 주석
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: PowerDistribution
+    source_page: 2
+    reason: 후보 기능명이며 확정 분류 아님
+    preservation_note: 기능 후보 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CircuitProtection
+    source_page: 2
+    reason: 후보 기능명이며 확정 분류 아님
+    preservation_note: 기능 후보 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - MCCB 기반 PANEL-* 개체를 DistributionBoard/DistributionPanel/ElectricalPanel 계열로
+      보는 패널 분류 가이드 적용
+    - feeds 및 cable 관계를 관계 사실 원형으로 보존
+    - raw_labels, source_attribution, collection_sources, confidence, equipment_symbols를
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T16:00:02.822961'
+  confidence: 0.95

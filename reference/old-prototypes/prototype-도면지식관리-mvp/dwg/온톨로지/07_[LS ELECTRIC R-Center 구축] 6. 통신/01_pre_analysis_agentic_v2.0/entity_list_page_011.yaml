@@ -1,0 +1,129 @@
+page_11_entities:
+- tag: HUB-RACK-2F
+  name: HUB RACK
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SPACE-PAC-SOLUTION
+  name: PAC Solution
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.96
+- tag: SPACE-RESERVED
+  name: Reserved Area 3
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.96
+- tag: SPACE-CONF-ZONE-NORTH
+  name: 회의실 (북측 다수)
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: SPACE-CONF-ZONE-SOUTH
+  name: 회의실 (남측 다수)
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: SPACE-OPEN-OFFICE-EAST
+  name: 동측 오픈 오피스 구역
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: OUTLET-GRP-CONF-NORTH
+  name: 북측 회의실 단말 그룹
+  type: TERMINAL_GROUP
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: OUTLET-GRP-CONF-SOUTH
+  name: 남측 회의실 단말 그룹
+  type: TERMINAL_GROUP
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: OUTLET-GRP-OPEN-EAST
+  name: 동측 오픈오피스 단말 그룹
+  type: TERMINAL_GROUP
+  discipline: COMMUNICATION
+  confidence: 0.95
+- tag: P-TITLE-BLOCK
+  name: Title Block
+  type: TITLE_BLOCK
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: P-RACK-DETAIL-BOX
+  name: Rack Detail Callout
+  type: CALLOUT
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: EQ-MAIN-RACK
+  name: Main Server Room Rack
+  type: DISTRIBUTE
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: SPACE-SERVER-ROOM
+  name: Server Room & Shafts
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: SPACE-PAC-ZONE
+  name: PAC Solution Zone
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: SPACE-AUTO-LAB
+  name: Automation Lab
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: SPACE-RIGHT-ZONE
+  name: Right Office & Conference Zone
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: SPACE-BOTTOM-ZONE
+  name: Executive & Common Zone
+  type: SPACE
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: GRP-TERMINALS-PAC
+  name: Terminals in PAC Zone
+  type: TERMINAL_GROUP
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: GRP-TERMINALS-RIGHT
+  name: Terminals in Right Zone
+  type: TERMINAL_GROUP
+  discipline: COMMUNICATION
+  confidence: 0.93
+- tag: GRP-TERMINALS-BOTTOM
+  name: Terminals in Bottom Zone
+  type: TERMINAL_GROUP
+  discipline: COMMUNICATION
+  confidence: 0.93
+page_11_relations:
+- from: P-RACK-DETAIL-BOX
+  to: EQ-MAIN-RACK
+  relation: connects_to
+- from: EXTERNAL_FEED
+  to: EQ-MAIN-RACK
+  relation: feeds
+- from: EQ-MAIN-RACK
+  to: GRP-TERMINALS-PAC
+  relation: feeds
+- from: EQ-MAIN-RACK
+  to: GRP-TERMINALS-RIGHT
+  relation: feeds
+- from: EQ-MAIN-RACK
+  to: GRP-TERMINALS-BOTTOM
+  relation: feeds
+- from: HUB-RACK-2F
+  to: SPACE-CONF-ZONE-NORTH
+  relation: feeds
+- from: HUB-RACK-2F
+  to: SPACE-CONF-ZONE-SOUTH
+  relation: feeds
+- from: HUB-RACK-2F
+  to: SPACE-OPEN-OFFICE-EAST
+  relation: feeds
+- from: HUB-RACK-2F
+  to: SPACE-PAC-SOLUTION
+  relation: feeds

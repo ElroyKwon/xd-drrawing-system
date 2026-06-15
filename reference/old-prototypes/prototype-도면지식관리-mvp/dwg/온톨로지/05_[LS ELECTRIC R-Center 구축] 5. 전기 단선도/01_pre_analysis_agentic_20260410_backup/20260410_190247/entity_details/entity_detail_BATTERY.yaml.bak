@@ -1,0 +1,51 @@
+entity_detail:
+  tag: BATTERY
+  type: battery
+  name: 축전지
+  discipline: ELECTRICAL
+  specs:
+    source_page_2:
+      source: page 2
+      confidence: 0.9
+  drawing_texts:
+  - source: page 2
+    page_number: 2
+    text: BATTERY/RECTIFIER/CAPACITOR
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: co-located_with
+      partner_tag: RECTIFIER
+      direction: same_diagram
+      source: page 2
+    - relation_type: co-located_with
+      partner_tag: CAPACITOR
+      direction: same_diagram
+      source: page 2
+    observed_attributes:
+    - tag
+    - type
+    - name
+    - discipline
+    - function_category
+    - confidence
+    similar_equipment: []
+    suggested_parent_class: ElectricalEquipment
+    cross_discipline: []
+  notes:
+  - 도면 분석 결과에서 BATTERY의 개별 사양값은 확인되지 않음.
+  - 페이지 2에서 원문 표기는 'BATTERY/RECTIFIER/CAPACITOR'로 함께 표시됨.
+  - 도구 사용 실패로 인해 제공된 텍스트 기반으로만 분석됨.
+  - read_page_context(page 2) 및 read_page_image(page 2)에서 BATTERY의 개별 사양값과 연결 사양은
+    확인되지 않음.
+  - read_entity_detail(RECTIFIER), read_entity_detail(CAPACITOR)에서도 BATTERY와 직접 연결되는
+    추가 사양/관계는 확인되지 않음.
+  - read_page_context(page_num=2)에서 BATTERY는 RECTIFIER, CAPACITOR와 함께 'BATTERY/RECTIFIER/CAPACITOR'로
+    주요 설비 목록에 포함됨.
+  - read_entity_detail(RECTIFIER)에서 RECTIFIER는 BATTERY와 함께 정류기/축전지 계통 블록 내에 표기되며,
+    개별 수치 사양은 판독되지 않음.
+  - read_entity_detail(CAPACITOR)에서 CAPACITOR는 BATTERY, RECTIFIER와 함께 co-mentioned
+    관계로 확인됨.
+  - 확인 도구: read_page_context(page_num=2), read_entity_detail(RECTIFIER), read_entity_detail(CAPACITOR)
+tag: BATTERY

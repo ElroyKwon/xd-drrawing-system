@@ -1,0 +1,1228 @@
+cross_validated:
+  page_num: 37
+  model: gemini-3.1-pro
+  entities:
+  - tag: UNKNOWN-LIGHTNING-ROD-01
+    name: 피뢰침
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      height_mm: 3000
+      count: 1
+      material: STS 환봉 8mm + 피뢰침
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      protection_method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius_m: 60
+      minimum_height_above_roof_mm: 250
+    equipment_symbols:
+    - type: 피뢰침 심볼 (원형+십자)
+      count: 1
+    position: center (B-C열, 3-4번 그리드 사이)
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.98
+  - tag: UNKNOWN-HORIZ-COND-01
+    name: 수평도체 메쉬망
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      material: STS 환봉 8mm
+      support_spacing: 1m마다
+      count: 1
+      electrical_resistance_ohm: 0.2
+      omission_condition: 자연적 구성부재 충족 시 생략 가능
+    equipment_symbols:
+    - type: 수평도체 (실선, STS 환봉 8mm)
+      count: 1
+    position: perimeter and interior of dashed_box
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.98
+  - tag: UNKNOWN-STRUCT-CONN-01
+    name: 구조체 접속점
+    discipline: ELECTRICAL
+    function_category: GROUNDING
+    specifications:
+      count: 12
+      type: 철근/철골 접속
+      electrical_resistance_ohm: 0.2
+      connection_method: 구조체 접속방법
+    equipment_symbols:
+    - type: 구조체 접속 심볼 (filled square ■)
+      count: 12
+    position: perimeter of dashed_box
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.98
+  - tag: UNKNOWN-METAL-LADDER-01
+    name: 금속 사다리 접속점
+    discipline: ELECTRICAL
+    function_category: GROUNDING
+    specifications:
+      count: 2
+      type: 금속 사다리 접속
+    equipment_symbols:
+    - type: 금속 사다리 접속 심볼 (원형)
+      count: 2
+    position: center-right (B열, 5-6번 그리드 사이)
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.98
+  - tag: UNKNOWN-DN-01
+    name: 인하도선 하향 접속 (좌측)
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      count: 1
+      type: 주 인하도선
+      material: 기초철골
+      natural_component_requirement: 자연적 구성부재 충족 필요
+    equipment_symbols:
+    - type: 인하도선 하향 표기 (DN arrow)
+      count: 1
+    position: left (C열, 1번 그리드)
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.98
+  - tag: UNKNOWN-DN-02
+    name: 인하도선 하향 접속 (우측)
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      count: 1
+      type: 보조 인하도선
+      cable_spec: F-GV 50㎟
+      insulation: HI-PVC 28C
+    equipment_symbols:
+    - type: 인하도선 하향 표기 (DN arrow)
+      count: 1
+    position: right (B열, 5-6번 그리드)
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.98
+  - tag: UNKNOWN-ELECTRODE-01
+    name: 피뢰기초접지극
+    discipline: ELECTRICAL
+    function_category: GROUNDING
+    specifications:
+      type: 기초접지극
+      grounding_category: 피뢰 (Lightning Protection)
+    equipment_symbols: []
+    position: below-grade (inferred from connections)
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  relationships:
+  - from_tag: UNKNOWN-LIGHTNING-ROD-01
+    to_tag: UNKNOWN-HORIZ-COND-01
+    relation_type: connects_to
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 수평도체 (STS 환봉 8mm) 접속
+  - from_tag: UNKNOWN-HORIZ-COND-01
+    to_tag: UNKNOWN-STRUCT-CONN-01
+    relation_type: connects_to
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 구조체 접속 12개소
+  - from_tag: UNKNOWN-HORIZ-COND-01
+    to_tag: UNKNOWN-DN-01
+    relation_type: connects_to
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 주 인하도선 (기초철골) → 피뢰기초접지극
+  - from_tag: UNKNOWN-METAL-LADDER-01
+    to_tag: UNKNOWN-DN-02
+    relation_type: connects_to
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 금속 사다리 접속 → DN to 피뢰기초접지극
+  - from_tag: UNKNOWN-DN-01
+    to_tag: UNKNOWN-ELECTRODE-01
+    relation_type: grounds_to
+    line_style: dashed
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 'DN to : 피뢰기초접지극 (하향)'
+  - from_tag: UNKNOWN-DN-02
+    to_tag: UNKNOWN-ELECTRODE-01
+    relation_type: grounds_to
+    line_style: dashed
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 'DN to : 피뢰기초접지극 (하향)'
+  spaces:
+  - space_id: ROOF-FLOOR-01
+    name: 지붕층 (Roof Floor)
+    contains:
+    - UNKNOWN-LIGHTNING-ROD-01
+    - UNKNOWN-HORIZ-COND-01
+    - UNKNOWN-STRUCT-CONN-01
+    - UNKNOWN-METAL-LADDER-01
+    - UNKNOWN-DN-01
+    - UNKNOWN-DN-02
+    - UNKNOWN-ELECTRODE-01
+  diagram_spec:
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-003
+    drawing_subtype: 피뢰_접지
+    floor_label: 지붕층 (Roof Floor)
+    discipline: ELECTRICAL
+    classification: GROUNDING_PLAN
+    flow_direction: top-to-bottom
+    scale: 'A1: 1/200, A3: 1/400'
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 GAUN I Architects & Engineers
+    date: '2024.04'
+    has_legend_section: true
+    legend_region: top-right
+    grounding_categories:
+    - 피뢰 (Lightning Protection)
+    - 구조체 접지 (Structural Grounding)
+    - 기초접지극 (Foundation Grounding Electrode)
+    lightning_protection_spec:
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius: 60 m
+      air_termination: STS 환봉 8mm + 피뢰침
+      main_down_conductor: 기초철골
+      auxiliary_down_conductor: F-GV 50㎟ (HI-PVC 28C)
+    grid:
+      columns:
+      - ①
+      - ②
+      - ③
+      - ④
+      - ⑤
+      - ⑥
+      - ⑦
+      rows:
+      - A
+      - B
+      - C
+      - D
+      total_width_mm: 71000
+      total_height_mm: 41000
+      column_spacing_mm:
+      - 12000
+      - 12000
+      - 12000
+      - 12000
+      - 11500
+      - 11500
+      row_spacing_mm:
+      - 13000
+      - 17000
+      - 11000
+      - 13000
+    equipment_summary:
+      lightning_rod_count: 1
+      lightning_rod_height_mm: 3000
+      structural_connection_count: 12
+      metal_ladder_connection_count: 2
+      down_conductor_points: 2
+      horizontal_conductor_material: STS 환봉 8mm
+      horizontal_conductor_support_spacing: 1m 마다
+  disagreements:
+  - item_type: diagram_meta
+    tag_affected: grid
+    field: total_height_mm
+    values:
+      sonnet: 41000
+      gemini: 43000
+      mini: 41000
+    resolved_to: 41000
+    reason: Sonnet과 GPT-mini의 값이 일치하며 시각 분석 우선순위에 따라 Sonnet 값 채택
+  - item_type: diagram_meta
+    tag_affected: grid
+    field: row_spacing_mm
+    values:
+      sonnet:
+      - 13000
+      - 17000
+      - 11000
+      - 13000
+      gemini:
+      - 13000
+      - 17000
+      - 13000
+      mini:
+      - 13000
+      - 17000
+      - 11000
+      - 13000
+    resolved_to:
+    - 13000
+    - 17000
+    - 11000
+    - 13000
+    reason: Sonnet과 GPT-mini의 값이 일치하며 누락 없는 전체 배열 채택
+  preservation_check:
+    sonnet_spec_count: 20
+    preserved_count: 20
+    lost_fields: []
+  summary:
+    entity_count: 7
+    relationship_count: 6
+    high_confidence_count: 7
+    disagreement_count: 2
+    diagram_spec_preserved: true
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 피뢰설비 범례/개요 및 특기사항
+  discipline: ELECTRICAL
+  classification: GROUNDING_PLAN
+  drawing_genre: grounding_plan
+  title_block:
+    drawing_number: EE-05-003
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: 피뢰침
+    type: lightning_rod
+    source: both
+  - tag: 수평도체
+    type: horizontal_conductor
+    source: both
+  - tag: 구조체 접속
+    type: structural_connection
+    source: both
+  - tag: 금속 사다리 접속
+    type: metal_ladder_connection
+    source: both
+  - tag: 'DN to : 피뢰기초접지극'
+    type: grounding_connection_note
+    source: both
+  - tag: 주 인하도선
+    type: down_conductor_main
+    source: text
+  - tag: 보조 인하도선
+    type: down_conductor_auxiliary
+    source: text
+  - tag: F-GV 50㎟ (HI-PVC 28C)
+    type: conductor_spec
+    source: text
+  - tag: STS 환봉 8㎜
+    type: conductor_spec
+    source: text
+  - tag: 회전 구체법
+    type: lightning_protection_method
+    source: text
+  - tag: IV등급
+    type: protection_grade
+    source: text
+  - tag: 회전구체반경 60 m
+    type: protection_radius
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 범례 박스가 우측 상단에 있으며 심볼-설명 쌍과 약어/재료 표기가 함께 존재함
+  - 도면 본체는 지붕층 피뢰/접지 평면 배치와 접속 위치를 표시함
+  - 페이지 37은 전기 분야의 접지/피뢰 평면도이며, 텍스트와 이미지가 서로 보완적임
+  confidence: 0.97
+  note: null
+  recommended_supplements:
+    P-4.5: discipline/electrical/genre_grounding_plan/
+    P-10: discipline/electrical/genre_grounding_plan/
+    P-11: discipline/electrical/_general/
+  routing_confidence: 0.98
+  routing_reason: 페이지 제목과 범례 박스가 모두 피뢰/접지 설비에 해당하며, 카탈로그에 electrical/genre_grounding_plan
+    매칭이 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND_BOX_1
+    shape: rectangle
+    primary_label: 피뢰설비 개요 및 특기사항
+    position: top-right
+    labels_near:
+    - 적용기준
+    - 방식
+    - 보호등급
+    - 수뢰부
+    - 인하도선
+  - panel_id: LEGEND_BOX_2
+    shape: rectangle
+    primary_label: 피뢰설비 범례
+    position: right-middle
+    labels_near:
+    - 피뢰침
+    - 구조체 접속
+    - 수평도체
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 지붕층 피뢰 및 접지 설비 평면도
+    position: bottom-right
+    labels_near:
+    - EE-05-003
+    - LS Electric R-Center 구축
+  connections:
+  - from: BLK_ROD_1
+    to: BLK_HORIZ_COND
+    line_style: solid
+    annotation: 수평도체 접속
+  notable_shapes:
+  - shape: dashed_box
+    label: 지붕층 평면 영역
+    note: 도면 본체의 주요 설비 배치 영역을 감싸는 점선 테두리
+  - shape: circle
+    label: 피뢰침 (H:3,000mm)
+    note: 도면 중앙의 피뢰침 심볼
+  - shape: circle
+    label: 구조체 접속
+    note: 범례에 정의된 작은 원형 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 0.99
+  note: 우측 상단에 '피뢰설비 범례' 및 '개요 및 특기사항' 표가 명확히 존재함.
+classification: GROUNDING_DIAGRAM
+discipline: ELECTRICAL
+key_elements_from_text:
+- 지붕층 피뢰 및 접지 설비 평면도
+- 피뢰설비 개요 및 특기사항
+- 피뢰설비 범례
+- 피뢰침 (H:3,000㎜) 1개소
+- 구조체 접속 12개소 동일
+- 금속 사다리 접속 2개소 동일
+- 'DN to : 피뢰기초접지극'
+- 수평도체(STS 환봉8㎜)
+- 지지금구 1m마다 설치
+- '주 인하도선 : 기초철골'
+- '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+- 한국전기설비규정(KEC) 150 피뢰시스템
+- KS C IEC 62305
+- 회전 구체법
+- IV등급
+- 회전구체반경 60 m
+title_block:
+  drawing_number: EE-05-003
+  title: 지붕층 피뢰 및 접지 설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 discipline(ELECTRICAL), title_block, legend_section 판단은 이미지/텍스트와 일치함.
+  classification은 일반 grounding_plan보다 범위가 더 직접적인 GROUNDING_DIAGRAM으로 보강함. 근거: 도면 본체가
+  지붕층 피뢰/접지 배치와 접속 위치를 평면으로 표시함(페이지 37 이미지 중앙 본체, 우측 범례/개요 표).'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-ROOF-PLAN
+    shape: dashed_box
+    labels_inside:
+    - 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+    - 구조체 접속 12개소 동일
+    - 금속 사다리 접속 2개소 동일
+    - 피뢰침 (H:3,000mm) 1개소
+    - 'DN to : 피뢰기초접지극'
+    - '주 인하도선 : 기초철골'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침 (circle with cross)
+      count: 1
+    - type: 구조체 접속점 (filled square)
+      count: 12
+    - type: 금속 사다리 접속 (circle)
+      count: 2
+    - type: 수평도체 (solid line, STS 환봉 8mm)
+      count: 1
+    - type: DN to 피뢰기초접지극 (down conductor arrow)
+      count: 2
+    inferred_name: 지붕층 피뢰 및 접지 설비 배치 영역
+    position: center
+  - panel_id: BLK-ROD-01
+    shape: circle
+    labels_inside:
+    - 피뢰침 (H:3,000mm)
+    - 1개소
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침 심볼 (원형+십자)
+      count: 1
+    inferred_name: 피뢰침 H=3,000mm
+    position: center (B-C열, 3-4번 그리드 사이)
+  - panel_id: BLK-STRUCT-CONN
+    shape: other
+    labels_inside:
+    - 구조체 접속 12개소 동일
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 구조체 접속 심볼 (filled square ■)
+      count: 12
+    inferred_name: 구조체 접속점 (철근/철골 접속) 12개소
+    position: perimeter of dashed_box
+  - panel_id: BLK-METAL-LADDER
+    shape: circle
+    labels_inside:
+    - 금속 사다리 접속 2개소 동일
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 금속 사다리 접속 심볼 (원형)
+      count: 2
+    inferred_name: 금속 사다리 접속점 2개소
+    position: center-right (B열, 5-6번 그리드 사이)
+  - panel_id: BLK-DN-LEFT
+    shape: other
+    labels_inside:
+    - 'DN to : 피뢰기초접지극'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 인하도선 하향 표기 (DN arrow)
+      count: 1
+    inferred_name: 인하도선 하향 접속 (좌측) → 피뢰기초접지극
+    position: left (C열, 1번 그리드)
+  - panel_id: BLK-DN-RIGHT
+    shape: other
+    labels_inside:
+    - 'DN to : 피뢰기초접지극'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 인하도선 하향 표기 (DN arrow)
+      count: 1
+    inferred_name: 인하도선 하향 접속 (우측) → 피뢰기초접지극
+    position: right (B열, 5-6번 그리드)
+  - panel_id: BLK-HORIZ-COND
+    shape: other
+    labels_inside:
+    - 수평도체(STS 환봉8㎜)
+    - 지지금구 1m마다 설치
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 수평도체 (실선, STS 환봉 8mm)
+      count: 1
+    inferred_name: 수평도체 메쉬망 (STS 환봉 8mm, 지지금구 1m 간격)
+    position: perimeter and interior of dashed_box
+  - panel_id: BLK-LEGEND-SPEC
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 개요 및 특기사항
+    - '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+    - '방식: 회전 구체법'
+    - '보호등급: IV등급'
+    - 보호 등급 회전구체반경 60 m
+    - '수뢰부: STS 환봉 8mm + 피뢰침'
+    - '인하도선: 주 인하도선 : 기초철골'
+    - '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+    - 1. KS C IEC 62305의 피뢰 구조물은 수뢰부 시스템의 자연적구성부재요건(KS C IEC 62305-3/3.5항)을 충족하고,
+      전기저항이 0.2 Ω 이하인 경우, 수평도체를 생략할 수 있다.
+    - 2. 피뢰인하도선 자연적 구성부재인 철골 또는 철근 등을 이용하는 경우에는 접지전극과 수뢰부 사이의 전기저항이 0.2 Ω 이하로 확인되어야
+      하며 구조체 접속방법을 따른다.
+    - 3. 수뢰부를 설치하여 구조물을 보호하는 경우 피뢰침 높이는 옥상구조물 보다 최소 250 mm이상 높아야 한다.
+    - 4. 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+    - 5. 높은 구조물의 상층부의 높이가 60 m 이상이면 구조물 높이의 최상부 20%이내 부분에 설치된 설비를 보호할 수 있도록 수뢰부시스템을
+      설치하여야 한다.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 피뢰설비 개요 및 특기사항 표
+    position: top-right
+  - panel_id: BLK-LEGEND-SYM
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 범례
+    - '⊕ : 피뢰침'
+    - '■ : 구조체 접속 (철근 및 철골 접속)'
+    - '● : 구조물 접속'
+    - '↗ : 잡상, 입하'
+    - '↗ : 층간연결 잡상, 입하 (F-GV Wire 또는 구조체 접속)'
+    - '⑤ --------- : 수평도체 (STS 환봉 8mm)'
+    - '⑥ --------- : F-GV 50㎟ (HI-PVC 28C)'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침 심볼
+      count: 1
+    - type: 구조체 접속 심볼 (■)
+      count: 1
+    - type: 구조물 접속 심볼 (●)
+      count: 1
+    - type: 수평도체 선 심볼 ⑤
+      count: 1
+    - type: F-GV 케이블 선 심볼 ⑥
+      count: 1
+    inferred_name: 피뢰설비 범례 박스
+    position: right-middle
+  - panel_id: BLK-TITLE
+    shape: rectangle
+    labels_inside:
+    - 지붕층 피뢰 및 접지 설비 평면도
+    - '축척 A1: 1/200, A3: 1/400'
+    - EE-05-003
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축 GAUN I Architects & Engineers
+    - '2024.04'
+    - 대표·기술사 이 정 원
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 표제란
+    position: bottom-right
+  - panel_id: BLK-GRID
+    shape: other
+    labels_inside:
+    - ① ② ③ ④ ⑤ ⑥ ⑦ (열 번호, 상단)
+    - A B C D (행 번호, 좌측)
+    - 71,000 (전체 폭)
+    - 12,000 / 12,000 / 12,000 / 12,000 / 11,500 / 11,500 (열 간격)
+    - 13,000 / 17,000 / 11,000 / 13,000 (행 간격)
+    - 41,000 (전체 높이)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건물 그리드 (7열 × 4행)
+    position: full-plan
+  connections:
+  - from: BLK-ROD-01
+    to: BLK-HORIZ-COND
+    line_type: cable
+    line_style: solid
+    annotation: 수평도체 (STS 환봉 8mm) 접속
+  - from: BLK-HORIZ-COND
+    to: BLK-STRUCT-CONN
+    line_type: cable
+    line_style: solid
+    annotation: 구조체 접속 12개소
+  - from: BLK-HORIZ-COND
+    to: BLK-DN-LEFT
+    line_type: cable
+    line_style: solid
+    annotation: 주 인하도선 (기초철골) → 피뢰기초접지극
+  - from: BLK-METAL-LADDER
+    to: BLK-DN-RIGHT
+    line_type: cable
+    line_style: solid
+    annotation: 금속 사다리 접속 → DN to 피뢰기초접지극
+  - from: BLK-DN-LEFT
+    to: BLK-GROUNDING-ELECTRODE
+    line_type: cable
+    line_style: dashed
+    annotation: 'DN to : 피뢰기초접지극 (하향)'
+  - from: BLK-DN-RIGHT
+    to: BLK-GROUNDING-ELECTRODE
+    line_type: cable
+    line_style: dashed
+    annotation: 'DN to : 피뢰기초접지극 (하향)'
+  groups:
+  - group_id: GRP-LIGHTNING-PROTECTION
+    label: 지붕층 피뢰 설비 시스템
+    members:
+    - BLK-ROD-01
+    - BLK-HORIZ-COND
+    - BLK-STRUCT-CONN
+    - BLK-METAL-LADDER
+    - BLK-DN-LEFT
+    - BLK-DN-RIGHT
+  - group_id: GRP-LEGEND
+    label: 범례 및 개요 영역
+    members:
+    - BLK-LEGEND-SPEC
+    - BLK-LEGEND-SYM
+  legend_references:
+  - text: ⊕ 피뢰침
+    linked_to: BLK-ROD-01
+  - text: ■ 구조체 접속 (철근 및 철골 접속)
+    linked_to: BLK-STRUCT-CONN
+  - text: ● 구조물 접속
+    linked_to: BLK-STRUCT-CONN
+  - text: ⑤ 수평도체 (STS 환봉 8mm)
+    linked_to: BLK-HORIZ-COND
+  - text: ⑥ F-GV 50㎟ (HI-PVC 28C)
+    linked_to: BLK-DN-LEFT
+  - text: 금속 사다리 접속
+    linked_to: BLK-METAL-LADDER
+  diagram_meta:
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-003
+    drawing_subtype: 피뢰_접지
+    floor_label: 지붕층 (Roof Floor)
+    discipline: ELECTRICAL
+    classification: GROUNDING_PLAN
+    flow_direction: top-to-bottom
+    scale: 'A1: 1/200, A3: 1/400'
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 GAUN I Architects & Engineers
+    date: '2024.04'
+    has_legend_section: true
+    legend_region: top-right
+    grounding_categories:
+    - 피뢰 (Lightning Protection)
+    - 구조체 접지 (Structural Grounding)
+    - 기초접지극 (Foundation Grounding Electrode)
+    lightning_protection_spec:
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius: 60 m
+      air_termination: STS 환봉 8mm + 피뢰침
+      main_down_conductor: 기초철골
+      auxiliary_down_conductor: F-GV 50㎟ (HI-PVC 28C)
+    grid:
+      columns:
+      - ①
+      - ②
+      - ③
+      - ④
+      - ⑤
+      - ⑥
+      - ⑦
+      rows:
+      - A
+      - B
+      - C
+      - D
+      total_width_mm: 71000
+      total_height_mm: 41000
+      column_spacing_mm:
+      - 12000
+      - 12000
+      - 12000
+      - 12000
+      - 11500
+      - 11500
+      row_spacing_mm:
+      - 13000
+      - 17000
+      - 11000
+      - 13000
+    equipment_summary:
+      lightning_rod_count: 1
+      lightning_rod_height_mm: 3000
+      structural_connection_count: 12
+      metal_ladder_connection_count: 2
+      down_conductor_points: 2
+      horizontal_conductor_material: STS 환봉 8mm
+      horizontal_conductor_support_spacing: 1m 마다
+visual_semantics_gemini:
+  model: gemini-3.1-pro-preview
+  panels:
+  - panel_id: BLK-ROOF-PLAN
+    shape: dashed_box
+    labels_inside:
+    - 수평도체(STS 환봉8㎜) 지지금구 1m마다 설치
+    - 구조체 접속 12개소 동일
+    - 금속 사다리 접속 2개소 동일
+    - 피뢰침 (H:3,000mm) 1개소
+    - 'DN to : 피뢰기초접지극'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침 (circle with cross)
+      count: 1
+    - type: 구조체 접속점 (filled square)
+      count: 12
+    - type: 금속 사다리 접속 (circle)
+      count: 2
+    - type: 수평도체 (solid line, STS 환봉 8mm)
+      count: 1
+    - type: DN to 피뢰기초접지극 (down conductor arrow)
+      count: 2
+    inferred_name: 지붕층 피뢰 및 접지 설비 배치 영역
+    position: center
+  - panel_id: BLK-ROD-01
+    shape: circle
+    labels_inside:
+    - 피뢰침 (H:3,000mm)
+    - 1개소
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침 심볼 (원형+십자)
+      count: 1
+    inferred_name: 피뢰침 H=3,000mm
+    position: center (B-C열, 3-4번 그리드 사이)
+  - panel_id: BLK-STRUCT-CONN
+    shape: other
+    labels_inside:
+    - 구조체 접속 12개소 동일
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 구조체 접속 심볼 (filled square ■)
+      count: 12
+    inferred_name: 구조체 접속점 (철근/철골 접속) 12개소
+    position: perimeter of dashed_box
+  - panel_id: BLK-METAL-LADDER
+    shape: circle
+    labels_inside:
+    - 금속 사다리 접속 2개소 동일
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 금속 사다리 접속 심볼 (원형)
+      count: 2
+    inferred_name: 금속 사다리 접속점 2개소
+    position: center-right (B열, 5-6번 그리드 사이)
+  - panel_id: BLK-DN-LEFT
+    shape: other
+    labels_inside:
+    - 'DN to : 피뢰기초접지극'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 인하도선 하향 표기 (DN arrow)
+      count: 1
+    inferred_name: 인하도선 하향 접속 (좌측) → 피뢰기초접지극
+    position: left (C열, 1번 그리드)
+  - panel_id: BLK-DN-RIGHT
+    shape: other
+    labels_inside:
+    - 'DN to : 피뢰기초접지극'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 인하도선 하향 표기 (DN arrow)
+      count: 1
+    inferred_name: 인하도선 하향 접속 (우측) → 피뢰기초접지극
+    position: right (B열, 5-6번 그리드)
+  - panel_id: BLK-HORIZ-COND
+    shape: other
+    labels_inside:
+    - 수평도체(STS 환봉8㎜)
+    - 지지금구 1m마다 설치
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 수평도체 (실선, STS 환봉 8mm)
+      count: 1
+    inferred_name: 수평도체 메쉬망 (STS 환봉 8mm, 지지금구 1m 간격)
+    position: perimeter and interior of dashed_box
+  - panel_id: BLK-LEGEND-SPEC
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 개요 및 특기사항
+    - '적용기준: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305'
+    - '방식: 회전 구체법'
+    - '보호등급: IV등급'
+    - 보호 등급 회전구체반경 60 m
+    - '수뢰부: STS 환봉 8mm + 피뢰침'
+    - '인하도선: 주 인하도선 : 기초철골'
+    - '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+    - 1. KS C IEC 62305의 피뢰 구조물은 수뢰부 시스템의 자연적구성부재요건(KS C IEC 62305-3/3.5항)을 충족하고,
+      전기저항이 0.2 Ω 이하인 경우, 수평도체를 생략할 수 있다.
+    - 2. 피뢰인하도선 자연적 구성부재인 철골 또는 철근 등을 이용하는 경우에는 접지전극과 수뢰부 사이의 전기저항이 0.2 Ω 이하로 확인되어야
+      하며 구조체 접속방법을 따른다.
+    - 3. 수뢰부를 설치하여 구조물을 보호하는 경우 피뢰침 높이는 옥상구조물 보다 최소 250 mm이상 높아야 한다.
+    - 4. 옥상에 노출된 도전성 부분은 수뢰부와 접속한다.
+    - 5. 높은 구조물의 상층부의 높이가 60 m 이상이면 구조물 높이의 최상부 20%이내 부분에 설치된 설비를 보호할 수 있도록 수뢰부시스템을
+      설치하여야 한다.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 피뢰설비 개요 및 특기사항 표
+    position: top-right
+  - panel_id: BLK-LEGEND-SYM
+    shape: rectangle
+    labels_inside:
+    - 피뢰설비 범례
+    - '⊕ : 피뢰침'
+    - '■ : 구조체 접속 (철근 및 철골 접속)'
+    - '● : 구조물 접속'
+    - '↗ : 잡상, 입하'
+    - '↗ : 층간연결 잡상, 입하 (F-GV Wire 또는 구조체 접속)'
+    - '⑤ --------- : 수평도체 (STS 환봉 8mm)'
+    - '⑥ --------- : F-GV 50㎟ (HI-PVC 28C)'
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 피뢰침 심볼
+      count: 1
+    - type: 구조체 접속 심볼 (■)
+      count: 1
+    - type: 구조물 접속 심볼 (●)
+      count: 1
+    - type: 수평도체 선 심볼 ⑤
+      count: 1
+    - type: F-GV 케이블 선 심볼 ⑥
+      count: 1
+    inferred_name: 피뢰설비 범례 박스
+    position: right-middle
+  - panel_id: BLK-TITLE
+    shape: rectangle
+    labels_inside:
+    - 지붕층 피뢰 및 접지 설비 평면도
+    - '축척 A1: 1/200, A3: 1/400'
+    - EE-05-003
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축 GAUN I Architects & Engineers
+    - '2024.04'
+    - 대표·기술사 이 정 원
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 표제란
+    position: bottom-right
+  - panel_id: BLK-GRID
+    shape: other
+    labels_inside:
+    - ① ② ③ ④ ⑤ ⑥ ⑦ (열 번호, 상단)
+    - A B C D (행 번호, 좌측)
+    - 71,000 (전체 폭)
+    - 12,000 / 12,000 / 12,000 / 12,000 / 11,500 / 11,500 (열 간격)
+    - 13,000 / 17,000 / 11,000 / 13,000 (행 간격)
+    - 43,000 (전체 높이)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 건물 그리드 (7열 × 4행)
+    position: full-plan
+  connections:
+  - from: BLK-ROD-01
+    to: BLK-HORIZ-COND
+    line_type: cable
+    line_style: solid
+    annotation: 수평도체 (STS 환봉 8mm) 접속
+  - from: BLK-HORIZ-COND
+    to: BLK-STRUCT-CONN
+    line_type: cable
+    line_style: solid
+    annotation: 구조체 접속 12개소
+  - from: BLK-HORIZ-COND
+    to: BLK-DN-LEFT
+    line_type: cable
+    line_style: solid
+    annotation: 주 인하도선 (기초철골) → 피뢰기초접지극
+  - from: BLK-METAL-LADDER
+    to: BLK-DN-RIGHT
+    line_type: cable
+    line_style: solid
+    annotation: 금속 사다리 접속 → DN to 피뢰기초접지극
+  - from: BLK-DN-LEFT
+    to: BLK-GROUNDING-ELECTRODE
+    line_type: cable
+    line_style: dashed
+    annotation: 'DN to : 피뢰기초접지극 (하향)'
+  - from: BLK-DN-RIGHT
+    to: BLK-GROUNDING-ELECTRODE
+    line_type: cable
+    line_style: dashed
+    annotation: 'DN to : 피뢰기초접지극 (하향)'
+  groups:
+  - group_id: GRP-LIGHTNING-PROTECTION
+    label: 지붕층 피뢰 설비 시스템
+    members:
+    - BLK-ROD-01
+    - BLK-HORIZ-COND
+    - BLK-STRUCT-CONN
+    - BLK-METAL-LADDER
+    - BLK-DN-LEFT
+    - BLK-DN-RIGHT
+  - group_id: GRP-LEGEND
+    label: 범례 및 개요 영역
+    members:
+    - BLK-LEGEND-SPEC
+    - BLK-LEGEND-SYM
+  legend_references:
+  - text: ⊕ 피뢰침
+    linked_to: BLK-ROD-01
+  - text: ■ 구조체 접속 (철근 및 철골 접속)
+    linked_to: BLK-STRUCT-CONN
+  - text: ● 구조물 접속
+    linked_to: BLK-STRUCT-CONN
+  - text: ⑤ 수평도체 (STS 환봉 8mm)
+    linked_to: BLK-HORIZ-COND
+  - text: ⑥ F-GV 50㎟ (HI-PVC 28C)
+    linked_to: BLK-DN-LEFT
+  - text: 금속 사다리 접속
+    linked_to: BLK-METAL-LADDER
+  diagram_meta:
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-003
+    drawing_subtype: 피뢰_접지
+    floor_label: 지붕층 (Roof Floor)
+    discipline: ELECTRICAL
+    classification: GROUNDING_PLAN
+    flow_direction: top-to-bottom
+    scale: 'A1: 1/200, A3: 1/400'
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 GAUN I Architects & Engineers
+    date: '2024.04'
+    has_legend_section: true
+    legend_region: top-right
+    grounding_categories:
+    - 피뢰 (Lightning Protection)
+    - 구조체 접지 (Structural Grounding)
+    - 기초접지극 (Foundation Grounding Electrode)
+    lightning_protection_spec:
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius: 60 m
+      air_termination: STS 환봉 8mm + 피뢰침
+      main_down_conductor: 기초철골
+      auxiliary_down_conductor: F-GV 50㎟ (HI-PVC 28C)
+    grid:
+      columns:
+      - ①
+      - ②
+      - ③
+      - ④
+      - ⑤
+      - ⑥
+      - ⑦
+      rows:
+      - A
+      - B
+      - C
+      - D
+      total_width_mm: 71000
+      total_height_mm: 43000
+      column_spacing_mm:
+      - 12000
+      - 12000
+      - 12000
+      - 12000
+      - 11500
+      - 11500
+      row_spacing_mm:
+      - 13000
+      - 17000
+      - 13000
+    equipment_summary:
+      lightning_rod_count: 1
+      lightning_rod_height_mm: 3000
+      structural_connection_count: 12
+      metal_ladder_connection_count: 2
+      down_conductor_points: 2
+      horizontal_conductor_material: STS 환봉 8mm
+      horizontal_conductor_support_spacing: 1m 마다
+entity_synthesis:
+  entities:
+  - tag: UNKNOWN-LIGHTNING-ROD-01
+    name: 피뢰침
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      height_mm: 3000
+      count: 1
+      material: STS 환봉 8mm
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      protection_method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius_m: 60
+      minimum_height_above_roof_mm: 250
+    position: center (B-C열, 3-4번 그리드 사이)
+    source_block: visual_semantics
+  - tag: UNKNOWN-HORIZ-CONDUCTOR-01
+    name: 수평도체 메쉬망
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      material: STS 환봉 8mm
+      support_spacing_m: 1
+      support_type: 지지금구
+      count: 1
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      protection_method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius_m: 60
+      air_termination: STS 환봉 8mm + 피뢰침
+      electrical_resistance_ohm: 0.2
+      omission_condition: 자연적 구성부재 충족 시 생략 가능
+    position: perimeter and interior of dashed_box
+    source_block: visual_semantics
+  - tag: UNKNOWN-STRUCT-CONN-01
+    name: 구조체 접속점
+    discipline: ELECTRICAL
+    function_category: GROUNDING
+    specifications:
+      count: 12
+      type: 철근/철골 접속
+      symbol: ■ (filled square)
+      electrical_resistance_ohm: 0.2
+      connection_method: 구조체 접속방법
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    position: perimeter of dashed_box
+    source_block: visual_semantics
+  - tag: UNKNOWN-METAL-LADDER-CONN-01
+    name: 금속 사다리 접속점
+    discipline: ELECTRICAL
+    function_category: GROUNDING
+    specifications:
+      count: 2
+      type: 금속 사다리 접속
+      symbol: ● (circle)
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    position: center-right (B열, 5-6번 그리드 사이)
+    source_block: visual_semantics
+  - tag: UNKNOWN-DOWN-CONDUCTOR-01
+    name: 인하도선 (주)
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      type: 주 인하도선
+      material: 기초철골
+      position_location: 좌측 (C열, 1번 그리드)
+      electrical_resistance_ohm: 0.2
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      natural_component_requirement: 자연적 구성부재 충족 필요
+    position: left (C열, 1번 그리드)
+    source_block: visual_semantics
+  - tag: UNKNOWN-DOWN-CONDUCTOR-02
+    name: 인하도선 (보조)
+    discipline: ELECTRICAL
+    function_category: LIGHTNING_PROTECTION
+    specifications:
+      type: 보조 인하도선
+      cable_spec: F-GV 50㎟
+      insulation: HI-PVC 28C
+      position_location: 우측 (B열, 5-6번 그리드)
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+    position: right (B열, 5-6번 그리드)
+    source_block: visual_semantics
+  - tag: UNKNOWN-GROUNDING-ELECTRODE-01
+    name: 피뢰기초접지극
+    discipline: ELECTRICAL
+    function_category: GROUNDING
+    specifications:
+      type: 기초접지극
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      grounding_category: 피뢰 (Lightning Protection)
+    position: below-grade (inferred from connections)
+    source_block: visual_semantics
+  relationships:
+  - from_tag: UNKNOWN-LIGHTNING-ROD-01
+    to_tag: UNKNOWN-HORIZ-CONDUCTOR-01
+    relation_type: connects_to
+    note: 수평도체 (STS 환봉 8mm) 접속
+  - from_tag: UNKNOWN-HORIZ-CONDUCTOR-01
+    to_tag: UNKNOWN-STRUCT-CONN-01
+    relation_type: connects_to
+    note: 구조체 접속 12개소
+  - from_tag: UNKNOWN-HORIZ-CONDUCTOR-01
+    to_tag: UNKNOWN-DOWN-CONDUCTOR-01
+    relation_type: connects_to
+    note: 주 인하도선 (기초철골) → 피뢰기초접지극
+  - from_tag: UNKNOWN-METAL-LADDER-CONN-01
+    to_tag: UNKNOWN-DOWN-CONDUCTOR-02
+    relation_type: connects_to
+    note: 금속 사다리 접속 → DN to 피뢰기초접지극
+  - from_tag: UNKNOWN-DOWN-CONDUCTOR-01
+    to_tag: UNKNOWN-GROUNDING-ELECTRODE-01
+    relation_type: grounds_to
+    note: 'DN to : 피뢰기초접지극 (하향)'
+  - from_tag: UNKNOWN-DOWN-CONDUCTOR-02
+    to_tag: UNKNOWN-GROUNDING-ELECTRODE-01
+    relation_type: grounds_to
+    note: 'DN to : 피뢰기초접지극 (하향)'
+  spaces:
+  - space_id: ROOF-FLOOR-01
+    name: 지붕층 (Roof Floor)
+    floor_label: 지붕층
+    discipline: ELECTRICAL
+    contains:
+    - UNKNOWN-LIGHTNING-ROD-01
+    - UNKNOWN-HORIZ-CONDUCTOR-01
+    - UNKNOWN-STRUCT-CONN-01
+    - UNKNOWN-METAL-LADDER-CONN-01
+    - UNKNOWN-DOWN-CONDUCTOR-01
+    - UNKNOWN-DOWN-CONDUCTOR-02
+    - UNKNOWN-GROUNDING-ELECTRODE-01
+    grid_properties:
+      columns:
+      - ①
+      - ②
+      - ③
+      - ④
+      - ⑤
+      - ⑥
+      - ⑦
+      rows:
+      - A
+      - B
+      - C
+      - D
+      total_width_mm: 71000
+      total_height_mm: 41000
+      column_spacing_mm:
+      - 12000
+      - 12000
+      - 12000
+      - 12000
+      - 11500
+      - 11500
+      row_spacing_mm:
+      - 13000
+      - 17000
+      - 11000
+      - 13000
+    source_block: visual_semantics
+  diagram_meta:
+    title: 지붕층 피뢰 및 접지 설비 평면도
+    drawing_number: EE-05-003
+    drawing_subtype: 피뢰_접지
+    discipline: ELECTRICAL
+    classification: GROUNDING_PLAN
+    scale: 'A1: 1/200, A3: 1/400'
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가운건축 GAUN I Architects & Engineers
+    date: '2024.04'
+    has_legend_section: true
+    legend_region: top-right
+    grounding_categories:
+    - 피뢰 (Lightning Protection)
+    - 구조체 접지 (Structural Grounding)
+    - 기초접지극 (Foundation Grounding Electrode)
+    lightning_protection_spec:
+      standard: 한국전기설비규정(KEC) 150 피뢰시스템, KS C IEC 62305
+      method: 회전 구체법
+      protection_grade: IV등급
+      rolling_sphere_radius_m: 60
+      air_termination: STS 환봉 8mm + 피뢰침
+      main_down_conductor: 기초철골
+      auxiliary_down_conductor: F-GV 50㎟ (HI-PVC 28C)
+  self_check:
+    entity_count: 7
+    relationship_count: 6
+    space_count: 1
+    visual_spec_preserved: true
+    issues: []

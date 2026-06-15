@@ -1,0 +1,78 @@
+entity_detail:
+  tag: BUS-01
+  type: Bus
+  specs:
+  - key: name
+    value: Bus / Bus Tie
+    unit: null
+    source: user_provided_target
+    confidence: 0.91
+  - key: discipline
+    value: ELECTRICAL
+    unit: null
+    source: user_provided_target
+    confidence: 0.91
+  drawing_texts:
+  - source: page_005_context.yaml
+    page_number: 5
+    text: BUS
+  - source: page_005_context.yaml
+    page_number: 5
+    text: Bus / Bus Tie
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'function_category: 모선'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'from: G/S'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'to: BUS'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'relation: connected_to'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'medium: 전기'
+  - source: page_005_context.yaml
+    page_number: 5
+    text: 'direction: 양방향'
+  requirements:
+  - text: No additional requirements explicitly found in the provided analysis results.
+    source: page_005_context.yaml
+    type: unknown
+  connection_specs:
+  - relation: connected_to
+    partner: G/S
+    details:
+      source: page_005_context.yaml
+  - relation: power_bus
+    partner: UNKNOWN
+    details:
+      source: page_020_context.yaml
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_to
+      partner_tag: G/S
+      direction: UNKNOWN
+      source: page_005_context.yaml
+    - relation_type: power_bus
+      partner_tag: UNKNOWN
+      direction: UNKNOWN
+      source: page_020_context.yaml
+    observed_attributes:
+    - name
+    - discipline
+    - function_category
+    - relation
+    - medium
+    - direction
+    similar_equipment:
+    - EQ-E35
+    suggested_parent_class: ElectricalBus
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag('BUS-01') 결과 없음.
+  - page_005_context.yaml에서 BUS / Bus Tie 및 G/S 연결이 확인됨.
+  - direction은 원문 결과에 양방향 또는 UNKNOWN으로 제시되어 확정하지 않음.
+tag: BUS-01

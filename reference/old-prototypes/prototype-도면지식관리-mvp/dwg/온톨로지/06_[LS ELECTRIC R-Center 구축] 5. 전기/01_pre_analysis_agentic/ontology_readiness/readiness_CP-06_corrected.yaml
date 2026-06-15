@@ -1,0 +1,10 @@
+verdict: demoted
+confidence: 0.97
+reason: 이전 평가를 유지한다. entity_detail에서 CP-06의 type은 Circuit으로 기재되어 있으나, specs가 비어 있고
+  requirements, connection_specs, observed_relations, observed_attributes가 모두 확인되지
+  않아 독립 엔티티로 승격할 실증 정보가 없다. drawing_texts 역시 22.9kV 수전설비 단선결선도의 일반 맥락만 제공할 뿐 CP-06
+  자체의 고유 기능, 경계, 사양, 연결 대상을 특정하지 않는다. 또한 ontology_hints의 similar_equipment에 CP-1,
+  CP-2가 제시되고, 이전 평가 사유처럼 read_entity_list상 CP-01~CP-20의 반복 계열 항목으로 해석되는 점을 종합하면, CP-06은
+  개별 설비라기보다 incoming power panel 또는 circuit 계열의 반복 회로 식별자에 가깝다. 따라서 독립 장치 엔티티가 아닌
+  회로/패널 계열로 강등하는 판단이 타당하다.
+tag: CP-06

@@ -1,0 +1,1326 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=283)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-17T13:18:33.293335'
+  classes:
+  - iri: dks:ElectricalEquipment
+    label: 전기 설비
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 전력 분배, 보호, 제어, 변환 등을 수행하는 물리적 장비의 최상위 클래스
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Panel
+    label: 패널/반
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags: []
+    derivation: 수배전반, 분전반, 제어반 등 전력 계통의 노드 역할을 하는 패널류
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:SwitchgearPanel
+    label: 수배전반
+    super_classes:
+    - dks:Panel
+    evidence_tags:
+    - '1101'
+    - '1104'
+    - '1106'
+    - 1301A
+    - 1301B
+    - 1302A
+    - 1302B
+    - 1303A
+    - 1303B
+    - 1304A
+    - 1304B
+    - 1305A
+    - 1305B
+    - '1306'
+    - '1309'
+    - 1310A
+    - 1310B
+    - 1311A
+    - 1312A
+    - 1312B
+    - 1313A
+    - 1319A
+    - 1319B
+    - 1402A
+    - 1402B
+    - 1403A
+    - 1404A
+    - 1404B
+    - BUNGI
+    - BUS-TIE
+    - GEN-VCB
+    - GP-BUS-VCB
+    - HV-VCB-TR1
+    - HV-VCB-TR2
+    - 1403B
+    derivation: VCB, BUS-TIE 등을 포함하며 고압/특고압 전력을 제어/분배하는 패널
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DistributionPanel
+    label: 분전반
+    super_classes:
+    - dks:Panel
+    evidence_tags:
+    - BLK-LP-1F
+    - BLK-LP-2F
+    - BLK-P-A-2PP-1
+    - BLK-P-A-2PP-2
+    - BLK-P-A-3PP-1
+    - BLK-P-A-4PP-1
+    - BLK-P-A-4PP-2
+    - BLK-P-A-4PP-3
+    - BLK-P-A-4PP-4
+    - BLK-P-A-4PP-5
+    - BLK-P-A-4PP-6
+    - BLK-P-A-4PP-7
+    - BLK-P-AC-3PP
+    - BLK-P-AC-4PP-1
+    - BLK-P-C-2PP
+    - BLK-P-C-3PP-PUMP
+    - BLK-P-C-4PP
+    - BLK-P-D-2PP
+    - BLK-P-D-3PP
+    - BLK-P-E-2PP-1
+    - BLK-P-E-2PP-2
+    - BLK-P-E-3PP
+    - BLK-P-E-4PP
+    - BLK-P-EA-2PP
+    - BLK-P-F-2PP
+    - BLK-P-F-3PP
+    - BLK-P-F-4PP
+    - BLK-P-F
+    - BLK-P-G-2PP
+    - BLK-P-G-3PP
+    - BLK-P-I-2PP
+    - BLK-P-I-3PP
+    - BLK-P-K-4PP
+    - BLK-P-OAC-1
+    - BLK-P-OAC-2
+    - BLK-P-OAC-3
+    - P-A-4PP-1
+    - P-A-4PP-2
+    - P-A-4PP-3
+    - P-A-4PP-4
+    - P-A-4PP-5
+    - P-A-4PP-6
+    - P-A-4PP-7
+    - P-AC-4PP-1
+    - P-C-4PP
+    - P-E-4PP
+    - P-EA-2PP
+    - P-F-2PP
+    - P-F-4PP
+    - P-G-2PP
+    - P-I-2PP
+    - P-P-4PP
+    - P-A-3PP
+    - P-AC-3PP
+    - P-D-3PP
+    - P-E-3PP
+    - P-F-3PP
+    - P-G-3PP
+    derivation: 동력 및 전등/전열 부하로 전력을 분배하며 내부에 다수의 MCCB를 포함하는 패널
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:MeteringPanel
+    label: 계량 패널
+    super_classes:
+    - dks:Panel
+    evidence_tags:
+    - '1102'
+    - '1103'
+    derivation: MOF, PT 등 계량 및 전압 측정을 위한 패널
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:AuxiliaryPowerPanel
+    label: 보조전원 패널
+    super_classes:
+    - dks:Panel
+    evidence_tags:
+    - '1105'
+    derivation: 직류전원 및 보조전원을 공급하는 패널
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:JunctionPanel
+    label: 연락/접속 패널
+    super_classes:
+    - dks:Panel
+    evidence_tags:
+    - '1107'
+    - EXT-1311A-B
+    - EXT-2201
+    - EXT-2207
+    derivation: 계통 간 연결 또는 외부 인입을 위한 접속점 역할을 하는 패널
+    source_pages: []
+    confidence: 0.85
+  - iri: dks:JunctionBox
+    label: 정션박스
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - 1310-SHV
+    - EXT-1391A
+    - EXT-2100-SHV
+    derivation: 전선 접속 및 분기를 위한 박스
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Transformer
+    label: 변압기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - TR-001
+    - TR-002
+    derivation: 전압을 변환하는 기기 (TR)
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:PowerConverter
+    label: 전력변환기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - BLK-IVR-2
+    - LR-1
+    derivation: 인버터, 정류기 등 전력의 형태를 변환하는 기기
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Generator
+    label: 발전기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - GEN
+    derivation: 비상 전원 등을 공급하는 발전 설비
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ProtectionAndControlDevice
+    label: 보호 및 제어 기기
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags: []
+    derivation: 차단기, 서지보호기, 계전기, 변성기 등 계통 보호 및 측정을 위한 기기
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:CircuitBreaker
+    label: 차단기
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - MCCB-EA-MAIN
+    - MCCB-F-MAIN
+    - MCCB-G-MAIN
+    - MCCB-I-MAIN
+    derivation: 과전류 및 단락 보호를 위한 MCCB 등의 차단기
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:SurgeProtectiveDevice
+    label: 서지보호기
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - SPD-F-001
+    - SPD-G-001
+    - SPD-I-001
+    - SPD-P-A-4PP-7
+    - SPD-P-AC-4PP-1
+    - SPD-P-C-4PP
+    - SPD-P-E-4PP
+    - SPD-P-F-4PP
+    - SPD-P-P-4PP
+    - UNKNOWN-SPD-01
+    - UNKNOWN-SPD-02
+    - UNKNOWN-SPD-03
+    - UNKNOWN-SPD-04
+    - UNKNOWN-SPD-05
+    - UNKNOWN-SPD-06
+    - SPD-EA-001
+    derivation: 과전압으로부터 설비를 보호하는 SPD
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:LightningArrester
+    label: 피뢰기
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - BLK-LA1
+    derivation: 낙뢰 등 이상 전압으로부터 기기를 보호하는 LA
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:CurrentTransformer
+    label: 변류기
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - CT-EA-001
+    - CT-F-001
+    - CT-G-001
+    - CT-I-001
+    derivation: 전류 측정을 위한 CT
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:PotentialTransformer
+    label: 계기용변압기
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - PT-TR1-2ND
+    - PT-TR2-2ND
+    derivation: 전압 측정을 위한 PT
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:MeteringDevice
+    label: 계량기기
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - BLK-MOF
+    derivation: 전력량 계량을 위한 MOF 등
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ProtectionDevice
+    label: 보호기기 일반
+    super_classes:
+    - dks:ProtectionAndControlDevice
+    evidence_tags:
+    - BLK-MCOB
+    derivation: 계량용 MCCB 및 PT 회로 등 복합 보호/측정 기기
+    source_pages: []
+    confidence: 0.85
+  - iri: dks:ElectricalSource
+    label: 전원 소스
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - EXT-FROM-250V
+    - EXT-KEPCO
+    - EXT-UT-ELEC
+    - EXT-전기실
+    - SOURCE-CCW
+    - 전기실
+    derivation: 한전 인입, 외부 전기실 등 전력을 공급하는 논리적/물리적 소스 노드
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Substation
+    label: 수변전설비
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - BLK-SS-RCENTER
+    derivation: 전력을 수전받아 변환 및 분배하는 종합 설비 노드
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalCircuit
+    label: 전기 회로
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - BRANCH-P-A-4PP-7
+    - BRANCH-P-AC-4PP-1
+    - BRANCH-P-C-4PP
+    - BRANCH-P-P-4PP
+    - BRANCH-P-E-4PP
+    - BRANCH-P-F-4PP
+    derivation: 분전반 내부에서 부하로 나가는 분기 회로 (Branch)
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ElectricalAccessory
+    label: 전기 부속품
+    super_classes:
+    - dks:ElectricalEquipment
+    evidence_tags:
+    - ACC-001
+    - ACC-002
+    - UNKNOWN-CAP-WEATHER-01
+    derivation: 웨더캡, 지수날개 등 전기 설비의 보조 부속품
+    source_pages: []
+    confidence: 0.85
+  - iri: dks:GroundingAndLightningSystem
+    label: 접지 및 피뢰 시스템
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 접지망, 피뢰침, 인하도선 등 인명 및 설비 보호를 위한 시스템 최상위 클래스
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:GroundingSystem
+    label: 접지 계통
+    super_classes:
+    - dks:GroundingAndLightningSystem
+    evidence_tags:
+    - E3
+    - GND-E3-A
+    - GND-E3-E
+    - GND-E3-F
+    - GND-E3-G
+    - GND-E3-I
+    - GND-E3-AC
+    - GND-E3-D
+    derivation: E3 등 논리적/물리적 접지망 노드
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:GroundingEquipment
+    label: 접지 설비
+    super_classes:
+    - dks:GroundingAndLightningSystem
+    evidence_tags:
+    - EARTH-E3
+    - GND-ELEC-001
+    - GND-PLATE-001
+    - GND-TERM-BOX-001
+    - GND-TERM-BOX-002
+    - GND-TERM-BOX-003
+    - GND-TERM-BOX-004
+    derivation: 접지단자함, 접지판 등 접지 시스템을 구성하는 물리적 장비
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:GroundingElectrode
+    label: 접지극
+    super_classes:
+    - dks:GroundingEquipment
+    evidence_tags:
+    - GND-ELEC-TEST-001
+    - GND-ELEC-TEST-002
+    - GND-ELEC-TEST-003
+    - UNKNOWN-GROUNDING-ELECTRODE-01
+    derivation: 대지와 직접 접촉하여 전류를 방류하는 전극 (E극, P극, C극 등)
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:LightningProtectionSystem
+    label: 피뢰 설비
+    super_classes:
+    - dks:GroundingAndLightningSystem
+    evidence_tags:
+    - UNKNOWN-LIGHTNING-ROD-001
+    - UNKNOWN-LIGHTNING-ROD-01
+    derivation: 낙뢰를 직접 수뢰하는 피뢰침 등
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:LightningProtectionComponent
+    label: 피뢰 부속품
+    super_classes:
+    - dks:GroundingAndLightningSystem
+    evidence_tags:
+    - UNKNOWN-HORIZ-CONDUCTOR-01
+    - UNKNOWN-METAL-LADDER-CONN-01
+    derivation: 수평도체 메쉬망, 접속점 등 피뢰 시스템 구성 요소
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:GroundingConnection
+    label: 접지 접속부
+    super_classes:
+    - dks:GroundingAndLightningSystem
+    evidence_tags:
+    - UNKNOWN-RING-GROUNDING-01
+    - UNKNOWN-STRUCTURAL-CONNECTION-001
+    - UNKNOWN-STRUCTURE-CONTACT-001
+    - UNKNOWN-STRUCT-CONN-01
+    - UNKNOWN-CLAMP-GROUNDING-01
+    derivation: 구조체 접속, 지선고리 등 접지/등전위 본딩을 위한 접속점
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:GroundingMaterial
+    label: 접지 자재
+    super_classes:
+    - dks:GroundingAndLightningSystem
+    evidence_tags:
+    - GND-ACC-001
+    - MAT-001
+    derivation: 저감제, 절연수막처리봉 등 접지 시공에 사용되는 자재
+    source_pages: []
+    confidence: 0.85
+  - iri: dks:ConductorAndConnection
+    label: 도체 및 접속재
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 전력 및 접지 전류를 전달하는 선로와 이를 연결하는 접속재
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Conductor
+    label: 도체
+    super_classes:
+    - dks:ConductorAndConnection
+    evidence_tags:
+    - COND-001
+    - COND-002
+    - BUSBAR-001
+    - UNKNOWN-CONDUCTOR-01
+    derivation: 나동선, 버스바, 수평도체 등 전류가 흐르는 도체 일반
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:GroundingConductor
+    label: 접지/피뢰 도선
+    super_classes:
+    - dks:Conductor
+    evidence_tags:
+    - UNKNOWN-DOWN-CONDUCTOR-AUXILIARY-001
+    - UNKNOWN-DOWN-CONDUCTOR-MAIN-001
+    - UNKNOWN-HORIZONTAL-CONDUCTOR-001
+    - UNKNOWN-WIRE-01
+    derivation: 피뢰 및 접지용으로 사용되는 수평도체, F-GV Wire 등
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DownConductor
+    label: 인하도선
+    super_classes:
+    - dks:GroundingConductor
+    evidence_tags:
+    - UNKNOWN-DOWN-CONDUCTOR-01
+    - UNKNOWN-DOWN-CONDUCTOR-02
+    derivation: 수뢰부에서 접지극으로 뇌전류를 유도하는 수직 도선
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalCable
+    label: 전력 케이블
+    super_classes:
+    - dks:ConductorAndConnection
+    evidence_tags:
+    - BLK-22KV-ACSR
+    derivation: 전력 공급을 위한 가공/지중 케이블
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:CableHead
+    label: 케이블 헤드
+    super_classes:
+    - dks:ConductorAndConnection
+    evidence_tags:
+    - BLK-LH1
+    derivation: 케이블 단말 처리부
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ElectricalConnector
+    label: 전기 커넥터/단자
+    super_classes:
+    - dks:ConductorAndConnection
+    evidence_tags:
+    - TERM-003
+    - UNKNOWN-CONNECTOR-DISSIMILAR-STS-CU-01
+    - UNKNOWN-CONNECTOR-FLEXIBLE-01
+    - UNKNOWN-CONNECTOR-STRAIGHT-01
+    - UNKNOWN-CONNECTOR-TEE-DISSIMILAR-01
+    - UNKNOWN-TERMINAL-01
+    - UNKNOWN-TERMINAL-2HOLE-01
+    - CLAMP-001
+    - TERM-004
+    - CLAMP-002
+    - UNKNOWN-CONNECTOR-TEE-01
+    - TERM-001
+    - TERM-002
+    derivation: 압착단자, 슬리브, 이질커넥터, T형 커넥터 등 도체 간 접속재
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:InfrastructureAndSupport
+    label: 기반 시설 및 지지물
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 케이블을 보호/수용하거나 설비를 물리적으로 지지하는 인프라
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:CableTray
+    label: 케이블 트레이
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - INF-CABLETRAY-001
+    - UNKNOWN-LADDER-METAL-01
+    derivation: 케이블을 지지하고 배선하는 트레이 및 금속 사다리
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Conduit
+    label: 전선관
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - COND-TUBE-001
+    - INF-EMPTYPIPE-001
+    derivation: 케이블을 보호하는 배관 (HI-PVC, ELP 등)
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DuctBank
+    label: 덕트 뱅크
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - INF-DUCTBANK-001
+    derivation: 지중 선로 보호를 위한 관로 집합체
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Manhole
+    label: 맨홀
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - BLK-MANHOLE
+    - INF-MANHOLE-002
+    - INF-MANHOLE-001
+    derivation: 지중 선로의 접속 및 점검을 위한 전력용 맨홀
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalEnclosure
+    label: 풀박스/함
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - INF-PULLBOX-001
+    derivation: 배선 분기 및 결선을 위한 박스
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SupportStructure
+    label: 지지 구조물
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - UNKNOWN-SUPPORT-MEMBER-01
+    - UNKNOWN-SUPPORT-MEMBER-02
+    - UNKNOWN-SUPPORT-FIXTURE-001
+    - UNKNOWN-BRACKET-01
+    derivation: 피뢰침, 도체 등을 고정하는 지지대 및 금구류
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalInsulator
+    label: 절연물
+    super_classes:
+    - dks:InfrastructureAndSupport
+    evidence_tags:
+    - INSUL-001
+    derivation: 베이클라이트 등 전기적 절연을 제공하는 지지물
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:StructuralAndMechanical
+    label: 건축/구조/기계 요소
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 전기 설비가 설치되거나 등전위 본딩의 대상이 되는 타 공종 객체
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Building
+    label: 건물/동
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - BUILDING-B-001
+    - BUILDING-OFFICE-001
+    - BUILDING-UT-001
+    derivation: A동, B동, UT동 등 건축물 단위
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:StructuralSupport
+    label: 구조 부재
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - BUILDING-A-001
+    - UNKNOWN-BEAM-H-01
+    - STRUCT-001
+    derivation: H-Beam 등 하중을 지지하거나 접지 대상이 되는 철골 구조물
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:StructuralComponent
+    label: 구조 부품
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - STRUCT-002
+    - UNKNOWN-PLATE-STEEL-01
+    - STRUCT-003
+    derivation: Steel Plate, 철근 등 세부 구조 부품
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Foundation
+    label: 기초
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - STRUCT-004
+    - STRUCT-005
+    - UNKNOWN-FOUNDATION-01
+    derivation: 콘크리트 기초, 버림콘크리트 등 설비의 하부 기반
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Fastener
+    label: 체결구
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - UNKNOWN-ANCHOR-DOUBLE-01
+    - UNKNOWN-ANCHOR-SET-01
+    - UNKNOWN-BOLT-SCREW-01
+    derivation: 앙카, 볼트 등 구조물 고정용 철물
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ArchitecturalElement
+    label: 건축 요소
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - UNKNOWN-PARAPET-01
+    derivation: 파라펫트 등 건축 마감/형태 요소
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:MechanicalEquipment
+    label: 기계 배관
+    super_classes:
+    - dks:StructuralAndMechanical
+    evidence_tags:
+    - PIPE-001
+    - PIPE-003
+    - PIPE-002
+    derivation: 수도관, 가스관 등 등전위 본딩 대상이 되는 기계 설비
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Spatial
+    label: 공간
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 설비가 위치하는 논리적/물리적 실(Room)
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ElectricalSpace
+    label: 전기실/변전실
+    super_classes:
+    - dks:Spatial
+    evidence_tags:
+    - ROOM-A-ELECTRICAL-001
+    - ROOM-R-CENTER-001
+    - ROOM-UT-001
+    - ROOM-A-INVERTER-001
+    derivation: 수배전반 등이 집중 배치된 전기 전용 공간
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:InformationEntity
+    label: 도면 정보 요소
+    super_classes:
+    - owl:Thing
+    evidence_tags: []
+    derivation: 물리적 실체가 아닌 도면의 메타데이터, 범례, 주석, 상세도 등
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DocumentMetadata
+    label: 문서 메타데이터
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - BLK-SEC-GROUNDING
+    - PANEL-BLK-L02
+    - PANEL-BLK-L03
+    - UNKNOWN-BLK-04
+    - UNKNOWN-DETAIL-03
+    - UNKNOWN-DETAIL-04
+    - UNKNOWN-NOTE-02
+    - UNKNOWN-SPEC-TABLE-001
+    - NOTE-BLOCK-01
+    - PHOTO-UTILITY-001
+    - UNKNOWN-BLK-01
+    - UNKNOWN-BLK-02
+    - UNKNOWN-BLK-05
+    - UNKNOWN-NOTE-03
+    - TBL-LEFT
+    - TBL-RIGHT
+    - UNKNOWN-BLK-03
+    - BLK-SEC-GENERAL
+    - BLK-TITLE-BLOCK
+    - UNKNOWN-BLK-06
+    - UNKNOWN-TITLE-BLOCK-001
+    - BLK-SEC-OUTLET
+    derivation: 표제란, 도면 목록, 스펙 표, 일반 주기사항 등 도면 관리 정보
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DrawingSection
+    label: 도면 섹션
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - BLK-SEC-LIGHTING
+    - BLK-SEC-POWER-TRUNK
+    - BLK-SEC-SEISMIC
+    - BLK-SEC-SUBSTATION
+    - BLK-TOC-MAIN
+    derivation: 전등설비, 전력간선 등 도면 내 논리적 구분 영역
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Legend
+    label: 범례
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - PANEL-BLK-L01
+    - UNKNOWN-LEGEND-BOX-001
+    derivation: 심볼의 의미를 설명하는 범례 표
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DetailDrawing
+    label: 상세도
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - SECTION-001
+    - SECTION-002
+    - UNKNOWN-DETAIL-01
+    - UNKNOWN-DETAIL-02
+    - PANEL-BLK-WIRING-SPEC
+    derivation: 단면 상세, 내진 설치 상세 등 특정 부위의 확대/상세 도면
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:DocumentAnnotation
+    label: 도면 주석/마커
+    super_classes:
+    - dks:InformationEntity
+    evidence_tags:
+    - UNKNOWN-UP-DOWN-CONDUCTOR-001
+    - INF-MARKER-001
+    - UNKNOWN-NOTE-01
+    derivation: 압상/입하 기호, 지중선 표시기 등 도면 상의 특정 지시 마커 및 짧은 주석
+    source_pages: []
+    confidence: 0.9
+  subclass_relations:
+  - sub: dks:Panel
+    super: dks:ElectricalEquipment
+    derivation: 패널은 전기 설비의 일종
+    confidence: 0.95
+  - sub: dks:SwitchgearPanel
+    super: dks:Panel
+    derivation: 수배전반은 패널의 하위 분류
+    confidence: 0.95
+  - sub: dks:DistributionPanel
+    super: dks:Panel
+    derivation: 분전반은 패널의 하위 분류
+    confidence: 0.95
+  - sub: dks:MeteringPanel
+    super: dks:Panel
+    derivation: 계량 패널은 패널의 하위 분류
+    confidence: 0.95
+  - sub: dks:AuxiliaryPowerPanel
+    super: dks:Panel
+    derivation: 보조전원 패널은 패널의 하위 분류
+    confidence: 0.95
+  - sub: dks:JunctionPanel
+    super: dks:Panel
+    derivation: 접속 패널은 패널의 하위 분류
+    confidence: 0.95
+  - sub: dks:JunctionBox
+    super: dks:ElectricalEquipment
+    derivation: 정션박스는 전기 설비의 일종
+    confidence: 0.95
+  - sub: dks:Transformer
+    super: dks:ElectricalEquipment
+    derivation: 변압기는 전기 설비의 일종
+    confidence: 0.95
+  - sub: dks:PowerConverter
+    super: dks:ElectricalEquipment
+    derivation: 전력변환기는 전기 설비의 일종
+    confidence: 0.95
+  - sub: dks:Generator
+    super: dks:ElectricalEquipment
+    derivation: 발전기는 전기 설비의 일종
+    confidence: 0.95
+  - sub: dks:ProtectionAndControlDevice
+    super: dks:ElectricalEquipment
+    derivation: 보호/제어 기기는 전기 설비의 일종
+    confidence: 0.95
+  - sub: dks:CircuitBreaker
+    super: dks:ProtectionAndControlDevice
+    derivation: 차단기는 보호 기기의 일종
+    confidence: 0.95
+  - sub: dks:SurgeProtectiveDevice
+    super: dks:ProtectionAndControlDevice
+    derivation: 서지보호기는 보호 기기의 일종
+    confidence: 0.95
+  - sub: dks:LightningArrester
+    super: dks:ProtectionAndControlDevice
+    derivation: 피뢰기는 보호 기기의 일종
+    confidence: 0.95
+  - sub: dks:CurrentTransformer
+    super: dks:ProtectionAndControlDevice
+    derivation: 변류기는 측정/보호 기기의 일종
+    confidence: 0.95
+  - sub: dks:PotentialTransformer
+    super: dks:ProtectionAndControlDevice
+    derivation: 계기용변압기는 측정/보호 기기의 일종
+    confidence: 0.95
+  - sub: dks:MeteringDevice
+    super: dks:ProtectionAndControlDevice
+    derivation: 계량기기는 측정 기기의 일종
+    confidence: 0.95
+  - sub: dks:ProtectionDevice
+    super: dks:ProtectionAndControlDevice
+    derivation: 일반 보호기기는 보호 기기의 일종
+    confidence: 0.95
+  - sub: dks:ElectricalSource
+    super: dks:ElectricalEquipment
+    derivation: 전원 소스는 전기 계통의 노드
+    confidence: 0.95
+  - sub: dks:Substation
+    super: dks:ElectricalEquipment
+    derivation: 수변전설비는 복합 전기 설비
+    confidence: 0.95
+  - sub: dks:ElectricalCircuit
+    super: dks:ElectricalEquipment
+    derivation: 분기 회로는 전기 설비의 논리적/물리적 구성요소
+    confidence: 0.95
+  - sub: dks:ElectricalAccessory
+    super: dks:ElectricalEquipment
+    derivation: 전기 부속품은 전기 설비의 보조 요소
+    confidence: 0.95
+  - sub: dks:GroundingSystem
+    super: dks:GroundingAndLightningSystem
+    derivation: 접지 계통은 접지 시스템의 하위
+    confidence: 0.95
+  - sub: dks:GroundingEquipment
+    super: dks:GroundingAndLightningSystem
+    derivation: 접지 설비는 접지 시스템의 물리적 요소
+    confidence: 0.95
+  - sub: dks:GroundingElectrode
+    super: dks:GroundingEquipment
+    derivation: 접지극은 접지 설비의 일종
+    confidence: 0.95
+  - sub: dks:LightningProtectionSystem
+    super: dks:GroundingAndLightningSystem
+    derivation: 피뢰 설비는 피뢰 시스템의 핵심 요소
+    confidence: 0.95
+  - sub: dks:LightningProtectionComponent
+    super: dks:GroundingAndLightningSystem
+    derivation: 피뢰 부속품은 피뢰 시스템의 구성 요소
+    confidence: 0.95
+  - sub: dks:GroundingConnection
+    super: dks:GroundingAndLightningSystem
+    derivation: 접지 접속부는 접지 시스템의 연결 요소
+    confidence: 0.95
+  - sub: dks:GroundingMaterial
+    super: dks:GroundingAndLightningSystem
+    derivation: 접지 자재는 접지 시스템 시공 요소
+    confidence: 0.95
+  - sub: dks:Conductor
+    super: dks:ConductorAndConnection
+    derivation: 도체는 선로의 기본 요소
+    confidence: 0.95
+  - sub: dks:GroundingConductor
+    super: dks:Conductor
+    derivation: 접지 도선은 도체의 일종
+    confidence: 0.95
+  - sub: dks:DownConductor
+    super: dks:GroundingConductor
+    derivation: 인하도선은 접지/피뢰 도선의 일종
+    confidence: 0.95
+  - sub: dks:ElectricalCable
+    super: dks:ConductorAndConnection
+    derivation: 전력 케이블은 선로의 일종
+    confidence: 0.95
+  - sub: dks:CableHead
+    super: dks:ConductorAndConnection
+    derivation: 케이블 헤드는 선로 단말 요소
+    confidence: 0.95
+  - sub: dks:ElectricalConnector
+    super: dks:ConductorAndConnection
+    derivation: 커넥터는 접속재의 일종
+    confidence: 0.95
+  - sub: dks:CableTray
+    super: dks:InfrastructureAndSupport
+    derivation: 케이블 트레이는 기반 시설의 일종
+    confidence: 0.95
+  - sub: dks:Conduit
+    super: dks:InfrastructureAndSupport
+    derivation: 전선관은 기반 시설의 일종
+    confidence: 0.95
+  - sub: dks:DuctBank
+    super: dks:InfrastructureAndSupport
+    derivation: 덕트 뱅크는 기반 시설의 일종
+    confidence: 0.95
+  - sub: dks:Manhole
+    super: dks:InfrastructureAndSupport
+    derivation: 맨홀은 기반 시설의 일종
+    confidence: 0.95
+  - sub: dks:ElectricalEnclosure
+    super: dks:InfrastructureAndSupport
+    derivation: 풀박스는 기반 시설의 일종
+    confidence: 0.95
+  - sub: dks:SupportStructure
+    super: dks:InfrastructureAndSupport
+    derivation: 지지 구조물은 지지물의 일종
+    confidence: 0.95
+  - sub: dks:ElectricalInsulator
+    super: dks:InfrastructureAndSupport
+    derivation: 절연물은 지지물의 일종
+    confidence: 0.95
+  - sub: dks:Building
+    super: dks:StructuralAndMechanical
+    derivation: 건물은 건축 요소
+    confidence: 0.95
+  - sub: dks:StructuralSupport
+    super: dks:StructuralAndMechanical
+    derivation: 구조 부재는 구조 요소
+    confidence: 0.95
+  - sub: dks:StructuralComponent
+    super: dks:StructuralAndMechanical
+    derivation: 구조 부품은 구조 요소
+    confidence: 0.95
+  - sub: dks:Foundation
+    super: dks:StructuralAndMechanical
+    derivation: 기초는 건축/구조 요소
+    confidence: 0.95
+  - sub: dks:Fastener
+    super: dks:StructuralAndMechanical
+    derivation: 체결구는 구조 요소
+    confidence: 0.95
+  - sub: dks:ArchitecturalElement
+    super: dks:StructuralAndMechanical
+    derivation: 건축 요소는 건축/구조 요소
+    confidence: 0.95
+  - sub: dks:MechanicalEquipment
+    super: dks:StructuralAndMechanical
+    derivation: 기계 배관은 기계 요소
+    confidence: 0.95
+  - sub: dks:ElectricalSpace
+    super: dks:Spatial
+    derivation: 전기실은 공간의 일종
+    confidence: 0.95
+  - sub: dks:DocumentMetadata
+    super: dks:InformationEntity
+    derivation: 메타데이터는 도면 정보의 일종
+    confidence: 0.95
+  - sub: dks:DrawingSection
+    super: dks:InformationEntity
+    derivation: 도면 섹션은 도면 정보의 일종
+    confidence: 0.95
+  - sub: dks:Legend
+    super: dks:InformationEntity
+    derivation: 범례는 도면 정보의 일종
+    confidence: 0.95
+  - sub: dks:DetailDrawing
+    super: dks:InformationEntity
+    derivation: 상세도는 도면 정보의 일종
+    confidence: 0.95
+  - sub: dks:DocumentAnnotation
+    super: dks:InformationEntity
+    derivation: 주석은 도면 정보의 일종
+    confidence: 0.95
+  disjoint_candidates:
+  - classes:
+    - dks:ElectricalEquipment
+    - dks:InformationEntity
+    reason: 물리적 장비와 도면 메타데이터 간 교집합 없음
+    confidence: 0.99
+  - classes:
+    - dks:ElectricalEquipment
+    - dks:StructuralAndMechanical
+    reason: 전기 공종 객체와 타 공종(건축/구조/기계) 객체 간 명확한 구분
+    confidence: 0.95
+  - classes:
+    - dks:GroundingAndLightningSystem
+    - dks:InformationEntity
+    reason: 물리적 접지 시스템과 도면 정보 간 교집합 없음
+    confidence: 0.99
+  hierarchy_summary:
+    total_classes: 45
+    max_depth: 3
+    by_discipline:
+      electrical: 35
+      structural: 5
+      mechanical: 1
+      architectural: 1
+      spatial: 1
+      information: 2
+  unclassified_tags: []
+  plan_deviations:
+  - plan_item: Branch 엔티티를 Panel의 contains 관계로 종속시키고 Data Property로 변환
+    actual_finding: BRANCH-* 태그들이 NamedIndividual로 다수 존재하며 feeds 관계를 가짐
+    action_taken: dks:ElectricalCircuit 클래스를 생성하여 독립된 객체로 수용하되 Panel 하위 개념으로 묶음
+  back_update_instructions:
+    per_tag_confirmed_class:
+      '1101': dks:SwitchgearPanel
+      '1104': dks:SwitchgearPanel
+      '1106': dks:SwitchgearPanel
+      1301A: dks:SwitchgearPanel
+      1301B: dks:SwitchgearPanel
+      1302A: dks:SwitchgearPanel
+      1302B: dks:SwitchgearPanel
+      1303A: dks:SwitchgearPanel
+      1303B: dks:SwitchgearPanel
+      1304A: dks:SwitchgearPanel
+      1304B: dks:SwitchgearPanel
+      1305A: dks:SwitchgearPanel
+      1305B: dks:SwitchgearPanel
+      '1306': dks:SwitchgearPanel
+      '1309': dks:SwitchgearPanel
+      1310A: dks:SwitchgearPanel
+      1310B: dks:SwitchgearPanel
+      1311A: dks:SwitchgearPanel
+      1312A: dks:SwitchgearPanel
+      1312B: dks:SwitchgearPanel
+      1313A: dks:SwitchgearPanel
+      1319A: dks:SwitchgearPanel
+      1319B: dks:SwitchgearPanel
+      1402A: dks:SwitchgearPanel
+      1402B: dks:SwitchgearPanel
+      1403A: dks:SwitchgearPanel
+      1404A: dks:SwitchgearPanel
+      1404B: dks:SwitchgearPanel
+      BUNGI: dks:SwitchgearPanel
+      BUS-TIE: dks:SwitchgearPanel
+      GEN-VCB: dks:SwitchgearPanel
+      GP-BUS-VCB: dks:SwitchgearPanel
+      HV-VCB-TR1: dks:SwitchgearPanel
+      HV-VCB-TR2: dks:SwitchgearPanel
+      1403B: dks:SwitchgearPanel
+      BLK-LP-1F: dks:DistributionPanel
+      BLK-LP-2F: dks:DistributionPanel
+      BLK-P-A-2PP-1: dks:DistributionPanel
+      BLK-P-A-2PP-2: dks:DistributionPanel
+      BLK-P-A-3PP-1: dks:DistributionPanel
+      BLK-P-A-4PP-1: dks:DistributionPanel
+      BLK-P-A-4PP-2: dks:DistributionPanel
+      BLK-P-A-4PP-3: dks:DistributionPanel
+      BLK-P-A-4PP-4: dks:DistributionPanel
+      BLK-P-A-4PP-5: dks:DistributionPanel
+      BLK-P-A-4PP-6: dks:DistributionPanel
+      BLK-P-A-4PP-7: dks:DistributionPanel
+      BLK-P-AC-3PP: dks:DistributionPanel
+      BLK-P-AC-4PP-1: dks:DistributionPanel
+      BLK-P-C-2PP: dks:DistributionPanel
+      BLK-P-C-3PP-PUMP: dks:DistributionPanel
+      BLK-P-C-4PP: dks:DistributionPanel
+      BLK-P-D-2PP: dks:DistributionPanel
+      BLK-P-D-3PP: dks:DistributionPanel
+      BLK-P-E-2PP-1: dks:DistributionPanel
+      BLK-P-E-2PP-2: dks:DistributionPanel
+      BLK-P-E-3PP: dks:DistributionPanel
+      BLK-P-E-4PP: dks:DistributionPanel
+      BLK-P-EA-2PP: dks:DistributionPanel
+      BLK-P-F-2PP: dks:DistributionPanel
+      BLK-P-F-3PP: dks:DistributionPanel
+      BLK-P-F-4PP: dks:DistributionPanel
+      BLK-P-F: dks:DistributionPanel
+      BLK-P-G-2PP: dks:DistributionPanel
+      BLK-P-G-3PP: dks:DistributionPanel
+      BLK-P-I-2PP: dks:DistributionPanel
+      BLK-P-I-3PP: dks:DistributionPanel
+      BLK-P-K-4PP: dks:DistributionPanel
+      BLK-P-OAC-1: dks:DistributionPanel
+      BLK-P-OAC-2: dks:DistributionPanel
+      BLK-P-OAC-3: dks:DistributionPanel
+      P-A-4PP-1: dks:DistributionPanel
+      P-A-4PP-2: dks:DistributionPanel
+      P-A-4PP-3: dks:DistributionPanel
+      P-A-4PP-4: dks:DistributionPanel
+      P-A-4PP-5: dks:DistributionPanel
+      P-A-4PP-6: dks:DistributionPanel
+      P-A-4PP-7: dks:DistributionPanel
+      P-AC-4PP-1: dks:DistributionPanel
+      P-C-4PP: dks:DistributionPanel
+      P-E-4PP: dks:DistributionPanel
+      P-EA-2PP: dks:DistributionPanel
+      P-F-2PP: dks:DistributionPanel
+      P-F-4PP: dks:DistributionPanel
+      P-G-2PP: dks:DistributionPanel
+      P-I-2PP: dks:DistributionPanel
+      P-P-4PP: dks:DistributionPanel
+      P-A-3PP: dks:DistributionPanel
+      P-AC-3PP: dks:DistributionPanel
+      P-D-3PP: dks:DistributionPanel
+      P-E-3PP: dks:DistributionPanel
+      P-F-3PP: dks:DistributionPanel
+      P-G-3PP: dks:DistributionPanel
+      '1102': dks:MeteringPanel
+      '1103': dks:MeteringPanel
+      '1105': dks:AuxiliaryPowerPanel
+      '1107': dks:JunctionPanel
+      EXT-1311A-B: dks:JunctionPanel
+      EXT-2201: dks:JunctionPanel
+      EXT-2207: dks:JunctionPanel
+      1310-SHV: dks:JunctionBox
+      EXT-1391A: dks:JunctionBox
+      EXT-2100-SHV: dks:JunctionBox
+      TR-001: dks:Transformer
+      TR-002: dks:Transformer
+      BLK-IVR-2: dks:PowerConverter
+      LR-1: dks:PowerConverter
+      GEN: dks:Generator
+      MCCB-EA-MAIN: dks:CircuitBreaker
+      MCCB-F-MAIN: dks:CircuitBreaker
+      MCCB-G-MAIN: dks:CircuitBreaker
+      MCCB-I-MAIN: dks:CircuitBreaker
+      SPD-F-001: dks:SurgeProtectiveDevice
+      SPD-G-001: dks:SurgeProtectiveDevice
+      SPD-I-001: dks:SurgeProtectiveDevice
+      SPD-P-A-4PP-7: dks:SurgeProtectiveDevice
+      SPD-P-AC-4PP-1: dks:SurgeProtectiveDevice
+      SPD-P-C-4PP: dks:SurgeProtectiveDevice
+      SPD-P-E-4PP: dks:SurgeProtectiveDevice
+      SPD-P-F-4PP: dks:SurgeProtectiveDevice
+      SPD-P-P-4PP: dks:SurgeProtectiveDevice
+      UNKNOWN-SPD-01: dks:SurgeProtectiveDevice
+      UNKNOWN-SPD-02: dks:SurgeProtectiveDevice
+      UNKNOWN-SPD-03: dks:SurgeProtectiveDevice
+      UNKNOWN-SPD-04: dks:SurgeProtectiveDevice
+      UNKNOWN-SPD-05: dks:SurgeProtectiveDevice
+      UNKNOWN-SPD-06: dks:SurgeProtectiveDevice
+      SPD-EA-001: dks:SurgeProtectiveDevice
+      BLK-LA1: dks:LightningArrester
+      CT-EA-001: dks:CurrentTransformer
+      CT-F-001: dks:CurrentTransformer
+      CT-G-001: dks:CurrentTransformer
+      CT-I-001: dks:CurrentTransformer
+      PT-TR1-2ND: dks:PotentialTransformer
+      PT-TR2-2ND: dks:PotentialTransformer
+      BLK-MOF: dks:MeteringDevice
+      BLK-MCOB: dks:ProtectionDevice
+      EXT-FROM-250V: dks:ElectricalSource
+      EXT-KEPCO: dks:ElectricalSource
+      EXT-UT-ELEC: dks:ElectricalSource
+      EXT-전기실: dks:ElectricalSource
+      SOURCE-CCW: dks:ElectricalSource
+      전기실: dks:ElectricalSource
+      BLK-SS-RCENTER: dks:Substation
+      BRANCH-P-A-4PP-7: dks:ElectricalCircuit
+      BRANCH-P-AC-4PP-1: dks:ElectricalCircuit
+      BRANCH-P-C-4PP: dks:ElectricalCircuit
+      BRANCH-P-P-4PP: dks:ElectricalCircuit
+      BRANCH-P-E-4PP: dks:ElectricalCircuit
+      BRANCH-P-F-4PP: dks:ElectricalCircuit
+      ACC-001: dks:ElectricalAccessory
+      ACC-002: dks:ElectricalAccessory
+      UNKNOWN-CAP-WEATHER-01: dks:ElectricalAccessory
+      E3: dks:GroundingSystem
+      GND-E3-A: dks:GroundingSystem
+      GND-E3-E: dks:GroundingSystem
+      GND-E3-F: dks:GroundingSystem
+      GND-E3-G: dks:GroundingSystem
+      GND-E3-I: dks:GroundingSystem
+      GND-E3-AC: dks:GroundingSystem
+      GND-E3-D: dks:GroundingSystem
+      EARTH-E3: dks:GroundingEquipment
+      GND-ELEC-001: dks:GroundingEquipment
+      GND-PLATE-001: dks:GroundingEquipment
+      GND-TERM-BOX-001: dks:GroundingEquipment
+      GND-TERM-BOX-002: dks:GroundingEquipment
+      GND-TERM-BOX-003: dks:GroundingEquipment
+      GND-TERM-BOX-004: dks:GroundingEquipment
+      GND-ELEC-TEST-001: dks:GroundingElectrode
+      GND-ELEC-TEST-002: dks:GroundingElectrode
+      GND-ELEC-TEST-003: dks:GroundingElectrode
+      UNKNOWN-GROUNDING-ELECTRODE-01: dks:GroundingElectrode
+      UNKNOWN-LIGHTNING-ROD-001: dks:LightningProtectionSystem
+      UNKNOWN-LIGHTNING-ROD-01: dks:LightningProtectionSystem
+      UNKNOWN-HORIZ-CONDUCTOR-01: dks:LightningProtectionComponent
+      UNKNOWN-METAL-LADDER-CONN-01: dks:LightningProtectionComponent
+      UNKNOWN-RING-GROUNDING-01: dks:GroundingConnection
+      UNKNOWN-STRUCTURAL-CONNECTION-001: dks:GroundingConnection
+      UNKNOWN-STRUCTURE-CONTACT-001: dks:GroundingConnection
+      UNKNOWN-STRUCT-CONN-01: dks:GroundingConnection
+      UNKNOWN-CLAMP-GROUNDING-01: dks:GroundingConnection
+      GND-ACC-001: dks:GroundingMaterial
+      MAT-001: dks:GroundingMaterial
+      COND-001: dks:Conductor
+      COND-002: dks:Conductor
+      BUSBAR-001: dks:Conductor
+      UNKNOWN-CONDUCTOR-01: dks:Conductor
+      UNKNOWN-DOWN-CONDUCTOR-AUXILIARY-001: dks:GroundingConductor
+      UNKNOWN-DOWN-CONDUCTOR-MAIN-001: dks:GroundingConductor
+      UNKNOWN-HORIZONTAL-CONDUCTOR-001: dks:GroundingConductor
+      UNKNOWN-WIRE-01: dks:GroundingConductor
+      UNKNOWN-DOWN-CONDUCTOR-01: dks:DownConductor
+      UNKNOWN-DOWN-CONDUCTOR-02: dks:DownConductor
+      BLK-22KV-ACSR: dks:ElectricalCable
+      BLK-LH1: dks:CableHead
+      TERM-003: dks:ElectricalConnector
+      UNKNOWN-CONNECTOR-DISSIMILAR-STS-CU-01: dks:ElectricalConnector
+      UNKNOWN-CONNECTOR-FLEXIBLE-01: dks:ElectricalConnector
+      UNKNOWN-CONNECTOR-STRAIGHT-01: dks:ElectricalConnector
+      UNKNOWN-CONNECTOR-TEE-DISSIMILAR-01: dks:ElectricalConnector
+      UNKNOWN-TERMINAL-01: dks:ElectricalConnector
+      UNKNOWN-TERMINAL-2HOLE-01: dks:ElectricalConnector
+      CLAMP-001: dks:ElectricalConnector
+      TERM-004: dks:ElectricalConnector
+      CLAMP-002: dks:ElectricalConnector
+      UNKNOWN-CONNECTOR-TEE-01: dks:ElectricalConnector
+      TERM-001: dks:ElectricalConnector
+      TERM-002: dks:ElectricalConnector
+      INF-CABLETRAY-001: dks:CableTray
+      UNKNOWN-LADDER-METAL-01: dks:CableTray
+      COND-TUBE-001: dks:Conduit
+      INF-EMPTYPIPE-001: dks:Conduit
+      INF-DUCTBANK-001: dks:DuctBank
+      BLK-MANHOLE: dks:Manhole
+      INF-MANHOLE-002: dks:Manhole
+      INF-MANHOLE-001: dks:Manhole
+      INF-PULLBOX-001: dks:ElectricalEnclosure
+      UNKNOWN-SUPPORT-MEMBER-01: dks:SupportStructure
+      UNKNOWN-SUPPORT-MEMBER-02: dks:SupportStructure
+      UNKNOWN-SUPPORT-FIXTURE-001: dks:SupportStructure
+      UNKNOWN-BRACKET-01: dks:SupportStructure
+      INSUL-001: dks:ElectricalInsulator
+      BUILDING-B-001: dks:Building
+      BUILDING-OFFICE-001: dks:Building
+      BUILDING-UT-001: dks:Building
+      BUILDING-A-001: dks:StructuralSupport
+      UNKNOWN-BEAM-H-01: dks:StructuralSupport
+      STRUCT-002: dks:StructuralComponent
+      UNKNOWN-PLATE-STEEL-01: dks:StructuralComponent
+      STRUCT-001: dks:StructuralComponent
+      STRUCT-003: dks:StructuralComponent
+      STRUCT-004: dks:Foundation
+      STRUCT-005: dks:Foundation
+      UNKNOWN-FOUNDATION-01: dks:Foundation
+      UNKNOWN-ANCHOR-DOUBLE-01: dks:Fastener
+      UNKNOWN-ANCHOR-SET-01: dks:Fastener
+      UNKNOWN-BOLT-SCREW-01: dks:Fastener
+      UNKNOWN-PARAPET-01: dks:ArchitecturalElement
+      PIPE-001: dks:MechanicalEquipment
+      PIPE-003: dks:MechanicalEquipment
+      PIPE-002: dks:MechanicalEquipment
+      ROOM-A-ELECTRICAL-001: dks:ElectricalSpace
+      ROOM-R-CENTER-001: dks:ElectricalSpace
+      ROOM-UT-001: dks:ElectricalSpace
+      ROOM-A-INVERTER-001: dks:ElectricalSpace
+      BLK-SEC-GROUNDING: dks:DocumentMetadata
+      PANEL-BLK-L02: dks:DocumentMetadata
+      PANEL-BLK-L03: dks:DocumentMetadata
+      UNKNOWN-BLK-04: dks:DocumentMetadata
+      UNKNOWN-DETAIL-03: dks:DocumentMetadata
+      UNKNOWN-DETAIL-04: dks:DocumentMetadata
+      UNKNOWN-NOTE-02: dks:DocumentMetadata
+      UNKNOWN-SPEC-TABLE-001: dks:DocumentMetadata
+      NOTE-BLOCK-01: dks:DocumentMetadata
+      PHOTO-UTILITY-001: dks:DocumentMetadata
+      UNKNOWN-BLK-01: dks:DocumentMetadata
+      UNKNOWN-BLK-02: dks:DocumentMetadata
+      UNKNOWN-BLK-05: dks:DocumentMetadata
+      UNKNOWN-NOTE-03: dks:DocumentMetadata
+      TBL-LEFT: dks:DocumentMetadata
+      TBL-RIGHT: dks:DocumentMetadata
+      UNKNOWN-BLK-03: dks:DocumentMetadata
+      BLK-SEC-GENERAL: dks:DocumentMetadata
+      BLK-TITLE-BLOCK: dks:DocumentMetadata
+      UNKNOWN-BLK-06: dks:DocumentMetadata
+      UNKNOWN-TITLE-BLOCK-001: dks:DocumentMetadata
+      BLK-SEC-OUTLET: dks:DocumentMetadata
+      BLK-SEC-LIGHTING: dks:DrawingSection
+      BLK-SEC-POWER-TRUNK: dks:DrawingSection
+      BLK-SEC-SEISMIC: dks:DrawingSection
+      BLK-SEC-SUBSTATION: dks:DrawingSection
+      BLK-TOC-MAIN: dks:DrawingSection
+      PANEL-BLK-L01: dks:Legend
+      UNKNOWN-LEGEND-BOX-001: dks:Legend
+      SECTION-001: dks:DetailDrawing
+      SECTION-002: dks:DetailDrawing
+      UNKNOWN-DETAIL-01: dks:DetailDrawing
+      UNKNOWN-DETAIL-02: dks:DetailDrawing
+      PANEL-BLK-WIRING-SPEC: dks:DetailDrawing
+      UNKNOWN-UP-DOWN-CONDUCTOR-001: dks:DocumentAnnotation
+      INF-MARKER-001: dks:DocumentAnnotation
+      UNKNOWN-NOTE-01: dks:DocumentAnnotation
+    confirmed_at: '2024-05-24T12:00:00Z'
+    by: step_0-9c
+  confidence_overall: 0.95
+  self_assessment: 제공된 283개의 태그를 누락 없이 모두 분류하였으며, 도면 관찰 증거(class_hint, name, related_assertions)에
+    기반하여 귀납적으로 계층을 도출함. 외부 지식을 배제하고 철저히 데이터 기반으로 작성됨.

@@ -1,0 +1,373 @@
+object_properties:
+- iri: dks:connectedTo
+  label: connectedTo
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connectedFrom
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: 110BLOCK-OUT
+    object: EXT-MDF-VOICE
+    source_page: 18
+    note: 기존 MDF VOICE에 연결
+  - subject: HUB-RACK-1
+    object: HUB-RACK-2
+    source_page: 18
+    note: F/O CABLE (SM 12C) / OPTICAL PATCH CORD (1Gbps)
+  - subject: GWANGPORT-RIGHT
+    object: GWANGJEONSONG
+    source_page: 18
+    note: 광전송장치 (본 공사 제외)
+  - subject: MANHOLE-01
+    object: TUNNEL-DUCT-01
+    source_page: 4
+    note: 터파기 신설 구역 / EMPTY PIPE (ELP50)
+  - subject: SPACE-OFFICE
+    object: HUB-RACK-2F
+    source_page: 8
+    note: T-22C UTP CAT.5e / DATA OUT 78PORT
+  total_evidence: 5
+  derivation: related_assertions의 type으로 connectedTo와 cable이 가장 반복적으로 관찰되며, 장비-장비,
+    장비-공간, 인프라-연결점, 공간-통신실 사이를 포괄한다. 동일 쌍이 역방향 서술로도 일부 관찰되어 connectedFrom 역관계 후보를
+    둔다.
+  confidence: 0.95
+- iri: dks:connectedFrom
+  label: connectedFrom
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connectedTo
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SPACE-CONF
+    object: HUB-RACK-2F
+    source_page: 8
+    note: 'relations.cable: HUB-RACK-2F -> SPACE-CONF'
+  - subject: EXT-OFFICE-2F
+    object: TRAY-EXISTING-COMM
+    source_page: 9
+    note: 'relations.from: TRAY-EXISTING-COMM -> EXT-OFFICE-2F (cable)'
+  total_evidence: 2
+  derivation: free_notes와 related_assertions에서 from 방향이 별도 표기된 경우가 있어 connectedTo의
+    역방향 후보로 귀납된다.
+  confidence: 0.78
+- iri: dks:routesThrough
+  label: routesThrough
+  domain: dks:CommunicationConnectionEntity
+  range: dks:CommunicationInfrastructure
+  inverse_of_candidate: dks:isRouteFor
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: EXT-INFLOW
+    object: TUNNEL-DUCT-01
+    source_page: 5
+    note: raw_labels에 지하공동구 사용 명시
+  - subject: EXT-SOURCE-BROAD-1F-B
+    object: TUNNEL-DUCT-01
+    source_page: 4
+    note: 공동구 경유
+  - subject: EXT-SOURCE-SERVER-B2
+    object: TUNNEL-DUCT-01
+    source_page: 4
+    note: 공동구 경유
+  - subject: EXT-사무동방송실
+    object: 정보통신용-맨홀
+    source_page: 12
+    note: 지하공동구 → 정보통신용-맨홀 → PULL BOX 경로
+  total_evidence: 4
+  derivation: 외부 인입/출처 엔티티에서 공동구, 맨홀, 풀박스 등 경유 경로가 반복적으로 관찰된다. subject는 연결 엔티티, object는
+    인프라 계열로 수렴한다.
+  confidence: 0.9
+- iri: dks:locatedIn
+  label: locatedIn
+  domain: owl:Thing
+  range: dks:Space
+  inverse_of_candidate: dks:contains
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: EQ-MAIN-RACK
+    object: SPACE-JEONSAN
+    source_page: 11
+    note: 전산실 / HUB RACK
+  - subject: OUTLET-GRP-CONF-SOUTH
+    object: SPACE-CONF-ZONE-SOUTH
+    source_page: 11
+    note: 남측 회의실 단말 그룹의 공간 문맥
+  - subject: SKS-P1-10P-1F
+    object: UNKNOWN-ROOM-3
+    source_page: 12
+    note: 1층 F.L
+  - subject: SPEAKER-LINE-2F-S2
+    object: UNKNOWN-ROOM-2
+    source_page: 12
+    note: 2층 F.L
+  total_evidence: 4
+  derivation: 장비/그룹/라인이 특정 실, 층, 구역에 놓이는 표현이 반복된다. 일부 target은 floor-like region이므로
+    range를 Space 상위로 넓게 잡는다.
+  confidence: 0.82
+- iri: dks:servesZone
+  label: servesZone
+  domain: dks:CommunicationEquipment
+  range: dks:Space
+  inverse_of_candidate: dks:servedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: COMM-ROOM-1F
+    object: SPACE-SHOWROOM
+    source_page: 10
+    note: relations에 cable 연결 관찰
+  - subject: COMM-ROOM-1F
+    object: SPACE-SMARTHOME
+    source_page: 10
+    note: relations에 cable 연결 관찰
+  - subject: COMM-ROOM-1F
+    object: SPACE-DRIVE-LAB
+    source_page: 10
+    note: relations에 cable 연결 관찰
+  - subject: COMM-ROOM-1F
+    object: SPACE-OFFICE
+    source_page: 10
+    note: relations에 cable 연결 관찰
+  total_evidence: 4
+  derivation: 통신실/허브랙이 여러 공간으로 배선 서비스를 제공하는 패턴이 반복되며, 단순 connectedTo보다 서비스 방향성이 강한
+    경우를 분리했다.
+  confidence: 0.84
+- iri: dks:hasEquipmentSymbol
+  label: hasEquipmentSymbol
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:symbolizes
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: COMM-ROOM-1F
+    object: IDF RACK
+    source_page: 10
+    note: specs.equipment_symbols에 1개 관찰
+  - subject: DF-1-FACE
+    object: IDF 단자함 정면도 (소형 캐비닛)
+    source_page: 19
+    note: equipment_symbols에 정면도 심볼
+  - subject: SPACE-CONF
+    object: WIRELESS_AP x1
+    source_page: 8
+    note: 공간 내부 장비 심볼
+  - subject: SKS-P1-10P-1F
+    object: Speaker Terminal Board
+    source_page: 12
+    note: equipment_symbols에 Speaker Terminal Board 1개
+  total_evidence: 4
+  derivation: 공간, 상세도, 그룹, 장비에서 equipment_symbols가 반복적으로 관찰된다. 현재는 심볼 개체화가 미완이므로 range를
+    넓게 둔다.
+  confidence: 0.88
+- iri: dks:includesComponent
+  label: includesComponent
+  domain: dks:CommunicationEquipment
+  range: owl:Thing
+  inverse_of_candidate: dks:componentOf
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: HUB-RACK-01
+    object: IDF
+    source_page: 4
+    note: equipment_symbols and labels_inside
+  - subject: HUB-RACK-01
+    object: FDF
+    source_page: 4
+    note: equipment_symbols and labels_inside
+  - subject: DF-1-FACE
+    object: 110 BLOCK 단자대 심볼
+    source_page: 19
+    note: 정면도 내부 구성
+  - subject: OUTLET-GRP-CONF-NORTH
+    object: SYSTEM_BOX_2PORT
+    source_page: 11
+    note: labels_inside/equipment_symbols에 포함
+  total_evidence: 4
+  derivation: 랙/정면도/단말그룹 내부 구성품이 반복적으로 나열된다. hasMember와 달리 물리적 또는 도식적 내부 구성에 더 가깝다.
+  confidence: 0.86
+- iri: dks:hasMember
+  label: hasMember
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:memberOf
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-GRP-001
+    object: UNKNOWN-AMP-001
+    source_page: 17
+    note: 방송 설비 전체 그룹의 구성원
+  - subject: UNKNOWN-ROOM-3
+    object: IDF-1
+    source_page: 5
+    note: 1층 F.L 그룹 구성원
+  - subject: UNKNOWN-ROOM-2
+    object: HUB-RACK-2
+    source_page: 5
+    note: 2층 F.L 그룹 구성원
+  - subject: OUTLET-GRP-CONF-SOUTH
+    object: WIRELESS_AP
+    source_page: 11
+    note: 단말 그룹 구성요소
+  total_evidence: 4
+  derivation: 층 그룹, 방송 시스템 그룹, 단말 그룹, 방 그룹에서 members가 반복된다. 그룹 전용 클래스가 아직 약하므로 domain/range를
+    넓게 둔다.
+  confidence: 0.9
+- iri: dks:memberOf
+  label: memberOf
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:hasMember
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-ROOM-10
+    object: ROOM-사장실
+    source_page: 5
+    note: specs.group_id로 식별되는 그룹에 속함
+  - subject: UNKNOWN-ROOM-5
+    object: ROOM-강당/로비
+    source_page: 5
+    note: specs.group_id로 보이는 그룹 식별자
+  total_evidence: 2
+  derivation: 일부 공간 엔티티에서 group_id가 직접 주어져 역방향 membership을 명시적으로 표현할 필요가 있다. 현재 관찰상
+    각 subject당 1개 group_id만 보여 기능성 후보를 둔다.
+  confidence: 0.76
+- iri: dks:referencesDrawingOrSection
+  label: referencesDrawingOrSection
+  domain: owl:Thing
+  range: dks:CommunicationDocumentEntity
+  inverse_of_candidate: dks:referencedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: COMM-ROOM-1F
+    object: NOTE-CABLE-SPEC
+    source_page: 10
+    note: 케이블 주석 참조
+  - subject: EXT-SOURCE-COMM-1F
+    object: 사무동 지하1층 평면도
+    source_page: 4
+    note: cross_page_ref
+  - subject: SEC-GENERAL
+    object: ET-00-003
+    source_page: 2
+    note: 옥외 정보통신 인입 배치도 항목
+  - subject: DF-1-BOM
+    object: TITLE-BLOCK
+    source_page: 19
+    note: 도면 메타/표제란 계열 참조 가능성
+  total_evidence: 4
+  derivation: 도면 참조, cross-page reference, 섹션 내 도면 목록 참조가 반복된다. 일부 object는 아직 개체화되지
+    않은 도면 문자열이지만 문서 엔티티 범주로 수렴한다.
+  confidence: 0.87
+- iri: dks:hasBOM
+  label: hasBOM
+  domain: dks:CommunicationEquipment
+  range: dks:BOMTable
+  inverse_of_candidate: dks:describesEquipment
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: HUB-RACK-1
+    object: HUB-RACK-1-BOM
+    source_page: 19
+    note: 랙 본체의 BOM 자재표
+  total_evidence: 1
+  derivation: 랙 본체와 BOM 자재표가 짝으로 관찰된다. 현재 직접 evidence는 1건이지만 FACE/BOM 상세 패턴이 반복되어
+    후보로 유지한다.
+  confidence: 0.72
+- iri: dks:hasFaceDetail
+  label: hasFaceDetail
+  domain: owl:Thing
+  range: dks:CommunicationDocumentEntity
+  inverse_of_candidate: dks:isFaceDetailOf
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: DF-1-FACE
+    object: DF-1-BOM
+    source_page: 19
+    note: BOM/FACE 짝으로 관찰됨
+  total_evidence: 1
+  derivation: 정면도 상세와 짝 문서가 반복되며, 현재 placement에서는 DF-1-FACE가 DF-1-BOM과 연결되어 있다. 명칭상
+    face-detail 관계 후보로 유지한다.
+  confidence: 0.61
+- iri: dks:originatesFromExternalPoint
+  label: originatesFromExternalPoint
+  domain: dks:CommunicationConnectionEntity
+  range: dks:Space
+  inverse_of_candidate: dks:isExternalOriginFor
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: EXT-SOURCE-BROAD-1F-B
+    object: 사무동 지상1층 방송실
+    source_page: 4
+    note: FROM 라벨
+  - subject: EXT-SOURCE-COMM-B1
+    object: 사무동 지하1층 통신실
+    source_page: 4
+    note: FROM 라벨
+  - subject: EXT-SOURCE-SERVER-B2
+    object: 사무동 지상2층 전산실
+    source_page: 4
+    note: FROM 라벨
+  - subject: EXT-사무동방송실
+    object: 사무동 지상1층 방송실
+    source_page: 12
+    note: raw_labels의 FROM 표기
+  total_evidence: 4
+  derivation: EXT-* 계열에서 FROM 라벨이 매우 일관되게 출발 공간을 가리킨다. 각 외부 출처 엔티티는 보통 하나의 출발점을 가지므로
+    기능성 후보를 둔다.
+  confidence: 0.9
+- iri: dks:definesSymbols
+  label: definesSymbols
+  domain: dks:LegendSection
+  range: owl:Thing
+  inverse_of_candidate: dks:isDefinedInLegend
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-SPACE-014
+    object: SPEAKER 단자함
+    source_page: 17
+    note: legend_symbols/source_text에 포함
+  - subject: UNKNOWN-SPACE-014
+    object: 스피커 천정형 (3W)
+    source_page: 17
+    note: legend_symbols/source_text에 포함
+  - subject: UNKNOWN-SPACE-014
+    object: PULL BOX SIZE 400 x 400 x 300mm
+    source_page: 17
+    note: legend_symbols/source_text에 포함
+  total_evidence: 3
+  derivation: NOTE/LEGEND 섹션이 범례 심볼을 정의하는 패턴이 직접 관찰된다.
+  confidence: 0.85
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T17:33:09.454814'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.84

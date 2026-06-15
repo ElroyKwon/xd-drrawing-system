@@ -1,0 +1,238 @@
+placement:
+  tag: EXT-KEPCO
+  name: 한전 수전 인입선
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:EXT-KEPCO
+    class_hint: ElectricalSource
+    alternative_class_hints:
+    - IncomingFeeder
+    - UtilityPowerSupply
+    related_assertions:
+    - type: feeds
+      target_hint: BLK-LH1
+      note: 22.9kV-Y 60Hz 수전 인입
+    - type: cable
+      target_hint: BLK-LH1
+      note: 도면상 동일 대상에 대한 시각적 연결 표기
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM: KEPCO LINE(3/1)'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: sourceLineIdentifier
+          suggested_datatype: xsd:string
+          rationale: 전원 인입선의 출처 식별 문자열
+      - raw_text: 3Ø 4W 22.9kV-Y 60Hz
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압/상수/주파수 표기이지만 단일 수치 속성으로 즉시 분해하지 않고 원문 보존 필요
+      - raw_text: '전산화번호 : 0881A-821'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: utilityCode
+          suggested_datatype: xsd:string
+          rationale: 전산화 식별번호 문자열
+      - raw_text: '전주번호 : 금성산S1L7L3L1호주'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: poleNumber
+          suggested_datatype: xsd:string
+          rationale: 전주 식별 문자열
+      - raw_text: 22.9kV-Y 60Hz 수전 인입
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasIncomingVoltage
+          suggested_datatype: xsd:string
+          rationale: 수전 인입의 전압/주파수 표기
+      - raw_text: top-center
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 표기
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: classification_by_observation
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 5
+      method: relations.from_to_relation
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 5
+      method: relations.from_to_relation
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 5
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 5
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 5
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 5
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 5
+      method: relations.note + annotation
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 5
+      method: position
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.voltage_phase:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_phase
+    specs.voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_kV
+    specs.frequency_Hz:
+      source_pages:
+      - 5
+      method: entity_detail.specs.frequency_Hz
+    specs.system_type:
+      source_pages:
+      - 5
+      method: entity_detail.specs.system_type
+    specs.source_id:
+      source_pages:
+      - 5
+      method: entity_detail.specs.source_id
+    specs.source_id_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.source_id_gemini
+    specs.utility_code:
+      source_pages:
+      - 5
+      method: entity_detail.specs.utility_code
+    specs.pole_number:
+      source_pages:
+      - 5
+      method: entity_detail.specs.pole_number
+    relations:
+      source_pages:
+      - 5
+      method: entity_detail.relations
+    collection_sources:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    equipment_symbols:
+      source_pages:
+      - 5
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    ontology_hints:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints
+  unresolved:
+  - field_candidate: specs.source_id_gemini
+    raw_text: KEPCO LINE(D/L)
+    source_page: 5
+    reason: source_id의 대체 표기이지만 동일성/정식명칭 여부를 이 단계에서 확정할 수 없음
+    preservation_note: 원문 그대로 보존하고 후속 단계에서 source_id와 비교 검토
+  - field_candidate: specs.raw_labels
+    raw_text: 'FROM: KEPCO LINE(3/1)'
+    source_page: 5
+    reason: 출처 라벨이지만 구조화 속성으로 완전 분해하지 않음
+    preservation_note: source_id 후보로 재검토 가능
+  - field_candidate: specs.raw_labels
+    raw_text: 3Ø 4W 22.9kV-Y 60Hz
+    source_page: 5
+    reason: 전압/상수/주파수 복합 표기
+    preservation_note: voltage_phase, voltage_kV, frequency_Hz와 함께 원문 보존
+  - field_candidate: specs.raw_labels
+    raw_text: '전산화번호 : 0881A-821'
+    source_page: 5
+    reason: 식별번호 형식이지만 의미 범주를 단정하지 않음
+    preservation_note: utility_code와 함께 보존
+  - field_candidate: specs.raw_labels
+    raw_text: '전주번호 : 금성산S1L7L3L1호주'
+    source_page: 5
+    reason: 전주 식별 문자열의 정확한 표준화 불가
+    preservation_note: pole_number 원문 보존
+  - field_candidate: relations.cable
+    raw_text: EXT-KEPCO -> BLK-LH1
+    source_page: 5
+    reason: 관계 라벨은 있으나 OWL property 확정 전
+    preservation_note: visual_semantics 기반 연결 사실로 보존
+  - field_candidate: position
+    raw_text: top-center
+    source_page: 5
+    reason: 도면 내 상대 위치 표기이며 정규 좌표로 변환하지 않음
+    preservation_note: 배치 컨텍스트로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:54.504930'
+  confidence: 0.95

@@ -1,0 +1,239 @@
+ontology_readiness:
+  tag: '1104'
+  verdict: qualified
+  confidence: 0.97
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 21
+    reason: 고유 tag 1104가 있고, VCB/CT/보호계전기/정격 등 자체 사양이 명확히 존재하며 다른 설비의 부품으로만 보이지 않음.
+  relation_completeness:
+    declared_relations: 4
+    discovered_relations: 4
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 21
+    convertible: 15
+    ambiguous_attributes:
+    - key: ct_ratio_sonnet
+      value: 300/5A
+      reason: 동일 개념의 다중 출처 값이 존재하며 provenance로 보존 필요
+    - key: ct_ratio_gemini
+      value: 400/5A
+      reason: ct_ratio와 충돌하는 이중 출처 값; 판단 보류 후 전량 보존
+    - key: ct_breaking_capacity_kA_sonnet
+      value: 15
+      reason: CT 항목으로 보이나 명칭상 breaking capacity 표현이 모호하여 원문 보존
+    - key: ct_breaking_capacity_kA_gemini
+      value: 12.5
+      reason: CT 항목으로 보이나 명칭상 breaking capacity 표현이 모호하여 원문 보존
+    - key: ct_time_constant_sec_gemini
+      value: 1
+      reason: CT 시간상수는 속성 후보이나 출처 한정 값으로 provenance 보존
+    - key: ct_n_factor_gemini
+      value: '>10'
+      reason: 부등호 포함 값으로 정량 속성화 시 추가 해석 필요
+    - key: protection_relay_indicators_gemini
+      value:
+      - F
+      - A
+      - V
+      - KW
+      - PF
+      reason: 표시 항목 목록으로 개별 속성인지 단순 UI 표기인지 불명확
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - protection_functions
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - vcb_breaking_capacity_kA
+    - ct_count
+    - protection_relay_model
+    - protection_relay_indicators_gemini
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: ct_ratio
+      value: 300/5A
+      source: sonnet
+      conflict_with: ct_ratio_gemini=400/5A
+    - key: ct_ratio
+      value: 400/5A
+      source: gemini
+      conflict_with: ct_ratio_sonnet=300/5A
+    - key: ct_breaking_capacity_kA
+      value: 15
+      source: sonnet
+      conflict_with: ct_breaking_capacity_kA_gemini=12.5
+    - key: ct_breaking_capacity_kA
+      value: 12.5
+      source: gemini
+      conflict_with: ct_breaking_capacity_kA_sonnet=15
+    - key: ct_time_constant_sec
+      value: 1
+      source: gemini
+      conflict_with: null
+    - key: ct_n_factor
+      value: '>10'
+      source: gemini
+      conflict_with: null
+    - key: protection_relay_indicators
+      value:
+      - F
+      - A
+      - V
+      - KW
+      - PF
+      source: gemini
+      conflict_with: null
+    conflicts:
+    - key: ct_ratio
+      values:
+      - 300/5A
+      - 400/5A
+      sources:
+      - sonnet
+      - gemini
+    - key: ct_breaking_capacity_kA
+      values:
+      - 15
+      - 12.5
+      sources:
+      - sonnet
+      - gemini
+  duplicate_candidates: []
+  cross_discipline:
+    links_found:
+    - BLK-LA1 -> 1104 (feeds)
+    - 1104 -> TR-002 (feeds)
+    hints_added:
+    - connection to external incoming source BLK-LA1
+    - connection to transformer TR-002
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - SwitchgearPanel
+    - IncomingFeeder
+    - Protection
+    - Switching
+  spatial_context:
+    position: top-right
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - '1104'
+      - SHV
+      - VCB 3P
+      - 3P 7.2kV 630A
+      - 520MVA
+      - CT×3
+      - 300/5A
+      - 12.5kV 15kA
+      - GIPAM-2000FI
+      - 50/51
+      - 50/51G
+      bus_section: SHV
+      vcb_rating: 3P 7.2kV 630A 520MVA
+      ct_ratio: 300/5A
+      protection_functions:
+      - 50/51
+      - 50/51G
+      panel_id: '1104'
+      voltage_kV: 22.9
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 24
+      vcb_rated_current_A: 630
+      vcb_breaking_capacity_MVA: 520
+      vcb_breaking_capacity_kA: 12.5
+      ct_count: 3
+      ct_ratio_sonnet: 300/5A
+      ct_ratio_gemini: 400/5A
+      ct_breaking_capacity_kA_sonnet: 15
+      ct_breaking_capacity_kA_gemini: 12.5
+      ct_time_constant_sec_gemini: 1
+      ct_n_factor_gemini: '>10'
+      protection_relay_model: GIPAM-2000FI
+      protection_relay_indicators_gemini:
+      - F
+      - A
+      - V
+      - KW
+      - PF
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - requirements
+  - drawing_texts
+  - notes
+  - read_entity_list
+  skipped_fields:
+  - requirements (not present)
+  - drawing_texts (not present)
+  - notes (not present)
+  - ontology_hints.observed_relations (not present)
+  - ontology_hints.cross_discipline (not present)
+  - ontology_hints.similar_equipment (empty)
+  - connection_specs (not present)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: SwitchgearPanel
+    annotations_to_emit:
+    - ct_ratio_sonnet=300/5A
+    - ct_ratio_gemini=400/5A
+    - ct_breaking_capacity_kA_sonnet=15
+    - ct_breaking_capacity_kA_gemini=12.5
+    - ct_time_constant_sec_gemini=1
+    - ct_n_factor_gemini=>10
+    - protection_relay_indicators_gemini=[F, A, V, KW, PF]
+    - 'source_attribution: sonnet/gemini/mini'
+    relations_to_emit:
+    - feeds(BLK-LA1 -> 1104)
+    - connects_to(1103 -> 1104)
+    - connects_to(1104 -> 1105)
+    - feeds(1104 -> TR-002)
+    needs_human_review: false
+tag: '1104'
+discovered_relations: 4

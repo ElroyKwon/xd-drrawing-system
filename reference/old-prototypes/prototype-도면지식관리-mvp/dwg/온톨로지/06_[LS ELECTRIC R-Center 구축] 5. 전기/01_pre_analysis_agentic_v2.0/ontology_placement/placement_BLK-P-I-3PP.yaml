@@ -1,0 +1,218 @@
+placement:
+  tag: BLK-P-I-3PP
+  name: P-I-3PP (3층 I구역 동력분전반)
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: BLK-P-I-3PP
+    class_hint: DistributionPanel
+    alternative_class_hints:
+    - PowerDistributionEquipment
+    - ElectricalEquipment
+    related_assertions:
+    - type: feeds
+      target_hint: BLK-SS-RCENTER
+      note: source_page 23, cross_validated; 전원 공급 관계
+    - type: contains
+      target_hint: MCCB x1
+      note: source_page 23, equipment_symbols.count=1; 패널 내부 보호기기 포함 가능성
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DistributionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: P-I-3PP
+        source_page: 23
+        note: 3층 I구역 동력분전반
+      - raw_text: B7
+        source_page: 23
+        note: labels_above / schedule_no
+      spatial_markers:
+      - raw_text: 3층 I구역
+        source_page: 23
+        note: name에서 추출된 위치/구역 정보
+      free_notes:
+      - raw_text: 3Ø 4W 380V
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 표기이며 3상 4선식 380V 형식의 전기 사양 값
+      - raw_text: F-CV 35㎟ -4C x1, E-25㎟
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격/심수/접지선 규격이 함께 표기된 사양 문자열
+      - raw_text: 54C
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasConduitSize
+          suggested_datatype: xsd:string
+          rationale: conduit 항목의 규격 표기이지만 단위/형식이 도면 관례에 의존하는 문자열
+      - raw_text: MCCB
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: containsProtectionDevice
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols에 나타난 차단기 심볼 정보로, 패널 내부 구성요소 후보
+      - raw_text: 'labels_inside: P-I-3PP'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasInternalLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 라벨 원문 보존
+      - raw_text: 'labels_above: B7'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasScheduleNumber
+          suggested_datatype: xsd:string
+          rationale: 상부 표기 및 schedule_no와 동일 계열의 식별 문자열
+      - raw_text: 'schedule_no: B7'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasScheduleNumber
+          suggested_datatype: xsd:string
+          rationale: 스케줄 번호 표기
+      - raw_text: 'function_category: DISTRIBUTION_PANEL'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'type: DISTRIBUTION_PANEL'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 장비 타입 원문 보존
+      - raw_text: 'position: middle-center'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+      - raw_text: 'source_attribution: sonnet=true, gemini=true, mini=true'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasSourceAttribution
+          suggested_datatype: xsd:string
+          rationale: 출처/추출 모델 귀속 정보
+      - raw_text: 'collection_sources: cross_validated=true, visual_semantics=true,
+          visual_semantics_gemini=true'
+        source_page: 23
+        promotion_hint:
+          suggested_property_label: hasCollectionSource
+          suggested_datatype: xsd:string
+          rationale: 수집/검증 방식 원문 보존
+  provenance:
+    name:
+      source_pages:
+      - 23
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 23
+      method: rule_based_classification
+    ontology_core.class_hint:
+      source_pages:
+      - 23
+      method: entity_detail.type + ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 23
+      method: ontology_hints.function_candidates + project_overview
+    ontology_core.related_assertions[0]:
+      source_pages:
+      - 23
+      method: relations[0]
+    ontology_core.related_assertions[1]:
+      source_pages:
+      - 23
+      method: equipment_symbols + specs
+    discipline_context.sub_kinds.groups[0]:
+      source_pages:
+      - 23
+      method: entity_detail.name
+    discipline_context.sub_kinds.groups[1]:
+      source_pages:
+      - 23
+      method: specs.labels_above + specs.schedule_no
+    discipline_context.sub_kinds.spatial_markers[0]:
+      source_pages:
+      - 23
+      method: entity_detail.name
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 23
+      method: specs.voltage
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 23
+      method: specs.cable
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 23
+      method: specs.conduit
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 23
+      method: equipment_symbols
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 23
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 23
+      method: specs.labels_above
+    discipline_context.sub_kinds.free_notes[6]:
+      source_pages:
+      - 23
+      method: specs.schedule_no
+    discipline_context.sub_kinds.free_notes[7]:
+      source_pages:
+      - 23
+      method: function_category
+    discipline_context.sub_kinds.free_notes[8]:
+      source_pages:
+      - 23
+      method: type
+    discipline_context.sub_kinds.free_notes[9]:
+      source_pages:
+      - 23
+      method: position
+    discipline_context.sub_kinds.free_notes[10]:
+      source_pages:
+      - 23
+      method: source_attribution
+    discipline_context.sub_kinds.free_notes[11]:
+      source_pages:
+      - 23
+      method: collection_sources
+    unresolved: []
+    orphan_relations: []
+    ambiguous:
+      is_ambiguous: false
+      reason: ''
+      recommended_handling: ''
+    merge_info:
+      is_merge_candidate: false
+      other_tag: ''
+      reason: ''
+    plan_reference:
+      guidance_applied:
+      - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+        Network)의 분리
+      deviations: []
+    assigned_by: step_0-9b
+    model: gemini-3.1-pro-preview
+    assigned_at: '2026-04-17T13:05:40.673227'
+    confidence: 0.98
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:08:29.665914'

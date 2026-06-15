@@ -1,0 +1,1959 @@
+data_properties:
+- iri: dks:hasStatus
+  label: hasStatus
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: BLDG-01
+    value: existing
+    source_page: 4
+  - subject: ASCON-DEMO-01
+    value: removed
+    source_page: 5
+  - subject: LINE_101
+    value: new
+    source_page: 13
+  total_evidence: 3
+  derivation: status / specs.status가 전반적으로 반복되며 각 개체당 단일 상태값으로 관찰된다.
+  confidence: 0.96
+- iri: dks:hasFunctionCategory
+  label: hasFunctionCategory
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: BLDG-04
+    value: RAINWATER_STORAGE_TANK
+    source_page: 4
+  - subject: PIPE-USU-01
+    value: STORMWATER_PIPE
+    source_page: 5
+  - subject: LEGEND-01
+    value: DRAWING_LEGEND
+    source_page: 3
+  total_evidence: 3
+  derivation: function_category가 거의 모든 계열에서 반복되며 분류 보조 데이터속성으로 안정적이다.
+  confidence: 0.97
+- iri: dks:hasLabel
+  label: hasLabel
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLDG-21
+    value: 21동 (기존동)
+    source_page: 12
+  - subject: CP-1
+    value: CP-1
+    source_page: 4
+  - subject: UNKNOWN-FINAL-EXC-ZONE-02
+    value: FINAL EXC. EL.+92.69m
+    source_page: 21
+  total_evidence: 3
+  derivation: label / specs.label / raw_labels 계열이 반복되며 표기명 보존용 데이터속성으로 귀납된다.
+  confidence: 0.94
+- iri: dks:hasElevation
+  label: hasElevation
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: CP-1
+    value: '91.05'
+    source_page: 4
+  - subject: CP.2
+    value: '96.118'
+    source_page: 3
+  - subject: T.B.M
+    value: '90.972'
+    source_page: 3
+  total_evidence: 3
+  derivation: elevation_m / plan_level_m / fh_elevation_m / EL.+값 등 표고 수치가 반복된다. 일부는
+    복수값이므로 완전 functional로 보기 어렵다.
+  confidence: 0.95
+- iri: dks:hasDiameter
+  label: hasDiameter
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: LINE_101
+    value: '150'
+    source_page: 13
+  - subject: PIPE-01
+    value: '150'
+    source_page: 4
+  - subject: SM.1
+    value: 900mm
+    source_page: 12
+  total_evidence: 3
+  derivation: nominal_diameter_mm, nominal_diameter_A, Φ900, D150 등 표현 형식이 혼재하여 문자열
+    범위로 귀납한다.
+  confidence: 0.92
+- iri: dks:hasLength
+  label: hasLength
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: LINE_101
+    value: '26.0'
+    source_page: 13
+  - subject: PIPE-02
+    value: '43'
+    source_page: 4
+  - subject: PIPE-OSU-03
+    value: '20'
+    source_page: 5
+  total_evidence: 3
+  derivation: length_m가 관로 계열에서 반복되며 각 개체당 단일 길이값으로 관찰된다.
+  confidence: 0.93
+- iri: dks:hasSlope
+  label: hasSlope
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: LINE_101
+    value: '3.85'
+    source_page: 13
+  - subject: FOUNDATION-DTL
+    value: '1: 0.3 (토사구간)'
+    source_page: 11
+  - subject: FOUNDATION-DTL
+    value: '1: 0.1 (암 구간)'
+    source_page: 11
+  total_evidence: 3
+  derivation: slope_percent와 1:0.3 같은 비율표기가 혼재하므로 문자열 범위의 일반 경사 속성으로 귀납한다.
+  confidence: 0.84
+- iri: dks:hasSlopeRatio
+  label: hasSlopeRatio
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: SLOPE-LEFT
+    value: S = 1:1.0
+    source_page: 22
+  - subject: SLOPE-RIGHT
+    value: S = 1:1.0
+    source_page: 22
+  - subject: FOUNDATION-DTL-01
+    value: '1 : 0.3 (토사구간)'
+    source_page: 11
+  total_evidence: 3
+  derivation: hasSlopeRatio suggested_property_label이 반복되고, 사면/기초 상세에서 비율형 경사 표기가
+    직접 관찰된다.
+  confidence: 0.88
+- iri: dks:hasMaterial
+  label: hasMaterial
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: SM.1
+    value: PVC이중벽관
+    source_page: 12
+  - subject: UNKNOWN-BOUNDARY-01
+    value: 콘크리트
+    source_page: 19
+  - subject: UNKNOWN-PAVEMENT-03
+    value: AS-CON#78
+    source_page: 20
+  total_evidence: 3
+  derivation: material / specs.material / layer material이 반복되며 재질 또는 재료 규격을 담는 일반
+    속성으로 귀납된다.
+  confidence: 0.93
+- iri: dks:hasPosition
+  label: hasPosition
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: BUILDING-SECTION-RIGHT
+    value: center-right
+    source_page: 22
+  - subject: GRID-COL-2
+    value: top-center-left
+    source_page: 22
+  - subject: UNKNOWN-FINAL-EXC-ZONE-03
+    value: right-lower
+    source_page: 21
+  total_evidence: 3
+  derivation: position / specs.position이 도면 배치 위치로 반복되며 대부분 단일값이다.
+  confidence: 0.9
+- iri: dks:hasShape
+  label: hasShape
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: BUILDING-SECTION-RIGHT
+    value: rectangle
+    source_page: 22
+  - subject: GRID-COL-1
+    value: circle
+    source_page: 22
+  - subject: UNKNOWN-PAVEMENT-04
+    value: rectangle
+    source_page: 20
+  total_evidence: 3
+  derivation: shape / specs.shape가 반복되며 각 도면요소당 단일 형상값으로 관찰된다.
+  confidence: 0.91
+- iri: dks:hasUnit
+  label: hasUnit
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: ASCON-DEMO-01
+    value: m2
+    source_page: 5
+  - subject: SM.1
+    value: EA
+    source_page: 12
+  - subject: PAVE-ASCON-OVERLAY-NE
+    value: m2
+    source_page: 19
+  total_evidence: 3
+  derivation: unit / specs.unit가 반복되며 각 엔티티 또는 표 항목의 단위를 나타낸다.
+  confidence: 0.9
+- iri: dks:hasSubsystem
+  label: hasSubsystem
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: CB-01
+    value: stormwater
+    source_page: 5
+  - subject: PIPE-01
+    value: sewage
+    source_page: 4
+  - subject: SM.3
+    value: sewage
+    source_page: 12
+  total_evidence: 3
+  derivation: subsystem / specs.subsystem이 배수·오수 계통 구분으로 반복된다.
+  confidence: 0.94
+- iri: dks:hasLineStyle
+  label: hasLineStyle
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: GUTTER-L-01
+    value: 일점쇄선
+    source_page: 5
+  - subject: PIPE-OSU-01
+    value: dotted
+    source_page: 5
+  - subject: UNKNOWN-BOUNDARY-04
+    value: dotted_special
+    source_page: 19
+  total_evidence: 3
+  derivation: line_style이 선형/경계/관로 표현에서 반복된다.
+  confidence: 0.86
+- iri: dks:hasCount
+  label: hasCount
+  domain: owl:Thing
+  range: xsd:integer
+  functional_candidate: true
+  evidence:
+  - subject: CB-01
+    value: '2'
+    source_page: 5
+  - subject: UNKNOWN-NORTH-ARROW-01
+    value: '1'
+    source_page: 21
+  - subject: UNKNOWN-TENT-01
+    value: '3'
+    source_page: 5
+  total_evidence: 3
+  derivation: count / specs.count가 반복되며 개체 수량 또는 심볼 개수를 나타낸다.
+  confidence: 0.88
+- iri: dks:hasThickness
+  label: hasThickness
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: ASCON-DEMO-01
+    value: '150'
+    source_page: 5
+  - subject: CONC-DEMO-01
+    value: '150'
+    source_page: 5
+  - subject: UNKNOWN-PAVEMENT-03
+    value: '50'
+    source_page: 20
+  total_evidence: 3
+  derivation: thickness_mm 및 layer thickness_mm가 반복되며 두께 수치 속성으로 귀납된다.
+  confidence: 0.89
+- iri: dks:hasLegendSpec
+  label: hasLegendSpec
+  domain: dks:PavementArea
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: PAVE-ASCON-OVERLAY-NE
+    value: T=50
+    source_page: 19
+  - subject: PAVE-ASCON-RESTORE
+    value: T=450
+    source_page: 19
+  - subject: PAVE-BLOCK-EAST
+    value: T=200
+    source_page: 19
+  total_evidence: 3
+  derivation: legend_spec가 포장 구역에서 반복되며 범례 기반 규격/두께 표기를 담는다.
+  confidence: 0.9
+- iri: dks:hasPavementType
+  label: hasPavementType
+  domain: dks:PavementArea
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: PAVE-ASCON-OVERLAY-NE
+    value: 아스콘 덧씌우기
+    source_page: 19
+  - subject: PAVE-BLOCK-WEST
+    value: 보도블럭포장
+    source_page: 19
+  - subject: PAVE-CONCRETE-NORTH
+    value: 콘크리트포장
+    source_page: 19
+  total_evidence: 3
+  derivation: pavement_type이 포장 구역에서 반복되며 포장 종류를 직접 나타낸다.
+  confidence: 0.93
+- iri: dks:hasDrawingNumber
+  label: hasDrawingNumber
+  domain: dks:CivilDrawingElement
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: PLAN-01
+    value: C00-002
+    source_page: 3
+  - subject: UNKNOWN-STRUCTURE-01
+    value: C10-202
+    source_page: 10
+  - subject: TABLE-01
+    value: C10-302
+    source_page: 13
+  total_evidence: 3
+  derivation: drawing_number가 도면/상세/테이블에서 반복되며 문서 식별자로 기능한다.
+  confidence: 0.87
+- iri: dks:hasDrawingTitle
+  label: hasDrawingTitle
+  domain: dks:CivilDrawingElement
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: PLAN-01
+    value: 현황측량 평면도
+    source_page: 3
+  - subject: SECTION-AA
+    value: A - A 단면
+    source_page: 10
+  - subject: PIPE-DTL-02
+    value: 소켓 'A' 부위 상세 및 A-A 단면도
+    source_page: 11
+  total_evidence: 3
+  derivation: title / hasDrawingTitle / name 계열이 도면요소에서 반복되며 제목성 문자열을 담는다.
+  confidence: 0.88
+- iri: dks:hasSourcePage
+  label: hasSourcePage
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLDG-21
+    value: '[12, 19]'
+    source_page: 12
+  - subject: CP.1
+    value: 3, 4, 12, 21
+    source_page: 3
+  - subject: SOCKET-MACH-DTL
+    value: '[11]'
+    source_page: 11
+  total_evidence: 3
+  derivation: source_pages / source_page가 반복되나 단일·복수 형식이 혼재하여 문자열 범위로 귀납한다.
+  confidence: 0.82
+- iri: dks:hasFunctionCandidate
+  label: hasFunctionCandidate
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: BLDG-07
+    value: Sports, Recreation
+    source_page: 4
+  - subject: PIPE-DTL-02
+    value: socket_joint_detail, pipe_connection_detail
+    source_page: 11
+  - subject: UNKNOWN-EXCAVATION-PLAN-01
+    value: Excavation Planning; Elevation Control; Site Grading
+    source_page: 21
+  total_evidence: 3
+  derivation: function_candidates / functionCandidate 계열이 매우 광범위하게 반복되어 후보 기능 보존용
+    속성으로 승격한다.
+  confidence: 0.9
+- iri: dks:hasInferredName
+  label: hasInferredName
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: true
+  evidence:
+  - subject: BUILDING-SECTION-RIGHT
+    value: 건물 단면 (우측 구간, 그리드 5~7 범위, 상부 돌출부 포함)
+    source_page: 22
+  - subject: PIPE-DETAIL-A
+    value: 소켓부 'A' 상세 및 A-A 단면
+    source_page: 11
+  - subject: UNKNOWN-TABLE-04
+    value: 아스콘 포장복구 수량표
+    source_page: 20
+  total_evidence: 3
+  derivation: inferred_name이 도면요소 전반에서 반복되며 합성 명칭 보존용 속성으로 적합하다.
+  confidence: 0.86
+- iri: dks:hasSymbol
+  label: hasSymbol
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: CB-01
+    value: ⊠
+    source_page: 5
+  - subject: SM.1
+    value: 이중원
+    source_page: 12
+  - subject: UNKNOWN-NORTH-ARROW-01
+    value: north_arrow
+    source_page: 21
+  total_evidence: 3
+  derivation: symbol / specs.symbol이 반복되며 도면 기호 표현을 담는다.
+  confidence: 0.84
+- iri: dks:hasNote
+  label: hasNote
+  domain: owl:Thing
+  range: xsd:string
+  functional_candidate: false
+  evidence:
+  - subject: T.B.M
+    value: 중벽상단와서나사
+    source_page: 3
+  - subject: UNKNOWN-ANNEX-CENTER-01
+    value: 도면 하단 중앙 사각형 블록
+    source_page: 21
+  - subject: UNKNOWN-EXCAVATION-PLAN-01
+    value: 도면 전체가 굴착 계획 평면도로 구성됨. 격자형 굴착 셀 내부에 EL. 표고값이 반복 표기되며, FINAL EXC. EL. 라벨로
+      3개의 최종 굴착 심도 구역이 구분됨.
+    source_page: 21
+  total_evidence: 3
+  derivation: note / specs.note / annotation note 계열이 반복되며 설명성 메모를 담는다.
+  confidence: 0.83
+- iri: dks:hasDepth
+  label: hasDepth
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: SM.1
+    value: '1.57'
+    source_page: 12
+  - subject: 기준맨홀
+    value: '1.49'
+    source_page: 13
+  - subject: SM.5
+    value: '1.6'
+    source_page: 12
+  total_evidence: 3
+  derivation: manhole_depth_m / hasDepth suggested_property_label이 반복되며 깊이 수치 속성으로
+    귀납된다.
+  confidence: 0.87
+- iri: dks:hasInvertLevel
+  label: hasInvertLevel
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: SM.1
+    value: '92.92'
+    source_page: 12
+  - subject: SM.1
+    value: '92.89'
+    source_page: 12
+  - subject: 기준맨홀
+    value: '93.02'
+    source_page: 13
+  total_evidence: 3
+  derivation: invert_level_m / invert_level_in_m / invert_level_out_m가 반복되며 유입·유출
+    복수값이 가능하므로 비기능 속성으로 둔다.
+  confidence: 0.92
+- iri: dks:hasGroundLevel
+  label: hasGroundLevel
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: SM.3
+    value: '93.9'
+    source_page: 12
+  - subject: SM.4
+    value: '93.9'
+    source_page: 12
+  - subject: SM.5
+    value: '91.6'
+    source_page: 12
+  total_evidence: 3
+  derivation: ground_level_m가 맨홀 계열에서 반복되며 각 개체당 단일 지반고로 관찰된다.
+  confidence: 0.88
+- iri: dks:hasPlanLevel
+  label: hasPlanLevel
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: true
+  evidence:
+  - subject: SM.2
+    value: '94.71'
+    source_page: 12
+  - subject: SM.4
+    value: '93.9'
+    source_page: 12
+  - subject: 기준맨홀
+    value: '94.5'
+    source_page: 13
+  total_evidence: 3
+  derivation: plan_level_m가 종단/맨홀 데이터에서 반복되며 계획고 또는 평면 기준 레벨을 나타낸다.
+  confidence: 0.89
+- iri: dks:hasExcavationDepth
+  label: hasExcavationDepth
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: SM.1
+    value: '1.55'
+    source_page: 12
+  - subject: SM.1
+    value: '1.65'
+    source_page: 12
+  - subject: 기준맨홀
+    value: '1.6'
+    source_page: 13
+  total_evidence: 3
+  derivation: excavation_depth_m 및 in/out 변형이 반복되며 굴착 깊이 수치를 나타낸다.
+  confidence: 0.86
+- iri: dks:hasSoilCover
+  label: hasSoilCover
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: SM.1
+    value: '1.38'
+    source_page: 12
+  - subject: SM.1
+    value: '1.35'
+    source_page: 12
+  - subject: 기준맨홀
+    value: '1.31'
+    source_page: 13
+  total_evidence: 3
+  derivation: soil_cover_m 및 in/out 변형이 반복되며 토피 수치를 나타낸다.
+  confidence: 0.86
+- iri: dks:hasQuantity
+  label: hasQuantity
+  domain: owl:Thing
+  range: xsd:decimal
+  functional_candidate: false
+  evidence:
+  - subject: UNKNOWN-PAVEMENT-03
+    value: '0.05'
+    source_page: 20
+  - subject: UNKNOWN-PAVEMENT-03
+    value: '30'
+    source_page: 20
+  - subject: UNKNOWN-PAVEMENT-04
+    value: '0.3'
+    source_page: 20
+  total_evidence: 3
+  derivation: quantity_table.items[*].quantity 및 hasQuantity suggested_property_label이
+    반복되며 수량값 보존용 속성으로 귀납된다.
+  confidence: 0.78
+promotion_integrations:
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasStatus
+  datatype: xsd:string
+  label: hasStatus
+  evidence_tags:
+  - ASCON-DEMO-01
+  - BLDG-01
+  - BLDG-02
+  - BLDG-03
+  - BLDG-04
+  - BLDG-05
+  - BLDG-06
+  - BLDG-07
+  - CB-01
+  - CONC-DEMO-01
+  - CP-1
+  - CP-2
+  - CP-4
+  - CP.1
+  - CP.2
+  - CP.3
+  - FENCE-01
+  - GUTTER-L-01
+  - GUTTER-L-02
+  - GUTTER-U-01
+  - LINE_101
+  - LINE_102
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - MH-01
+  - MH-02
+  - MH-03
+  - MH-04
+  - MH-05
+  - MH-06
+  - PIPE-01
+  - PIPE-02
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - PIPE-USU-01
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - T.B.M
+  - TBM-01
+  - UNKNOWN-BUILDING-01
+  - UNKNOWN-OBJECT-01
+  - UNKNOWN-STRUCTURE-03
+  - UNKNOWN-STRUCTURE-04
+  - UNKNOWN-STRUCTURE-06
+  - UNKNOWN-TENT-01
+  - 기준맨홀
+  threshold_applied: ≥ 5건
+  total_evidence: 54
+  sample_evidence:
+  - tag: BLDG-01
+    raw_text: 'specs.status: existing'
+    source_page: 4
+  - tag: ASCON-DEMO-01
+    raw_text: 'status: removed'
+    source_page: 5
+  - tag: LINE_101
+    raw_text: 'status: new'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasFunctionCategory
+  datatype: xsd:string
+  label: hasFunctionCategory
+  evidence_tags:
+  - BLDG-01
+  - BLDG-02
+  - BLDG-03
+  - BLDG-04
+  - BLDG-05
+  - BLDG-06
+  - BLDG-07
+  - BLDG-14
+  - BLDG-21
+  - BLDG-23
+  - BLDG-24
+  - BLDG-25
+  - BLDG-ICENTER
+  - BUILDING-SECTION-LEFT
+  - BUILDING-SECTION-RIGHT
+  - CB-01
+  - CB-02
+  - CONC-DEMO-01
+  - CP-1
+  - CP-2
+  - CP-4
+  - CP.2
+  - CP.3
+  - DIM-2810
+  - EXC-LEVEL-RIGHT
+  - EXISTING-SEWER-EAST
+  - EXISTING-SEWER-NORTH
+  - EXISTING-SEWER-SOUTH
+  - EXISTING-SEWER-WEST
+  - FENCE-01
+  - FOUNDATION-DTL
+  - GRADE-LEVEL-1
+  - GRID-COL-2
+  - GRID-COL-3
+  - GRID-COL-4
+  - GRID-COL-5
+  - GRID-COL-6
+  - GRID-COL-7
+  - GUTTER-L-01
+  - GUTTER-L-02
+  - GUTTER-U-01
+  - LEGEND-01
+  - LINE_101
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-ASCON-RESTORE
+  - PHOTO-CP1
+  - PHOTO-CP2
+  - PHOTO-CP3
+  - PHOTO-TBM
+  - PIPE-DETAIL-A
+  - PIPE-MAIN-DTL
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - PIPE-USU-01
+  - PLAN-01
+  - PROC-SEQ-01
+  - PROC-STEP-1
+  - PROC-STEP-2-3
+  - PROC-STEP-4
+  - PROC-STEP-5-6
+  - SEC-C00
+  - SEC-C01
+  - SEC-C02
+  - SLOPE-RIGHT
+  - STAMP-01
+  - T.B.M
+  - TABLE-01
+  - TABLE-CP
+  - TABLE-FOUND-01
+  - TABLE-FOUND-DIM
+  - TITLE-BLOCK
+  - TOC-MAIN
+  - UNKNOWN-ANNEX-CENTER-01
+  - UNKNOWN-ANNEX-RIGHT-01
+  - UNKNOWN-BOUNDARY-01
+  - UNKNOWN-BOUNDARY-02
+  - UNKNOWN-EXCAVATION-CELL-01
+  - UNKNOWN-EXCAVATION-PLAN-01
+  - UNKNOWN-FINAL-EXC-ZONE-01
+  - UNKNOWN-FINAL-EXC-ZONE-02
+  - UNKNOWN-FINAL-EXC-ZONE-03
+  - UNKNOWN-GRID-H-01
+  - UNKNOWN-GRID-V-01
+  - UNKNOWN-NORTH-01
+  - UNKNOWN-NORTH-ARROW-01
+  - UNKNOWN-OBJECT-01
+  - UNKNOWN-OUTER-BLOCK-LEFT-01
+  - UNKNOWN-STAIR-01
+  - UNKNOWN-STRUCTURE-01
+  - UNKNOWN-STRUCTURE-02
+  - UNKNOWN-STRUCTURE-03
+  - UNKNOWN-STRUCTURE-04
+  - UNKNOWN-STRUCTURE-05
+  - UNKNOWN-STRUCTURE-06
+  threshold_applied: ≥ 5건
+  total_evidence: 97
+  sample_evidence:
+  - tag: BLDG-04
+    raw_text: 'function_category: RAINWATER_STORAGE_TANK'
+    source_page: 4
+  - tag: PIPE-USU-01
+    raw_text: 'function_category: STORMWATER_PIPE'
+    source_page: 5
+  - tag: LEGEND-01
+    raw_text: DRAWING_LEGEND
+    source_page: 3
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasLabel
+  datatype: xsd:string
+  label: hasLabel
+  evidence_tags:
+  - BLDG-01
+  - BLDG-02
+  - BLDG-03
+  - BLDG-04
+  - BLDG-21
+  - BLDG-24
+  - BLDG-ICENTER
+  - CP-1
+  - CP-2
+  - CP-4
+  - CP.1
+  - EXC-LEVEL-RIGHT
+  - GRADE-LEVEL-3
+  - GRID-COL-1
+  - GRID-COL-2
+  - GRID-COL-3
+  - GRID-COL-4
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-CONCRETE-EAST
+  - TBM-01
+  - UNKNOWN-BOUNDARY-01
+  - UNKNOWN-BOUNDARY-02
+  - UNKNOWN-FINAL-EXC-ZONE-01
+  - UNKNOWN-FINAL-EXC-ZONE-02
+  - UNKNOWN-FINAL-EXC-ZONE-03
+  threshold_applied: ≥ 5건
+  total_evidence: 25
+  sample_evidence:
+  - tag: BLDG-21
+    raw_text: 'label: 21동 (기존동)'
+    source_page: 12
+  - tag: CP-1
+    raw_text: 'label: CP-1'
+    source_page: 4
+  - tag: UNKNOWN-FINAL-EXC-ZONE-02
+    raw_text: 'specs.label: FINAL EXC. EL.+92.69m'
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasElevation
+  datatype: xsd:decimal
+  label: hasElevation
+  evidence_tags:
+  - CP-1
+  - CP-2
+  - CP-4
+  - CP.1
+  - CP.2
+  - CP.3
+  - EXC-LEVEL-CENTER
+  - EXC-LEVEL-LEFT
+  - EXC-LEVEL-RIGHT
+  - GRADE-LEVEL-2
+  - GRADE-LEVEL-3
+  - SM.1
+  - SM.3
+  - SM.4
+  - SM.5
+  - T.B.M
+  - TBM-01
+  - UNKNOWN-EXCAVATION-CELL-01
+  threshold_applied: ≥ 5건
+  total_evidence: 18
+  sample_evidence:
+  - tag: CP.2
+    raw_text: 'elevation_m: 96.118'
+    source_page: 3
+  - tag: T.B.M
+    raw_text: 'specs.elevation_m: 90.972'
+    source_page: 3
+  - tag: SM.5
+    raw_text: 'fh_elevation_m: 91.6'
+    source_page: 12
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDiameter
+  datatype: xsd:string
+  label: hasDiameter
+  evidence_tags:
+  - EXISTING-SEWER-EAST
+  - EXISTING-SEWER-SOUTH
+  - LINE_101
+  - LINE_102
+  - LINE_103
+  - LINE_104
+  - PIPE-01
+  - PIPE-02
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - SEC-AA
+  - SEC-BB
+  - SM.1
+  threshold_applied: ≥ 5건
+  total_evidence: 17
+  sample_evidence:
+  - tag: LINE_101
+    raw_text: 'nominal_diameter_mm: 150'
+    source_page: 13
+  - tag: PIPE-01
+    raw_text: 'nominal_diameter_mm: 150'
+    source_page: 4
+  - tag: SM.1
+    raw_text: 'nominal_diameter_A: 150A'
+    source_page: 12
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasLength
+  datatype: xsd:decimal
+  label: hasLength
+  evidence_tags:
+  - EXISTING-SEWER-EAST
+  - EXISTING-SEWER-SOUTH
+  - LINE_101
+  - LINE_102
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - PIPE-01
+  - PIPE-02
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - SOCKET-DTL-01
+  - TABLE-PVC-01
+  threshold_applied: ≥ 5건
+  total_evidence: 17
+  sample_evidence:
+  - tag: LINE_101
+    raw_text: 'length_m: 26.0'
+    source_page: 13
+  - tag: PIPE-02
+    raw_text: 'length_m: 43'
+    source_page: 4
+  - tag: PIPE-OSU-03
+    raw_text: 'specs.length_m: 20'
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasMaterial
+  datatype: xsd:string
+  label: hasMaterial
+  evidence_tags:
+  - PIPE-01
+  - PIPE-02
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - PAVE-CONCRETE-EAST
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - UNKNOWN-BOUNDARY-01
+  - UNKNOWN-BOUNDARY-02
+  - UNKNOWN-BOUNDARY-03
+  - UNKNOWN-BOUNDARY-04
+  - UNKNOWN-CURB-01
+  - UNKNOWN-CURB-02
+  - UNKNOWN-PAVEMENT-03
+  threshold_applied: ≥ 5건
+  total_evidence: 21
+  sample_evidence:
+  - tag: SM.1
+    raw_text: 'material: PVC이중벽관'
+    source_page: 12
+  - tag: UNKNOWN-BOUNDARY-01
+    raw_text: 'specs.material: 콘크리트'
+    source_page: 19
+  - tag: UNKNOWN-PAVEMENT-03
+    raw_text: 'specs.detail_attributes.layers[0].material: AS-CON#78'
+    source_page: 20
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasPosition
+  datatype: xsd:string
+  label: hasPosition
+  evidence_tags:
+  - BLDG-24
+  - BLDG-25
+  - BLDG-ICENTER
+  - BUILDING-SECTION-LEFT
+  - BUILDING-SECTION-RIGHT
+  - DIM-2810
+  - DIM-379
+  - DIM-90
+  - DTL-RUNG
+  - EXC-LEVEL-CENTER
+  - EXC-LEVEL-LEFT
+  - EXC-LEVEL-RIGHT
+  - GRID-COL-1
+  - GRID-COL-2
+  - GRID-COL-3
+  - GRID-COL-4
+  - GRID-COL-5
+  - GRID-COL-6
+  - GRID-COL-7
+  - KEY-PLAN
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-BLOCK-EAST
+  - PAVE-BLOCK-WEST
+  - PAVE-CONCRETE-EAST
+  - PAVE-CONCRETE-NORTH
+  - PIPE-DETAIL-A
+  - PIPE-DTL-01
+  - PIPE-DTL-02
+  - PROC-SEQ-01
+  - PROC-STEP-1
+  - PROC-STEP-2-3
+  - PROC-STEP-4
+  - PROC-STEP-5-6
+  - SECTION-AA
+  - STAMP-01
+  - TABLE-01
+  - TABLE-FOUND-01
+  - TABLE-FOUND-DIM
+  - UNKNOWN-FINAL-EXC-ZONE-01
+  - UNKNOWN-FINAL-EXC-ZONE-02
+  - UNKNOWN-FINAL-EXC-ZONE-03
+  - UNKNOWN-NORTH-01
+  - UNKNOWN-NORTH-ARROW-01
+  - UNKNOWN-PAVEMENT-01
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-PAVEMENT-04
+  threshold_applied: ≥ 5건
+  total_evidence: 45
+  sample_evidence:
+  - tag: BUILDING-SECTION-RIGHT
+    raw_text: 'position: center-right'
+    source_page: 22
+  - tag: GRID-COL-2
+    raw_text: 'position: top-center-left'
+    source_page: 22
+  - tag: UNKNOWN-FINAL-EXC-ZONE-03
+    raw_text: 'specs.position: right-lower'
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasShape
+  datatype: xsd:string
+  label: hasShape
+  evidence_tags:
+  - BLDG-24
+  - BLDG-25
+  - BUILDING-SECTION-LEFT
+  - BUILDING-SECTION-RIGHT
+  - DIM-2810
+  - DIM-379
+  - DIM-90
+  - EXC-LEVEL-CENTER
+  - EXC-LEVEL-LEFT
+  - EXC-LEVEL-RIGHT
+  - FOUNDATION-DTL
+  - GRADE-LEVEL-1
+  - GRID-COL-1
+  - GRID-COL-2
+  - GRID-COL-3
+  - GRID-COL-4
+  - GRID-COL-5
+  - GRID-COL-6
+  - GRID-COL-7
+  - KEY-PLAN
+  - PIPE-DETAIL-A
+  - PIPE-DTL-01
+  - PIPE-DTL-02
+  - PROC-SEQ-01
+  - PROC-STEP-1
+  - PROC-STEP-2-3
+  - PROC-STEP-4
+  - PROC-STEP-5-6
+  - SECTION-AA
+  - STAMP-01
+  - TABLE-01
+  - TABLE-FOUND-01
+  - TABLE-FOUND-DIM
+  - UNKNOWN-ANNEX-CENTER-01
+  - UNKNOWN-ANNEX-LEFT-01
+  - UNKNOWN-ANNEX-RIGHT-01
+  - UNKNOWN-CURB-01
+  - UNKNOWN-CURB-02
+  - UNKNOWN-CURB-03
+  - UNKNOWN-OUTER-BLOCK-LEFT-01
+  - UNKNOWN-PAVEMENT-01
+  - UNKNOWN-PAVEMENT-02
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-PAVEMENT-04
+  threshold_applied: ≥ 5건
+  total_evidence: 44
+  sample_evidence:
+  - tag: BUILDING-SECTION-LEFT
+    raw_text: 'shape: rectangle'
+    source_page: 22
+  - tag: GRID-COL-1
+    raw_text: 'shape: circle'
+    source_page: 22
+  - tag: UNKNOWN-PAVEMENT-04
+    raw_text: 'specs.shape: rectangle'
+    source_page: 20
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasUnit
+  datatype: xsd:string
+  label: hasUnit
+  evidence_tags:
+  - ASCON-DEMO-01
+  - CB-01
+  - CONC-DEMO-01
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-ASCON-RESTORE
+  - PAVE-BLOCK-EAST
+  - PAVE-BLOCK-WEST
+  - PAVE-CONCRETE-EAST
+  - PAVE-CONCRETE-NORTH
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - TABLE-FOUND-01
+  - UNKNOWN-BOUNDARY-01
+  - UNKNOWN-BOUNDARY-02
+  - UNKNOWN-BOUNDARY-03
+  - UNKNOWN-BOUNDARY-04
+  - UNKNOWN-PAVEMENT-03
+  threshold_applied: ≥ 5건
+  total_evidence: 20
+  sample_evidence:
+  - tag: ASCON-DEMO-01
+    raw_text: 'unit: m2'
+    source_page: 5
+  - tag: SM.1
+    raw_text: 'unit: EA'
+    source_page: 12
+  - tag: PAVE-ASCON-OVERLAY-NE
+    raw_text: 'unit: m2'
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSubsystem
+  datatype: xsd:string
+  label: hasSubsystem
+  evidence_tags:
+  - CB-01
+  - GUTTER-L-01
+  - GUTTER-L-02
+  - GUTTER-U-01
+  - LINE_101
+  - LINE_102
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - MH-01
+  - MH-02
+  - MH-03
+  - MH-04
+  - MH-05
+  - MH-06
+  - PIPE-01
+  - PIPE-02
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - PIPE-USU-01
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - 기준맨홀
+  threshold_applied: ≥ 5건
+  total_evidence: 30
+  sample_evidence:
+  - tag: CB-01
+    raw_text: 'specs.subsystem: stormwater'
+    source_page: 5
+  - tag: PIPE-01
+    raw_text: 'subsystem: sewage'
+    source_page: 4
+  - tag: SM.3
+    raw_text: 'subsystem: sewage'
+    source_page: 12
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasLineStyle
+  datatype: xsd:string
+  label: hasLineStyle
+  evidence_tags:
+  - GUTTER-L-01
+  - GUTTER-L-02
+  - GUTTER-U-01
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - PIPE-USU-01
+  - UNKNOWN-BOUNDARY-01
+  - UNKNOWN-BOUNDARY-02
+  - UNKNOWN-BOUNDARY-03
+  - UNKNOWN-BOUNDARY-04
+  threshold_applied: ≥ 5건
+  total_evidence: 11
+  sample_evidence:
+  - tag: GUTTER-L-01
+    raw_text: 'specs.line_style: 일점쇄선'
+    source_page: 5
+  - tag: PIPE-OSU-01
+    raw_text: 'line_style: dotted'
+    source_page: 5
+  - tag: UNKNOWN-BOUNDARY-04
+    raw_text: 'specs.line_style: dotted_special'
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasCount
+  datatype: xsd:integer
+  label: hasCount
+  evidence_tags:
+  - CB-01
+  - UNKNOWN-EXCAVATION-CELL-01
+  - UNKNOWN-NORTH-ARROW-01
+  - UNKNOWN-STAIR-01
+  - UNKNOWN-TENT-01
+  threshold_applied: ≥ 5건
+  total_evidence: 5
+  sample_evidence:
+  - tag: CB-01
+    raw_text: 'specs.count: 2'
+    source_page: 5
+  - tag: UNKNOWN-NORTH-ARROW-01
+    raw_text: 'specs.count: 1'
+    source_page: 21
+  - tag: UNKNOWN-TENT-01
+    raw_text: 'specs.count: 3'
+    source_page: 5
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasThickness
+  datatype: xsd:decimal
+  label: hasThickness
+  evidence_tags:
+  - ASCON-DEMO-01
+  - CONC-DEMO-01
+  - FOUNDATION-DTL
+  - UNKNOWN-PAVEMENT-03
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: ASCON-DEMO-01
+    raw_text: 'thickness_mm: 150'
+    source_page: 5
+  - tag: CONC-DEMO-01
+    raw_text: 'specs.thickness_mm: 150'
+    source_page: 5
+  - tag: UNKNOWN-PAVEMENT-03
+    raw_text: 'specs.detail_attributes.layers[0].thickness_mm: 50'
+    source_page: 20
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasLegendSpec
+  datatype: xsd:string
+  label: hasLegendSpec
+  evidence_tags:
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-ASCON-RESTORE
+  - PAVE-BLOCK-EAST
+  threshold_applied: ≥ 3건
+  total_evidence: 3
+  sample_evidence:
+  - tag: PAVE-ASCON-OVERLAY-NE
+    raw_text: 'legend_spec: T=50'
+    source_page: 19
+  - tag: PAVE-ASCON-RESTORE
+    raw_text: 'specs.legend_spec: T=450'
+    source_page: 19
+  - tag: PAVE-BLOCK-EAST
+    raw_text: 'legend_spec: T=200'
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasPavementType
+  datatype: xsd:string
+  label: hasPavementType
+  evidence_tags:
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-ASCON-RESTORE
+  - PAVE-BLOCK-EAST
+  - PAVE-BLOCK-WEST
+  - PAVE-CONCRETE-EAST
+  - PAVE-CONCRETE-NORTH
+  threshold_applied: ≥ 3건
+  total_evidence: 6
+  sample_evidence:
+  - tag: PAVE-ASCON-OVERLAY-NE
+    raw_text: 'pavement_type: 아스콘 덧씌우기'
+    source_page: 19
+  - tag: PAVE-BLOCK-WEST
+    raw_text: 'pavement_type: 보도블럭포장'
+    source_page: 19
+  - tag: PAVE-CONCRETE-NORTH
+    raw_text: 'pavement_type: 콘크리트포장'
+    source_page: 19
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDrawingNumber
+  datatype: xsd:string
+  label: hasDrawingNumber
+  evidence_tags:
+  - PLAN-01
+  - TABLE-01
+  - UNKNOWN-EXCAVATION-PLAN-01
+  - UNKNOWN-STRUCTURE-01
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: PLAN-01
+    raw_text: C00-002
+    source_page: 3
+  - tag: UNKNOWN-STRUCTURE-01
+    raw_text: 'drawing_number: C10-202'
+    source_page: 10
+  - tag: TABLE-01
+    raw_text: 'drawing_number: C10-302'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDrawingTitle
+  datatype: xsd:string
+  label: hasDrawingTitle
+  evidence_tags:
+  - PLAN-01
+  - PIPE-DTL-02
+  - SECTION-AA
+  - TABLE-01
+  threshold_applied: ≥ 3건
+  total_evidence: 4
+  sample_evidence:
+  - tag: PLAN-01
+    raw_text: 현황측량 평면도
+    source_page: 3
+  - tag: SECTION-AA
+    raw_text: A - A 단면
+    source_page: 10
+  - tag: PIPE-DTL-02
+    raw_text: 소켓 'A' 부위 상세 및 A-A 단면도
+    source_page: 11
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSourcePage
+  datatype: xsd:string
+  label: hasSourcePage
+  evidence_tags:
+  - BLDG-21
+  - BLDG-24
+  - BLDG-25
+  - BLDG-ICENTER
+  - CP-1
+  - CP.1
+  - CP.2
+  - DIM-90
+  - GRID-COL-2
+  - PIPE-DTL-02
+  - PROC-SEQ-01
+  - SOCKET-MACH-DTL
+  - TABLE-FOUND-DIM
+  - UNKNOWN-OBJECT-01
+  threshold_applied: ≥ 5건
+  total_evidence: 14
+  sample_evidence:
+  - tag: BLDG-21
+    raw_text: 'source_pages: [12, 19]'
+    source_page: 12
+  - tag: CP.1
+    raw_text: 'source_pages: 3, 4, 12, 21'
+    source_page: 3
+  - tag: SOCKET-MACH-DTL
+    raw_text: 'source_pages: [11]'
+    source_page: 11
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasFunctionCandidate
+  datatype: xsd:string
+  label: hasFunctionCandidate
+  evidence_tags:
+  - BLDG-07
+  - BLDG-14
+  - BLDG-21
+  - BLDG-24
+  - BLDG-25
+  - BLDG-ICENTER
+  - BUILDING-SECTION-LEFT
+  - BUILDING-SECTION-RIGHT
+  - CB-01
+  - CB-02
+  - CP-1
+  - CP-2
+  - CP-4
+  - CP.1
+  - CP.2
+  - CP.3
+  - DIM-2810
+  - DTL-RUNG
+  - EXISTING-SEWER-EAST
+  - EXISTING-SEWER-NORTH
+  - EXISTING-SEWER-SOUTH
+  - FENCE-01
+  - FOUNDATION-DTL
+  - GRADE-LEVEL-1
+  - GRADE-LEVEL-2
+  - GRID-COL-1
+  - GRID-COL-2
+  - GRID-COL-3
+  - GRID-COL-4
+  - GRID-COL-5
+  - GRID-COL-6
+  - GRID-COL-7
+  - GUTTER-L-02
+  - KEY-PLAN
+  - LEGEND-01
+  - LINE_101
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - MH-01
+  - MH-02
+  - MH-03
+  - PAVE-ASCON-RESTORE
+  - PAVE-BLOCK-WEST
+  - PAVE-CONCRETE-NORTH
+  - PHOTO-CP1
+  - PHOTO-CP2
+  - PHOTO-CP3
+  - PHOTO-TBM
+  - PIPE-DETAIL-A
+  - PIPE-DTL-01
+  - PIPE-DTL-02
+  - PIPE-MAIN-DTL
+  - PIPE-OSU-02
+  - PIPE-USU-01
+  - PROC-NOTES
+  - PROC-SEQ-01
+  - PROC-STEP-2-3
+  - PROC-STEP-5-6
+  - SEC-C00
+  - SEC-C01
+  - SEC-C02
+  - SLOPE-LEFT
+  - SLOPE-RIGHT
+  - TABLE-CP
+  - TABLE-FOUND-01
+  - TABLE-FOUND-DIM
+  - TABLE-MAT
+  - TABLE-PVC-DIM
+  - TBM-01
+  - TITLE-BLOCK
+  - TOC-MAIN
+  - UNKNOWN-ANNEX-CENTER-01
+  - UNKNOWN-ANNEX-RIGHT-01
+  - UNKNOWN-BUILDING-01
+  - UNKNOWN-CURB-01
+  - UNKNOWN-CURB-02
+  - UNKNOWN-EXCAVATION-CELL-01
+  - UNKNOWN-EXCAVATION-PLAN-01
+  - UNKNOWN-FINAL-EXC-ZONE-01
+  - UNKNOWN-FINAL-EXC-ZONE-02
+  - UNKNOWN-FINAL-EXC-ZONE-03
+  - UNKNOWN-GRID-H-01
+  - UNKNOWN-GRID-V-01
+  - UNKNOWN-NORTH-01
+  - UNKNOWN-NORTH-ARROW-01
+  - UNKNOWN-OBJECT-01
+  - UNKNOWN-OUTER-BLOCK-LEFT-01
+  - UNKNOWN-PAVEMENT-01
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-STRUCTURE-01
+  - UNKNOWN-STRUCTURE-02
+  - UNKNOWN-STRUCTURE-03
+  - UNKNOWN-STRUCTURE-04
+  - UNKNOWN-STRUCTURE-06
+  - UNKNOWN-TENT-01
+  - 기준맨홀
+  threshold_applied: ≥ 5건
+  total_evidence: 96
+  sample_evidence:
+  - tag: BLDG-07
+    raw_text: 'ontology_hints.function_candidates: Sports, Recreation'
+    source_page: 4
+  - tag: PIPE-DTL-02
+    raw_text: 'function_candidates: socket_joint_detail, pipe_connection_detail'
+    source_page: 11
+  - tag: UNKNOWN-EXCAVATION-PLAN-01
+    raw_text: 'ontology_hints.function_candidates: Excavation Planning; Elevation
+      Control; Site Grading'
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasInferredName
+  datatype: xsd:string
+  label: hasInferredName
+  evidence_tags:
+  - BUILDING-SECTION-LEFT
+  - BUILDING-SECTION-RIGHT
+  - DIM-2810
+  - DIM-379
+  - GRADE-LEVEL-1
+  - GRID-COL-1
+  - GRID-COL-2
+  - GRID-COL-3
+  - GRID-COL-4
+  - GRID-COL-5
+  - GRID-COL-6
+  - GRID-COL-7
+  - KEY-PLAN
+  - PIPE-DETAIL-A
+  - PIPE-DTL-02
+  - PIPE-MAIN-DTL
+  - PROC-SEQ-01
+  - PROC-STEP-1
+  - PROC-STEP-2-3
+  - PROC-STEP-4
+  - PROC-STEP-5-6
+  - TABLE-FOUND-DIM
+  - UNKNOWN-CURB-01
+  - UNKNOWN-CURB-02
+  - UNKNOWN-CURB-03
+  - UNKNOWN-PAVEMENT-01
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-PAVEMENT-04
+  - UNKNOWN-TABLE-01
+  - UNKNOWN-TABLE-02
+  - UNKNOWN-TABLE-03
+  - UNKNOWN-TABLE-04
+  - UNKNOWN-TABLE-05
+  - UNKNOWN-TABLE-06
+  threshold_applied: ≥ 5건
+  total_evidence: 34
+  sample_evidence:
+  - tag: BUILDING-SECTION-RIGHT
+    raw_text: 'inferred_name: 건물 단면 (우측 구간, 그리드 5~7 범위, 상부 돌출부 포함)'
+    source_page: 22
+  - tag: PIPE-DETAIL-A
+    raw_text: 'inferred_name: 소켓부 ''A'' 상세 및 A-A 단면'
+    source_page: 11
+  - tag: UNKNOWN-TABLE-04
+    raw_text: 'inferred_name: 아스콘 포장복구 수량표'
+    source_page: 20
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSymbol
+  datatype: xsd:string
+  label: hasSymbol
+  evidence_tags:
+  - CB-01
+  - CP.1
+  - CP.2
+  - EXISTING-SEWER-EAST
+  - FENCE-01
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - T.B.M
+  - UNKNOWN-NORTH-ARROW-01
+  threshold_applied: ≥ 3건
+  total_evidence: 12
+  sample_evidence:
+  - tag: CB-01
+    raw_text: 'specs.symbol: ⊠'
+    source_page: 5
+  - tag: SM.1
+    raw_text: 'symbol: 이중원'
+    source_page: 12
+  - tag: UNKNOWN-NORTH-ARROW-01
+    raw_text: 'specs.symbol: north_arrow'
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasNote
+  datatype: xsd:string
+  label: hasNote
+  evidence_tags:
+  - COVER-01
+  - DTL-RUNG
+  - T.B.M
+  - UNKNOWN-ANNEX-CENTER-01
+  - UNKNOWN-ANNEX-RIGHT-01
+  - UNKNOWN-EXCAVATION-PLAN-01
+  - UNKNOWN-OUTER-BLOCK-LEFT-01
+  - UNKNOWN-STAIR-01
+  - UNKNOWN-TABLE-04
+  threshold_applied: ≥ 3건
+  total_evidence: 9
+  sample_evidence:
+  - tag: T.B.M
+    raw_text: 'specs.note: 중벽상단와서나사'
+    source_page: 3
+  - tag: UNKNOWN-ANNEX-CENTER-01
+    raw_text: 'specs.note: 도면 하단 중앙 사각형 블록'
+    source_page: 21
+  - tag: UNKNOWN-EXCAVATION-PLAN-01
+    raw_text: 'note: 도면 전체가 굴착 계획 평면도로 구성됨.'
+    source_page: 21
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasDepth
+  datatype: xsd:decimal
+  label: hasDepth
+  evidence_tags:
+  - SM.1
+  - UNKNOWN-STRUCTURE-01
+  - 기준맨홀
+  threshold_applied: ≥ 3건
+  total_evidence: 3
+  sample_evidence:
+  - tag: SM.1
+    raw_text: 'manhole_depth_m: 1.57'
+    source_page: 12
+  - tag: 기준맨홀
+    raw_text: 'specs.manhole_depth_m: 1.49'
+    source_page: 13
+  - tag: UNKNOWN-STRUCTURE-01
+    raw_text: 'sump_dimensions.depth_variants: [H=0.7m, H=1.2m]'
+    source_page: 10
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasInvertLevel
+  datatype: xsd:decimal
+  label: hasInvertLevel
+  evidence_tags:
+  - MH-01
+  - MH-02
+  - MH-03
+  - MH-05
+  - MH-06
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  - PIPE-OSU-03
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - TABLE-01
+  - 기준맨홀
+  threshold_applied: ≥ 5건
+  total_evidence: 15
+  sample_evidence:
+  - tag: SM.1
+    raw_text: 'invert_level_in_m: 92.92'
+    source_page: 12
+  - tag: SM.5
+    raw_text: 'invert_level_m: 92.48'
+    source_page: 12
+  - tag: 기준맨홀
+    raw_text: 'specs.invert_level_m: 93.02'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasGroundLevel
+  datatype: xsd:decimal
+  label: hasGroundLevel
+  evidence_tags:
+  - MH-01
+  - MH-02
+  - MH-03
+  - MH-05
+  - MH-06
+  - SM.3
+  - SM.4
+  - SM.5
+  threshold_applied: ≥ 3건
+  total_evidence: 8
+  sample_evidence:
+  - tag: SM.3
+    raw_text: 'ground_level_m: 93.9'
+    source_page: 12
+  - tag: SM.4
+    raw_text: 'ground_level_m: 93.9'
+    source_page: 12
+  - tag: SM.5
+    raw_text: 'ground_level_m: 91.6'
+    source_page: 12
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasPlanLevel
+  datatype: xsd:decimal
+  label: hasPlanLevel
+  evidence_tags:
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - 기준맨홀
+  threshold_applied: ≥ 3건
+  total_evidence: 5
+  sample_evidence:
+  - tag: SM.2
+    raw_text: 'plan_level_m: 94.71'
+    source_page: 12
+  - tag: SM.4
+    raw_text: 'plan_level_m: 93.9'
+    source_page: 12
+  - tag: 기준맨홀
+    raw_text: 'specs.plan_level_m: 94.5'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasExcavationDepth
+  datatype: xsd:decimal
+  label: hasExcavationDepth
+  evidence_tags:
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - TABLE-01
+  - 기준맨홀
+  threshold_applied: ≥ 3건
+  total_evidence: 7
+  sample_evidence:
+  - tag: SM.1
+    raw_text: 'excavation_depth_m_in: 1.55'
+    source_page: 12
+  - tag: SM.5
+    raw_text: 'excavation_depth_m: 1.54'
+    source_page: 12
+  - tag: 기준맨홀
+    raw_text: 'specs.excavation_depth_m: 1.6'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasSoilCover
+  datatype: xsd:decimal
+  label: hasSoilCover
+  evidence_tags:
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - SM.5
+  - TABLE-01
+  - 기준맨홀
+  threshold_applied: ≥ 3건
+  total_evidence: 7
+  sample_evidence:
+  - tag: SM.1
+    raw_text: 'soil_cover_m_in: 1.38'
+    source_page: 12
+  - tag: SM.5
+    raw_text: 'soil_cover_m: 1.25'
+    source_page: 12
+  - tag: 기준맨홀
+    raw_text: 'specs.soil_cover_m: 1.31'
+    source_page: 13
+- source: discipline_context.sub_kinds.free_notes
+  new_property_iri: dks:hasQuantity
+  datatype: xsd:decimal
+  label: hasQuantity
+  evidence_tags:
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-PAVEMENT-04
+  threshold_applied: ≥ 1건
+  total_evidence: 2
+  sample_evidence:
+  - tag: UNKNOWN-PAVEMENT-03
+    raw_text: 'specs.quantity_table.items[0].quantity: 0.05'
+    source_page: 20
+  - tag: UNKNOWN-PAVEMENT-04
+    raw_text: 'quantity_table.items[4].quantity: 0.3'
+    source_page: 20
+unused_hints:
+- suggested_property_label: suggestedParentClass
+  evidence_count: 88
+  sample_tags:
+  - BLDG-01
+  - CP-1
+  - PIPE-OSU-02
+  reason_not_promoted: 온톨로지 설계 메타정보이며 도메인 데이터 속성보다 annotation 성격이 강함.
+- suggested_property_label: observedAttributes
+  evidence_count: 73
+  sample_tags:
+  - BLDG-01
+  - CP-1
+  - STAMP-01
+  reason_not_promoted: 관찰 속성 목록 메타데이터로서 OWL 데이터속성보다 추출 provenance에 가까움.
+- suggested_property_label: functionCandidates
+  evidence_count: 54
+  sample_tags:
+  - BLDG-01
+  - CB-01
+  - PIPE-USU-01
+  reason_not_promoted: hasFunctionCandidate로 정규 승격했고 복수형/단수형 변형은 통합됨.
+- suggested_property_label: hasSourceLabel
+  evidence_count: 16
+  sample_tags:
+  - SM.1
+  - SM.2
+  - SM.5
+  reason_not_promoted: 원문 라벨 묶음 보존용 메타 성격이 강하고 hasLabel과 중복됨.
+- suggested_property_label: observedAttribute
+  evidence_count: 18
+  sample_tags:
+  - BLDG-21
+  - DIM-90
+  - SM.2
+  reason_not_promoted: observedAttributes와 동일 계열 메타정보.
+- suggested_property_label: entitySynthesis
+  evidence_count: 14
+  sample_tags:
+  - BLDG-03
+  - CONC-DEMO-01
+  - UNKNOWN-BOUNDARY-02
+  reason_not_promoted: 수집 provenance 플래그로 도메인 속성보다 메타데이터에 가까움.
+- suggested_property_label: hasEntitySynthesis
+  evidence_count: 20
+  sample_tags:
+  - BLDG-21
+  - BLDG-ICENTER
+  - DIM-90
+  reason_not_promoted: 수집 provenance 플래그.
+- suggested_property_label: hasVisualSemantics
+  evidence_count: 17
+  sample_tags:
+  - BLDG-21
+  - BUILDING-SECTION-RIGHT
+  - KEY-PLAN
+  reason_not_promoted: 추출 provenance 플래그.
+- suggested_property_label: hasSourceModel
+  evidence_count: 15
+  sample_tags:
+  - FOUNDATION-DTL
+  - PIPE-DETAIL-A
+  - PROC-STEP-1
+  reason_not_promoted: 추출 모델 메타정보.
+- suggested_property_label: hasDrawingGenre
+  evidence_count: 16
+  sample_tags:
+  - FOUNDATION-DTL
+  - PIPE-DETAIL-A
+  - UNKNOWN-EXCAVATION-PLAN-01
+  reason_not_promoted: 도면 메타 분류이나 범용 도메인 속성으로는 아직 혼재가 큼.
+- suggested_property_label: hasSubGenre
+  evidence_count: 14
+  sample_tags:
+  - FOUNDATION-DTL
+  - PIPE-DTL-02
+  - PROC-SEQ-01
+  reason_not_promoted: 도면 메타 분류.
+- suggested_property_label: connectedLineSpec
+  evidence_count: 8
+  sample_tags:
+  - SM.1
+  - SM.2
+  - SM.3
+  reason_not_promoted: 원문 연결관로 문자열이며 객체관계 connectedTo/hasPipe와 중복.
+- suggested_property_label: hasPositionNote
+  evidence_count: 8
+  sample_tags:
+  - CP.1
+  - SM.1
+  - SM.5
+  reason_not_promoted: 설명성 위치 메모로 hasPosition보다 비정형.
+- suggested_property_label: hasAnnotation
+  evidence_count: 8
+  sample_tags:
+  - SM.1
+  - SM.3
+  - SM.5
+  reason_not_promoted: 비정형 자유 텍스트로 범위가 넓고 note 계열과 중복.
+- suggested_property_label: hasPanelId
+  evidence_count: 11
+  sample_tags:
+  - UNKNOWN-CURB-01
+  - UNKNOWN-PAVEMENT-02
+  - UNKNOWN-TABLE-04
+  reason_not_promoted: 도면 내부 패널 식별 메타정보로 한정적.
+- suggested_property_label: hasQuantityItem
+  evidence_count: 10
+  sample_tags:
+  - UNKNOWN-CURB-01
+  - UNKNOWN-PAVEMENT-01
+  - UNKNOWN-PAVEMENT-02
+  reason_not_promoted: 표 행 구조를 문자열로 보존한 값이라 정규화 전 단계.
+- suggested_property_label: hasLayerName
+  evidence_count: 7
+  sample_tags:
+  - UNKNOWN-PAVEMENT-02
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-PAVEMENT-04
+  reason_not_promoted: 층 구조를 별도 클래스화하지 않은 상태에서 부분값만 승격하면 의미가 불완전함.
+- suggested_property_label: hasLayerMaterial
+  evidence_count: 6
+  sample_tags:
+  - UNKNOWN-PAVEMENT-04
+  reason_not_promoted: 층 구조 정규화 전에는 주체가 불명확함.
+- suggested_property_label: hasLayerThickness
+  evidence_count: 3
+  sample_tags:
+  - UNKNOWN-PAVEMENT-04
+  reason_not_promoted: 층 구조 정규화 전에는 주체가 불명확함.
+- suggested_property_label: hasApplicationRate
+  evidence_count: 3
+  sample_tags:
+  - UNKNOWN-PAVEMENT-03
+  - UNKNOWN-PAVEMENT-04
+  reason_not_promoted: 포장 상세 일부에만 국한되고 문자열 단위 혼재.
+- suggested_property_label: hasZoneId
+  evidence_count: 5
+  sample_tags:
+  - UNKNOWN-EXCAVATION-PLAN-01
+  - UNKNOWN-FINAL-EXC-ZONE-01
+  - UNKNOWN-FINAL-EXC-ZONE-02
+  reason_not_promoted: 굴착 구역 계열에 한정되며 아직 범용성 낮음.
+- suggested_property_label: hasCollectionSource
+  evidence_count: 11
+  sample_tags:
+  - PAVE-BLOCK-WEST
+  - SM.5
+  - TBM-01
+  reason_not_promoted: 추출 provenance 메타정보.
+- suggested_property_label: hasTableCellText
+  evidence_count: 6
+  sample_tags:
+  - UNKNOWN-TABLE-01
+  - UNKNOWN-TABLE-02
+  - UNKNOWN-TABLE-04
+  reason_not_promoted: 표 전체 원문 보존용 비정형 문자열.
+- suggested_property_label: hasLabelAbove
+  evidence_count: 24
+  sample_tags:
+  - DIM-2810
+  - KEY-PLAN
+  - UNKNOWN-CURB-03
+  reason_not_promoted: 도면 레이아웃 위치 의존적 텍스트로 일반 라벨 속성과 중복.
+- suggested_property_label: hasLabelInside
+  evidence_count: 24
+  sample_tags:
+  - DIM-2810
+  - KEY-PLAN
+  - UNKNOWN-CURB-02
+  reason_not_promoted: 도면 레이아웃 위치 의존적 텍스트로 일반 라벨 속성과 중복.
+- suggested_property_label: hasObservedElevationValue
+  evidence_count: 1
+  sample_tags:
+  - UNKNOWN-EXCAVATION-PLAN-01
+  reason_not_promoted: 단일 태그 특화 속성.
+- suggested_property_label: hasPhotoReference
+  evidence_count: 4
+  sample_tags:
+  - CP.1
+  - CP.2
+  - CP.3
+  - T.B.M
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty로 승격됨.
+- suggested_property_label: referencesSurveyPoint
+  evidence_count: 1
+  sample_tags:
+  - PHOTO-CP3
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty 후보로 처리됨.
+- suggested_property_label: connectedTo
+  evidence_count: 20
+  sample_tags:
+  - LINE_101
+  - PIPE-01
+  - SM.5
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty로 확정됨.
+- suggested_property_label: referencesDetail
+  evidence_count: 10
+  sample_tags:
+  - DTL-RUNG
+  - SLAB-DTL
+  - SEC-C03
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty로 확정됨.
+- suggested_property_label: references
+  evidence_count: 5
+  sample_tags:
+  - FOUNDATION-DTL-01
+  - PROC-SEQ-01
+  - TABLE-01
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty로 확정됨.
+- suggested_property_label: similarTo
+  evidence_count: 4
+  sample_tags:
+  - MH-01
+  - MH-03
+  - GRADE-LEVEL-3
+  reason_not_promoted: DataProperty가 아니라 ObjectProperty 후보로 처리됨.
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T13:19:01.400630'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.86

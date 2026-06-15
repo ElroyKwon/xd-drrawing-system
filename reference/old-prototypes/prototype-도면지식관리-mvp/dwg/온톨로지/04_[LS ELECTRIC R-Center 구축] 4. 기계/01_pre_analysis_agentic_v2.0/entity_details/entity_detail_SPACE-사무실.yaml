@@ -1,0 +1,65 @@
+tag: SPACE-사무실
+name: 사무실
+type: space
+discipline: MECHANICAL
+function_category: SPACE
+source_pages:
+- 52
+specs:
+  labels_inside:
+  - 사무실
+  inferred_name: 사무실 — SMFD 설치 구역
+  position: right-middle
+  raw_labels:
+  - 사무실
+  equipment_symbols:
+  - type: SMFD (스마트 방화댐퍼)
+    count: 6
+  - type: F.C (Field Controller)
+    count: 2
+  source_panel_id: SPACE-사무실
+  cross_discipline_ref: null
+relations:
+- from: CTRL-GATEWAY
+  to: SPACE-사무실
+  relation: connects_to
+  source_page: 52
+  origin: cross_validated
+  line_style: solid
+  note: SMFD 제어 신호선 (A)(B)
+- from: CTRL-GATEWAY
+  to: SPACE-사무실
+  relation: signal
+  source_page: 52
+  origin: visual_semantics
+  annotation: SMFD 제어 신호선 (A)(B)
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: right-middle
+confidence: 0.95
+equipment_symbols:
+- type: SMFD (스마트 방화댐퍼)
+  count: 6
+- type: F.C (Field Controller)
+  count: 2
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: Space
+  observed_attributes:
+  - labels_inside
+  - inferred_name
+  - position
+  - raw_labels
+  - equipment_symbols
+  - source_panel_id
+  - cross_discipline_ref
+  similar_equipment: []
+  function_candidates:
+  - HVAC_Zone
+  - Fire_Protection_Zone

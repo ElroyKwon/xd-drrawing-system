@@ -1,0 +1,176 @@
+placement:
+  tag: SPACE-DIRECTOR
+  name: 센터장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-DIRECTOR
+    class_hint: Space
+    alternative_class_hints:
+    - OfficeSpace
+    - CommunicationEndPoint
+    related_assertions:
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: relations.relation=cable; UTP CAT.5e / T 배선
+    - type: hasInstalledEquipment
+      target_hint: LAN OUTLET
+      note: specs.equipment_symbols에 LAN OUTLET 1종 관찰
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: OFFICE_SPACE'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 도면 내 기능 분류 문자열
+      - raw_text: 'equipment_symbols: LAN OUTLET'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasInstalledEquipment
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 장비 심볼 표기
+      - raw_text: 'relations: HUB-RACK-2F -> SPACE-DIRECTOR, relation=cable, annotation=UTP
+          CAT.5e / T 배선'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 공간과 랙 사이의 케이블 연결 관계
+      - raw_text: 'source_pages: 8, 15'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: locatedOnPage
+          suggested_datatype: xsd:integer
+          rationale: 문서 추적용 페이지 정보
+      - raw_text: 'source_pages: 8, 15'
+        source_page: 15
+        promotion_hint:
+          suggested_property_label: locatedOnPage
+          suggested_datatype: xsd:integer
+          rationale: 문서 추적용 페이지 정보
+  provenance:
+    tag:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    name:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    discipline:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    specs.raw_labels:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    specs.position:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    specs.shape:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    relations:
+      source_pages:
+      - 8
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    collection_sources.visual_semantics:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 8
+      - 15
+      method: direct
+  unresolved:
+  - field_candidate: specs.equipment_symbols.count
+    raw_text: 'null'
+    source_page: 8
+    reason: 수량이 명시되지 않음
+    preservation_note: LAN OUTLET 심볼 존재만 보존
+  - field_candidate: relations.annotation
+    raw_text: UTP CAT.5e / T 배선
+    source_page: 8
+    reason: 관계 타입이 아닌 배선 주석 문자열
+    preservation_note: 연결 관계의 근거 주석으로 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 8
+    reason: 유사 장비 없음으로 표기
+    preservation_note: 빈 배열 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: entity_type은 space이지만 equipment_symbols(LAN OUTLET)와 relation=cable이 함께
+      있어 공간/장비 혼합 해석 가능
+    recommended_handling: 0-9c에서 Space 우선 검증 후, 필요 시 hasInstalledEquipment 및 connectedTo
+      관계를 별도 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Space/Zone 우선 축 반영
+    - 공간 엔티티에 equipment_symbols가 포함된 경우 hasInstalledEquipment 후보로 보존
+    - cable 관계를 connectedTo 후보로 보존
+    - locatedOnPage 추적성 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:45:45.788810'
+  confidence: 0.86

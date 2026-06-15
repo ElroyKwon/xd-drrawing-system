@@ -1,0 +1,83 @@
+tag: IVR-1
+name: '유도전압조정기 IVR #1'
+type: VOLTAGE_REGULATOR
+discipline: ELECTRICAL
+function_category: CONVERT
+source_pages:
+- 2
+specs:
+  input_voltage_V: 440
+  output_voltage_V: 220~550
+  capacity_kVA: 1500
+  phase: 3Φ
+  type: OIL TYPE
+  raw_labels:
+  - IVR 1
+  - 440V / 220~550V
+  - 1,500kVA
+relations:
+- from: LV-6
+  to: IVR-1
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 440V → IVR-1 / FROM LV-5 3Φ3W 440V 60Hz
+- from: IVR-1
+  to: PANEL-E-2PP-1
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 220V~550V 피더
+- from: IVR-1
+  to: PANEL-E-2PP-2
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 220V~550V 피더
+- from: LV-6
+  to: IVR-1
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 440V → IVR-1
+- from: IVR-1
+  to: PANEL-E-2PP-1
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 220V~550V 피더
+- from: IVR-1
+  to: PANEL-E-2PP-2
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 220V~550V 피더
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: middle-left
+confidence: 0.95
+equipment_symbols:
+- type: voltage_regulator
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: VoltageRegulator
+  observed_attributes:
+  - input_voltage_V
+  - output_voltage_V
+  - capacity_kVA
+  - phase
+  - type
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - VoltageRegulation
+  - VoltageAdjustment

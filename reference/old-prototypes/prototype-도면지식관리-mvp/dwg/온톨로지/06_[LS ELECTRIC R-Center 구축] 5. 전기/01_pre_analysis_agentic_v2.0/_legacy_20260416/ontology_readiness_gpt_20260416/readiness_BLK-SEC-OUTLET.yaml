@@ -1,0 +1,145 @@
+ontology_readiness:
+  tag: BLK-SEC-OUTLET
+  verdict: demoted
+  confidence: 0.93
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 2
+    reason: type=PANEL이지만 specs는 도면 섹션/라벨 정보(labels_inside, raw_labels)만 있으며 물리적 독립
+      설비의 자체 사양으로 보기 어렵다. 도면 메타데이터 성격의 '전열설비 섹션'으로 판단되어 document_metadata로 demoted.
+  relation_completeness:
+    declared_relations: 0
+    discovered_relations: 0
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 2
+    convertible: 0
+    ambiguous_attributes:
+    - key: labels_inside
+      value:
+      - 전 열 설 비
+      - 32 | EE-04-001 | 지상1층 전열 설비 평면도 | 1/200 | 1/400
+      - 33 | EE-04-002 | 지상2층 전열 설비 평면도 | 1/200 | 1/400
+      reason: 설비 속성이라기보다 도면 내 표기/섹션 라벨로 보이며, 물리적 장비의 정량 사양으로 변환 불가.
+    - key: raw_labels
+      value:
+      - 전 열 설 비
+      - 32 | EE-04-001 | 지상1층 전열 설비 평면도 | 1/200 | 1/400
+      - 33 | EE-04-002 | 지상2층 전열 설비 평면도 | 1/200 | 1/400
+      reason: 원문 라벨 텍스트로서 OWL annotation 보존 대상이며, 속성값으로 정규화하기 어려움.
+    auxiliary_attributes:
+    - labels_inside
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: false
+      source: mini
+      conflict_with: null
+    - key: collection_sources.cross_validated
+      value: true
+      source: entity_detail
+      conflict_with: null
+    - key: collection_sources.visual_semantics
+      value: true
+      source: entity_detail
+      conflict_with: null
+    - key: collection_sources.visual_semantics_gemini
+      value: true
+      source: entity_detail
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes: []
+  spatial_context:
+    position: center
+    source_pages:
+    - 2
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      labels_inside:
+      - 전 열 설 비
+      - 32 | EE-04-001 | 지상1층 전열 설비 평면도 | 1/200 | 1/400
+      - 33 | EE-04-002 | 지상2층 전열 설비 평면도 | 1/200 | 1/400
+      raw_labels:
+      - 전 열 설 비
+      - 32 | EE-04-001 | 지상1층 전열 설비 평면도 | 1/200 | 1/400
+      - 33 | EE-04-002 | 지상2층 전열 설비 평면도 | 1/200 | 1/400
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+      visual_semantics_gemini: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs.labels_inside
+  - specs.raw_labels
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - ontology_hints.observed_relations (없음)
+  - ontology_hints.cross_discipline (없음)
+  - ontology_hints.similar_equipment (빈 목록)
+  - connection_specs (제공되지 않음)
+  demoted_to:
+    role: document_metadata
+    parent_tag: null
+    relation_type: references
+    owl_pattern: :BLK-SEC-OUTLET rdf:type :Component ; :partOf :DocumentMetadataSection
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Component
+    annotations_to_emit:
+    - labels_inside
+    - raw_labels
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    - collection_sources.cross_validated
+    - collection_sources.visual_semantics
+    - collection_sources.visual_semantics_gemini
+    relations_to_emit:
+    - references
+    needs_human_review: false
+tag: BLK-SEC-OUTLET
+discovered_relations: 0

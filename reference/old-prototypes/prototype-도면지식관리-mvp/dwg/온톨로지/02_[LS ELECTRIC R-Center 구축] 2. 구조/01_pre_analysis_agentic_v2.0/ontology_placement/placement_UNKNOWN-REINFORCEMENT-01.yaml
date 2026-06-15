@@ -1,0 +1,164 @@
+placement:
+  tag: UNKNOWN-REINFORCEMENT-01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ''
+    class_hint: ReinforcementDetail
+    alternative_class_hints:
+    - DetailEntity
+    - StructuralDetail
+    - ReinforcementMark
+    related_assertions:
+    - type: references
+      target_hint: PF1A
+      note: PF1A 상부 보강근 상세 참조
+      confirmed_property: dks:references
+      confirmed_target: dks:PF1A
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX002
+    - AX012
+    applicable_constraints: []
+    confirmed_class: dks:ReinforcementDetail
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: PF1A 상부 보강근 상세 참조
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: xsd:string
+          rationale: 상세 참조 문구이며 관계 의미를 가진 주석성 텍스트
+      - raw_text: 'relation_type: references'
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: references
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 타입이 명시되어 있음
+      - raw_text: 'direction: incoming'
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationDirection
+          suggested_datatype: xsd:string
+          rationale: 관계 방향 메타정보
+      - raw_text: 'line_style: dashed'
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: lineStyle
+          suggested_datatype: xsd:string
+          rationale: 도면 선형 스타일 메타정보
+      - raw_text: 'origin: cross_validated'
+        source_page: 33
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 출처/검증 방식 메타정보
+  provenance:
+    tag:
+      source_pages:
+      - 33
+      method: entity_detail
+    owl_role:
+      source_pages:
+      - 33
+      method: inferred_from_relation_presence_and_detail_status
+    class_hint:
+      source_pages:
+      - 33
+      method: inferred
+    related_assertions:
+      source_pages:
+      - 33
+      method: direct_extraction
+    discipline_context.free_notes:
+      source_pages:
+      - 33
+      method: direct_extraction
+    ambiguous:
+      source_pages:
+      - 33
+      method: reviewed
+    plan_reference.guidance_applied:
+      source_pages:
+      - 33
+      method: applied
+  unresolved:
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 33
+    reason: 원문에 name 필드가 없음
+    preservation_note: 빈 값으로 보존
+  - field_candidate: specs
+    raw_text: ''
+    source_page: 33
+    reason: specs 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: connection_specs
+    raw_text: ''
+    source_page: 33
+    reason: connection_specs 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: requirements
+    raw_text: ''
+    source_page: 33
+    reason: requirements 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: drawing_texts
+    raw_text: ''
+    source_page: 33
+    reason: drawing_texts 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: ontology_hints
+    raw_text: ''
+    source_page: 33
+    reason: ontology_hints 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: notes
+    raw_text: ''
+    source_page: 33
+    reason: notes 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: source_pages
+    raw_text: ''
+    source_page: 33
+    reason: entity_detail 최상위 source_pages 필드가 없음
+    preservation_note: 관계 레코드의 source_page만 존재
+  - field_candidate: source_attribution
+    raw_text: ''
+    source_page: 33
+    reason: source_attribution 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  - field_candidate: position
+    raw_text: ''
+    source_page: 33
+    reason: position 필드가 제공되지 않음
+    preservation_note: 해당 없음
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 보강근 상세로 보이지만, 원문에는 독립 실체인지 단순 참조 주석인지 완전한 판별 근거가 부족함. 다만 관계 레코드와 상세
+      문구가 있어 NamedIndividual로 우선 보존함.
+    recommended_handling: 0-9c/0-9d에서 PF1A와의 관계 정규화 및 상세/주석 분리 여부를 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - detail/beam -> connects_to -> detail/beam
+    - other relation from visual semantics awaiting normalization
+    - member mark -> located_in -> plan
+    deviations:
+    - plan의 structural 중심 예측을 따르되, 본 태그는 보강근 상세 참조로서 detail entity로 우선 배치함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:16:06.930293'
+  confidence: 0.78

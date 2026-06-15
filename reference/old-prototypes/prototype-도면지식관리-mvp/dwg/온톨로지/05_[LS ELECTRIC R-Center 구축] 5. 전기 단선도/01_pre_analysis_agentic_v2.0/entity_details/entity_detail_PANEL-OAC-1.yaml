@@ -1,0 +1,56 @@
+tag: PANEL-OAC-1
+name: 380V 분전반 P-OAC-1
+type: MCCB
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  rated_voltage_V: 380
+  rated_current_A: 400
+  frame_A: 400
+  poles: 3
+  raw_labels:
+  - P-OAC-1
+  - MCCB 3P
+  - 380V
+  - 400/350A
+relations:
+- from: SWGR-380V-MAIN
+  to: PANEL-OAC-1
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 380V 피더
+- from: SWGR-380V-MAIN
+  to: PANEL-OAC-1
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 380V 피더
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: bottom-right
+confidence: 0.95
+equipment_symbols:
+- type: MCCB
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: DistributionBoard
+  observed_attributes:
+  - rated_voltage_V
+  - rated_current_A
+  - frame_A
+  - poles
+  - raw_labels
+  similar_equipment: []
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection

@@ -1,0 +1,175 @@
+placement:
+  tag: STRUCT-004
+  name: 기초 콘크리트
+  discipline: structural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: STRUCT-004
+    class_hint: Foundation
+    alternative_class_hints:
+    - StructuralSupport
+    - GroundingSystemBase
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Foundation
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: structural
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: FOUNDATION'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 type 값이 명시됨
+      - raw_text: 'purpose: 기초접지극 및 접지단자함 설치 기초'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasPurpose
+          suggested_datatype: xsd:string
+          rationale: 기초의 용도가 문장 형태로 명시됨
+      - raw_text: 'applications: 기초접지극 포설, 접지단자함 설치'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasApplication
+          suggested_datatype: xsd:string
+          rationale: 적용 대상/용도가 목록 형태로 명시됨
+      - raw_text: 'position: multiple'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 위치 정보가 원문 문자열로 존재함
+      - raw_text: 'confidence: 0.95'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 도면 추출 신뢰도 수치가 존재함
+  provenance:
+    name:
+      source_pages:
+      - 39
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 39
+      method: classification_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 39
+      method: tag_as_identifier
+    ontology_core.class_hint:
+      source_pages:
+      - 39
+      method: ontology_hints.suggested_parent_class + specs.type
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 39
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 39
+      method: preserve_unclassified_fields
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 39
+      method: assessment_from_entity_detail
+    confidence:
+      source_pages:
+      - 39
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 39
+      method: entity_detail.source_attribution
+    collection_sources:
+      source_pages:
+      - 39
+      method: entity_detail.collection_sources
+    position:
+      source_pages:
+      - 39
+      method: entity_detail.position
+    specs.type:
+      source_pages:
+      - 39
+      method: entity_detail.specs.type
+    specs.purpose:
+      source_pages:
+      - 39
+      method: entity_detail.specs.purpose
+    specs.applications:
+      source_pages:
+      - 39
+      method: entity_detail.specs.applications
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints.function_candidates
+    relations:
+      source_pages:
+      - 39
+      method: entity_detail.relations_empty
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 39
+    reason: 관계 항목이 비어 있어 추출 가능한 관계 사실이 없음
+    preservation_note: 후속 도면에서 연결 대상이 나타나면 part_of/contains/located_in 관계 검토
+  - field_candidate: collection_sources.cross_validated
+    raw_text: 'true'
+    source_page: 39
+    reason: 분류 정보가 아니라 메타 검증 플래그로, OWL 핵심 속성으로 직접 해석하지 않음
+    preservation_note: 출처 신뢰 메타로만 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 39
+    reason: 분류 정보가 아니라 생성/합성 메타 플래그임
+    preservation_note: 출처 메타로만 보존
+  - field_candidate: source_attribution.sonnet
+    raw_text: 'true'
+    source_page: 39
+    reason: 모델/출처 속성으로서 실체 정보가 아님
+    preservation_note: provenance 메타로만 보존
+  - field_candidate: source_attribution.gemini
+    raw_text: 'true'
+    source_page: 39
+    reason: 모델/출처 속성으로서 실체 정보가 아님
+    preservation_note: provenance 메타로만 보존
+  - field_candidate: source_attribution.mini
+    raw_text: 'true'
+    source_page: 39
+    reason: 모델/출처 속성으로서 실체 정보가 아님
+    preservation_note: provenance 메타로만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 기초 콘크리트라는 구조물 실체가 명확하며, 부품/주석보다 독립된 구조 요소로 보는 것이 타당함
+    recommended_handling: NamedIndividual로 유지하고, 후속 단계에서 Foundation 또는 StructuralSupport
+      계열로 세분화
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보와 실체 설비의 분리
+    - StructuralSupport 및 기초/지지 구조물 모델링
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:13:25.004185'
+  confidence: 0.95

@@ -1,0 +1,173 @@
+placement:
+  tag: STRUCT-003
+  name: 철근
+  discipline: structural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: STRUCT-003
+    class_hint: ReinforcingElement
+    alternative_class_hints:
+    - StructuralReinforcement
+    - GroundingConnectionPoint
+    related_assertions:
+    - type: connected_to
+      target_hint: 철근클램프
+      note: specs.grounding_connection에 '철근클램프 접속'으로 관찰됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:StructuralComponent
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: structural
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: 철근'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasTypeLabel
+          suggested_datatype: xsd:string
+          rationale: 도면상 유형 표기 문자열
+      - raw_text: 'material: Reinforcing Steel Bar'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasMaterial
+          suggested_datatype: xsd:string
+          rationale: 재질/재료 문자열
+      - raw_text: 'grounding_connection: 철근클램프 접속'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: xsd:string
+          rationale: 접속 대상과 접속 방식이 함께 표기된 관계성 정보
+      - raw_text: 'suggested_parent_class: ReinforcingElement'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 분류 힌트 보존
+      - raw_text: 'observed_attributes: type, material, grounding_connection'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasObservedAttribute
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'function_candidates: StructuralReinforcement, GroundingConnectionPoint'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 라벨 보존
+  provenance:
+    name:
+      source_pages:
+      - 39
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 39
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 39
+      method: classification_by_entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 39
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 39
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 39
+      method: specs.grounding_connection
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 39
+      method: specs.grounding_connection
+    specs.type:
+      source_pages:
+      - 39
+      method: entity_detail.specs
+    specs.material:
+      source_pages:
+      - 39
+      method: entity_detail.specs
+    specs.grounding_connection:
+      source_pages:
+      - 39
+      method: entity_detail.specs
+    position:
+      source_pages:
+      - 39
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 39
+      method: entity_detail.confidence
+    source_attribution:
+      source_pages:
+      - 39
+      method: entity_detail.source_attribution
+    collection_sources.cross_validated:
+      source_pages:
+      - 39
+      method: entity_detail.collection_sources
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 39
+      method: entity_detail.collection_sources
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints
+  unresolved:
+  - field_candidate: specs.grounding_connection
+    raw_text: 철근클램프 접속
+    source_page: 39
+    reason: 접속 대상은 관찰되나 관계의 정식 property IRI는 아직 확정 불가
+    preservation_note: 철근과 철근클램프의 연결 사실로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ReinforcingElement
+    source_page: 39
+    reason: 후보 클래스명이며 확정 분류 아님
+    preservation_note: 0-9c에서 taxonomy 후보로 검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: StructuralReinforcement
+    source_page: 39
+    reason: 기능 후보 라벨
+    preservation_note: 기능 분류 후보로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: GroundingConnectionPoint
+    source_page: 39
+    reason: 기능 후보 라벨
+    preservation_note: 접지 연계 가능성 후보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 철근이 구조 보강 요소인지, 접지 연결점 역할까지 겸하는지 도면상 단일 태그만으로는 확정 불가
+    recommended_handling: NamedIndividual로 유지하되, structural reinforcement와 grounding
+      connection point의 이중 후보를 함께 보존하고 후속 단계에서 관계/클래스 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전기 설비를 지지하는 물리적 기반 및 자연적 인하도선으로 활용되는 기초철골 모델링
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:13:22.998337'
+  confidence: 0.95

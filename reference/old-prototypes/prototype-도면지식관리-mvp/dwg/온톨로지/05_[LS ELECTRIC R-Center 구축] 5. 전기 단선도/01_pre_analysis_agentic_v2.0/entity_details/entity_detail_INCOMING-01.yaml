@@ -1,0 +1,83 @@
+tag: INCOMING-01
+name: 6.6kV 인입 케이블헤드
+type: CABLE_HEAD
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  rated_voltage_kV: 6.6
+  phase: 3Φ
+  frequency_Hz: 60
+  wire_system: 3W
+  cable_spec: 3-1C x 240mm² (FR-CNCO-W)
+  source_text: FROM 지 S (지하1층 변전실) / FROM U/T 154kV S/S
+  raw_labels:
+  - INCOMING
+  - FROM 지 S (지하1층 변전실)
+  - 6.6kV 3Φ 60Hz
+  - CABLE HEAD
+  source_block: visual_semantics
+relations:
+- from: EXT-HV-SOURCE
+  to: INCOMING-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV 3Φ 60Hz 인입
+- from: INCOMING-01
+  to: HV-1
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV BUS
+- from: EXT-HV-SOURCE
+  to: INCOMING-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV 3Φ 60Hz 인입
+- from: INCOMING-01
+  to: HV-1
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV BUS
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-left
+confidence: 0.95
+equipment_symbols:
+- type: cable_head
+  count: 1
+- type: LA
+  count: 3
+- type: PT
+  count: 2
+- type: fuse
+  count: 2
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalEquipment
+  observed_attributes:
+  - rated_voltage_kV
+  - phase
+  - frequency_Hz
+  - wire_system
+  - cable_spec
+  - source_text
+  - raw_labels
+  - source_block
+  similar_equipment: []
+  function_candidates:
+  - PowerIncoming
+  - CableTermination
+  - SurgeProtection
+  - VoltageMeasurement

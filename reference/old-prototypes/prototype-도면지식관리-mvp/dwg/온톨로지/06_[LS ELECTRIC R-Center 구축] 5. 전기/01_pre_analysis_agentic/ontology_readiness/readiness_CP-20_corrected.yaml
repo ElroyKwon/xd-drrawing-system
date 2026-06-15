@@ -1,0 +1,10 @@
+verdict: demoted
+confidence: 0.96
+reason: 이전 평가를 유지한다. CP-20은 도면상 고유 tag가 있고 ELECTRICAL discipline 및 function_category=회로로
+  식별되지만, entity_detail의 specs가 비어 있고 connection_specs 및 observed_relations도 전혀 없다.
+  또한 drawing_texts의 "Incoming power panel or circuit"는 개별 설비의 확정적 명칭이라기보다 회로/패널 계열의
+  일반적 분류 표현에 가깝다. 현재 증거만으로는 독립적으로 식별 가능한 장치, 패널, 보호계전기, 변압기 등과 같은 자립 엔티티로 보기 어렵고,
+  단선결선도 내 분기/인입 회로 표기 수준으로 해석하는 것이 타당하다. similar_equipment에 다수의 CP 계열이 반복되는 점도 개별
+  장비보다는 계통 내 회로 식별자 집합일 가능성을 강화한다. 따라서 CP-20은 독립 엔티티가 아니라 상위 전기설비 또는 배전계통에 종속된 회로/속성성
+  항목으로 강등하는 판단이 적절하다.
+tag: CP-20

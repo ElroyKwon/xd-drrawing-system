@@ -1,0 +1,854 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: CIVIL
+  classification: SITE_PLAN
+  drawing_genre: site_plan
+  title_block:
+    drawing_number: C00-003
+    title: 지중배설물도
+    revision: null
+  visible_tags:
+  - tag: CP.1
+    type: point_marker
+    source: image
+  - tag: CP.2
+    type: point_marker
+    source: image
+  - tag: CP.3
+    type: point_marker
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 지중매설물도이며 배관/관로 표기가 다수 보임
+  - 표제란에 도면번호 C00-003, 제목 지중배설물도 확인
+  - legend_data.yaml를 읽을 수 없었음
+  confidence: 0.93
+  note: 표제란 도면번호 C00-003의 접두사 C를 우선하여 CIVIL로 판단함. 시각적으로는 지중 매설물/관로 배치도 성격이 강함.
+  recommended_supplements: &id001
+    P-4.5: discipline/civil/genre_site_plan/supplement_p4_05.yaml
+  routing_confidence: 0.88
+  routing_reason: discipline=CIVIL, drawing_genre=site_plan 조합에 대해 카탈로그에 genre_site_plan
+    보조프롬프트가 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 풋살경기장
+    position: top-right
+    labels_near:
+    - 조명탑
+    - 분전함
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 천막
+    position: top-left
+    labels_near:
+    - 차양막
+  - panel_id: BLK-003
+    shape: rectangle
+    primary_label: 컨테이너
+    position: center-left
+    labels_near:
+    - H=0.90M
+  - panel_id: BLK-004
+    shape: rectangle
+    primary_label: 철재계단
+    position: bottom-left
+    labels_near:
+    - 철재난간
+  - panel_id: BLK-005
+    shape: rectangle
+    primary_label: 액체질소저장소
+    position: bottom-left
+    labels_near:
+    - '90'
+  connections:
+  - from: BLK-002
+    to: BLK-003
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:21M
+  - from: BLK-003
+    to: BLK-004
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:43M
+  - from: BLK-004
+    to: BLK-005
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:24M
+  notable_shapes:
+  - shape: circle
+    label: N
+    note: 방위 표시 (North Arrow)
+  - shape: circle
+    label: CP.1
+    note: 기준점 (Control Point) 마커
+  - shape: circle
+    label: CP.2
+    note: 기준점 (Control Point) 마커
+  - shape: circle
+    label: CP.3
+    note: 기준점 (Control Point) 마커
+  - shape: circle
+    label: '1'
+    note: 도면 상세 번호 (Detail Number)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.95
+  note: 지중매설물 배치도로, 범례 표나 심볼 목록이 포함되어 있지 않음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: site_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면번호 C00-003의 접두사 C와 제목 '지중매설물도'를 통해 CIVIL 분야의 site_plan 장르로 확정함.
+    기존 분석 결과와 일치함.
+classification: SITE_PLAN
+discipline: CIVIL
+key_elements_from_text:
+- 도면번호 C00-003
+- '제목: 지중매설물도'
+- 축척 1/300
+- CP.1
+- CP.2
+- CP.3
+- D150 오수관로(H:1,700) L:24M
+- D150 오수관로(H:1,700) L:30M
+- D150 오수관로(H:1,700) L:21M
+- D150 오수관로(H:1,700) L:43M
+- LS Electric
+- R-Center 구축
+- 가온건축
+title_block:
+  drawing_number: C00-003
+  title: 지중매설물도
+  revision: UNKNOWN
+confidence: 0.98
+note: '기존 분석의 CIVIL / SITE_PLAN / 도면번호 C00-003 / 제목 지중배설물도 판정과 일치하나, 이미지 표제란과 하단 제목에서
+  ''지중매설물도''로 보이며 기존 분석의 ''지중배설물도''는 불일치함. 페이지 4의 시각적 근거: 우하단 표제란 제목 ''지중매설물도'', 본문
+  내 관로 표기와 CP.1~CP.3 기준점, 우상단 LS Electric / R-Center 구축 표기.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: FUTSAL-FIELD
+    shape: rectangle
+    labels_inside:
+    - 풋살경기장
+    labels_above: []
+    labels_below:
+    - 조명탑
+    - 분전함
+    equipment_symbols:
+    - type: 조명탑 심볼
+      count: 2
+    - type: 분전함 심볼
+      count: 1
+    inferred_name: 풋살경기장
+    position: top-right
+    status: existing
+  - panel_id: CANOPY-01
+    shape: rectangle
+    labels_inside:
+    - 천막
+    - 차양막
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 천막/차양막 구조물
+    position: top-center-left
+    status: existing
+  - panel_id: PARKING-LOT
+    shape: rectangle
+    labels_inside:
+    - 차양막
+    labels_above:
+    - '95'
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주차장 구역
+    position: top-left
+    status: existing
+  - panel_id: MAIN-BLDG
+    shape: rectangle
+    labels_inside:
+    - 하역
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주건물 (하역 구역 포함)
+    position: center-left
+    status: existing
+  - panel_id: CONTAINER-01
+    shape: rectangle
+    labels_inside:
+    - 컨테이너
+    labels_above: []
+    labels_below:
+    - H=0.90M
+    equipment_symbols: []
+    inferred_name: 컨테이너 (높이 0.90m)
+    position: center-left
+    status: existing
+  - panel_id: STEEL-STAIR
+    shape: rectangle
+    labels_inside:
+    - 철재계단
+    - 철재난간
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 철재계단 및 난간
+    position: bottom-left
+    status: existing
+  - panel_id: LN2-STORAGE
+    shape: rectangle
+    labels_inside:
+    - 액체질소저장소
+    labels_above: []
+    labels_below:
+    - '90'
+    equipment_symbols: []
+    inferred_name: 액체질소저장소
+    position: bottom-left
+    status: existing
+  - panel_id: BLDG-SOUTH-01
+    shape: rectangle
+    labels_inside:
+    - 우수집수정
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남측 건물 구역 1 (우수집수정 인근)
+    position: bottom-center-left
+    status: existing
+  - panel_id: BLDG-SOUTH-02
+    shape: rectangle
+    labels_inside:
+    - 우수집수정
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남측 건물 구역 2
+    position: bottom-center
+    status: existing
+  - panel_id: BLDG-SOUTH-03
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남측 건물 구역 3
+    position: bottom-right
+    status: existing
+  - panel_id: CP-1
+    shape: circle
+    labels_inside:
+    - CP-1
+    - 91 ②①
+    labels_above: []
+    labels_below:
+    - H=2.23M
+    equipment_symbols:
+    - type: 도근점 심볼 (SYM-003)
+      count: 1
+    inferred_name: 기준점 CP-1
+    position: right-center-bottom
+    status: existing
+    ground_level_m: null
+    note: 좌표 93.812 표기 인근
+  - panel_id: CP-2
+    shape: circle
+    labels_inside:
+    - CP-2
+    - 98/11②
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 도근점 심볼 (SYM-003)
+      count: 1
+    inferred_name: 기준점 CP-2
+    position: top-right
+    status: existing
+  - panel_id: MH-SEWAGE-01
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼 (SYM-007)
+      count: 1
+    inferred_name: 기존 오수맨홀 1
+    position: center
+    status: existing
+    subsystem: sewage
+  - panel_id: MH-SEWAGE-02
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼 (SYM-007)
+      count: 1
+    inferred_name: 기존 오수맨홀 2
+    position: bottom-center
+    status: existing
+    subsystem: sewage
+  - panel_id: MH-SEWAGE-03
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼 (SYM-007)
+      count: 1
+    inferred_name: 기존 오수맨홀 3
+    position: bottom-right
+    status: existing
+    subsystem: sewage
+  - panel_id: SUMP-01
+    shape: circle
+    labels_inside: []
+    labels_above:
+    - 우수집수정
+    labels_below:
+    - H=1.50M
+    equipment_symbols: []
+    inferred_name: 우수집수정 1
+    position: center-right
+    status: existing
+    subsystem: stormwater
+    invert_level_m: null
+  - panel_id: SUMP-02
+    shape: circle
+    labels_inside: []
+    labels_above:
+    - 우수집수정
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 우수집수정 2
+    position: bottom-center
+    status: existing
+    subsystem: stormwater
+  - panel_id: ELEC-MH-01
+    shape: circle
+    labels_inside:
+    - 한
+    labels_above: []
+    labels_below:
+    - 한전맨홀
+    equipment_symbols:
+    - type: 한전맨홀 심볼 (SYM-005)
+      count: 1
+    inferred_name: 한전맨홀
+    position: right
+    status: existing
+    subsystem: electrical
+  - panel_id: TELECOM-MH-01
+    shape: circle
+    labels_inside:
+    - 통
+    labels_above: []
+    labels_below:
+    - 통신맨홀
+    equipment_symbols:
+    - type: 통신맨홀 심볼 (SYM-001)
+      count: 1
+    inferred_name: 통신맨홀
+    position: right
+    status: existing
+    subsystem: telecom
+  connections:
+  - from: MH-SEWAGE-01
+    to: MH-SEWAGE-02
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:21M
+    nominal_diameter_mm: 150
+    burial_depth_m: 1.7
+    length_m: 21
+    subsystem: sewage
+    flow_direction: top-to-bottom
+  - from: MH-SEWAGE-01
+    to: MH-SEWAGE-02
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:43M
+    nominal_diameter_mm: 150
+    burial_depth_m: 1.7
+    length_m: 43
+    subsystem: sewage
+    flow_direction: top-to-bottom
+  - from: MH-SEWAGE-02
+    to: MH-SEWAGE-03
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:24M
+    nominal_diameter_mm: 150
+    burial_depth_m: 1.7
+    length_m: 24
+    subsystem: sewage
+    flow_direction: left-to-right
+  - from: MH-SEWAGE-02
+    to: MH-SEWAGE-03
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:30M
+    nominal_diameter_mm: 150
+    burial_depth_m: 1.7
+    length_m: 30
+    subsystem: sewage
+    flow_direction: bottom-to-top
+  - from: MH-SEWAGE-03
+    to: null
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:30M 기존오수관로
+    nominal_diameter_mm: 150
+    burial_depth_m: 1.7
+    length_m: 30
+    subsystem: sewage
+    flow_direction: bottom
+    note: 기존 오수관로 연결 방향
+  groups:
+  - group_id: GRP-SEWAGE
+    label: 오수관로 계통 (D150, H:1,700)
+    members:
+    - MH-SEWAGE-01
+    - MH-SEWAGE-02
+    - MH-SEWAGE-03
+    subsystem: sewage
+    nominal_diameter_mm: 150
+    burial_depth_m: 1.7
+  - group_id: GRP-STORMWATER
+    label: 우수집수정 계통
+    members:
+    - SUMP-01
+    - SUMP-02
+    subsystem: stormwater
+  - group_id: GRP-CONTROL-POINTS
+    label: 기준점 (Control Points)
+    members:
+    - CP-1
+    - CP-2
+    note: CP-3은 도면 상단 우측에 표기되나 라벨 판독 불명확
+  - group_id: GRP-EXISTING-BLDG
+    label: 기존 건물 및 시설물
+    members:
+    - FUTSAL-FIELD
+    - CANOPY-01
+    - PARKING-LOT
+    - MAIN-BLDG
+    - CONTAINER-01
+    - STEEL-STAIR
+    - LN2-STORAGE
+    - BLDG-SOUTH-01
+    - BLDG-SOUTH-02
+    - BLDG-SOUTH-03
+    status: existing
+  legend_references:
+  - text: 오수맨홀 (오)
+    linked_to: MH-SEWAGE-01
+    symbol_id: SYM-007
+  - text: 오수맨홀 (오)
+    linked_to: MH-SEWAGE-02
+    symbol_id: SYM-007
+  - text: 오수맨홀 (오)
+    linked_to: MH-SEWAGE-03
+    symbol_id: SYM-007
+  - text: 한전맨홀 (한)
+    linked_to: ELEC-MH-01
+    symbol_id: SYM-005
+  - text: 통신맨홀 (통)
+    linked_to: TELECOM-MH-01
+    symbol_id: SYM-001
+  - text: 도근점
+    linked_to: CP-1
+    symbol_id: SYM-003
+  - text: 도근점
+    linked_to: CP-2
+    symbol_id: SYM-003
+  diagram_meta:
+    title: 지중매설물도
+    drawing_number: C00-003
+    project: LS Electric R-Center 구축
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    project_number: '224001'
+    scale_primary: 'A1 : 1/300'
+    scale_secondary: 'A3 : 1/600'
+    date: '2024.05'
+    discipline: CIVIL
+    drawing_genre: site_survey
+    flow_direction: top-to-bottom
+    coordinate_system: grid
+    north_arrow: true
+    elevation_datum: GL
+    notes:
+    - 기존 오수관로 및 맨홀 현황 표기
+    - D150 오수관로 매설 깊이 H:1,700mm 공통 적용
+    - CP-1 인근 표고 93.812 표기 확인
+    - 'H=0.90M: 컨테이너 높이 표기'
+    - 'H=1.50M: 우수집수정 높이 표기'
+    - 'H=2.23M: CP-1 인근 구조물 높이 표기'
+    - 기존 오수관로와 신설 오수관로 구분 필요 (점선=신설 추정)
+    - 도면 좌측 상단 '우수집수정' 라벨 확인
+    - 도면 하단 '액체질소저장소' 및 '철재계단소방관' 라벨 확인
+    corrections_from_prior_analysis:
+    - field: title_block.title
+      prior: 지중배설물도
+      corrected: 지중매설물도
+      reason: 도면 하단 및 표제란 원문 '지중매설물도' 확인
+    - field: panels.BLK-002.primary_label
+      prior: 천막
+      corrected: 천막/차양막
+      reason: 블록 내부에 천막과 차양막 두 라벨 모두 표기됨
+    - field: connections
+      prior: BLK-002→BLK-003→BLK-004→BLK-005 순서
+      corrected: MH-SEWAGE-01→MH-SEWAGE-02→MH-SEWAGE-03 오수맨홀 간 관로 연결
+      reason: 관로는 건물 블록 간 연결이 아닌 오수맨홀 간 연결임
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: FUTSAL-FIELD
+    shape: rectangle
+    labels_inside:
+    - 풋살경기장
+    labels_above: []
+    labels_below:
+    - 조명탑
+    - 분전함
+    equipment_symbols:
+    - type: 조명탑 심볼
+      count: 2
+    - type: 분전함 심볼
+      count: 1
+    inferred_name: 풋살경기장
+    position: top-right
+  - panel_id: BLDG-TENT-01
+    shape: rectangle
+    labels_inside:
+    - 천막
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 천막 1
+    position: top-left
+  - panel_id: BLDG-TENT-02
+    shape: rectangle
+    labels_inside:
+    - 천막
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 천막 2
+    position: top-left
+  - panel_id: BLDG-CANOPY-01
+    shape: rectangle
+    labels_inside:
+    - 차양막
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 차양막
+    position: top-left
+  - panel_id: BLDG-MAIN
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주건물
+    position: center-left
+  - panel_id: BLDG-CONTAINER
+    shape: rectangle
+    labels_inside:
+    - 컨테이너
+    labels_above: []
+    labels_below:
+    - H=0.90M
+    equipment_symbols: []
+    inferred_name: 컨테이너
+    position: center-left
+  - panel_id: BLDG-STAIRS
+    shape: rectangle
+    labels_inside:
+    - 철재계단
+    - 철재난간
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 철재계단
+    position: bottom-left
+  - panel_id: BLDG-LN2
+    shape: rectangle
+    labels_inside:
+    - 액체질소저장소
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 액체질소저장소
+    position: bottom-left
+  - panel_id: BLDG-SOUTH-01
+    shape: rectangle
+    labels_inside:
+    - 우수집수정
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남측 건물 1
+    position: bottom-center
+  - panel_id: BLDG-SOUTH-02
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남측 건물 2
+    position: bottom-center
+  - panel_id: BLDG-SOUTH-03
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 남측 건물 3
+    position: bottom-right
+  - panel_id: CP-1
+    shape: circle
+    labels_inside:
+    - CP.1
+    labels_above: []
+    labels_below:
+    - '91.650'
+    equipment_symbols:
+    - type: 도근점 심볼
+      count: 1
+    inferred_name: 기준점 CP.1
+    position: bottom-right
+  - panel_id: CP-2
+    shape: circle
+    labels_inside:
+    - CP.2
+    labels_above:
+    - '96.118'
+    labels_below: []
+    equipment_symbols:
+    - type: 도근점 심볼
+      count: 1
+    inferred_name: 기준점 CP.2
+    position: top-right
+  - panel_id: CP-3
+    shape: circle
+    labels_inside:
+    - CP.3
+    labels_above: []
+    labels_below:
+    - '93.812'
+    equipment_symbols:
+    - type: 도근점 심볼
+      count: 1
+    inferred_name: 기준점 CP.3
+    position: center-left
+  - panel_id: MH-SEWAGE-01
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above:
+    - 오수맨홀
+    labels_below: []
+    equipment_symbols:
+    - type: 오수맨홀 심볼
+      count: 1
+    inferred_name: 오수맨홀 1
+    position: center-left
+  - panel_id: MH-SEWAGE-02
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼
+      count: 1
+    inferred_name: 오수맨홀 2
+    position: center
+  - panel_id: MH-SEWAGE-03
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼
+      count: 1
+    inferred_name: 오수맨홀 3
+    position: center-right
+  - panel_id: MH-SEWAGE-04
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼
+      count: 1
+    inferred_name: 오수맨홀 4
+    position: bottom-center
+  - panel_id: MH-SEWAGE-05
+    shape: circle
+    labels_inside:
+    - 오
+    labels_above: []
+    labels_below:
+    - 기존오수맨홀
+    equipment_symbols:
+    - type: 오수맨홀 심볼
+      count: 1
+    inferred_name: 오수맨홀 5
+    position: bottom-right
+  - panel_id: CATCH-BASIN-01
+    shape: circle
+    labels_inside: []
+    labels_above:
+    - 약품방제용 기상오수받이
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 약품방제용 기상오수받이
+    position: center
+  - panel_id: MH-ELEC-01
+    shape: circle
+    labels_inside:
+    - 한
+    labels_above:
+    - 한전맨홀
+    labels_below: []
+    equipment_symbols:
+    - type: 한전맨홀 심볼
+      count: 1
+    inferred_name: 한전맨홀
+    position: top-right
+  - panel_id: MH-TELECOM-01
+    shape: circle
+    labels_inside:
+    - 통
+    labels_above:
+    - 통신맨홀
+    labels_below: []
+    equipment_symbols:
+    - type: 통신맨홀 심볼
+      count: 1
+    inferred_name: 통신맨홀
+    position: top-right
+  - panel_id: AREA-HYDROGEN
+    shape: other
+    labels_inside: []
+    labels_above:
+    - 수소저장소
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 수소저장소 구역
+    position: top-left
+  connections:
+  - from: MH-SEWAGE-01
+    to: MH-SEWAGE-02
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:21M
+  - from: MH-SEWAGE-02
+    to: MH-SEWAGE-03
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:43M
+  - from: MH-SEWAGE-03
+    to: MH-SEWAGE-04
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:24M
+  - from: MH-SEWAGE-04
+    to: MH-SEWAGE-05
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:30M
+  - from: CATCH-BASIN-01
+    to: MH-SEWAGE-02
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:43M
+  - from: MH-SEWAGE-05
+    to: null
+    line_type: pipe
+    line_style: dashed
+    annotation: D150 오수관로(H:1,700) L:20M 기존오수관로
+  groups:
+  - group_id: GRP-SEWAGE
+    label: 오수관로 계통
+    members:
+    - MH-SEWAGE-01
+    - MH-SEWAGE-02
+    - MH-SEWAGE-03
+    - MH-SEWAGE-04
+    - MH-SEWAGE-05
+    - CATCH-BASIN-01
+  - group_id: GRP-CONTROL-POINTS
+    label: 기준점 (Control Points)
+    members:
+    - CP-1
+    - CP-2
+    - CP-3
+  legend_references:
+  - text: 오수맨홀
+    linked_to: MH-SEWAGE-01
+  - text: 오수맨홀
+    linked_to: MH-SEWAGE-02
+  - text: 오수맨홀
+    linked_to: MH-SEWAGE-03
+  - text: 오수맨홀
+    linked_to: MH-SEWAGE-04
+  - text: 오수맨홀
+    linked_to: MH-SEWAGE-05
+  - text: 한전맨홀
+    linked_to: MH-ELEC-01
+  - text: 통신맨홀
+    linked_to: MH-TELECOM-01
+  - text: 도근점
+    linked_to: CP-1
+  - text: 도근점
+    linked_to: CP-2
+  - text: 도근점
+    linked_to: CP-3
+  diagram_meta:
+    title: 지중매설물도
+    drawing_number: C00 - 003
+    project: LS Electric R-Center 구축
+    design_firm: 가운건축 (GAUN Architects & Engineers)
+    project_number: '224001'
+    scale_primary: 'A1 : 1/300'
+    scale_secondary: 'A3 : 1/600'
+    date: '2024.05'
+    discipline: CIVIL
+    drawing_genre: site_survey
+    flow_direction: UNKNOWN
+    coordinate_system: grid
+    north_arrow: true
+    notes:
+    - 기존 오수관로 및 신설 오수관로(점선) 표기
+    - D150 오수관로 매설 깊이 H:1,700mm 다수 적용
+    - CP.1, CP.2, CP.3 기준점 및 표고 확인
+    - 우하단 상세도 인덱스 1번 '지중매설물도' 표기

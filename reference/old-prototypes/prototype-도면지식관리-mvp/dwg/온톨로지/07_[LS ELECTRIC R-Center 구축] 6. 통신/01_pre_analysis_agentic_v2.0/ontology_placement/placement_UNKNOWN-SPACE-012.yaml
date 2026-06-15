@@ -1,0 +1,141 @@
+placement:
+  tag: UNKNOWN-SPACE-012
+  name: A.D
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SPACE-012
+    class_hint: VerticalShaft
+    alternative_class_hints:
+    - CommunicationSpace
+    - CommunicationShaft
+    - AntennaDuct
+    related_assertions: []
+    applicable_axioms:
+    - AX050
+    applicable_constraints: []
+    confirmed_class: dks:VerticalShaft
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: A.D
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문이며 약어/명칭으로 보이나 추가 해석 근거가 부족함
+      - raw_text: 'type: SPACE'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 원문 보존
+      - raw_text: 'function_category: SHAFT'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 원문 보존
+      - raw_text: 'source_text: A.D'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: sourceText
+          suggested_datatype: xsd:string
+          rationale: specs의 원문 텍스트 보존
+      - raw_text: 'suggested_parent_class: VerticalShaft'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: ontologyHintParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보 보존
+      - raw_text: 'function_candidates: Antenna Duct; Communication Shaft'
+        source_page: 17
+        promotion_hint:
+          suggested_property_label: functionCandidateText
+          suggested_datatype: xsd:string
+          rationale: 기능 후보를 해석 없이 원문 보존
+  provenance:
+    tag:
+      source_pages:
+      - 17
+      method: entity_detail
+    name:
+      source_pages:
+      - 17
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 17
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 17
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 17
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 17
+      method: ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 17
+      method: ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 17
+      method: preservation
+    unresolved:
+    - source_pages:
+      - 17
+      method: scan_all_fields
+    ambiguous:
+      source_pages:
+      - 17
+      method: classification_review
+    plan_reference.guidance_applied:
+      source_pages:
+      - 17
+      method: plan_alignment
+  unresolved:
+  - field_candidate: specs.source_text
+    raw_text: A.D
+    source_page: 17
+    reason: 원문은 있으나 약어 의미를 도면 내부 근거만으로 확정할 수 없음
+    preservation_note: 약어 해석은 후속 단계에서 주변 공간/연결 관계와 함께 검토
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: VerticalShaft
+    source_page: 17
+    reason: 힌트이므로 확정 클래스가 아님
+    preservation_note: class_hint 후보로만 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Antenna Duct; Communication Shaft
+    source_page: 17
+    reason: 복수 후보가 제시되어 단일 의미로 확정 불가
+    preservation_note: 후속 분류에서 공간/덕트/샤프트 문맥과 대조
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이나 function_category가 SHAFT이고 name이 약어 A.D로만 제시되어 공간/샤프트/덕트
+      중 어느 것으로 확정할지 불명확함
+    recommended_handling: 0-9c에서 주변 도면 맥락과 인접 태그 관계를 확인해 공간 또는 샤프트 계열로 재판정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/entity 혼합 가능성이 있는 항목을 공간 계열 후보로 보존
+    - ontology_hints의 parent_class 및 function_candidates를 후보로만 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:17:56.971725'
+  confidence: 0.71

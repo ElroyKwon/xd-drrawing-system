@@ -1,0 +1,176 @@
+ontology_readiness:
+  tag: 1404B
+  verdict: qualified
+  confidence: 0.97
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 18
+    reason: 고유 tag 1404B가 있고, VCB/CT/SA/보호계전기/정격 등 자체 사양이 명확하며 다른 설비의 부품으로만 보이지 않음.
+  relation_completeness:
+    declared_relations: 1
+    discovered_relations: 1
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 18
+    convertible: 16
+    ambiguous_attributes:
+    - key: load_name_gemini
+      value: 사무동 비상
+      reason: 부하명은 설비 속성으로 직접 표준화 가능하나, 출처가 gemini이며 명칭 해석 여지가 있어 annotation 보존 필요.
+    - key: destination_gemini
+      value: 4302/HV
+      reason: destination과 값이 상이한 이중 출처 값으로 provenance 보존 필요.
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      reason: 표시등/지시기 정보로 보이나 의미가 도면 맥락 의존적이어서 annotation 보존 필요.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - sa_rating
+    - protection_functions
+    - destination
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    - grounding_mark
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: protection_relay_indicators
+      value:
+      - A
+      source: gemini
+      conflict_with: null
+    - key: load_name
+      value: 사무동 비상
+      source: gemini
+      conflict_with: null
+    - key: destination
+      value: 4302/HV
+      source: gemini
+      conflict_with: 'TO: 13030 HV'
+    conflicts:
+    - key: destination
+      values:
+      - 'TO: 13030 HV'
+      - 4302/HV
+      sources:
+      - specs.destination
+      - specs.destination_gemini
+  duplicate_candidates:
+  - 1404A
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - SwitchgearPanel
+    - PowerDistributionEquipment
+  spatial_context:
+    position: middle-left
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1404B
+      - GP
+      - VCB 3P
+      - 7.2kV 600A
+      - 250MVA
+      - 2×CT 100/5A
+      - GIPAM
+      - 50/51
+      - SA 9kV 5kA
+      bus_section: GP
+      vcb_rating: 3P 7.2kV 600A 250MVA
+      ct_ratio: 100/5A
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      destination: 'TO: 13030 HV'
+      panel_id: 1404B
+      voltage_kV: 6.6
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      load_name_gemini: 사무동 비상
+      destination_gemini: 4302/HV
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - read_entity_list
+  - read_entity_detail
+  skipped_fields: []
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SwitchgearPanel
+    annotations_to_emit:
+    - ambiguous_attributes
+    - provenance_attributes
+    - conflicts
+    - source_attribution
+    - collection_sources
+    - notes
+    - drawing_texts
+    - requirements
+    - specs_full
+    relations_to_emit:
+    - connects_to:1404A
+    needs_human_review: false
+tag: 1404B
+discovered_relations: 1

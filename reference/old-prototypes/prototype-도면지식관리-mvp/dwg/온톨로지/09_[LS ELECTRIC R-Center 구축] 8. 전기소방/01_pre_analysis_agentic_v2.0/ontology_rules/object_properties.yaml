@@ -1,0 +1,494 @@
+object_properties:
+- iri: dks:feeds
+  label: feeds
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:fed_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: RISER-MAIN
+    object: FA-1A
+    source_page: 5
+    note: 1층 FA-1A 분기
+  - subject: FA-2B
+    object: ROOM-OFFICE
+    source_page: 8
+    note: 감지기용/유도등용 배관배선
+  - subject: AREA-CORRIDOR-CORE
+    object: ROOM-REST
+    source_page: 8
+    note: 감지기/유도등 배선
+  - subject: SOURCE_PANEL_1
+    object: PULLBOX-01
+    source_page: 13
+    note: cross_validated relation on source_page 13; line_style solid
+  - subject: EX-OFFICE-01
+    object: EX-OFFICE-02
+    source_page: 13
+    note: EX-OFFICE-01에서 EX-OFFICE-02로 공급/배선됨
+  total_evidence: 5
+  derivation: related_assertions.type=feeds가 공간, 분배망 요소, 전원 패널, 유도등 체인에서 반복 관찰됨. 방향성은
+    공급/배선의 출발점에서 대상점으로 읽히며, 일부 placement는 수신측 태그에 역방향 사실을 중복 기록하므로 역관계 후보만 제시하고 확정은
+    유보.
+  confidence: 0.95
+- iri: dks:connects_to
+  label: connects_to
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connected_from
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: FA-1A
+    object: FA-1B
+    source_page: 7
+    note: 소방간선 배선 (Gemini Loop Topology)
+  - subject: FD-2A
+    object: FA-2B
+    source_page: 8
+    note: 소방간선 배관배선(천정 은폐) / 간선 연결
+  - subject: PB-001
+    object: PB-002
+    source_page: 6
+    note: 상하 PULL BOX 간 연결
+  - subject: OUTDOOR-CONN
+    object: PULL-BOX-01
+    source_page: 5
+    note: FROM 사무동 지상1층 방송실 / ELP 50 IN TRAY / FR-3 2.5sq / 10C / 지하공동구 사용
+  - subject: UNKNOWN-SPACE-01
+    object: UNKNOWN-SPACE-02
+    source_page: 11
+    note: 계단 별도 감지기 분기
+  total_evidence: 5
+  derivation: related_assertions.type=connects_to가 간선 루프, 샤프트 연결, 외부 인입, 공간-제어 연결,
+    공간 간 분기 연결에 폭넓게 사용됨. 일부 쌍에서 양방향 관찰이 있으나 전체적으로는 비대칭 기록이 많아 symmetric는 후보로 올리지 않음.
+  confidence: 0.96
+- iri: dks:cable
+  label: cable
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:cabled_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: RISER-MAIN
+    object: FA-1A
+    source_page: 5
+    note: 1층 FA-1A 분기
+  - subject: FA-1A
+    object: ZONE-고객접견실
+    source_page: 9
+    note: 16C (HFIX 2-1.5㎟) 감지기 배관배선
+  - subject: EX-SW-LAB-01
+    object: PULLBOX-01
+    source_page: 13
+    note: 유도등용 배관배선(HFIX 2.5㎟ x 2 E-2.5㎟ (16C))
+  - subject: PULL-BOX-외부
+    object: 통신-맨홀
+    source_page: 7
+    note: F/O SM 4C x1, ELP 30Φ /IN TRAY, 지하공동구 경유
+  - subject: 통신-맨홀
+    object: PULL-BOX-외부
+    source_page: 7
+    note: F/O SM 4C x1, ELP 30Φ /IN TRAY, 지하공동구 경유
+  total_evidence: 5
+  derivation: related_assertions.type=cable은 시각 의미 기반 배관배선/케이블 연결을 표현하며 feeds보다 배선
+    매체 자체에 초점이 있음. 통신-맨홀↔외부 PULL BOX에서 양방향 관찰이 있어 역관계 후보를 둘 수 있음.
+  confidence: 0.94
+- iri: dks:contains
+  label: contains
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:contained_in
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: true
+  evidence_assertions:
+  - subject: ROOM-OFFICE
+    object: EX-OFFICE-01
+    source_page: 8
+    note: specs.contains
+  - subject: ROOM-SEMINAR
+    object: EX-SEM-01
+    source_page: 8
+    note: 공간 내부 설비 포함
+  - subject: SYM-001
+    object: ZONE-SOFTWARE-LAB
+    source_page: 10
+    note: 차동식 감지기 3개
+  - subject: ZONE-로비방풍실
+    object: 피난구 유도등
+    source_page: 9
+    note: specs.equipment_symbols에 2EA 관찰
+  - subject: ROOM-대용량모터부하실
+    object: 모터SET1
+    source_page: 7
+    note: 공간 내부 포함 항목
+  total_evidence: 5
+  derivation: contains는 실제 공간이 설비를 포함하는 경우와 심벌/존 집계가 특정 심벌 또는 내부 항목을 포함하는 경우 모두에 사용됨.
+    evidence상 공간→설비, 심벌→존, 존→문자열 내부항목이 혼재하므로 domain/range를 owl:Thing으로 넓게 두고 후속 정제
+    필요.
+  confidence: 0.83
+- iri: dks:contained_in
+  label: contained_in
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:contains
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SYM-001
+    object: PANEL-LEGEND-TABLE
+    source_page: 3
+    note: 도면 범례표의 SYMBOL 칸에 포함됨
+  - subject: SYM-015
+    object: PANEL-LEGEND-TABLE
+    source_page: 3
+    note: 도면 범례/표 안에 포함됨
+  - subject: SYM-018
+    object: PANEL-LEGEND-TABLE
+    source_page: 3
+    note: cross_validated relation from source_page 3
+  total_evidence: 3
+  derivation: SYM 계열이 PANEL-LEGEND-TABLE 내부에 포함되는 관계로 반복 관찰됨. 현재 관찰 범위에서는 각 심벌이 하나의
+    범례표에만 포함되어 functional 후보를 부여.
+  confidence: 0.95
+- iri: dks:legend_refers_to
+  label: legend_refers_to
+  domain: dks:DrawingInformationEntity
+  range: owl:Thing
+  inverse_of_candidate: dks:is_referred_by_legend
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: LEGEND-001
+    object: PB-001
+    source_page: 6
+    note: PULL BOX SIZE 150/200/300
+  - subject: LEGEND-001
+    object: WF-001
+    source_page: 6
+    note: 관로구방수장치
+  - subject: PB-001
+    object: LEGEND-001
+    source_page: 6
+    note: LEGEND-001이 PB-001의 PULL BOX SIZE를 참조
+  total_evidence: 3
+  derivation: 범례 객체가 설비/심벌/미해결 객체를 참조하는 패턴으로 관찰됨. 일부 placement에는 역방향으로 같은 의미가 기록되어
+    inverse 후보를 제시.
+  confidence: 0.9
+- iri: dks:defines_line_type
+  label: defines_line_type
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:has_line_type_definition
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PANEL-CABLE-TABLE
+    object: SYM-015
+    source_page: 3
+    note: 도면 상 선종/배선 규격을 정의하는 관계로 관찰됨
+  - subject: PANEL-CABLE-TABLE
+    object: SYM-016
+    source_page: 3
+    note: 도면 상 선종/배선 규격을 정의하는 관계로 관찰됨
+  - subject: SYM-017
+    object: PANEL-CABLE-TABLE
+    source_page: 3
+    note: SYM-017이 PANEL-CABLE-TABLE에 대해 선종 정의 관계로 관찰됨
+  total_evidence: 3
+  derivation: 배관배선 규격 표와 line type symbol 사이에서 정의 관계가 반복됨. 일부 placement는 표→심벌, 일부는
+    심벌→표로 기록되어 방향 불일치가 있으므로 inverse 후보를 남기고 확정은 유보.
+  confidence: 0.84
+- iri: dks:labels
+  label: labels
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:labeled_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PANEL-TITLE-BANNER
+    object: PANEL-LEGEND-TABLE
+    source_page: 3
+    note: 도면 제목 배너가 범례표를 라벨링함
+  - subject: SYM-009
+    object: 소화활동설비
+    source_page: 3
+    note: specs.group 및 visual_evidence 상 범례 표의 그룹 표기
+  - subject: SYM-010
+    object: EX-SYMBOL-GROUP
+    source_page: 3
+    note: linked_to 값으로 연결 संकेत
+  total_evidence: 3
+  derivation: labels는 패널 제목 배너가 표를 식별하는 경우와 심벌이 그룹/심벌그룹에 연결되는 경우에 사용됨. 의미가 다소 넓지만
+    모두 '표기/식별 연결' 축으로 귀납 가능.
+  confidence: 0.72
+- iri: dks:title_block_of
+  label: title_block_of
+  domain: dks:DrawingInformationEntity
+  range: dks:DrawingInformationEntity
+  inverse_of_candidate: dks:has_title_block
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PANEL-TITLE-BLOCK
+    object: PANEL-LEGEND-TABLE
+    source_page: 3
+    note: source_page 3, cross_validated
+  - subject: PANEL-LEGEND-TABLE
+    object: PANEL-TITLE-BLOCK
+    source_page: 3
+    note: 도면 상 title block 관계로 연결됨
+  total_evidence: 2
+  derivation: 표제란/타이틀 블록 패널과 범례표 사이의 관계로 직접 관찰됨. 동일 source pair에서 역방향 기록이 함께 있어 inverse
+    후보를 제시. 현재 evidence에서는 한 title block이 한 대상 패널에만 연결되어 functional 후보.
+  confidence: 0.88
+- iri: dks:adjacent_to
+  label: adjacent_to
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:adjacent_to
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: GRID-001
+    object: SPACE-PIT-001
+    source_page: 6
+    note: 그리드 축 B/C/D 및 5/6 표기
+  - subject: SPACE-PIT-001
+    object: GRID-001
+    source_page: 6
+    note: GRID-001 adjacent_to SPACE-PIT-001
+  total_evidence: 2
+  derivation: 그리드 참조와 공간 영역의 인접 관계로 양방향 관찰됨. 동일 의미의 역방향이 함께 존재하므로 symmetric 후보를 높게
+    둠.
+  confidence: 0.9
+- iri: dks:supplies
+  label: supplies
+  domain: dks:DistributionNetworkElement
+  range: owl:Thing
+  inverse_of_candidate: dks:supplied_by
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: FA-1A
+    object: 중계기-전원반
+    source_page: 7
+    note: 중계기 전원 공급
+  total_evidence: 1
+  derivation: feeds와 별도로 전원 공급 의미가 note에 직접 드러난 단일 관계. evidence는 1건뿐이지만 철칙에 따라 후보로
+    유지.
+  confidence: 0.46
+- iri: dks:signal
+  label: signal
+  domain: dks:DistributionNetworkElement
+  range: dks:SpatialEntity
+  inverse_of_candidate: dks:signaled_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: FD-1A
+    object: ZONE-진동시험실
+    source_page: 9
+    note: 방화셔터 연동 신호선
+  - subject: FD-1B
+    object: ZONE-대용량모터부하실
+    source_page: 9
+    note: 방화셔터 연동 신호선
+  - subject: ZONE-대용량모터부하실
+    object: FD-1B
+    source_page: 9
+    note: 방화셔터 연동 신호선
+  total_evidence: 3
+  derivation: 방화셔터 연동 신호선에 대해 별도 relation type=signal이 반복 관찰됨. 일부 placement는 수신측 zone에
+    역방향으로 기록되어 inverse 후보를 제시.
+  confidence: 0.92
+- iri: dks:references
+  label: references
+  domain: dks:DrawingInformationEntity
+  range: owl:Thing
+  inverse_of_candidate: dks:referenced_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: UNKNOWN-SPACE-01
+    object: UNKNOWN-SPACE-03
+    source_page: 11
+    note: 심볼 정의 참조
+  - subject: UNKNOWN-SPACE-03
+    object: UNKNOWN-SPACE-01
+    source_page: 11
+    note: 심볼 정의 참조
+  total_evidence: 2
+  derivation: 옥탑층 감지구역과 범례표 사이에서 참조 관계가 양방향으로 기록됨. 범례/정보 패널이 다른 객체를 참조하는 의미로 귀납.
+  confidence: 0.78
+- iri: dks:uses_line
+  label: uses_line
+  domain: owl:Thing
+  range: dks:LineTypeSymbol
+  inverse_of_candidate: dks:line_used_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: ZONE-LOUNGE
+    object: SYM-002
+    source_page: 10
+    note: 정온식 감지기 배선 관련
+  - subject: ZONE-VERIFICATION-CTRL
+    object: SYM-015
+    source_page: 10
+    note: 감지기용 배관배선
+  - subject: ZONE-SOFTWARE-LAB
+    object: SYM-015
+    source_page: 10
+    note: 감지기용 배관배선
+  total_evidence: 3
+  derivation: 존/공간이 특정 선종 심벌을 사용한다는 관계로 관찰됨. line type symbol을 range로 두는 것이 evidence와
+    가장 잘 맞음.
+  confidence: 0.86
+- iri: dks:linked_to
+  label: linked_to
+  domain: dks:SymbolAndLegendEntity
+  range: owl:Thing
+  inverse_of_candidate: dks:linked_from
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SYM-011
+    object: EX-SYMBOL-GROUP
+    source_page: 3
+    note: specs.linked_to에 기록된 연결 대상
+  - subject: SYM-012
+    object: EX-SYMBOL-GROUP
+    source_page: 3
+    note: specs.linked_to에 기록된 연결 대상
+  total_evidence: 2
+  derivation: electrical 심벌 범례에서 linked_to가 반복 관찰됨. 현재는 심벌이 하나의 그룹에만 연결되어 functional
+    후보.
+  confidence: 0.74
+- iri: dks:has_equipment_symbol_type
+  label: has_equipment_symbol_type
+  domain: dks:EquipmentOrDevice
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PB-01
+    object: PULL BOX
+    source_page: 13
+    note: specs.equipment_symbol_type 원형 보존
+  total_evidence: 1
+  derivation: PB-01 placement의 related_assertions에 object-like 형태로 기록된 속성형 관계. 실제로는
+    데이터속성 성격이 강하지만 placement에 object assertion으로 존재하므로 보존.
+  confidence: 0.38
+- iri: dks:has_raw_label
+  label: has_raw_label
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PB-01
+    object: J
+    source_page: 13
+    note: specs.raw_labels / labels_inside 원형 보존
+  total_evidence: 1
+  derivation: PB-01 placement에서 related_assertions로 승격된 라벨 보존 관계. 데이터속성 성격이 강하나 object
+    assertion evidence가 있으므로 후보 유지.
+  confidence: 0.32
+- iri: dks:has_shape
+  label: has_shape
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PB-01
+    object: rectangle
+    source_page: 13
+    note: specs.shape 원형 보존
+  total_evidence: 1
+  derivation: PB-01 placement에서 related_assertions로 기록된 형상 보존 관계. 데이터속성으로도 별도 승격하되
+    object assertion evidence를 삭제하지 않고 후보 유지.
+  confidence: 0.31
+- iri: dks:has_position
+  label: has_position
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PB-01
+    object: grid 5, B-C 근방 (복도)
+    source_page: 13
+    note: specs.position 원형 보존
+  total_evidence: 1
+  derivation: PB-01 placement에서 related_assertions로 기록된 위치 보존 관계. 데이터속성으로도 별도 승격하되
+    object assertion evidence를 보존.
+  confidence: 0.31
+- iri: dks:has_count
+  label: has_count
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PB-01
+    object: '1'
+    source_page: 13
+    note: specs.count 원형 보존
+  total_evidence: 1
+  derivation: PB-01 placement에서 related_assertions로 기록된 수량 보존 관계. 데이터속성으로도 별도 승격하되
+    object assertion evidence를 보존.
+  confidence: 0.31
+- iri: dks:has_inferred_name
+  label: has_inferred_name
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: ''
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PB-01
+    object: PULL BOX (접속함)
+    source_page: 13
+    note: specs.inferred_name 원형 보존
+  total_evidence: 1
+  derivation: PB-01 placement에서 related_assertions로 기록된 추론명 보존 관계. 데이터속성으로도 별도 승격하되
+    object assertion evidence를 보존.
+  confidence: 0.31
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:08:25.596804'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.87

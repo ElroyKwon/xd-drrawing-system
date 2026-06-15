@@ -1,0 +1,134 @@
+placement:
+  tag: EXT-2201
+  name: 외부 연결 2201 HV
+  discipline: electrical
+  ontology_core:
+    owl_role: ObjectPropertyAssertion
+    iri_hint: ''
+    class_hint: JunctionPanel
+    alternative_class_hints:
+    - ExternalConnection
+    - ElectricalEquipment
+    related_assertions:
+    - type: feeds
+      target_hint: 1302B
+      note: 'TO: 2201 HV / 6.6kV CV 100sq-3C-1L (CABLE TRAY)'
+    - type: cable
+      target_hint: BLK-1302B
+      note: 'TO: 2201 HV / 6.6kV CV 100sq-3C-1L (CABLE TRAY)'
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:JunctionPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 'TO: 2201 HV'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: connectedToExternalHV
+          suggested_datatype: xsd:string
+          rationale: 외부 HV 연결을 나타내는 표기이며, 대상 식별자와 방향성 정보가 포함됨
+      - raw_text: 6.6kV CV 100sq-3C-1L (CABLE TRAY)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: 전압, 케이블 규격, 포설 방식(CABLE TRAY)이 함께 표기된 사양 문자열
+      - raw_text: JUNCTION_PANEL
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류명으로 보이는 원문 라벨이며, 장비의 역할을 설명함
+      - raw_text: EXTERNAL_CONNECTION
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 후보로 제시된 분류명이며, 외부 연결 노드 성격을 나타냄
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      method: entity_detail
+    name:
+      source_pages:
+      - 5
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 5
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: placement_inference
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints + entity_detail
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints + entity_detail
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs + ontology_hints
+    position:
+      source_pages:
+      - 5
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 'TO: 2201 HV'
+    source_page: 5
+    reason: 라벨은 읽히지만, 독립 속성으로 확정할 표준 필드가 이 단계에서 없음
+    preservation_note: 외부 HV 연결 방향 표기로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 6.6kV CV 100sq-3C-1L (CABLE TRAY)
+    source_page: 5
+    reason: 케이블 사양과 포설 정보가 혼합된 문자열로 단일 필드로 분해하지 않음
+    preservation_note: 전압/규격/포설방식 분리 가능성 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ElectricalEquipment
+    source_page: 5
+    reason: 상위 후보 클래스이지만 확정 불가
+    preservation_note: 0-9c에서 taxonomy 확정 시 재검토
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: JUNCTION_PANEL, EXTERNAL_CONNECTION
+    source_page: 5
+    reason: 기능 후보가 복수이며 어느 하나로 확정하지 않음
+    preservation_note: 외부 연결용 접속 패널/노드 성격으로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명은 외부 연결 노드처럼 보이지만, function_category는 JUNCTION_PANEL이며 relation은 feeds와
+      cable이 함께 있어 독립 설비인지 관계 노드인지 경계가 모호함
+    recommended_handling: ObjectPropertyAssertion 중심으로 유지하되, 0-9c에서 ExternalConnection
+      또는 JunctionPanel 계열로 재분류 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 전원 공급 흐름(feeds)과 물리적/전기적 접속(cable) 관계의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:46.395032'
+  confidence: 0.95

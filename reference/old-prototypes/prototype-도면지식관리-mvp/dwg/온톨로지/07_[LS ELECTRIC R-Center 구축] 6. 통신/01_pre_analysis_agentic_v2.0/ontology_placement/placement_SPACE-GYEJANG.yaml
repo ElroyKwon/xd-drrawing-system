@@ -1,0 +1,211 @@
+placement:
+  tag: SPACE-GYEJANG
+  name: 계장실
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-GYEJANG
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationRoom
+    - InstrumentationRoom
+    related_assertions:
+    - type: locatedIn
+      target_hint: SPACE-GYEJANG
+      note: tag/name/type indicate a space entity; self-reference not added as assertion
+    - type: hasEquipmentSymbol
+      target_hint: LAN_OUTLET_2PORT x2
+      note: equipment_symbols observed inside the space
+    - type: hasEquipmentSymbol
+      target_hint: LAN_OUTLET_TEL_1PORT x1
+      note: equipment_symbols observed inside the space
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: relation from HUB-RACK-2F to SPACE-GYEJANG with cable annotation T-16C
+        UTP CAT.5e
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'function_category: INSTRUMENTATION_ROOM'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: function_category is explicit and may be promoted as a descriptive
+            data property
+      - raw_text: 'labels_inside: 계장실'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: internal label text is observed and may be promoted if recurring
+      - raw_text: 'position: center-right'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: position is a descriptive placement attribute
+      - raw_text: 'relation: cable; annotation: T-16C UTP CAT.5e'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasCableSpecification
+          suggested_datatype: xsd:string
+          rationale: cable annotation attached to the relation may be promoted as
+            a cable spec note
+      - raw_text: 'equipment_symbols: LAN_OUTLET_2PORT x2'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: symbol inventory inside the space may be promoted as structured
+            symbol data
+      - raw_text: 'equipment_symbols: LAN_OUTLET_TEL_1PORT x1'
+        source_page: 8
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: symbol inventory inside the space may be promoted as structured
+            symbol data
+  provenance:
+    name:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 8
+      method: type_is_space_and_has_self-contained identity
+    ontology_core.iri_hint:
+      source_pages:
+      - 8
+      method: tag_used_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 8
+      method: ontology_hints.suggested_parent_class + observed type/name
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 8
+      method: ontology_hints.function_candidates + function_category
+    ontology_core.related_assertions:
+      source_pages:
+      - 8
+      method: relations + specs.equipment_symbols
+    discipline_context.free_notes:
+      source_pages:
+      - 8
+      method: preserve_unclassified_observations
+    specs.raw_labels:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.labels_above:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.labels_below:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.equipment_symbols:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    specs.position:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    relations:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    collection_sources.visual_semantics:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    position:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    equipment_symbols:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 8
+      method: direct_from_entity_detail
+  unresolved:
+  - field_candidate: specs.equipment_symbols.type
+    raw_text: LAN_OUTLET_2PORT
+    source_page: 8
+    reason: symbol type is observed but no supplement-defined sub_kind exists here
+    preservation_note: keep raw symbol label and count for later promotion
+  - field_candidate: specs.equipment_symbols.type
+    raw_text: LAN_OUTLET_TEL_1PORT
+    source_page: 8
+    reason: symbol type is observed but no supplement-defined sub_kind exists here
+    preservation_note: keep raw symbol label and count for later promotion
+  - field_candidate: relations.annotation
+    raw_text: T-16C UTP CAT.5e
+    source_page: 8
+    reason: cable annotation is descriptive but not normalized at this step
+    preservation_note: retain as raw cable note attached to the relation
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: CommunicationHub; SignalMonitoring
+    source_page: 8
+    reason: candidate functions are hints only and not confirmed
+    preservation_note: preserve as alternative semantic hints
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: Entity is a space named 계장실, but ontology_hints suggest CommunicationRoom
+      while function_category is INSTRUMENTATION_ROOM; exact class boundary is not
+      confirmed.
+    recommended_handling: Keep as NamedIndividual with class_hint CommunicationSpace
+      and alternative hints; defer class confirmation to later step.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'dominant_equipment_types: 공간/구역/실'
+    - predicted_ontology_structure.class_hierarchy_hint
+    - expected_object_properties.locatedIn
+    - expected_object_properties.hasEquipmentSymbol
+    - expected_object_properties.connectedTo
+    - expected_data_properties.functionCategory
+    - expected_data_properties.positionText
+    - expected_data_properties.noteText
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:15:38.028999'
+  confidence: 0.86

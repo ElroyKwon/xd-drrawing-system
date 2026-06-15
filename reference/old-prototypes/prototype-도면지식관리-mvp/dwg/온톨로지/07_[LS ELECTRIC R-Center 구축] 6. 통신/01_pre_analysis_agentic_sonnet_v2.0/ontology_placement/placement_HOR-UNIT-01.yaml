@@ -1,0 +1,155 @@
+placement:
+  tag: HOR-UNIT-01
+  name: SYSTEM BOX / OUTLET BOX
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: HOR-UNIT-01
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - CommunicationOutlet
+    - OpticalPortTermination
+    - DataConnectivity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 광 포트
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasPortLabel
+          suggested_datatype: xsd:string
+          rationale: 포트 관련 표기 문자열
+      - raw_text: SYSTEM BOX
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 상자 명칭 표기
+      - raw_text: OUTLET BOX
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 상자 명칭 표기
+      - raw_text: Horizontal Unit 1 (Data/Optical)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasInferredName
+          suggested_datatype: xsd:string
+          rationale: inferred_name 값이며 데이터/광 관련 기능을 시사하는 문자열
+      - raw_text: bottom-left
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: rectangle
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 광 포트 / SYSTEM BOX / OUTLET BOX
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: hasRawLabels
+          suggested_datatype: xsd:string
+          rationale: labels_inside와 raw_labels에 나타난 복합 표기
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail
+    name:
+      source_pages:
+      - 18
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates + visual_semantics
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 18
+      method: scan_specs
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.position:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.shape:
+      source_pages:
+      - 18
+      method: entity_detail
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: entity_detail
+    source_pages:
+      source_pages:
+      - 18
+      method: entity_detail
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: name과 raw_labels가 SYSTEM BOX / OUTLET BOX로 복합 표기되어 있고, inferred_name은
+      Horizontal Unit 1 (Data/Optical)로 기능 해석이 함께 존재함. 물리 설비인지 표기/단자 성격인지 단일 확정이 어려움.
+    recommended_handling: 0-9c에서 class 후보를 CommunicationEquipment 계열로 우선 검증하되, CommunicationOutlet
+      또는 OpticalPortTermination 가능성도 함께 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - CommunicationEquipment 계열을 우선 class_hint로 반영
+    - inferred_name, raw_labels, position, shape, labels_inside를 보존
+    - 분류 불가 정보는 free_notes로 승격 후보와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:55.377620'
+  confidence: 0.82

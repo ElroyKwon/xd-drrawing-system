@@ -1,0 +1,180 @@
+placement:
+  tag: ACC-001
+  name: 웨더캡
+  discipline: electrical
+  ontology_core:
+    owl_role: PartOf
+    iri_hint: ''
+    class_hint: ElectricalAccessory
+    alternative_class_hints:
+    - WaterproofingAccessory
+    - CableProtectionAccessory
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalAccessory
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: ACCESSORY'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasAccessoryType
+          suggested_datatype: xsd:string
+          rationale: ACCESSORY라는 분류 문자열이 직접 표기됨
+      - raw_text: 'installation_height: 바닥에서 2,000㎜ 이상'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasInstallationHeight
+          suggested_datatype: xsd:string
+          rationale: 설치 높이 조건이 수치와 단위(㎜)로 표기됨
+      - raw_text: 'installation_height_mm: 2000 이상 (바닥으로부터)'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasInstallationHeightMm
+          suggested_datatype: xsd:decimal
+          rationale: 설치 높이의 수치 조건이 mm 단위로 명시됨
+      - raw_text: 'purpose: 배관 접속박스 방수 캡'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasPurpose
+          suggested_datatype: xsd:string
+          rationale: 용도 설명 문자열이 직접 표기됨
+        promoted_to: dks:hasPurpose
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-17T13:26:18.776700'
+      - raw_text: 'equipment_symbols: 웨더캡 심볼 1개'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 도면 심볼의 존재와 개수가 표기됨
+      - raw_text: 'ontology_hints.suggested_parent_class: ElectricalAccessory'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 부모 클래스 후보가 명시됨
+      - raw_text: 'ontology_hints.observed_attributes: type, installation_height,
+          purpose, installation_height_mm'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록이 직접 제공됨
+      - raw_text: 'ontology_hints.function_candidates: Waterproofing, CableProtection'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 문자열이 직접 표기됨
+  provenance:
+    name:
+      source_pages:
+      - 39
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 39
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 39
+      method: classification_inference_from_type_and_specs
+    ontology_core.class_hint:
+      source_pages:
+      - 39
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 39
+      method: inferred_from_specs_and_function_candidates
+    specs.type:
+      source_pages:
+      - 39
+      method: entity_detail.specs.type
+    specs.installation_height:
+      source_pages:
+      - 39
+      method: entity_detail.specs.installation_height
+    specs.purpose:
+      source_pages:
+      - 39
+      method: entity_detail.specs.purpose
+    specs.installation_height_mm:
+      source_pages:
+      - 39
+      method: entity_detail.specs.installation_height_mm
+    position:
+      source_pages:
+      - 39
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 39
+      method: entity_detail.confidence
+    equipment_symbols:
+      source_pages:
+      - 39
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 39
+      method: entity_detail.source_attribution
+    collection_sources.cross_validated:
+      source_pages:
+      - 39
+      method: entity_detail.collection_sources.cross_validated
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 39
+      method: entity_detail.collection_sources.entity_synthesis
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 39
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.installation_height
+    raw_text: 바닥에서 2,000㎜ 이상
+    source_page: 39
+    reason: 정확한 수치형 단일 값이 아니라 최소 설치 높이 조건으로 표현됨
+    preservation_note: 조건식 형태로 보존; 후속 단계에서 datatype/constraint 분리 가능
+  - field_candidate: specs.installation_height_mm
+    raw_text: 2000 이상 (바닥으로부터)
+    source_page: 39
+    reason: 최소값 조건이 포함되어 있어 단순 수치값으로 확정하기 어려움
+    preservation_note: mm 단위 최소 설치 높이 조건으로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Waterproofing, CableProtection
+    source_page: 39
+    reason: 기능 후보이며 확정 기능 분류가 아님
+    preservation_note: 후속 분류에서 기능/역할 후보로 재검토 가능
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보와 물리 설비의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:07:16.694396'
+  confidence: 0.95

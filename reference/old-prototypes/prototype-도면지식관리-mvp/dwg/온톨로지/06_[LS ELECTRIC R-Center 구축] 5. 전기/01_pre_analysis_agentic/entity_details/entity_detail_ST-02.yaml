@@ -1,0 +1,55 @@
+entity_detail:
+  tag: ST-02
+  type: pull_box
+  specs:
+    size:
+      value: 400 x 400 x 300mm
+      unit: mm
+      source: page 4
+      confidence: 0.99
+    name_text:
+      value: PULL BOX
+      unit: null
+      source: page 4
+      confidence: 0.99
+  drawing_texts:
+  - source: page 4
+    page_number: 4
+    text: PULL BOX 400 x 400 x 300mm
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - from: 전력용 맨홀
+      to: PULL BOX
+      relation: 연결
+      medium: 전력간선
+      direction: UNKNOWN
+      confidence: 0.95
+    - from: PULL BOX
+      to: CONCRETE DUCT BANK
+      relation: 연결
+      medium: 전력간선
+      direction: UNKNOWN
+      confidence: 0.95
+    observed_attributes:
+    - size
+    - name_text
+    similar_equipment: []
+    suggested_parent_class: STRUCTURAL
+    cross_discipline: []
+  notes:
+  - page 4 context에서 ST-02는 PULL BOX 400 x 400 x 300mm로 확인됨.
+  - 옥외 전력간선설비 인입 배치도 상 공동구-맨홀-풀박스-덕트뱅크-빈관으로 이어지는 경로의 구조물/부속 요소로 보임.
+  - 독립 설비라기보다 구조물 구성요소로 판단되어 demoted 처리됨.
+  - connection_specs는 제공된 entity_detail 및 page 4 context에서 별도 구조화 정보가 확인되지 않아 유지함.
+  evaluation:
+    status: demoted
+    reason: entity_detail과 page 4 context에서 ST-02는 PULL BOX 400 x 400 x 300mm로 확인되며
+      자체 사양(size)이 존재하나, 독립 엔티티보다는 전력간선 인입 경로상의 구조물/부속 요소로 판단됨.
+    missing_relations: []
+    evidence_sources:
+    - page 4 context
+    - search_entity_by_tag(ST-02)
+    - read_legend_data
+tag: ST-02

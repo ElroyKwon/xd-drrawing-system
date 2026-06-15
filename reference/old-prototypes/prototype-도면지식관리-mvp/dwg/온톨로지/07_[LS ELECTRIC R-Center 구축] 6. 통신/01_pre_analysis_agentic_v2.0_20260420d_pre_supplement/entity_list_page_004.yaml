@@ -1,0 +1,94 @@
+page_4_entities:
+- tag: HUB-RACK-01
+  name: 정보통신 허브랙
+  type: communication_equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: CCTV-CTL-01
+  name: 옥외 CCTV 제어반
+  type: communication_equipment
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: MANHOLE-01
+  name: 정보통신용 맨홀
+  type: structural_element
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: TUNNEL-DUCT-01
+  name: 지하 공동구
+  type: structural_element
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: ROOM-COMM-1F
+  name: 1층 통신실
+  type: named_space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: ROOM-BROAD-1F
+  name: 1층 방송실
+  type: named_space
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: EXT-SOURCE-COMM-1F
+  name: 외부 인입 출처 - 사무동 지상1층 통신실
+  type: source_placeholder
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: EXT-SOURCE-SERVER-2F
+  name: 외부 인입 출처 - 사무동 지상2층 전산실
+  type: source_placeholder
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: EXT-SOURCE-BROAD-1F
+  name: 외부 인입 출처 - 사무동 지상1층 방송실
+  type: source_placeholder
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: EXT-SOURCE-CCTV
+  name: 외부 인입 출처 - 옥외 CCTV 제어반
+  type: source_placeholder
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SECTION-T1
+  name: SECTION T1
+  type: section_detail
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: SECTION-T2
+  name: SECTION T2
+  type: section_detail
+  discipline: COMMUNICATION
+  confidence: 0.98
+- tag: PHOTO-TUNNEL
+  name: 지하공동구 현황 사진
+  type: photo
+  discipline: COMMUNICATION
+  confidence: 0.98
+page_4_relations:
+- from: EXT-SOURCE-CCTV
+  to: CCTV-CTL-01
+  relation: connects_to
+- from: CCTV-CTL-01
+  to: MANHOLE-01
+  relation: connects_to
+- from: EXT-SOURCE-COMM-1F
+  to: MANHOLE-01
+  relation: connects_to
+- from: EXT-SOURCE-SERVER-2F
+  to: MANHOLE-01
+  relation: connects_to
+- from: EXT-SOURCE-BROAD-1F
+  to: MANHOLE-01
+  relation: connects_to
+- from: MANHOLE-01
+  to: TUNNEL-DUCT-01
+  relation: connects_to
+- from: TUNNEL-DUCT-01
+  to: HUB-RACK-01
+  relation: connects_to
+- from: HUB-RACK-01
+  to: ROOM-COMM-1F
+  relation: connects_to
+- from: HUB-RACK-01
+  to: ROOM-BROAD-1F
+  relation: connects_to

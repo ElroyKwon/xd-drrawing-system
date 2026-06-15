@@ -1,0 +1,184 @@
+placement:
+  tag: UNKNOWN-SYSTEMBOX-03
+  name: SYSTEM BOX(OA) 2PORT - ACCESS 및 O.A FLOOR형
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-SYSTEMBOX-03
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - ConnectionPoint
+    - SignalDistribution
+    - SystemBox
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: system_box'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 원문 type 값 보존 필요
+      - raw_text: 'function_category: OUTLET_BOX'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 범주 값 보존 필요
+      - raw_text: 'visual_description: 바닥매입형 시스템 박스 심볼, ACCESS 및 O.A FLOOR형 표기'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도면에서 관찰된 시각적 설명 보존 필요
+      - raw_text: 'mounting_type: 바닥매입형 (Floor Mounted Type)'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: mountingType
+          suggested_datatype: xsd:string
+          rationale: 설치 방식 텍스트 보존 필요
+      - raw_text: 'source: 좌측 범례, 통합배선설비 항목'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처 설명 보존 필요
+      - raw_text: 'ontology_hints.suggested_parent_class: CommunicationEquipment'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존 필요
+      - raw_text: 'ontology_hints.observed_attributes: visual_description, mounting_type,
+          source'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존 필요
+      - raw_text: 'ontology_hints.function_candidates: ConnectionPoint, SignalDistribution'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 원문 보존 필요
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: entitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 생성/합성 출처 메타정보 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 3
+      method: direct
+    name:
+      source_pages:
+      - 3
+      method: direct
+    discipline:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: inferred_from_named_equipment
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: inferred_from_ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: direct_and_preserved
+    source_pages:
+      source_pages:
+      - 3
+      method: direct
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: direct
+    specs.mounting_type:
+      source_pages:
+      - 3
+      method: direct
+    specs.source:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 3
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: direct
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 3
+      method: direct
+  unresolved:
+  - field_candidate: specs.visual_description
+    raw_text: 바닥매입형 시스템 박스 심볼, ACCESS 및 O.A FLOOR형 표기
+    source_page: 3
+    reason: 설명 문구는 관찰 가능하나 정규화된 구조값으로 분해하지 않음
+    preservation_note: visual_description 원문 유지
+  - field_candidate: specs.mounting_type
+    raw_text: 바닥매입형 (Floor Mounted Type)
+    source_page: 3
+    reason: 한/영 혼합 표현으로 원문 보존이 필요함
+    preservation_note: mounting_type 원문 유지
+  - field_candidate: specs.source
+    raw_text: 좌측 범례, 통합배선설비 항목
+    source_page: 3
+    reason: 출처 설명은 있으나 별도 구조화 기준 없음
+    preservation_note: source 텍스트 유지
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: ConnectionPoint, SignalDistribution
+    source_page: 3
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 분류에서 후보 비교용으로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: system_box가 설비 본체인지 연결점/분배점인지 도면 문구만으로 단정하기 어려움. name에는 SYSTEM BOX(OA)
+      2PORT와 ACCESS 및 O.A FLOOR형이 함께 있어 장비성과 연결점성이 혼재함.
+    recommended_handling: 0-9c에서 CommunicationEquipment 계열과 ConnectionPoint 계열을 함께
+      검토하고, 0-9d에서 관계/기능 속성 후보를 분리 평가
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 통신 랙/단말/연결점/문서 메타 혼재 패턴을 반영하여 system_box를 독립 설비 후보로 배치
+    - ontology_hints의 suggested_parent_class 및 function_candidates를 class_hint 후보로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:18:09.437806'
+  confidence: 0.84

@@ -1,0 +1,235 @@
+placement:
+  tag: OUTDOOR-CONN
+  name: 외부 인입 연결점
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: OUTDOOR-CONN
+    class_hint: ConnectionPoint
+    alternative_class_hints:
+    - ExternalInlet
+    - CableDistribution
+    - WiringOrConnectionEntity
+    related_assertions:
+    - type: connects_to
+      target_hint: PULL-BOX-01
+      note: cross_validated; FROM 사무동 지상1층 방송실 / ELP 50 IN TRAY / FR-3 2.5sq / 10C
+        / 지하공동구 사용
+    - type: cable
+      target_hint: PULL-BOX-01
+      note: visual_semantics; FROM 사무동 지상1층 방송실 / ELP 50 IN TRAY / FR-3 2.5sq / 10C
+        / 지하공동구 사용
+    applicable_axioms:
+    - AX020
+    - AX026
+    - AX028
+    applicable_constraints:
+    - CN003
+    - CN004
+    - CN005
+    confirmed_class: dks:ConnectionInfrastructure
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:04:01.093950'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:11:39.432051'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상1층 방송실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: sourceLocation
+          suggested_datatype: xsd:string
+          rationale: FROM 구문으로 인입 출처를 나타내는 위치성 텍스트
+      - raw_text: ELP 50
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cableSpec
+          suggested_datatype: xsd:string
+          rationale: 인입 연결점에 함께 표기된 규격 문자열
+      - raw_text: IN TRAY
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: routingMethod
+          suggested_datatype: xsd:string
+          rationale: 배선 경로/포설 방식으로 보이는 표기
+      - raw_text: FR-3 2.5sq / 10C
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cableSpec
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격으로 보이는 문자열
+      - raw_text: 지하공동구 사용
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: installationNote
+          suggested_datatype: xsd:string
+          rationale: 설치/경로 관련 주석성 문구
+      - raw_text: 외부 인입 연결점 (사무동 지상1층 방송실)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: entity_detail의 inferred_name 원문
+      - raw_text: bottom-center
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: 1층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: floor
+          suggested_datatype: xsd:string
+          rationale: 층 정보
+      - raw_text: other
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 분류값
+      - raw_text: 'FROM : 사무동 지상1층 방송실'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 텍스트
+      - raw_text: ELP 50
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 텍스트
+      - raw_text: IN TRAY
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 텍스트
+      - raw_text: FR-3 2.5sq / 10C
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_inside
+          suggested_datatype: xsd:string
+          rationale: 내부 라벨 텍스트
+      - raw_text: 지하공동구 사용
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: labels_below
+          suggested_datatype: xsd:string
+          rationale: 하단 라벨 텍스트
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: rule_based_placement
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 5
+      method: relations[0].relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 5
+      method: relations[0].to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 5
+      method: relations[0].note + relations[0].annotation
+    ontology_core.related_assertions[1].type:
+      source_pages:
+      - 5
+      method: relations[1].relation
+    ontology_core.related_assertions[1].target_hint:
+      source_pages:
+      - 5
+      method: relations[1].to
+    ontology_core.related_assertions[1].note:
+      source_pages:
+      - 5
+      method: relations[1].annotation
+    discipline_context.free_notes:
+      source_pages:
+      - 5
+      method: specs + relations + ontology_hints
+    provenance:
+      source_pages:
+      - 5
+      method: entity_detail.source_pages
+    unresolved:
+      source_pages:
+      - 5
+      method: full_scan_retention
+  unresolved:
+  - field_candidate: collection_sources
+    raw_text: 'cross_validated: true; visual_semantics: true; entity_synthesis: true'
+    source_page: 5
+    reason: 분류 키가 아니라 보존 대상 메타정보이며, supplement 부재로 별도 구조화 기준 없음
+    preservation_note: 관계 신뢰도/생성 방식 메타로 유지
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: true; gemini: true; mini: true'
+    source_page: 5
+    reason: 출처/모델 귀속 메타이나 개별 의미 해석 불필요
+    preservation_note: 다중 소스 귀속 정보로 유지
+  - field_candidate: confidence
+    raw_text: '0.95'
+    source_page: 5
+    reason: 원문 값은 있으나 이 단계에서는 별도 의미 해석 없이 보존
+    preservation_note: 후속 단계에서 신뢰도 참고 가능
+  - field_candidate: equipment_symbols
+    raw_text: '[]'
+    source_page: 5
+    reason: 빈 배열
+    preservation_note: 빈 값 유지
+  - field_candidate: specs.labels_above
+    raw_text: '[]'
+    source_page: 5
+    reason: 빈 배열
+    preservation_note: 빈 값 유지
+  - field_candidate: relations[0].origin
+    raw_text: cross_validated
+    source_page: 5
+    reason: 관계 생성 근거 메타
+    preservation_note: 관계 신뢰 근거로 유지
+  - field_candidate: relations[1].origin
+    raw_text: visual_semantics
+    source_page: 5
+    reason: 관계 생성 근거 메타
+    preservation_note: 관계 신뢰 근거로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 외부 인입 연결점이라는 명칭과 PULL-BOX-01로의 연결 관계가 명확하여 개체로 배치 가능
+    recommended_handling: NamedIndividual로 유지하고, 연결/케이블 관련 관계는 후속 단계에서 정식 object property로
+      승격 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Connection infrastructure / external connection cluster
+    - connects_to and cable 관계 원형 보존
+    - position, floor, labels_inside, raw_labels, shape 관찰 속성 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T13:59:06.778048'
+  confidence: 0.95

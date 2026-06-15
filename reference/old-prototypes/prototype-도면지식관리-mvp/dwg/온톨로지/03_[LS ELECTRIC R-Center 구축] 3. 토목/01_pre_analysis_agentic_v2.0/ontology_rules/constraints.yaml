@@ -1,0 +1,308 @@
+constraints:
+- id: CN001
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasStatus
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. 증거 3건(BLDG-01 existing,
+    ASCON-DEMO-01 removed, LINE_101 new) 모두 동일 subject당 단일 상태값만 관찰됨. promotion_integrations에서도
+    54개 태그에 반복되나 충돌 사례가 제시되지 않음.
+  evidence_tags:
+  - BLDG-01
+  - ASCON-DEMO-01
+  - LINE_101
+  confidence: 0.96
+- id: CN002
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasFunctionCategory
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. BLDG-04, PIPE-USU-01, LEGEND-01
+    모두 각 subject당 1개 값만 관찰됨.
+  evidence_tags:
+  - BLDG-04
+  - PIPE-USU-01
+  - LEGEND-01
+  confidence: 0.97
+- id: CN003
+  type: FunctionalProperty
+  target_class: dks:Pipe
+  property: dks:hasLength
+  params: {}
+  derivation: Pipe 계열 evidence 3건(LINE_101 26.0, PIPE-02 43, PIPE-OSU-03 20) 모두 각
+    subject당 길이값 1회만 관찰됨. promotion_integrations에서도 hasLength는 관로 계열 17개 태그에 반복되며
+    단일 length_m 패턴으로 제시됨.
+  evidence_tags:
+  - LINE_101
+  - PIPE-02
+  - PIPE-OSU-03
+  - EXISTING-SEWER-EAST
+  - EXISTING-SEWER-SOUTH
+  - LINE_102
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - PIPE-01
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  - PIPE-OSU-01
+  - PIPE-OSU-02
+  confidence: 0.93
+- id: CN004
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasPosition
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. BUILDING-SECTION-RIGHT,
+    GRID-COL-2, UNKNOWN-FINAL-EXC-ZONE-03 모두 각 subject당 위치값 1회만 관찰됨. promotion_integrations에서도
+    45개 태그에 단일 position/specs.position 패턴이 반복됨.
+  evidence_tags:
+  - BUILDING-SECTION-RIGHT
+  - GRID-COL-2
+  - UNKNOWN-FINAL-EXC-ZONE-03
+  confidence: 0.9
+- id: CN005
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasShape
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. BUILDING-SECTION-RIGHT,
+    GRID-COL-1, UNKNOWN-PAVEMENT-04 모두 각 subject당 형상값 1회만 관찰됨.
+  evidence_tags:
+  - BUILDING-SECTION-RIGHT
+  - GRID-COL-1
+  - UNKNOWN-PAVEMENT-04
+  confidence: 0.91
+- id: CN006
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasUnit
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. ASCON-DEMO-01, SM.1, PAVE-ASCON-OVERLAY-NE
+    모두 각 subject당 단위값 1회만 관찰됨.
+  evidence_tags:
+  - ASCON-DEMO-01
+  - SM.1
+  - PAVE-ASCON-OVERLAY-NE
+  confidence: 0.9
+- id: CN007
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasSubsystem
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. CB-01 stormwater, PIPE-01
+    sewage, SM.3 sewage가 각 subject당 단일 subsystem 값으로 관찰됨. promotion_integrations에서도
+    30개 태그에 반복되나 충돌 사례가 없음.
+  evidence_tags:
+  - CB-01
+  - PIPE-01
+  - SM.3
+  confidence: 0.94
+- id: CN008
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasLineStyle
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. GUTTER-L-01, PIPE-OSU-01,
+    UNKNOWN-BOUNDARY-04 모두 각 subject당 선형 스타일값 1회만 관찰됨.
+  evidence_tags:
+  - GUTTER-L-01
+  - PIPE-OSU-01
+  - UNKNOWN-BOUNDARY-04
+  confidence: 0.86
+- id: CN009
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasCount
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. CB-01, UNKNOWN-NORTH-ARROW-01,
+    UNKNOWN-TENT-01 모두 각 subject당 count 값 1회만 관찰됨.
+  evidence_tags:
+  - CB-01
+  - UNKNOWN-NORTH-ARROW-01
+  - UNKNOWN-TENT-01
+  confidence: 0.88
+- id: CN010
+  type: FunctionalProperty
+  target_class: dks:PavementArea
+  property: dks:hasLegendSpec
+  params: {}
+  derivation: data_properties에서 domain이 PavementArea이고 functional_candidate=true.
+    PAVE-ASCON-OVERLAY-NE, PAVE-ASCON-RESTORE, PAVE-BLOCK-EAST 모두 각 포장구역당 legend_spec
+    1회만 관찰됨.
+  evidence_tags:
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-ASCON-RESTORE
+  - PAVE-BLOCK-EAST
+  confidence: 0.9
+- id: CN011
+  type: FunctionalProperty
+  target_class: dks:PavementArea
+  property: dks:hasPavementType
+  params: {}
+  derivation: data_properties에서 domain이 PavementArea이고 functional_candidate=true.
+    PAVE-ASCON-OVERLAY-NE, PAVE-BLOCK-WEST, PAVE-CONCRETE-NORTH 모두 각 포장구역당 pavement_type
+    1회만 관찰됨.
+  evidence_tags:
+  - PAVE-ASCON-OVERLAY-NE
+  - PAVE-BLOCK-WEST
+  - PAVE-CONCRETE-NORTH
+  confidence: 0.93
+- id: CN012
+  type: FunctionalProperty
+  target_class: dks:CivilDrawingElement
+  property: dks:hasDrawingNumber
+  params: {}
+  derivation: data_properties에서 domain이 CivilDrawingElement이고 functional_candidate=true.
+    PLAN-01, UNKNOWN-STRUCTURE-01, TABLE-01 모두 각 도면요소당 drawing_number 1회만 관찰됨.
+  evidence_tags:
+  - PLAN-01
+  - UNKNOWN-STRUCTURE-01
+  - TABLE-01
+  confidence: 0.87
+- id: CN013
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasInferredName
+  params: {}
+  derivation: data_properties에서 functional_candidate=true. BUILDING-SECTION-RIGHT,
+    PIPE-DETAIL-A, UNKNOWN-TABLE-04 모두 각 subject당 inferred_name 1회만 관찰됨.
+  evidence_tags:
+  - BUILDING-SECTION-RIGHT
+  - PIPE-DETAIL-A
+  - UNKNOWN-TABLE-04
+  confidence: 0.86
+- id: CN014
+  type: FunctionalProperty
+  target_class: dks:Manhole
+  property: dks:hasGroundLevel
+  params: {}
+  derivation: 맨홀 계열 evidence 3건(SM.3 93.9, SM.4 93.9, SM.5 91.6) 모두 각 subject당 ground_level_m
+    1회만 관찰됨. promotion_integrations에서도 MH-01,02,03,05,06 및 SM.3,4,5 등 8개 태그에 반복되나
+    복수값 사례가 제시되지 않음.
+  evidence_tags:
+  - SM.3
+  - SM.4
+  - SM.5
+  - MH-01
+  - MH-02
+  - MH-03
+  - MH-05
+  - MH-06
+  confidence: 0.88
+- id: CN015
+  type: FunctionalProperty
+  target_class: dks:Manhole
+  property: dks:hasPlanLevel
+  params: {}
+  derivation: 맨홀 계열 evidence 3건(SM.2 94.71, SM.4 93.9, 기준맨홀 94.5) 모두 각 subject당 plan_level_m
+    1회만 관찰됨. promotion_integrations에서도 SM.2,3,4,5,기준맨홀 5개 태그에 반복되나 복수값 사례가 없음.
+  evidence_tags:
+  - SM.2
+  - SM.4
+  - 기준맨홀
+  - SM.3
+  - SM.5
+  confidence: 0.89
+- id: CN016
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasPhotoReference
+  params: {}
+  derivation: object_properties에서 functional_candidate=true. CP.1->PHOTO-CP1, CP.2->PHOTO-CP2,
+    CP.3->PHOTO-CP3, T.B.M->PHOTO-TBM으로 4건 모두 동일 subject당 사진 참조 1건만 관찰됨.
+  evidence_tags:
+  - CP.1
+  - CP.2
+  - CP.3
+  - T.B.M
+  - PHOTO-CP1
+  - PHOTO-CP2
+  - PHOTO-CP3
+  - PHOTO-TBM
+  confidence: 0.89
+- id: CN017
+  type: FunctionalProperty
+  target_class: dks:ReferencePhoto
+  property: dks:referencesSurveyPoint
+  params: {}
+  derivation: object_properties에서 functional_candidate=true. PHOTO-CP2->CP.2, PHOTO-CP3->CP.3의
+    2건 모두 동일 사진이 하나의 측점을 가리키는 패턴만 관찰됨.
+  evidence_tags:
+  - PHOTO-CP2
+  - PHOTO-CP3
+  - CP.2
+  - CP.3
+  confidence: 0.77
+- id: CN018
+  type: Cardinality
+  target_class: dks:SewagePipe
+  property: dks:connectedTo
+  params:
+    min: 2
+    max: 2
+  derivation: 전 placement에서 SewagePipe로 확정된 LINE_101~105와 PIPE-01~05는 모두 connectedTo가
+    정확히 2회씩 관찰됨(각 관로가 양 끝 노드 2개 연결). 표본 10/10=100%. PIPE-OSU-02, EXISTING-SEWER-EAST,
+    EXISTING-SEWER-SOUTH는 related_assertions가 불완전하여 빈도 계산에서 제외.
+  evidence_tags:
+  - LINE_101
+  - LINE_102
+  - LINE_103
+  - LINE_104
+  - LINE_105
+  - PIPE-01
+  - PIPE-02
+  - PIPE-03
+  - PIPE-04
+  - PIPE-05
+  confidence: 0.9
+- id: CN019
+  type: Cardinality
+  target_class: dks:Manhole
+  property: dks:connectedTo
+  params:
+    min: 2
+    max: 2
+  derivation: 전 placement에서 Manhole/SewageManhole로 확정된 MH-02, MH-03, MH-04, MH-05,
+    SM.1, SM.2, SM.3, SM.4는 connectedTo가 정확히 2회씩 관찰됨. 표본 8건 중 8건 일치. MH-01, MH-06,
+    SM.5, 기준맨홀은 말단 또는 기록 불완전으로 예외이므로 전체 12건 기준 약 67%에 그쳐 후보 수준이지만, 내부 네트워크 맨홀 패턴으로는
+    100% 일치한다. 보수적으로 confidence 0.67 부여.
+  evidence_tags:
+  - MH-02
+  - MH-03
+  - MH-04
+  - MH-05
+  - SM.1
+  - SM.2
+  - SM.3
+  - SM.4
+  - MH-01
+  - MH-06
+  - SM.5
+  - 기준맨홀
+  confidence: 0.67
+- id: CN020
+  type: Cardinality
+  target_class: dks:Manhole
+  property: dks:hasPipe
+  params:
+    min: 0
+    max: 2
+  derivation: object_properties evidence에서 hasPipe는 SM.4에 대해 LINE_104, LINE_105 두
+    건만 관찰됨. 동일 subject에서 최대 2건이 확인되었고 다른 맨홀에서는 미관찰이므로 max=2만 약하게 귀납 가능. min은 0으로 둠.
+  evidence_tags:
+  - SM.4
+  - LINE_104
+  - LINE_105
+  confidence: 0.5
+summary_by_type:
+  FunctionalProperty: 17
+  Cardinality: 3
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T13:22:29.629671'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.86

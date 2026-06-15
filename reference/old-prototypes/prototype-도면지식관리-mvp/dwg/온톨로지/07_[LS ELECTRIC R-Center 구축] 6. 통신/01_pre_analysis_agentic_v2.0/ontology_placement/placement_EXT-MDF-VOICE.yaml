@@ -1,0 +1,228 @@
+placement:
+  tag: EXT-MDF-VOICE
+  name: 기존 MDF VOICE에 연결
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-MDF-VOICE
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - ExternalConnectionPoint
+    - CommunicationConnectionEntity
+    - DistributionFrameInterface
+    related_assertions:
+    - type: cable
+      target_hint: 110BLOCK-OUT
+      note: 기존 MDF VOICE에 연결 / 110BLOCK-OUT (기존 예정 자재)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 MDF VOICE에 연결
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionNote
+          suggested_datatype: xsd:string
+          rationale: 연결 대상과 용도를 설명하는 주석성 문구
+      - raw_text: 기존 MDF VOICE 연결 외부 인입점
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 도면에서 추론된 명칭으로 보이는 문자열
+      - raw_text: 'shape: other'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 속성 원문 보존
+      - raw_text: 'labels_above: 기존 MDF VOICE에 연결'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelAbove
+          suggested_datatype: xsd:string
+          rationale: 상단 라벨 원문 보존
+      - raw_text: 'relation: cable'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectedTo
+          suggested_datatype: owl:ObjectProperty
+          rationale: 설비 간 케이블 연결 관계 원문
+      - raw_text: 'annotation: 기존 MDF VOICE에 연결 / 110BLOCK-OUT (기존 예정 자재)'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: relationAnnotation
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 원문 보존
+      - raw_text: 'function_candidates: External Connection, Voice Signal Distribution,
+          MDF Interface'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategoryCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보 목록 보존
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 후보 보존
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 18
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 18
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 18
+      method: relations.annotation
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 18
+      method: entity_detail.specs + relations + ontology_hints
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 18
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 18
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 기존 MDF VOICE에 연결
+    source_page: 18
+    reason: 라벨 원문이지만 별도 구조화 필드로 승격하지 않음
+    preservation_note: free_notes 및 name과 함께 보존
+  - field_candidate: specs.shape
+    raw_text: other
+    source_page: 18
+    reason: 도형 의미를 추가 해석할 근거 부족
+    preservation_note: 원문 값 그대로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: '[]'
+    source_page: 18
+    reason: 비어 있음
+    preservation_note: 빈 배열 상태 보존
+  - field_candidate: specs.labels_above
+    raw_text: 기존 MDF VOICE에 연결
+    source_page: 18
+    reason: 상단 라벨이지만 별도 속성 체계 미정
+    preservation_note: free_notes로 보존
+  - field_candidate: specs.labels_below
+    raw_text: '[]'
+    source_page: 18
+    reason: 비어 있음
+    preservation_note: 빈 배열 상태 보존
+  - field_candidate: specs.inferred_name
+    raw_text: 기존 MDF VOICE 연결 외부 인입점
+    source_page: 18
+    reason: 추론명으로 보이나 확정 클래스/명칭 아님
+    preservation_note: class_hint와 분리하여 보존
+  - field_candidate: specs.position
+    raw_text: top-right
+    source_page: 18
+    reason: 도면 내 위치 표현이지만 정규 좌표 아님
+    preservation_note: position 원문 보존
+  - field_candidate: relations.relation
+    raw_text: cable
+    source_page: 18
+    reason: 정식 property IRI 미확정
+    preservation_note: related_assertions 원형으로 보존
+  - field_candidate: relations.to
+    raw_text: 110BLOCK-OUT
+    source_page: 18
+    reason: 관계 대상은 있으나 대상 엔티티 상세 미제공
+    preservation_note: orphan 여부는 아니며 target_hint로 보존
+  - field_candidate: relations.annotation
+    raw_text: 기존 MDF VOICE에 연결 / 110BLOCK-OUT (기존 예정 자재)
+    source_page: 18
+    reason: 관계 주석 원문
+    preservation_note: 관계 사실의 설명으로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: External Connection; Voice Signal Distribution; MDF Interface
+    source_page: 18
+    reason: 후보 기능이며 확정 아님
+    preservation_note: alternative_class_hints 및 free_notes로 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationEquipment
+    source_page: 18
+    reason: 제안 상위 클래스이며 확정 아님
+    preservation_note: class_hint 후보로만 사용
+  - field_candidate: collection_sources.visual_semantics
+    raw_text: 'true'
+    source_page: 18
+    reason: 수집 출처 플래그
+    preservation_note: 출처 메타데이터로 간주
+  - field_candidate: collection_sources.visual_semantics_gemini
+    raw_text: 'true'
+    source_page: 18
+    reason: 수집 출처 플래그
+    preservation_note: 출처 메타데이터로 간주
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 18
+    reason: 수집 출처 플래그
+    preservation_note: 출처 메타데이터로 간주
+  - field_candidate: position
+    raw_text: top-right
+    source_page: 18
+    reason: 상위 position 필드와 동일 의미의 위치 정보
+    preservation_note: 중복이지만 원문 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 인입점처럼 보이지만 type이 equipment이고, 관계 주 정보가 강하며, 물리 설비/연결점/주석 경계가 혼합되어 있음.
+    recommended_handling: 0-9c에서 class 확정 시 connection point 계열과 equipment 계열을 함께
+      검토하고, 0-9d에서 cable 관계를 정식 object property로 승격 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부연결/인입/출처 지점 패턴
+    - connectedTo 계열 관계 추출
+    - locatedIn/position 계열 위치 정보 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:18.647268'
+  confidence: 0.84

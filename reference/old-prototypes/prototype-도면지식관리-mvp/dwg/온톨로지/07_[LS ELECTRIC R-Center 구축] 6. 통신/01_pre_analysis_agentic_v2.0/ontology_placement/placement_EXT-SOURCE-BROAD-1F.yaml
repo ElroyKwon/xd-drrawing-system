@@ -1,0 +1,174 @@
+placement:
+  tag: EXT-SOURCE-BROAD-1F
+  name: 외부 인입 출처 - 사무동 지상1층 방송실
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: ExternalConnectionPoint
+    alternative_class_hints:
+    - BroadcastingSignalSupply
+    - ExternalSource
+    - Placeholder
+    related_assertions:
+    - type: cable
+      target_hint: MANHOLE-01
+      note: EXT-SOURCE-BROAD-1F에서 MANHOLE-01로 케이블 관계가 관찰됨
+    applicable_axioms:
+    - AX040
+    applicable_constraints: []
+    confirmed_class: dks:ExternalConnectionPoint
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상1층 방송실'
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: fromLabel
+          suggested_datatype: xsd:string
+          rationale: FROM 표기와 출처 공간명이 함께 있는 원문 라벨
+      - raw_text: FR-3 2.5sq / 10C
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격으로 보이는 문자열
+      - raw_text: 사무동 지하1층 평면도 참조
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: crossPageReference
+          suggested_datatype: xsd:string
+          rationale: 다른 도면 페이지를 참조하는 문구
+      - raw_text: ELP 50Ø
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: routeOrConduitNote
+          suggested_datatype: xsd:string
+          rationale: 관경/경로 관련 표기로 보이나 정확한 의미는 도면 내 추가 맥락 필요
+  provenance:
+    tag:
+      source_pages:
+      - 4
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 4
+      method: entity_detail.discipline
+    function_category:
+      source_pages:
+      - 4
+      method: entity_detail.function_category
+    position:
+      source_pages:
+      - 4
+      method: entity_detail.position
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: classification_from_observed_role
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class + observed_attributes
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates + observed semantics
+    ontology_core.related_assertions:
+      source_pages:
+      - 4
+      method: relations
+    specs.raw_labels:
+      source_pages:
+      - 4
+      method: entity_detail.specs.raw_labels
+    specs.from_label:
+      source_pages:
+      - 4
+      method: entity_detail.specs.from_label
+    specs.cable_spec:
+      source_pages:
+      - 4
+      method: entity_detail.specs.cable_spec
+    specs.cross_page_ref:
+      source_pages:
+      - 4
+      method: entity_detail.specs.cross_page_ref
+    relations:
+      source_pages:
+      - 4
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 4
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 4
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 4
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.visual_semantics:
+      source_pages:
+      - 4
+      method: entity_detail.collection_sources.visual_semantics
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 4
+      method: entity_detail.collection_sources.visual_semantics_gemini
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 4
+      method: entity_detail.collection_sources.entity_synthesis
+  unresolved:
+  - field_candidate: specs.raw_labels[0]
+    raw_text: 'FROM : 사무동 지상1층 방송실'
+    source_page: 4
+    reason: 원문 라벨이지만 OWL 데이터/객체 속성으로 확정하지 않고 보존
+    preservation_note: 출처 공간명과 방향성 표기 포함
+  - field_candidate: specs.raw_labels[1]
+    raw_text: FR-3 2.5sq / 10C
+    source_page: 4
+    reason: 케이블 규격으로 보이나 정식 속성명 확정 불가
+    preservation_note: 규격 문자열 원형 보존
+  - field_candidate: specs.cross_page_ref
+    raw_text: 사무동 지하1층 평면도 참조
+    source_page: 4
+    reason: 참조 문구이나 대상 도면의 정식 식별자 불명
+    preservation_note: cross-page reference 후보
+  - field_candidate: relations[0].annotation
+    raw_text: 'FROM : 사무동 지상1층 방송실 / FR-3 2.5sq / 10C / ELP 50Ø'
+    source_page: 4
+    reason: 복합 주석 문자열로 분해 기준 불명
+    preservation_note: 원문 전체 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그가 외부 인입 출처를 나타내는 placeholder인지, 실제 연결점/설비 개체인지 도면상 혼합적으로 보임
+    recommended_handling: 0-9c에서 placeholder/connection point/annotation 중 최종 분류를
+      재검토하고, 관계 중심 엔티티로도 병행 검토
+  merge_info:
+    is_merge_candidate: true
+    other_tag: EXT-SOURCE-BROAD-1F-B
+    reason: 태그 접미사 B가 붙은 유사 태그가 존재하여 스펠링/버전 변형 또는 중복 엔티티 가능성 있음
+  plan_reference:
+    guidance_applied:
+    - external origin/source point 패턴을 우선 반영
+    - placeholder 및 connection point 혼합 가능성을 보존
+    - cable_spec, cross_page_ref, from_label을 분리 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:20.114423'
+  confidence: 0.78

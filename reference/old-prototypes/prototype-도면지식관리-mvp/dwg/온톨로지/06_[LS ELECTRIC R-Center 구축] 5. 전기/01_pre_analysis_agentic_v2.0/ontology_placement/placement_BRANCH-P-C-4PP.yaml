@@ -1,0 +1,207 @@
+placement:
+  tag: BRANCH-P-C-4PP
+  name: P-C-4PP 분기회로
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: BRANCH-P-C-4PP
+    class_hint: ElectricalBranchCircuit
+    alternative_class_hints:
+    - Load
+    - PowerDistributionEquipment
+    - BranchCircuit
+    related_assertions:
+    - type: feeds
+      target_hint: P-C-4PP
+      note: 'parent_panel: P-C-4PP, relation feeds from panel to branch circuit'
+    - type: contains
+      target_hint: MCCB branch circuit set
+      note: branch_circuits includes 2 MCCB circuits (100AT/125AF/4P, 75AT/125AF/3P
+        SP)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:ElectricalCircuit
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: P-C-4PP 분기회로
+        source_page: 22
+      free_notes:
+      - raw_text: 'parent_panel: P-C-4PP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasParentPanel
+          suggested_datatype: xsd:string
+          rationale: parent_panel로 패널-분기회로 연결이 명시됨
+      - raw_text: 'voltage: 440V'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasVoltage
+          suggested_datatype: xsd:string
+          rationale: 전압 값이 수치+단위 형태로 명시됨
+      - raw_text: 'phase: 3Ø'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasPhase
+          suggested_datatype: xsd:string
+          rationale: 상(phase) 표기가 문자열로 명시됨
+      - raw_text: 'branch_circuits[0]: circuit_id=회로, type=MCCB, poles=4, at_rating=100,
+          af_rating=125, interrupting_capacity=25kA, note=분기 차단기 적용 차단 용량 표 참조'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 분기 차단기 사양 묶음이 구조화되어 있으나 현재 단계에서는 개별 속성 승격 전 보존 필요
+      - raw_text: 'branch_circuits[1]: circuit_id=SP, type=MCCB, poles=3, at_rating=75,
+          af_rating=125, interrupting_capacity=25kA, note=서지보호 분기 (SPD 보호)'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasBranchCircuitSpecification
+          suggested_datatype: xsd:string
+          rationale: 서지보호 분기 사양 묶음이 구조화되어 있으나 현재 단계에서는 개별 속성 승격 전 보존 필요
+      - raw_text: 'observed_attributes: voltage=440V, phase=3Ø, circuit_count=2, protection_type=MCCB'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasObservedAttributeSummary
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 요약이 존재하며 후속 속성 분해 후보임
+      - raw_text: 'function_candidates: PowerDistribution, LoadConnection'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasFunctionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보가 제시되었으나 확정 분류는 아님
+      - raw_text: 'similar_equipment: BRANCH-P-A-4PP-7, BRANCH-P-AC-4PP-1, BRANCH-P-E-4PP,
+          BRANCH-P-F-4PP, BRANCH-P-P-4PP'
+        source_page: 22
+        promotion_hint:
+          suggested_property_label: hasSimilarEquipmentReference
+          suggested_datatype: xsd:string
+          rationale: 유사 설비 참조 목록이 존재하여 비교/병합 후보 탐색에 활용 가능
+  provenance:
+    name:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 22
+      method: rule_based_placement
+    ontology_core.iri_hint:
+      source_pages:
+      - 22
+      method: direct_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 22
+      method: ontology_hint_based
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 22
+      method: ontology_hint_based
+    ontology_core.related_assertions:
+      source_pages:
+      - 22
+      method: relation_and_spec_inference
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 22
+      method: name_based_grouping
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 22
+      method: preserve_unclassified_and_promote
+    discipline_context.sub_kinds.free_notes[0]:
+      source_pages:
+      - 22
+      method: direct_from_specifications
+    discipline_context.sub_kinds.free_notes[1]:
+      source_pages:
+      - 22
+      method: direct_from_specifications
+    discipline_context.sub_kinds.free_notes[2]:
+      source_pages:
+      - 22
+      method: direct_from_specifications
+    discipline_context.sub_kinds.free_notes[3]:
+      source_pages:
+      - 22
+      method: direct_from_specifications
+    discipline_context.sub_kinds.free_notes[4]:
+      source_pages:
+      - 22
+      method: direct_from_specifications
+    discipline_context.sub_kinds.free_notes[5]:
+      source_pages:
+      - 22
+      method: direct_from_ontology_hints
+    discipline_context.sub_kinds.free_notes[6]:
+      source_pages:
+      - 22
+      method: direct_from_ontology_hints
+    relations:
+      source_pages:
+      - 22
+      method: cross_validated
+    source_attribution:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+    confidence:
+      source_pages:
+      - 22
+      method: direct_from_entity_detail
+  unresolved:
+  - field_candidate: specifications.branch_circuits[0].circuit_id
+    raw_text: 회로
+    source_page: 22
+    reason: 일반명으로만 표기되어 개별 회로 식별명으로는 불충분함
+    preservation_note: branch_circuits[0]의 사양 묶음 내부 식별자 원문 보존
+  - field_candidate: specifications.branch_circuits[0].note
+    raw_text: 분기 차단기 적용 차단 용량 표 참조
+    source_page: 22
+    reason: 참조 지시만 있고 실제 표 값이 본 entity_detail에 없음
+    preservation_note: 후속 페이지/표에서 차단 용량 표를 찾아 연결 필요
+  - field_candidate: specifications.branch_circuits[1].note
+    raw_text: 서지보호 분기 (SPD 보호)
+    source_page: 22
+    reason: 기능 설명은 있으나 정식 속성으로 확정하지 않음
+    preservation_note: SPD 보호 목적의 분기라는 설명 보존
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: ElectricalBranchCircuit
+    source_page: 22
+    reason: 힌트는 있으나 이 단계에서는 class_hint 후보로만 사용
+    preservation_note: 0-9c에서 taxonomy 확정 시 참고
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: PowerDistribution, LoadConnection
+    source_page: 22
+    reason: 기능 후보가 복수이며 확정 불가
+    preservation_note: 기능 분류 후보 목록 보존
+  - field_candidate: relations[0].note
+    raw_text: 분기 MCCB 회로 (100AT/125AF/4P, 75AT/125AF/3P SP)
+    source_page: 22
+    reason: 관계 설명이 사양 요약을 포함하나 별도 구조화 전 단계
+    preservation_note: branch_circuits 사양과 함께 해석 가능하도록 원문 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: BRANCH-* 태그는 분전반 내부의 분기회로로 보이지만, 독립 설비인지 패널 종속 부품인지 경계가 도면상 혼재되어 있음
+    recommended_handling: NamedIndividual로 존속시키되 parent_panel과 feeds 관계를 유지하고, 후속
+      단계에서 contains/is_contained_in 구조로 정리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 전력 흐름(feeds)과 물리적/전기적 접속의 구분
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:09:03.098157'
+  confidence: 0.7

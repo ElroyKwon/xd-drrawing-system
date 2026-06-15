@@ -1,0 +1,16 @@
+tag: ELC-TERM-001
+verdict: demoted
+confidence: 0.93
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: type은 terminal_lug이지만, entity_detail의 notes에 '등전위 접속 상세도 내 배관 접속 구성요소'로 명시되어
+  있고 connection_specs도 가스관/수도관/기계관/접속박스/압착 슬리브/웨더캡 등 타 설비와의 연결 구성요소로만 보인다. 독립 설비라기보다
+  접속 상세의 부품/부속품 성격이며, 자체 사양은 connection_detail과 note 수준뿐이라 독립 엔티티로 보기 어렵다.
+demoted_to: component_of
+target_entity: 접속박스
+preserved_info:
+  spec: 'connection_detail: 압착단자; related_text: 가스 배관 / 기계 배관 / 수도 배관 / 접속클램프(기계 시공분)
+    / [가스관 접속(압착단자)] / [수도관 접속(압착단자)] / [기계관 접속(압착단자)]'
+  relation: 'connected_with: 접속박스, 압착 슬리브, 웨더캡; connected_to: 가스관, 수도관, 기계관'

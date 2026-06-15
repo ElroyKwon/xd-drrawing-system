@@ -1,0 +1,61 @@
+tag: CCTV-CTL-01
+name: 옥외 CCTV 제어반
+type: communication_equipment
+discipline: COMMUNICATION
+function_category: CONTROL_PANEL
+source_pages:
+- 4
+specs:
+  raw_labels:
+  - CCTV1
+  - 기존 옥외 CCTV 제어반
+  panel_id: CCTV-CTL-01
+  shape: rectangle
+  labels_inside:
+  - CCTV1
+  labels_above:
+  - 기존 옥외 CCTV 제어반
+  labels_below: []
+  equipment_symbols:
+  - type: CCTV_controller
+    count: 1
+  inferred_name: 옥외 CCTV 제어반
+  position: top-center
+relations:
+- from: EXT-CCTV-CTRL
+  to: CCTV-CTL-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: FIBER OPTICAL S.M 4CORE, ELP 50Ø
+- from: CCTV-CTL-01
+  to: MANHOLE-01
+  relation: cable
+  source_page: 4
+  origin: visual_semantics
+  annotation: ELP 50Ø, 터파기 신설 구역
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-center
+equipment_symbols:
+- type: CCTV_controller
+  count: 1
+ontology_hints:
+  suggested_parent_class: ControlPanel
+  observed_attributes:
+  - raw_labels
+  - panel_id
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  similar_equipment:
+  - EXT-CCTV-CTRL
+  function_candidates:
+  - CCTV_Control
+  - Signal_Transmission

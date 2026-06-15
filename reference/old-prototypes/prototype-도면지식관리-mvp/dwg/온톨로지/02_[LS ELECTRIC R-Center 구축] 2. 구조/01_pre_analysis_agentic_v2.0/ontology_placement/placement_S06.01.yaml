@@ -1,0 +1,102 @@
+placement:
+  tag: S06.01
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S06.01
+    class_hint: SheetIdentifier
+    alternative_class_hints:
+    - DocumentEntity
+    - PlanOrView
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms:
+    - AX004
+    applicable_constraints: []
+    confirmed_class: dks:SheetIdentifier
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 시트/문서 참조 가능성이 있음
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: hasUsageNote
+          suggested_datatype: xsd:string
+          rationale: 도면 내용이 아닌 안내 문구로, 주석/설명 메타로 보존 필요
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.raw
+    name:
+      source_pages:
+      - 0
+      method: not_present
+    discipline:
+      source_pages:
+      - 0
+      method: explicit_input
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: classification_from_raw_text
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: classification_from_raw_text
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan_based_candidate_generation
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: discipline_context.sub_kinds.free_notes[0].promotion_hint.suggested_property_label
+    raw_text: availablePages
+    source_page: 0
+    reason: supplement가 정의한 sub_kind가 없어 free_notes로 보존함
+    preservation_note: 페이지 목록은 추후 문서 메타 속성으로 승격 가능
+  - field_candidate: discipline_context.sub_kinds.free_notes[1].promotion_hint.suggested_property_label
+    raw_text: hasUsageNote
+    source_page: 0
+    reason: 안내 문구는 물리 설비 정보가 아니므로 free_notes로 보존함
+    preservation_note: 주석/설명 속성 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: tag S06.01은 시트/문서 식별자처럼 보이나, 원문은 페이지 목록 안내 문구만 포함하여 물리 실체 여부를 단정할 수 없음
+    recommended_handling: AnnotationOnly로 유지하되, 후속 단계에서 DocumentEntity 또는 SheetIdentifier
+      계열로 재검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서 메타 계층 우선 관찰
+    - raw only placeholder responses를 free_notes로 보존
+    deviations:
+    - plan상 시트/시리즈 식별자 계열 가능성이 있으나, 현재 entity_detail에 시트명 자체보다 안내 문구만 있어 확정 분류를 보류함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:57.396316'
+  confidence: 0.62

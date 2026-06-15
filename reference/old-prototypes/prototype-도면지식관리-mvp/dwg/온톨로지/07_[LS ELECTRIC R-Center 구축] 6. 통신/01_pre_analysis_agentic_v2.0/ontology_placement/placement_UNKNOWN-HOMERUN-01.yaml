@@ -1,0 +1,154 @@
+placement:
+  tag: UNKNOWN-HOMERUN-01
+  name: 홈런 to Panelboard
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:UNKNOWN-HOMERUN-01
+    class_hint: WiringPath
+    alternative_class_hints:
+    - ConnectionPath
+    - CircuitHomeRun
+    - ArrowSymbol
+    related_assertions:
+    - type: connectedTo
+      target_hint: Panelboard
+      note: name에 'to Panelboard'가 직접 표기됨
+    - type: symbolizedBy
+      target_hint: 화살표 형태의 선형 심볼
+      note: specs.visual_description 기반
+    - type: referencesSource
+      target_hint: 우측 범례
+      note: specs.source 기반
+    - type: referencesSource
+      target_hint: 공통사항 항목
+      note: specs.source 기반
+    applicable_axioms:
+    - AX035
+    applicable_constraints: []
+    confirmed_class: dks:WiringPath
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 화살표 형태의 선형 심볼
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: visualDescription
+          suggested_datatype: xsd:string
+          rationale: 도형/표현 방식에 대한 서술
+      - raw_text: 우측 범례
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceLocationText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처 위치 표기
+      - raw_text: 공통사항 항목
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: sourceLocationText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 출처 위치 표기
+      - raw_text: Connection to Panelboard
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionText
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 원문 표현
+      - raw_text: Circuit Home Run
+        source_page: 3
+        promotion_hint:
+          suggested_property_label: functionText
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 원문 표현
+  provenance:
+    name:
+      source_pages:
+      - 3
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 3
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 3
+      method: classification_by_observed_entity
+    ontology_core.iri_hint:
+      source_pages:
+      - 3
+      method: tag_based
+    ontology_core.class_hint:
+      source_pages:
+      - 3
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 3
+      method: derived_from_ontology_hints.function_candidates_and_specs
+    ontology_core.related_assertions:
+      source_pages:
+      - 3
+      method: entity_detail.name/specs/ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 3
+      method: preserve_unclassified_observed_text
+    specs.visual_description:
+      source_pages:
+      - 3
+      method: entity_detail.specs.visual_description
+    specs.source:
+      source_pages:
+      - 3
+      method: entity_detail.specs.source
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.function_candidates:
+      source_pages:
+      - 3
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.visual_description
+    raw_text: 화살표 형태의 선형 심볼
+    source_page: 3
+    reason: 도형 설명은 있으나 물리 설비/관계/주석 중 어느 층위로 확정할지 단정 불가
+    preservation_note: AnnotationOnly 가능성도 있으나 name과 function_candidates가 있어 NamedIndividual로
+      보존
+  - field_candidate: specs.source
+    raw_text: 우측 범례, 공통사항 항목
+    source_page: 3
+    reason: 출처 위치는 있으나 표준화된 관계명으로 확정하지 않음
+    preservation_note: 후속 단계에서 referencesDrawingOrSection 또는 annotation source로 승격
+      가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Connection to Panelboard; Circuit Home Run
+    source_page: 3
+    reason: 후보 기능 표현이 복수이며 확정 기능명 아님
+    preservation_note: 0-9c에서 class/function 정제 필요
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 화살표 심볼 기반의 배선 경로인지, 단순 주석/범례 항목인지 경계가 모호함. name은 설비/경로처럼 보이나 specs는 심볼
+      설명 중심임.
+    recommended_handling: 0-9c에서 WiringPath 계열로 우선 검토하되, 주석 전용 엔티티와의 중복 여부를 확인
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - wiring_path 계열로 보이는 엔티티를 CommunicationPhysicalEntity/ConnectionEntity 후보로 우선
+      배치
+    - 범례/공통사항 출처 표기를 free_notes로 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:59.266338'
+  confidence: 0.78

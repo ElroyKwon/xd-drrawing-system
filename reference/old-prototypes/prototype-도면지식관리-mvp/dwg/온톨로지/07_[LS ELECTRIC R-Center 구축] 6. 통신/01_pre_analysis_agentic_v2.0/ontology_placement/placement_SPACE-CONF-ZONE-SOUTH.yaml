@@ -1,0 +1,177 @@
+placement:
+  tag: SPACE-CONF-ZONE-SOUTH
+  name: 회의실 (남측 다수)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: SPACE-CONF-ZONE-SOUTH
+    class_hint: CommunicationSpace
+    alternative_class_hints:
+    - CommunicationZone
+    - ConferenceSpace
+    related_assertions:
+    - type: locatedIn
+      target_hint: bottom-center
+      note: specs.position / position 값 기반 위치 표기
+    - type: hasEquipmentSymbol
+      target_hint: LAN_OUTLET_2PORT
+      note: space 내부 equipment_symbols
+    - type: hasEquipmentSymbol
+      target_hint: SYSTEM_BOX_2PORT
+      note: space 내부 equipment_symbols
+    - type: hasEquipmentSymbol
+      target_hint: WIRELESS_AP
+      note: space 내부 equipment_symbols
+    - type: connectedTo
+      target_hint: HUB-RACK-2F
+      note: relations.from/to에 기록된 케이블 관계
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationSpace
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 회의실 (남측 다수)
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 원문 라벨
+      - raw_text: 남측 회의실 구역
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: specs.inferred_name에 기록된 추정 명칭
+      - raw_text: rectangle
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보
+      - raw_text: bottom-center
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: LAN_OUTLET_2PORT
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: equipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 심볼 유형
+      - raw_text: SYSTEM_BOX_2PORT
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: equipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 심볼 유형
+      - raw_text: WIRELESS_AP
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: equipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 공간 내부 심볼 유형
+      - raw_text: 천정속 노출 배관배선
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 관계 annotation의 배선 설명
+      - raw_text: cable
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: relationText
+          suggested_datatype: xsd:string
+          rationale: 관계 원문 타입
+      - raw_text: COMMUNICATION_ZONE
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: entity function_category 값
+  provenance:
+    tag:
+      source_pages:
+      - 11
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 11
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 11
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: classification_by_entity_detail_and_space_pattern
+    ontology_core.iri_hint:
+      source_pages:
+      - 11
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hints.function_candidates + contextual inference
+    ontology_core.related_assertions:
+      source_pages:
+      - 11
+      method: relations + specs.equipment_symbols
+    discipline_context.free_notes:
+      source_pages:
+      - 11
+      method: preserve_all_unclassified_observations
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 11
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 11
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.equipment_symbols[0].count
+    raw_text: 'null'
+    source_page: 11
+    reason: 수량이 명시되지 않음
+    preservation_note: 심볼 유형만 보존
+  - field_candidate: specs.equipment_symbols[1].count
+    raw_text: 'null'
+    source_page: 11
+    reason: 수량이 명시되지 않음
+    preservation_note: 심볼 유형만 보존
+  - field_candidate: specs.equipment_symbols[2].count
+    raw_text: 'null'
+    source_page: 11
+    reason: 수량이 명시되지 않음
+    preservation_note: 심볼 유형만 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: SPACE로 보이지만 내부에 LAN outlet, system box, wireless AP 심볼이 함께 있어 단순 공간/장비
+      혼합 경계가 있음.
+    recommended_handling: 0-9c에서 CommunicationSpace 우선 검토 후, 내부 심볼은 별도 개체/관계로 분리 가능성
+      검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/room/zone 계열을 CommunicationSpaceEntity로 보는 구조
+    - locatedIn, hasEquipmentSymbol, connectedTo 패턴 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:15:25.798979'
+  confidence: 0.93

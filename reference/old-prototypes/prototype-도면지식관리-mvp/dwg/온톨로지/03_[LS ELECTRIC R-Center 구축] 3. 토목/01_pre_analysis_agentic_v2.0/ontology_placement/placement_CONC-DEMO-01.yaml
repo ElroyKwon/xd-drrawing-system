@@ -1,0 +1,207 @@
+placement:
+  tag: CONC-DEMO-01
+  name: 콘크리트 철거
+  discipline: civil
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:CONC-DEMO-01
+    class_hint: DemolitionWork
+    alternative_class_hints:
+    - ConcreteRemoval
+    - Demolition
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DemolitionWork
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T13:13:29.998629'
+  discipline_context:
+    discipline: civil
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: DEMOLITION'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문에 type 값이 명시됨
+      - raw_text: 'function_category: DEMOLITION_WORK'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 값이 명시됨
+      - raw_text: 'specs.type: 콘크리트 철거'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasDescription
+          suggested_datatype: xsd:string
+          rationale: 명칭과 동일/유사한 설명성 텍스트
+      - raw_text: 'specs.status: removed'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasStatus
+          suggested_datatype: xsd:string
+          rationale: 상태 값이 명시됨
+      - raw_text: 'specs.thickness_mm: 150'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasThickness
+          suggested_datatype: xsd:decimal
+          rationale: 수치 + mm 단위의 두께 값
+      - raw_text: 'specs.unit: m2'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasUnit
+          suggested_datatype: xsd:string
+          rationale: 면적 단위가 명시됨
+      - raw_text: 'specs.hatch_pattern: 음영 해치'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasHatchPattern
+          suggested_datatype: xsd:string
+          rationale: 도면 표현 패턴 정보
+      - raw_text: 'ontology_hints.suggested_parent_class: DemolitionWork'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로서 상위 클래스 후보
+      - raw_text: 'ontology_hints.observed_attributes: type, status, thickness_mm,
+          unit, hatch_pattern'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: Demolition, ConcreteRemoval'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'collection_sources.entity_synthesis: true'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: entitySynthesis
+          suggested_datatype: xsd:boolean
+          rationale: 생성/수집 출처 메타정보
+      - raw_text: 'relations: []'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: hasRelations
+          suggested_datatype: rdf:List
+          rationale: 관계 항목이 비어 있음
+      - raw_text: 'similar_equipment: []'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: similarEquipment
+          suggested_datatype: rdf:List
+          rationale: 유사 장비/태그 목록이 비어 있음
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: inferred_from_entity_detail
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: from_ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: from_ontology_hints.function_candidates
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: preserve_all_unclassified_fields
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: direct
+    ambiguous:
+      source_pages:
+      - 5
+      method: checked_no_conflict_observed
+  unresolved:
+  - field_candidate: specs.type
+    raw_text: 콘크리트 철거
+    source_page: 5
+    reason: 명칭과 동일한 설명성 텍스트로 별도 구조화 기준 없음
+    preservation_note: name과 중복 가능하나 원문 보존
+  - field_candidate: specs.status
+    raw_text: removed
+    source_page: 5
+    reason: 상태 값의 온톨로지 내 확정 위치 미정
+    preservation_note: 운영상태 후보로 보존
+  - field_candidate: specs.thickness_mm
+    raw_text: '150'
+    source_page: 5
+    reason: 수치 의미는 명확하나 정식 속성 미확정
+    preservation_note: 두께 수치로 승격 후보
+  - field_candidate: specs.unit
+    raw_text: m2
+    source_page: 5
+    reason: 단위 정보이나 대상 속성 미확정
+    preservation_note: 면적 단위로 보존
+  - field_candidate: specs.hatch_pattern
+    raw_text: 음영 해치
+    source_page: 5
+    reason: 도면 표현 방식으로 분류 기준 미정
+    preservation_note: 주석/표현 속성 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: DemolitionWork
+    source_page: 5
+    reason: 힌트이므로 확정 클래스 아님
+    preservation_note: class_hint 후보로만 사용
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: type, status, thickness_mm, unit, hatch_pattern
+    source_page: 5
+    reason: 속성 목록이지만 정식 스키마 미정
+    preservation_note: 관찰 속성 목록 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Demolition, ConcreteRemoval
+    source_page: 5
+    reason: 기능 후보 다수
+    preservation_note: 대체 클래스 후보로 보존
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 5
+    reason: 생성 방식 메타정보
+    preservation_note: 출처 메타로 보존
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 5
+    reason: 관계 없음
+    preservation_note: 빈 관계도 원문 상태 보존
+  - field_candidate: similar_equipment
+    raw_text: '[]'
+    source_page: 5
+    reason: 유사 태그 없음
+    preservation_note: 빈 목록 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 도면 주석이 아니라 철거 작업을 나타내는 독립 엔티티로 보이며, 관계도 없고 물리 실체/정보성 엔티티 구분이 비교적 명확함
+    recommended_handling: 0.9c에서 DemolitionWork 계열로 taxonomy 배치 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 시설물(Individual)과 도면 주석/테이블(Annotation/Metadata)의 분리
+    - UNKNOWN-* 태그들의 기능적 sub_kind 우선 판별
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T12:40:38.208941'
+  confidence: 0.95

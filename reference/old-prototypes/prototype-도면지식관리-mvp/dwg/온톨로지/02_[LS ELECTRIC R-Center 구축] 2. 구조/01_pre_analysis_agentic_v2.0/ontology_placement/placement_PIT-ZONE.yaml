@@ -1,0 +1,167 @@
+placement:
+  tag: PIT-ZONE
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:PIT-ZONE
+    class_hint: GroupingEntity
+    alternative_class_hints:
+    - PlanOrView
+    - DocumentEntity
+    related_assertions:
+    - type: contains
+      target_hint: FOUNDATION-PLAN
+      note: PIT 구획이 기초평면도 내 점선 박스로 표현됨
+      confirmed_property: dks:contains
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    - type: other
+      target_hint: FOUNDATION-PLAN
+      note: visual_semantics 상 PIT-ZONE ↔ FOUNDATION-PLAN 관계
+      confirmed_property: dks:other
+      confirmed_target: dks:FOUNDATION-PLAN
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T10:20:19.273564'
+    applicable_axioms:
+    - AX009
+    - AX014
+    applicable_constraints:
+    - CN014
+    - CN015
+    confirmed_class: dks:GroupingEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T10:21:55.809825'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: PIT 구획이 기초평면도 내 점선 박스로 표현됨
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 구획 표현 방식과 도면 내 위치/표현에 대한 서술 정보
+        promoted_to: dks:relationNote
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T10:20:19.273564'
+      - raw_text: 'relation_type: other'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationType
+          suggested_datatype: xsd:string
+          rationale: 관계 유형이 표준화되지 않은 원문 값
+      - raw_text: 'line_style: dashed'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: hasLineStyle
+          suggested_datatype: xsd:string
+          rationale: 도면 표현 선형식 정보
+      - raw_text: 'origin: visual_semantics'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출 출처 메타정보
+      - raw_text: 'origin: cross_validated'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationOrigin
+          suggested_datatype: xsd:string
+          rationale: 관계 추출 출처 메타정보
+      - raw_text: 'partner: FOUNDATION-PLAN'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relatedTo
+          suggested_datatype: xsd:string
+          rationale: 상대 태그가 명시된 관계 원문
+      - raw_text: 'from: PIT-ZONE'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationSource
+          suggested_datatype: xsd:string
+          rationale: 관계 원문에서 출발 태그가 명시됨
+      - raw_text: 'to: FOUNDATION-PLAN'
+        source_page: 32
+        promotion_hint:
+          suggested_property_label: relationTarget
+          suggested_datatype: xsd:string
+          rationale: 관계 원문에서 도착 태그가 명시됨
+  provenance:
+    tag:
+      source_pages:
+      - 32
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 32
+      method: inferred_from_relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 32
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 32
+      method: inferred_from_plan_and_relation
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 32
+      method: inferred_from_plan_and_relation
+    ontology_core.related_assertions:
+      source_pages:
+      - 32
+      method: direct_and_cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 32
+      method: direct
+    plan_reference.guidance_applied:
+      source_pages:
+      - 32
+      method: applied_plan_guidance
+  unresolved:
+  - field_candidate: relations[0].relation_type
+    raw_text: other
+    source_page: 32
+    reason: 표준화된 property IRI로 확정 불가
+    preservation_note: 원문 관계 유형 보존
+  - field_candidate: relations[1].relation
+    raw_text: other
+    source_page: 32
+    reason: visual_semantics 기반 관계로 의미는 있으나 정규 property 미확정
+    preservation_note: cross_validated 관계와 함께 보존
+  - field_candidate: relations[1].annotation
+    raw_text: PIT 구획이 기초평면도 내 점선 박스로 표현됨
+    source_page: 32
+    reason: 관계 설명이지만 클래스/속성으로 단정 불가
+    preservation_note: 표현 방식과 공간적 맥락 보존
+  - field_candidate: relations[2].note
+    raw_text: PIT 구획이 기초평면도 내 점선 박스로 표현됨
+    source_page: 32
+    reason: 관계 설명이지만 클래스/속성으로 단정 불가
+    preservation_note: 표현 방식과 공간적 맥락 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: PIT-ZONE은 구획/영역처럼 보이지만, 도면상 FOUNDATION-PLAN과의 contains/other 관계만 확인되어
+      독립 개체인지 그룹/플랜 컨테이너인지 단정하기 어렵다.
+    recommended_handling: 후속 단계에서 GroupingEntity 또는 PlanOrView 후보로 재검토하되, 현재는 NamedIndividual로
+      보존하고 관계 중심으로 유지.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - plan_views / grouping_entities / contains 관계 패턴을 우선 반영
+    - other 관계를 unresolved 및 related_assertions로 보존
+    - visual_semantics와 cross_validated 둘 다 provenance에 반영
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:13:53.954803'
+  confidence: 0.74

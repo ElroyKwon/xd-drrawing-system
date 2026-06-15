@@ -1,0 +1,150 @@
+placement:
+  tag: S00.11
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:S00.11
+    class_hint: DocumentEntity
+    alternative_class_hints:
+    - PlanOrView
+    - ScheduleOrList
+    - NoteOrLegend
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:DocumentEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T10:17:47.885847'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: '사용 가능한 페이지는 다음과 같습니다: [1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62,
+          63, 64, 65]'
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: availablePages
+          suggested_datatype: xsd:string
+          rationale: 페이지 번호 목록 형태의 메타 정보이며, 도면/문서 참조 가능성이 있음.
+      - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+        source_page: 0
+        promotion_hint:
+          suggested_property_label: relationNote
+          suggested_datatype: xsd:string
+          rationale: 태그 자체의 기능 설명 또는 사용 안내 문구로 보이는 주석성 텍스트임.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    discipline:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: inferred_from_raw_text_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 0
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: plan-guided conservative classification
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: plan-guided conservative classification
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '사용 가능한 페이지는 다음과 같습니다:
+
+
+      [1, 2, 3, 4, 5, 31, 32, 33, 34, 35, 61, 62, 63, 64, 65]
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: 태그 S00.11의 실체가 설비/부재/관계인지 확정할 수 없고, 페이지 안내 문구만 존재함.
+    preservation_note: 문서 메타 또는 안내 주석으로 보이며, 페이지 목록은 후속 참조용으로 보존.
+  - field_candidate: entity_detail.name
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 name 필드가 없음.
+    preservation_note: 빈 값 유지.
+  - field_candidate: entity_detail.specs
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 specs 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.relations
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 relations 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.connection_specs
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 connection_specs 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.requirements
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 requirements 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.drawing_texts
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 drawing_texts 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.ontology_hints
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 ontology_hints 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.notes
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 notes 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.source_pages
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 별도 source_pages 필드 없음.
+    preservation_note: header 및 raw 텍스트만 존재.
+  - field_candidate: entity_detail.source_attribution
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 source_attribution 없음.
+    preservation_note: 해당 없음.
+  - field_candidate: entity_detail.position
+    raw_text: ''
+    source_page: 0
+    reason: 원문에 position 없음.
+    preservation_note: 해당 없음.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그명 S00.11만으로는 도면 시트/문서 메타/주석 중 어느 범주인지 확정 불가하며, 제공된 raw는 페이지 안내 문구뿐임.
+    recommended_handling: 후속 단계에서 문서 메타 또는 AnnotationOnly로 유지하되, 동일 시리즈 태그(S00.*)와의
+      패턴 비교가 가능하면 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 'guidance_for_next_steps.for_0_9b_placement: plan-guided conservative classification'
+    - unknown discipline로 남기되 raw 텍스트를 free_notes와 unresolved에 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T10:14:04.221460'
+  confidence: 0.62

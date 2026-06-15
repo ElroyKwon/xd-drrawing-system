@@ -1,0 +1,522 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: MECHANICAL
+  classification: DETAIL_DRAWING
+  drawing_genre: detail
+  title_block:
+    drawing_number: MF-105
+    title: 4-WAY 입상배관 상세도
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 8
+  next_step_hints:
+  - 상세도 위주이며 4-WAY 입상배관 설치 평면도/정면도/신축이음 설치 상세도/관통부 상세도 등 여러 상세 뷰가 한 페이지에 배치됨
+  - 표제란 도면번호 접두사 MF-105와 제목의 내용이 일치하여 MECHANICAL로 판단
+  confidence: 0.96
+  note: null
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_detail/supplement_p4_05.yaml
+    P-10: null
+    P-11: null
+  routing_confidence: 0.98
+  routing_reason: 도면번호 MF-105와 제목 '4-WAY 입상배관 상세도'가 보이며, 카탈로그에 mechanical P-4.5 genre_detail
+    매칭이 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: DETAIL-01
+    shape: rectangle
+    primary_label: 입상 4방향 버팀대 설치 평면도
+    position: top-left
+    labels_near:
+    - 45° 이상
+  - panel_id: DETAIL-02
+    shape: rectangle
+    primary_label: 입상 4방향 버팀대 설치 정면도
+    position: top-center
+    labels_near:
+    - null
+  - panel_id: DETAIL-03
+    shape: rectangle
+    primary_label: 입상부분 신축이음 설치 상세도
+    position: top-right
+    labels_near:
+    - Flexible Joint - XGQT2
+    - KSCV 4방향버팀대
+  - panel_id: DETAIL-04
+    shape: rectangle
+    primary_label: 배관 관통부 상세도(내진기준)
+    position: middle-right
+    labels_near:
+    - 실란트 코킹마감
+    - 배관구경 100mm 미만
+  - panel_id: DETAIL-05
+    shape: rectangle
+    primary_label: 입상 내진 4방향 버팀대 설치도
+    position: bottom-left
+    labels_near:
+    - KSCII
+    - 지지대(Schedule 40)
+  - panel_id: DETAIL-06
+    shape: circle
+    primary_label: DETAIL-A
+    position: bottom-center
+    labels_near:
+    - 소화배관
+    - 배관클램프
+  - panel_id: DETAIL-07
+    shape: rectangle
+    primary_label: 입상 배관 관통부 상세도(슬리브 및 신축이음쇠) - 내진기준
+    position: bottom-right
+    labels_near:
+    - 배관구경 100mm 이상 배관
+    - 배관구경 100mm 미만 배관
+  connections:
+  - from: DETAIL-05
+    to: DETAIL-06
+    line_style: solid
+    annotation: DETAIL 'A'
+  notable_shapes:
+  - shape: dashed_box
+    label: 배관구경 100mm 미만
+    note: DETAIL-04 내 특정 조건 영역 표시
+  - shape: dashed_box
+    label: 배관구경 100mm 이상 배관
+    note: DETAIL-07 내 특정 조건 영역 표시
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 페이지 전체가 여러 개의 배관 설치 상세도로 구성되어 있으며, 범례 표나 심볼 목록은 존재하지 않음.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: detail
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.99
+  routing_reason: 도면번호 MF-105의 'M' 접두사와 제목 '4-WAY 입상배관 상세도'가 일치하며, 비전 분석 결과도 다양한 배관
+    설치 상세도를 포함하고 있어 MECHANICAL 분야의 detail 장르로 확정함. 카탈로그 매칭 결과 유지.
+classification: DETAIL_DRAWING
+discipline: MECHANICAL
+key_elements_from_text:
+- 4-WAY 입상배관 상세도
+- 입상 4방향 버팀대 설치 평면도
+- 입상 4방향 버팀대 설치 정면도
+- 입상부분 신축이음 설치 상세도
+- 배관 관통부 상세도(내진기준)
+- 입상 내진 4방향 버팀대 설치도
+- DETAIL-A
+- 입상 배관 관통부 상세도(슬리브 및 신축이음쇠) - 내진기준
+title_block:
+  drawing_number: MF-105
+  title: 4-WAY 입상배관 상세도
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 discipline=MECHANICAL, classification=DETAIL_DRAWING, drawing_genre=detail,
+  drawing_number=MF-105, title=4-WAY 입상배관 상세도와 일치함. 페이지에는 여러 배관 설치 상세 뷰와 DETAIL-A가
+  보이며, 범례 페이지는 아님.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PLAN-4WAY
+    shape: rectangle
+    labels_inside:
+    - 45° 이상
+    - 45° 이상
+    labels_above:
+    - 입상 4방향 버팀대 설치 평면도
+    labels_below: []
+    equipment_symbols:
+    - type: 4방향 버팀대 평면 심볼 (X자형 지지대)
+      count: 1
+    - type: 배관 단면 원형 심볼
+      count: 1
+    inferred_name: 입상 4방향 버팀대 설치 평면도
+    position: top-left
+  - panel_id: ELEV-4WAY
+    shape: rectangle
+    labels_inside: []
+    labels_above:
+    - 입상 4방향 버팀대 설치 정면도
+    labels_below: []
+    equipment_symbols:
+    - type: 4방향 버팀대 정면 심볼 (수평 지지대 + 배관)
+      count: 1
+    inferred_name: 입상 4방향 버팀대 설치 정면도
+    position: top-center
+  - panel_id: FLEX-INSTALL
+    shape: rectangle
+    labels_inside:
+    - 300cm 이상
+    - 60cm 이상
+    - 300cm 이상
+    - 60cm 이상
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - KSCV 4방향버팀대
+    - φ65 이상 배관에 적용
+    labels_above:
+    - 입상부분 신축이음 설치 상세도
+    labels_below: []
+    equipment_symbols:
+    - type: Flexible Joint 심볼 (XGQT2)
+      count: 4
+    - type: 4방향 버팀대 심볼 (KSCV)
+      count: 1
+    - type: 배관 수직 입상 심볼
+      count: 2
+    inferred_name: 입상부분 신축이음 설치 상세도
+    position: top-right
+  - panel_id: PENETRATION-SEISMIC
+    shape: rectangle
+    labels_inside:
+    - 배관구경 100mm 미만
+    - 실란트 코킹마감
+    - 내화충전재(내화충전재 또는 WALL건식)
+    - 배관구경 100mm 이상
+    - 배관구경 100mm 미만
+    - 방진링
+    - 방진이음
+    - 배관구경 100mm 미만
+    labels_above:
+    - 배관 관통부 상세도(내진기준)
+    labels_below: []
+    equipment_symbols:
+    - type: 벽체 관통부 단면 심볼 (100mm 미만)
+      count: 1
+    - type: 벽체 관통부 단면 심볼 (100mm 이상)
+      count: 1
+    inferred_name: 배관 관통부 상세도 (내진기준)
+    position: middle-right
+  - panel_id: SEISMIC-4WAY-INSTALL
+    shape: rectangle
+    labels_inside:
+    - KSCII
+    - KSCV
+    - 지지대(Schedule 40)
+    - 지지대(Schedule 40)
+    - DETAIL 'A'
+    labels_above:
+    - 입상 내진 4방향 버팀대 설치도
+    labels_below:
+    - 1. 입상부에 설치되는 4방향 버팀대는 반드시 내력벽에 설치하여야 한다.
+    - 2. 현장여건에 따라 4방향 버팀대를 설치하기 위한 공간을 충분히 확보하여야 한다.
+    - 3. 벽, 바닥 또는 기초의 각 면에서 300mm 이내에 신축이음쇠가 있을경우 관통하는 배관 주위의 마려거리는 유지하지 않아도 된다.
+    equipment_symbols:
+    - type: 내진 4방향 버팀대 설치 심볼 (KSCII + KSCV)
+      count: 1
+    - type: 배관 수직 입상 심볼
+      count: 1
+    inferred_name: 입상 내진 4방향 버팀대 설치도
+    position: middle-left
+  - panel_id: DETAIL-A
+    shape: circle
+    labels_inside:
+    - 소화배관
+    - 배관클램프
+    - 지지대(Schedule 40)
+    labels_above:
+    - DETAIL-A
+    labels_below: []
+    equipment_symbols:
+    - type: 배관 클램프 상세 심볼
+      count: 1
+    - type: 소화배관 단면 심볼
+      count: 1
+    inferred_name: DETAIL-A 배관클램프 상세
+    position: bottom-center
+  - panel_id: SLEEVE-FLEX-SEISMIC
+    shape: rectangle
+    labels_inside:
+    - 배관구경 100mm 이상 배관
+    - 배관구경 100mm 미만 배관
+    - 배관구경 100mm 이상
+    - 배관구경 100mm 미만
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - 300mm 이상
+    - 300mm 이상
+    - 600mm 이상
+    - 600mm 이상
+    - 내화충전재(내화충전재 또는 WALL건식)
+    - 내화충전재(내화충전재 또는 WALL건식)
+    - 실란트 코킹마감
+    - 실란트 코킹마감
+    - 방진링
+    - 방진이음
+    - 비닐 슬리브
+    - 비닐 슬리브
+    - WALL(건식)
+    - WALL(건식)
+    labels_above:
+    - 입상 배관 관통부 상세도(슬리브 및 신축이음쇠) - 내진기준
+    labels_below: []
+    equipment_symbols:
+    - type: 슬리브 + Flexible Joint 관통부 상세 (100mm 이상)
+      count: 1
+    - type: 슬리브 + Flexible Joint 관통부 상세 (100mm 미만)
+      count: 1
+    inferred_name: 입상 배관 관통부 상세도 (슬리브 및 신축이음쇠) - 내진기준
+    position: bottom-right
+  connections:
+  - from: SEISMIC-4WAY-INSTALL
+    to: DETAIL-A
+    line_type: other
+    line_style: solid
+    annotation: DETAIL 'A' 참조 인출선
+  groups:
+  - group_id: GRP-SEISMIC-BRACE
+    label: 4방향 버팀대 설치 상세 그룹
+    members:
+    - PLAN-4WAY
+    - ELEV-4WAY
+    - SEISMIC-4WAY-INSTALL
+    - DETAIL-A
+  - group_id: GRP-FLEX-PENETRATION
+    label: 신축이음 및 관통부 상세 그룹
+    members:
+    - FLEX-INSTALL
+    - PENETRATION-SEISMIC
+    - SLEEVE-FLEX-SEISMIC
+  legend_references:
+  - text: Flexible Joint - XGQT2
+    linked_to: FLEX-INSTALL
+  - text: Flexible Joint - XGQT2
+    linked_to: SLEEVE-FLEX-SEISMIC
+  - text: 후렉시블 조인트
+    linked_to: FLEX-INSTALL
+  diagram_meta:
+    title: 4-WAY 입상배관 상세도
+    drawing_number: MF-105
+    scale: NONE
+    discipline: MECHANICAL
+    mech_subsystem: fire_protection_piping
+    view_type: detail
+    drawing_genre: detail
+    detail_count: 7
+    detail_categories:
+      vib_iso_detail: 1
+      penetration_detail: 2
+      pipe_joint_detail: 2
+      equipment_base_detail: 2
+    is_project_specific: true
+    flow_direction: UNKNOWN
+    notes:
+    - 입상부에 설치되는 4방향 버팀대는 반드시 내력벽에 설치하여야 한다.
+    - 현장여건에 따라 4방향 버팀대를 설치하기 위한 공간을 충분히 확보하여야 한다.
+    - 벽, 바닥 또는 기초의 각 면에서 300mm 이내에 신축이음쇠가 있을경우 관통하는 배관 주위의 마려거리는 유지하지 않아도 된다.
+    key_components:
+    - name: KSCV 4방향버팀대
+      function: 입상배관 내진 4방향 지지
+    - name: KSCII
+      function: 내진 지지 클램프
+    - name: Flexible Joint XGQT2
+      function: 신축이음쇠 (배관 진동 흡수)
+    - name: 지지대 Schedule 40
+      function: 배관 지지 강관
+    penetration_specs:
+    - condition: 배관구경 100mm 미만
+      fire_sealant_spec: 실란트 코킹마감 + 내화충전재
+      sleeve_type: 비닐 슬리브
+      wall_type: WALL(건식)
+    - condition: 배관구경 100mm 이상
+      fire_sealant_spec: 실란트 코킹마감 + 내화충전재
+      sleeve_type: 비닐 슬리브
+      wall_type: WALL(건식)
+    flex_joint_spacing:
+      min_distance_from_wall_mm: 300
+      min_distance_between_joints_mm: 600
+    project_info:
+      project_name: LS Electric R-Center 구축
+      design_firm: 가운건축 (GAUN Architects & Engineers)
+      engineering_firm: (주)정연엔지니어링
+      drawing_date: '2024.01'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01-PLAN-VIEW
+    shape: rectangle
+    labels_inside:
+    - 45° 이상
+    - 45° 이상
+    labels_above:
+    - 입상 4방향 버팀대 설치 평면도
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 1
+      description: Plan view of 4-way riser brace
+    inferred_name: 입상 4방향 버팀대 설치 평면도
+    position: top-left
+  - panel_id: P02-ELEV-VIEW
+    shape: rectangle
+    labels_inside: []
+    labels_above:
+    - 입상 4방향 버팀대 설치 정면도
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 1
+      description: Elevation view of 4-way riser brace
+    inferred_name: 입상 4방향 버팀대 설치 정면도
+    position: top-center
+  - panel_id: P03-FLEX-JOINT
+    shape: rectangle
+    labels_inside:
+    - 300cm 이내
+    - 60cm 이내
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - KSCV 4방향버팀대
+    - 300cm 이내
+    - 60cm 이내
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - '* φ65 이상 배관에 적용'
+    labels_above:
+    - 입상부분 신축이음 설치 상세도
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 2
+      description: Riser expansion joint installation details
+    inferred_name: 입상부분 신축이음 설치 상세도
+    position: top-right
+  - panel_id: P04-PENETRATION-A
+    shape: rectangle
+    labels_inside:
+    - 배관구경 100mm 미만
+    - 배관구경보다 5cm 이상
+    - 실란트 코킹마감
+    - 내화충전재(내화충전재 또는 WALL건식)
+    - 배관
+    - WALL(건식)
+    - 배관구경 100mm 이상
+    - 배관구경보다 10cm 이상
+    - 실란트 코킹마감
+    - 내화충전재(내화충전재 또는 WALL건식)
+    - 배관
+    - 방진링
+    - 방진이음
+    - WALL(건식)
+    labels_above:
+    - 배관 관통부 상세도(내진기준)
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 2
+      description: Seismic pipe penetration details for different pipe sizes
+    inferred_name: 배관 관통부 상세도(내진기준)
+    position: middle-right
+  - panel_id: P05-ISO-VIEW
+    shape: rectangle
+    labels_inside:
+    - KSCII
+    - KSCV
+    - 지지대(Schedule 40)
+    - DETAIL 'A'
+    labels_above:
+    - 입상 내진 4방향 버팀대 설치도
+    labels_below:
+    - 1. 입상부에 설치되는 4방향 버팀대는 반드시 내력벽에 설치하여야 한다.
+    - 2. 현장여건에 따라 4방향 버팀대를 설치하기 위한 공간을 충분히 확보하여야 한다.
+    - 3. 벽, 바닥 또는 기초의 각 면에서 300mm 이내에 신축이음쇠가 있을경우 관통하는 배관 주위의 마려거리는 유지하지 않아도 된다.
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 1
+      description: Isometric view of seismic 4-way brace installation
+    inferred_name: 입상 내진 4방향 버팀대 설치도
+    position: middle-left
+  - panel_id: P06-DETAIL-A
+    shape: circle
+    labels_inside:
+    - 소화배관
+    - 배관클램프
+    - 지지대(Schedule 40)
+    labels_above:
+    - DETAIL-A
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 1
+      description: Detailed view of pipe clamp and support
+    inferred_name: DETAIL-A
+    position: bottom-center
+  - panel_id: P07-PENETRATION-B
+    shape: rectangle
+    labels_inside:
+    - 배관구경 100mm 이상 배관
+    - 배관구경보다 10cm 이상
+    - 300mm 이내
+    - 600mm 이내
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - 실란트 코킹마감
+    - 내화충전재
+    - 비닐 슬리브
+    - 방진링
+    - 방진이음
+    - WALL(건식)
+    - 배관구경 100mm 미만 배관
+    - 배관구경보다 5cm 이상
+    - 300mm 이내
+    - 600mm 이내
+    - Flexible Joint - XGQT2
+    - Flexible Joint - XGQT2
+    - 실란트 코킹마감
+    - 내화충전재
+    - 비닐 슬리브
+    - WALL(건식)
+    labels_above:
+    - 입상 배관 관통부 상세도(슬리브 및 신축이음쇠) - 내진기준
+    labels_below: []
+    equipment_symbols:
+    - type: mechanical_detail_symbol
+      count: 2
+      description: Seismic sleeve and flexible joint penetration details
+    inferred_name: 입상 배관 관통부 상세도(슬리브 및 신축이음쇠)
+    position: bottom-right
+  connections:
+  - from: P05-ISO-VIEW
+    to: P06-DETAIL-A
+    line_type: other
+    line_style: solid
+    annotation: DETAIL 'A' callout
+  groups:
+  - group_id: GRP-BRACE-DETAILS
+    label: 4방향 버팀대 관련 상세
+    members:
+    - P01-PLAN-VIEW
+    - P02-ELEV-VIEW
+    - P05-ISO-VIEW
+    - P06-DETAIL-A
+  - group_id: GRP-PENETRATION-DETAILS
+    label: 관통부 및 신축이음 상세
+    members:
+    - P03-FLEX-JOINT
+    - P04-PENETRATION-A
+    - P07-PENETRATION-B
+  diagram_meta:
+    title: 4-WAY 입상배관 상세도
+    drawing_number: MF-105
+    discipline: MECHANICAL
+    mech_subsystem: fire_protection_piping
+    view_type: detail
+    drawing_genre: detail
+    flow_direction: UNKNOWN
+    notes:
+    - 입상부에 설치되는 4방향 버팀대는 반드시 내력벽에 설치하여야 한다.
+    - 현장여건에 따라 4방향 버팀대를 설치하기 위한 공간을 충분히 확보하여야 한다.
+    - 벽, 바닥 또는 기초의 각 면에서 300mm 이내에 신축이음쇠가 있을경우 관통하는 배관 주위의 마려거리는 유지하지 않아도 된다.
+    - '* φ65 이상 배관에 적용'

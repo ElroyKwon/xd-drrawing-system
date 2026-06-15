@@ -1,0 +1,154 @@
+placement:
+  tag: AB_114
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: AB/114
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - RoomOrSpace
+    - UnknownEntity
+    related_assertions:
+    - type: contains
+      target_hint: PLAN-1F
+      note: PLAN-1F -> AB/114 contains 관계가 관찰됨
+      confirmed_property: dks:contained_in
+      confirmed_target: PLAN-1F
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX037
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds:
+      free_notes:
+      - raw_text: 'relations: partner=PLAN-1F, relation_type=contains, direction=incoming'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: contains 관계의 역방향 사실로 보이며, AB/114가 PLAN-1F에 포함됨을 나타냄
+      - raw_text: 'from: PLAN-1F, to: AB/114, relation: contains, source_page: 60,
+          origin: cross_validated, line_style: null, note: null'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: contained_in
+          suggested_datatype: owl:ObjectProperty
+          rationale: 관계 레코드 원문 보존. 방향성 있는 contains 사실의 근거
+      - raw_text: 'tag: AB/114'
+        source_page: 60
+        promotion_hint:
+          suggested_property_label: hasTag
+          suggested_datatype: xsd:string
+          rationale: 엔티티 식별자 문자열
+        promoted_to: dks:hasTag
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-22T09:30:45.858627'
+    free_notes:
+    - raw_text: 'tag: AB/114'
+      source_page: 60
+      promotion_hint:
+        suggested_property_label: hasTag
+        suggested_datatype: xsd:string
+        rationale: 엔티티 식별자 문자열
+    - raw_text: 'relations: partner=PLAN-1F, relation_type=contains, direction=incoming'
+      source_page: 60
+      promotion_hint:
+        suggested_property_label: contained_in
+        suggested_datatype: owl:ObjectProperty
+        rationale: contains 관계의 역방향 사실로 보이며, AB/114가 PLAN-1F에 포함됨을 나타냄
+    - raw_text: 'from: PLAN-1F, to: AB/114, relation: contains, source_page: 60, origin:
+        cross_validated, line_style: null, note: null'
+      source_page: 60
+      promotion_hint:
+        suggested_property_label: contained_in
+        suggested_datatype: owl:ObjectProperty
+        rationale: 관계 레코드 원문 보존. 방향성 있는 contains 사실의 근거
+  provenance:
+    tag:
+      source_pages:
+      - 60
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 60
+      method: inferred_from_relation
+    ontology_core.iri_hint:
+      source_pages:
+      - 60
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 60
+      method: inferred_from_plan_context
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 60
+      method: direct
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 60
+      method: direct
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 60
+      method: direct
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 60
+      method: direct
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 60
+      method: direct
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 60
+      method: direct
+  unresolved:
+  - field_candidate: name
+    raw_text: ''
+    source_page: 60
+    reason: entity_detail에 name 필드가 제공되지 않음
+    preservation_note: 추후 원문 도면/상위 데이터에서 name 존재 여부 확인
+  - field_candidate: relations.note
+    raw_text: null
+    source_page: 60
+    reason: 관계 note가 null로 제공됨
+    preservation_note: note 없음 자체를 보존
+  - field_candidate: relations.line_style
+    raw_text: null
+    source_page: 60
+    reason: 관계 line_style가 null로 제공됨
+    preservation_note: line_style 없음 자체를 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: AB/114는 PLAN-1F에 포함되는 공간/구획 후보로 보이지만, entity_detail에 name/specs가 없어 정확한
+      실체 유형을 단정할 수 없음
+    recommended_handling: 0-9c에서 공간/실체 클래스 후보를 유지한 채 추가 관계와 주변 태그를 통해 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space_room_like_entities
+    - contains
+    - RoomLikeEntity -> SpatialEntity
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:28.554982'
+  confidence: 0.78

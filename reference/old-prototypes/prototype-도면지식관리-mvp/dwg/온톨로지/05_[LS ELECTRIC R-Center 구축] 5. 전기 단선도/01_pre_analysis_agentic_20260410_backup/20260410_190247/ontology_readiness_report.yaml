@@ -1,0 +1,165 @@
+ontology_readiness_report:
+  group: '20260410_190247'
+  generated: '2026-04-10T19:40:26.960356'
+  summary:
+    total_entities: 31
+    qualified: 11
+    demoted: 20
+    flagged: 0
+    no_result: 0
+    correction_stats:
+      total_disagreements: 0
+      corrected_by_mid: 0
+  relation_completeness:
+    total_declared: 54
+    total_discovered: 33
+    avg_completeness: 1.0
+  duplicate_pairs: []
+  cross_discipline_links: []
+  qualified_entities:
+  - tag: G.P.T
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_G.P.T_mini.yaml
+  - tag: HV 1
+    confidence: 0.93
+    spec_count: 2
+    source: readiness_HV 1_mini.yaml
+  - tag: HV 2
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_HV 2_mini.yaml
+  - tag: IVR 1
+    confidence: 0.96
+    spec_count: 4
+    source: readiness_IVR 1_mini.yaml
+  - tag: IVR 2
+    confidence: 0.96
+    spec_count: 4
+    source: readiness_IVR 2_mini.yaml
+  - tag: LV 1
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_LV 1_mini.yaml
+  - tag: PTT
+    confidence: 0.93
+    spec_count: 1
+    source: readiness_PTT_mini.yaml
+  - tag: 'TR #1'
+    confidence: 0.98
+    spec_count: 5
+    source: 'readiness_TR #1_mini.yaml'
+  - tag: 'TR #2'
+    confidence: 0.98
+    spec_count: 4
+    source: 'readiness_TR #2_mini.yaml'
+  - tag: 'TR #3'
+    confidence: 0.98
+    spec_count: 5
+    source: 'readiness_TR #3_mini.yaml'
+  - tag: TR-3204
+    confidence: 0.98
+    spec_count: 5
+    source: readiness_TR-3204_mini.yaml
+  demoted_entities:
+  - tag: ACB
+    demoted_to: 'component_of: breaker_group'
+    reason: type은 breaker이나 specs가 비어 있고, page 2에서 '차단기 3종 (VCB, ACB, MCCB)'로만 공통
+      표기됨. ACB 고유 사양은 확인되지 않음.
+    source: readiness_ACB_mini.yaml
+  - tag: BATTERY
+    demoted_to: 'component_of: RECTIFIER'
+    reason: 개별 사양값이 확인되지 않음. page 2에서 BATTERY/RECTIFIER/CAPACITOR로 함께 표기되어 독립 설비로
+      보기 어려움.
+    source: readiness_BATTERY_mini.yaml
+  - tag: CAPACITOR
+    demoted_to: 'component_of: BATTERY/RECTIFIER'
+    reason: 독립 사양이 확인되지 않음. 도면에서 BATTERY/RECTIFIER/CAPACITOR로 함께 표기되어 부품/구성요소 성격으로
+      판단됨.
+    source: readiness_CAPACITOR_mini.yaml
+  - tag: CTT
+    demoted_to: 'component_of: measurement_protection_group'
+    reason: terminal 표기이며 독립 사양이 확인되지 않음. page 2에서 CT/PT/ZCT/GPT 계측/보호기기 그룹의 시험 단자로
+      확인됨.
+    source: readiness_CTT_mini.yaml
+  - tag: GIMAC
+    demoted_to: 'component_of: GIPAM'
+    reason: page_002_context에서 GIMAC의 독립 spec은 확인되지 않았고, GIPAM과 함께 표기되는 계측/보호 릴레이
+      계열로만 보임.
+    source: readiness_GIMAC_mini.yaml
+  - tag: GIPAM
+    demoted_to: 'component_of: GIMAC'
+    reason: 독립 사양이 확인되지 않음. GIMAC과 함께 표기되는 보호/계측 릴레이 성격이며 자체 spec은 UNKNOWN.
+    source: readiness_GIPAM_mini.yaml
+  - tag: HV PNL
+    demoted_to: 'component_of: HV PNL'
+    reason: type=panel이지만 자체 설비 사양으로 볼 수 있는 항목은 voltage_level 1개뿐이며, drawing_number/drawing_title은
+      도면 메타데이터이다. page 2에서 HV 1, HV 2, SPARE 피더를 포함하는 패널로 확인되어 독립 설비보다는 회로/배전반 항목
+      성격이 강하다.
+    source: readiness_HV PNL_mini.yaml
+  - tag: LV 2
+    demoted_to: 'component_of: LV PNL'
+    reason: feeder tag이지만 확인된 spec은 source_page_2_equipment_list(저압 피더)뿐이며, 물리적 독립
+      사양으로 보기 어려움
+    source: readiness_LV 2_mini.yaml
+  - tag: LV PNL
+    demoted_to: document_metadata
+    reason: panel tag is present, but visible specs are drawing metadata (drawing_number,
+      drawing_title) and a voltage label; no independent physical equipment spec is
+      confirmed. connection to LV 1~LV 8 and LV R indicates feeder-side context rather
+      than standalone qualification.
+    source: readiness_LV PNL_mini.yaml
+  - tag: MCCB
+    demoted_to: 'component_of: LV PNL'
+    reason: 고유 tag는 있으나 entity_detail과 page_002_context에서 자체 spec이 null/UNKNOWN으로만
+      확인됨. 동일 페이지에서 VCB, ACB와 함께 차단기 항목으로 동시 표기될 뿐 독립 사양은 확인되지 않음.
+    source: readiness_MCCB_mini.yaml
+  - tag: RECTIFIER
+    demoted_to: 'component_of: BATTERY'
+    reason: 독립 사양이 확인되지 않았고 BATTERY/RECTIFIER/CAPACITOR 묶음의 일부로만 표시됨
+    source: readiness_RECTIFIER_mini.yaml
+  - tag: SPARE
+    demoted_to: 'component_of: R-Center 변전실'
+    reason: 'page_002_context.yaml에서 SPARE는 패널 내 예비 회로(function_category: SPARE)로
+      확인되며, 독립 설비의 자체 spec은 확인되지 않음.'
+    source: readiness_SPARE_mini.yaml
+  - tag: UNKNOWN-001
+    demoted_to: document_metadata
+    reason: 표지/제목 페이지의 표제란/도면 프레임 일부로 확인됨. specs는 title, document_type, discipline_mark,
+      date, designer 등 도면 메타데이터뿐이며 독립 설비 사양이 아님.
+    source: readiness_UNKNOWN-001_mini.yaml
+  - tag: UNKNOWN-002
+    demoted_to: document_metadata
+    reason: 도면 제목 텍스트로 확인됨. 독립 설비가 아니며 자체 설비 사양이 아니라 문서 메타데이터 성격임.
+    source: readiness_UNKNOWN-002_mini.yaml
+  - tag: UNKNOWN-003
+    demoted_to: document_metadata
+    reason: page 1의 COVER_PAGE 중앙 '도서 구분 텍스트'로 확인됨. 물리적 설비가 아니며 독립 엔티티가 아님.
+    source: readiness_UNKNOWN-003_mini.yaml
+  - tag: UNKNOWN-004
+    demoted_to: document_metadata
+    reason: 페이지 1 COVER_PAGE의 '[ 전기 ]' 텍스트로 확인된 메타 정보이며, 물리적 설비가 아님. document metadata로
+      처리.
+    source: readiness_UNKNOWN-004_mini.yaml
+  - tag: UNKNOWN-005
+    demoted_to: document_metadata
+    reason: COVER_PAGE의 날짜 텍스트이며 물리적 설비가 아님. 독립 엔티티가 아니라 document metadata/text annotation으로
+      강등.
+    source: readiness_UNKNOWN-005_mini.yaml
+  - tag: UNKNOWN-006
+    demoted_to: document_metadata
+    reason: 페이지 1의 cover page에서 확인된 설계사 텍스트이며, 물리적 설비가 아닌 document_metadata 성격이다.
+    source: readiness_UNKNOWN-006_mini.yaml
+  - tag: VCB
+    demoted_to: 'component_of: breaker'
+    reason: 독립 tag는 있으나 entity_detail과 page_context에서 VCB의 개별 정격 사양이 확인되지 않음. 6.6kV
+      변전설비 단선결선도 내 차단기 항목으로 표기됨.
+    source: readiness_VCB_mini.yaml
+  - tag: ZCT
+    demoted_to: 'component_of: measurement_protection_device'
+    reason: page 2에서 CT/PT/ZCT/GPT 계측/보호기기 그룹의 개별 표기로 확인되며, 자체 사양은 name만 존재함. 독립 설비로
+      볼 만한 spec이 부족함.
+    source: readiness_ZCT_mini.yaml
+  flagged_entities: []
+  merge_candidates: []
+  missing_relations_summary: []

@@ -1,0 +1,13 @@
+tag: TR-02
+verdict: demoted
+confidence: 0.98
+missing_fields:
+- name
+missing_relations: []
+reason: entity_detail의 type은 Transformer이지만, read_page_context 결과에서 TR-02는 피뢰 및 접지
+  설비 평면도(grounding diagram) 페이지의 메타/주석성 정보로만 확인되며 변압기 자체 사양은 보이지 않는다. 또한 entity_list에서
+  TR-02는 page 5의 Transformer로 별도 식별되지만, 현재 제공된 entity_detail의 내용은 drawing_number,
+  title, classification, discipline, project_name, building_name, scale, date 등 도면
+  메타데이터와 피뢰/접지 관련 사양뿐이다. 따라서 독립 물리 설비로 보기 어렵고 document_metadata로 강등한다. 관계는 page_context에서
+  확인된 연결이 있으나, 이는 피뢰/접지 도면의 구성요소 관계이며 Transformer 독립 엔티티의 자체 관계로 보기 어렵다.
+demoted_to: document_metadata

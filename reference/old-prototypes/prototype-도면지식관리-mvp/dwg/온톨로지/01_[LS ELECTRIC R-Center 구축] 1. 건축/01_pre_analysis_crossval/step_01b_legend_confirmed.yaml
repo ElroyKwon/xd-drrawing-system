@@ -1,0 +1,37 @@
+step: 0-1b
+timestamp: '2026-04-09T10:44:23.052246'
+confirmed:
+- page: 4
+  is_legend: true
+  type: SYMBOL_LEGEND
+  confidence: 0.98
+  content_summary: 우측 상단에 '도면 표기 부호' 영역이 있으며, 도면 TITLE, 축열 BUBBLE, 실명 BOX, 전개도/입면도/단면도,
+    단면 MARKING, 상세 MARKING 등의 심볼-설명 예시가 그림과 함께 배치되어 있다. 중앙에는 '일반약어' 표가 있어 A.H.U, ACST,
+    AD, AL, AT, B.O.F, B.O.S, C.H, CL, COL, CONC, CP, D, DA, DET, DN, DO, DS, DWG,
+    EA, EAC, EL, ELEC, ELEV, EJ, EXT, F, F.D, F.L, FN, FL, FH, GALV, GL, GBO, G.L,
+    H, HORZ, INT, J.C, M, MACH, MATL, M.B, MECH, MSC, N.T.S, O, O.A, O.C, OPP, P,
+    PL, P.C, PH, P.S, R, R/r, R.A, R.D, REF, RM, S, SEC, S.F.L, SHT, SIM, SPEC, SST/STS,
+    STD, STL, T, TBM, TEL, THK.(T), T.O.F, T.O.S, TYP, U.N.O, U.P.S, V, VAR., W.O,
+    W.P 등의 약어와 설명이 표 형태로 정리되어 있다. 좌측에는 '건축 일반 사항' 본문과 설계기준/콘크리트/조적/금속재 가공/지붕공사와 방수/내화피복/기타/간막이벽
+    공사/천장/단열 등의 일반 설명이 텍스트로 배치되어 있다.
+  symbol_count: 12
+  cross_feedback:
+    accepted_from_model_b:
+    - 'is_legend: true'
+    - 'type: SYMBOL_LEGEND'
+    - 도면 표기 부호 영역과 일반약어 표 존재
+    rejected_from_model_b:
+    - 'symbol_count: 12은 이미지에서 보이는 심볼 예시 수를 정확히 재계산하지 못해 확정 불가'
+    accepted_from_model_a:
+    - 'page: 4'
+    - 'is_legend: true'
+    rejected_from_model_a:
+    - 'type: ABBREVIATION_LIST -> 이미지에는 약어표뿐 아니라 심볼 예시도 함께 있어 SYMBOL_LEGEND가 더 적합'
+  cross_validation:
+    models:
+    - GPT-5.4-mini
+    - Gemini-3.1-Flash
+    agreement: FULL
+    rounds: 2
+    adopted_model: GPT-5.4-mini
+rejected: []

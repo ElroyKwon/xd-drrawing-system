@@ -1,0 +1,99 @@
+tag: COMM-ROOM-1F
+name: 사무동 지상1층 통신실
+type: equipment/space
+discipline: COMMUNICATION
+function_category: COMMUNICATION_ROOM
+source_pages:
+- 10
+specs:
+  raw_labels:
+  - 사무동 지상1층 통신실
+  - 기존 통신실 IDF RACK
+  - 110 BLOCK 25Px1EA 신설
+  - 'TO : 사무동 지상1층 통신실'
+  - 통신실
+  labels_inside:
+  - 사무동 지상1층 통신실
+  - 기존 통신실 IDF RACK
+  - 110 BLOCK 25Px1EA 신설
+  labels_above:
+  - 'TO : 사무동 지상1층 통신실'
+  labels_below: []
+  labels_right:
+  - UTP 0.5mm/25Px1, CAT.5 (28C)
+  - 바닥 악세스플로어속 노출배관배선
+  equipment_symbols:
+  - type: IDF RACK
+    count: 1
+  - type: 110 BLOCK
+    count: 1
+  inferred_name: 사무동 지상1층 통신실 (IDF RACK 설치 구역)
+  position: top-right
+  shape: rectangle
+  panel_id: COMM-ROOM-1F
+  source_models:
+  - visual_semantics
+  - visual_semantics_gemini
+  notes:
+  - 우측 상단 통신실 구역
+relations:
+- from: NOTES-BOX
+  to: COMM-ROOM-1F
+  relation: signal
+  source_page: 10
+  origin: visual_semantics
+  annotation: 통신실 위치 지시 및 케이블 사양 표기
+- from: COMM-ROOM-1F
+  to: SHOWROOM
+  relation: cable
+  source_page: 10
+  origin: visual_semantics
+  annotation: UTP 0.5mm/25Px1, CAT.5 (28C), 바닥 악세스플로어속 노출배관배선
+- from: COMM-ROOM-1F
+  to: SMART-HOME-MTG
+  relation: cable
+  source_page: 10
+  origin: visual_semantics
+  annotation: UTP 케이블 배선
+- from: COMM-ROOM-1F
+  to: DRIVE-DEV-LAB
+  relation: cable
+  source_page: 10
+  origin: visual_semantics
+  annotation: UTP 케이블 배선
+- from: COMM-ROOM-1F
+  to: OFFICE-ZONE
+  relation: cable
+  source_page: 10
+  origin: visual_semantics
+  annotation: UTP 케이블 배선
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-right
+equipment_symbols:
+- type: IDF RACK
+  count: 1
+- type: 110 BLOCK
+  count: 1
+ontology_hints:
+  suggested_parent_class: CommunicationSpace
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_above
+  - labels_below
+  - labels_right
+  - equipment_symbols
+  - inferred_name
+  - position
+  - shape
+  - panel_id
+  - source_models
+  - notes
+  similar_equipment: []
+  function_candidates:
+  - SignalDistribution
+  - NetworkHub
+  - CableTermination

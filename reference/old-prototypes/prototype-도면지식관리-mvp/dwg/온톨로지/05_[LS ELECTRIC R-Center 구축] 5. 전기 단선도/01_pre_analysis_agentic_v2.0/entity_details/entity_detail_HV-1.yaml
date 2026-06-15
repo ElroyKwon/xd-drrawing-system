@@ -1,0 +1,123 @@
+tag: HV-1
+name: '6.6kV 수전 메인 VCB #1'
+type: VCB
+discipline: ELECTRICAL
+function_category: DISTRIBUTE
+source_pages:
+- 2
+specs:
+  bus_section: HV
+  rated_voltage_kV: 7.2
+  rated_current_A: 600
+  breaking_capacity_MVA: 750
+  interrupting_capacity_kA: 12.5
+  poles: 3
+  ct_ratio: 200/5A
+  zct_ratio: 200/1.5mA
+  sa_spec: 7.5kV 5kA
+  relay_model: GIPAM 2000
+  relay_number:
+  - 50/51
+  - 50/51G
+  - '67'
+  - '27'
+  - '59'
+  - '81'
+  raw_labels:
+  - 1 HV
+  - VCB 3P 7.2kV 600A 750MVA
+  - 2×CT
+  - ZCT
+  - GIPAM
+  - 50/51, 50/51G, 67
+  - HV 1
+  at_rating: null
+  af_rating: null
+  ct_count: 2
+  zct_count: 1
+relations:
+- from: INCOMING-01
+  to: HV-1
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV BUS
+- from: HV-1
+  to: HV-2
+  relation: supplies
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV BUS-1
+- from: HV-1
+  to: GPT-01
+  relation: feeds
+  source_page: 2
+  origin: cross_validated
+  line_style: solid
+  note: 6.6kV GPT 접속
+- from: INCOMING-01
+  to: HV-1
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV BUS
+- from: HV-1
+  to: HV-2
+  relation: bus_bar
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV BUS-1
+- from: HV-1
+  to: GPT-01
+  relation: cable
+  source_page: 2
+  origin: visual_semantics
+  annotation: 6.6kV GPT 접속
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: top-left
+confidence: 0.95
+equipment_symbols:
+- type: VCB
+  count: 1
+- type: CT
+  count: 2
+- type: ZCT
+  count: 1
+- type: SA
+  count: 3
+- type: protection_relay
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: CircuitBreaker
+  observed_attributes:
+  - bus_section
+  - rated_voltage_kV
+  - rated_current_A
+  - breaking_capacity_MVA
+  - interrupting_capacity_kA
+  - poles
+  - ct_ratio
+  - zct_ratio
+  - sa_spec
+  - relay_model
+  - relay_number
+  - raw_labels
+  - at_rating
+  - af_rating
+  - ct_count
+  - zct_count
+  similar_equipment:
+  - HV-2
+  function_candidates:
+  - MainIncoming
+  - CircuitProtection
+  - PowerDistribution

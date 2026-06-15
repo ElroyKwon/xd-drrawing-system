@@ -1,0 +1,137 @@
+entity_detail:
+  tag: CABLE TRAY
+  type: cable_tray
+  specs:
+    installation_interval:
+      value: 12m
+      unit: m
+      source: page 41
+      confidence: 0.85
+    application_scope:
+      value: 직선구간 / 부속품(Elbow, Tee, Cross 등)
+      unit: null
+      source: page 41
+      confidence: 0.85
+    seismic_related_system:
+      value: 내진형 TRAY 시스템
+      unit: null
+      source: page 41
+      confidence: 0.85
+    material:
+      value: KS D 3501 (SPHC)
+      unit: null
+      source: page 41
+      confidence: 0.9
+    finish:
+      value: 용융 아연 도금 (H.D.G)
+      unit: null
+      source: page 41
+      confidence: 0.9
+    cable_tray_related_text:
+      value: CABLE TRAY&ELP
+      unit: null
+      source: page 5
+      confidence: 0.98
+    cable_tray_related_text_2:
+      value: CABLE TRAY
+      unit: null
+      source: page 23
+      confidence: 0.95
+  drawing_texts:
+  - source: page 5
+    page_number: 5
+    text: 3Ø 4W 22.9kV-Y 60Hz, 22.9kV-Y ACSR-OC 160sqx3/ACSR 95sq(N)*20m, 22.9kV-Y
+      CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE) (공동구:CABLE TRAY&ELP)*250m-MH없음
+  - source: page 23
+    page_number: 23
+    text: '- ''케이블 규격 표기: F-CV, E-선, C 수량 표기''
+
+      - ''FROM : UT동 전기실''
+
+      - 우측 주기사항에 KS 또는 동등 이상 제품 사용, 관련법규 준수, Cable Tray 내 배관 금지, HFIX 사용 등의 문구'
+  - source: page 41
+    page_number: 41
+    text: '내진설계 주기사항 및 상세도
+
+
+      배선관로(RACE WAY) 조명기구 설치 예
+
+
+      다운라이트(비상등만 적용)
+
+
+      내진형 Support System
+
+
+      내진형 TRAY 시스템
+
+
+      내진형 Ladder Tray
+
+
+      케이블트레이 직선구간 12m 간격으로 설치 / 부속품(Elbow, Tee, Cross 등)에 적용
+
+
+      재질: KS D 3501 (SPHC), 마감: 용융 아연 도금 (H.D.G)'
+  requirements:
+  - text: KS 또는 동등 이상 제품 사용
+    source: page 23
+    type: material_standard
+  - text: 관련법규 준수
+    source: page 23
+    type: code_compliance
+  - text: Cable Tray 내 배관 금지
+    source: page 23
+    type: installation_requirement
+  - text: HFIX 사용
+    source: page 23
+    type: installation_requirement
+  - text: 케이블트레이 직선구간 12m 간격으로 설치
+    source: page 41
+    type: installation_requirement
+  - text: 부속품(Elbow, Tee, Cross 등)에 적용
+    source: page 41
+    type: application_scope
+  - text: 내진설계 주기사항 및 상세도
+    source: page 41
+    type: seismic_requirement
+  connection_specs:
+  - relation: contains_or_routes
+    partner: CNCV-W 200sq/1Cx3x2Line(1LINE:SPARE)
+    details:
+      source: page 5
+  - relation: contains_or_routes
+    partner: CABLE TRAY&ELP
+    details:
+      source: page 5
+  - relation: installation_detail
+    partner: 내진형 Ladder Tray
+    details:
+      source: page 41
+  ontology_hints:
+    observed_relations:
+    - relation_type: installation_detail
+      partner_tag: EQ-E05
+      direction: UNKNOWN
+      source: page 41
+    - relation_type: part_of_system
+      partner_tag: EQ-E06
+      direction: UNKNOWN
+      source: page 41
+    observed_attributes:
+    - installation_interval
+    - application_scope
+    - material
+    - finish
+    - seismic_related_system
+    similar_equipment:
+    - EQ-E05
+    - EQ-E06
+    suggested_parent_class: CableTray
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - page 41의 '내진형 Ladder Tray'는 케이블트레이 관련 상세로 확인됨.
+  - page 23의 'Cable Tray 내 배관 금지' 문구는 요구사항으로만 반영함.
+tag: CABLE TRAY

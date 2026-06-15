@@ -1,0 +1,339 @@
+placement:
+  tag: 1402B
+  name: GP 피더 VCB 패널 1402B
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:1402B
+    class_hint: SwitchgearPanel
+    alternative_class_hints:
+    - ElectricalEquipment
+    - PowerDistributionEquipment
+    - ProtectionAndControlDevice
+    related_assertions:
+    - type: connects_to
+      target_hint: 1402A
+      note: source_page 5, 6.6kV GP BUS, cross_validated
+    - type: connects_to
+      target_hint: 1403A
+      note: source_page 5, 6.6kV GP BUS, cross_validated
+    - type: feeds
+      target_hint: 30038 HV
+      note: 'source_page 5, destination: TO: 30038 HV'
+    - type: feeds
+      target_hint: 3303B/HV
+      note: source_page 5, destination_gemini
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:SwitchgearPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups:
+      - raw_text: GP
+        source_page: 5
+      - raw_text: 6.6kV GP BUS
+        source_page: 5
+      free_notes:
+      - raw_text: 1402B
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: panel_id
+          suggested_datatype: xsd:string
+          rationale: 패널 식별자 표기
+      - raw_text: VCB 3P 7.2kV 600A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: vcb_rating
+          suggested_datatype: xsd:string
+          rationale: 차단기 극수, 전압, 전류 정격이 결합된 장비 사양 표기
+      - raw_text: 250MVA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: vcb_breaking_capacity_MVA
+          suggested_datatype: xsd:decimal
+          rationale: 차단용량으로 보이는 MVA 수치 표기
+      - raw_text: 2×CT 100/5A
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: ct_ratio
+          suggested_datatype: xsd:string
+          rationale: CT 수량과 변류비 표기
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: protection_relay_model
+          suggested_datatype: xsd:string
+          rationale: 보호계전기 모델명 표기
+      - raw_text: 50/51
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: protection_functions
+          suggested_datatype: xsd:string
+          rationale: 보호 기능 코드 표기
+      - raw_text: SA 9kV 5kA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: sa_rating
+          suggested_datatype: xsd:string
+          rationale: 서지흡수기/피뢰기 사양으로 보이는 전압·전류 표기
+      - raw_text: 'TO: 30038 HV'
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: destination
+          suggested_datatype: xsd:string
+          rationale: 도면상 목적지/연결 대상 표기
+      - raw_text: 공장A동
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: load_name
+          suggested_datatype: xsd:string
+          rationale: 부하 또는 연결 대상의 명칭 표기
+      - raw_text: 3303B/HV
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: destination
+          suggested_datatype: xsd:string
+          rationale: 도면상 목적지/고압 측 연결 표기
+      - raw_text: E1
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: grounding_mark
+          suggested_datatype: xsd:string
+          rationale: 접지 마크 표기
+      - raw_text: VCB
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: equipment_symbol
+          suggested_datatype: xsd:string
+          rationale: 패널 내 장비 심볼 표기
+      - raw_text: CT
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: equipment_symbol
+          suggested_datatype: xsd:string
+          rationale: 패널 내 장비 심볼 표기
+      - raw_text: SA
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: equipment_symbol
+          suggested_datatype: xsd:string
+          rationale: 패널 내 장비 심볼 표기
+      - raw_text: GIPAM
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: equipment_symbol
+          suggested_datatype: xsd:string
+          rationale: 패널 내 장비 심볼 표기
+  provenance:
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      method: ontology_hints.suggested_parent_class + function/type evidence
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      method: ontology_plan + observed_attributes
+    ontology_core.related_assertions:
+      source_pages:
+      - 5
+      method: relations + specs.destination + specs.destination_gemini
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 5
+      method: specs.bus_section + relation note
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      method: specs.raw_labels + specs + equipment_symbols + ontology_hints.observed_attributes
+    specs.raw_labels:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    specs.bus_section:
+      source_pages:
+      - 5
+      method: entity_detail.specs.bus_section
+    specs.vcb_rating:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_rating
+    specs.ct_ratio:
+      source_pages:
+      - 5
+      method: entity_detail.specs.ct_ratio
+    specs.sa_rating:
+      source_pages:
+      - 5
+      method: entity_detail.specs.sa_rating
+    specs.protection_functions:
+      source_pages:
+      - 5
+      method: entity_detail.specs.protection_functions
+    specs.destination:
+      source_pages:
+      - 5
+      method: entity_detail.specs.destination
+    specs.panel_id:
+      source_pages:
+      - 5
+      method: entity_detail.specs.panel_id
+    specs.voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.voltage_kV
+    specs.vcb_poles:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_poles
+    specs.vcb_rated_voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_rated_voltage_kV
+    specs.vcb_rated_current_A:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_rated_current_A
+    specs.vcb_breaking_capacity_MVA:
+      source_pages:
+      - 5
+      method: entity_detail.specs.vcb_breaking_capacity_MVA
+    specs.ct_count:
+      source_pages:
+      - 5
+      method: entity_detail.specs.ct_count
+    specs.sa_voltage_kV:
+      source_pages:
+      - 5
+      method: entity_detail.specs.sa_voltage_kV
+    specs.sa_discharge_current_kA:
+      source_pages:
+      - 5
+      method: entity_detail.specs.sa_discharge_current_kA
+    specs.protection_relay_model:
+      source_pages:
+      - 5
+      method: entity_detail.specs.protection_relay_model
+    specs.protection_relay_indicators_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.protection_relay_indicators_gemini
+    specs.load_name_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.load_name_gemini
+    specs.destination_gemini:
+      source_pages:
+      - 5
+      method: entity_detail.specs.destination_gemini
+    specs.grounding_mark:
+      source_pages:
+      - 5
+      method: entity_detail.specs.grounding_mark
+    relations:
+      source_pages:
+      - 5
+      method: entity_detail.relations
+    collection_sources.cross_validated:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources.cross_validated
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 5
+      method: entity_detail.collection_sources.entity_synthesis
+    position:
+      source_pages:
+      - 5
+      method: entity_detail.position
+    confidence:
+      source_pages:
+      - 5
+      method: entity_detail.confidence
+    equipment_symbols:
+      source_pages:
+      - 5
+      method: entity_detail.equipment_symbols
+    source_attribution:
+      source_pages:
+      - 5
+      method: entity_detail.source_attribution
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.similar_equipment
+    ontology_hints.function_candidates:
+      source_pages:
+      - 5
+      method: entity_detail.ontology_hints.function_candidates
+  unresolved:
+  - field_candidate: specs.protection_relay_indicators_gemini
+    raw_text: A
+    source_page: 5
+    reason: 표시 문자이지만 정확한 의미가 도면 원문만으로 확정되지 않음
+    preservation_note: GIPAM 관련 표시값으로 보존
+  - field_candidate: specs.destination
+    raw_text: 'TO: 30038 HV'
+    source_page: 5
+    reason: 목적지 표기는 있으나 대상의 정확한 실체/클래스는 이 단계에서 확정 불가
+    preservation_note: 연결 대상 힌트로 보존
+  - field_candidate: specs.destination_gemini
+    raw_text: 3303B/HV
+    source_page: 5
+    reason: 목적지 표기는 있으나 대상의 정확한 실체/클래스는 이 단계에서 확정 불가
+    preservation_note: 고압 측 연결 힌트로 보존
+  - field_candidate: specs.load_name_gemini
+    raw_text: 공장A동
+    source_page: 5
+    reason: 부하/대상 명칭으로 보이나 물리 설비인지 공간명인지 이 단계에서 확정 불가
+    preservation_note: 연결 대상 명칭으로 보존
+  - field_candidate: specs.grounding_mark
+    raw_text: E1
+    source_page: 5
+    reason: 접지 마크이지만 E1의 정확한 계통 의미는 도면 외 정보 없이 확정 불가
+    preservation_note: 접지 식별자 원문 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 패널 자체는 명확한 독립 설비이지만, destination/load_name/grounding_mark가 함께 존재하여 전원
+      공급 대상과 접지 표기가 혼재됨
+    recommended_handling: NamedIndividual로 유지하되, destination 및 grounding 관련 값은 후속
+      단계에서 관계/데이터 속성으로 분리 검토
+  merge_info:
+    is_merge_candidate: true
+    other_tag: 1402A
+    reason: relations에 1402A와의 connects_to가 cross_validated로 존재하며, 동일 GP BUS 계통의 인접
+      패널로 보이는 병합 검토 후보
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Panel, Breaker, Transformer)와 논리적 노드(Branch, External Source, Ground
+      Network)의 분리
+    - 전력 분배 계통(수전->변압->배전->부하)의 위계적 모델링 및 보호 협조(차단기, 계전기, 인터록) 관계 구축. 피뢰/접지 시스템의 물리적
+      연결망(수뢰부->인하도선->접지극) 상세화.
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:07:11.126248'
+  confidence: 0.95

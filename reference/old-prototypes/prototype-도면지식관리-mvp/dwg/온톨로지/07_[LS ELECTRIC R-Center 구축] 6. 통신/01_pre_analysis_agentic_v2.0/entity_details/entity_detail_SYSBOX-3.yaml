@@ -1,0 +1,61 @@
+tag: SYSBOX-3
+name: SYSTEM BOX
+type: equipment
+discipline: COMMUNICATION
+function_category: TERMINAL_BOX
+source_pages:
+- 18
+specs:
+  raw_labels:
+  - SYSTEM BOX
+  - CAT.6 UTP CABLE (1Gbps)
+  - OUTLET BOX
+  shape: rectangle
+  labels_inside:
+  - SYSTEM BOX
+  labels_above:
+  - CAT.6 UTP CABLE (1Gbps)
+  labels_below:
+  - OUTLET BOX
+  - CAT.6 UTP CABLE (1Gbps)
+  inferred_name: 시스템 박스 3 (수평배선계)
+  position: bottom-center
+relations:
+- from: HUB-RACK-1
+  to: SYSBOX-3
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: CAT.6 UTP CABLE (1Gbps)
+- from: SYSBOX-3
+  to: PC-3
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: CAT.6 UTP CABLE (1Gbps) / OUTLET BOX
+- from: SYSBOX-3
+  to: AP-1
+  relation: cable
+  source_page: 18
+  origin: visual_semantics
+  annotation: 무선 AP 연결
+collection_sources:
+  visual_semantics: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: bottom-center
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - inferred_name
+  - position
+  similar_equipment: []
+  function_candidates:
+  - Network Connection
+  - Cable Termination
+  - Signal Distribution

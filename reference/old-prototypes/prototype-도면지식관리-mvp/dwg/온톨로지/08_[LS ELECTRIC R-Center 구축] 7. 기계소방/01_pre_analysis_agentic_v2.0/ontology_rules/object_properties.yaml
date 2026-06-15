@@ -1,0 +1,420 @@
+object_properties:
+- iri: dks:connects_to
+  label: connects_to
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connected_from
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: BLDG-B
+    object: DUCT-CORRIDOR
+    source_page: 4
+    note: 옥외 소화 배관 경로
+  - subject: CONN-UP-100
+    object: PIPE-H-100-NEW
+    source_page: 6
+    note: 1층 소화 배관 컨넥터에 연결
+  - subject: FLOOR-2F
+    object: FHC-01
+    source_page: 13
+    note: 'H계통 분기 → 옥내소화전함 #1'
+  - subject: RISER-07
+    object: FDC-01
+    source_page: 5
+    note: T-100 연결송수구 연결
+  total_evidence: 4
+  derivation: related_assertions.type=connects_to가 건물-공동구, 연결부-배관, 평면도-설비, 입상관-설비
+    문맥에서 반복 관찰됨. 도메인/레인지가 공간·문서·배관·설비 전반에 걸쳐 있어 현 단계는 owl:Thing 범용 관계로 유지.
+  confidence: 0.95
+- iri: dks:pipe
+  label: pipe
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:pipe_of
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: DUCT-CORRIDOR
+    object: FHY-001
+    source_page: 4
+    note: H-100 옥외소화전 배관
+  - subject: FLOOR-2F
+    object: FHC-01
+    source_page: 13
+    note: 'H계통 분기 → 옥내소화전함 #1'
+  - subject: RISER-UP-100a
+    object: ROOM-drive-시험실
+    source_page: 12
+    note: UP 100a 주배관 상향
+  - subject: RISER-07
+    object: FDC-01
+    source_page: 5
+    note: T-100 연결송수구 연결
+  total_evidence: 4
+  derivation: related_assertions.type=pipe가 시각적 배관 연결을 별도 보존하는 관계로 반복 관찰됨. connects_to와
+    병행되지만 동일시되지 않음.
+  confidence: 0.93
+- iri: dks:feeds
+  label: feeds
+  domain: dks:PipingEntity
+  range: owl:Thing
+  inverse_of_candidate: dks:fed_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: RISER-UP-100a-NE
+    object: FHC-LOBBY
+    source_page: 12
+    note: 옥내소화전 배관이 FHC-LOBBY로 공급됨
+  - subject: RISER-01
+    object: FLOOR-2F
+    source_page: 13
+    note: H 50ø 옥내소화전 입상관 → 2층 수평 배관
+  - subject: RISER-DN-50a-N
+    object: ROOM-전기실
+    source_page: 12
+    note: SP/H 계통 입상관이 전기실로 공급됨
+  total_evidence: 3
+  derivation: related_assertions.type=feeds가 입상관/배관에서 평면도·공간·설비로 향하는 공급 방향 관계로 관찰됨.
+  confidence: 0.9
+- iri: dks:supplies
+  label: supplies
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:supplied_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: DUCT-CORRIDOR
+    object: FHY-001
+    source_page: 4
+    note: H-100 옥외소화전 배관
+  - subject: DET-03
+    object: 소화수 공급 방향
+    source_page: 9
+    note: 도면 내 공급 방향 표기
+  - subject: FHY-001
+    object: DUCT-CORRIDOR
+    source_page: 4
+    note: source_page 4, H-100 옥외소화전 배관
+  total_evidence: 3
+  derivation: related_assertions.type=supplies가 공동구-옥외소화전, 상세도-공급방향 표기에서 관찰됨. 일부 역방향
+    표기도 있어 inverse 후보를 둠.
+  confidence: 0.78
+- iri: dks:located_in
+  label: located_in
+  domain: owl:Thing
+  range: dks:SpatialEntity
+  inverse_of_candidate: dks:contains
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: CONN-FLEX-001
+    object: SPACE-PIT-001
+    source_page: 6
+    note: 피트 공간 내 위치
+  - subject: PIPE-H-100-NEW
+    object: SPACE-PIT-001
+    source_page: 6
+    note: PIT 공간 내 위치
+  - subject: VALVE-GATE-001
+    object: SPACE-PIT-001
+    source_page: 6
+    note: 도면 관계로 PIT 공간 내 위치
+  - subject: PIPE-UG-001
+    object: SPACE-PIT-001
+    source_page: 6
+    note: cross_validated
+  total_evidence: 4
+  derivation: related_assertions.type=located_in이 배관·밸브·연결부가 PIT/공간에 위치하는 관계로 반복 관찰됨.
+    현재 관찰에서는 각 subject당 단일 위치만 제시되어 functional 후보.
+  confidence: 0.94
+- iri: dks:contains
+  label: contains
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:located_in
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: FLOOR-PLAN-PIT
+    object: PIT층-H-동02
+    source_page: 11
+    note: 옥내소화전 계통
+  - subject: FLOOR-PLAN-PIT
+    object: PIT층-SP-동01
+    source_page: 11
+    note: 스프링클러 계통
+  - subject: ROOM-전기발전기실
+    object: sprinkler_head x2
+    source_page: 12
+    note: 실 내부에 스프링클러 헤드 2개가 관찰됨
+  total_evidence: 3
+  derivation: related_assertions.type=contains가 도면영역/공간이 배관 또는 내부 설비를 포함하는 관계로 관찰됨.
+    일부 object가 태그가 아닌 집계 표현이라 범용 range 유지.
+  confidence: 0.86
+- iri: dks:references
+  label: references
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:referenced_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: COVER-TITLE-001
+    object: STAMP-AREA-001
+    source_page: 1
+    note: 인근 태그 요약에 STAMP-AREA-001이 제시됨
+  - subject: MF-001
+    object: MF-002
+    source_page: 2
+    note: drawing_list에 포함된 다음 도면 번호
+  - subject: BRACE-SCHED
+    object: FLOOR-2F
+    source_page: 13
+    note: 평면도 내 버팀대 수량 집계 참조
+  - subject: FDC-LEGEND
+    object: FDC-01
+    source_page: 5
+    note: 범례와 실제 설비 간 대응 가능성
+  total_evidence: 4
+  derivation: related_assertions.type=references가 문서-문서, 범례-설비, 스케줄-평면도 등 참조 관계로 반복
+    관찰됨.
+  confidence: 0.93
+- iri: dks:details
+  label: details
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:detailed_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: DET-05
+    object: DET-06
+    source_page: 14
+    note: DET-06은 DET-05의 DETAIL 'A' 부분을 확대한 상세도
+  - subject: DET-06
+    object: DET-05
+    source_page: 14
+    note: DET-06은 DET-05의 DETAIL 'A' 부분을 원형으로 확대한 상세도
+  - subject: UNKNOWN-DETAIL-03
+    object: DET-03
+    source_page: 9
+    note: 상세도 식별자와 태그가 대응됨
+  total_evidence: 3
+  derivation: related_assertions.type=details가 상세도 간 확대/대응 관계로 관찰됨. DET-05↔DET-06
+    양방향 관찰로 역관계 후보가 강함.
+  confidence: 0.84
+- iri: dks:passes_through
+  label: passes_through
+  domain: dks:PipingEntity
+  range: dks:Valve
+  inverse_of_candidate: dks:is_passed_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PIPE-H-100-NEW
+    object: VALVE-AD-001
+    source_page: 6
+    note: 20ø 자동배수밸브 설치
+  - subject: PIPE-SC-100-NEW
+    object: VALVE-AD-001
+    source_page: 6
+    note: 20ø 자동배수밸브 설치
+  - subject: VALVE-AD-001
+    object: PIPE-H-100-NEW
+    source_page: 6
+    note: source relation inverse-like observation
+  total_evidence: 3
+  derivation: related_assertions.type=passes_through가 신설 배관이 자동배수밸브를 경유하는 관계로 관찰됨.
+  confidence: 0.91
+- iri: dks:member_of_group
+  label: member_of_group
+  domain: owl:Thing
+  range: dks:Group
+  inverse_of_candidate: dks:has_member
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: MF-101
+    object: GRP-내진설비
+    source_page: 2
+    note: specs.members에 포함된 그룹 멤버
+  - subject: MF-001
+    object: GRP-소화설비
+    source_page: 2
+    note: specs.members에 포함된 그룹 멤버
+  - subject: MF-008
+    object: GRP-소화설비
+    source_page: 2
+    note: specs.members에 포함된 그룹 멤버
+  total_evidence: 3
+  derivation: related_assertions.type=member_of_group가 그룹 엔티티의 members 구조에서 반복 관찰됨.
+    placement에는 그룹→멤버가 아니라 멤버_of_group 형태로 기록되어 이를 채택.
+  confidence: 0.92
+- iri: dks:has_symbol_definition
+  label: has_symbol_definition
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:symbolizes
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: FDC-LEGEND
+    object: 쌍구형 연결송수구
+    source_page: 5
+    note: 범례 심볼로서 실제 설비가 아니라 심볼 정의를 나타냄
+  - subject: FHC-1F-01
+    object: 옥내소화전함(호스릴형)
+    source_page: 5
+    note: equipment_symbols에 기재된 설비 심볼
+  - subject: SYM-005
+    object: 배관 선 위에 밸브 형상 심볼
+    source_page: 3
+    note: 도면상 체크밸브 심볼이 배관 선 위에 표시됨
+  total_evidence: 3
+  derivation: related_assertions.type=has_symbol_definition이 범례 심볼, 심볼형 설비, 심볼 설명
+    문맥에서 반복 관찰됨.
+  confidence: 0.87
+- iri: dks:has_schedule
+  label: has_schedule
+  domain: owl:Thing
+  range: dks:Schedule
+  inverse_of_candidate: dks:schedule_for
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: MF-001
+    object: MF-002
+    source_page: 2
+    note: 장비일람표 포함
+  - subject: SCHEDULE-BRACE
+    object: BRACE-H-17..BRACE-H-31
+    source_page: 10
+    note: 버팀대 수량표가 인근 버팀대 태그들의 수량/구성 정보를 집계
+  - subject: FLOOR-2F
+    object: BRACE-SCHED
+    source_page: 13
+    note: 평면도 내 버팀대 수량 집계 참조
+  total_evidence: 3
+  derivation: related_assertions.type=has_schedule가 도면/목록/스케줄 연결 문맥에서 관찰됨. 일부 object가
+    태그 범위 집합 표현이라 범용 range를 유지하되 Schedule 중심으로 해석.
+  confidence: 0.76
+- iri: dks:has_detail
+  label: has_detail
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:detail_of
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: DET-01
+    object: 옥내소화전함
+    source_page: 9
+    note: 설치 상세가 옥내소화전함(FHC) 대상임
+  - subject: MF-001
+    object: MF-008
+    source_page: 2
+    note: 소화 밸브 상세도
+  - subject: UNKNOWN-DETAIL-01
+    object: DET-01
+    source_page: 9
+    note: specs.detail_id와 labels/제목이 DET-01 상세와 직접 대응
+  total_evidence: 3
+  derivation: related_assertions.type=has_detail가 설비-상세, 목록-상세도, 상세 대응 관계에서 관찰됨.
+  confidence: 0.85
+- iri: dks:adjacent_to
+  label: adjacent_to
+  domain: dks:SpatialEntity
+  range: dks:SpatialEntity
+  inverse_of_candidate: dks:adjacent_to
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SPACE-06
+    object: P05
+    source_page: 7
+    note: position에 right of P05
+  - subject: SPACE-15
+    object: P14
+    source_page: 7
+    note: position에 right of P14
+  - subject: SPACE-16
+    object: P15
+    source_page: 7
+    note: position에 right of P15
+  total_evidence: 3
+  derivation: related_assertions와 free_notes의 position 표현(right of, below 등)에서 공간
+    인접/상대 위치 관계가 반복 관찰됨. 대칭 후보.
+  confidence: 0.68
+- iri: dks:branches_from
+  label: branches_from
+  domain: dks:PipingEntity
+  range: dks:PipingEntity
+  inverse_of_candidate: dks:has_branch
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: EXISTING-FHC
+    object: RISER-07
+    source_page: 5
+    note: 기존 공동구 옥내소화전 배관에서 분기
+  - subject: FDC-01
+    object: RISER-07
+    source_page: 5
+    note: 기존 공동구 폐내소화전 배관에서 분기
+  - subject: FHC-1F-01
+    object: RISER-01
+    source_page: 5
+    note: 1층 분기
+  total_evidence: 3
+  derivation: related_assertions의 note에 '분기'가 반복 관찰되어 connects_to와 별개 분기관계를 귀납. 현재
+    각 subject당 하나의 분기 원천만 관찰되어 functional 후보.
+  confidence: 0.74
+- iri: dks:annotates
+  label: annotates
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:annotated_by
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: BRACE-H-22
+    object: FLOOR-2F
+    source_page: 13
+    note: 도면상 FLOOR-2F와 연결된 식별 태그 주석
+  - subject: PIPE-CONNECT-ANNOTATION
+    object: RISER-UP-100a
+    source_page: 12
+    note: 배관 연결 주석으로 해석되는 관계 원형
+  - subject: SYM-008
+    object: 배관 선
+    source_page: 3
+    note: visual_description에 배관 선 위에 심볼이 표시됨
+  total_evidence: 3
+  derivation: related_assertions.type=annotates가 식별 태그, 배관 주석, 심볼 주석 문맥에서 반복 관찰됨.
+  confidence: 0.88
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:16:22.326400'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.86

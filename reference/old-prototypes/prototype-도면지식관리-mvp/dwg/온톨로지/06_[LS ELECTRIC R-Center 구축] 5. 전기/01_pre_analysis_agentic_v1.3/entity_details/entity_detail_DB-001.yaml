@@ -1,0 +1,142 @@
+entity_detail:
+  tag: DB-001
+  type: equipment
+  specs:
+    spec_text:
+      value: 터파기 신설 구역, CONCRETE 포함
+      unit: null
+      source: page 4
+      confidence: 0.98
+    section_detail:
+      value: GL.±0.0 기준, DUCT BANK, CONCRETE, SPACER, SOIL, 지중선표시기 포함
+      unit: null
+      source: page 4
+      confidence: 0.95
+  drawing_texts:
+  - source: page 4 executive_summary
+    page_number: 4
+    text: '옥외 전력간선설비 인입 배치도로, UT동 1층 변전실에서 R-Center 변전실로 6.6kV 전력케이블이 연결되는 부지 배치와
+      지중 인입 경로를 보여준다.
+
+
+      공동구 내 기존 TRAY 구간과 DUCT BANK/ELP100 구간이 함께 표시되며, 전력용 맨홀 2개와 PULL BOX 2개, 지중선표시기,
+      SECTION 1·2 단면 상세가 포함된다.
+
+
+      우측에는 지하공동구 현황도 사진 1장이 있으며, A동 지상1층 인버터 시험센타와 A동 지하1층 전기실 방향의 연결도 함께 보인다.'
+  - source: page 4 equipment
+    page_number: 4
+    text: 'tag: DB-001
+
+      name: DUCT BANK
+
+      spec: 터파기 신설 구역, CONCRETE 포함
+
+      discipline: STRUCTURAL
+
+      function_category: BOUNDARY
+
+      location: 평면도 중앙-우측 구간, SECTION 1·2에 상세 표시
+
+      confidence: 0.98'
+  - source: page 4 equipment
+    page_number: 4
+    text: 'tag: SECTION-1
+
+      name: SECTION ''1''
+
+      spec: GL.±0.0 기준, DUCT BANK, CONCRETE, SPACER, SOIL, 지중선표시기 포함
+
+      discipline: STRUCTURAL
+
+      function_category: BOUNDARY
+
+      location: 도면 우측 상단
+
+      confidence: 0.95'
+  - source: page 4 equipment
+    page_number: 4
+    text: 'tag: SECTION-2
+
+      name: SECTION ''2''
+
+      spec: GL.±0.0 기준, DUCT BANK, CONCRETE, SPACER, SOIL, 지중선표시기 포함
+
+      discipline: STRUCTURAL
+
+      function_category: BOUNDARY
+
+      location: 도면 우측 상단
+
+      confidence: 0.95'
+  - source: page 4 relationships
+    page_number: 4
+    text: 'from: DB-001
+
+      to: SECTION-1
+
+      relation: 단면 상세 표시
+
+      medium: structural
+
+      direction: 평면 -> 단면
+
+      confidence: 0.95'
+  - source: page 4 relationships
+    page_number: 4
+    text: 'from: DB-001
+
+      to: SECTION-2
+
+      relation: 단면 상세 표시
+
+      medium: structural
+
+      direction: 평면 -> 단면
+
+      confidence: 0.95'
+  requirements:
+  - text: GL.±0.0 기준
+    source: page 4 SECTION-1 / SECTION-2
+    type: reference_level
+  - text: DUCT BANK, CONCRETE, SPACER, SOIL, 지중선표시기 포함
+    source: page 4 SECTION-1 / SECTION-2
+    type: composition
+  - text: 터파기 신설 구역
+    source: page 4 DB-001 spec
+    type: construction_condition
+  connection_specs:
+  - relation: 단면 상세 표시
+    partner: SECTION-1
+    details:
+      source: page 4 relationships
+  - relation: 단면 상세 표시
+    partner: SECTION-2
+    details:
+      source: page 4 relationships
+  ontology_hints:
+    observed_relations:
+    - relation_type: shown_in_section
+      partner_tag: SECTION-1
+      direction: DB-001 -> SECTION-1
+      source: page 4 relationships
+    - relation_type: shown_in_section
+      partner_tag: SECTION-2
+      direction: DB-001 -> SECTION-2
+      source: page 4 relationships
+    observed_attributes:
+    - 터파기 신설 구역
+    - CONCRETE 포함
+    - GL.±0.0 기준
+    - SPACER
+    - SOIL
+    - 지중선표시기 포함
+    similar_equipment: []
+    suggested_parent_class: STRUCTURAL_ELEMENT
+    cross_discipline:
+    - STRUCTURAL
+    - ELECTRICAL
+  notes:
+  - 도면에서 DB-001은 DUCT BANK로 표기됨.
+  - 연결 사양은 직접적인 배관/케이블 규격이 아니라 단면 상세 및 구성요소 중심으로만 확인됨.
+tag: DB-001

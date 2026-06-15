@@ -1,0 +1,55 @@
+page_37_entities:
+- tag: UNKNOWN-LIGHTNING-ROD-01
+  name: 피뢰침
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: UNKNOWN-HORIZ-CONDUCTOR-01
+  name: 수평도체 메쉬망
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: UNKNOWN-STRUCT-CONN-01
+  name: 구조체 접속점
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: UNKNOWN-METAL-LADDER-CONN-01
+  name: 금속 사다리 접속점
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: UNKNOWN-DOWN-CONDUCTOR-01
+  name: 인하도선 (주)
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: UNKNOWN-DOWN-CONDUCTOR-02
+  name: 인하도선 (보조)
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.98
+- tag: UNKNOWN-GROUNDING-ELECTRODE-01
+  name: 피뢰기초접지극
+  type: entity
+  discipline: ELECTRICAL
+  confidence: 0.95
+page_37_relations:
+- from: UNKNOWN-LIGHTNING-ROD-01
+  to: UNKNOWN-HORIZ-CONDUCTOR-01
+  relation: connects_to
+- from: UNKNOWN-HORIZ-CONDUCTOR-01
+  to: UNKNOWN-STRUCT-CONN-01
+  relation: connects_to
+- from: UNKNOWN-HORIZ-CONDUCTOR-01
+  to: UNKNOWN-DOWN-CONDUCTOR-01
+  relation: connects_to
+- from: UNKNOWN-METAL-LADDER-CONN-01
+  to: UNKNOWN-DOWN-CONDUCTOR-02
+  relation: connects_to
+- from: UNKNOWN-DOWN-CONDUCTOR-01
+  to: UNKNOWN-GROUNDING-ELECTRODE-01
+  relation: grounds_to
+- from: UNKNOWN-DOWN-CONDUCTOR-02
+  to: UNKNOWN-GROUNDING-ELECTRODE-01
+  relation: grounds_to

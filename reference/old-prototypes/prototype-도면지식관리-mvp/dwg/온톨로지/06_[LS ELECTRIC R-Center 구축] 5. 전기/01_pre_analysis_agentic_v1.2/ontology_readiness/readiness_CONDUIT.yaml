@@ -1,0 +1,12 @@
+tag: CONDUIT
+verdict: demoted
+confidence: 0.97
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: tag와 자체 specs는 있으나, entity_detail의 type이 Conduit/Duct로서 독립 설비라기보다 배선 선종 범례
+  및 경로 표기 성격이 강하다. page 3의 line_type_*는 범례 정의이고, page 4의 cable_spec/empty_pipe_spec/manhole_spec/pull_box_spec는
+  CONDUIT 자체의 독립 설비 사양이라기보다 경로 구성 요소 및 관련 표기이다. 또한 read_page_context에서 CONCRETE DUCT
+  BANK, EMPTY PIPE(ELP100), 공동구, R-Center 변전실, UT동 1층 변전실과의 연결은 확인되지만, 이는 routing
+  medium/연결 경로로서 독립 엔티티보다는 다른 설비의 경로 속성에 가깝다. 따라서 독립 엔티티 기준을 충족하지 못해 demoted 처리한다.

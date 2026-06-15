@@ -1,0 +1,224 @@
+placement:
+  tag: VALVE-CHECK-001
+  name: 체크밸브
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: VALVE-CHECK-001
+    class_hint: Valve
+    alternative_class_hints:
+    - ControlValve
+    - CheckValve
+    related_assertions:
+    - type: located_in
+      target_hint: SPACE-PIT-001
+      note: 도면 관계로 PIT 공간 내 위치
+    applicable_axioms:
+    - AX020
+    - AX038
+    - AX040
+    - AX042
+    applicable_constraints:
+    - CN003
+    - CN015
+    - CN019
+    confirmed_class: dks:Valve
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: CONTROL'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 표기
+      - raw_text: 'function_category: CONTROL'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'equipment_symbols: type: check_valve, count: 1'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 심볼 유형과 수량 표기
+      - raw_text: 'ontology_hints.suggested_parent_class: Valve'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 보존
+      - raw_text: 'ontology_hints.observed_attributes: count'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: observedAttribute
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: BackflowPrevention, DirectionalControl'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+      - raw_text: 'collection_sources.cross_validated: true'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: crossValidated
+          suggested_datatype: xsd:boolean
+          rationale: 출처 검증 상태 보존
+      - raw_text: 'confidence: 0.85'
+        source_page: 6
+        promotion_hint:
+          suggested_property_label: confidence
+          suggested_datatype: xsd:decimal
+          rationale: 원문 신뢰도 값 보존
+  provenance:
+    tag:
+      source_pages:
+      - 6
+      method: entity_detail
+    name:
+      source_pages:
+      - 6
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_core.owl_role:
+      source_pages:
+      - 6
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_core.class_hint:
+      source_pages:
+      - 6
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 6
+      method: derived_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 6
+      method: relations
+    specs.count:
+      source_pages:
+      - 6
+      method: entity_detail
+    relations:
+      source_pages:
+      - 6
+      method: entity_detail
+    collection_sources.cross_validated:
+      source_pages:
+      - 6
+      method: entity_detail
+    confidence:
+      source_pages:
+      - 6
+      method: entity_detail
+    equipment_symbols:
+      source_pages:
+      - 6
+      method: entity_detail
+    source_attribution:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.similar_equipment:
+      source_pages:
+      - 6
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 6
+      method: entity_detail
+  unresolved:
+  - field_candidate: type
+    raw_text: CONTROL
+    source_page: 6
+    reason: OWL Core의 class_hint로 확정할 수 없고, 별도 데이터 속성인지 불명확함
+    preservation_note: 원문 타입 표기 보존
+  - field_candidate: function_category
+    raw_text: CONTROL
+    source_page: 6
+    reason: 분류값이지만 supplement sub_kind가 없어 free_notes로 보존
+    preservation_note: 기능 분류 후보로 승격 가능
+  - field_candidate: equipment_symbols.type
+    raw_text: check_valve
+    source_page: 6
+    reason: 심볼 타입은 관찰값이지만 정규 class로 단정하지 않음
+    preservation_note: 심볼 정의/표기 후보
+  - field_candidate: equipment_symbols.count
+    raw_text: '1'
+    source_page: 6
+    reason: 수량 값이지만 별도 구조화 여부 미확정
+    preservation_note: count 속성 후보
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: Valve
+    source_page: 6
+    reason: 후보 클래스 힌트이며 확정 금지
+    preservation_note: class_hint 후보로만 반영
+  - field_candidate: ontology_hints.observed_attributes
+    raw_text: count
+    source_page: 6
+    reason: 관찰 속성 목록이지만 정식 속성명 확정 불가
+    preservation_note: 속성 승격 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: BackflowPrevention, DirectionalControl
+    source_page: 6
+    reason: 기능 후보이며 단일 기능으로 확정 불가
+    preservation_note: 기능 후보 목록 보존
+  - field_candidate: collection_sources.cross_validated
+    raw_text: 'true'
+    source_page: 6
+    reason: 출처 검증 상태는 메타 정보로 보존
+    preservation_note: 검증 플래그
+  - field_candidate: confidence
+    raw_text: '0.85'
+    source_page: 6
+    reason: 원문 신뢰도 값은 해석 대상이 아니라 보존 대상
+    preservation_note: 신뢰도 메타
+  - field_candidate: source_attribution
+    raw_text: 'sonnet: false, gemini: true, mini: true'
+    source_page: 6
+    reason: 출처/모델 귀속 정보는 구조화 기준 미정
+    preservation_note: 모델 귀속 메타 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 관계 사실(located_in)을 related_assertions 원형으로 보존
+    - ontology_hints의 suggested_parent_class를 class_hint 후보로만 반영
+    - 분류 불가 정보는 free_notes에 promotion_hint와 함께 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:08:12.742199'
+  confidence: 0.85

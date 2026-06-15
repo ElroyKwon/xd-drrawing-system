@@ -1,0 +1,173 @@
+tag: P-A-4PP-7
+name: P-A-4PP-7 동력분전반
+type: DISTRIBUTION_PANEL
+discipline: ELECTRICAL
+function_category: DISTRIBUTION_PANEL
+source_pages:
+- 22
+specs:
+  labels_above:
+  - PANEL BOARD  P-A-4PP-7  COVER TYPE  노출형(STEEL)
+  - PANEL LOCATION  1층 Drive 시험실  BOX SIZE  —
+  labels_inside:
+  - 'FROM: 전기실'
+  - R S T
+  - 'SOURCE: 전기실'
+  - 'VOLT: 440V'
+  - 'TYPE: MCCB'
+  - 'MAIN C.B: 3P 30/20AT'
+  - 3Ø S.P.D 40KA/mode
+  - 'AT: 100  AF: 250  P: 4  TYPE: MCCB  NO: M1'
+  - 'AT: 100  AF: 125  P: 4  TYPE: MCCB  NO: (회로)'
+  - 'AT: 75  AF: 125  P: 4  TYPE: MCCB  SP'
+  - CCM NO TYPE P AF AT (회로 그리드 헤더)
+  - MCCB 3P 30/20AT (MAIN C.B)
+  labels_below:
+  - E3 (접지)
+  branch_circuits_parsed:
+  - circuit_id: M1
+    at: 100
+    af: 250
+    poles: 4
+    type: MCCB
+  - circuit_id: 회로
+    at: 100
+    af: 125
+    poles: 4
+    type: MCCB
+  - circuit_id: SP
+    at: 75
+    af: 125
+    poles: 4
+    type: MCCB
+  raw_labels:
+  - 'PANEL BOARD: P-A-4PP-7'
+  - 'COVER TYPE: 노출형(STEEL)'
+  - 'PANEL LOCATION: 1층 Drive 시험실'
+  - 'BOX SIZE: —'
+  - 'FROM: 전기실'
+  - R S T
+  - 'SOURCE: 전기실'
+  - 'VOLT: 440V'
+  - 'MAIN C.B TYPE: MCCB'
+  - 'MAIN C.B: 3P 400AF 300AT'
+  - MCCB 3P 30/20AT
+  - 3Ø S.P.D 40KA/mode
+  - 'AT: 150, AF: 250, P: 4, TYPE: MCCB, NO: #38,#39 1차 INV 100KVA'
+  - 'AT: 100, AF: 125, P: 4, TYPE: MCCB, NO: #41'
+  - 'AT: 75, AF: 125, P: 4, TYPE: MCCB, NO: SP'
+  - 'AT: 225, AF: 250, P: 4, TYPE: MCCB, NO: #40'
+  - 'AT: 100, AF: 125, P: 4, TYPE: MCCB, NO: 3차 Temp. Humidity Chamber (GP-TH-2000)'
+  - E3
+  panel_board: P-A-4PP-7
+  location: 1층 Drive 시험실
+  cover_type: 노출형(STEEL)
+  box_size: —
+  source: 전기실
+  rated_voltage: 440V
+  phase: 3Ø
+  main_cb_type: MCCB
+  main_cb_spec: 3P 30/20AT
+  main_cb_poles: 3
+  main_cb_at_rating: 30A
+  main_cb_af_rating: 20A
+  spd_spec: 3Ø S.P.D 40KA/mode
+  grounding: E3
+  branch_circuits:
+  - circuit_id: M1
+    at: 100
+    af: 250
+    poles: 4
+    type: MCCB
+  - circuit_id: 회로
+    at: 100
+    af: 125
+    poles: 4
+    type: MCCB
+  - circuit_id: SP
+    at: 75
+    af: 125
+    poles: 4
+    type: MCCB
+  equipment_count:
+    mccb: 4
+    spd: 1
+    ct: 1
+    earth_ground: 1
+relations:
+- from: POWER-SOURCE-EE
+  to: P-A-4PP-7
+  relation: feeds
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: P-A-4PP-7
+  to: E3
+  relation: grounds_to
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: P-A-4PP-7
+  to: SPD-P-A-4PP-7
+  relation: protects
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: null
+- from: P-A-4PP-7
+  to: BRANCH-P-A-4PP-7
+  relation: feeds
+  source_page: 22
+  origin: cross_validated
+  line_style: solid
+  note: null
+collection_sources:
+  cross_validated: true
+  visual_semantics_gemini: true
+  entity_synthesis: true
+position: top-left
+confidence: 0.98
+equipment_symbols:
+- type: MCCB (Molded Case Circuit Breaker)
+  count: 4
+- type: SPD (Surge Protective Device) 3Ø 40KA/mode
+  count: 1
+- type: CT (Current Transformer)
+  count: 1
+- type: Earth/Ground (E3)
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: ElectricalDistributionEquipment
+  observed_attributes:
+  - labels_above
+  - labels_inside
+  - labels_below
+  - branch_circuits_parsed
+  - raw_labels
+  - panel_board
+  - location
+  - cover_type
+  - box_size
+  - source
+  - rated_voltage
+  - phase
+  - main_cb_type
+  - main_cb_spec
+  - main_cb_poles
+  - main_cb_at_rating
+  - main_cb_af_rating
+  - spd_spec
+  - grounding
+  - branch_circuits
+  - equipment_count
+  similar_equipment: []
+  function_candidates:
+  - PowerDistribution
+  - CircuitProtection
+  - SurgeProtection

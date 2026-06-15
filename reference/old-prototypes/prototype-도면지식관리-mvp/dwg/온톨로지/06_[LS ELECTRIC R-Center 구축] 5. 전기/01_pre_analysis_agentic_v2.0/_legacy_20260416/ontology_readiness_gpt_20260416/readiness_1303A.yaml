@@ -1,0 +1,242 @@
+ontology_readiness:
+  tag: 1303A
+  verdict: qualified
+  confidence: 0.95
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 19
+    reason: 고유 tag가 있고, VCB/CT/ZCT/SA/GIPAM 및 정격값이 명시되어 독립 엔티티로 판단됨.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 19
+    convertible: 15
+    ambiguous_attributes:
+    - key: raw_labels
+      value:
+      - 1303A
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      reason: 원문 라벨 묶음은 복합 표기이므로 개별 속성으로 분해해도 원문 전량 보존 필요.
+    - key: protection_functions
+      value:
+      - 50/51
+      - '67'
+      reason: 보호계전 기능 번호는 속성 후보이지만 코드 체계 해석은 후속 온톨로지 매핑 필요.
+    - key: load_name
+      value: 오폐수처리장동력
+      reason: 부하명은 설비 속성으로 보존 가능하나 표준 클래스/속성명 매핑은 후속 판단 필요.
+    - key: destination
+      value: 6301/HV
+      reason: 연결 대상 표기는 관계/참조 속성 후보이며, 대상 엔티티 존재 여부는 별도 그래프 매핑 필요.
+    - key: grounding_mark
+      value: E1
+      reason: 접지/마크 표기는 속성 후보이나 도면 표기 관례에 따라 annotation 보존이 안전함.
+    - key: ct_ratio_sonnet
+      value: 75/5A
+      reason: 이중 출처 필드로 provenance 보존 대상.
+    - key: ct_ratio_gemini
+      value: 75/5A
+      reason: 이중 출처 필드로 provenance 보존 대상.
+    - key: zct_rating_secondary_mA_gemini
+      value: 1.5
+      reason: 이중 출처 필드이며 단위/의미가 원문 기준으로 별도 보존 필요.
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      reason: 이중 출처 필드이며 표시등/계측 항목으로 annotation 보존 필요.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - zct_rating
+    - sa_rating
+    - protection_functions
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - zct_count
+    - zct_rating_mA
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    - load_name
+    - destination
+    - grounding_mark
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: ct_ratio_sonnet
+      value: 75/5A
+      source: sonnet
+      conflict_with: null
+    - key: ct_ratio_gemini
+      value: 75/5A
+      source: gemini
+      conflict_with: null
+    - key: zct_rating_secondary_mA_gemini
+      value: 1.5
+      source: gemini
+      conflict_with: null
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      source: gemini
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates:
+  - tag: 1303B
+    reason: ontology_hints.similar_equipment에 명시된 후보이며 동일 계열 tag/panel 형식이지만 별도 tag로
+      유지.
+  - tag: 1302A
+    reason: 같은 HV 계열 패널이지만 tag와 연결/부하 정보가 달라 중복 판정 근거 부족.
+  - tag: 1304A
+    reason: 같은 HV 계열 패널이지만 tag와 연결/부하 정보가 달라 중복 판정 근거 부족.
+  cross_discipline:
+    links_found:
+    - 1303A는 ELECTRICAL 도면 내 설비이며, page context에서 다른 discipline 연결은 확인되지 않음.
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: SwitchgearPanel
+    alternative_parent_classes:
+    - HVFeederPanel
+    - VCBPanel
+    - ProtectionPanel
+  spatial_context:
+    position: bottom-left
+    source_pages:
+    - 5
+    room_or_zone: U/T 동 주변전실-1(기존)
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1303A
+      - HV
+      - VCB 3P
+      - 24kV 600A
+      - 750MVA
+      - 2×CT 75/5A
+      - ZCT 200mA
+      - GIPAM
+      - 50/51
+      - '67'
+      - SA 9kV 5kA
+      - 1.5kA
+      bus_section: HV
+      vcb_rating: 3P 24kV 600A 750MVA
+      ct_ratio: 75/5A
+      zct_rating: 200mA
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      - '67'
+      panel_id: 1303A
+      voltage_kV: 3.3
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      ct_ratio_sonnet: 75/5A
+      ct_ratio_gemini: 75/5A
+      zct_count: 1
+      zct_rating_mA: 200
+      zct_rating_secondary_mA_gemini: 1.5
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      load_name: 오폐수처리장동력
+      destination: 6301/HV
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  - connection_specs
+  - requirements
+  - source_attribution
+  - collection_sources
+  - read_page_context(page 5)
+  skipped_fields:
+  - requirements (없음)
+  - drawing_texts (없음)
+  - notes (없음)
+  - ontology_hints.observed_relations (제공되지 않음)
+  - ontology_hints.cross_discipline (제공되지 않음)
+  - ontology_hints.similar_equipment (검토했으나 중복 근거 부족)
+  - connection_specs (별도 필드로 제공되지 않음)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: :SwitchgearPanel
+    annotations_to_emit:
+    - raw_labels
+    - ct_ratio_sonnet
+    - ct_ratio_gemini
+    - zct_rating_secondary_mA_gemini
+    - protection_relay_indicators_gemini
+    - source_attribution
+    - collection_sources
+    - confidence
+    - position
+    - source_pages
+    - room_or_zone
+    relations_to_emit:
+    - connects_to(1302A)
+    - connects_to(1303B)
+    needs_human_review: false
+tag: 1303A
+discovered_relations: 2

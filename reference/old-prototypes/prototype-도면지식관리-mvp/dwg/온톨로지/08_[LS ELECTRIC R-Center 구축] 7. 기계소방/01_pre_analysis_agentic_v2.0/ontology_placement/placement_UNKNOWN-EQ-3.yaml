@@ -1,0 +1,148 @@
+placement:
+  tag: UNKNOWN-EQ-3
+  name: 후렉시블 조인트
+  discipline: fire_protection
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: UNKNOWN-EQ-3
+    class_hint: FlexibleJoint
+    alternative_class_hints:
+    - Boundary
+    - PipeAccessory
+    related_assertions: []
+    applicable_axioms:
+    - AX025
+    - AX031
+    - AX039
+    - AX041
+    - AX042
+    applicable_constraints:
+    - CN015
+    confirmed_class: dks:FlexibleJoint
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: BOUNDARY'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기 보존
+      - raw_text: 'function_category: FLEXIBLE_JOINT'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기 보존
+      - raw_text: 'specs.count: 3'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: count
+          suggested_datatype: xsd:integer
+          rationale: 수량 값
+      - raw_text: 'ontology_hints.suggested_parent_class: FlexibleJoint'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트 원문 보존
+      - raw_text: 'ontology_hints.observed_attributes: count'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: observedAttribute
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록 보존
+      - raw_text: 'ontology_hints.function_candidates: Vibration isolation'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+      - raw_text: 'ontology_hints.function_candidates: Expansion compensation'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 보존
+  provenance:
+    tag:
+      source_pages:
+      - 11
+      method: entity_detail
+    name:
+      source_pages:
+      - 11
+      method: entity_detail
+    discipline:
+      source_pages:
+      - 11
+      method: entity_detail
+    type:
+      source_pages:
+      - 11
+      method: entity_detail
+    function_category:
+      source_pages:
+      - 11
+      method: entity_detail
+    source_pages:
+      source_pages:
+      - 11
+      method: entity_detail
+    specs.count:
+      source_pages:
+      - 11
+      method: entity_detail
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 11
+      method: entity_detail
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 11
+      method: entity_detail
+    ontology_hints.function_candidates:
+      source_pages:
+      - 11
+      method: entity_detail
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 11
+    reason: 관계 항목이 비어 있어 관계 사실을 추출할 수 없음
+    preservation_note: 추후 인근 태그와 도면 위치 비교로 관계 재검토
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 11
+    reason: 생성/합성 여부는 분류 정보로 직접 승격하기 어려움
+    preservation_note: 합성 출처 메타로 보존
+  - field_candidate: ontology_hints.similar_equipment
+    raw_text: '[]'
+    source_page: 11
+    reason: 유사 설비 목록이 비어 있음
+    preservation_note: 빈 배열 상태 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 BOUNDARY이나 name과 function_category, ontology_hints는 실제 설비인 FlexibleJoint를
+      가리켜 경계/설비 해석이 혼재함
+    recommended_handling: 0-9c에서 class 확정 전까지 NamedIndividual로 유지하되 Boundary와 FlexibleJoint
+      양쪽 후보를 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 배관/밸브/조인트 계열로 보이는 태그를 물리 설비 Individual로 보존
+    - ontology_hints의 suggested_parent_class와 function_candidates를 후보로만 유지
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:06:51.894198'
+  confidence: 0.86

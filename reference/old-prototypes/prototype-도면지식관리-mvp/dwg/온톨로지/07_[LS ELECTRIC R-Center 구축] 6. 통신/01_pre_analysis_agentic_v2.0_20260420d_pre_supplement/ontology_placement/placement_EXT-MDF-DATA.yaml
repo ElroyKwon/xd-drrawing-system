@@ -1,0 +1,213 @@
+placement:
+  tag: EXT-MDF-DATA
+  name: 기존 MDF DATA에 연결
+  discipline: communication
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: dks:EXT-MDF-DATA
+    class_hint: ExternalInterface
+    alternative_class_hints:
+    - ConnectionPoint
+    - CommunicationEquipment
+    - FiberOpticTermination
+    related_assertions:
+    - type: connectedTo
+      target_hint: HUB-RACK-1
+      note: 'relations.cable: EXT-MDF-DATA -> HUB-RACK-1'
+      confirmed_property: dks:connectedTo
+      confirmed_target: dks:HUB-RACK-1
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: originatesFrom
+      target_hint: 기존 MDF DATA
+      note: raw label indicates external data connection to existing MDF DATA
+      confirmed_property: dks:originatesFrom
+      confirmed_target: 기존 MDF DATA
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    - type: terminatesAt
+      target_hint: F.D.F - IN (SM 12C)
+      note: relation annotation text includes F.D.F - OUT (SM 12C) → F/O CABLE (SM
+        12C) → F.D.F - IN (SM 12C)
+      confirmed_property: dks:terminatesAt
+      confirmed_target: F.D.F - IN (SM 12C)
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T14:54:44.331858'
+    applicable_axioms:
+    - AX035
+    applicable_constraints:
+    - CN016
+    confirmed_class: dks:ExternalInterface
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 기존 MDF DATA에 연결
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionNote
+          suggested_datatype: xsd:string
+          rationale: 도면 주석성 문구로 연결 의미를 직접 설명함
+      - raw_text: 외부 인입 - 기존 MDF DATA 연결점
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: specs.inferred_name에 기록된 명칭으로 외부 인입 연결점 성격을 나타냄
+      - raw_text: F.D.F - OUT (SM 12C) (기존 예정 자재) → F/O CABLE (SM 12C) → F.D.F - IN
+          (SM 12C)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: connectionRouteText
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 포함된 경로/규격 문자열
+      - raw_text: F.D.F - OUT (SM 12C)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: sourceTerminationLabel
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 내 출발 종단점 표기
+      - raw_text: F/O CABLE (SM 12C)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: cableSpecText
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 내 케이블 규격 표기
+      - raw_text: F.D.F - IN (SM 12C)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: targetTerminationLabel
+          suggested_datatype: xsd:string
+          rationale: 관계 주석 내 도착 종단점 표기
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: tag_to_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: derived_from_ontology_hints_and_relations
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: relations + specs.raw_labels + ontology_hints
+    discipline_context.free_notes:
+      source_pages:
+      - 18
+      method: specs.raw_labels + specs.inferred_name + relations.annotation
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: entity_detail.specs.raw_labels
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 18
+      method: entity_detail.specs.position
+    specs.shape:
+      source_pages:
+      - 18
+      method: entity_detail.specs.shape
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: entity_detail.specs.labels_inside
+    relations:
+      source_pages:
+      - 18
+      method: entity_detail.relations
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.function_candidates
+    collection_sources.visual_semantics:
+      source_pages:
+      - 18
+      method: entity_detail.collection_sources.visual_semantics
+    collection_sources.visual_semantics_gemini:
+      source_pages:
+      - 18
+      method: entity_detail.collection_sources.visual_semantics_gemini
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 18
+      method: entity_detail.collection_sources.entity_synthesis
+    position:
+      source_pages:
+      - 18
+      method: entity_detail.position
+  unresolved:
+  - field_candidate: specs.shape
+    raw_text: other
+    source_page: 18
+    reason: 도형 값이 일반 범주로만 주어져 구체 형상 해석 불가
+    preservation_note: 원문 shape 값을 그대로 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: External Data Connection; Fiber Optic Termination
+    source_page: 18
+    reason: 후보 기능이 복수이며 확정 불가
+    preservation_note: 후속 단계에서 class/property 판단 보조용으로 사용
+  - field_candidate: relations.annotation
+    raw_text: F.D.F - OUT (SM 12C) (기존 예정 자재) → F/O CABLE (SM 12C) → F.D.F - IN (SM
+      12C)
+    source_page: 18
+    reason: 관계 주석은 경로 설명이지만 정식 관계 타입으로 단정하기 어려움
+    preservation_note: 연결 경로 원문으로 유지
+  - field_candidate: relations.relation
+    raw_text: cable
+    source_page: 18
+    reason: 관계 타입은 있으나 확정 property IRI는 다음 단계에서 결정
+    preservation_note: 원형 관계 사실로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 connection_point이며 외부 인입 연결점/종단점/장비성 해석이 모두 가능하고, relation annotation에
+      FDF OUT/IN 및 F/O CABLE 경로가 함께 나타남
+    recommended_handling: 0-9c에서 ConnectionPoint 또는 ExternalInterface 계열로 검토하고, 0-9d에서
+      connectedTo/originatesFrom/terminatesAt 후보를 분리 검증
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - external_interface/connection_point 성격의 엔티티로 보고 관계 사실과 주석을 보존
+    - relations의 cable 원형과 annotation의 경로 문자열을 분리 보존
+    - class_hint는 후보만 두고 confirmed_class는 비움
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:30.498772'
+  confidence: 0.86

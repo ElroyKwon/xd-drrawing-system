@@ -1,0 +1,181 @@
+placement:
+  tag: R1-OPT-SWITCH-1
+  name: GIGABIT OPTICAL SWITCH
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: R1-OPT-SWITCH-1
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - NetworkSwitch
+    - OpticalNetworkConnectivity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: GIGABIT OPTICAL SWITCH
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 내 장비 라벨 텍스트
+      - raw_text: GIGABIT OPTICAL SWITCH
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: labels_inside에 관찰된 내부 표기
+      - raw_text: Gigabit Optical Switch 1 (Rack 1)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: visual semantics 기반 추정명
+      - raw_text: middle-center
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 상 위치 정보
+      - raw_text: rectangle
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 정보
+      - raw_text: NETWORK_SWITCH
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: entity_detail의 기능 분류 값
+      - raw_text: CommunicationEquipment
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 상위 클래스 제안
+      - raw_text: DataSwitching
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 기능
+      - raw_text: OpticalNetworkConnectivity
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidate
+          suggested_datatype: xsd:string
+          rationale: ontology_hints.function_candidates의 후보 기능
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 18
+      method: preserve_all_observed_text
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: entity_detail.specs.raw_labels
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: entity_detail.specs.inferred_name
+    specs.position:
+      source_pages:
+      - 18
+      method: entity_detail.specs.position
+    specs.shape:
+      source_pages:
+      - 18
+      method: entity_detail.specs.shape
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: entity_detail.specs.labels_inside
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.suggested_parent_class
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.observed_attributes
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: entity_detail.ontology_hints.function_candidates
+    source_pages:
+      source_pages:
+      - 18
+      method: entity_detail.source_pages
+  unresolved:
+  - field_candidate: relations
+    raw_text: '[]'
+    source_page: 18
+    reason: 관계 항목이 비어 있어 해석할 관계 사실이 없음
+    preservation_note: 추후 인근 태그와의 연결이 발견되면 related_assertions로 승격 가능
+  - field_candidate: collection_sources.visual_semantics_gemini
+    raw_text: 'true'
+    source_page: 18
+    reason: 수집 출처 플래그는 의미 해석 대상이 아니지만 원문 상태 보존 필요
+    preservation_note: 메타 수집 경로 정보로 유지
+  - field_candidate: collection_sources.entity_synthesis
+    raw_text: 'true'
+    source_page: 18
+    reason: 수집 출처 플래그는 의미 해석 대상이 아니지만 원문 상태 보존 필요
+    preservation_note: 메타 수집 경로 정보로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: 장비명과 function_category, suggested_parent_class가 모두 장비 실체를 지시하며 주석/문서가
+      아님
+    recommended_handling: NamedIndividual로 유지하고 0-9c에서 세부 class 확정
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - communication 도메인의 dominant_equipment_types 중 CommunicationEquipment 축 적용
+    - ontology_hints.suggested_parent_class를 class_hint 후보로 반영
+    - function_candidates를 alternative_class_hints로 보존
+    - specs/raw_labels/inferred_name/position/shape/labels_inside를 모두 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:44:39.809970'
+  confidence: 0.93

@@ -1,0 +1,173 @@
+placement:
+  tag: JB-A-02
+  name: '전선 접속함 A #2'
+  discipline: electrical
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: JB-A-02
+    class_hint: JunctionBox
+    alternative_class_hints:
+    - WireConnection
+    - CableBranching
+    - CircuitDistribution
+    related_assertions:
+    - type: connects_to
+      target_hint: SMFD-02
+      note: SMFD-02에서 JB-A-02로 연결됨; UTP 0.6 4P (추정)
+    - type: connects_to
+      target_hint: JB-A-01
+      note: JB-A-02에서 JB-A-01로 연결됨; CV 2.5 3C / C3052 2P
+    applicable_axioms:
+    - AX016
+    - AX014
+    - AX027
+    applicable_constraints:
+    - CN001
+    - CN019
+    - CN021
+    - CN022
+    - CN028
+    confirmed_class: dks:JunctionBox
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T08:39:32.798431'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T08:44:00.823686'
+  discipline_context:
+    discipline: electrical
+    sub_kinds:
+      groups: []
+      free_notes:
+      - raw_text: 'type: junction_box'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasEquipmentType
+          suggested_datatype: xsd:string
+          rationale: 도면 원문 타입 표기
+      - raw_text: 'function_category: DISTRIBUTE'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasFunctionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 표기
+      - raw_text: 'specs.shape: circle'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasShape
+          suggested_datatype: xsd:string
+          rationale: 형상 표기
+      - raw_text: 'specs.labels_inside: A'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasLabelInside
+          suggested_datatype: xsd:string
+          rationale: 기기 내부 라벨 표기
+      - raw_text: 'specs.position: inside PIT-ZONE, near SMFD-02'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasPositionNote
+          suggested_datatype: xsd:string
+          rationale: 위치 서술형 표기
+      - raw_text: 'specs.raw_labels: A'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasRawLabel
+          suggested_datatype: xsd:string
+          rationale: 원시 라벨 보존
+      - raw_text: 'specs.equipment_symbols: junction_box_symbol x1'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbol
+          suggested_datatype: xsd:string
+          rationale: 도면 심볼 표기
+      - raw_text: 'specs.panel_id: JB-A-02'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasPanelId
+          suggested_datatype: xsd:string
+          rationale: 패널/접속함 식별자
+      - raw_text: 'specs.source_model: visual_semantics_gemini'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasSourceModel
+          suggested_datatype: xsd:string
+          rationale: 추출 모델 출처
+      - raw_text: 'relations.note: UTP 0.6 4P (추정)'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasCableNote
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 추정 표기
+      - raw_text: 'relations.note: CV 2.5 3C / C3052 2P'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasCableNote
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 표기
+      - raw_text: 'equipment_symbols: junction_box_symbol count 1'
+        source_page: 50
+        promotion_hint:
+          suggested_property_label: hasEquipmentSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 심볼 개수 표기
+  provenance:
+    name:
+      source_pages:
+      - 50
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 50
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 50
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 50
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 50
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 50
+      method: relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 50
+      method: entity_detail.scan_all_fields
+    provenance.source_attribution:
+      source_pages:
+      - 50
+      method: source_attribution
+    provenance.collection_sources:
+      source_pages:
+      - 50
+      method: collection_sources
+    provenance.confidence:
+      source_pages:
+      - 50
+      method: entity_detail.confidence
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: true
+    other_tag: JB-A-01
+    reason: 인근 태그 요약에 JB-A-01이 있으며, 동일한 접속함 계열 태그로 보이고 관계 연결도 존재함. 스펠링 변형은 아니지만 동일
+      계열/병합 검토 후보로 보존.
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비(Equipment)와 전기 접속함을 NamedIndividual로 분리
+    - LOAD-*가 아닌 접속함 태그로서 전기 장비로 식별
+    - 제어/전력 연결 관계(connects_to) 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T08:36:19.677239'
+  confidence: 0.85

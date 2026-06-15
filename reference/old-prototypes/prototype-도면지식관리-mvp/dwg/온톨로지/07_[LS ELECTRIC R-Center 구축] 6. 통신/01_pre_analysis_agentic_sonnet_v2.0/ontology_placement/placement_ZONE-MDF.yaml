@@ -1,0 +1,225 @@
+placement:
+  tag: ZONE-MDF
+  name: 기존 MDF
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: ZONE-MDF
+    class_hint: CommunicationEquipment
+    alternative_class_hints:
+    - SignalDistributionPoint
+    - ConnectionPoint
+    - DistributionFrame
+    - SpatialEntity
+    related_assertions:
+    - type: connectedTo
+      target_hint: BB-FDF-DATA
+      note: labels_near에 '기존 MDF DATA에 연결'이 있어 데이터 측 연결 사실이 관찰됨
+    - type: connectedTo
+      target_hint: EXT-MDF-DATA
+      note: 인근 태그 요약에 MDF DATA 계열이 존재하며 연결점 성격이 관찰됨
+    - type: connectedTo
+      target_hint: EXT-MDF-VOICE
+      note: labels_near에 '기존 MDF VOICE에 연결'이 있어 음성 측 연결 사실이 관찰됨
+    - type: belongsToSystem
+      target_hint: communication
+      note: discipline가 COMMUNICATION으로 명시됨
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationEquipment
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 기존 MDF'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 원문 라벨
+      - raw_text: 'inferred_name: 기존 MDF (Main Distribution Frame) 연결점'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭과 기능 설명
+      - raw_text: 'position: top-left'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 정보
+      - raw_text: 'labels_inside: 기존 MDF'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsInside
+          suggested_datatype: xsd:string
+          rationale: 도형 내부 표기
+      - raw_text: 'labels_near: 기존 MDF DATA에 연결'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsNear
+          suggested_datatype: xsd:string
+          rationale: 근접 주석으로 연결 대상이 드러남
+      - raw_text: 'labels_near: 기존 MDF VOICE에 연결'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: labelsNear
+          suggested_datatype: xsd:string
+          rationale: 근접 주석으로 연결 대상이 드러남
+      - raw_text: 'suggested_parent_class: CommunicationEquipment'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: ontologyHintSuggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: ontology_hints에 명시된 상위 클래스 후보
+      - raw_text: 'function_candidates: SignalDistribution, ConnectionPoint, DataVoiceRouting'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 목록
+      - raw_text: 'type: space'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: entityType
+          suggested_datatype: xsd:string
+          rationale: 원문 타입 값
+      - raw_text: 'function_category: DISTRIBUTION_FRAME'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 원문 기능 분류 값
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 원문 분야 값
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: direct
+    name:
+      source_pages:
+      - 18
+      method: direct
+    discipline:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: inferred_from_space_with_connection_labels
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: inferred_from_ontology_hints_and_labels
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: inferred_from_ontology_hints
+    ontology_core.related_assertions:
+      source_pages:
+      - 18
+      method: direct_and_inferred_from_labels_near
+    specs.raw_labels:
+      source_pages:
+      - 18
+      method: direct
+    specs.inferred_name:
+      source_pages:
+      - 18
+      method: direct
+    specs.position:
+      source_pages:
+      - 18
+      method: direct
+    specs.labels_inside:
+      source_pages:
+      - 18
+      method: direct
+    specs.labels_near:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 18
+      method: direct
+    ontology_hints.function_candidates:
+      source_pages:
+      - 18
+      method: direct
+    type:
+      source_pages:
+      - 18
+      method: direct
+    function_category:
+      source_pages:
+      - 18
+      method: direct
+    position:
+      source_pages:
+      - 18
+      method: direct
+  unresolved:
+  - field_candidate: specs.labels_near
+    raw_text: 기존 MDF DATA에 연결
+    source_page: 18
+    reason: 관계 사실은 관찰되나 정확한 property IRI는 아직 확정 불가
+    preservation_note: connectedTo 또는 servesZone 계열로 승격 가능
+  - field_candidate: specs.labels_near
+    raw_text: 기존 MDF VOICE에 연결
+    source_page: 18
+    reason: 관계 사실은 관찰되나 정확한 property IRI는 아직 확정 불가
+    preservation_note: connectedTo 또는 servesZone 계열로 승격 가능
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: SignalDistribution
+    source_page: 18
+    reason: 기능 후보이지만 확정 클래스 아님
+    preservation_note: 후속 단계에서 class refinement 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: ConnectionPoint
+    source_page: 18
+    reason: 기능 후보이지만 확정 클래스 아님
+    preservation_note: 후속 단계에서 class refinement 후보
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: DataVoiceRouting
+    source_page: 18
+    reason: 기능 후보이지만 확정 클래스 아님
+    preservation_note: 후속 단계에서 class refinement 후보
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 space로 주어졌으나 ontology_hints는 CommunicationEquipment를 지시하고, labels_near는
+      연결점 성격을 보여 공간/장비 혼합성이 있음
+    recommended_handling: 0-9c에서 공간 엔티티와 장비 엔티티 중 실제 클래스 귀속을 재검토하고, 연결 사실은 별도 object
+      property로 분리 검토
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - space/zone 혼합 엔티티의 class_hint 후보 보존
+    - connectedTo 계열 관계 사실 원형 보존
+    - source_pages 기반 provenance 기록
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:50.243554'
+  confidence: 0.84

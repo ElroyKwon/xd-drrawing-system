@@ -1,0 +1,11 @@
+tag: SIGNAL_RS485_DEMAND
+verdict: demoted
+confidence: 0.93
+missing_fields:
+- name
+- discipline
+missing_relations: []
+reason: type은 signal_cable이고 specs로 signal_type=RS485, demand_label=DEMAND가 확인되지만,
+  entity_list/read_page_context 기준으로 독립 설비가 아니라 DEMAND 관련 신호 표기 성격에 가깝다. 또한 name과
+  discipline 필드가 제공되지 않았고, connection_specs의 partner=DEMAND는 도면 내 표기 수준으로 확인되나 독립
+  엔티티로 진입할 만큼의 자체 설비 사양은 부족하다. 따라서 독립 엔티티가 아닌 signal/annotation 성격으로 강등한다.

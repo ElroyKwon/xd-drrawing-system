@@ -1,0 +1,140 @@
+page_19_entities:
+- tag: P-EA-2PP
+  name: 1층 극한환경 시험실 동력 분전반
+  type: DISTRIBUTION_PANEL
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: P-F-2PP
+  name: 1층 진동시험실 동력 분전반
+  type: DISTRIBUTION_PANEL
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: P-G-2PP
+  name: 1층 검증시스템(전기차/반도체/ADS In-Line) 동력 분전반
+  type: DISTRIBUTION_PANEL
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: P-I-2PP
+  name: 1층 PLC/Drive 검증시스템 및 신사업 검증시스템 동력 분전반
+  type: DISTRIBUTION_PANEL
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: MCCB-EA-MAIN
+  name: P-EA-2PP 주 차단기
+  type: CIRCUIT_BREAKER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: MCCB-F-MAIN
+  name: P-F-2PP 주 차단기
+  type: CIRCUIT_BREAKER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: MCCB-G-MAIN
+  name: P-G-2PP 주 차단기
+  type: CIRCUIT_BREAKER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: MCCB-I-MAIN
+  name: P-I-2PP 주 차단기
+  type: CIRCUIT_BREAKER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SPD-EA-001
+  name: P-EA-2PP 서지보호기
+  type: SURGE_PROTECTION
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SPD-F-001
+  name: P-F-2PP 서지보호기
+  type: SURGE_PROTECTION
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SPD-G-001
+  name: P-G-2PP 서지보호기
+  type: SURGE_PROTECTION
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SPD-I-001
+  name: P-I-2PP 서지보호기
+  type: SURGE_PROTECTION
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: CT-EA-001
+  name: P-EA-2PP 변류기
+  type: CURRENT_TRANSFORMER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: CT-F-001
+  name: P-F-2PP 변류기
+  type: CURRENT_TRANSFORMER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: CT-G-001
+  name: P-G-2PP 변류기
+  type: CURRENT_TRANSFORMER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: CT-I-001
+  name: P-I-2PP 변류기
+  type: CURRENT_TRANSFORMER
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: EARTH-E3
+  name: 접지 E3
+  type: GROUNDING
+  discipline: ELECTRICAL
+  confidence: 0.95
+- tag: SOURCE-CCW
+  name: 전기실 (CCW)
+  type: POWER_SOURCE
+  discipline: ELECTRICAL
+  confidence: 0.95
+page_19_relations:
+- from: SOURCE-CCW
+  to: P-EA-2PP
+  relation: feeds
+- from: SOURCE-CCW
+  to: P-F-2PP
+  relation: feeds
+- from: SOURCE-CCW
+  to: P-G-2PP
+  relation: feeds
+- from: SOURCE-CCW
+  to: P-I-2PP
+  relation: feeds
+- from: MCCB-EA-MAIN
+  to: SPD-EA-001
+  relation: connects_to
+- from: MCCB-F-MAIN
+  to: SPD-F-001
+  relation: connects_to
+- from: MCCB-G-MAIN
+  to: SPD-G-001
+  relation: connects_to
+- from: MCCB-I-MAIN
+  to: SPD-I-001
+  relation: connects_to
+- from: P-EA-2PP
+  to: EARTH-E3
+  relation: grounds_to
+- from: P-F-2PP
+  to: EARTH-E3
+  relation: grounds_to
+- from: P-G-2PP
+  to: EARTH-E3
+  relation: grounds_to
+- from: P-I-2PP
+  to: EARTH-E3
+  relation: grounds_to
+- from: P-EA-2PP
+  to: CT-EA-001
+  relation: contains
+- from: P-F-2PP
+  to: CT-F-001
+  relation: contains
+- from: P-G-2PP
+  to: CT-G-001
+  relation: contains
+- from: P-I-2PP
+  to: CT-I-001
+  relation: contains

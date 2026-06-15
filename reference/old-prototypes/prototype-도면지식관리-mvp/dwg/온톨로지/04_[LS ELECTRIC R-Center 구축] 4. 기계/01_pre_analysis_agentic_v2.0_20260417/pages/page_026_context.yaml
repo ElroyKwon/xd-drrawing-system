@@ -1,0 +1,648 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: PLUMBING
+  classification: SANITARY_PIPING
+  drawing_genre: sanitary_piping
+  title_block:
+    drawing_number: M31-001
+    title: 위생배관 계통도
+    revision: NONE
+  visible_tags:
+  - tag: V.T.R 100Ø
+    type: vent_pipe
+    source: both
+  - tag: Φ15 자동 공기빼기 밸브
+    type: air_release_valve
+    source: both
+  - tag: SP
+    type: sump_pump
+    source: both
+  - tag: 우수육가(건축공사분)
+    type: roof_drain
+    source: both
+  - tag: 집수정에 방류
+    type: discharge_to_sump
+    source: both
+  - tag: 화장실
+    type: room
+    source: both
+  - tag: 탕비실
+    type: room
+    source: text
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 6
+  next_step_hints:
+  - 계통도 형태로 1층/2층/지붕층/PIT층 수직 연결이 보임
+  - 우수/배수 관련 표기와 위생배관이 혼재
+  - 표제란 도면번호 M31-001, 제목 위생배관 계통도 확인됨
+  confidence: 0.96
+  note: 도면번호 접두사 M에 따라 PLUMBING으로 우선 판정. 시각적으로도 위생배관 계통도와 일치함.
+  recommended_supplements: &id001
+    P-4.5: discipline/mechanical/genre_sanitary_piping/supplement_p4_05.yaml
+    P-10: discipline/mechanical/genre_sanitary_piping/supplement_p10.yaml
+  routing_confidence: 0.93
+  routing_reason: 도면번호 M31-001과 제목이 위생배관 계통도이며, 카탈로그에 mechanical/genre_sanitary_piping
+    경로가 존재함.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: BLK-001
+    shape: rectangle
+    primary_label: 화장실
+    position: center-right
+    labels_near:
+    - 화장실
+    - 탕비실
+  - panel_id: BLK-002
+    shape: rectangle
+    primary_label: 집수정
+    position: bottom-center
+    labels_near:
+    - 집수정에 방류
+    - SP
+  connections:
+  - from: BLK-001
+    to: BLK-002
+    line_style: solid
+    annotation: 수직 배관 연결
+  notable_shapes:
+  - shape: hexagon
+    label: SP
+    note: 집수정 펌프 심볼
+  - shape: dashed_box
+    label: 화장실/탕비실
+    note: 실 구획을 나타내는 점선 박스
+  - shape: other
+    label: V.T.R 100Ø
+    note: 지붕층 벤 트 배관 끝단 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 페이지 전체가 위생배관 계통도이며, 별도의 범례 표나 섹션이 존재하지 않음.
+supplement_routing:
+  discipline: MECHANICAL
+  drawing_genre: sanitary_piping
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 도면번호 M31-001의 접두사 M과 제목 '위생배관 계통도'가 일치하며, 시각적으로도 수직 배관 계통도임이 명확함.
+classification: SANITARY_PIPING_DIAGRAM
+discipline: PLUMBING
+key_elements_from_text:
+- 위생배관 계통도
+- 도면번호 M31-001
+- '프로젝트 제목: LS Electric R-Center 구축'
+- '건물명: R-Center'
+- '층 표기: 1층, 2층, 지붕층, PIT층'
+- V.T.R 100Ø
+- Φ15 자동 공기빼기 밸브
+- SP
+- 우수육가(건축공사분)
+- 옥외 토목배관에 연결
+- 옥외배관 평면도에 연결
+- 집수정에 방류
+- 화장실
+- 탕비실
+title_block:
+  drawing_number: M31-001
+  title: 위생배관 계통도
+  revision: NONE
+confidence: 0.99
+note: 기존 판정과 일치함. 표제란과 본문 모두 위생배관 계통도이며, 페이지 26의 시각적 근거로 수직 계통도와 배관 연결, SP/VTR/자동
+  공기빼기 밸브 표기가 확인됨.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: BLK-M01
+    shape: other
+    labels_inside: []
+    labels_above:
+    - V.T.R 100Ø
+    - 우수육가(건축공사분)
+    labels_below: []
+    equipment_symbols:
+    - type: vent_thru_roof
+      count: 1
+    - type: roof_drain
+      count: 1
+    inferred_name: 지붕층 통기관 및 우수육가 (건축공사분)
+    position: top-center
+  - panel_id: BLK-M02
+    shape: other
+    labels_inside: []
+    labels_above:
+    - Φ15 자동 공기빼기 밸브
+    labels_below: []
+    equipment_symbols:
+    - type: automatic_air_vent
+      count: 1
+    inferred_name: 자동 공기빼기 밸브 (Φ15)
+    position: top-center
+  - panel_id: BLK-M03
+    shape: dashed_box
+    labels_inside:
+    - 화장실
+    labels_above:
+    - 50 32 50 75 100 200
+    - (ED)(+)(+)(D)(S)(RD)
+    labels_below: []
+    equipment_symbols:
+    - type: room_block
+      count: 1
+    inferred_name: 2층 화장실
+    position: center-right
+  - panel_id: BLK-M04
+    shape: dashed_box
+    labels_inside:
+    - 탕비실
+    labels_above: []
+    labels_below:
+    - 추후 공사분(합마감)
+    equipment_symbols:
+    - type: room_block
+      count: 1
+    inferred_name: 2층 탕비실 (추후 공사분)
+    position: center-right
+  - panel_id: BLK-M05
+    shape: dashed_box
+    labels_inside:
+    - 화장실
+    labels_above:
+    - 50 32 50 75 100 200
+    - (ED)(+)(+)(D)(S)(RD)
+    labels_below: []
+    equipment_symbols:
+    - type: room_block
+      count: 1
+    inferred_name: 1층 화장실
+    position: center-right
+  - panel_id: BLK-M06
+    shape: circle
+    labels_inside:
+    - SP
+    labels_above:
+    - 집수정에 방류
+    labels_below: []
+    equipment_symbols:
+    - type: sump_pump
+      count: 1
+    inferred_name: 집수정 펌프 (SP) — PIT층
+    position: bottom-center
+  - panel_id: BLK-M07
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - 옥외 토목배관에 연결
+    - 옥외배관 평면도에 연결
+    equipment_symbols:
+    - type: pipe_termination
+      count: 2
+    inferred_name: 1층 옥외 토목배관 연결 끝단
+    position: center-right
+  - panel_id: BLK-M08
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - -200(RD)
+    - -100 (S)
+    - -75  (D)
+    - -50  (+)
+    - -32  (+)
+    - -50  (PD)
+    equipment_symbols:
+    - type: pipe_termination
+      count: 1
+    inferred_name: PIT층 집수정 연결 배관 (RD/S/D/+/PD)
+    position: bottom-center
+  connections:
+  - from: BLK-M01
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: V.T.R 100Ø 통기관 수직 연결 (지붕층→2층)
+  - from: BLK-M01
+    to: BLK-M05
+    line_type: pipe
+    line_style: solid
+    annotation: 우수배수관(RD) 수직 연결 (지붕층→1층)
+  - from: BLK-M02
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: Φ15 자동 공기빼기 밸브 연결 (2층 화장실 급수계통)
+  - from: BLK-M03
+    to: BLK-M05
+    line_type: pipe
+    line_style: solid
+    annotation: 2층→1층 수직 배관 연결 (ED/D/S/RD 다중 계통)
+  - from: BLK-M04
+    to: BLK-M03
+    line_type: pipe
+    line_style: dashed
+    annotation: 탕비실 추후 공사분 연결 (2층)
+  - from: BLK-M05
+    to: BLK-M07
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 화장실 → 옥외 토목배관 연결 (S/RD)
+  - from: BLK-M05
+    to: BLK-M06
+    line_type: pipe
+    line_style: solid
+    annotation: 1층 → PIT층 집수정 펌프 연결 (D/PD)
+  - from: BLK-M06
+    to: BLK-M08
+    line_type: pipe
+    line_style: solid
+    annotation: 집수정 펌프 → 집수정 방류 (PD 200/100/75/50/32)
+  groups:
+  - group_id: GRP-001
+    label: 2층 위생배관 계통
+    members:
+    - BLK-M03
+    - BLK-M04
+  - group_id: GRP-002
+    label: 1층 위생배관 계통
+    members:
+    - BLK-M05
+    - BLK-M07
+  - group_id: GRP-003
+    label: PIT층 집수정 계통
+    members:
+    - BLK-M06
+    - BLK-M08
+  - group_id: GRP-004
+    label: 지붕층 통기·우수 계통
+    members:
+    - BLK-M01
+    - BLK-M02
+  legend_references:
+  - text: VTR (VENT THRU ROOF)
+    linked_to: BLK-M01
+  - text: AAV (AUTOMATIC AIR VENT) — Φ15 자동 공기빼기 밸브
+    linked_to: BLK-M02
+  - text: SP (PUMP) — 집수정 펌프
+    linked_to: BLK-M06
+  - text: RD (우수배수관 / RAINWATER DRAIN) — 200A
+    linked_to: BLK-M08
+  - text: S (오수관 / SOIL) — 100A
+    linked_to: BLK-M08
+  - text: D (배수관 / DRAIN) — 75A
+    linked_to: BLK-M08
+  - text: ED (장비배수관 / EQUIPMENT DRAIN) — 50A
+    linked_to: BLK-M03
+  - text: PD (펌핑배수관 / PUMPING DRAIN) — 50A
+    linked_to: BLK-M08
+  diagram_meta:
+    title: 위생배관 계통도
+    drawing_number: M31-001
+    project: LS Electric R-Center 구축
+    building_name: R-Center
+    revision: NONE
+    scale: NONE
+    discipline: PLUMBING
+    mech_subsystem: sanitary_piping
+    sanitary_subtype: sanitary_schematic
+    view_type: schematic
+    flow_direction: top-to-bottom
+    floors_present:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT층
+    floor_heights:
+    - floor: 지붕층→2층
+      height_mm: 4500
+    - floor: 2층→1층
+      height_mm: 5500
+    - floor: 1층→PIT층
+      height_mm: 2300
+    fluid_types_present:
+    - fluid_type: RD
+      pipe_role: rain
+      nominal_diameter_A: 200A
+      note: 우수배수관
+    - fluid_type: S
+      pipe_role: drain
+      nominal_diameter_A: 100A
+      note: 오수관
+    - fluid_type: D
+      pipe_role: drain
+      nominal_diameter_A: 75A
+      note: 배수관
+    - fluid_type: ED
+      pipe_role: drain
+      nominal_diameter_A: 50A
+      note: 장비배수관
+    - fluid_type: +
+      pipe_role: supply_cold
+      nominal_diameter_A: 50A / 32A
+      note: 급수관 (냉수)
+    - fluid_type: PD
+      pipe_role: drain
+      nominal_diameter_A: 50A
+      note: 펌핑배수관
+    - fluid_type: V
+      pipe_role: vent
+      nominal_diameter_A: 100A
+      note: 통기관 (V.T.R)
+    fixture_counts:
+      basin: null
+      w_closet: null
+      urinal: null
+      shower: null
+      floor_drain: null
+    has_riser_schedule: false
+    has_equipment_list: false
+    external_connections:
+    - description: 옥외 토목배관에 연결
+      floor: 1층
+      pipe_types:
+      - S
+      - RD
+    - description: 옥외배관 평면도에 연결
+      floor: 1층
+      pipe_types:
+      - S
+      - RD
+    - description: 집수정에 방류
+      floor: PIT층
+      pipe_types:
+      - PD
+    notes:
+    - 탕비실(2층)은 추후 공사분(합마감)으로 표기됨
+    - 우수육가(건축공사분)는 건축 공사 범위로 표기됨
+    - '2층 배관 사이즈: 50/32/50/75/100/200 (ED/+/+/D/S/RD)'
+    - '1층 배관 사이즈: 50/32/50/75/100/200 (ED/+/+/D/S/RD)'
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: BLK-M01
+    shape: other
+    labels_inside: []
+    labels_above:
+    - V.T.R 100Ø
+    - 우수육가(건축공사분)
+    labels_below: []
+    equipment_symbols:
+    - type: vent_thru_roof
+      count: 1
+    - type: roof_drain
+      count: 2
+    inferred_name: 지붕층 통기관 및 우수육가
+    position: top-center
+  - panel_id: BLK-M02
+    shape: other
+    labels_inside: []
+    labels_above:
+    - Φ15 자동 공기빼기 밸브
+    labels_below: []
+    equipment_symbols:
+    - type: automatic_air_vent
+      count: 1
+    inferred_name: 자동 공기빼기 밸브 (Φ15)
+    position: top-center
+  - panel_id: BLK-M03
+    shape: dashed_box
+    labels_inside:
+    - 화장실
+    labels_above:
+    - 50 32 50 75 100 200
+    - (ED)(+)(+)(D)(S)(RD)
+    labels_below: []
+    equipment_symbols:
+    - type: room_block
+      count: 1
+    inferred_name: 2층 화장실
+    position: center-right
+  - panel_id: BLK-M04
+    shape: dashed_box
+    labels_inside:
+    - 탕비실
+    labels_above: []
+    labels_below:
+    - 추후 공사분(합마감)
+    equipment_symbols:
+    - type: room_block
+      count: 1
+    inferred_name: 2층 탕비실 (추후 공사분)
+    position: center-right
+  - panel_id: BLK-M05
+    shape: dashed_box
+    labels_inside:
+    - 화장실
+    labels_above:
+    - 50 32 50 75 100 200
+    - (ED)(+)(+)(D)(S)(RD)
+    labels_below: []
+    equipment_symbols:
+    - type: room_block
+      count: 1
+    inferred_name: 1층 화장실
+    position: center-right
+  - panel_id: BLK-M06
+    shape: other
+    labels_inside:
+    - SP
+    - '1'
+    labels_above:
+    - 집수정에 방류
+    labels_below: []
+    equipment_symbols:
+    - type: sump_pump
+      count: 1
+    - type: pit
+      count: 1
+    inferred_name: PIT층 집수정 펌프 (SP)
+    position: bottom-center
+  - panel_id: BLK-M07
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - 옥외 토목배관에 연결
+    - 옥외배관 평면도에 연결
+    equipment_symbols:
+    - type: pipe_termination
+      count: 2
+    inferred_name: 1층 옥외 배관 연결
+    position: center-right
+  - panel_id: BLK-M08
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - -200(RD)
+    - -100 (S)
+    - -75 (D)
+    - -50 (+)
+    - -32 (+)
+    - -50 (PD)
+    equipment_symbols:
+    - type: pipe_collection
+      count: 1
+    inferred_name: PIT층 배관 (RD/S/D/+/PD)
+    position: bottom-center
+  connections:
+  - from: BLK-M01
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: V.T.R 및 우수배관 수직 연결
+  - from: BLK-M02
+    to: BLK-M03
+    line_type: pipe
+    line_style: solid
+    annotation: 자동 공기빼기 밸브 연결
+  - from: BLK-M03
+    to: BLK-M05
+    line_type: pipe
+    line_style: solid
+    annotation: 2층에서 1층으로의 수직 배관 (ED, +, D, S, RD, V)
+  - from: BLK-M04
+    to: BLK-M03
+    line_type: pipe
+    line_style: dashed
+    annotation: 탕비실 추후 연결
+  - from: BLK-M05
+    to: BLK-M07
+    line_type: pipe
+    line_style: solid
+    annotation: 1층에서 옥외 배관으로 연결 (S, RD)
+  - from: BLK-M05
+    to: BLK-M08
+    line_type: pipe
+    line_style: solid
+    annotation: 1층에서 PIT층으로 연결 (D, +)
+  - from: BLK-M06
+    to: BLK-M08
+    line_type: pipe
+    line_style: solid
+    annotation: 집수정 펌프 토출 배관 (PD)
+  groups:
+  - group_id: GRP-001
+    label: 지붕층 위생 설비
+    members:
+    - BLK-M01
+    - BLK-M02
+  - group_id: GRP-002
+    label: 2층 위생 구획
+    members:
+    - BLK-M03
+    - BLK-M04
+  - group_id: GRP-003
+    label: 1층 위생 구획 및 외부 연결
+    members:
+    - BLK-M05
+    - BLK-M07
+  - group_id: GRP-004
+    label: PIT층 집수정 및 배관
+    members:
+    - BLK-M06
+    - BLK-M08
+  legend_references:
+  - text: VTR (VENT THRU ROOF)
+    linked_to: BLK-M01
+  - text: AAV (AUTOMATIC AIR VENT)
+    linked_to: BLK-M02
+  - text: SP (PUMP)
+    linked_to: BLK-M06
+  - text: RD (우수배수관)
+    linked_to: BLK-M01
+  - text: S (오수관)
+    linked_to: BLK-M03
+  - text: D (배수관)
+    linked_to: BLK-M03
+  - text: ED (장비배수관)
+    linked_to: BLK-M03
+  - text: PD (펌핑배수관)
+    linked_to: BLK-M06
+  diagram_meta:
+    title: 위생배관 계통도
+    drawing_number: M31-001
+    project: LS Electric R-Center 구축
+    building_name: R-Center
+    revision: NONE
+    scale: NONE
+    discipline: PLUMBING
+    mech_subsystem: sanitary_piping
+    sanitary_subtype: sanitary_schematic
+    view_type: schematic
+    flow_direction: top-to-bottom
+    floors_present:
+    - 지붕층
+    - 2층
+    - 1층
+    - PIT층
+    floor_heights:
+    - floor: 지붕층→2층
+      height_mm: 4500
+    - floor: 2층→1층
+      height_mm: 5500
+    - floor: 1층→PIT층
+      height_mm: 2300
+    fluid_types_present:
+    - fluid_type: RD
+      pipe_role: rain
+      nominal_diameter_A: 200A
+      note: 우수배수관
+    - fluid_type: S
+      pipe_role: drain
+      nominal_diameter_A: 100A
+      note: 오수관
+    - fluid_type: D
+      pipe_role: drain
+      nominal_diameter_A: 75A
+      note: 배수관
+    - fluid_type: ED
+      pipe_role: drain
+      nominal_diameter_A: 50A
+      note: 장비배수관
+    - fluid_type: +
+      pipe_role: supply_cold
+      nominal_diameter_A: 50A / 32A
+      note: 급수관 (냉수)
+    - fluid_type: PD
+      pipe_role: drain
+      nominal_diameter_A: 50A
+      note: 펌핑배수관
+    - fluid_type: V
+      pipe_role: vent
+      nominal_diameter_A: 100A
+      note: 통기관 (V.T.R)
+    fixture_counts:
+      basin: null
+      w_closet: null
+      urinal: null
+      shower: null
+      floor_drain: null
+    has_riser_schedule: false
+    has_equipment_list: false
+    external_connections:
+    - description: 옥외 토목배관에 연결
+      floor: 1층
+      pipe_types:
+      - S
+      - RD
+    - description: 옥외배관 평면도에 연결
+      floor: 1층
+      pipe_types:
+      - S
+      - RD
+    - description: 집수정에 방류
+      floor: PIT층
+      pipe_types:
+      - PD
+    notes:
+    - 탕비실(2층)은 추후 공사분(합마감)으로 표기됨
+    - 우수육가(건축공사분)는 건축 공사 범위로 표기됨
+    - '배관 사이즈 및 타입: 50(ED), 32(+), 50(+), 75(D), 100(S), 200(RD), 100(V.T.R), 50(PD)'

@@ -1,0 +1,94 @@
+entity_detail:
+  tag: FLOOR-001
+  type: document_metadata
+  specs:
+    floor_name:
+      value: 1층
+      unit: null
+      source: pages 19, 20, 21, 22, 23
+      confidence: 0.99
+    floor_name_alt:
+      value: 1층 F.L
+      unit: null
+      source: page 23
+      confidence: 0.95
+    floor_name_unknown_pages:
+      value: UNKNOWN
+      unit: null
+      source: pages 3, 39
+      confidence: 0.6
+  drawing_texts:
+  - source: page 3 context
+    page_number: 3
+    text: "space_id: FLOOR-001\n    type: floor\n    name: UNKNOWN\n    parent: BUILDING-001"
+  - source: page 4 context
+    page_number: 4
+    text: "space_id: FLOOR-001\n    type: floor\n    name: UT동 1층\n    parent: BLDG-002"
+  - source: page 19 context
+    page_number: 19
+    text: "space_id: FLOOR-001\n    type: floor\n    name: 1층\n    parent: BLDG-001"
+  - source: page 20 context
+    page_number: 20
+    text: "space_id: FLOOR-001\n    type: floor\n    name: 1층\n    parent: BLDG-001"
+  - source: page 21 context
+    page_number: 21
+    text: "space_id: FLOOR-001\n    type: floor\n    name: 1층\n    parent: BLDG-001"
+  - source: page 22 context
+    page_number: 22
+    text: "space_id: FLOOR-001\n    type: floor\n    name: 1층\n    parent: BLDG-001"
+  - source: page 23 context
+    page_number: 23
+    text: "space_id: FLOOR-001\n    type: floor\n    name: 1층 F.L\n    parent: BUILDING-001"
+  - source: page 39 context
+    page_number: 39
+    text: "space_id: FLOOR-001\n    type: floor\n    name: UNKNOWN\n    parent: BUILDING-001"
+  requirements:
+  - text: 도면 내 FLOOR-001은 1층 관련 공간으로 표기됨
+    source: pages 19, 20, 21, 22, 23
+    type: space_identification
+  - text: page 23에서 1층 F.L 기준으로 지상 전력간선 배치 구역이 표시됨
+    source: page 23
+    type: layout_reference
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: parent
+      partner_tag: BUILDING-001
+      direction: UNKNOWN
+      source: pages 3, 21, 23, 39
+    - relation_type: parent
+      partner_tag: BLDG-001
+      direction: UNKNOWN
+      source: pages 19, 20, 22
+    - relation_type: parent
+      partner_tag: BLDG-002
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: contains
+      partner_tag: ZONE-001
+      direction: UNKNOWN
+      source: pages 3, 19, 20, 21, 22, 23, 39
+    - relation_type: contains
+      partner_tag: ZONE-002
+      direction: UNKNOWN
+      source: pages 3, 19, 20, 21, 22, 23, 39
+    - relation_type: contains
+      partner_tag: ZONE-003
+      direction: UNKNOWN
+      source: pages 3, 19, 20, 21, 22, 23, 39
+    observed_attributes:
+    - name
+    - type
+    - parent
+    similar_equipment:
+    - FLOOR-001
+    suggested_parent_class: Floor
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+    - STRUCTURAL
+  notes:
+  - 페이지별로 FLOOR-001의 name/parent가 서로 다르게 나타남: UNKNOWN, UT동 1층, 1층, 1층 F.L
+  - 도면 분석 결과에 나타난 텍스트만 기록함
+  - 본 엔티티는 물리 설비가 아니라 도면의 층/공간 메타데이터로 판단되어 document_metadata로 강등함
+tag: FLOOR-001

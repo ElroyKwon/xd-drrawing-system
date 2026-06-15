@@ -1,0 +1,119 @@
+page_4_entities:
+- tag: SP-R-CENTER-SUBSTATION
+  name: R-Center 변전실
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.98
+- tag: SP-UT-SUBSTATION
+  name: UT동 1층 변전실
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.98
+- tag: SP-A-INVERTER-TEST
+  name: A동 지상1층 인버터 시험센타
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.98
+- tag: SP-A-ELECTRICAL-ROOM
+  name: A동 지하1층 전기실
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.98
+- tag: SP-ADMIN-BUILDING
+  name: 사무동
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: SP-UT-BUILDING
+  name: U.T.동
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: SP-B-BUILDING
+  name: B동
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: SP-A-BUILDING
+  name: A동
+  type: named_space
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+- tag: STR-MANHOLE-001
+  name: 전력용 맨홀
+  type: structural_element
+  discipline: CIVIL
+  confidence: 0.98
+- tag: STR-MANHOLE-002
+  name: 전력용 맨홀
+  type: structural_element
+  discipline: CIVIL
+  confidence: 0.98
+- tag: STR-PULLBOX-001
+  name: PULL BOX
+  type: structural_element
+  discipline: CIVIL
+  confidence: 0.98
+- tag: STR-DUCT-BANK-001
+  name: CONCRETE DUCT BANK
+  type: structural_element
+  discipline: STRUCTURAL
+  confidence: 0.98
+- tag: STR-UNDERGROUND-DUCT-001
+  name: 공동구
+  type: structural_space
+  discipline: STRUCTURAL
+  confidence: 0.98
+- tag: STR-EMPTY-PIPE-001
+  name: EMPTY PIPE (ELP100)
+  type: structural_element
+  discipline: STRUCTURAL
+  confidence: 0.98
+- tag: STR-UNDERGROUND-MARKER-001
+  name: 지중선표시기
+  type: structural_element
+  discipline: CIVIL
+  confidence: 0.95
+- tag: SEC-SECTION-001
+  name: SECTION 1 - DUCT BANK 단면
+  type: section_detail
+  discipline: STRUCTURAL
+  confidence: 0.98
+- tag: SEC-SECTION-002
+  name: SECTION 2 - 공동구 단면
+  type: section_detail
+  discipline: STRUCTURAL
+  confidence: 0.98
+- tag: PHO-UNDERGROUND-DUCT-PHOTO
+  name: 지하공동구 현황도
+  type: photo_inset
+  discipline: ARCHITECTURAL
+  confidence: 0.95
+page_4_relations:
+- from: SP-R-CENTER-SUBSTATION
+  to: SP-UT-SUBSTATION
+  relation: 전력간선 연결
+- from: SP-R-CENTER-SUBSTATION
+  to: SP-UT-SUBSTATION
+  relation: 전력간선 연결
+- from: SP-R-CENTER-SUBSTATION
+  to: SP-UT-SUBSTATION
+  relation: 전력간선 연결
+- from: SP-R-CENTER-SUBSTATION
+  to: STR-DUCT-BANK-001
+  relation: 지중 전력 경로
+- from: STR-DUCT-BANK-001
+  to: STR-UNDERGROUND-DUCT-001
+  relation: 연결
+- from: STR-UNDERGROUND-DUCT-001
+  to: STR-PULLBOX-001
+  relation: 분기
+- from: STR-UNDERGROUND-DUCT-001
+  to: STR-MANHOLE-002
+  relation: 접근
+- from: STR-EMPTY-PIPE-001
+  to: STR-DUCT-BANK-001
+  relation: 설치
+- from: STR-UNDERGROUND-MARKER-001
+  to: STR-DUCT-BANK-001
+  relation: 표시

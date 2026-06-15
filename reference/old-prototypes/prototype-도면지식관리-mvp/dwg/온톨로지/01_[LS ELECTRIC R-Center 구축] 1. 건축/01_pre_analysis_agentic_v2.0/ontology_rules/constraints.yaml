@@ -1,0 +1,245 @@
+constraints:
+- id: CN001
+  type: Cardinality
+  target_class: owl:Thing
+  property: dks:hasTag
+  params:
+    min: 1
+    max: 1
+  derivation: data_properties.hasTag에서 모든 엔티티가 단일 tag 문자열로 식별된다고 명시되며 functional_candidate=true이다.
+    제공된 placement 전수에서도 각 태그 레코드는 정확히 하나의 tag만 가진다. 관찰상 100% 일치로 exact 1을 부여한다.
+  evidence_tags:
+  - PLAN-1F
+  - AB_114
+  - UNKNOWN-LADDER-01
+  - TOC-MAIN
+  - UNKNOWN-REFERENCE-005
+  confidence: 0.97
+- id: CN002
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasTag
+  params: {}
+  derivation: data_properties.hasTag의 functional_candidate=true이며, 샘플 evidence 18건과
+    placement 전체에서 동일 subject에 복수 tag 값이 관찰되지 않았다.
+  evidence_tags:
+  - PLAN-1F
+  - AB_114
+  - UNKNOWN-LADDER-01
+  - TOC-MAIN
+  - UNKNOWN-REFERENCE-005
+  confidence: 0.97
+- id: CN003
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasName
+  params: {}
+  derivation: data_properties.hasName의 functional_candidate=true. 관찰된 5개 사례(B_113,
+    F_117, EA_118, UNKNOWN-PIPE-001, UNKNOWN-TRENCH-01) 모두 subject당 이름이 1개뿐이며 충돌 사례가
+    없다.
+  evidence_tags:
+  - B_113
+  - F_117
+  - EA_118
+  - UNKNOWN-PIPE-001
+  - UNKNOWN-TRENCH-01
+  confidence: 0.94
+- id: CN004
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasDiscipline
+  params: {}
+  derivation: data_properties.hasDiscipline의 functional_candidate=true. 관찰된 11건에서
+    각 subject는 하나의 discipline 문자열만 가진다. 다만 값 정규화가 약하고 '분야 supplement 없음' 같은 예외적 문자열이
+    있어 확신도는 다소 낮춘다.
+  evidence_tags:
+  - EA_118
+  - G_116
+  - GENERAL-NOTES-01
+  - UNKNOWN-PANEL-04
+  - UNKNOWN-REFERENCE-005
+  - PLAN-1F
+  - TOC-MAIN
+  confidence: 0.84
+- id: CN005
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:hasFunctionCategory
+  params: {}
+  derivation: data_properties.hasFunctionCategory의 functional_candidate=true. 관찰된
+    5건(EA_118, UNKNOWN-TRENCH-01, UNKNOWN-BUILDING-SERVICE-001, UNKNOWN-TRENCH-002,
+    UNKNOWN-REFERENCE-005)에서 subject당 값이 1개씩만 나타난다. 다만 값이 자유 텍스트라 후보 수준으로 유지한다.
+  evidence_tags:
+  - EA_118
+  - UNKNOWN-TRENCH-01
+  - UNKNOWN-BUILDING-SERVICE-001
+  - UNKNOWN-TRENCH-002
+  - UNKNOWN-REFERENCE-005
+  confidence: 0.72
+- id: CN006
+  type: Cardinality
+  target_class: dks:LegendOrDrawingSymbolPanel
+  property: dks:part_of
+  params:
+    min: 6
+    max: 7
+  derivation: LegendOrDrawingSymbolPanel로 확인된 인스턴스는 DRAWING-SYMBOLS-01 1건뿐이며, placement에서
+    part_of가 SYM-001 중복 2회 포함 총 7회 관찰된다. 중복 제거 시 6개 고유 대상(SYM-001~006), 원시 assertion
+    기준 7회다. 단일 인스턴스 기반이므로 보수적으로 6..7 범위를 둔다.
+  evidence_tags:
+  - DRAWING-SYMBOLS-01
+  - SYM-001
+  - SYM-002
+  - SYM-003
+  - SYM-004
+  - SYM-005
+  - SYM-006
+  confidence: 0.7
+- id: CN007
+  type: Cardinality
+  target_class: dks:plan_container
+  property: dks:contains
+  params:
+    min: 12
+    max: 12
+  derivation: plan_container로 확인된 인스턴스는 PLAN-1F 1건뿐이며 contains가 정확히 12회(F_117, EA_118,
+    EB_119, E_120, G_116, AC_115, AB_114, B_113, UNKNOWN-PLATE-01, UNKNOWN-TRENCH-01,
+    UNKNOWN-CANOPY-01, UNKNOWN-FINISH-01) 관찰된다. 단일 인스턴스 기반 exact cardinality다.
+  evidence_tags:
+  - PLAN-1F
+  - F_117
+  - EA_118
+  - EB_119
+  - E_120
+  - G_116
+  - AC_115
+  - AB_114
+  - B_113
+  - UNKNOWN-PLATE-01
+  - UNKNOWN-TRENCH-01
+  - UNKNOWN-CANOPY-01
+  - UNKNOWN-FINISH-01
+  confidence: 0.9
+- id: CN008
+  type: Cardinality
+  target_class: dks:plan_or_panel_container
+  property: dks:contains
+  params:
+    min: 3
+    max: 5
+  derivation: plan_or_panel_container 인스턴스는 PLAN-PIT와 TOC-A12 두 건이다. PLAN-PIT는 contains
+    3회(UNKNOWN-SUMP-01, UNKNOWN-HATCH-01, UNKNOWN-LADDER-01), TOC-A12는 contains 5회(GRP-A12-FIRE,
+    GRP-A12-HVAC, GRP-A12-AREA, GRP-A12-PERF, GRP-A12-WINDOWLESS) 관찰된다. 표본 2건 모두 3회
+    이상이며 최대 5회이므로 3..5 범위를 둔다.
+  evidence_tags:
+  - PLAN-PIT
+  - TOC-A12
+  - UNKNOWN-SUMP-01
+  - UNKNOWN-HATCH-01
+  - UNKNOWN-LADDER-01
+  - GRP-A12-FIRE
+  - GRP-A12-HVAC
+  - GRP-A12-AREA
+  - GRP-A12-PERF
+  - GRP-A12-WINDOWLESS
+  confidence: 0.8
+- id: CN009
+  type: Cardinality
+  target_class: dks:SpatialEntity
+  property: dks:adjacent_to
+  params:
+    min: 0
+    max: 7
+  derivation: SpatialEntity 계열에서 T01은 adjacent_to 7회(102,103,104,201,213,214,UNKNOWN-SPACE-001),
+    102와 104는 각 2회 중복 기록, 201과 213은 각 1회, AB_114/AC_115/E_120/EB_119/G_116 등은 0회다.
+    따라서 SpatialEntity 전반에 exact 제약은 불가하나 관찰 최대치는 7이며 0회 사례도 다수 존재한다.
+  evidence_tags:
+  - T01
+  - '102'
+  - '104'
+  - '201'
+  - '213'
+  - UNKNOWN-SPACE-001
+  - AB_114
+  - AC_115
+  - E_120
+  - EB_119
+  - G_116
+  confidence: 0.88
+- id: CN010
+  type: Cardinality
+  target_class: dks:ServiceNetworkElement
+  property: dks:connects_to
+  params:
+    min: 0
+    max: 2
+  derivation: ServiceNetworkElement 계열에서 UNKNOWN-RD-001/002/003, UNKNOWN-PIPE-002는
+    1회, UNKNOWN-TRENCH-001은 2회 중복, UNKNOWN-TRENCH-002는 0회, Pipe 하위인 UNKNOWN-PIPE-001은
+    2회 관찰된다. 따라서 서비스 네트워크 요소의 connects_to 사용은 관찰상 0..2 범위다.
+  evidence_tags:
+  - UNKNOWN-RD-001
+  - UNKNOWN-RD-002
+  - UNKNOWN-RD-003
+  - UNKNOWN-PIPE-001
+  - UNKNOWN-PIPE-002
+  - UNKNOWN-TRENCH-001
+  - UNKNOWN-TRENCH-002
+  - UNKNOWN-TRENCH-003
+  confidence: 0.9
+- id: CN011
+  type: Cardinality
+  target_class: dks:BuildingElement
+  property: dks:contained_in
+  params:
+    min: 1
+    max: 2
+  derivation: BuildingElement 및 그 직접 하위 관찰치에서 UNKNOWN-FINISH-01은 contained_in 2회(중복
+    기록이지만 동일 대상 PLAN-1F), UNKNOWN-CANOPY-01은 2개 상위(PLAN-1F, T01), UNKNOWN-LADDER-01은
+    2개 상위(PLAN-PIT, T01), UNKNOWN-SUMP-01은 1개 상위(PLAN-PIT), UNKNOWN-TRENCH-01은 1개
+    상위(PLAN-1F)다. 최소 1은 일관되고 최대 2를 넘는 사례는 없다.
+  evidence_tags:
+  - UNKNOWN-FINISH-01
+  - UNKNOWN-CANOPY-01
+  - UNKNOWN-LADDER-01
+  - UNKNOWN-SUMP-01
+  - UNKNOWN-TRENCH-01
+  - PLAN-1F
+  - PLAN-PIT
+  - T01
+  confidence: 0.8
+summary_by_type:
+  Cardinality: 6
+  FunctionalProperty: 4
+  DomainRange: 0
+gaps:
+- candidate_type: Constraint/Cardinality
+  what: dks:contained_in max=1
+  evidence_count: 2
+  threshold: 예외 없이 단일 부모 관찰 필요
+  reason: UNKNOWN-CANOPY-01과 UNKNOWN-LADDER-01이 각각 두 컨테이너(PLAN-1F/T01, PLAN-PIT/T01)에
+    연결되어 단일 부모 제약이 반증된다.
+- candidate_type: Constraint/FunctionalProperty
+  what: dks:part_of functional
+  evidence_count: 2
+  threshold: 복수 subject에서 충돌 없이 1회만 관찰 필요
+  reason: part_of가 직접 관찰된 주체는 UNKNOWN-HATCH-01과 DRAWING-SYMBOLS-01 정도이며, DRAWING-SYMBOLS-01은
+    다중 part_of 대상으로 기록되어 functional 제약을 지지하지 않는다.
+- candidate_type: Constraint/DomainRange
+  what: dks:contains domain/range 축소
+  evidence_count: 27
+  threshold: 충돌 없는 단일 도메인/레인지 패턴 필요
+  reason: contains의 주체가 plan_container, plan_or_panel_container, SpatialEntity(T01),
+    toc_group, DocumentEntity(TOC-MAIN)까지 다양하고 객체도 공간/요소/그룹/문자열형 target까지 섞여 있어 현
+    evidence만으로 안정적 축소가 어렵다.
+- candidate_type: Constraint/DomainRange
+  what: dks:part_of domain/range 축소
+  evidence_count: 8
+  threshold: 방향 일관성과 클래스 일관성 필요
+  reason: UNKNOWN-HATCH-01 -> PLAN-PIT와 DRAWING-SYMBOLS-01 -> SYM-*가 함께 존재하며, 후자는
+    일반적 기대와 반대 방향으로 기록되어 domain/range를 안정적으로 귀납하기 어렵다.
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T09:33:15.315050'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.87

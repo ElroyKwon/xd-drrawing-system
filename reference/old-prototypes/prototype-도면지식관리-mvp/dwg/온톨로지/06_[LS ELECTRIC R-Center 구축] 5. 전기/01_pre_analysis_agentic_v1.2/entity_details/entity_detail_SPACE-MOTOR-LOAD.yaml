@@ -1,0 +1,149 @@
+entity_detail:
+  tag: SPACE-MOTOR-LOAD
+  type: Space/Room
+  specs:
+    floor:
+      value: 1층
+      unit: null
+      source: page 22
+      confidence: 0.98
+    room_name:
+      value: 대용량 모터부하실(방음)
+      unit: null
+      source: page 22
+      confidence: 0.98
+    associated_panel:
+      value: P-AC-4PP-1
+      unit: null
+      source: page 22
+      confidence: 0.98
+    associated_panel_spec:
+      value: 'COVER TYPE: 노출형(STEEL), BOX SIZE: —'
+      unit: null
+      source: page 22
+      confidence: 0.98
+    supply_voltage:
+      value: 3Ø 440V
+      unit: V
+      source: page 22
+      confidence: 0.95
+    phase:
+      value: 3Ø
+      unit: null
+      source: page 22
+      confidence: 0.95
+    line_designation:
+      value: R/S/T
+      unit: null
+      source: page 22
+      confidence: 0.95
+    protective_device:
+      value: MCB P 80/40T
+      unit: null
+      source: page 22
+      confidence: 0.95
+    surge_protective_device:
+      value: 30 SPD 40KA/mode
+      unit: null
+      source: page 22
+      confidence: 0.95
+    grounding:
+      value: E3
+      unit: null
+      source: page 22
+      confidence: 0.9
+  drawing_texts:
+  - source: page 22
+    page_number: 22
+    text: 1층 대용량 모터부하실(방음)
+  - source: page 22
+    page_number: 22
+    text: P-AC-4PP-1
+  - source: page 22
+    page_number: 22
+    text: 'COVER TYPE: 노출형(STEEL), BOX SIZE: —'
+  - source: page 22
+    page_number: 22
+    text: MCB P 80/40T
+  - source: page 22
+    page_number: 22
+    text: 30 SPD 40KA/mode
+  - source: page 22
+    page_number: 22
+    text: E3
+  - source: page 22
+    page_number: 22
+    text: 3Ø 440V, R/S/T
+  requirements:
+  - text: 방음
+    source: page 22
+    type: environment
+  - text: 3Ø 440V
+    source: page 22
+    type: electrical_supply
+  - text: R/S/T
+    source: page 22
+    type: electrical_phase
+  - text: E3
+    source: page 22
+    type: grounding
+  connection_specs:
+  - relation: 전원 공급
+    partner: PWR-3PH-440V
+    details:
+      source: page 22
+  - relation: 보호장치 설치
+    partner: MCCB-PAC-4PP-1
+    details:
+      source: page 22
+  - relation: 보호장치 설치
+    partner: SPD-PAC-4PP-1
+    details:
+      source: page 22
+  - relation: 접지 연결
+    partner: GND-E3-PAC-4PP-1
+    details:
+      source: page 22
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_in
+      partner_tag: SPACE-MOTOR-LOAD
+      direction: self
+      source: page 22
+    - relation_type: served_by_panel
+      partner_tag: P-AC-4PP-1
+      direction: unknown
+      source: page 22
+    - relation_type: fed_by
+      partner_tag: PWR-3PH-440V
+      direction: source_to_target
+      source: page 22
+    - relation_type: grounded_by
+      partner_tag: GND-E3-PAC-4PP-1
+      direction: source_to_target
+      source: page 22
+    observed_attributes:
+    - floor
+    - room_name
+    - associated_panel
+    - associated_panel_spec
+    - supply_voltage
+    - phase
+    - line_designation
+    - protective_device
+    - surge_protective_device
+    - grounding
+    similar_equipment:
+    - P-A-4PP-7
+    - P-C-4PP
+    - P-E-4PP
+    - P-F-4PP
+    - P-P-4PP
+    suggested_parent_class: Space
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - 도면 페이지 22의 분석 결과에서 공간명과 연관 전기 패널 정보를 추출함.
+  - 공간 자체의 면적, 치수, 상세 건축 사양은 확인되지 않음.
+tag: SPACE-MOTOR-LOAD

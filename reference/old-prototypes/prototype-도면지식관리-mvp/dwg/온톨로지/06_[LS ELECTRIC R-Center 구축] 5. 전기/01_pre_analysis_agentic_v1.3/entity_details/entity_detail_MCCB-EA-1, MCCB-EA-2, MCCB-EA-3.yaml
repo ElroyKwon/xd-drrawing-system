@@ -1,0 +1,193 @@
+entity_detail:
+  tag: MCCB-EA-1, MCCB-EA-2, MCCB-EA-3
+  type: equipment
+  specs:
+    breaker_type:
+      value: MCCB
+      source: page 19
+      confidence: 0.98
+    circuit_count:
+      value: 3
+      unit: ea
+      source: page 19
+      confidence: 0.9
+    panel_name:
+      value: P-EA-2PP
+      source: page 19
+      confidence: 0.95
+    panel_supply:
+      value: FROM 전기실
+      source: page 19
+      confidence: 0.95
+    main_breaker:
+      value: MAIN MCCB 3P
+      source: page 19
+      confidence: 0.95
+    spd_spec:
+      value: 3Ø SPD 40KA/mode
+      source: page 19
+      confidence: 0.9
+    grounding:
+      value: E3
+      source: page 19
+      confidence: 0.95
+    cover_type:
+      value: 노출형(STEEL)
+      source: page 19
+      confidence: 0.95
+    drawing_number:
+      value: EE-01-015
+      source: page 19
+      confidence: 0.98
+    title:
+      value: 생산동력(3Ø 220V) 분전반 결선도-2
+      source: page 19
+      confidence: 0.98
+    classification:
+      value: SINGLE_LINE_DIAGRAM
+      source: page 19
+      confidence: 0.98
+    discipline:
+      value: ELECTRICAL
+      source: page 19
+      confidence: 0.98
+  drawing_texts:
+  - source: page 19
+    page_number: 19
+    text: 'drawing_number: EE-01-015
+
+      '
+  - source: page 19
+    page_number: 19
+    text: 'title: 생산동력(3Ø 220V) 분전반 결선도-2
+
+      '
+  - source: page 19
+    page_number: 19
+    text: 'classification: SINGLE_LINE_DIAGRAM
+
+      '
+  - source: page 19
+    page_number: 19
+    text: 'discipline: ELECTRICAL
+
+      '
+  - source: page 19
+    page_number: 19
+    text: '생산동력(3Ø 220V) 분전반 결선도-2로, 전기실에서 4개 분전반(P-EA-2PP, P-F-2PP, P-G-2PP, P-I-2PP)으로
+      전원이 공급되는 결선도이다.
+
+      '
+  - source: page 19
+    page_number: 19
+    text: '각 분전반에는 MAIN, MCCB, SPD, 접지(E3) 및 분기 회로가 반복되며, 우측 주기사항 영역에 차단기 정격(30AF~600AF)과
+      차단용량(5KA 이상~50KA 이상) 표가 보인다.
+
+      '
+  - source: page 19
+    page_number: 19
+    text: '도면은 2x2 패널 배치의 전기 계통이며, 노출형(STEEL) 커버 타입과 FROM: 전기실 표기가 확인된다.
+
+      '
+  - source: page 19
+    page_number: 19
+    text: P-EA-2PP
+  - source: page 19
+    page_number: 19
+    text: 분전반 P-EA-2PP
+  - source: page 19
+    page_number: 19
+    text: '위치: 1층 규격환경 시험실, 커버타입: 노출형(STEEL), 전원: FROM 전기실, MAIN MCCB 3P, SPD 3Ø 40KA/mode,
+      접지 E3, 분기 회로 MCCBs 포함'
+  - source: page 19
+    page_number: 19
+    text: 전기실
+  - source: page 19
+    page_number: 19
+    text: 30AF~600AF
+  - source: page 19
+    page_number: 19
+    text: 5KA 이상~50KA 이상
+  requirements:
+  - text: 전원은 전기실에서 공급됨
+    source: page 19
+    type: operational
+  - text: MAIN MCCB 3P 적용
+    source: page 19
+    type: design_condition
+  - text: SPD 3Ø 40KA/mode 적용
+    source: page 19
+    type: protection
+  - text: 접지 E3 적용
+    source: page 19
+    type: safety
+  - text: 노출형(STEEL) 커버 타입
+    source: page 19
+    type: installation
+  - text: 차단기 정격 30AF~600AF
+    source: page 19
+    type: rating
+  - text: 차단용량 5KA 이상~50KA 이상
+    source: page 19
+    type: rating
+  connection_specs:
+  - relation: feeds
+    partner: 전기실
+    details:
+      source: page 19
+      text: FROM 전기실
+      direction: downstream
+      medium: power
+  - relation: connected_via
+    partner: SPD-EA
+    details:
+      source: page 19
+      text: P-EA-2PP to SPD-EA
+  - relation: contains
+    partner: MCCB-EA-1
+    details:
+      source: page 19
+      text: 분기 회로 MCCBs 포함
+  - relation: contains
+    partner: MCCB-EA-2
+    details:
+      source: page 19
+      text: 분기 회로 MCCBs 포함
+  - relation: contains
+    partner: MCCB-EA-3
+    details:
+      source: page 19
+      text: 분기 회로 MCCBs 포함
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: 전기실
+      direction: incoming_to_entity
+      source: page 19
+    - relation_type: connected_via
+      partner_tag: SPD-EA
+      direction: downstream
+      source: page 19
+    observed_attributes:
+    - breaker_type
+    - circuit_count
+    - panel_name
+    - panel_supply
+    - main_breaker
+    - spd_spec
+    - grounding
+    - cover_type
+    - drawing_number
+    - title
+    - classification
+    - discipline
+    similar_equipment:
+    - MCCB-F-1
+    - MCCB-G-1
+    - MCCB-I-1
+    suggested_parent_class: ElectricalDistributionEquipment
+    cross_discipline: []
+  notes:
+  - 대상 태그 MCCB-EA-1, MCCB-EA-2, MCCB-EA-3에 대한 직접 표기는 제공된 페이지 분석 결과에 없어서, 관련 분전반 P-EA-2PP의
+    분기 회로 MCCB로만 연결 정보를 기록함.
+tag: MCCB-EA-1, MCCB-EA-2, MCCB-EA-3

@@ -1,0 +1,1205 @@
+cross_validated:
+  page_num: 122
+  model: gemini-3.1-pro
+  entities:
+  - tag: ELEV-NORTH
+    name: 북측 입면도 (무창층 검토용)
+    discipline: ARCHITECTURAL
+    function_category: ELEVATION
+    specifications:
+      labels_inside:
+      - T.O.PARAPET 1FL+12,300
+      - RF SL±0 1FL+10,000
+      - 2FL±0 1FL+5,500
+      - 1FL±0 GL+200 GL±0 EL+94.00
+      - T.O.PARAPET 1FL+8,500
+      - T.O.S 1FL+7,500
+      - 1FL±0 GL+200 GL±0 EL+94.00
+      - EL+94.00
+      labels_above:
+      - 7  6  5  4  3  2  1
+      - 71,000
+      - 10,000  11,000  14,000  12,000  12,000  12,000
+      labels_below:
+      - A 북측면도
+      - 'SCALE : 1/400(A3)'
+      - 남측 창호 및 도어면적(㎡)
+      - 1층  13.85
+      - 2층  0
+    equipment_symbols:
+    - type: grid_bubble_circle
+      count: 7
+    - type: level_marker_arrow
+      count: 8
+    - type: window_opening
+      count: 6
+    - type: door_opening
+      count: 1
+    position: top-center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: ELEV-WEST
+    name: 서측 입면도 (무창층 검토용)
+    discipline: ARCHITECTURAL
+    function_category: ELEVATION
+    specifications:
+      labels_inside:
+      - T.O.PARAPET 1FL+8,500
+      - T.O.S 1FL+7,500
+      - 1FL±0 GL+200 GL±0 EL+94.00
+      - EL+94.00
+      - 8,500
+      - 8,000
+      labels_above:
+      - A  B  C  D  기존동
+      - 43,000
+      - 13,000  17,000  13,000  3,950  14,250  10,400  2,400
+      - 29,000
+      labels_below:
+      - B 서측면도
+      - 'SCALE : 1/400(A3)'
+      - 동측 창호 및 도어면적(㎡)
+      - 1층  14.81
+      - 2층  0
+    equipment_symbols:
+    - type: grid_bubble_circle
+      count: 5
+    - type: level_marker_arrow
+      count: 5
+    - type: window_opening
+      count: 8
+    - type: door_opening
+      count: 1
+    position: middle-center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: TABLE-NOPILOTI
+    name: 무창층 검토 계산표
+    discipline: ARCHITECTURAL
+    function_category: CALCULATION_TABLE
+    specifications:
+      labels_inside:
+      - ■ 무창층 검토
+      - 구분 / 바닥면적(㎡) / 무창층관련 바닥면적(㎡)(바닥면적/30) / 창호 및 도어면적(㎡) / 비고
+      - 1층 / 3,137.33 / 104.58 / 108.56 / 무창층 해당사항 없음
+      - 2층 / 787.64 / 26.25 / 108.11 / 무창층 해당사항 없음
+      labels_above: []
+      labels_below: []
+    equipment_symbols: []
+    position: bottom-left
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: GRP-NOPILOTI-REVIEW
+    name: 무창층 검토서-2 (북측면도 + 서측면도 + 검토표)
+    discipline: ARCHITECTURAL
+    function_category: GROUP
+    specifications:
+      members:
+      - ELEV-NORTH
+      - ELEV-WEST
+      - TABLE-NOPILOTI
+    equipment_symbols: []
+    position: center
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    confidence: 0.95
+  - tag: UNKNOWN-LEVEL-01
+    name: 레벨 마커
+    discipline: ARCHITECTURAL
+    function_category: LEVEL_MARKER
+    specifications:
+      count: 8
+      labels:
+      - T.O.PARAPET
+      - RF SL±0
+      - 2FL±0
+      - 1FL±0
+      - T.O.S
+      - EL+94.00
+    equipment_symbols: []
+    position: both elevations
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    confidence: 0.6
+  - tag: UNKNOWN-GRID-01
+    name: 그리드 버블
+    discipline: ARCHITECTURAL
+    function_category: GRID_BUBBLE
+    specifications:
+      north_elevation_axes:
+      - '7'
+      - '6'
+      - '5'
+      - '4'
+      - '3'
+      - '2'
+      - '1'
+      west_elevation_axes:
+      - A
+      - B
+      - C
+      - D
+      - 기존동
+      counts:
+        north: 7
+        west: 5
+    equipment_symbols: []
+    position: top
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    confidence: 0.6
+  - tag: UNKNOWN-WINDOW-01
+    name: 창호 및 도어면적 표기
+    discipline: ARCHITECTURAL
+    function_category: SCHEDULE_REFERENCE
+    specifications:
+      north_facade_window_door_area_m2:
+        floor_1: 13.85
+        floor_2: 0
+      west_facade_window_door_area_m2:
+        floor_1: 14.81
+        floor_2: 0
+      table_note: 남측 창호 및 도어면적(㎡), 동측 창호 및 도어면적(㎡)
+    equipment_symbols: []
+    position: center
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    confidence: 0.6
+  relationships:
+  - from_tag: GRP-NOPILOTI-REVIEW
+    to_tag: ELEV-NORTH
+    relation_type: contains
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 무창층 검토서-2 구성 요소
+  - from_tag: GRP-NOPILOTI-REVIEW
+    to_tag: ELEV-WEST
+    relation_type: contains
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 무창층 검토서-2 구성 요소
+  - from_tag: GRP-NOPILOTI-REVIEW
+    to_tag: TABLE-NOPILOTI
+    relation_type: contains
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    note: 무창층 검토서-2 구성 요소
+  - from_tag: ELEV-NORTH
+    to_tag: UNKNOWN-GRID-01
+    relation_type: uses
+    line_style: solid
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    note: 북측면도 상단 그리드
+  - from_tag: ELEV-WEST
+    to_tag: UNKNOWN-GRID-01
+    relation_type: uses
+    line_style: solid
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    note: 서측면도 상단 그리드
+  - from_tag: TABLE-NOPILOTI
+    to_tag: UNKNOWN-WINDOW-01
+    relation_type: references
+    line_style: solid
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    note: 무창층 검토표의 창호 및 도어면적
+  - from_tag: TABLE-NOPILOTI
+    to_tag: ELEV-NORTH
+    relation_type: supports
+    line_style: solid
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    note: 북측면도 창호 및 도어면적 검토
+  - from_tag: TABLE-NOPILOTI
+    to_tag: ELEV-WEST
+    relation_type: supports
+    line_style: solid
+    source_attribution:
+      sonnet: false
+      gemini: false
+      mini: true
+    note: 서측면도 창호 및 도어면적 검토
+  - from_tag: ELEV-NORTH
+    to_tag: ELEV-NORTH
+    relation_type: legend_reference
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    note: 남측 창호 및 도어면적(㎡) 1층 13.85 / 2층 0
+  - from_tag: ELEV-WEST
+    to_tag: ELEV-WEST
+    relation_type: legend_reference
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    note: 동측 창호 및 도어면적(㎡) 1층 14.81 / 2층 0
+  - from_tag: TABLE-NOPILOTI
+    to_tag: TABLE-NOPILOTI
+    relation_type: legend_reference
+    line_style: solid
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: false
+    note: 무창층 해당사항 없음
+  spaces: []
+  diagram_spec:
+    title: 무창층 검토서-2
+    drawing_number: A12.42
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    revision: 0 실시설계 도서 제출 24.05.17
+    scale_primary: 1:400(A3)
+    discipline: ARCHITECTURAL
+    arch_subsystem: compliance_plan
+    compliance_subtype: no-piloti_review
+    view_type: elevation
+    floor_label: 1FL, 2FL
+    has_legend: false
+    has_grid: true
+    flow_direction: UNKNOWN
+    zones_present:
+    - 무창층 검토 (1층)
+    - 무창층 검토 (2층)
+    has_calculation_table: true
+    has_envelope_assembly_table: false
+    grid_axes_elevation_north:
+    - '7'
+    - '6'
+    - '5'
+    - '4'
+    - '3'
+    - '2'
+    - '1'
+    grid_axes_elevation_west:
+    - A
+    - B
+    - C
+    - D
+    - 기존동
+    level_markers_north:
+    - label: T.O.PARAPET
+      value: 1FL+12,300
+      side: left
+    - label: RF SL±0
+      value: 1FL+10,000
+      side: left
+    - label: 2FL±0
+      value: 1FL+5,500
+      side: left
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: left
+    - label: T.O.PARAPET
+      value: 1FL+8,500
+      side: right
+    - label: T.O.S
+      value: 1FL+7,500
+      side: right
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: right
+    level_markers_west:
+    - label: T.O.PARAPET
+      value: 1FL+8,500
+      side: left
+    - label: T.O.S
+      value: 1FL+7,500
+      side: left
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: left
+    dimension_north_total_mm: 71000
+    dimension_west_new_building_mm: 43000
+    dimension_west_existing_building_mm: 29000
+    no_piloti_review_result:
+      floor_1:
+        floor_area_m2: 3137.33
+        nopiloti_related_area_m2: 104.58
+        window_door_area_m2: 108.56
+        judgment: 무창층 해당사항 없음
+        note: 창호 및 도어면적(108.56) > 무창층관련 바닥면적(104.58) → 무창층 미해당
+      floor_2:
+        floor_area_m2: 787.64
+        nopiloti_related_area_m2: 26.25
+        window_door_area_m2: 108.11
+        judgment: 무창층 해당사항 없음
+        note: 창호 및 도어면적(108.11) > 무창층관련 바닥면적(26.25) → 무창층 미해당
+    window_door_area_by_facade:
+      north_elevation_south_facing:
+        floor_1_m2: 13.85
+        floor_2_m2: 0
+      west_elevation_east_facing:
+        floor_1_m2: 14.81
+        floor_2_m2: 0
+  disagreements:
+  - item_type: entity
+    tag_affected: ELEV-WEST
+    field: equipment_symbols.level_marker_arrow.count
+    values:
+      sonnet: 5
+      gemini: 4
+      mini: 5
+    resolved_to: 5
+    reason: Sonnet과 GPT-mini의 시각 분석 결과 일치
+  - item_type: entity
+    tag_affected: ELEV-NORTH
+    field: tag
+    values:
+      sonnet: ELEV-NORTH
+      gemini: P01
+      mini: A12.42-P01
+    resolved_to: ELEV-NORTH
+    reason: Sonnet의 의미적 태그명 우선
+  - item_type: entity
+    tag_affected: ELEV-WEST
+    field: tag
+    values:
+      sonnet: ELEV-WEST
+      gemini: P02
+      mini: A12.42-P02
+    resolved_to: ELEV-WEST
+    reason: Sonnet의 의미적 태그명 우선
+  - item_type: entity
+    tag_affected: TABLE-NOPILOTI
+    field: tag
+    values:
+      sonnet: TABLE-NOPILOTI
+      gemini: P03
+      mini: A12.42-P03
+    resolved_to: TABLE-NOPILOTI
+    reason: Sonnet의 의미적 태그명 우선
+  preservation_check:
+    sonnet_spec_count: 39
+    preserved_count: 39
+    lost_fields: []
+  summary:
+    entity_count: 7
+    relationship_count: 11
+    high_confidence_count: 4
+    disagreement_count: 4
+    diagram_spec_preserved: true
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: false
+  legend_type: null
+  discipline: ARCHITECTURAL
+  classification: ELEVATION_DRAWING
+  drawing_genre: compliance_plan
+  title_block:
+    drawing_number: A12.42
+    title: 무창층 검토서-2
+    revision: null
+  visible_tags: []
+  complexity:
+    symbol_density: LOW
+    has_connections: false
+    estimated_entity_count: 0
+  next_step_hints:
+  - 무창층 검토용 입면도 2장 중 하나로 보이며, 표제란 도면번호 A12.42 확인됨
+  - 범례 전용 페이지는 아니며, legend_data.yaml은 확인되지 않음
+  confidence: 0.96
+  note: 표제란 도면번호 A12.42와 시각적 내용(북측면도/서측면도, 입면 표현)이 일치하여 ARCHITECTURAL로 판단. 페이지 하단
+    표에 '무창층 해당사항 없음'이 반복 표기됨.
+  recommended_supplements: &id001
+    P-4.5: discipline/architectural/genre_compliance_plan/supplement_p4_05.yaml
+    P-10: null
+  routing_confidence: 0.88
+  routing_reason: ARCHITECTURAL + plan_elevation 조합에 대해 카탈로그상 P-4.5의 genre_elevation_section이
+    가장 근접하며, P-10은 architectural에 schedule만 उपलब्ध하여 매칭 불가.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: ELEV-01
+    shape: rectangle
+    primary_label: A 북측면도
+    position: top-center
+    labels_near:
+    - 'SCALE : 1/400(A3)'
+    - 남측 창호 및 도어면적(㎡)
+  - panel_id: ELEV-02
+    shape: rectangle
+    primary_label: B 서측면도
+    position: middle-center
+    labels_near:
+    - 'SCALE : 1/400(A3)'
+    - 동측 창호 및 도어면적(㎡)
+  - panel_id: TABLE-01
+    shape: rectangle
+    primary_label: ■ 무창층 검토
+    position: bottom-left
+    labels_near:
+    - 구분
+    - 바닥면적(㎡)
+    - 무창층관련 바닥면적(㎡)
+    - 창호 및 도어면적(㎡)
+    - 비고
+  connections: []
+  notable_shapes:
+  - shape: circle
+    label: 7, 6, 5, 4, 3, 2, 1
+    note: 북측면도 상단 그리드 버블
+  - shape: circle
+    label: A, B, C, D, 기존동
+    note: 서측면도 상단 그리드 버블
+  - shape: other
+    label: T.O.PARAPET, RF SL±0, 2FL±0, 1FL±0, GL±0, EL+94.00
+    note: 레벨 마커 심볼
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: false
+  legend_region: null
+  confidence: 0.98
+  note: 도면은 건축 입면도와 무창층 검토 표로 구성되어 있으며, 범례 섹션은 포함되어 있지 않음.
+supplement_routing:
+  discipline: ARCHITECTURAL
+  drawing_genre: compliance_plan
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면 제목 '무창층 검토서-2'와 하단 '■ 무창층 검토' 표를 통해 법규 검토 도면임을 확인. 기존 elevation_drawing에서
+    compliance_plan으로 장르 갱신. 카탈로그에서 architectural/genre_compliance_plan 경로 채택.
+classification: ELEVATION_DRAWING
+discipline: ARCHITECTURAL
+key_elements_from_text:
+- 무창층 검토
+- 북측면도
+- 서측면도
+- 무창층 해당사항 없음
+- 1층 바닥면적 3,137.33㎡
+- 1층 무창층관련 바닥면적 104.58㎡
+- 1층 창호 및 도어면적 108.56㎡
+- 2층 바닥면적 787.64㎡
+- 2층 무창층관련 바닥면적 26.25㎡
+- 2층 창호 및 도어면적 108.11㎡
+- 동측 창호 및 도어면적(㎡) 1층 14.81 / 2층 0
+- 남측 창호 및 도어면적(㎡) 1층 13.85 / 2층 0
+- '프로젝트명: LS Electric'
+- '건물명: R-Center 구축'
+- '도면번호: A12.42'
+title_block:
+  drawing_number: A12.42
+  title: 무창층 검토서-2
+  revision: UNKNOWN
+confidence: 0.97
+note: '기존 분석의 classification=COMPLIANCE_PLAN은 도면 제목과 내용상 법규 검토 성격은 맞지만, 시각적으로는 북측면도/서측면도
+  입면 2개와 무창층 검토 표가 함께 있는 건축 입면 검토 도면이므로 ELEVATION_DRAWING으로 보정함. 근거: 페이지 하단 표제란 ''무창층
+  검토서-2'', 도면 내 ''A 북측면도'', ''B 서측면도'', 표제란 ''A12.42''.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: ELEV-NORTH
+    shape: rectangle
+    labels_inside:
+    - T.O.PARAPET 1FL+12,300
+    - RF SL±0 1FL+10,000
+    - 2FL±0 1FL+5,500
+    - 1FL±0 GL+200 GL±0 EL+94.00
+    - T.O.PARAPET 1FL+8,500
+    - T.O.S 1FL+7,500
+    - 1FL±0 GL+200 GL±0 EL+94.00
+    - EL+94.00
+    labels_above:
+    - 7  6  5  4  3  2  1
+    - 71,000
+    - 10,000  11,000  14,000  12,000  12,000  12,000
+    labels_below:
+    - A 북측면도
+    - 'SCALE : 1/400(A3)'
+    - 남측 창호 및 도어면적(㎡)
+    - 1층  13.85
+    - 2층  0
+    equipment_symbols:
+    - type: grid_bubble_circle
+      count: 7
+    - type: level_marker_arrow
+      count: 8
+    - type: window_opening
+      count: 6
+    - type: door_opening
+      count: 1
+    inferred_name: 북측 입면도 (무창층 검토용)
+    position: top-center
+  - panel_id: ELEV-WEST
+    shape: rectangle
+    labels_inside:
+    - T.O.PARAPET 1FL+8,500
+    - T.O.S 1FL+7,500
+    - 1FL±0 GL+200 GL±0 EL+94.00
+    - EL+94.00
+    - 8,500
+    - 8,000
+    labels_above:
+    - A  B  C  D  기존동
+    - 43,000
+    - 13,000  17,000  13,000  3,950  14,250  10,400  2,400
+    - 29,000
+    labels_below:
+    - B 서측면도
+    - 'SCALE : 1/400(A3)'
+    - 동측 창호 및 도어면적(㎡)
+    - 1층  14.81
+    - 2층  0
+    equipment_symbols:
+    - type: grid_bubble_circle
+      count: 5
+    - type: level_marker_arrow
+      count: 5
+    - type: window_opening
+      count: 8
+    - type: door_opening
+      count: 1
+    inferred_name: 서측 입면도 (무창층 검토용)
+    position: middle-center
+  - panel_id: TABLE-NOPILOTI
+    shape: rectangle
+    labels_inside:
+    - ■ 무창층 검토
+    - 구분 / 바닥면적(㎡) / 무창층관련 바닥면적(㎡)(바닥면적/30) / 창호 및 도어면적(㎡) / 비고
+    - 1층 / 3,137.33 / 104.58 / 108.56 / 무창층 해당사항 없음
+    - 2층 / 787.64 / 26.25 / 108.11 / 무창층 해당사항 없음
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 무창층 검토 계산표
+    position: bottom-left
+  connections: []
+  groups:
+  - group_id: GRP-NOPILOTI-REVIEW
+    label: 무창층 검토서-2 (북측면도 + 서측면도 + 검토표)
+    members:
+    - ELEV-NORTH
+    - ELEV-WEST
+    - TABLE-NOPILOTI
+  legend_references:
+  - text: 남측 창호 및 도어면적(㎡) 1층 13.85 / 2층 0
+    linked_to: ELEV-NORTH
+  - text: 동측 창호 및 도어면적(㎡) 1층 14.81 / 2층 0
+    linked_to: ELEV-WEST
+  - text: 무창층 해당사항 없음
+    linked_to: TABLE-NOPILOTI
+  diagram_meta:
+    title: 무창층 검토서-2
+    drawing_number: A12.42
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    revision: 0 실시설계 도서 제출 24.05.17
+    scale_primary: 1:400(A3)
+    discipline: ARCHITECTURAL
+    arch_subsystem: compliance_plan
+    compliance_subtype: no-piloti_review
+    view_type: elevation
+    floor_label: 1FL, 2FL
+    has_legend: false
+    has_grid: true
+    flow_direction: UNKNOWN
+    zones_present:
+    - 무창층 검토 (1층)
+    - 무창층 검토 (2층)
+    has_calculation_table: true
+    has_envelope_assembly_table: false
+    grid_axes_elevation_north:
+    - '7'
+    - '6'
+    - '5'
+    - '4'
+    - '3'
+    - '2'
+    - '1'
+    grid_axes_elevation_west:
+    - A
+    - B
+    - C
+    - D
+    - 기존동
+    level_markers_north:
+    - label: T.O.PARAPET
+      value: 1FL+12,300
+      side: left
+    - label: RF SL±0
+      value: 1FL+10,000
+      side: left
+    - label: 2FL±0
+      value: 1FL+5,500
+      side: left
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: left
+    - label: T.O.PARAPET
+      value: 1FL+8,500
+      side: right
+    - label: T.O.S
+      value: 1FL+7,500
+      side: right
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: right
+    level_markers_west:
+    - label: T.O.PARAPET
+      value: 1FL+8,500
+      side: left
+    - label: T.O.S
+      value: 1FL+7,500
+      side: left
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: left
+    dimension_north_total_mm: 71000
+    dimension_west_new_building_mm: 43000
+    dimension_west_existing_building_mm: 29000
+    no_piloti_review_result:
+      floor_1:
+        floor_area_m2: 3137.33
+        nopiloti_related_area_m2: 104.58
+        window_door_area_m2: 108.56
+        judgment: 무창층 해당사항 없음
+        note: 창호 및 도어면적(108.56) > 무창층관련 바닥면적(104.58) → 무창층 미해당
+      floor_2:
+        floor_area_m2: 787.64
+        nopiloti_related_area_m2: 26.25
+        window_door_area_m2: 108.11
+        judgment: 무창층 해당사항 없음
+        note: 창호 및 도어면적(108.11) > 무창층관련 바닥면적(26.25) → 무창층 미해당
+    window_door_area_by_facade:
+      north_elevation_south_facing:
+        floor_1_m2: 13.85
+        floor_2_m2: 0
+      west_elevation_east_facing:
+        floor_1_m2: 14.81
+        floor_2_m2: 0
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01
+    shape: rectangle
+    labels_inside:
+    - T.O.PARAPET 1FL+12,300
+    - RF SL±0 1FL+10,000
+    - 2FL±0 1FL+5,500
+    - 1FL±0 GL+200 GL±0 EL+94.00
+    - 12,300
+    - 4,500
+    - 2,300
+    - 5,500
+    - 200
+    - T.O.PARAPET 1FL+8,500
+    - T.O.S 1FL+7,500
+    - 1FL±0 GL+200 GL±0 EL+94.00
+    - EL+94.00
+    - 8,000
+    - 500
+    - 8,500
+    - 200
+    labels_above:
+    - 7
+    - 6
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+    - 71,000
+    - 10,000
+    - 11,000
+    - 14,000
+    - 12,000
+    - 12,000
+    - 12,000
+    labels_below:
+    - A 북측면도
+    - 'SCALE : 1/400(A3)'
+    - 남측 창호 및 도어면적(㎡)
+    - 1층 13.85
+    - 2층 0
+    equipment_symbols:
+    - type: grid_bubble
+      count: 7
+    - type: level_marker
+      count: 8
+    - type: window_symbol
+      count: 6
+    - type: door_symbol
+      count: 1
+    inferred_name: 북측 입면도
+    position: top-center
+  - panel_id: P02
+    shape: rectangle
+    labels_inside:
+    - T.O.PARAPET 1FL+8,500
+    - T.O.S 1FL+7,500
+    - 1FL±0 GL+200 GL±0 EL+94.00
+    - 8,500
+    - 500
+    - 8,000
+    - 200
+    - EL+94.00
+    labels_above:
+    - A
+    - B
+    - C
+    - D
+    - 기존동
+    - 43,000
+    - 29,000
+    - 13,000
+    - 17,000
+    - 13,000
+    - 1,950
+    - 14,250
+    - 10,400
+    - 2,400
+    labels_below:
+    - B 서측면도
+    - 'SCALE : 1/400(A3)'
+    - 동측 창호 및 도어면적(㎡)
+    - 1층 14.81
+    - 2층 0
+    equipment_symbols:
+    - type: grid_bubble
+      count: 5
+    - type: level_marker
+      count: 4
+    - type: window_symbol
+      count: 8
+    - type: door_symbol
+      count: 1
+    inferred_name: 서측 입면도
+    position: middle-center
+  - panel_id: P03
+    shape: rectangle
+    labels_inside:
+    - ■ 무창층 검토
+    - 구분
+    - 바닥면적(㎡)
+    - 무창층관련 바닥면적(㎡) (바닥면적/30)
+    - 창호 및 도어면적(㎡)
+    - 비고
+    - 1층
+    - 3,137.33
+    - 104.58
+    - 108.56
+    - 무창층 해당사항 없음
+    - 2층
+    - 787.64
+    - 26.25
+    - 108.11
+    - 무창층 해당사항 없음
+    inferred_name: 무창층 검토표
+    position: bottom-left
+  connections: []
+  groups:
+  - group_id: GRP-NOPILOTI-REVIEW
+    label: 무창층 검토서-2 (북측면도 + 서측면도 + 검토표)
+    members:
+    - P01
+    - P02
+    - P03
+  legend_references:
+  - text: 남측 창호 및 도어면적(㎡) 1층 13.85 / 2층 0
+    linked_to: P01
+  - text: 동측 창호 및 도어면적(㎡) 1층 14.81 / 2층 0
+    linked_to: P02
+  - text: 무창층 해당사항 없음
+    linked_to: P03
+  diagram_meta:
+    title: 무창층 검토서-2
+    drawing_number: A12.42
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    date: '2024.05'
+    revision: 0 실시설계 도서 제출 24.05.17
+    scale_primary: 1:400(A3)
+    discipline: ARCHITECTURAL
+    arch_subsystem: compliance_plan
+    compliance_subtype: no-piloti_review
+    view_type: elevation
+    floor_label: 1FL, 2FL
+    has_legend: false
+    has_grid: true
+    flow_direction: UNKNOWN
+    zones_present:
+    - 무창층 검토 (1층)
+    - 무창층 검토 (2층)
+    has_calculation_table: true
+    has_envelope_assembly_table: false
+    grid_axes_elevation_north:
+    - '7'
+    - '6'
+    - '5'
+    - '4'
+    - '3'
+    - '2'
+    - '1'
+    grid_axes_elevation_west:
+    - A
+    - B
+    - C
+    - D
+    - 기존동
+    level_markers_north:
+    - label: T.O.PARAPET
+      value: 1FL+12,300
+      side: left
+    - label: RF SL±0
+      value: 1FL+10,000
+      side: left
+    - label: 2FL±0
+      value: 1FL+5,500
+      side: left
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: left
+    - label: T.O.PARAPET
+      value: 1FL+8,500
+      side: right
+    - label: T.O.S
+      value: 1FL+7,500
+      side: right
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: right
+    level_markers_west:
+    - label: T.O.PARAPET
+      value: 1FL+8,500
+      side: left
+    - label: T.O.S
+      value: 1FL+7,500
+      side: left
+    - label: 1FL±0
+      value: GL+200 / GL±0 / EL+94.00
+      side: left
+    dimension_north_total_mm: 71000
+    dimension_west_new_building_mm: 43000
+    dimension_west_existing_building_mm: 29000
+    no_piloti_review_result:
+      floor_1:
+        floor_area_m2: 3137.33
+        nopiloti_related_area_m2: 104.58
+        window_door_area_m2: 108.56
+        judgment: 무창층 해당사항 없음
+        note: 창호 및 도어면적(108.56) > 무창층관련 바닥면적(104.58) → 무창층 미해당
+      floor_2:
+        floor_area_m2: 787.64
+        nopiloti_related_area_m2: 26.25
+        window_door_area_m2: 108.11
+        judgment: 무창층 해당사항 없음
+        note: 창호 및 도어면적(108.11) > 무창층관련 바닥면적(26.25) → 무창층 미해당
+    window_door_area_by_facade:
+      north_elevation_south_facing:
+        floor_1_m2: 13.85
+        floor_2_m2: 0
+      west_elevation_east_facing:
+        floor_1_m2: 14.81
+        floor_2_m2: 0
+entity_synthesis:
+  entities:
+  - tag: A12.42-P01
+    name: 북측면도
+    discipline: ARCHITECTURAL
+    function_category: ELEVATION
+    specifications:
+      drawing_number: A12.42
+      title: 무창층 검토서-2
+      scale: 1/400(A3)
+      view_label: A 북측면도
+      facade_window_door_area_m2:
+        floor_1: 13.85
+        floor_2: 0
+      grid_axes:
+      - '7'
+      - '6'
+      - '5'
+      - '4'
+      - '3'
+      - '2'
+      - '1'
+      total_dimension_mm: 71000
+      level_markers:
+      - label: T.O.PARAPET
+        value: 1FL+12,300
+        side: left
+      - label: RF SL±0
+        value: 1FL+10,000
+        side: left
+      - label: 2FL±0
+        value: 1FL+5,500
+        side: left
+      - label: 1FL±0
+        value: GL+200 / GL±0 / EL+94.00
+        side: left
+      - label: T.O.PARAPET
+        value: 1FL+8,500
+        side: right
+      - label: T.O.S
+        value: 1FL+7,500
+        side: right
+      - label: 1FL±0
+        value: GL+200 / GL±0 / EL+94.00
+        side: right
+      equipment_symbols:
+      - type: grid_bubble_circle
+        count: 7
+      - type: level_marker_arrow
+        count: 8
+      - type: window_opening
+        count: 6
+      - type: door_opening
+        count: 1
+      labels_inside:
+      - T.O.PARAPET 1FL+12,300
+      - RF SL±0 1FL+10,000
+      - 2FL±0 1FL+5,500
+      - 1FL±0 GL+200 GL±0 EL+94.00
+      - T.O.PARAPET 1FL+8,500
+      - T.O.S 1FL+7,500
+      - EL+94.00
+      labels_below:
+      - A 북측면도
+      - 'SCALE : 1/400(A3)'
+      - 남측 창호 및 도어면적(㎡)
+      - 1층 13.85
+      - 2층 0
+    position: top-center
+    source_block: both
+  - tag: A12.42-P02
+    name: 서측면도
+    discipline: ARCHITECTURAL
+    function_category: ELEVATION
+    specifications:
+      drawing_number: A12.42
+      title: 무창층 검토서-2
+      scale: 1/400(A3)
+      view_label: B 서측면도
+      facade_window_door_area_m2:
+        floor_1: 14.81
+        floor_2: 0
+      grid_axes:
+      - A
+      - B
+      - C
+      - D
+      - 기존동
+      dimension_mm:
+        new_building: 43000
+        existing_building: 29000
+      level_markers:
+      - label: T.O.PARAPET
+        value: 1FL+8,500
+        side: left
+      - label: T.O.S
+        value: 1FL+7,500
+        side: left
+      - label: 1FL±0
+        value: GL+200 / GL±0 / EL+94.00
+        side: left
+      equipment_symbols:
+      - type: grid_bubble_circle
+        count: 5
+      - type: level_marker_arrow
+        count: 5
+      - type: window_opening
+        count: 8
+      - type: door_opening
+        count: 1
+      labels_inside:
+      - T.O.PARAPET 1FL+8,500
+      - T.O.S 1FL+7,500
+      - 1FL±0 GL+200 GL±0 EL+94.00
+      - EL+94.00
+      - 8,500
+      - 8,000
+      labels_below:
+      - B 서측면도
+      - 'SCALE : 1/400(A3)'
+      - 동측 창호 및 도어면적(㎡)
+      - 1층 14.81
+      - 2층 0
+    position: middle-center
+    source_block: both
+  - tag: A12.42-P03
+    name: 무창층 검토표
+    discipline: ARCHITECTURAL
+    function_category: CALCULATION_TABLE
+    specifications:
+      drawing_number: A12.42
+      title: 무창층 검토서-2
+      scale: 1/400(A3)
+      table_title: ■ 무창층 검토
+      columns:
+      - 구분
+      - 바닥면적(㎡)
+      - 무창층관련 바닥면적(㎡)(바닥면적/30)
+      - 창호 및 도어면적(㎡)
+      - 비고
+      rows:
+      - floor: 1층
+        floor_area_m2: 3137.33
+        nopiloti_related_area_m2: 104.58
+        window_door_area_m2: 108.56
+        remark: 무창층 해당사항 없음
+      - floor: 2층
+        floor_area_m2: 787.64
+        nopiloti_related_area_m2: 26.25
+        window_door_area_m2: 108.11
+        remark: 무창층 해당사항 없음
+    position: bottom-left
+    source_block: both
+  - tag: GRP-NOPILOTI-REVIEW
+    name: 무창층 검토서-2
+    discipline: ARCHITECTURAL
+    function_category: GROUP
+    specifications:
+      members:
+      - A12.42-P01
+      - A12.42-P02
+      - A12.42-P03
+      drawing_number: A12.42
+      title: 무창층 검토서-2
+      compliance_subtype: no-piloti_review
+      view_type: elevation
+      floor_label: 1FL, 2FL
+      has_grid: true
+      has_legend: false
+      has_calculation_table: true
+      has_envelope_assembly_table: false
+      zones_present:
+      - 무창층 검토 (1층)
+      - 무창층 검토 (2층)
+    position: center
+    source_block: both
+  - tag: UNKNOWN-LEVEL-01
+    name: 레벨 마커
+    discipline: ARCHITECTURAL
+    function_category: LEVEL_MARKER
+    specifications:
+      count: 8
+      labels:
+      - T.O.PARAPET
+      - RF SL±0
+      - 2FL±0
+      - 1FL±0
+      - T.O.S
+      - EL+94.00
+      source_note: visual_semantics 및 visual_semantics_gemini의 level marker 집계
+    position: both elevations
+    source_block: both
+  - tag: UNKNOWN-GRID-01
+    name: 그리드 버블
+    discipline: ARCHITECTURAL
+    function_category: GRID_BUBBLE
+    specifications:
+      north_elevation_axes:
+      - '7'
+      - '6'
+      - '5'
+      - '4'
+      - '3'
+      - '2'
+      - '1'
+      west_elevation_axes:
+      - A
+      - B
+      - C
+      - D
+      - 기존동
+      counts:
+        north: 7
+        west: 5
+    position: top
+    source_block: both
+  - tag: UNKNOWN-WINDOW-01
+    name: 창호 및 도어면적 표기
+    discipline: ARCHITECTURAL
+    function_category: SCHEDULE_REFERENCE
+    specifications:
+      north_facade_window_door_area_m2:
+        floor_1: 13.85
+        floor_2: 0
+      west_facade_window_door_area_m2:
+        floor_1: 14.81
+        floor_2: 0
+      table_note: 남측 창호 및 도어면적(㎡), 동측 창호 및 도어면적(㎡)
+    position: center
+    source_block: both
+  relationships:
+  - from_tag: GRP-NOPILOTI-REVIEW
+    to_tag: A12.42-P01
+    relation_type: contains
+    note: 무창층 검토서-2 구성 요소
+  - from_tag: GRP-NOPILOTI-REVIEW
+    to_tag: A12.42-P02
+    relation_type: contains
+    note: 무창층 검토서-2 구성 요소
+  - from_tag: GRP-NOPILOTI-REVIEW
+    to_tag: A12.42-P03
+    relation_type: contains
+    note: 무창층 검토서-2 구성 요소
+  - from_tag: A12.42-P01
+    to_tag: UNKNOWN-GRID-01
+    relation_type: uses
+    note: 북측면도 상단 그리드
+  - from_tag: A12.42-P02
+    to_tag: UNKNOWN-GRID-01
+    relation_type: uses
+    note: 서측면도 상단 그리드
+  - from_tag: A12.42-P03
+    to_tag: UNKNOWN-WINDOW-01
+    relation_type: references
+    note: 무창층 검토표의 창호 및 도어면적
+  - from_tag: A12.42-P03
+    to_tag: A12.42-P01
+    relation_type: supports
+    note: 북측면도 창호 및 도어면적 검토
+  - from_tag: A12.42-P03
+    to_tag: A12.42-P02
+    relation_type: supports
+    note: 서측면도 창호 및 도어면적 검토
+  spaces: []
+  self_check:
+    entity_count: 6
+    relationship_count: 8
+    visual_spec_preserved: true
+    issues: []

@@ -1,0 +1,1065 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: symbol/line-type/abbreviation legend for 방송 설비
+  discipline: COMMUNICATION
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: ET-02-005
+    title: 사무동 지하1층 방송 설비 평면도
+    revision: null
+  visible_tags:
+  - tag: FAN ROOM
+    type: named_space
+    source: image
+  - tag: ELP 50
+    type: equipment_or_panel_tag
+    source: both
+  - tag: 'TO : R-Conter EPS/TPS'
+    type: routing_note
+    source: both
+  - tag: FR-3 2.5sq / 10C
+    type: cable_spec_note
+    source: both
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: true
+    estimated_entity_count: 1
+  next_step_hints:
+  - NOTE 영역에 배관/배선 선종, 방송용 배관·배선, 스피커 종류, PULL BOX 규격이 함께 정의되어 있음
+  - 도면 본문에 '기존 통신 TRAY', '기존 공동구 통신 CABLE TRAY' 표기가 보임
+  - 표제란 도면번호 ET-02-005와 제목이 일치
+  confidence: 0.95
+  note: 도면번호 ET-02-005와 방송 설비 평면도 내용이 일치하며, NOTE/LEGEND 섹션에 심볼·선종·약어 정의가 포함됨. read_legend_data는
+    legend_data.yaml 미존재로 확인 불가.
+  recommended_supplements: &id001
+    P-4.5: discipline/communication/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/communication/genre_floor_plan/supplement_p10.yaml
+  routing_confidence: 0.98
+  routing_reason: COMMUNICATION 분야의 floor_plan 장르로 판정되며, 카탈로그에 communication/genre_floor_plan
+    보조프롬프트가 P-4.5와 P-10에 존재한다.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: 사무동 지하1층 방송 설비 평면도
+    position: center
+    labels_near:
+    - FAN ROOM
+    - 기계실
+    - 전기실
+    - 주차장
+    - 기존 통신 TRAY
+    - 기존 공동구 통신 CABLE TRAY
+  - panel_id: NOTE_LEGEND_SECTION
+    shape: rectangle
+    primary_label: NOTE
+    position: top-right
+    labels_near:
+    - 1. 배관 배선
+    - 2. 방송용 배관, 배선
+    - 3. LEGEND
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: ET-02-005
+    position: bottom-right
+    labels_near:
+    - LS Electric R-Center 구축
+    - 사무동 지하1층 방송 설비 평면도
+  connections:
+  - from: NOTE_LEGEND_SECTION
+    to: FLOOR_PLAN_AREA
+    line_style: dashed
+    annotation: 심볼 및 배선 정의 적용
+  notable_shapes:
+  - shape: circle
+    label: 스피커 천정형 (3W)
+    note: LEGEND 섹션 내 원형 심볼
+  - shape: hexagon
+    label: PULL BOX
+    note: LEGEND 섹션 내 육각형 심볼 (a, b, c, d 구분)
+  - shape: dashed_box
+    label: 기존 공동구 통신 CABLE TRAY
+    note: 평면도 내 점선으로 표기된 트레이 영역
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: top-right
+  confidence: 1.0
+  note: 우측 상단 NOTE 영역 내 '3. LEGEND' 섹션에 방송 설비 심볼 및 배선 범례가 명확히 존재함.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: floor_plan
+  changed_from_p00: false
+  recommended_supplements: *id001
+  routing_confidence: 0.98
+  routing_reason: 도면 제목 '방송 설비 평면도' 및 내용(스피커, 통신 트레이)이 COMMUNICATION 분야의 floor_plan
+    장르와 일치하며, 사전 분석 결과가 타당함.
+classification: FLOOR_LAYOUT
+discipline: COMMUNICATION
+key_elements_from_text:
+- 사무동 지하1층 방송 설비 평면도
+- ET-02-005
+- LS Electric
+- R-Center 구축
+- NOTE
+- 배관 배선
+- 방송용 배관, 배선
+- LEGEND
+- SPEAKER 단자함
+- 스피커 천정형 (3W)
+- 컬럼형 SPEAKER (3W)
+- 컬럼형 SPEAKER (10W)
+- PULL BOX SIZE 150 x 150 x 100mm
+- PULL BOX SIZE 200 x 200 x 150mm
+- PULL BOX SIZE 300 x 300 x 200mm
+- PULL BOX SIZE 400 x 400 x 300mm
+- 'TO : R-Conter EPS/TPS'
+- FR-3 2.5sq / 10C
+- ELP 50 /IN TRAY
+title_block:
+  drawing_number: ET-02-005
+  title: 사무동 지하1층 방송 설비 평면도
+  revision: UNKNOWN
+confidence: 0.98
+note: 기존 분석의 discipline=COMMUNICATION, drawing_genre=floor_plan 판정과 일치함. 페이지 내 NOTE/LEGEND
+  섹션과 평면 배치가 함께 보이며, 표제란의 도면번호와 제목은 텍스트로 확인됨. 리비전 값은 제공 텍스트/이미지에서 확인되지 않음.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: SPEAKER-TB-01
+    shape: rectangle
+    labels_inside:
+    - SPEAKER 단자함
+    - 'TO : R-Center EPS/TPS'
+    - FR-3 2.5sq / 10C
+    - ELP 50 /IN TRAY
+    - 정보통신 전용 배전도 참조
+    labels_above:
+    - 'TO : R-Conter EPS/TPS'
+    labels_below: []
+    equipment_symbols:
+    - type: SPEAKER 단자함 (사각형 심볼)
+      count: 1
+    inferred_name: 방송 SPEAKER 단자함 (지하1층)
+    position: center-right
+  - panel_id: CABLE-TRAY-MAIN
+    shape: dashed_box
+    labels_inside:
+    - 기존 공동구 통신 CABLE TRAY
+    - W:500(H)1000mm
+    labels_above:
+    - 기존 공동구 통신 CABLE TRAY W:500(H)1000mm
+    labels_below: []
+    equipment_symbols:
+    - type: CABLE TRAY (점선 박스)
+      count: 1
+    inferred_name: 기존 공동구 통신 케이블 트레이
+    position: center-upper
+  - panel_id: CABLE-TRAY-SUB
+    shape: rectangle
+    labels_inside:
+    - 기존 통신 TRAY
+    labels_above:
+    - 기존 통신 TRAY
+    labels_below: []
+    equipment_symbols:
+    - type: CABLE TRAY (실선 박스)
+      count: 1
+    inferred_name: 기존 통신 트레이 (방송 배선 경유)
+    position: center-right
+  - panel_id: SPEAKER-CEILING-ZONE
+    shape: other
+    labels_inside:
+    - 스피커 천정형 (3W)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 천정형 스피커 심볼 (원형, SYM-018)
+      count: 12
+    inferred_name: 천정형 스피커 설치 구역 (지하1층 주차장/복도)
+    position: center
+  - panel_id: SPEAKER-WALL-ZONE
+    shape: other
+    labels_inside:
+    - 컬럼형 SPEAKER (3W)
+    - 컬럼형 SPEAKER (10W)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 벽부형 스피커 심볼 3W (SYM-019)
+      count: 4
+    - type: 벽부형 스피커 심볼 10W (SYM-020)
+      count: 2
+    inferred_name: 벽부형(컬럼형) 스피커 설치 구역
+    position: perimeter
+  - panel_id: PULLBOX-ZONE
+    shape: other
+    labels_inside:
+    - PULL BOX SIZE 150×150×100mm (a)
+    - PULL BOX SIZE 200×200×150mm (b)
+    - PULL BOX SIZE 300×300×200mm (c)
+    - PULL BOX SIZE 400×400×300mm (d)
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PULL BOX 심볼 (육각형, SYM-023)
+      count: 5
+    inferred_name: 방송 배선 PULL BOX 설치 구역
+    position: distributed
+  - panel_id: NOTE-LEGEND
+    shape: rectangle
+    labels_inside:
+    - 1. 배관 배선
+    - 슬라브 매입 배관 배선
+    - 노출 배관 배선
+    - 바닥 은폐 및 지중 매설 배관 배선
+    - CABLE TRAY내 배선
+    - 2. 방송용 배관, 배선
+    - 16C (HFIX 2-1.5sq)
+    - 16C (HFIX 3-1.5sq)
+    - 16C (HFIX 4-1.5sq)
+    - 3. LEGEND
+    - SPEAKER 단자함
+    - 스피커 천정형 (3W) SPEAKER-CEILING TYPE
+    - 컬럼형 SPEAKER (3W) SPEAKER-WALL BRACKET TYPE
+    - 컬럼형 SPEAKER (10W) SPEAKER-WALL BRACKET TYPE
+    - PULL BOX SIZE 150×150×100mm (a)
+    - PULL BOX SIZE 200×200×150mm (b)
+    - PULL BOX SIZE 300×300×200mm (c)
+    - PULL BOX SIZE 400×400×300mm (d)
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+    labels_above:
+    - NOTE
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: NOTE 및 LEGEND 섹션
+    position: top-right
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가운건축 GAUN Architects & Engineers
+    - 사무동 지하1층 방송 설비 평면도
+    - ET-02-005
+    - 'A3: 1/150 / A3: 1/300'
+    - '2024.04'
+    - 정명기술단
+    labels_above: []
+    labels_below:
+    - 사무동 지하1층 방송 설비 평면도
+    - 축척 A1:1/150 A3:1/300
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  - panel_id: SPACE-FAN-ROOM
+    shape: rectangle
+    labels_inside:
+    - FAN ROOM
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 팬룸 공간 구획
+    position: left
+  - panel_id: SPACE-PARKING
+    shape: rectangle
+    labels_inside:
+    - 주차장
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 천정형 스피커 심볼 (원형)
+      count: 10
+    - type: PULL BOX 심볼 (육각형)
+      count: 3
+    inferred_name: 지하1층 주차장 구역
+    position: center
+  connections:
+  - from: SPEAKER-TB-01
+    to: CABLE-TRAY-MAIN
+    line_type: cable
+    line_style: dashed
+    annotation: FR-3 2.5sq / 10C, ELP 50 /IN TRAY, TO R-Center EPS/TPS
+  - from: CABLE-TRAY-MAIN
+    to: CABLE-TRAY-SUB
+    line_type: cable
+    line_style: solid
+    annotation: 기존 통신 TRAY 경유
+  - from: SPEAKER-TB-01
+    to: SPEAKER-CEILING-ZONE
+    line_type: cable
+    line_style: solid
+    annotation: 16C (HFIX 2-1.5sq) / 방송용 배관 배선
+  - from: SPEAKER-TB-01
+    to: SPEAKER-WALL-ZONE
+    line_type: cable
+    line_style: solid
+    annotation: 16C (HFIX 3-1.5sq) 또는 16C (HFIX 4-1.5sq)
+  - from: SPEAKER-TB-01
+    to: PULLBOX-ZONE
+    line_type: cable
+    line_style: solid
+    annotation: 방송 배선 경유 PULL BOX
+  - from: NOTE-LEGEND
+    to: SPEAKER-CEILING-ZONE
+    line_type: signal
+    line_style: dashed
+    annotation: 심볼 정의 적용 (SYM-018)
+  - from: NOTE-LEGEND
+    to: SPEAKER-WALL-ZONE
+    line_type: signal
+    line_style: dashed
+    annotation: 심볼 정의 적용 (SYM-019, SYM-020)
+  - from: NOTE-LEGEND
+    to: PULLBOX-ZONE
+    line_type: signal
+    line_style: dashed
+    annotation: PULL BOX 규격 정의 적용 (a/b/c/d)
+  groups:
+  - group_id: GRP-BROADCAST
+    label: 방송 설비 배선 계통 (지하1층)
+    members:
+    - SPEAKER-TB-01
+    - SPEAKER-CEILING-ZONE
+    - SPEAKER-WALL-ZONE
+    - PULLBOX-ZONE
+    - CABLE-TRAY-MAIN
+    - CABLE-TRAY-SUB
+  - group_id: GRP-SPACES
+    label: 건축 공간 구획 (지하1층)
+    members:
+    - SPACE-FAN-ROOM
+    - SPACE-PARKING
+  legend_references:
+  - text: SPEAKER 단자함 (사각형 심볼)
+    linked_to: SPEAKER-TB-01
+  - text: 스피커 천정형 (3W) SPEAKER-CEILING TYPE
+    linked_to: SPEAKER-CEILING-ZONE
+  - text: 컬럼형 SPEAKER (3W) SPEAKER-WALL BRACKET TYPE
+    linked_to: SPEAKER-WALL-ZONE
+  - text: 컬럼형 SPEAKER (10W) SPEAKER-WALL BRACKET TYPE
+    linked_to: SPEAKER-WALL-ZONE
+  - text: PULL BOX SIZE 150×150×100mm (a)
+    linked_to: PULLBOX-ZONE
+  - text: PULL BOX SIZE 200×200×150mm (b)
+    linked_to: PULLBOX-ZONE
+  - text: PULL BOX SIZE 300×300×200mm (c)
+    linked_to: PULLBOX-ZONE
+  - text: PULL BOX SIZE 400×400×300mm (d)
+    linked_to: PULLBOX-ZONE
+  - text: CABLE TRAY내 배선 (일점쇄선)
+    linked_to: CABLE-TRAY-MAIN
+  - text: 슬라브 매입 배관 배선 (실선)
+    linked_to: SPEAKER-CEILING-ZONE
+  diagram_meta:
+    title: 사무동 지하1층 방송 설비 평면도
+    drawing_number: ET-02-005
+    drawing_subtype: 방송
+    floor_label: 지하1층
+    project: LS Electric R-Center 구축
+    project_number: '624001'
+    scale: A1:1/150, A3:1/300
+    date: '2024.04'
+    discipline: COMMUNICATION
+    has_legend_section: true
+    has_cctv: false
+    has_ap: false
+    flow_direction: left-to-right
+    cable_specs:
+    - FR-3 2.5sq / 10C (간선, TO R-Center EPS/TPS)
+    - 16C (HFIX 2-1.5sq) (방송용 배관 배선)
+    - 16C (HFIX 3-1.5sq) (방송용 배관 배선)
+    - 16C (HFIX 4-1.5sq) (방송용 배관 배선)
+    conduit_specs:
+    - ELP 50 /IN TRAY
+    pull_box_sizes:
+      a: 150×150×100mm
+      b: 200×200×150mm
+      c: 300×300×200mm
+      d: 400×400×300mm
+    existing_infrastructure:
+    - 기존 공동구 통신 CABLE TRAY W:500(H)1000mm
+    - 기존 통신 TRAY
+    routing_destination: TO R-Center EPS/TPS
+    note: 간선 규격 및 기타 사항은 계통도 참조. 정보통신 전용 배전도 참조.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: P01_TB
+    shape: rectangle
+    labels_inside:
+    - SPEAKER 단자함
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: SPEAKER 단자함 심볼 (사각형 대각선)
+      count: 1
+    inferred_name: 스피커 단자함
+    position: top-right, near cable tray
+  - panel_id: P02_TRAY_MAIN
+    shape: dashed_box
+    labels_inside:
+    - 기존 공동구 통신 CABLE TRAY
+    - W:500(H)1000mm
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: CABLE TRAY 심볼 (점선 박스)
+      count: 1
+    inferred_name: 기존 공동구 통신 케이블 트레이
+    position: top-right
+  - panel_id: P03_TRAY_SUB
+    shape: rectangle
+    labels_inside:
+    - 기존 통신 TRAY
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: CABLE TRAY 심볼 (실선 박스)
+      count: 1
+    inferred_name: 기존 통신 트레이
+    position: center-right
+  - panel_id: P04_ZONE_CEILING_SPK
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 스피커 천정형 (3W) 심볼 (원형 S)
+      count: 12
+    inferred_name: 천정형 스피커 구역
+    position: distributed throughout parking area
+  - panel_id: P05_ZONE_WALL_SPK_3W
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 컬럼형 SPEAKER (3W) 심볼 (벽부형 S)
+      count: 4
+    inferred_name: 벽부형 스피커 (3W) 구역
+    position: distributed on walls/columns
+  - panel_id: P06_ZONE_WALL_SPK_10W
+    shape: other
+    labels_inside: []
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: 컬럼형 SPEAKER (10W) 심볼 (벽부형 S+체크)
+      count: 2
+    inferred_name: 벽부형 스피커 (10W) 구역
+    position: distributed on walls/columns
+  - panel_id: P07_ZONE_PULLBOX
+    shape: other
+    labels_inside:
+    - a
+    - b
+    - c
+    - d
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: PULL BOX 심볼 (육각형)
+      count: 5
+    inferred_name: 풀박스 구역
+    position: distributed along wiring paths
+  - panel_id: P08_SPACE_FAN_ROOM
+    shape: rectangle
+    labels_inside:
+    - FAN ROOM
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 팬룸
+    position: left
+  - panel_id: P09_SPACE_PARKING
+    shape: rectangle
+    labels_inside:
+    - 주 차 장
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 주차장
+    position: center
+  - panel_id: P10_SPACE_ELEC
+    shape: rectangle
+    labels_inside:
+    - 전기실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 전기실
+    position: bottom-right
+  - panel_id: P11_SPACE_MECH
+    shape: rectangle
+    labels_inside:
+    - 기 계 실
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 기계실
+    position: center-right
+  - panel_id: P12_LEGEND
+    shape: rectangle
+    labels_inside:
+    - NOTE
+    - 1. 배관 배선
+    - ': 슬라브 매입 배관 배선'
+    - ': 노출 배관 배선'
+    - ': 바닥 은폐 및 지중 매설 배관 배선'
+    - ': CABLE TRAY내 배선'
+    - 2. 방송용 배관, 배선
+    - 'S : 16C (HFIX 2-1.5sq)'
+    - 'S // : 16C (HFIX 3-1.5sq)'
+    - 'S /// : 16C (HFIX 4-1.5sq)'
+    - 3. LEGEND
+    - ': SPEAKER 단자함'
+    - ': 스피커 천정형 (3W) (SPEAKER-CEILING TYPE)'
+    - ': 컬럼형 SPEAKER (3W) (SPEAKER-WALL BRACKET TYPE)'
+    - ': 컬럼형 SPEAKER (10W) (SPEAKER-WALL BRACKET TYPE)'
+    - 'a : PULL BOX SIZE 150 x 150 x 100mm'
+    - 'b : PULL BOX SIZE 200 x 200 x 150mm'
+    - 'c : PULL BOX SIZE 300 x 300 x 200mm'
+    - 'd : PULL BOX SIZE 400 x 400 x 300mm'
+    - 4. 간선 규격 및 기타 사항은 계통도 참조.
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 범례 및 주기사항
+    position: top-right
+  - panel_id: P13_TITLE
+    shape: rectangle
+    labels_inside:
+    - LS Electric R-Center 구축
+    - '624001'
+    - 가 온 건 축 GAUN Architects & Engineers
+    - 서울시 강남구 테헤란로 141길 6, 5층 (순화동, 백암빌딩)
+    - Tel.02-2-3443-7799 Fax.02-2-3443-3807
+    - www.gaun.co.kr
+    - 사무동 지하1층 방송 설비 평면도
+    - ET-02-005
+    - 'A3 : 1/150'
+    - 'A3 : 1/300'
+    - '2024.04'
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: bottom-right
+  - panel_id: P14_STAMP
+    shape: rectangle
+    labels_inside:
+    - 전력시설물종합설계업 제서울 E-1-055호
+    - 엔지니어링 활동주체 제06-378호
+    - 전문소방시설설계업(기계,전기) 제2007-1호
+    - (주) 정 명 기 술 단
+    - 대표 · 기술사 이 정 환
+    - 정보통신용역업(엔지니어링) 제2023-01-00호
+    - 기술사사무소(정보통신) 제2023-01-00호
+    - (주) 정 명 기 술 단
+    - 통신전문분야기술사 김 근 식
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 설계 및 감리 날인란
+    position: bottom-right, above title block
+  connections:
+  - from: P01_TB
+    to: P02_TRAY_MAIN
+    line_type: cable
+    line_style: dashed
+    annotation: 'TO : R-Center EPS/TPS, FR-3 2.5sq / 10C, ELP 50 /IN TRAY, 지하공동구 사용,
+      (옥외 정보통신 인입 배치도 참조)'
+  - from: P02_TRAY_MAIN
+    to: P03_TRAY_SUB
+    line_type: cable
+    line_style: solid
+    annotation: 트레이 연결
+  - from: P03_TRAY_SUB
+    to: P07_ZONE_PULLBOX
+    line_type: cable
+    line_style: solid
+    annotation: 슬라브 매입 배관 배선
+  - from: P07_ZONE_PULLBOX
+    to: P04_ZONE_CEILING_SPK
+    line_type: cable
+    line_style: solid
+    annotation: 슬라브 매입 배관 배선
+  - from: P07_ZONE_PULLBOX
+    to: P05_ZONE_WALL_SPK_3W
+    line_type: cable
+    line_style: solid
+    annotation: 슬라브 매입 배관 배선
+  - from: P07_ZONE_PULLBOX
+    to: P06_ZONE_WALL_SPK_10W
+    line_type: cable
+    line_style: solid
+    annotation: 슬라브 매입 배관 배선
+  - from: P04_ZONE_CEILING_SPK
+    to: P04_ZONE_CEILING_SPK
+    line_type: cable
+    line_style: solid
+    annotation: 스피커 간 연결 (슬라브 매입)
+  - from: P05_ZONE_WALL_SPK_3W
+    to: P05_ZONE_WALL_SPK_3W
+    line_type: cable
+    line_style: solid
+    annotation: 스피커 간 연결 (슬라브 매입)
+  - from: P06_ZONE_WALL_SPK_10W
+    to: P06_ZONE_WALL_SPK_10W
+    line_type: cable
+    line_style: solid
+    annotation: 스피커 간 연결 (슬라브 매입)
+  groups:
+  - group_id: GRP_SPACES
+    label: 건축 공간
+    members:
+    - P08_SPACE_FAN_ROOM
+    - P09_SPACE_PARKING
+    - P10_SPACE_ELEC
+    - P11_SPACE_MECH
+  - group_id: GRP_BROADCAST_SYSTEM
+    label: 방송 설비
+    members:
+    - P01_TB
+    - P02_TRAY_MAIN
+    - P03_TRAY_SUB
+    - P04_ZONE_CEILING_SPK
+    - P05_ZONE_WALL_SPK_3W
+    - P06_ZONE_WALL_SPK_10W
+    - P07_ZONE_PULLBOX
+  legend_references:
+  - text: SPEAKER 단자함
+    linked_to: P01_TB
+  - text: 기존 공동구 통신 CABLE TRAY
+    linked_to: P02_TRAY_MAIN
+  - text: 기존 통신 TRAY
+    linked_to: P03_TRAY_SUB
+  - text: 스피커 천정형 (3W)
+    linked_to: P04_ZONE_CEILING_SPK
+  - text: 컬럼형 SPEAKER (3W)
+    linked_to: P05_ZONE_WALL_SPK_3W
+  - text: 컬럼형 SPEAKER (10W)
+    linked_to: P06_ZONE_WALL_SPK_10W
+  - text: PULL BOX
+    linked_to: P07_ZONE_PULLBOX
+  - text: 슬라브 매입 배관 배선 (실선)
+    linked_to: P03_TRAY_SUB
+  diagram_meta:
+    title: 사무동 지하1층 방송 설비 평면도
+    drawing_number: ET-02-005
+    project_name: LS Electric R-Center 구축
+    project_number: '624001'
+    architect: 가 온 건 축 GAUN Architects & Engineers
+    engineer: (주) 정 명 기 술 단
+    scale: 'A1: 1/150, A3: 1/300'
+    date: '2024.04'
+    discipline: COMMUNICATION
+    drawing_type: FLOOR_PLAN
+    system_type: BROADCAST
+    floor: 지하1층
+    flow_direction: UNKNOWN
+    notes:
+    - 간선 규격 및 기타 사항은 계통도 참조.
+    - 배관 배선 및 심볼 정의는 LEGEND 참조.
+    - 옥외 정보통신 인입은 별도 배치도 참조.
+entity_synthesis:
+  entities:
+  - tag: SPEAKER-TB-01
+    name: SPEAKER 단자함
+    discipline: COMMUNICATION
+    function_category: DISTRIBUTE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - SPEAKER 단자함
+      - 'TO : R-Center EPS/TPS'
+      - FR-3 2.5sq / 10C
+      - ELP 50 /IN TRAY
+      - 정보통신 전용 배전도 참조
+      labels_above:
+      - 'TO : R-Conter EPS/TPS'
+      labels_below: []
+      equipment_symbols:
+      - SPEAKER 단자함 (사각형 심볼)
+      inferred_name: 방송 SPEAKER 단자함 (지하1층)
+      position: center-right
+      routing_destination: TO R-Center EPS/TPS
+      cable_specs:
+      - FR-3 2.5sq / 10C
+      conduit_specs:
+      - ELP 50 /IN TRAY
+      note: 정보통신 전용 배전도 참조
+    position: center-right
+    source_block: visual_semantics
+  - tag: CABLE-TRAY-MAIN
+    name: 기존 공동구 통신 CABLE TRAY
+    discipline: COMMUNICATION
+    function_category: TRANSPORT
+    specifications:
+      shape: dashed_box
+      labels_inside:
+      - 기존 공동구 통신 CABLE TRAY
+      - W:500(H)1000mm
+      labels_above:
+      - 기존 공동구 통신 CABLE TRAY W:500(H)1000mm
+      labels_below: []
+      equipment_symbols:
+      - CABLE TRAY (점선 박스)
+      inferred_name: 기존 공동구 통신 케이블 트레이
+      position: center-upper
+      dimensions: W:500(H)1000mm
+    position: center-upper
+    source_block: both
+  - tag: CABLE-TRAY-SUB
+    name: 기존 통신 TRAY
+    discipline: COMMUNICATION
+    function_category: TRANSPORT
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 기존 통신 TRAY
+      labels_above:
+      - 기존 통신 TRAY
+      labels_below: []
+      equipment_symbols:
+      - CABLE TRAY (실선 박스)
+      inferred_name: 기존 통신 트레이 (방송 배선 경유)
+      position: center-right
+    position: center-right
+    source_block: both
+  - tag: PULLBOX-ZONE
+    name: PULL BOX
+    discipline: COMMUNICATION
+    function_category: BOUNDARY
+    specifications:
+      shape: other
+      labels_inside:
+      - PULL BOX SIZE 150×150×100mm (a)
+      - PULL BOX SIZE 200×200×150mm (b)
+      - PULL BOX SIZE 300×300×200mm (c)
+      - PULL BOX SIZE 400×400×300mm (d)
+      labels_above: []
+      labels_below: []
+      equipment_symbols:
+      - PULL BOX 심볼 (육각형, SYM-023)
+      inferred_name: 방송 배선 PULL BOX 설치 구역
+      position: distributed
+      pull_box_sizes:
+        a: 150×150×100mm
+        b: 200×200×150mm
+        c: 300×300×200mm
+        d: 400×400×300mm
+    position: distributed
+    source_block: both
+  - tag: UNKNOWN-SPEAKER-CEILING-01
+    name: 스피커 천정형 (3W)
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      shape: other
+      labels_inside:
+      - 스피커 천정형 (3W)
+      labels_above: []
+      labels_below: []
+      equipment_symbols:
+      - 천정형 스피커 심볼 (원형, SYM-018)
+      inferred_name: 천정형 스피커 설치 구역 (지하1층 주차장/복도)
+      position: center
+      count: 12
+      legend_reference: 스피커 천정형 (3W)
+    position: center
+    source_block: both
+  - tag: UNKNOWN-SPEAKER-WALL-3W-01
+    name: 컬럼형 SPEAKER (3W)
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      shape: other
+      labels_inside:
+      - 컬럼형 SPEAKER (3W)
+      labels_above: []
+      labels_below: []
+      equipment_symbols:
+      - 벽부형 스피커 심볼 3W (SYM-019)
+      inferred_name: 벽부형(컬럼형) 스피커 설치 구역
+      position: perimeter
+      count: 4
+      legend_reference: 컬럼형 SPEAKER (3W)
+    position: perimeter
+    source_block: both
+  - tag: UNKNOWN-SPEAKER-WALL-10W-01
+    name: 컬럼형 SPEAKER (10W)
+    discipline: COMMUNICATION
+    function_category: SENSE
+    specifications:
+      shape: other
+      labels_inside:
+      - 컬럼형 SPEAKER (10W)
+      labels_above: []
+      labels_below: []
+      equipment_symbols:
+      - 벽부형 스피커 심볼 10W (SYM-020)
+      inferred_name: 벽부형(컬럼형) 스피커 설치 구역
+      position: perimeter
+      count: 2
+      legend_reference: 컬럼형 SPEAKER (10W)
+    position: perimeter
+    source_block: both
+  - tag: SPACE-FAN-ROOM
+    name: FAN ROOM
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - FAN ROOM
+      labels_above: []
+      labels_below: []
+      inferred_name: 팬룸 공간 구획
+      position: left
+    position: left
+    source_block: both
+  - tag: SPACE-PARKING
+    name: 주차장
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 주차장
+      labels_above: []
+      labels_below: []
+      inferred_name: 지하1층 주차장 구역
+      position: center
+    position: center
+    source_block: both
+  - tag: SPACE-ELEC
+    name: 전기실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 전기실
+      labels_above: []
+      labels_below: []
+      inferred_name: 전기실
+      position: bottom-right
+    position: bottom-right
+    source_block: visual_semantics_gemini
+  - tag: SPACE-MECH
+    name: 기계실
+    discipline: COMMUNICATION
+    function_category: SPACE
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 기계실
+      labels_above: []
+      labels_below: []
+      inferred_name: 기계실
+      position: center-right
+    position: center-right
+    source_block: visual_semantics_gemini
+  - tag: NOTE-LEGEND
+    name: NOTE 및 LEGEND 섹션
+    discipline: COMMUNICATION
+    function_category: LEGEND
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 1. 배관 배선
+      - 슬라브 매입 배관 배선
+      - 노출 배관 배선
+      - 바닥 은폐 및 지중 매설 배관 배선
+      - CABLE TRAY내 배선
+      - 2. 방송용 배관, 배선
+      - 16C (HFIX 2-1.5sq)
+      - 16C (HFIX 3-1.5sq)
+      - 16C (HFIX 4-1.5sq)
+      - 3. LEGEND
+      - SPEAKER 단자함
+      - 스피커 천정형 (3W) SPEAKER-CEILING TYPE
+      - 컬럼형 SPEAKER (3W) SPEAKER-WALL BRACKET TYPE
+      - 컬럼형 SPEAKER (10W) SPEAKER-WALL BRACKET TYPE
+      - PULL BOX SIZE 150×150×100mm (a)
+      - PULL BOX SIZE 200×200×150mm (b)
+      - PULL BOX SIZE 300×300×200mm (c)
+      - PULL BOX SIZE 400×400×300mm (d)
+      - 4. 간선 규격 및 기타 사항은 계통도 참조.
+      labels_above:
+      - NOTE
+      labels_below: []
+      inferred_name: NOTE 및 LEGEND 섹션
+      position: top-right
+      has_legend_section: true
+      cable_specs:
+      - 16C (HFIX 2-1.5sq)
+      - 16C (HFIX 3-1.5sq)
+      - 16C (HFIX 4-1.5sq)
+      line_types:
+      - 슬라브 매입 배관 배선
+      - 노출 배관 배선
+      - 바닥 은폐 및 지중 매설 배관 배선
+      - CABLE TRAY내 배선
+    position: top-right
+    source_block: both
+  - tag: TITLE-BLOCK
+    name: 표제란
+    discipline: COMMUNICATION
+    function_category: TITLE_BLOCK
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - LS Electric R-Center 구축
+      - '624001'
+      - 가 온 건 축 GAUN Architects & Engineers
+      - 서울시 강남구 테헤란로 141길 6, 5층 (순화동, 백암빌딩)
+      - Tel.02-2-3443-7799 Fax.02-2-3443-3807
+      - www.gaun.co.kr
+      - 사무동 지하1층 방송 설비 평면도
+      - ET-02-005
+      - 'A3 : 1/150'
+      - 'A3 : 1/300'
+      - '2024.04'
+      labels_above: []
+      labels_below: []
+      inferred_name: 표제란
+      position: bottom-right
+      drawing_number: ET-02-005
+      title: 사무동 지하1층 방송 설비 평면도
+      project_name: LS Electric R-Center 구축
+      project_number: '624001'
+      architect: 가 온 건 축 GAUN Architects & Engineers
+      date: '2024.04'
+      scale:
+      - 'A3 : 1/150'
+      - 'A3 : 1/300'
+    position: bottom-right
+    source_block: both
+  - tag: STAMP
+    name: 설계 및 감리 날인란
+    discipline: COMMUNICATION
+    function_category: STAMP
+    specifications:
+      shape: rectangle
+      labels_inside:
+      - 전력시설물종합설계업 제서울 E-1-055호
+      - 엔지니어링 활동주체 제06-378호
+      - 전문소방시설설계업(기계,전기) 제2007-1호
+      - (주) 정 명 기 술 단
+      - 대표 · 기술사 이 정 환
+      - 정보통신용역업(엔지니어링) 제2023-01-00호
+      - 기술사사무소(정보통신) 제2023-01-00호
+      - (주) 정 명 기 술 단
+      - 통신전문분야기술사 김 근 식
+      labels_above: []
+      labels_below: []
+      inferred_name: 설계 및 감리 날인란
+      position: bottom-right, above title block
+    position: bottom-right, above title block
+    source_block: visual_semantics_gemini
+  relationships:
+  - from_tag: SPEAKER-TB-01
+    to_tag: CABLE-TRAY-MAIN
+    relation_type: connects_to
+    note: 'TO : R-Center EPS/TPS, FR-3 2.5sq / 10C, ELP 50 /IN TRAY, 정보통신 전용 배전도 참조'
+  - from_tag: CABLE-TRAY-MAIN
+    to_tag: CABLE-TRAY-SUB
+    relation_type: connects_to
+    note: 기존 통신 TRAY 경유 / 트레이 연결
+  - from_tag: CABLE-TRAY-SUB
+    to_tag: PULLBOX-ZONE
+    relation_type: connects_to
+    note: 슬라브 매입 배관 배선
+  - from_tag: PULLBOX-ZONE
+    to_tag: UNKNOWN-SPEAKER-CEILING-01
+    relation_type: connects_to
+    note: 슬라브 매입 배관 배선
+  - from_tag: PULLBOX-ZONE
+    to_tag: UNKNOWN-SPEAKER-WALL-3W-01
+    relation_type: connects_to
+    note: 슬라브 매입 배관 배선
+  - from_tag: PULLBOX-ZONE
+    to_tag: UNKNOWN-SPEAKER-WALL-10W-01
+    relation_type: connects_to
+    note: 슬라브 매입 배관 배선
+  - from_tag: NOTE-LEGEND
+    to_tag: SPEAKER-TB-01
+    relation_type: defines
+    note: LEGEND 적용
+  - from_tag: NOTE-LEGEND
+    to_tag: UNKNOWN-SPEAKER-CEILING-01
+    relation_type: defines
+    note: SYM-018
+  - from_tag: NOTE-LEGEND
+    to_tag: UNKNOWN-SPEAKER-WALL-3W-01
+    relation_type: defines
+    note: SYM-019
+  - from_tag: NOTE-LEGEND
+    to_tag: UNKNOWN-SPEAKER-WALL-10W-01
+    relation_type: defines
+    note: SYM-020
+  - from_tag: NOTE-LEGEND
+    to_tag: PULLBOX-ZONE
+    relation_type: defines
+    note: PULL BOX SIZE a/b/c/d
+  - from_tag: TITLE-BLOCK
+    to_tag: NOTE-LEGEND
+    relation_type: adjacent_to
+    note: 우측 상단 표제/주기 영역
+  - from_tag: SPACE-PARKING
+    to_tag: UNKNOWN-SPEAKER-CEILING-01
+    relation_type: contains
+    note: 주차장 내 천정형 스피커 분포
+  - from_tag: SPACE-PARKING
+    to_tag: UNKNOWN-SPEAKER-WALL-3W-01
+    relation_type: contains
+    note: 주차장/벽면 분포
+  - from_tag: SPACE-PARKING
+    to_tag: UNKNOWN-SPEAKER-WALL-10W-01
+    relation_type: contains
+    note: 주차장/벽면 분포
+  - from_tag: SPACE-PARKING
+    to_tag: PULLBOX-ZONE
+    relation_type: contains
+    note: 배선 경유 풀박스 분포
+  - from_tag: SPACE-FAN-ROOM
+    to_tag: SPEAKER-TB-01
+    relation_type: adjacent_to
+    note: 좌측 FAN ROOM 인접
+  - from_tag: SPACE-ELEC
+    to_tag: SPACE-MECH
+    relation_type: adjacent_to
+    note: Gemini 분석상 우측 하단 인접 공간
+  spaces:
+  - space_id: SPACE-FAN-ROOM
+    name: FAN ROOM
+    contains: []
+  - space_id: SPACE-PARKING
+    name: 주차장
+    contains:
+    - UNKNOWN-SPEAKER-CEILING-01
+    - UNKNOWN-SPEAKER-WALL-3W-01
+    - UNKNOWN-SPEAKER-WALL-10W-01
+    - PULLBOX-ZONE
+  - space_id: SPACE-ELEC
+    name: 전기실
+    contains: []
+  - space_id: SPACE-MECH
+    name: 기계실
+    contains: []
+  self_check:
+    entity_count: 11
+    relationship_count: 17
+    visual_spec_preserved: true
+    issues:
+    - visual_semantics의 SPEAKER-TB-01 specifications를 그대로 보존함.
+    - Gemini에만 있는 SPACE-ELEC, SPACE-MECH, STAMP를 포함함.
+    - 도면은 방송 설비 평면도로, 통신 평면도 전용 entity 제한 규약과 상충하는 방송 설비 심볼을 우선 반영함.

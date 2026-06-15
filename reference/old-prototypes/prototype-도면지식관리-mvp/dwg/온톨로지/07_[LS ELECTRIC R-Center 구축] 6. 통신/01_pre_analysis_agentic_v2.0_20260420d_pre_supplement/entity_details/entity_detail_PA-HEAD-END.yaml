@@ -1,0 +1,80 @@
+tag: PA-HEAD-END
+name: 방송 헤드엔드
+type: equipment_or_panel
+discipline: COMMUNICATION
+function_category: COMMUNICATION_PANEL
+source_pages:
+- 12
+specs:
+  raw_labels:
+  - 방송반
+  - SKS-P2-10P
+  - SKS-P1-10P
+  - S1
+  - S2
+  - S3
+  labels_inside:
+  - 방송반
+  - SKS-P2-10P
+  - SKS-P1-10P
+  labels_above:
+  - S1
+  - S2
+  - S3
+  labels_below: []
+  equipment_symbols:
+  - type: AMP / 방송반 (PA Head-End)
+    count: 1
+  - type: 스피커 단자함 (Speaker Terminal Board)
+    count: 2
+  panel_group: PA_HEAD_END
+  inferred_name: 방송 헤드엔드 (앰프 + 방송반)
+relations:
+- from: PULL-BOX-01
+  to: PA-HEAD-END
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: F 케이블 인입
+- from: PA-HEAD-END
+  to: FLOOR-ROOF
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: S1 계통, Fa/Fb 케이블
+- from: PA-HEAD-END
+  to: FLOOR-2F
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: S2 계통, Fa/Fb/Fc 케이블
+- from: PA-HEAD-END
+  to: FLOOR-1F
+  relation: cable
+  source_page: 12
+  origin: visual_semantics
+  annotation: S3 계통, Fa/Fb 케이블
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: center
+equipment_symbols:
+- type: AMP / 방송반 (PA Head-End)
+  count: 1
+- type: 스피커 단자함 (Speaker Terminal Board)
+  count: 2
+ontology_hints:
+  suggested_parent_class: CommunicationEquipment
+  observed_attributes:
+  - raw_labels
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - panel_group
+  - inferred_name
+  similar_equipment: []
+  function_candidates:
+  - AudioSignalAmplification
+  - PublicAddressControl
+  - SpeakerSignalDistribution

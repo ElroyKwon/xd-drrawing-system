@@ -1,0 +1,80 @@
+tag: JEONSAN-ROOM
+name: 전산실
+type: room
+discipline: COMMUNICATION
+function_category: COMMUNICATION_ROOM
+source_pages:
+- 11
+specs:
+  raw_labels:
+  - 전산실
+  - 기존 전산실 HUB RACK에 연결
+  - 광FDF(8분배기)x1
+  - 광컨버터x2, 광점퍼코드x4
+  - 천정속 노출 배관배선
+  shape: dashed_box
+  labels_inside:
+  - 전산실
+  - 기존 전산실 HUB RACK에 연결
+  - 광FDF(8분배기)x1
+  - 광컨버터x2, 광점퍼코드x4
+  - 천정속 노출 배관배선
+  labels_above: []
+  labels_below: []
+  equipment_symbols:
+  - type: HUB_RACK
+    count: 1
+  - type: FDF
+    count: 1
+  - type: 광컨버터
+    count: 2
+  inferred_name: 기존 전산실 (HUB RACK / FDF 설치 구역)
+  position: right-center
+  source_model: claude-sonnet-4-6
+relations:
+- from: HUB-RACK-EQUIP
+  to: JEONSAN-ROOM
+  relation: cable
+  source_page: 11
+  origin: visual_semantics
+  annotation: FIBER OPTICAL S.M 12CORE (2RC), 천정속 노출 배관배선
+- from: JEONSAN-ROOM
+  to: OPEN-OFFICE-ZONE
+  relation: cable
+  source_page: 11
+  origin: visual_semantics
+  annotation: LAN 배선 분배
+- from: JEONSAN-ROOM
+  to: CONF-ROOM-ZONE-A
+  relation: cable
+  source_page: 11
+  origin: visual_semantics
+  annotation: LAN 배선 분배
+collection_sources:
+  visual_semantics: true
+  entity_synthesis: true
+position: right-center
+equipment_symbols:
+- type: HUB_RACK
+  count: 1
+- type: FDF
+  count: 1
+- type: 광컨버터
+  count: 2
+ontology_hints:
+  suggested_parent_class: TelecommunicationsRoom
+  observed_attributes:
+  - raw_labels
+  - shape
+  - labels_inside
+  - labels_above
+  - labels_below
+  - equipment_symbols
+  - inferred_name
+  - position
+  - source_model
+  similar_equipment: []
+  function_candidates:
+  - NetworkDistribution
+  - SignalConversion
+  - FiberTermination

@@ -1,0 +1,70 @@
+entity_detail:
+  tag: P-OAC-2
+  type: panel
+  specs:
+    voltage:
+      value: 380/220V 3Ф 4W
+      unit: V
+      source: page 23
+      confidence: 0.95
+    cable_spec:
+      value: F-CV 150㎟ -1C x 4, E-95㎟ (104C)
+      unit: cable specification
+      source: page 23
+      confidence: 0.95
+  drawing_texts:
+  - source: page 23 / search_entity_by_tag(P-OAC-2)
+    page_number: 23
+    text: 'from: S/S R-Center
+
+      to: P-OAC-2
+
+      relation: feeds
+
+      medium: power_cable
+
+      direction: downstream
+
+      spec: F-CV 150㎟ -1C x 4, E-95㎟ (104C)
+
+      from: S/S R-Center
+
+      to: P-OAC-2
+
+      voltage: 380/220V 3Ф 4W
+
+      source: cable_schedule_row_5
+
+      confidence: 0.95'
+  requirements:
+  - text: 'direction: downstream'
+    source: page 23 / search_entity_by_tag(P-OAC-2)
+    type: flow_condition
+  connection_specs:
+  - relation: feeds
+    partner: S/S R-Center
+    details:
+      source: page 23 / search_entity_by_tag(P-OAC-2)
+      medium: power_cable
+      direction: downstream
+      spec: F-CV 150㎟ -1C x 4, E-95㎟ (104C)
+      voltage: 380/220V 3Ф 4W
+  ontology_hints:
+    observed_relations:
+    - relation_type: feeds
+      partner_tag: S/S R-Center
+      direction: source_to_target
+      source: page 23 / search_entity_by_tag(P-OAC-2)
+    observed_attributes:
+    - voltage
+    - spec
+    - medium
+    - direction
+    - relation
+    similar_equipment: []
+    suggested_parent_class: panel
+    cross_discipline: []
+  notes:
+  - search_entity_by_tag 결과에서 P-OAC-2 관련 원문만 확인됨.
+  - 제공된 페이지 분석 결과에는 P-OAC-2의 추가 사양이 명시되지 않음.
+tag: P-OAC-2

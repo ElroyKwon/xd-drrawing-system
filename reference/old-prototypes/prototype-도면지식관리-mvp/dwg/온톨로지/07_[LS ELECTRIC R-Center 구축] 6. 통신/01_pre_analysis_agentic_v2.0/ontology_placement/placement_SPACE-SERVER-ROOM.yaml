@@ -1,0 +1,175 @@
+placement:
+  tag: SPACE-SERVER-ROOM
+  name: Server Room & Shafts
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:SPACE-SERVER-ROOM
+    class_hint: Space
+    alternative_class_hints:
+    - CommunicationSpace
+    - ServerRoom
+    - ShaftSpace
+    related_assertions:
+    - type: hasLabel
+      target_hint: 전산실
+      note: raw_labels / labels_inside에 관찰된 공간 표기
+    - type: hasLabel
+      target_hint: EPS
+      note: raw_labels / labels_inside에 관찰된 공간 표기
+    - type: hasLabel
+      target_hint: TPS
+      note: raw_labels / labels_inside에 관찰된 공간 표기
+    - type: locatedIn
+      target_hint: top-right
+      note: position 값
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:Space
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'raw_labels: 전산실, EPS, TPS'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 공간에 직접 표기된 라벨 문자열
+      - raw_text: 'shape: rectangle'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 도형 형태 정보
+      - raw_text: 'labels_inside: 전산실, EPS, TPS'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: labelInsideText
+          suggested_datatype: xsd:string
+          rationale: 도면 내부 표기 문자열
+      - raw_text: 'position: top-right'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치
+      - raw_text: 'inferred_name: Server Room & Shafts'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: 추론된 명칭 문자열
+      - raw_text: 'function_category: SERVER_ROOM'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: 기능 분류 문자열
+      - raw_text: 'type: SPACE'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: entityTypeText
+          suggested_datatype: xsd:string
+          rationale: 엔티티 타입 표기
+      - raw_text: 'discipline: COMMUNICATION'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: discipline
+          suggested_datatype: xsd:string
+          rationale: 분야 표기
+      - raw_text: 'name: Server Room & Shafts'
+        source_page: 11
+        promotion_hint:
+          suggested_property_label: rawNameText
+          suggested_datatype: xsd:string
+          rationale: 원문 이름 문자열
+  provenance:
+    tag:
+      source_pages:
+      - 11
+      method: direct
+    name:
+      source_pages:
+      - 11
+      method: direct
+    discipline:
+      source_pages:
+      - 11
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 11
+      method: classification_from_type_and_content
+    ontology_core.iri_hint:
+      source_pages:
+      - 11
+      method: derived_from_tag
+    ontology_core.class_hint:
+      source_pages:
+      - 11
+      method: ontology_hint_and_observed_content
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 11
+      method: ontology_hint_and_observed_content
+    ontology_core.related_assertions:
+      source_pages:
+      - 11
+      method: direct_and_inferred_from_specs
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 11
+      method: preservation_bucket
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 전산실 / EPS / TPS
+    source_page: 11
+    reason: supplement가 없어 sub_kind로 승격 불가
+    preservation_note: 공간 내부 라벨 문자열로 보존
+  - field_candidate: specs.shape
+    raw_text: rectangle
+    source_page: 11
+    reason: sub_kind 미정의
+    preservation_note: 도형 정보로 보존
+  - field_candidate: specs.labels_inside
+    raw_text: 전산실 / EPS / TPS
+    source_page: 11
+    reason: sub_kind 미정의
+    preservation_note: 내부 표기 문자열로 보존
+  - field_candidate: specs.position
+    raw_text: top-right
+    source_page: 11
+    reason: sub_kind 미정의
+    preservation_note: 도면 배치 위치로 보존
+  - field_candidate: specs.inferred_name
+    raw_text: Server Room & Shafts
+    source_page: 11
+    reason: 추론명은 원문 보존 필요
+    preservation_note: 추론된 명칭 문자열
+  - field_candidate: function_category
+    raw_text: SERVER_ROOM
+    source_page: 11
+    reason: supplement 미정의
+    preservation_note: 기능 분류 원문 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: type은 SPACE이지만 raw_labels에 전산실/EPS/TPS가 함께 있어 단일 공간명인지 복합 구역 표기인지 혼합적이다.
+    recommended_handling: 0-9c에서 Space 계열로 우선 유지하되, labels_inside와 raw_labels를 별도
+      주석/데이터로 보존하고 필요 시 하위 공간 분할 여부를 검토.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 공간/구역/실 패턴으로 분류
+    - locatedIn/position 계열 관계 사실 원형 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:16:02.728693'
+  confidence: 0.86

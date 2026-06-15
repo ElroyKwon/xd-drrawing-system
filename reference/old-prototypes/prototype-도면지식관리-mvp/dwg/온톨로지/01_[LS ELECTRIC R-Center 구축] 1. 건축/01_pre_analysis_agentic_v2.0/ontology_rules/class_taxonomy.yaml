@@ -1,0 +1,946 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=182)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-22T09:26:58.960713'
+  classes:
+  - iri: dks:DocumentEntity
+    label: DocumentEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - '101'
+    - '106'
+    - '107'
+    - '204'
+    - '212'
+    - '216'
+    - A11.02
+    - A12.22
+    - A12.32
+    - AD_111
+    - C_121
+    - CB_124
+    - CD_123
+    - D109
+    - H_105
+    - I_112
+    - J_202
+    - J_214
+    - M_205
+    - PS
+    - T03
+    - TITLE-BLOCK
+    - TOC-MAIN
+    derivation: placement class_hint가 직접 DocumentEntity인 태그들을 묶었다. 다수는 AnnotationOnly이나
+      문서/시트/목차 성격의 식별자 패턴을 공유한다.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:AnnotationOrReferenceEntity
+    label: AnnotationOrReferenceEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - '108'
+    - '126'
+    - '203'
+    - '209'
+    - '211'
+    - '215'
+    - A11.03
+    - A12.01
+    - A12.02
+    - A12.03
+    - A12.11
+    - A12.21
+    - A12.23
+    - A12.31
+    - A12.41
+    - A12.42
+    - A_110
+    - CA_125
+    - CC_122
+    - EXT-TACTILE
+    - FIRE-PROTECTION-01
+    - G01.03
+    - INSULATION-01
+    - M_217
+    - N_210
+    - REF-A05.01
+    - T02
+    - UNKNOWN-ACCESS-001
+    - UNKNOWN-CJ-001
+    - UNKNOWN-DETAIL-001
+    - UNKNOWN-DETAIL-002
+    - UNKNOWN-DETAIL-004
+    - UNKNOWN-DETAIL-005
+    - UNKNOWN-EJ-001
+    - UNKNOWN-EJ-002
+    - UNKNOWN-LEVEL-001
+    - UNKNOWN-LEVEL-002
+    - UNKNOWN-LEVEL-003
+    - UNKNOWN-MARK-01
+    - UNKNOWN-PAD-003
+    - UNKNOWN-PANEL-01
+    - UNKNOWN-PANEL-03
+    - UNKNOWN-PANEL-05
+    - UNKNOWN-PANEL-06
+    - UNKNOWN-PANEL-07
+    - UNKNOWN-PANEL-HEADER
+    - UNKNOWN-REF-003
+    - UNKNOWN-REF-004
+    - UNKNOWN-REFERENCE-001
+    - UNKNOWN-REFERENCE-002
+    - UNKNOWN-REFERENCE-003
+    - UNKNOWN-REFERENCE-004
+    - UNKNOWN-REFERENCE-005
+    - UNKNOWN-STRUCTURAL-009
+    - UNKNOWN-SYM-01
+    - UNKNOWN-SYM-02
+    - UNKNOWN-SYM-03
+    - UNKNOWN-SYM-04
+    - UNKNOWN-SYM-05
+    - UNKNOWN-SYM-06
+    - UNKNOWN-TABLE-01
+    - UNKNOWN-TABLE-02
+    derivation: class_hint가 직접 AnnotationOrReferenceEntity인 태그들을 중심으로 구성했다. 주로 주석,
+      참조, 패널 라벨, 미확정 표식류가 포함된다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:SpatialEntity
+    label: SpatialEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - '102'
+    - '104'
+    - '201'
+    - '213'
+    - AB_114
+    - AC_115
+    - E_120
+    - G_116
+    - T01
+    - UNKNOWN-SPACE-001
+    derivation: class_hint가 SpatialEntity인 태그들을 직접 묶었다. adjacent_to 또는 plan contains
+      관계를 가진 공간형 개체들이다.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:RoomOrSpace
+    label: RoomOrSpace
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - B_113
+    derivation: class_hint가 RoomOrSpace로 직접 제시된 단일 태그. PLAN-1F에 포함되는 실/공간 패턴이다.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:RoomLikeEntity
+    label: RoomLikeEntity
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - F_117
+    derivation: class_hint가 RoomLikeEntity로 직접 제시된 단일 태그. 이름이 실명 패턴이며 PLAN-1F contains
+      관계를 가진다.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:Space
+    label: Space
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - EA_118
+    derivation: class_hint가 Space로 직접 제시된 단일 태그. architectural discipline과 실명(name)
+      보유가 공간성을 강화한다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:BuildingElement
+    label: BuildingElement
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-CANOPY-01
+    - UNKNOWN-FINISH-01
+    - UNKNOWN-LADDER-001
+    derivation: class_hint가 직접 BuildingElement인 태그들만 묶었다. 모두 plan/container에 포함되는
+      물리 요소 패턴이다.
+    source_pages: []
+    confidence: 0.83
+  - iri: dks:ArchitecturalElement
+    label: ArchitecturalElement
+    super_classes:
+    - dks:BuildingElement
+    evidence_tags:
+    - UNKNOWN-LADDER-01
+    derivation: class_hint가 ArchitecturalElement인 태그. PLAN-PIT와 T01 양쪽에 연결되는 건축 요소로
+      관찰된다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Hatch
+    label: Hatch
+    super_classes:
+    - dks:BuildingElement
+    evidence_tags:
+    - UNKNOWN-HATCH-01
+    derivation: class_hint가 Hatch인 단일 태그. PLAN-PIT와 part_of 관계가 직접 관찰된다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:Sump
+    label: Sump
+    super_classes:
+    - dks:BuildingElement
+    evidence_tags:
+    - UNKNOWN-SUMP-01
+    derivation: class_hint가 Sump인 단일 태그. PLAN-PIT contains 관계를 가진다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ServiceNetworkElement
+    label: ServiceNetworkElement
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-PIPE-002
+    - UNKNOWN-RD-001
+    - UNKNOWN-RD-002
+    - UNKNOWN-RD-003
+    - UNKNOWN-TRENCH-001
+    - UNKNOWN-TRENCH-002
+    - UNKNOWN-TRENCH-003
+    derivation: class_hint가 직접 ServiceNetworkElement인 태그들을 묶었다. connects_to 관계로 독립
+      네트워크를 형성한다.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:Pipe
+    label: Pipe
+    super_classes:
+    - dks:ServiceNetworkElement
+    evidence_tags:
+    - UNKNOWN-PIPE-001
+    derivation: class_hint가 Pipe인 단일 태그. 다른 서비스 네트워크 요소와 connects_to 관계를 가진다.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:TRENCH
+    label: TRENCH
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - UNKNOWN-TRENCH-01
+    derivation: class_hint가 대문자 TRENCH로 직접 제시된 단일 태그. 이름과 PLAN-1F contains 관계는 trench
+      계열을 시사하지만, 다른 trench 태그들과 class_hint 표기가 달라 별도 클래스로 유지했다.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:UnknownEntity
+    label: UnknownEntity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EPS/TPS
+    - EXT-FINISH
+    - EXT-SLOPE
+    - UNKNOWN-ACCESS-002
+    - UNKNOWN-BUILDING-SERVICE-001
+    - UNKNOWN-BUILDING-SERVICE-002
+    - UNKNOWN-BUILDING-SERVICE-003
+    - UNKNOWN-BUILDING-SERVICE-004
+    - UNKNOWN-BUILDING-SERVICE-005
+    - UNKNOWN-GROUP-A1
+    - UNKNOWN-GROUP-A2
+    - UNKNOWN-GROUP-A3
+    - UNKNOWN-GROUP-A4
+    - UNKNOWN-GROUP-A5
+    - UNKNOWN-GROUP-A6
+    - UNKNOWN-GROUP-A7
+    - UNKNOWN-GROUP-A8
+    - UNKNOWN-LADDER-002
+    - UNKNOWN-PAD-001
+    - UNKNOWN-PAD-002
+    - UNKNOWN-PAD-004
+    - UNKNOWN-PLATE-01
+    - UNKNOWN-SHAFT-001
+    - UNKNOWN-SHAFT-002
+    - UNKNOWN-SHAPE-01
+    - UNKNOWN-SHAPE-02
+    - UNKNOWN-SHAPE-03
+    - UNKNOWN-STRUCTURAL-001
+    - UNKNOWN-STRUCTURAL-002
+    - UNKNOWN-STRUCTURAL-003
+    - UNKNOWN-STRUCTURAL-005
+    - UNKNOWN-STRUCTURAL-006
+    - UNKNOWN-STRUCTURAL-007
+    - UNKNOWN-STRUCTURAL-008
+    derivation: class_hint가 직접 UnknownEntity인 태그들을 묶었다. suffix 패턴은 다양하지만 evidence만으로
+      더 안정적인 단일 하위 분류를 확정하기 어렵다.
+    source_pages: []
+    confidence: 0.8
+  - iri: dks:SheetOrDrawingReferenceEntity
+    label: SheetOrDrawingReferenceEntity
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - A11.01
+    derivation: class_hint가 직접 SheetOrDrawingReferenceEntity인 단일 태그. 시트 번호 패턴(A11.01)과
+      일치한다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ReferenceOrNoteEntity
+    label: ReferenceOrNoteEntity
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - A12.24
+    - G01.01
+    - UNKNOWN-REF-001
+    derivation: class_hint가 직접 ReferenceOrNoteEntity인 태그들을 묶었다. 시트/문서 참조 또는 노트 성격의
+      혼합 참조군이다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:AbbreviationTable
+    label: AbbreviationTable
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - ABBREVIATIONS-TABLE
+    derivation: class_hint가 직접 AbbreviationTable인 단일 태그. TABLE 명명 패턴이 강하다.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:LegendOrDrawingSymbolPanel
+    label: LegendOrDrawingSymbolPanel
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - DRAWING-SYMBOLS-01
+    derivation: DRAWING-SYMBOLS-01의 alternative_class_hints에 LegendOrDrawingSymbolPanel이
+      직접 제시되고, SYM-*와 part_of 관계가 반복되어 패널형 범례 클래스로 귀납했다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:NoteOrReferenceSection
+    label: NoteOrReferenceSection
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - GENERAL-NOTES-01
+    derivation: class_hint가 직접 NoteOrReferenceSection인 단일 태그.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:NoteSection
+    label: NoteSection
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - MISC-NOTES-01
+    - NOTES-SECTION
+    derivation: class_hint가 직접 NoteSection인 태그들을 묶었다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:toc_group
+    label: toc_group
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - GRP-A11
+    - GRP-A12-AREA
+    - TOC-A11
+    derivation: class_hint가 toc_group으로 직접 제시된 태그들을 묶었다. TOC/GRP 명명 패턴과 contains/contained_in
+      관계가 일관된다.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:group_or_panel_member
+    label: group_or_panel_member
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - GRP-A12-FIRE
+    derivation: class_hint가 group_or_panel_member인 단일 태그. TOC-A12 하위 구성원으로 관찰된다.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:GroupOrContainerEntity
+    label: GroupOrContainerEntity
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - GRP-A12-HVAC
+    derivation: class_hint가 GroupOrContainerEntity인 단일 태그. TOC-A12 contains 관계를 가진
+      그룹형 엔티티다.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:Group
+    label: Group
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - GRP-A12-PERF
+    - GRP-A12-WINDOWLESS
+    derivation: class_hint가 Group인 태그들을 묶었다. TOC-A12 또는 자기참조 contains 패턴을 가진 그룹 라벨이다.
+    source_pages: []
+    confidence: 0.84
+  - iri: dks:plan_container
+    label: plan_container
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - PLAN-1F
+    derivation: class_hint가 plan_container인 단일 태그. 다수 공간/요소를 contains하는 핵심 컨테이너다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:plan_or_panel_container
+    label: plan_or_panel_container
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - PLAN-PIT
+    - TOC-A12
+    derivation: class_hint가 plan_or_panel_container인 태그들을 묶었다. plan과 panel/TOC 컨테이너가
+      혼합되어 있으나 evidence상 동일 힌트로 제시되었다.
+    source_pages: []
+    confidence: 0.83
+  - iri: dks:ReferenceEntity
+    label: ReferenceEntity
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - REF-A07.01
+    derivation: class_hint가 ReferenceEntity인 단일 태그.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:ReferenceSection
+    label: ReferenceSection
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - REF-SEC-JP
+    derivation: class_hint가 ReferenceSection인 단일 태그.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:TitleBlock
+    label: TitleBlock
+    super_classes:
+    - dks:DocumentEntity
+    evidence_tags:
+    - TITLE-BLOCK-01
+    derivation: class_hint가 TitleBlock인 단일 태그. TITLE-BLOCK 일반 태그와는 별도로 구체 클래스가 직접
+      제시되었다.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:CoverOrSheetReference
+    label: CoverOrSheetReference
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-COVER-01
+    derivation: class_hint가 CoverOrSheetReference인 단일 태그.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DocumentNote
+    label: DocumentNote
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-DETAIL-003
+    derivation: class_hint가 DocumentNote인 단일 태그.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DetailNoteOrReference
+    label: DetailNoteOrReference
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-DETAIL-006
+    derivation: class_hint가 DetailNoteOrReference인 단일 태그.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:GroupingLabel
+    label: GroupingLabel
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-GROUP-A10
+    - UNKNOWN-GROUP-G1
+    derivation: class_hint가 GroupingLabel인 태그들을 묶었다. GROUP 명명 패턴과 라벨 성격이 일치한다.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:UnknownGroupOrReferenceLabel
+    label: UnknownGroupOrReferenceLabel
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-GROUP-A9
+    derivation: class_hint가 UnknownGroupOrReferenceLabel인 단일 태그.
+    source_pages: []
+    confidence: 0.86
+  - iri: dks:PanelOrContainerAnnotation
+    label: PanelOrContainerAnnotation
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-PANEL-02
+    derivation: class_hint가 PanelOrContainerAnnotation인 단일 태그.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:PanelOrReferenceAnnotation
+    label: PanelOrReferenceAnnotation
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-PANEL-04
+    derivation: class_hint가 PanelOrReferenceAnnotation인 단일 태그.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:PanelTitle
+    label: PanelTitle
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-PANEL-TITLE
+    derivation: class_hint가 PanelTitle인 단일 태그.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:ReferenceNote
+    label: ReferenceNote
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-REF-002
+    derivation: class_hint가 ReferenceNote인 단일 태그.
+    source_pages: []
+    confidence: 0.92
+  - iri: dks:UnresolvedStructuralAnnotation
+    label: UnresolvedStructuralAnnotation
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-STRUCTURAL-004
+    derivation: class_hint가 UnresolvedStructuralAnnotation인 단일 태그.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:TableOrScheduleReference
+    label: TableOrScheduleReference
+    super_classes:
+    - dks:AnnotationOrReferenceEntity
+    evidence_tags:
+    - UNKNOWN-TABLE-03
+    derivation: class_hint가 TableOrScheduleReference인 단일 태그.
+    source_pages: []
+    confidence: 0.9
+  subclass_relations:
+  - sub: dks:RoomOrSpace
+    super: dks:SpatialEntity
+    derivation: class_hint 자체가 SpatialEntity보다 구체적인 room/space 표현이다.
+    confidence: 0.94
+  - sub: dks:RoomLikeEntity
+    super: dks:SpatialEntity
+    derivation: class_hint 명칭상 SpatialEntity의 하위 공간형 클래스다.
+    confidence: 0.94
+  - sub: dks:Space
+    super: dks:SpatialEntity
+    derivation: Space는 SpatialEntity보다 구체적이며 PLAN-1F 하위 공간으로 관찰된다.
+    confidence: 0.96
+  - sub: dks:ArchitecturalElement
+    super: dks:BuildingElement
+    derivation: class_hint 명칭상 architectural element는 building element의 구체형이다.
+    confidence: 0.9
+  - sub: dks:Hatch
+    super: dks:BuildingElement
+    derivation: alternative_class_hints에 BuildingElement가 직접 제시되고 물리 요소로 part_of 관계를
+      가진다.
+    confidence: 0.88
+  - sub: dks:Sump
+    super: dks:BuildingElement
+    derivation: alternative_class_hints에 BuildingElement가 직접 제시되고 PLAN-PIT 내부 요소로
+      관찰된다.
+    confidence: 0.88
+  - sub: dks:Pipe
+    super: dks:ServiceNetworkElement
+    derivation: UNKNOWN-PIPE-001의 alternative_class_hints에 ServiceNetworkElement가
+      직접 제시된다.
+    confidence: 0.96
+  - sub: dks:SheetOrDrawingReferenceEntity
+    super: dks:AnnotationOrReferenceEntity
+    derivation: class_hint 명칭상 시트/도면 참조는 참조 엔티티의 구체형이다.
+    confidence: 0.9
+  - sub: dks:ReferenceOrNoteEntity
+    super: dks:AnnotationOrReferenceEntity
+    derivation: class_hint 명칭상 reference/note 계열은 annotation/reference 상위군에 속한다.
+    confidence: 0.93
+  - sub: dks:AbbreviationTable
+    super: dks:AnnotationOrReferenceEntity
+    derivation: 표(annotation table) 성격이며 물리 요소나 공간 근거가 없다.
+    confidence: 0.84
+  - sub: dks:LegendOrDrawingSymbolPanel
+    super: dks:AnnotationOrReferenceEntity
+    derivation: DRAWING-SYMBOLS-01은 symbol panel이며 SYM-*와 part_of 관계를 가진 범례/참조 패널이다.
+    confidence: 0.9
+  - sub: dks:NoteOrReferenceSection
+    super: dks:AnnotationOrReferenceEntity
+    derivation: section 명칭과 notes/reference 패턴에 근거.
+    confidence: 0.93
+  - sub: dks:NoteSection
+    super: dks:AnnotationOrReferenceEntity
+    derivation: note section은 annotation/reference 계열의 구체형이다.
+    confidence: 0.95
+  - sub: dks:toc_group
+    super: dks:AnnotationOrReferenceEntity
+    derivation: TOC/GRP 패턴은 문서 목차 그룹 구조를 가리키며 공간/설비 근거가 없다.
+    confidence: 0.86
+  - sub: dks:group_or_panel_member
+    super: dks:AnnotationOrReferenceEntity
+    derivation: panel member/group member는 문서 패널 구성원으로 관찰된다.
+    confidence: 0.84
+  - sub: dks:GroupOrContainerEntity
+    super: dks:AnnotationOrReferenceEntity
+    derivation: TOC-A12 하위 그룹 컨테이너로 관찰되며 문서 구조 성격이 강하다.
+    confidence: 0.8
+  - sub: dks:Group
+    super: dks:AnnotationOrReferenceEntity
+    derivation: GRP-* 명명 패턴과 TOC contains 관계에 근거.
+    confidence: 0.82
+  - sub: dks:ReferenceEntity
+    super: dks:AnnotationOrReferenceEntity
+    derivation: reference는 annotation/reference 상위군의 직접 하위로 귀납된다.
+    confidence: 0.95
+  - sub: dks:ReferenceSection
+    super: dks:AnnotationOrReferenceEntity
+    derivation: reference section 명칭에 근거.
+    confidence: 0.95
+  - sub: dks:TitleBlock
+    super: dks:DocumentEntity
+    derivation: title block은 문서 구성요소로 관찰되며 TITLE-BLOCK 일반 태그와 명명 패턴이 연결된다.
+    confidence: 0.94
+  - sub: dks:CoverOrSheetReference
+    super: dks:AnnotationOrReferenceEntity
+    derivation: cover/sheet reference는 참조형 문서 표식이다.
+    confidence: 0.88
+  - sub: dks:DocumentNote
+    super: dks:AnnotationOrReferenceEntity
+    derivation: document note는 annotation/reference 계열의 구체형이다.
+    confidence: 0.9
+  - sub: dks:DetailNoteOrReference
+    super: dks:AnnotationOrReferenceEntity
+    derivation: class_hint 명칭상 detail note/reference는 annotation/reference 하위다.
+    confidence: 0.9
+  - sub: dks:GroupingLabel
+    super: dks:AnnotationOrReferenceEntity
+    derivation: grouping label은 문서 라벨/표식 성격이다.
+    confidence: 0.9
+  - sub: dks:UnknownGroupOrReferenceLabel
+    super: dks:AnnotationOrReferenceEntity
+    derivation: 명칭상 group/reference label 계열이다.
+    confidence: 0.86
+  - sub: dks:PanelOrContainerAnnotation
+    super: dks:AnnotationOrReferenceEntity
+    derivation: annotation이라는 class_hint 명칭에 직접 근거.
+    confidence: 0.9
+  - sub: dks:PanelOrReferenceAnnotation
+    super: dks:AnnotationOrReferenceEntity
+    derivation: annotation/reference 혼합형으로 상위 annotation/reference군에 둔다.
+    confidence: 0.9
+  - sub: dks:PanelTitle
+    super: dks:AnnotationOrReferenceEntity
+    derivation: panel title은 패널 표제 라벨로 관찰된다.
+    confidence: 0.9
+  - sub: dks:ReferenceNote
+    super: dks:AnnotationOrReferenceEntity
+    derivation: reference note는 annotation/reference 하위다.
+    confidence: 0.92
+  - sub: dks:UnresolvedStructuralAnnotation
+    super: dks:AnnotationOrReferenceEntity
+    derivation: annotation이라는 class_hint 명칭에 직접 근거.
+    confidence: 0.9
+  - sub: dks:TableOrScheduleReference
+    super: dks:AnnotationOrReferenceEntity
+    derivation: table/schedule reference는 참조형 annotation 계열이다.
+    confidence: 0.9
+  disjoint_candidates:
+  - classes:
+    - dks:SpatialEntity
+    - dks:ServiceNetworkElement
+    reason: evidence_tags 교집합이 0이며, 하나는 adjacent_to/room-space 패턴, 다른 하나는 connects_to
+      네트워크 패턴으로 분리된다.
+    confidence: 0.9
+  - classes:
+    - dks:SpatialEntity
+    - dks:AnnotationOrReferenceEntity
+    reason: evidence_tags 교집합이 0이며, 공간형 NamedIndividual과 주석/참조형 AnnotationOnly 패턴이
+      분리된다.
+    confidence: 0.92
+  - classes:
+    - dks:BuildingElement
+    - dks:AnnotationOrReferenceEntity
+    reason: evidence_tags 교집합이 0이며, 물리 요소와 문서 주석/참조 역할이 분리된다.
+    confidence: 0.9
+  - classes:
+    - dks:DocumentEntity
+    - dks:ServiceNetworkElement
+    reason: evidence_tags 교집합이 0이며, 문서 식별자와 서비스 네트워크 요소의 관계 패턴이 완전히 다르다.
+    confidence: 0.93
+  - classes:
+    - dks:DocumentEntity
+    - dks:SpatialEntity
+    reason: evidence_tags 교집합이 0이며, 문서 태그와 공간 태그가 관찰상 분리된다.
+    confidence: 0.9
+  hierarchy_summary:
+    total_classes: 34
+    max_depth: 3
+    by_discipline:
+      unknown: 33
+      architectural: 2
+      mechanical: 1
+  unclassified_tags:
+  - tag: '103'
+    reason: placement 집계 본문에 독립 태그 레코드가 없고 T01의 adjacent_to target_hint로만 등장하여 confirmed
+      class를 부여할 근거가 부족하다.
+    hint: T01 인접 공간 후보로 별도 placement 레코드 확인 필요
+  - tag: '214'
+    reason: placement 집계 본문에 독립 태그 레코드가 없고 T01의 adjacent_to target_hint로만 등장한다. J_214와
+      동일 개체인지도 evidence만으로 확정 불가하다.
+    hint: 숫자형 공간 태그 214와 J_214의 분리 여부 재검토 필요
+  - tag: SYM-001
+    reason: DRAWING-SYMBOLS-01의 part_of target_hint로만 등장하고 독립 class_hint가 없다.
+    hint: symbol example 계열 별도 placement 필요
+  - tag: SYM-002
+    reason: part_of target_hint로만 등장.
+    hint: symbol example 계열 별도 placement 필요
+  - tag: SYM-003
+    reason: part_of target_hint로만 등장.
+    hint: symbol example 계열 별도 placement 필요
+  - tag: SYM-004
+    reason: part_of target_hint로만 등장.
+    hint: symbol example 계열 별도 placement 필요
+  - tag: SYM-005
+    reason: part_of target_hint로만 등장.
+    hint: symbol example 계열 별도 placement 필요
+  - tag: SYM-006
+    reason: part_of target_hint로만 등장.
+    hint: symbol example 계열 별도 placement 필요
+  - tag: UNKNOWN-DOOR-01
+    reason: T01 contains target_hint로만 등장하고 독립 class_hint가 없다.
+    hint: building element 후보
+  - tag: UNKNOWN-ROOF-01
+    reason: T01 contains target_hint로만 등장하고 독립 class_hint가 없다.
+    hint: building element 후보
+  - tag: UNKNOWN-DRAIN-01
+    reason: T01 contains target_hint로만 등장하고 독립 class_hint가 없다.
+    hint: drainage/building element 후보
+  - tag: UNKNOWN-SLOPE-01
+    reason: T01 contains target_hint로만 등장하고 독립 class_hint가 없다.
+    hint: building element 또는 annotation 재검토 필요
+  - tag: pages 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119, 120, 121, 122
+    reason: TOC-MAIN의 contains target_hint 문자열이며 개별 태그 엔티티가 아니다.
+    hint: 엔티티가 아닌 literal/list 가능성
+  plan_deviations:
+  - plan_item: top_level에 DocumentEntity, SpatialEntity, BuildingElement, ServiceNetworkElement,
+      AnnotationOrReferenceEntity, UnknownEntity를 채택
+    actual_finding: 대체로 관찰과 부합하지만 plan_container, plan_or_panel_container, toc_group
+      같은 별도 class_hint가 반복 관찰되어 독립 클래스로 유지할 필요가 있었다.
+    action_taken: 해당 힌트들을 상위 6분류에 강제 흡수하지 않고 evidence 기반 독립 클래스로 생성
+  - plan_item: UnknownEntity를 최종 클래스가 아니라 임시 분류층으로 유지
+    actual_finding: 직접 class_hint가 UnknownEntity인 태그 수가 많고 suffix별 세분 근거가 부족한 경우가
+      다수였다.
+    action_taken: UnknownEntity를 실제 클래스 하나로 유지하되, 더 구체 class_hint가 있는 경우는 별도 클래스로
+      분리
+  - plan_item: DrainageElement를 ServiceNetworkElement 하위로 둘 가능성
+    actual_finding: DrainageElement는 대부분 alternative_class_hints에만 나타나고 직접 class_hint로는
+      거의 나타나지 않았다.
+    action_taken: 직접 class_hint 중심 원칙에 따라 ServiceNetworkElement와 Pipe만 확정하고 DrainageElement
+      자체 클래스는 생성하지 않음
+  - plan_item: DocumentEntity vs AnnotationOrReferenceEntity의 1차 분리
+    actual_finding: 두 힌트가 혼재하지만 일부 특수 class_hint(TitleBlock, NoteSection, ReferenceSection
+      등)가 관찰되어 더 세분된 annotation/reference 하위군이 필요했다.
+    action_taken: DocumentEntity와 AnnotationOrReferenceEntity를 병합하지 않고, 특수 하위 클래스를
+      추가
+  - plan_item: T01 및 숫자형 태그들을 room/space-like로 묶기
+    actual_finding: T01은 SpatialEntity로 직접 제시되지만 plan/panel container 대안도 있어 완전한 room
+      하위로 내리기 어렵다.
+    action_taken: T01은 SpatialEntity에 유지하고 별도 더 구체 하위 클래스는 만들지 않음
+  back_update_instructions:
+    per_tag_confirmed_class:
+      '101': dks:DocumentEntity
+      '102': dks:SpatialEntity
+      '104': dks:SpatialEntity
+      '106': dks:DocumentEntity
+      '107': dks:DocumentEntity
+      '108': dks:AnnotationOrReferenceEntity
+      '126': dks:AnnotationOrReferenceEntity
+      '201': dks:SpatialEntity
+      '203': dks:AnnotationOrReferenceEntity
+      '204': dks:DocumentEntity
+      '209': dks:AnnotationOrReferenceEntity
+      '211': dks:AnnotationOrReferenceEntity
+      '212': dks:DocumentEntity
+      '213': dks:SpatialEntity
+      '215': dks:AnnotationOrReferenceEntity
+      '216': dks:DocumentEntity
+      A11.01: dks:SheetOrDrawingReferenceEntity
+      A11.02: dks:DocumentEntity
+      A11.03: dks:AnnotationOrReferenceEntity
+      A12.01: dks:AnnotationOrReferenceEntity
+      A12.02: dks:AnnotationOrReferenceEntity
+      A12.03: dks:AnnotationOrReferenceEntity
+      A12.11: dks:AnnotationOrReferenceEntity
+      A12.21: dks:AnnotationOrReferenceEntity
+      A12.22: dks:DocumentEntity
+      A12.23: dks:AnnotationOrReferenceEntity
+      A12.24: dks:ReferenceOrNoteEntity
+      A12.31: dks:AnnotationOrReferenceEntity
+      A12.32: dks:DocumentEntity
+      A12.41: dks:AnnotationOrReferenceEntity
+      A12.42: dks:AnnotationOrReferenceEntity
+      A_110: dks:AnnotationOrReferenceEntity
+      AB_114: dks:SpatialEntity
+      ABBREVIATIONS-TABLE: dks:AbbreviationTable
+      AC_115: dks:SpatialEntity
+      AD_111: dks:DocumentEntity
+      B_113: dks:RoomOrSpace
+      C_121: dks:DocumentEntity
+      CA_125: dks:AnnotationOrReferenceEntity
+      CB_124: dks:DocumentEntity
+      CC_122: dks:AnnotationOrReferenceEntity
+      CD_123: dks:DocumentEntity
+      D109: dks:DocumentEntity
+      DRAWING-SYMBOLS-01: dks:LegendOrDrawingSymbolPanel
+      E_120: dks:SpatialEntity
+      EA_118: dks:Space
+      EB_119: dks:SpatialEntity
+      EPS/TPS: dks:UnknownEntity
+      EXT-FINISH: dks:UnknownEntity
+      EXT-SLOPE: dks:UnknownEntity
+      EXT-TACTILE: dks:AnnotationOrReferenceEntity
+      F_117: dks:RoomLikeEntity
+      FIRE-PROTECTION-01: dks:AnnotationOrReferenceEntity
+      G01.01: dks:ReferenceOrNoteEntity
+      G01.03: dks:AnnotationOrReferenceEntity
+      G_116: dks:SpatialEntity
+      GENERAL-NOTES-01: dks:NoteOrReferenceSection
+      GRP-A11: dks:toc_group
+      GRP-A12-AREA: dks:toc_group
+      GRP-A12-FIRE: dks:group_or_panel_member
+      GRP-A12-HVAC: dks:GroupOrContainerEntity
+      GRP-A12-PERF: dks:Group
+      GRP-A12-WINDOWLESS: dks:Group
+      H_105: dks:DocumentEntity
+      I_112: dks:DocumentEntity
+      INSULATION-01: dks:AnnotationOrReferenceEntity
+      J_202: dks:DocumentEntity
+      J_214: dks:DocumentEntity
+      M_205: dks:DocumentEntity
+      M_217: dks:AnnotationOrReferenceEntity
+      MISC-NOTES-01: dks:NoteSection
+      N_210: dks:AnnotationOrReferenceEntity
+      NOTES-SECTION: dks:NoteSection
+      PLAN-1F: dks:plan_container
+      PLAN-PIT: dks:plan_or_panel_container
+      PS: dks:DocumentEntity
+      REF-A05.01: dks:AnnotationOrReferenceEntity
+      REF-A07.01: dks:ReferenceEntity
+      REF-SEC-JP: dks:ReferenceSection
+      T01: dks:SpatialEntity
+      T02: dks:AnnotationOrReferenceEntity
+      T03: dks:DocumentEntity
+      TITLE-BLOCK-01: dks:TitleBlock
+      TITLE-BLOCK: dks:DocumentEntity
+      TOC-A11: dks:toc_group
+      TOC-A12: dks:plan_or_panel_container
+      TOC-MAIN: dks:DocumentEntity
+      UNKNOWN-ACCESS-001: dks:AnnotationOrReferenceEntity
+      UNKNOWN-ACCESS-002: dks:UnknownEntity
+      UNKNOWN-BUILDING-SERVICE-001: dks:UnknownEntity
+      UNKNOWN-BUILDING-SERVICE-002: dks:UnknownEntity
+      UNKNOWN-BUILDING-SERVICE-003: dks:UnknownEntity
+      UNKNOWN-BUILDING-SERVICE-004: dks:UnknownEntity
+      UNKNOWN-BUILDING-SERVICE-005: dks:UnknownEntity
+      UNKNOWN-CANOPY-01: dks:BuildingElement
+      UNKNOWN-CJ-001: dks:AnnotationOrReferenceEntity
+      UNKNOWN-COVER-01: dks:CoverOrSheetReference
+      UNKNOWN-DETAIL-001: dks:AnnotationOrReferenceEntity
+      UNKNOWN-DETAIL-002: dks:AnnotationOrReferenceEntity
+      UNKNOWN-DETAIL-003: dks:DocumentNote
+      UNKNOWN-DETAIL-004: dks:AnnotationOrReferenceEntity
+      UNKNOWN-DETAIL-005: dks:AnnotationOrReferenceEntity
+      UNKNOWN-DETAIL-006: dks:DetailNoteOrReference
+      UNKNOWN-EJ-001: dks:AnnotationOrReferenceEntity
+      UNKNOWN-EJ-002: dks:AnnotationOrReferenceEntity
+      UNKNOWN-FINISH-01: dks:BuildingElement
+      UNKNOWN-GROUP-A1: dks:UnknownEntity
+      UNKNOWN-GROUP-A10: dks:GroupingLabel
+      UNKNOWN-GROUP-A2: dks:UnknownEntity
+      UNKNOWN-GROUP-A3: dks:UnknownEntity
+      UNKNOWN-GROUP-A4: dks:UnknownEntity
+      UNKNOWN-GROUP-A5: dks:UnknownEntity
+      UNKNOWN-GROUP-A6: dks:UnknownEntity
+      UNKNOWN-GROUP-A7: dks:UnknownEntity
+      UNKNOWN-GROUP-A8: dks:UnknownEntity
+      UNKNOWN-GROUP-A9: dks:UnknownGroupOrReferenceLabel
+      UNKNOWN-GROUP-G1: dks:GroupingLabel
+      UNKNOWN-HATCH-01: dks:Hatch
+      UNKNOWN-LADDER-001: dks:BuildingElement
+      UNKNOWN-LADDER-002: dks:UnknownEntity
+      UNKNOWN-LADDER-01: dks:ArchitecturalElement
+      UNKNOWN-LEVEL-001: dks:AnnotationOrReferenceEntity
+      UNKNOWN-LEVEL-002: dks:AnnotationOrReferenceEntity
+      UNKNOWN-LEVEL-003: dks:AnnotationOrReferenceEntity
+      UNKNOWN-MARK-01: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PAD-001: dks:UnknownEntity
+      UNKNOWN-PAD-002: dks:UnknownEntity
+      UNKNOWN-PAD-003: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PAD-004: dks:UnknownEntity
+      UNKNOWN-PANEL-01: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PANEL-02: dks:PanelOrContainerAnnotation
+      UNKNOWN-PANEL-03: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PANEL-04: dks:PanelOrReferenceAnnotation
+      UNKNOWN-PANEL-05: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PANEL-06: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PANEL-07: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PANEL-HEADER: dks:AnnotationOrReferenceEntity
+      UNKNOWN-PANEL-TITLE: dks:PanelTitle
+      UNKNOWN-PIPE-001: dks:Pipe
+      UNKNOWN-PIPE-002: dks:ServiceNetworkElement
+      UNKNOWN-PLATE-01: dks:UnknownEntity
+      UNKNOWN-RD-001: dks:ServiceNetworkElement
+      UNKNOWN-RD-002: dks:ServiceNetworkElement
+      UNKNOWN-RD-003: dks:ServiceNetworkElement
+      UNKNOWN-REF-001: dks:ReferenceOrNoteEntity
+      UNKNOWN-REF-002: dks:ReferenceNote
+      UNKNOWN-REF-003: dks:AnnotationOrReferenceEntity
+      UNKNOWN-REF-004: dks:AnnotationOrReferenceEntity
+      UNKNOWN-REFERENCE-001: dks:AnnotationOrReferenceEntity
+      UNKNOWN-REFERENCE-002: dks:AnnotationOrReferenceEntity
+      UNKNOWN-REFERENCE-003: dks:AnnotationOrReferenceEntity
+      UNKNOWN-REFERENCE-004: dks:AnnotationOrReferenceEntity
+      UNKNOWN-REFERENCE-005: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SHAFT-001: dks:UnknownEntity
+      UNKNOWN-SHAFT-002: dks:UnknownEntity
+      UNKNOWN-SHAPE-01: dks:UnknownEntity
+      UNKNOWN-SHAPE-02: dks:UnknownEntity
+      UNKNOWN-SHAPE-03: dks:UnknownEntity
+      UNKNOWN-SPACE-001: dks:SpatialEntity
+      UNKNOWN-STRUCTURAL-001: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-002: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-003: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-004: dks:UnresolvedStructuralAnnotation
+      UNKNOWN-STRUCTURAL-005: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-006: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-007: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-008: dks:UnknownEntity
+      UNKNOWN-STRUCTURAL-009: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SUMP-01: dks:Sump
+      UNKNOWN-SYM-01: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SYM-02: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SYM-03: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SYM-04: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SYM-05: dks:AnnotationOrReferenceEntity
+      UNKNOWN-SYM-06: dks:AnnotationOrReferenceEntity
+      UNKNOWN-TABLE-01: dks:AnnotationOrReferenceEntity
+      UNKNOWN-TABLE-02: dks:AnnotationOrReferenceEntity
+      UNKNOWN-TABLE-03: dks:TableOrScheduleReference
+      UNKNOWN-TRENCH-001: dks:ServiceNetworkElement
+      UNKNOWN-TRENCH-002: dks:ServiceNetworkElement
+      UNKNOWN-TRENCH-003: dks:ServiceNetworkElement
+      UNKNOWN-TRENCH-01: dks:TRENCH
+    confirmed_at: '2026-04-22T00:00:00Z'
+    by: step_0-9c
+  confidence_overall: 0.84
+  self_assessment: 직접 관찰된 placement class_hint를 우선하고, alternative_class_hints는 subclass
+    귀납 보조에만 제한적으로 사용했다. plan의 상위 분류는 일부 부합했지만 plan_container, toc_group, plan_or_panel_container처럼
+    실제 evidence에서 반복되는 별도 힌트를 독립 클래스로 유지했다. 다만 source_page 정보가 본 집계에 거의 없고, 일부 target_hint
+    전용 태그(SYM-*, 103, 214, UNKNOWN-DOOR-01 등)는 독립 레코드가 없어 unclassified로 남겼다.

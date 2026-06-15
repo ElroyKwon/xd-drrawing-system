@@ -1,0 +1,748 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: 표면/포장 종류 범례
+  discipline: COMMUNICATION
+  classification: FLOOR_LAYOUT
+  drawing_genre: floor_plan
+  title_block:
+    drawing_number: C10-401
+    title: 포장계획평면도
+    revision: null
+  visible_tags:
+  - tag: R-Center
+    type: named_area_or_project_name
+    source: both
+  - tag: I-Center 1층
+    type: named_area_or_project_name
+    source: image
+  complexity:
+    symbol_density: MEDIUM
+    has_connections: false
+    estimated_entity_count: 8
+  next_step_hints:
+  - 범례 표가 좌하단에 있으며 콘크리트포장, 아스콘 덧씌우기, 아스콘포장복구, 보도블럭포장, 경사/보도/낮춤 경계석 등의 표기와 선종류가 함께
+    제시됨
+  - 도면번호 접두사 C10-401은 통신으로 보이나 시각적 내용은 포장계획평면도이므로 접두사와 내용이 불일치함
+  - 건축/토목 성격의 평면도처럼 보이며 연결선/설비 태그는 보이지 않음
+  confidence: 0.93
+  note: 도면번호 접두사 C가 보이지만 시각적 내용은 포장계획평면도/외부 포장 범례 중심이라 ARCHITECTURAL로 1차 판정함. 범례 섹션은
+    좌하단에 존재.
+  recommended_supplements: &id001
+    P-4.5: discipline/communication/genre_floor_plan/supplement_p4_05.yaml
+    P-10: discipline/communication/genre_floor_plan/supplement_p10.yaml
+  routing_confidence: 0.78
+  routing_reason: ARCHITECTURAL + floor_plan 조합은 P-4.5의 genre_floor_plan과 매칭되며, P-10에는
+    architectural floor_plan supplement가 없어 fallback도 없음.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: LEGEND_TABLE
+    shape: rectangle
+    primary_label: 범례
+    position: bottom-left
+    labels_near:
+    - 구분
+    - 명칭
+    - 규격
+    - 단위
+    - 비고
+  - panel_id: TITLE_BLOCK
+    shape: rectangle
+    primary_label: 포장계획평면도
+    position: bottom-right
+    labels_near:
+    - C10 - 401
+    - LS Electric
+    - 가운건축
+  - panel_id: FLOOR_PLAN_AREA
+    shape: rectangle
+    primary_label: I-Center 1층
+    position: center
+    labels_near:
+    - 보도블럭포장
+    - 콘크리트 포장
+    - 아스콘 덧씌우기
+    - L형측구 경계석
+  connections: []
+  notable_shapes:
+  - shape: circle
+    label: N
+    note: 방위 표시 (North Arrow)
+  - shape: shaded_box
+    label: 콘크리트포장
+    note: 범례 표 내의 해치 패턴 예시
+  - shape: dashed_box
+    label: 보도블럭포장
+    note: 범례 표 내의 해치 패턴 예시
+  - shape: circle
+    label: '1'
+    note: 도면 번호 식별자 (Key Plan 인근)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-left
+  confidence: 0.98
+  note: 좌하단에 '범례' 타이틀을 가진 포장 및 경계석 종류 표가 명확히 존재함.
+supplement_routing:
+  discipline: COMMUNICATION
+  drawing_genre: floor_plan
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.95
+  routing_reason: 도면번호 접두사 'C'에 따라 discipline을 COMMUNICATION으로 변경. 시각적 내용은 포장계획평면도이나,
+    접두사 우선 규칙을 적용하여 floor_plan 장르 유지.
+classification: FLOOR_LAYOUT
+discipline: ARCHITECTURAL
+key_elements_from_text:
+- 포장계획평면도
+- 범례
+- 콘크리트포장
+- 아스콘 덧씌우기
+- 아스콘포장복구
+- 보도블럭포장
+- L형측구경계석
+- 보도경계석
+- 낮춤경계석
+- 경사경계석
+- R-Center
+- I-Center 1층
+title_block:
+  drawing_number: C10-401
+  title: 포장계획평면도
+  revision: UNKNOWN
+confidence: 0.97
+note: '기존 분석의 discipline=COMMUNICATION은 도면번호 접두사 기준 추정과 시각 내용이 불일치함. 페이지 19의 시각적 내용은
+  포장계획평면도이며, 좌하단 범례와 중앙 배치도에 포장/경계석 종류가 표시되어 있어 ARCHITECTURAL / FLOOR_LAYOUT로 교정함.
+  근거: 우하단 표제란의 ''포장계획평면도'', ''C10-401'', 좌하단 범례, 도면 내 ''콘크리트 포장'', ''아스콘 덧씌우기'', ''아스콘포장복구'',
+  ''보도블럭포장'', ''경사경계석'', ''보도경계석'', ''낮춤경계석'' 표기.'
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: SITE-MAIN
+    shape: rectangle
+    labels_inside:
+    - 콘크리트 포장
+    - 아스콘 덧씌우기
+    - 보도블럭 포장
+    - 아스콘포장복구
+    - L형측구 경계석
+    - 보도경계석
+    - 낮춤경계석
+    - 경사경계석
+    labels_above:
+    - 보도경계석
+    - 콘크리트 포장
+    - 아스콘 덧씌우기
+    labels_below: []
+    labels_right:
+    - 경사경계석
+    - 보도경계석
+    - 낮춤경계석
+    - 보도블럭 포장
+    - L형측구 경계석
+    - 아스콘포장복구
+    - 아스콘 덧씌우기
+    - 콘크리트 포장
+    equipment_symbols:
+    - type: north_arrow
+      count: 1
+    - type: grid_column_marker
+      count: 9
+    - type: grid_row_marker
+      count: 4
+    - type: key_plan_circle
+      count: 1
+    inferred_name: 포장계획 전체 부지 평면
+    position: center
+    notes:
+    - '그리드 열: 1, 2, 2A, 3, 4, 5, 5A, 5B, 6, 7'
+    - '그리드 행: A, B, C, D'
+    - 북측 상단에 콘크리트 포장(진한 회색 해치) 영역 존재
+    - 서측 외부에 보도블럭포장 영역 존재
+    - 동측 경계부에 경사/보도/낮춤 경계석 표기
+    - 남측 하단에 아스콘포장복구 영역 존재
+  - panel_id: BLDG-RCENTER
+    shape: rectangle
+    labels_inside:
+    - R-Center
+    labels_above: []
+    labels_below:
+    - I-Center 1층
+    equipment_symbols: []
+    inferred_name: R-Center 건물 본동 (기존동 포함)
+    position: center
+    notes:
+    - 도면 중앙부에 위치한 주 건물 윤곽
+    - 내부에 실 배치 및 치수선 표기
+    - 기존동 표기 박스 다수 존재
+  - panel_id: BLDG-24DONG
+    shape: rectangle
+    labels_inside:
+    - 24동
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 24동 기존 건물
+    position: left
+    notes:
+    - 서측 B1 그리드 인근에 위치
+    - 점선 박스로 표현된 기존 건물
+  - panel_id: BLDG-21DONG
+    shape: rectangle
+    labels_inside:
+    - 21동
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 21동 기존 건물
+    position: bottom-center
+    notes:
+    - 남측 하단 중앙부에 위치
+    - 점선 박스로 표현된 기존 건물
+  - panel_id: BLDG-EXISTING-TOP
+    shape: rectangle
+    labels_inside:
+    - 기동
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 상단 기존 건물
+    position: top-center
+    notes:
+    - 북측 상단 중앙부에 위치한 기존 건물
+  - panel_id: BLDG-EXISTING-BOTTOM-RIGHT
+    shape: rectangle
+    labels_inside:
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 우하단 기존 건물
+    position: bottom-right
+    notes:
+    - 남동측 하단에 위치한 기존 건물
+  - panel_id: ICENTER-1F
+    shape: rectangle
+    labels_inside:
+    - I-Center
+    - 1층
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: I-Center 1층 키플랜 참조 박스
+    position: bottom-center-left
+    notes:
+    - 남측 하단 좌측에 위치한 키플랜 참조 박스
+    - 원형 번호 '1' 심볼과 함께 표기
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - ● 범 례
+    - 구분 | 명 칭 | 규 격 | 단위 | 비 고
+    - 콘크리트포장 | T=200 | m2
+    - 아스콘 덧씌우기 | T=50 | m2
+    - 아스콘포장복구 | T=450 | m2
+    - 보도블럭포장 | T=200 | m2
+    - L형측구경계석 | 200X250X1000 | m | 콘크리트
+    - 보도경계석 | 200X250X1000 | m | 콘크리트
+    - 낮춤경계석 | 200X100X1000 | m | 콘크리트
+    - 경사경계석 | 200X100~250 | m | 콘크리트
+    labels_above:
+    - ● 범 례
+    labels_below: []
+    equipment_symbols:
+    - type: hatch_pattern_solid_gray
+      count: 1
+      note: 콘크리트포장 해치 예시
+    - type: hatch_pattern_light
+      count: 1
+      note: 아스콘 덧씌우기 해치 예시
+    - type: hatch_pattern_dotted
+      count: 1
+      note: 아스콘포장복구 해치 예시
+    - type: hatch_pattern_block
+      count: 1
+      note: 보도블럭포장 해치 예시
+    - type: line_solid_thick
+      count: 1
+      note: L형측구경계석 선종류
+    - type: line_dashed
+      count: 1
+      note: 보도경계석 선종류
+    - type: line_dotted
+      count: 1
+      note: 낮춤경계석 선종류
+    - type: line_dash_dot
+      count: 1
+      note: 경사경계석 선종류
+    inferred_name: 포장 및 경계석 범례 표
+    position: bottom-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN | Architects & Engineers
+    - 포장계획평면도
+    - 'A1 : 1/200'
+    - 'A3 : 1/400'
+    - '2024.05'
+    - C10 - 401
+    - 축척 1/200
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: revision_table
+      count: 1
+      note: ISSUES & REVISIONS 표
+    - type: drawing_number_circle
+      count: 1
+      note: 포장계획평면도 원형 번호 '1'
+    inferred_name: 표제란
+    position: right
+  connections: []
+  groups:
+  - group_id: GRP-PAVING
+    label: 포장 구역
+    members:
+    - SITE-MAIN
+    sub_zones:
+    - zone_id: ZONE-CONCRETE
+      label: 콘크리트 포장
+      hatch: solid_gray
+      thickness_mm: 200
+      unit: m2
+      location: 북측 상단 진입로 및 건물 주변
+    - zone_id: ZONE-ASCON-OVERLAY
+      label: 아스콘 덧씌우기
+      hatch: light_gray
+      thickness_mm: 50
+      unit: m2
+      location: 북측 및 동측 기존 도로 구간
+    - zone_id: ZONE-ASCON-RESTORE
+      label: 아스콘포장복구
+      hatch: dotted
+      thickness_mm: 450
+      unit: m2
+      location: 남측 하단 복구 구간
+    - zone_id: ZONE-BLOCK-PAVING
+      label: 보도블럭포장
+      hatch: block_pattern
+      thickness_mm: 200
+      unit: m2
+      location: 서측 보도 및 건물 주변 보행로
+  - group_id: GRP-BOUNDARY
+    label: 경계석 구역
+    members:
+    - SITE-MAIN
+    sub_elements:
+    - element_id: CURB-L
+      label: L형측구경계석
+      spec: 200X250X1000
+      material: 콘크리트
+      unit: m
+      line_style: solid_thick
+    - element_id: CURB-SIDEWALK
+      label: 보도경계석
+      spec: 200X250X1000
+      material: 콘크리트
+      unit: m
+      line_style: dashed
+    - element_id: CURB-LOWERED
+      label: 낮춤경계석
+      spec: 200X100X1000
+      material: 콘크리트
+      unit: m
+      line_style: dotted
+    - element_id: CURB-SLOPE
+      label: 경사경계석
+      spec: 200X100~250
+      material: 콘크리트
+      unit: m
+      line_style: dash_dot
+  - group_id: GRP-EXISTING-BLDG
+    label: 기존 건물군
+    members:
+    - BLDG-24DONG
+    - BLDG-21DONG
+    - BLDG-EXISTING-TOP
+    - BLDG-EXISTING-BOTTOM-RIGHT
+  legend_references:
+  - text: 콘크리트포장 T=200
+    linked_to: ZONE-CONCRETE
+  - text: 아스콘 덧씌우기 T=50
+    linked_to: ZONE-ASCON-OVERLAY
+  - text: 아스콘포장복구 T=450
+    linked_to: ZONE-ASCON-RESTORE
+  - text: 보도블럭포장 T=200
+    linked_to: ZONE-BLOCK-PAVING
+  - text: L형측구경계석 200X250X1000
+    linked_to: CURB-L
+  - text: 보도경계석 200X250X1000
+    linked_to: CURB-SIDEWALK
+  - text: 낮춤경계석 200X100X1000
+    linked_to: CURB-LOWERED
+  - text: 경사경계석 200X100~250
+    linked_to: CURB-SLOPE
+  diagram_meta:
+    title: 포장계획평면도
+    drawing_number: C10-401
+    project: LS Electric R-Center 구축
+    project_number: '224001'
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: 1:200
+    scale_secondary: 1:400 (A3)
+    date: '2024.05'
+    discipline: ARCHITECTURAL
+    arch_subsystem: site_plan
+    view_type: site_paving_plan
+    floor_label: 외부 포장 계획
+    flow_direction: UNKNOWN
+    has_legend: true
+    has_grid: true
+    grid_columns:
+    - '1'
+    - '2'
+    - 2A
+    - '3'
+    - '4'
+    - '5'
+    - 5A
+    - 5B
+    - '6'
+    - '7'
+    grid_rows:
+    - A
+    - B
+    - B1
+    - B2
+    - C
+    - D
+    north_arrow: true
+    key_plan_reference: I-Center 1층 (원형 번호 1)
+    floor_plan_subtype: site_paving_plan
+    has_enlarged_reference: false
+    corrections_from_prior_analysis:
+    - field: discipline
+      prior: COMMUNICATION
+      corrected: ARCHITECTURAL
+      reason: 도면번호 접두사 C는 통신 분야 코드가 아닌 프로젝트 내부 분류 코드로 판단. 시각적 내용은 외부 포장계획 평면도로 건축/토목
+        성격.
+    - field: drawing_genre
+      prior: floor_plan
+      corrected: site_plan
+      reason: 건물 내부 평면이 아닌 외부 부지 포장 계획도이므로 site_plan이 더 정확함.
+    - field: panel_id FLOOR_PLAN_AREA
+      prior: FLOOR_PLAN_AREA
+      corrected: SITE-MAIN
+      reason: BLK/BOX/BLOCK 접두사 및 기능 불명확 ID 대신 기능 반영 ID 사용.
+    - field: panel_id LEGEND_TABLE
+      prior: LEGEND_TABLE
+      corrected: LEGEND-TABLE
+      reason: 네이밍 규약 통일 (하이픈 구분자).
+    - field: panel_id TITLE_BLOCK
+      prior: TITLE_BLOCK
+      corrected: TITLE-BLOCK
+      reason: 네이밍 규약 통일.
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: SITE-PLAN-MAIN
+    shape: rectangle
+    labels_inside: []
+    labels_above:
+    - 콘크리트 포장
+    - 보도블럭포장
+    - 아스콘 덧씌우기
+    labels_below:
+    - 아스콘포장복구
+    - 콘크리트 포장
+    labels_right:
+    - 아스콘 덧씌우기
+    - 경사경계석
+    - 보도경계석
+    - 낮춤경계석
+    - 보도블럭 포장
+    - L형측구 경계석
+    equipment_symbols:
+    - type: north_arrow
+      count: 1
+    - type: grid_marker
+      count: 13
+      note: 1, 2, 2A, 3, 4, 5, 5A, 5B, 6, 7, A, B, B1, B2, C, D
+    inferred_name: 전체 부지 포장 계획
+    position: center
+  - panel_id: PAVING-CONCRETE-NORTH
+    shape: shaded_box
+    labels_inside: []
+    labels_above:
+    - 콘크리트 포장
+    labels_below: []
+    equipment_symbols:
+    - type: hatch_solid
+      count: 1
+    inferred_name: 북측 콘크리트 포장 구역
+    position: top-center
+  - panel_id: PAVING-ASCON-OVERLAY-EAST
+    shape: shaded_box
+    labels_inside: []
+    labels_above:
+    - 아스콘 덧씌우기
+    labels_below: []
+    equipment_symbols:
+    - type: hatch_dots
+      count: 1
+    inferred_name: 동측 아스콘 덧씌우기 구역
+    position: right
+  - panel_id: PAVING-BLOCK-WEST
+    shape: shaded_box
+    labels_inside: []
+    labels_above:
+    - 보도블럭포장
+    labels_below: []
+    equipment_symbols:
+    - type: hatch_grid
+      count: 1
+    inferred_name: 서측 보도블럭 포장 구역
+    position: left
+  - panel_id: PAVING-BLOCK-CENTER
+    shape: shaded_box
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - 보도블럭 포장
+    equipment_symbols:
+    - type: hatch_grid
+      count: 1
+    inferred_name: 중앙 보도블럭 포장 구역
+    position: center
+  - panel_id: PAVING-ASCON-RESTORE-SOUTH
+    shape: shaded_box
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - 아스콘포장복구
+    equipment_symbols:
+    - type: hatch_dense_dots
+      count: 1
+    inferred_name: 남측 아스콘 포장 복구 구역
+    position: bottom-center
+  - panel_id: PAVING-CONCRETE-SOUTH-EAST
+    shape: shaded_box
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - 콘크리트 포장
+    equipment_symbols:
+    - type: hatch_solid
+      count: 1
+    inferred_name: 남동측 콘크리트 포장 구역
+    position: bottom-right
+  - panel_id: BLDG-R-CENTER
+    shape: rectangle
+    labels_inside:
+    - R-Center
+    - UP
+    - UP
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: R-Center 건물
+    position: center
+  - panel_id: BLDG-EXISTING-25
+    shape: dashed_box
+    labels_inside:
+    - 25동
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 25동 (기존건물)
+    position: top-center
+  - panel_id: BLDG-EXISTING-24
+    shape: dashed_box
+    labels_inside:
+    - 24동
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 24동 (기존건물)
+    position: left
+  - panel_id: BLDG-EXISTING-21
+    shape: dashed_box
+    labels_inside:
+    - 21동
+    - (기존동)
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 21동 (기존건물)
+    position: bottom-center
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 범 례
+    - 구 분
+    - 명 칭
+    - 규 격
+    - 단 위
+    - 비 고
+    - 콘크리트포장
+    - T=200
+    - m2
+    - 아스콘 덧씌우기
+    - T=50
+    - m2
+    - 아스콘포장복구
+    - T=450
+    - m2
+    - 보도블럭포장
+    - T=200
+    - m2
+    - L형측구경계석
+    - 200X250X1000
+    - m
+    - 콘크리트
+    - 보도경계석
+    - 200X250X1000
+    - m
+    - 콘크리트
+    - 낮춤경계석
+    - 200X100X1000
+    - m
+    - 콘크리트
+    - 경사경계석
+    - 200X100~250
+    - m
+    - 콘크리트
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: hatch_solid
+      count: 1
+    - type: hatch_dots
+      count: 1
+    - type: hatch_dense_dots
+      count: 1
+    - type: hatch_grid
+      count: 1
+    - type: line_solid
+      count: 1
+    - type: line_dashed
+      count: 1
+    - type: line_dotted
+      count: 1
+    - type: line_dash_dot
+      count: 1
+    inferred_name: 범례표
+    position: bottom-left
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - '224001'
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 포장계획평면도
+    - A1: 1/200
+    - A3: 1/400
+    - '2024.05'
+    - C10 - 401
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 표제란
+    position: right
+  - panel_id: KEY-PLAN
+    shape: rectangle
+    labels_inside:
+    - I-Center
+    - 1층
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: circle_number
+      count: 1
+      note: '1'
+    inferred_name: 키플랜
+    position: bottom-center
+  connections:
+  - from: PAVING-CONCRETE-NORTH
+    to: PAVING-ASCON-OVERLAY-EAST
+    line_type: boundary
+    line_style: solid
+    annotation: null
+  - from: PAVING-BLOCK-WEST
+    to: BLDG-R-CENTER
+    line_type: boundary
+    line_style: solid
+    annotation: null
+  - from: PAVING-BLOCK-CENTER
+    to: BLDG-R-CENTER
+    line_type: boundary
+    line_style: solid
+    annotation: null
+  - from: PAVING-ASCON-RESTORE-SOUTH
+    to: PAVING-CONCRETE-SOUTH-EAST
+    line_type: boundary
+    line_style: solid
+    annotation: null
+  groups:
+  - group_id: GRP-PAVING-CONCRETE
+    label: 콘크리트 포장 구역
+    members:
+    - PAVING-CONCRETE-NORTH
+    - PAVING-CONCRETE-SOUTH-EAST
+  - group_id: GRP-PAVING-ASCON
+    label: 아스콘 포장 구역
+    members:
+    - PAVING-ASCON-OVERLAY-EAST
+    - PAVING-ASCON-RESTORE-SOUTH
+  - group_id: GRP-PAVING-BLOCK
+    label: 보도블럭 포장 구역
+    members:
+    - PAVING-BLOCK-WEST
+    - PAVING-BLOCK-CENTER
+  - group_id: GRP-EXISTING-BUILDINGS
+    label: 기존 건물
+    members:
+    - BLDG-EXISTING-25
+    - BLDG-EXISTING-24
+    - BLDG-EXISTING-21
+  legend_references:
+  - text: 콘크리트포장
+    linked_to: GRP-PAVING-CONCRETE
+  - text: 아스콘 덧씌우기
+    linked_to: PAVING-ASCON-OVERLAY-EAST
+  - text: 아스콘포장복구
+    linked_to: PAVING-ASCON-RESTORE-SOUTH
+  - text: 보도블럭포장
+    linked_to: GRP-PAVING-BLOCK
+  - text: L형측구경계석
+    linked_to: SITE-PLAN-MAIN
+  - text: 보도경계석
+    linked_to: SITE-PLAN-MAIN
+  - text: 낮춤경계석
+    linked_to: SITE-PLAN-MAIN
+  - text: 경사경계석
+    linked_to: SITE-PLAN-MAIN
+  diagram_meta:
+    title: 포장계획평면도
+    project_name: LS Electric R-Center 구축
+    drawing_number: C10-401
+    scale: A1:1/200, A3:1/400
+    date: '2024.05'
+    discipline: ARCHITECTURAL
+    view_type: site_plan
+    flow_direction: UNKNOWN
+    has_north_arrow: true
+    has_grid: true

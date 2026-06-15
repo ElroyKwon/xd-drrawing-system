@@ -1,0 +1,57 @@
+{
+  "id": "report-daily-20260417",
+  "report_type": "daily",
+  "period": { "start": "2026-04-17T00:00:00Z", "end": "2026-04-17T23:59:59Z" },
+  "status": "draft",
+  "revision": 1,
+  "sections": [
+    {
+      "id": "s1",
+      "title": "1. 수전 설비 전압·전류 현황",
+      "python_data": {
+        "kepco_voltage_kv": 22.7,
+        "main_bus_voltage_kv": 22.6,
+        "vcb001_current_a": 312,
+        "vcb001_rated_a": 630,
+        "load_factor_pct": 49.5,
+        "power_factor": 0.94
+      },
+      "slm_narrative": "KEPCO 인입 전압 22.7 kV — 정격 22.9 kV 대비 정상 범위. 주버스 전압 22.6 kV. VCB-001 부하 전류 312A(정격 630A, 부하율 49.5%). 역률 0.94로 양호. 전기 단선도(BESS-KEY-SLD p.3) 기준 운전 이상 없음."
+    },
+    {
+      "id": "s2",
+      "title": "2. 변압기·배전반 운전 이력",
+      "python_data": {
+        "transformer_temp_c": 68,
+        "transformer_rated_temp_c": 85,
+        "mcc_tripping_events": 0,
+        "vcb_operations": 3,
+        "vcb_operation_reason": "정기 부하 전환"
+      },
+      "slm_narrative": "변압기 TR-001 온도 68°C — 정격(85°C) 대비 80% 이하로 정상. MCC 트립 0건. VCB 조작 3회 모두 계획된 부하 전환으로 이상 없음. 수전설비 단선도(22.9kV U#T동 주변전실) 기준 확인."
+    },
+    {
+      "id": "s3",
+      "title": "3. 정보통신 설비 상태",
+      "python_data": {
+        "olt_uptime_pct": 99.2,
+        "core_switch_cpu_pct": 71,
+        "patch_panel_ok": true,
+        "link_failures": 1,
+        "failed_port": "OLT-001 Port-7"
+      },
+      "slm_narrative": "코어 스위치 CPU 71% — 임계 80% 미만이나 증가 추세 모니터링 필요. OLT-001 Port-7 링크 다운(04/17 10:03) 발생, SFP 모듈 교체 후 복구 완료. 정보통신 계통도(ET 시리즈) 기준 배선 점검 이상 없음."
+    },
+    {
+      "id": "s4",
+      "title": "4. 에너지 사용 합계",
+      "python_data": {
+        "total_kwh": 12210,
+        "peak_kw": 1680,
+        "off_peak_kw": 920,
+        "carbon_kg_co2": 5656
+      },
+      "slm_narrative": "금일 총 전력 소비 12,210 kWh. 피크 1,680 kW(14:00~15:00), 경부하 920 kW(03:00~04:00). 탄소 배출 환산 5,656 kg CO₂. 전일 대비 소비량 3.2% 감소 — 냉방 계통 효율화 기여."
+    }
+  ]
+}

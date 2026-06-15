@@ -1,0 +1,171 @@
+placement:
+  tag: STRUCT-001
+  name: H-Beam
+  discipline: structural
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: STRUCT-001
+    class_hint: StructuralMember
+    alternative_class_hints:
+    - StructuralSupport
+    - GroundingPoint
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:StructuralComponent
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-17T13:26:05.896245'
+  discipline_context:
+    discipline: structural
+    sub_kinds:
+      free_notes:
+      - raw_text: 'type: H-Beam'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasStructuralType
+          suggested_datatype: xsd:string
+          rationale: 구조 부재의 형식 표기
+      - raw_text: 'connection_method: ''H-Beam'' 철골 접속'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasConnectionMethod
+          suggested_datatype: xsd:string
+          rationale: 접속 방식이 문자열로 명시됨
+      - raw_text: 'material: Steel (철강)'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasMaterial
+          suggested_datatype: xsd:string
+          rationale: 재질 표기
+        promoted_to: dks:hasMaterial
+        promoted_by: step_0-9d
+        promoted_at: '2026-04-17T13:26:18.776700'
+      - raw_text: 'grounding_connection: 나동선 접속'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasGroundingConnection
+          suggested_datatype: xsd:string
+          rationale: 접지 연결 대상이 문자열로 표기됨
+      - raw_text: 'equipment_symbols: type: H-Beam 철골 접속 심볼, count: 1'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasSymbolCount
+          suggested_datatype: xsd:integer
+          rationale: 도면 심볼 수량 정보
+      - raw_text: 'position: middle-left'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasDrawingPosition
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: 'confidence: 0.95'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: hasExtractionConfidence
+          suggested_datatype: xsd:decimal
+          rationale: 추출 신뢰도 수치
+      - raw_text: 'ontology_hints.suggested_parent_class: StructuralMember'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: suggestedParentClass
+          suggested_datatype: xsd:string
+          rationale: 온톨로지 힌트로 제시된 상위 클래스
+      - raw_text: 'ontology_hints.observed_attributes: type, connection_method, material,
+          grounding_connection'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: observedAttributes
+          suggested_datatype: xsd:string
+          rationale: 관찰 속성 목록
+      - raw_text: 'ontology_hints.function_candidates: StructuralSupport, GroundingPoint'
+        source_page: 39
+        promotion_hint:
+          suggested_property_label: functionCandidates
+          suggested_datatype: xsd:string
+          rationale: 기능 후보 라벨 목록
+  provenance:
+    name:
+      source_pages:
+      - 39
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 39
+      method: rule_based
+    ontology_core.iri_hint:
+      source_pages:
+      - 39
+      method: tag
+    ontology_core.class_hint:
+      source_pages:
+      - 39
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 39
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes:
+      source_pages:
+      - 39
+      method: preserve_raw
+    confidence:
+      source_pages:
+      - 39
+      method: entity_detail.confidence
+    plan_reference.guidance_applied:
+      source_pages:
+      - 39
+      method: ontology_plan.guidance_for_next_steps.for_0_9b_placement.focus
+    assigned_by:
+      source_pages:
+      - 39
+      method: fixed
+    model:
+      source_pages:
+      - 39
+      method: input_metadata
+  unresolved:
+  - field_candidate: specs.connection_method
+    raw_text: '''H-Beam'' 철골 접속'
+    source_page: 39
+    reason: 문자열 값이지만 별도 표준 분류 없이 원문 보존 필요
+    preservation_note: 접속 방식 표현을 그대로 유지
+  - field_candidate: specs.material
+    raw_text: Steel (철강)
+    source_page: 39
+    reason: 재질 표기이지만 세부 분류 없이 원문 보존 필요
+    preservation_note: 영문/한글 병기 유지
+  - field_candidate: specs.grounding_connection
+    raw_text: 나동선 접속
+    source_page: 39
+    reason: 접지 연결 대상이 명시되나 관계 구조로 확정하지 않음
+    preservation_note: 접지 연결 표현 보존
+  - field_candidate: equipment_symbols
+    raw_text: 'type: H-Beam 철골 접속 심볼, count: 1'
+    source_page: 39
+    reason: 심볼 정보는 존재하나 별도 객체로 승격하지 않음
+    preservation_note: 도면 심볼 존재 기록
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: StructuralSupport, GroundingPoint
+    source_page: 39
+    reason: 후보 기능 라벨이며 확정 불가
+    preservation_note: 후속 분류용 후보로 유지
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: H-Beam이 구조 부재인지, 접지점 역할을 겸하는지 도면 원문만으로 단정하기 어려움
+    recommended_handling: 0-9c에서 StructuralMember 하위 구조 부재로 우선 배치하고, grounding_connection은
+      별도 관계 후보로 보존
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 물리적 장비와 논리적 노드의 분리
+    - 도면 정보(Legend, Title Block, Note)를 InformationEntity로 격리
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-17T13:13:19.996471'
+  confidence: 0.95

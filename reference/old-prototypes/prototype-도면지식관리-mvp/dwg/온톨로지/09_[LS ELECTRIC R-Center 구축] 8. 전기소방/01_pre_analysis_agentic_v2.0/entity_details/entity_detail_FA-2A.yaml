@@ -1,0 +1,180 @@
+tag: FA-2A
+name: 소방간선 분기 샤프트 FA-2A
+type: 소방간선 분기 샤프트
+discipline: FIRE_PROTECTION
+function_category: DISTRIBUTE
+source_pages:
+- 5
+- 8
+- 10
+specs:
+  inferred_name: 소방간선 분기 샤프트 FA-2A
+  labels_inside:
+  - FA-2A
+  shape: dashed_box
+  floor: 2층
+  raw_labels:
+  - FA-2A
+  labels_above: []
+  labels_below: []
+  position: center-left
+  equipment_symbols:
+  - type: 화재 수신반 / 전원반(중계기)
+    count: 1
+  inferred_type: 소방간선 분기 샤프트
+  note: 점선 박스
+  label_inside: FA-2A
+relations:
+- from: RISER-MAIN
+  to: FA-2A
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 2층 FA-2A 분기
+- from: FACP-MAIN
+  to: FA-2A
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: ①
+- from: RISER-MAIN
+  to: FA-2A
+  relation: cable
+  source_page: 5
+  origin: visual_semantics
+  annotation: 2층 FA-2A 분기
+- from: FA-2A
+  to: ROOM-SEMINAR
+  relation: feeds
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 감지기용/유도등용 배관배선
+- from: FD-2B
+  to: FA-2A
+  relation: connects_to
+  source_page: 8
+  origin: cross_validated
+  line_style: dashed
+  note: 소방간선 수직 입상/입하 / 간선 연결
+- from: FA-2A
+  to: ZONE-VERIFICATION-CTRL
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선 16C HFIX 2-1.5㎟
+- from: FA-2A
+  to: ZONE-SOFTWARE-LAB
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-DATA-ROOM
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-SEMINAR
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-LOUNGE
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: FD-2A
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 방화셔터 연동 신호
+- from: FA-2A
+  to: ZONE-OFFICE
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-MID-MTG
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-REST
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-SMALL-MTG-1
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-SMALL-MTG-2
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+- from: FA-2A
+  to: ZONE-CENTER-OFFICE
+  relation: connects_to
+  source_page: 10
+  origin: cross_validated
+  line_style: solid
+  note: 감지기 배관배선
+collection_sources:
+  cross_validated: true
+  visual_semantics: true
+  entity_synthesis: true
+position: center
+confidence: 0.95
+equipment_symbols:
+- type: 소방 경보 회로 분기반
+  count: 1
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: FireAlarmTerminalBox
+  observed_attributes:
+  - inferred_name
+  - labels_inside
+  - shape
+  - floor
+  - raw_labels
+  - labels_above
+  - labels_below
+  - position
+  - equipment_symbols
+  - inferred_type
+  - note
+  - label_inside
+  similar_equipment:
+  - FD-2A
+  - FD-2B
+  function_candidates:
+  - SIGNAL_DISTRIBUTION
+  - FIRE_ALARM_RELAY
+  - CIRCUIT_BRANCHING

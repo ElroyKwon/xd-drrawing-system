@@ -1,0 +1,1434 @@
+initial_scan:
+  page_type: drawing
+  is_legend: false
+  has_legend_section: true
+  legend_type: symbol legend / abbreviation table
+  discipline: CIVIL
+  classification: SITE_PLAN
+  drawing_genre: site_plan
+  title_block:
+    drawing_number: C00-002
+    title: 현황측량도
+    revision: null
+  visible_tags:
+  - tag: CP.1
+    type: control_point
+    source: both
+  - tag: CP.2
+    type: control_point
+    source: both
+  - tag: CP.3
+    type: control_point
+    source: both
+  - tag: T.B.M
+    type: benchmark
+    source: both
+  complexity:
+    symbol_density: HIGH
+    has_connections: false
+    estimated_entity_count: 20
+  next_step_hints:
+  - 도면 우측에 범례 표가 있으며, 도로/지형 현황과 측점 표가 함께 있음
+  - 사진 4장과 현황측량도 본도가 함께 배치됨
+  - 도면번호 접두사 C00-002는 표제란 하단 우측에서 확인됨
+  confidence: 0.96
+  note: 우측 범례 표에 심볼-설명 쌍이 나열되어 있음. 도면번호 접두사 C는 통상 COMMUNICATION이나, 본 페이지는 현황측량도/지형도
+    성격으로 시각 내용상 SITE_PLAN으로 분류함. 범례는 페이지 일부에 존재함.
+  recommended_supplements: &id001
+    P-4.5: discipline/civil/genre_site_plan/supplement_p4_05.yaml
+  routing_confidence: 0.0
+  routing_reason: page_type가 drawing이지만 discipline/classification에 정확히 매칭되는 카탈로그 supplement를
+    확인할 수 없었고, read_legend_data도 not found였음.
+visual_sketch:
+  model: gemini-3.1-flash
+  panels:
+  - panel_id: SITE_PLAN_MAIN
+    shape: rectangle
+    primary_label: 현황측량도
+    position: left
+    labels_near:
+    - 북쪽 화살표 (N)
+    - 등고선 및 표고 숫자
+    - CP.1, CP.2, CP.3, T.B.M
+    - 격자 좌표 (463100, 215200 등)
+  - panel_id: LEGEND_SECTION
+    shape: rectangle
+    primary_label: 범례
+    position: bottom-right
+    labels_near:
+    - 구분 / 명칭 / 비고
+    - 통신맨홀, 소화전, 도근점, 기타맨홀, 한전맨홀, 우수맨홀, 오수맨홀, 스틸그레이팅, 가로등, 옹벽, 휀스, 콘크리트, TBM, 조경석,
+      아스콘
+  - panel_id: CONTROL_POINT_TABLE
+    shape: rectangle
+    primary_label: 도근 측정성과표
+    position: bottom-center
+    labels_near:
+    - 점번호 / 종좌표(X) / 횡좌표(Y) / 표고(H) / 비고
+    - CP.1, CP.2, CP.3, T.B.M
+  - panel_id: PHOTO_SECTION
+    shape: rectangle
+    primary_label: 현황 사진
+    position: top-right
+    labels_near:
+    - 도근점 CP.1
+    - 도근점 CP.2
+    - 도근점 CP.3
+    - 표고점 T.B.M
+  connections: []
+  notable_shapes:
+  - shape: circle
+    label: N
+    note: 북쪽 화살표 심볼 (좌측 상단)
+  - shape: triangle
+    label: CP.1
+    note: 도근점 심볼 (도면 내 다수 분포)
+  - shape: rectangle
+    label: T.B.M
+    note: 기준점 심볼 (우측 하단)
+  - shape: circle
+    label: 우
+    note: 우수맨홀 심볼 (범례 및 도면)
+  - shape: circle
+    label: 오
+    note: 오수맨홀 심볼 (범례 및 도면)
+legend_candidate:
+  is_legend_page: false
+  has_legend_section: true
+  legend_region: bottom-right
+  confidence: 0.98
+  note: 우측 하단에 '범례' 표가 명확히 존재하며, 토목 심볼(맨홀, 도근점, 포장 해치)과 명칭이 매핑되어 있음.
+supplement_routing:
+  discipline: CIVIL
+  drawing_genre: site_plan
+  changed_from_p00: true
+  recommended_supplements: *id001
+  routing_confidence: 0.97
+  routing_reason: 도면번호 접두사 C는 COMMUNICATION이나, vision으로 등고선, 표고(H), 도근점(CP), TBM,
+    맨홀(우/오), 포장(아스콘) 등 토목 키워드 및 심볼이 다수 확인되어 CIVIL로 확정. 장르는 현황측량도이므로 site_plan 유지.
+classification: SITE_PLAN
+discipline: CIVIL
+key_elements_from_text:
+- 현황측량도
+- 도근점 CP.1
+- 도근점 CP.2
+- 도근점 CP.3
+- 표고점 T.B.M
+- 범례
+- 도근 측량성과표
+- 구분 / 명칭 / 비고
+- 통신맨홀
+- 소화전
+- 도근점
+- 기타맨홀
+- 한전맨홀
+- 우수맨홀
+- 오수맨홀
+- 스틸그레이팅
+- 가로등
+- 옹벽
+- 휀스
+- 콘크리트
+- TBM
+- 조경석
+- A.S.P
+- 아스콘
+- LS Electric
+- R-Center 구축
+- GAUNI Architects & Engineers
+title_block:
+  drawing_number: C00-002
+  title: 현황측량도
+  revision: UNKNOWN
+confidence: 0.99
+note: 기존 분석의 CIVIL / SITE_PLAN / 현황측량도 판정과 일치함. 우측 하단 표제란에서 도면번호 C00-002와 제목 현황측량도가
+  보이며, 우측 범례와 하단 도근 측량성과표, 현황 사진들이 함께 배치되어 있음. 페이지 내 텍스트와 시각 요소 기준으로 확인 가능.
+visual_semantics:
+  model: claude-sonnet-4-6
+  panels:
+  - panel_id: PLAN-01
+    shape: rectangle
+    labels_inside:
+    - '97.045'
+    - '96.628'
+    - '96.294'
+    - '96.741'
+    - '97.330'
+    - '97.223'
+    - '96.692'
+    - '96.893'
+    - '92.152'
+    - '97.134'
+    - '95.834'
+    - '95.478'
+    - '96.632'
+    - '96.118'
+    - '96.307'
+    - '96.442'
+    - '96.716'
+    - '97.168'
+    - '97.799'
+    - '97.094'
+    - '95.764'
+    - '96.244'
+    - '96.295'
+    - '96.524'
+    - '96.752'
+    - '97.219'
+    - '97.689'
+    - '97.771'
+    - '97.256'
+    - '96.118'
+    - '96.820'
+    - '94.779'
+    - '94.737'
+    - '97.568'
+    - '94.443'
+    - '94.382'
+    - '94.978'
+    - '94.932'
+    - '94.777'
+    - '94.496'
+    - '94.410'
+    - '94.888'
+    - '94.947'
+    - '94.921'
+    - '94.811'
+    - '94.367'
+    - '94.338'
+    - '94.320'
+    - '94.859'
+    - '94.709'
+    - '94.615'
+    - '94.254'
+    - '94.202'
+    - '94.254'
+    - '94.847'
+    - '94.910'
+    - '94.477'
+    - '94.245'
+    - '94.204'
+    - '95.046'
+    - '94.294'
+    - '94.280'
+    - '94.183'
+    - '94.832'
+    - '94.911'
+    - '94.159'
+    - '94.353'
+    - '94.183'
+    - '94.105'
+    - '94.718'
+    - '94.550'
+    - '94.241'
+    - '93.985'
+    - '93.884'
+    - '93.626'
+    - '93.514'
+    - '93.812'
+    - '93.402'
+    - '93.442'
+    - '93.134'
+    - '92.469'
+    - '93.402'
+    - '93.646'
+    - '92.312'
+    - '92.469'
+    - '93.402'
+    - '93.769'
+    - '93.844'
+    - '93.056'
+    - '93.402'
+    - '92.394'
+    - '92.353'
+    - '93.142'
+    - '93.848'
+    - '92.830'
+    - '92.185'
+    - '92.242'
+    - '91.819'
+    - '91.846'
+    - '91.942'
+    - '90.821'
+    - '90.556'
+    - '89.968'
+    - '90.557'
+    - '98.267'
+    - '98.735'
+    - '98.458'
+    - '98.186'
+    - '98.008'
+    - '98.174'
+    - '95.115'
+    - '95'
+    - '94.345'
+    - '94.580'
+    - '94.360'
+    - '94.034'
+    - '93.604'
+    - '93.766'
+    - '93.757'
+    - '92.004'
+    - '92.735'
+    - '92.304'
+    - '92.513'
+    - '92.354'
+    - '91.550'
+    - '90.972'
+    - '89.151'
+    - '88.513'
+    - '88.304'
+    - '88.353'
+    - 수소화전소
+    - 현장
+    - 현장
+    - 보일러기기
+    - '463100'
+    - '215300'
+    - '215200'
+    labels_above:
+    - N (북쪽 화살표)
+    labels_below: []
+    equipment_symbols:
+    - type: 도근점 삼각형 심볼
+      count: 3
+    - type: TBM 사각형 심볼
+      count: 1
+    - type: 통신맨홀 원형 심볼 (통)
+      count: 3
+    - type: 우수맨홀 원형 심볼 (우)
+      count: 4
+    - type: 오수맨홀 원형 심볼 (오)
+      count: 3
+    - type: 한전맨홀 원형 심볼 (한)
+      count: 2
+    - type: 소화전 심볼
+      count: 2
+    - type: 가로등 심볼
+      count: 5
+    - type: 스틸그레이팅 해치
+      count: 2
+    - type: 옹벽 라인
+      count: 1
+    - type: 휀스 라인
+      count: 1
+    - type: 아스콘 포장 해치
+      count: 1
+    - type: 콘크리트 해치
+      count: 1
+    inferred_name: 현황측량 평면도 (부지 전체)
+    position: left
+  - panel_id: PHOTO-CP1
+    shape: rectangle
+    labels_inside:
+    - 도근점 CP.1
+    labels_above: []
+    labels_below:
+    - '"도근점 CP.1"'
+    equipment_symbols: []
+    inferred_name: 도근점 CP.1 현황 사진
+    position: top-right
+  - panel_id: PHOTO-CP2
+    shape: rectangle
+    labels_inside:
+    - 도근점 CP.2
+    labels_above: []
+    labels_below:
+    - '"도근점 CP.2"'
+    equipment_symbols: []
+    inferred_name: 도근점 CP.2 현황 사진
+    position: middle-right
+  - panel_id: PHOTO-CP3
+    shape: rectangle
+    labels_inside:
+    - 도근점 CP.3
+    labels_above: []
+    labels_below:
+    - '"도근점 CP.3"'
+    equipment_symbols: []
+    inferred_name: 도근점 CP.3 현황 사진
+    position: middle-right
+  - panel_id: PHOTO-TBM
+    shape: rectangle
+    labels_inside:
+    - 표고점 T.B.M
+    labels_above: []
+    labels_below:
+    - '"표고점 T.B.M"'
+    equipment_symbols: []
+    inferred_name: 표고점 T.B.M 현황 사진
+    position: right
+  - panel_id: LEGEND-01
+    shape: rectangle
+    labels_inside:
+    - 구분 / 명칭 / 비고
+    - 통 / 통신맨홀
+    - 소 / 소화전
+    - 도근점 (삼각형 심볼)
+    - M / 기타맨홀
+    - 한 / 한전맨홀
+    - 우 / 우수맨홀
+    - 오 / 오수맨홀
+    - 스틸그레이팅 (해치 심볼)
+    - 가로등 (심볼)
+    - 옹벽 (라인 심볼)
+    - 휀스 (라인 심볼)
+    - 콘크리트 (해치 심볼)
+    - TBM (사각형 심볼)
+    - 조경석 (심볼)
+    - A.S.P / 아스콘
+    labels_above:
+    - ● 범례
+    labels_below: []
+    equipment_symbols:
+    - type: 범례 심볼 일람표
+      count: 16
+    inferred_name: 도면 범례 표
+    position: bottom-right
+  - panel_id: TABLE-CP
+    shape: rectangle
+    labels_inside:
+    - 점번호 / 종좌표(X) / 횡좌표(Y) / 표고(H) / 비고
+    - CP.1 / 463068.163 / 215315.393 / 91.550
+    - CP.2 / 463151.582 / 215297.702 / 96.118
+    - CP.3 / 463068.937 / 215238.481 / 93.812
+    - T.B.M / - / - / 90.972 / 중벽상단와서나사
+    - '- 본측량은 GPS에 의한 GRS80(중부원점)을 기준으로 측량함.'
+    labels_above:
+    - 도근 측량성과표
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도근점 측량 성과표 (좌표 및 표고)
+    position: bottom-center
+  - panel_id: TBM-01
+    shape: rectangle
+    labels_inside:
+    - T.B.M
+    - H=90.972
+    labels_above: []
+    labels_below: []
+    equipment_symbols:
+    - type: TBM 기준점 심볼 (사각형+X)
+      count: 1
+    inferred_name: 수준기준점 T.B.M (표고 90.972m)
+    position: bottom-right-of-plan
+  connections: []
+  groups:
+  - group_id: GRP-CP
+    label: 도근점 (Control Points)
+    members:
+    - PLAN-01
+    - TABLE-CP
+    - PHOTO-CP1
+    - PHOTO-CP2
+    - PHOTO-CP3
+  - group_id: GRP-TBM
+    label: 수준기준점 (Benchmark)
+    members:
+    - TBM-01
+    - PHOTO-TBM
+    - TABLE-CP
+  - group_id: GRP-PHOTO
+    label: 현황 사진 섹션
+    members:
+    - PHOTO-CP1
+    - PHOTO-CP2
+    - PHOTO-CP3
+    - PHOTO-TBM
+  legend_references:
+  - text: 통신맨홀 (통)
+    linked_to: PLAN-01
+  - text: 소화전
+    linked_to: PLAN-01
+  - text: 도근점 (삼각형)
+    linked_to: PLAN-01
+  - text: 기타맨홀 (M)
+    linked_to: PLAN-01
+  - text: 한전맨홀 (한)
+    linked_to: PLAN-01
+  - text: 우수맨홀 (우)
+    linked_to: PLAN-01
+  - text: 오수맨홀 (오)
+    linked_to: PLAN-01
+  - text: 스틸그레이팅
+    linked_to: PLAN-01
+  - text: 가로등
+    linked_to: PLAN-01
+  - text: 옹벽
+    linked_to: PLAN-01
+  - text: 휀스
+    linked_to: PLAN-01
+  - text: 콘크리트
+    linked_to: PLAN-01
+  - text: TBM
+    linked_to: TBM-01
+  - text: 조경석
+    linked_to: PLAN-01
+  - text: A.S.P / 아스콘
+    linked_to: PLAN-01
+  diagram_meta:
+    title: 현황측량도
+    drawing_number: C00-002
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: 1:350
+    scale_secondary: A3:1:700
+    date: '2024.05'
+    discipline: CIVIL
+    drawing_genre: site_survey
+    flow_direction: UNKNOWN
+    coordinate_system: grid
+    coordinate_reference: GRS80 중부원점 (GPS 측량)
+    north_arrow: true
+    grid_labels:
+    - 463100 (X축)
+    - 215200 (Y축)
+    - 215300 (Y축)
+    control_points:
+    - id: CP.1
+      x: 463068.163
+      y: 215315.393
+      elevation_m: 91.55
+      status: existing
+      photo_ref: PHOTO-CP1
+    - id: CP.2
+      x: 463151.582
+      y: 215297.702
+      elevation_m: 96.118
+      status: existing
+      photo_ref: PHOTO-CP2
+    - id: CP.3
+      x: 463068.937
+      y: 215238.481
+      elevation_m: 93.812
+      status: existing
+      photo_ref: PHOTO-CP3
+    - id: T.B.M
+      x: null
+      y: null
+      elevation_m: 90.972
+      note: 중벽상단와서나사
+      status: existing
+      photo_ref: PHOTO-TBM
+    elevation_range_m:
+      min: 88.304
+      max: 98.458
+    is_reference_only: false
+    status_default: existing
+visual_semantics_gemini:
+  model: gemini-3-pro-image-preview
+  panels:
+  - panel_id: SITE-PLAN
+    shape: rectangle
+    labels_inside:
+    - '97.045'
+    - '96.628'
+    - '96.294'
+    - '96.741'
+    - '97.330'
+    - '97.223'
+    - '96.692'
+    - '96.893'
+    - '92.152'
+    - '97.134'
+    - '95.834'
+    - '95.478'
+    - '96.632'
+    - '96.118'
+    - '96.307'
+    - '96.442'
+    - '96.716'
+    - '97.168'
+    - '97.799'
+    - '97.094'
+    - '95.764'
+    - '96.244'
+    - '96.295'
+    - '96.524'
+    - '96.752'
+    - '97.219'
+    - '97.689'
+    - '97.771'
+    - '97.256'
+    - '96.118'
+    - '96.820'
+    - '94.779'
+    - '94.737'
+    - '97.568'
+    - '94.443'
+    - '94.382'
+    - '94.978'
+    - '94.932'
+    - '94.777'
+    - '94.496'
+    - '94.410'
+    - '94.888'
+    - '94.947'
+    - '94.921'
+    - '94.811'
+    - '94.367'
+    - '94.338'
+    - '94.320'
+    - '94.859'
+    - '94.709'
+    - '94.615'
+    - '94.254'
+    - '94.202'
+    - '94.254'
+    - '94.847'
+    - '94.910'
+    - '94.477'
+    - '94.245'
+    - '94.204'
+    - '95.046'
+    - '94.294'
+    - '94.280'
+    - '94.183'
+    - '94.832'
+    - '94.911'
+    - '94.159'
+    - '94.353'
+    - '94.183'
+    - '94.105'
+    - '94.718'
+    - '94.550'
+    - '94.241'
+    - '93.985'
+    - '93.884'
+    - '93.626'
+    - '93.514'
+    - '93.812'
+    - '93.402'
+    - '93.442'
+    - '93.134'
+    - '92.469'
+    - '93.402'
+    - '93.646'
+    - '92.312'
+    - '92.469'
+    - '93.402'
+    - '93.769'
+    - '93.844'
+    - '93.056'
+    - '93.402'
+    - '92.394'
+    - '92.353'
+    - '93.142'
+    - '93.848'
+    - '92.830'
+    - '92.185'
+    - '92.242'
+    - '91.819'
+    - '91.846'
+    - '91.942'
+    - '90.821'
+    - '90.556'
+    - '89.968'
+    - '90.557'
+    - '98.267'
+    - '98.735'
+    - '98.458'
+    - '98.186'
+    - '98.008'
+    - '98.174'
+    - '95.115'
+    - '95'
+    - '94.345'
+    - '94.580'
+    - '94.360'
+    - '94.034'
+    - '93.604'
+    - '93.766'
+    - '93.757'
+    - '92.004'
+    - '92.735'
+    - '92.304'
+    - '92.513'
+    - '92.354'
+    - '91.550'
+    - '90.972'
+    - '89.151'
+    - '88.513'
+    - '88.304'
+    - '88.353'
+    - 수소충전소
+    - 현장
+    - 현장
+    - 보일러실
+    - 천막
+    - 초소및대기실
+    - 전력제어동
+    - H=2.10M
+    - H=2.20M
+    - H=1.50M
+    - H=3.00M
+    - H=1.20M
+    - H=1.80M
+    - H=2.50M
+    - H=0.50M
+    - H=1.00M
+    - H=4.00M
+    - H=1.60M
+    - H=1.30M
+    - H=1.10M
+    - H=0.80M
+    - H=0.60M
+    - H=0.70M
+    - H=0.90M
+    - H=0.30M
+    - H=0.40M
+    - H=0.20M
+    - H=0.10M
+    - CP.1
+    - CP.2
+    - CP.3
+    - T.B.M
+    - H=90.972
+    - '463100'
+    - '215300'
+    - '215200'
+    labels_above:
+    - N
+    labels_below: []
+    equipment_symbols:
+    - type: 도근점 삼각형 심볼
+      count: 3
+    - type: TBM 사각형 심볼
+      count: 1
+    - type: 통신맨홀 원형 심볼 (통)
+      count: 3
+    - type: 우수맨홀 원형 심볼 (우)
+      count: 4
+    - type: 오수맨홀 원형 심볼 (오)
+      count: 3
+    - type: 한전맨홀 원형 심볼 (한)
+      count: 2
+    - type: 기타맨홀 원형 심볼 (M)
+      count: 1
+    - type: 소화전 심볼 (소)
+      count: 2
+    - type: 가로등 심볼
+      count: 5
+    - type: 스틸그레이팅 해치
+      count: 2
+    - type: 옹벽 라인
+      count: 1
+    - type: 휀스 라인
+      count: 1
+    - type: 아스콘 포장 해치 (A.S.P)
+      count: 1
+    - type: 콘크리트 해치
+      count: 1
+    - type: 조경석 심볼
+      count: 1
+    - type: 나무 심볼
+      count: 8
+    inferred_name: 현황측량 평면도
+    position: left
+  - panel_id: PHOTO-CP1
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - '"도근점 CP.1"'
+    equipment_symbols: []
+    inferred_name: 도근점 CP.1 현황 사진
+    position: top-right
+  - panel_id: PHOTO-CP2
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - '"도근점 CP.2"'
+    equipment_symbols: []
+    inferred_name: 도근점 CP.2 현황 사진
+    position: middle-right
+  - panel_id: PHOTO-CP3
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - '"도근점 CP.3"'
+    equipment_symbols: []
+    inferred_name: 도근점 CP.3 현황 사진
+    position: middle-right
+  - panel_id: PHOTO-TBM
+    shape: rectangle
+    labels_inside: []
+    labels_above: []
+    labels_below:
+    - '"표고점 T.B.M"'
+    equipment_symbols: []
+    inferred_name: 표고점 T.B.M 현황 사진
+    position: right
+  - panel_id: LEGEND-TABLE
+    shape: rectangle
+    labels_inside:
+    - 구분
+    - 명 칭
+    - 비 고
+    - 통
+    - 통신맨홀
+    - 소
+    - 소화전
+    - 도근점 (심볼)
+    - M
+    - 기타맨홀
+    - 한
+    - 한전맨홀
+    - 우
+    - 우수맨홀
+    - 오
+    - 오수맨홀
+    - 스틸그레이팅 (심볼)
+    - 가로등 (심볼)
+    - 옹벽 (심볼)
+    - 휀스 (심볼)
+    - 콘크리트 (심볼)
+    - TBM (심볼)
+    - 조경석 (심볼)
+    - A.S.P
+    - 아스콘
+    labels_above:
+    - ● 범례
+    labels_below: []
+    equipment_symbols:
+    - type: 범례 심볼 일람표
+      count: 16
+    inferred_name: 도면 범례 표
+    position: bottom-right
+  - panel_id: SURVEY-TABLE
+    shape: rectangle
+    labels_inside:
+    - 점번호
+    - 종좌표(X)
+    - 횡좌표(Y)
+    - 표고(H)
+    - 비고
+    - CP.1
+    - '463068.163'
+    - '215315.393'
+    - '91.550'
+    - CP.2
+    - '463151.582'
+    - '215297.702'
+    - '96.118'
+    - CP.3
+    - '463068.937'
+    - '215238.481'
+    - '93.812'
+    - T.B.M
+    - '90.972'
+    - 옹벽상단와셔나사
+    labels_above:
+    - 도근 측량성과표
+    labels_below:
+    - '- 본측량은 GPS에 의한 GRS80(중부원점)을 기준으로 측량함.'
+    equipment_symbols: []
+    inferred_name: 도근점 측량 성과표
+    position: bottom-center
+  - panel_id: TITLE-BLOCK
+    shape: rectangle
+    labels_inside:
+    - LS Electric
+    - R-Center 구축
+    - 224001
+    - 가운건축
+    - GAUN Architects & Engineers
+    - 현황측량도
+    - 'SCALE A1 : 1/350'
+    - 'A3 : 1/700'
+    - DATE 2024.05
+    - DRAWING NO. C00 - 002
+    labels_above: []
+    labels_below: []
+    equipment_symbols: []
+    inferred_name: 도면 표제란
+    position: far-right
+  connections: []
+  groups:
+  - group_id: GRP-PHOTOS
+    label: 현황 사진
+    members:
+    - PHOTO-CP1
+    - PHOTO-CP2
+    - PHOTO-CP3
+    - PHOTO-TBM
+  - group_id: GRP-SURVEY-DATA
+    label: 측량 데이터
+    members:
+    - SURVEY-TABLE
+    - SITE-PLAN
+  legend_references:
+  - text: 통신맨홀 (통)
+    linked_to: SITE-PLAN
+  - text: 소화전 (소)
+    linked_to: SITE-PLAN
+  - text: 도근점 (삼각형)
+    linked_to: SITE-PLAN
+  - text: 기타맨홀 (M)
+    linked_to: SITE-PLAN
+  - text: 한전맨홀 (한)
+    linked_to: SITE-PLAN
+  - text: 우수맨홀 (우)
+    linked_to: SITE-PLAN
+  - text: 오수맨홀 (오)
+    linked_to: SITE-PLAN
+  - text: 스틸그레이팅
+    linked_to: SITE-PLAN
+  - text: 가로등
+    linked_to: SITE-PLAN
+  - text: 옹벽
+    linked_to: SITE-PLAN
+  - text: 휀스
+    linked_to: SITE-PLAN
+  - text: 콘크리트
+    linked_to: SITE-PLAN
+  - text: TBM
+    linked_to: SITE-PLAN
+  - text: 조경석
+    linked_to: SITE-PLAN
+  - text: A.S.P / 아스콘
+    linked_to: SITE-PLAN
+  diagram_meta:
+    title: 현황측량도
+    drawing_number: C00-002
+    project: LS Electric R-Center 구축
+    architect: 가운건축 (GAUN Architects & Engineers)
+    scale_primary: 1:350
+    scale_secondary: A3:1:700
+    date: '2024.05'
+    discipline: CIVIL
+    drawing_genre: site_survey
+    flow_direction: UNKNOWN
+    coordinate_system: grid
+    coordinate_reference: GRS80 중부원점 (GPS 측량)
+    north_arrow: true
+    grid_labels:
+    - 463100 (X축)
+    - 215300 (Y축)
+    - 215200 (Y축)
+    control_points:
+    - id: CP.1
+      x: 463068.163
+      y: 215315.393
+      elevation_m: 91.55
+      status: existing
+      photo_ref: PHOTO-CP1
+    - id: CP.2
+      x: 463151.582
+      y: 215297.702
+      elevation_m: 96.118
+      status: existing
+      photo_ref: PHOTO-CP2
+    - id: CP.3
+      x: 463068.937
+      y: 215238.481
+      elevation_m: 93.812
+      status: existing
+      photo_ref: PHOTO-CP3
+    - id: T.B.M
+      x: null
+      y: null
+      elevation_m: 90.972
+      note: 옹벽상단와셔나사
+      status: existing
+      photo_ref: PHOTO-TBM
+    elevation_range_m:
+      min: 88.304
+      max: 98.735
+    is_reference_only: false
+    status_default: existing
+entity_synthesis:
+  entities:
+  - tag: CP.1
+    name: 도근점 CP.1
+    discipline: CIVIL
+    function_category: CONTROL_POINT
+    specifications:
+      coordinates:
+        x: 463068.163
+        y: 215315.393
+        z: null
+      elevation_m: 91.55
+      status: existing
+      symbol: 도근점 삼각형 심볼
+      photo_ref: PHOTO-CP1
+      coordinate_system: grid
+      coordinate_reference: GRS80 중부원점 (GPS 측량)
+    position: plan-left
+    source_block: both
+  - tag: CP.2
+    name: 도근점 CP.2
+    discipline: CIVIL
+    function_category: CONTROL_POINT
+    specifications:
+      coordinates:
+        x: 463151.582
+        y: 215297.702
+        z: null
+      elevation_m: 96.118
+      status: existing
+      symbol: 도근점 삼각형 심볼
+      photo_ref: PHOTO-CP2
+      coordinate_system: grid
+      coordinate_reference: GRS80 중부원점 (GPS 측량)
+    position: plan-right
+    source_block: both
+  - tag: CP.3
+    name: 도근점 CP.3
+    discipline: CIVIL
+    function_category: CONTROL_POINT
+    specifications:
+      coordinates:
+        x: 463068.937
+        y: 215238.481
+        z: null
+      elevation_m: 93.812
+      status: existing
+      symbol: 도근점 삼각형 심볼
+      photo_ref: PHOTO-CP3
+      coordinate_system: grid
+      coordinate_reference: GRS80 중부원점 (GPS 측량)
+    position: plan-lower-left
+    source_block: both
+  - tag: T.B.M
+    name: 표고점 T.B.M
+    discipline: CIVIL
+    function_category: BENCHMARK
+    specifications:
+      elevation_m: 90.972
+      status: existing
+      note: 중벽상단와서나사
+      symbol: TBM 기준점 심볼 (사각형+X)
+      photo_ref: PHOTO-TBM
+      coordinate_system: grid
+      coordinate_reference: GRS80 중부원점 (GPS 측량)
+    position: bottom-right-of-plan
+    source_block: both
+  - tag: PLAN-01
+    name: 현황측량 평면도
+    discipline: CIVIL
+    function_category: SITE_SURVEY_PLAN
+    specifications:
+      title: 현황측량도
+      drawing_number: C00-002
+      project: LS Electric R-Center 구축
+      architect: 가운건축 (GAUN Architects & Engineers)
+      scale_primary: 1:350
+      scale_secondary: A3:1:700
+      date: '2024.05'
+      coordinate_system: grid
+      coordinate_reference: GRS80 중부원점 (GPS 측량)
+      north_arrow: true
+      grid_labels:
+      - 463100 (X축)
+      - 215200 (Y축)
+      - 215300 (Y축)
+      elevation_range_m:
+        min: 88.304
+        max: 98.458
+      status_default: existing
+      inferred_name: 현황측량 평면도 (부지 전체)
+      labels_inside:
+      - '97.045'
+      - '96.628'
+      - '96.294'
+      - '96.741'
+      - '97.330'
+      - '97.223'
+      - '96.692'
+      - '96.893'
+      - '92.152'
+      - '97.134'
+      - '95.834'
+      - '95.478'
+      - '96.632'
+      - '96.118'
+      - '96.307'
+      - '96.442'
+      - '96.716'
+      - '97.168'
+      - '97.799'
+      - '97.094'
+      - '95.764'
+      - '96.244'
+      - '96.295'
+      - '96.524'
+      - '96.752'
+      - '97.219'
+      - '97.689'
+      - '97.771'
+      - '97.256'
+      - '96.118'
+      - '96.820'
+      - '94.779'
+      - '94.737'
+      - '97.568'
+      - '94.443'
+      - '94.382'
+      - '94.978'
+      - '94.932'
+      - '94.777'
+      - '94.496'
+      - '94.410'
+      - '94.888'
+      - '94.947'
+      - '94.921'
+      - '94.811'
+      - '94.367'
+      - '94.338'
+      - '94.320'
+      - '94.859'
+      - '94.709'
+      - '94.615'
+      - '94.254'
+      - '94.202'
+      - '94.254'
+      - '94.847'
+      - '94.910'
+      - '94.477'
+      - '94.245'
+      - '94.204'
+      - '95.046'
+      - '94.294'
+      - '94.280'
+      - '94.183'
+      - '94.832'
+      - '94.911'
+      - '94.159'
+      - '94.353'
+      - '94.183'
+      - '94.105'
+      - '94.718'
+      - '94.550'
+      - '94.241'
+      - '93.985'
+      - '93.884'
+      - '93.626'
+      - '93.514'
+      - '93.812'
+      - '93.402'
+      - '93.442'
+      - '93.134'
+      - '92.469'
+      - '93.402'
+      - '93.646'
+      - '92.312'
+      - '92.469'
+      - '93.402'
+      - '93.769'
+      - '93.844'
+      - '93.056'
+      - '93.402'
+      - '92.394'
+      - '92.353'
+      - '93.142'
+      - '93.848'
+      - '92.830'
+      - '92.185'
+      - '92.242'
+      - '91.819'
+      - '91.846'
+      - '91.942'
+      - '90.821'
+      - '90.556'
+      - '89.968'
+      - '90.557'
+      - '98.267'
+      - '98.735'
+      - '98.458'
+      - '98.186'
+      - '98.008'
+      - '98.174'
+      - '95.115'
+      - '95'
+      - '94.345'
+      - '94.580'
+      - '94.360'
+      - '94.034'
+      - '93.604'
+      - '93.766'
+      - '93.757'
+      - '92.004'
+      - '92.735'
+      - '92.304'
+      - '92.513'
+      - '92.354'
+      - '91.550'
+      - '90.972'
+      - '89.151'
+      - '88.513'
+      - '88.304'
+      - '88.353'
+      - 수소화전소
+      - 현장
+      - 현장
+      - 보일러기기
+      - '463100'
+      - '215300'
+      - '215200'
+      equipment_symbols:
+      - 도근점 삼각형 심볼 x3
+      - TBM 사각형 심볼 x1
+      - 통신맨홀 원형 심볼 (통) x3
+      - 우수맨홀 원형 심볼 (우) x4
+      - 오수맨홀 원형 심볼 (오) x3
+      - 한전맨홀 원형 심볼 (한) x2
+      - 소화전 심볼 x2
+      - 가로등 심볼 x5
+      - 스틸그레이팅 해치 x2
+      - 옹벽 라인 x1
+      - 휀스 라인 x1
+      - 아스콘 포장 해치 x1
+      - 콘크리트 해치 x1
+    position: left
+    source_block: both
+  - tag: PHOTO-CP1
+    name: 도근점 CP.1 현황 사진
+    discipline: CIVIL
+    function_category: REFERENCE_PHOTO
+    specifications:
+      labels_inside: []
+      labels_below:
+      - '"도근점 CP.1"'
+    position: top-right
+    source_block: both
+  - tag: PHOTO-CP2
+    name: 도근점 CP.2 현황 사진
+    discipline: CIVIL
+    function_category: REFERENCE_PHOTO
+    specifications:
+      labels_inside: []
+      labels_below:
+      - '"도근점 CP.2"'
+    position: middle-right
+    source_block: both
+  - tag: PHOTO-CP3
+    name: 도근점 CP.3 현황 사진
+    discipline: CIVIL
+    function_category: REFERENCE_PHOTO
+    specifications:
+      labels_inside: []
+      labels_below:
+      - '"도근점 CP.3"'
+    position: middle-right
+    source_block: both
+  - tag: PHOTO-TBM
+    name: 표고점 T.B.M 현황 사진
+    discipline: CIVIL
+    function_category: REFERENCE_PHOTO
+    specifications:
+      labels_inside: []
+      labels_below:
+      - '"표고점 T.B.M"'
+    position: right
+    source_block: both
+  - tag: LEGEND-01
+    name: 도면 범례 표
+    discipline: CIVIL
+    function_category: LEGEND
+    specifications:
+      title: 범례
+      header: 구분 / 명칭 / 비고
+      entries:
+      - key: 통
+        name: 통신맨홀
+      - key: 소
+        name: 소화전
+      - key: 도근점
+        name: 도근점 (삼각형 심볼)
+      - key: M
+        name: 기타맨홀
+      - key: 한
+        name: 한전맨홀
+      - key: 우
+        name: 우수맨홀
+      - key: 오
+        name: 오수맨홀
+      - key: 스틸그레이팅
+        name: 스틸그레이팅 (해치 심볼)
+      - key: 가로등
+        name: 가로등 (심볼)
+      - key: 옹벽
+        name: 옹벽 (라인 심볼)
+      - key: 휀스
+        name: 휀스 (라인 심볼)
+      - key: 콘크리트
+        name: 콘크리트 (해치 심볼)
+      - key: TBM
+        name: TBM (사각형 심볼)
+      - key: 조경석
+        name: 조경석 (심볼)
+      - key: A.S.P
+        name: 아스콘
+      equipment_symbols:
+      - 범례 심볼 일람표 x16
+    position: bottom-right
+    source_block: both
+  - tag: TABLE-CP
+    name: 도근점 측량 성과표
+    discipline: CIVIL
+    function_category: SURVEY_TABLE
+    specifications:
+      header: 점번호 / 종좌표(X) / 횡좌표(Y) / 표고(H) / 비고
+      rows:
+      - point_id: CP.1
+        x: 463068.163
+        y: 215315.393
+        elevation_m: 91.55
+        note: null
+      - point_id: CP.2
+        x: 463151.582
+        y: 215297.702
+        elevation_m: 96.118
+        note: null
+      - point_id: CP.3
+        x: 463068.937
+        y: 215238.481
+        elevation_m: 93.812
+        note: null
+      - point_id: T.B.M
+        x: null
+        y: null
+        elevation_m: 90.972
+        note: 중벽상단와서나사
+      note: 본측량은 GPS에 의한 GRS80(중부원점)을 기준으로 측량함.
+    position: bottom-center
+    source_block: both
+  - tag: TBM-01
+    name: 수준기준점 T.B.M
+    discipline: CIVIL
+    function_category: BENCHMARK
+    specifications:
+      elevation_m: 90.972
+      symbol: TBM 기준점 심볼 (사각형+X)
+      status: existing
+    position: bottom-right-of-plan
+    source_block: visual_semantics
+  relationships:
+  - from_tag: PHOTO-CP1
+    to_tag: CP.1
+    relation_type: references
+    note: 도근점 CP.1 현황 사진
+  - from_tag: PHOTO-CP2
+    to_tag: CP.2
+    relation_type: references
+    note: 도근점 CP.2 현황 사진
+  - from_tag: PHOTO-CP3
+    to_tag: CP.3
+    relation_type: references
+    note: 도근점 CP.3 현황 사진
+  - from_tag: PHOTO-TBM
+    to_tag: T.B.M
+    relation_type: references
+    note: 표고점 T.B.M 현황 사진
+  - from_tag: LEGEND-01
+    to_tag: PLAN-01
+    relation_type: legend_for
+    note: 범례 표가 현황측량 평면도 심볼을 설명함
+  - from_tag: TABLE-CP
+    to_tag: CP.1
+    relation_type: lists
+    note: 도근점 측량성과표
+  - from_tag: TABLE-CP
+    to_tag: CP.2
+    relation_type: lists
+    note: 도근점 측량성과표
+  - from_tag: TABLE-CP
+    to_tag: CP.3
+    relation_type: lists
+    note: 도근점 측량성과표
+  - from_tag: TABLE-CP
+    to_tag: T.B.M
+    relation_type: lists
+    note: 도근점 측량성과표
+  - from_tag: TBM-01
+    to_tag: T.B.M
+    relation_type: same_as
+    note: 표고점 T.B.M 심볼과 표기
+  - from_tag: PLAN-01
+    to_tag: CP.1
+    relation_type: contains
+    note: 현황측량 평면도 내 도근점
+  - from_tag: PLAN-01
+    to_tag: CP.2
+    relation_type: contains
+    note: 현황측량 평면도 내 도근점
+  - from_tag: PLAN-01
+    to_tag: CP.3
+    relation_type: contains
+    note: 현황측량 평면도 내 도근점
+  - from_tag: PLAN-01
+    to_tag: T.B.M
+    relation_type: contains
+    note: 현황측량 평면도 내 표고점
+  - from_tag: PLAN-01
+    to_tag: LEGEND-01
+    relation_type: has_legend
+    note: 우측 하단 범례 포함
+  - from_tag: PLAN-01
+    to_tag: TABLE-CP
+    relation_type: has_table
+    note: 하단 도근점 측량 성과표 포함
+  - from_tag: PLAN-01
+    to_tag: PHOTO-CP1
+    relation_type: has_reference_photo
+    note: 도근점 현황 사진
+  - from_tag: PLAN-01
+    to_tag: PHOTO-CP2
+    relation_type: has_reference_photo
+    note: 도근점 현황 사진
+  - from_tag: PLAN-01
+    to_tag: PHOTO-CP3
+    relation_type: has_reference_photo
+    note: 도근점 현황 사진
+  - from_tag: PLAN-01
+    to_tag: PHOTO-TBM
+    relation_type: has_reference_photo
+    note: 표고점 현황 사진
+  spaces:
+  - space_id: SITE-MAIN
+    name: 현황측량도 본도
+    contains:
+    - PLAN-01
+    - CP.1
+    - CP.2
+    - CP.3
+    - T.B.M
+    - LEGEND-01
+    - TABLE-CP
+    - TBM-01
+    specifications:
+      drawing_number: C00-002
+      title: 현황측량도
+      discipline: CIVIL
+      drawing_genre: site_survey
+      coordinate_system: grid
+      north_arrow: true
+  - space_id: PHOTO-SECTION
+    name: 현황 사진 섹션
+    contains:
+    - PHOTO-CP1
+    - PHOTO-CP2
+    - PHOTO-CP3
+    - PHOTO-TBM
+    specifications:
+      purpose: reference_photos
+  - space_id: LEGEND-AREA
+    name: 범례 영역
+    contains:
+    - LEGEND-01
+    specifications:
+      purpose: symbol_legend
+  - space_id: TABLE-AREA
+    name: 도근점 성과표 영역
+    contains:
+    - TABLE-CP
+    specifications:
+      purpose: survey_control_table
+  self_check:
+    entity_count: 10
+    relationship_count: 19
+    visual_spec_preserved: true
+    issues: []

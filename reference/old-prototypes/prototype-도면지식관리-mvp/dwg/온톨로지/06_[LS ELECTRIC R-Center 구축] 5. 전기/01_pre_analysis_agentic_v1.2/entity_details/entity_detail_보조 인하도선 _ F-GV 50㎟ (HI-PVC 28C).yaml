@@ -1,0 +1,94 @@
+entity_detail:
+  tag: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'
+  type: down_conductor_auxiliary
+  specs:
+    conductor_spec:
+      value: F-GV 50㎟ (HI-PVC 28C)
+      unit: ''
+      source: pages 37, 38
+      confidence: 0.98
+    name_spec:
+      value: 보조 인하도선
+      unit: ''
+      source: pages 37, 38
+      confidence: 0.98
+  drawing_texts:
+  - source: page 37 executive_summary
+    page_number: 37
+    text: 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로 기재됨.
+  - source: page 37 equipment
+    page_number: 37
+    text: 'AUXILIARY_DOWNCONDUCTOR
+
+      name: 보조 인하도선
+
+      spec: F-GV 50㎟ (HI-PVC 28C)
+
+      discipline: ELECTRICAL
+
+      function_category: DISTRIBUTE
+
+      location: 범례 표기
+
+      confidence: 0.96'
+  - source: page 38 executive_summary
+    page_number: 38
+    text: 보조 인하도선은 F-GV 50㎟(HI-PVC 28C)로 표기됨.
+  - source: page 38 equipment
+    page_number: 38
+    text: 'LPS-DOWN-AUX-001
+
+      name: 보조 인하도선
+
+      spec: F-GV 50㎟ (HI-PVC 28C)
+
+      discipline: ELECTRICAL
+
+      function_category: PROTECT
+
+      location: 옥탑지붕층에서 하층으로 연결
+
+      confidence: 0.92'
+  requirements:
+  - text: 보조 인하도선은 F-GV 50㎟ (HI-PVC 28C)로 표기됨.
+    source: pages 37, 38
+    type: specification
+  - text: 옥탑지붕층에서 하층으로 연결
+    source: page 38 equipment
+    type: connection_condition
+  connection_specs:
+  - relation: connected_via
+    partner: LPS-COND-H-001
+    details:
+      source: page 38 relationships
+      direction: downstream
+      medium: conductor
+  - relation: connected_via
+    partner: LPS-INTERSTORY-001
+    details:
+      source: page 38 relationships
+      direction: downstream
+      medium: conductor
+  ontology_hints:
+    observed_relations:
+    - relation_type: connected_via
+      partner_tag: LPS-COND-H-001
+      direction: downstream
+      source: page 38 relationships
+    - relation_type: connected_via
+      partner_tag: LPS-INTERSTORY-001
+      direction: downstream
+      source: page 38 relationships
+    observed_attributes:
+    - spec
+    - discipline
+    - function_category
+    - location
+    similar_equipment:
+    - LPS-DOWN-AUX-001
+    suggested_parent_class: down_conductor
+    cross_discipline:
+    - ELECTRICAL
+  notes:
+  - 도면에서 동일 설비가 page 37, 38에 반복 표기됨.
+tag: '보조 인하도선 : F-GV 50㎟ (HI-PVC 28C)'

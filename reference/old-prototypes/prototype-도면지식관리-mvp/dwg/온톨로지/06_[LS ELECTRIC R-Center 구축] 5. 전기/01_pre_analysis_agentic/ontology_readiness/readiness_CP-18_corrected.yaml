@@ -1,0 +1,9 @@
+verdict: demoted
+confidence: 0.98
+reason: 이전 평가와 동일하게 demoted가 타당하다. 제공된 entity_detail에서 CP-18의 type은 Circuit으로 식별되지만,
+  specs가 비어 있고 requirements 및 connection_specs도 없으며, drawing_texts에서도 태그 표기 외에 독립
+  설비로 볼 수 있는 기능·정격·연결 정보가 확인되지 않는다. 관찰된 관계 역시 ROOM-001에 대한 located_in 1건뿐이어서, 설비 엔티티로서의
+  자율적 속성이나 구조적 역할이 부족하다. 또한 ontology_hints에서 suggested_parent_class가 ElectricalCircuit으로
+  제시되고 유사 항목들이 동일한 CP 계열 회로들로 묶여 있어, 이는 독립 장비라기보다 회로/패널 내 항목으로 해석하는 것이 일관적이다. 따라서
+  CP-18은 독립 엔티티로 유지하기보다 회로 항목으로 강등하는 판단을 유지한다.
+tag: CP-18

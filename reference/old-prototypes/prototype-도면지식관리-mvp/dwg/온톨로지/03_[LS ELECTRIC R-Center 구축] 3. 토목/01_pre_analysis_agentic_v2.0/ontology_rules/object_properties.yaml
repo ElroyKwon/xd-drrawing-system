@@ -1,0 +1,256 @@
+object_properties:
+- iri: dks:connectedTo
+  label: connectedTo
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:connectedTo
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: LINE_101
+    object: 기준맨홀
+    source_page: 13
+    note: from_node 기준 연결
+  - subject: LINE_101
+    object: SM.1
+    source_page: 13
+    note: to_node 연결
+  - subject: MH-02
+    object: MH-01
+    source_page: 4
+    note: pipe 관계, source_page 4
+  - subject: MH-02
+    object: MH-03
+    source_page: 4
+    note: pipe 관계, source_page 4
+  - subject: SM.2
+    object: SM.1
+    source_page: 13
+    note: 'relations: SM.1 -> SM.2, pipe'
+  - subject: SM.2
+    object: SM.3
+    source_page: 13
+    note: 'relations: SM.2 -> SM.3, pipe'
+  total_evidence: 6
+  derivation: related_assertions의 type이 connectedTo 또는 pipe로 반복 관찰되며, Pipe↔Manhole
+    및 Manhole↔Manhole 네트워크 연결을 포괄한다. 역방향도 함께 관찰되어 자기역관계 후보가 있다.
+  confidence: 0.93
+- iri: dks:references
+  label: references
+  domain: dks:CivilDrawingElement
+  range: dks:CivilDrawingElement
+  inverse_of_candidate: dks:isReferencedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: FOUNDATION-DTL-01
+    object: TABLE-FOUND-01
+    source_page: 11
+    note: 기초 치수 적용 (내경 300~800)
+  - subject: PROC-SEQ-01
+    object: NOTES-01
+    source_page: 11
+    note: 시공순서 그림-텍스트 대응
+  - subject: NOTES-01
+    object: PROC-SEQ-01
+    source_page: 11
+    note: 시공순서 그림-텍스트 대응
+  - subject: PIPE-DTL-02
+    object: PIPE-DTL-01
+    source_page: 11
+    note: '''A'' 부위 상세 참조 화살표'
+  - subject: TABLE-01
+    object: PROF-01
+    source_page: 13
+    note: 수직 투영 관계 — 프로파일 각 맨홀 위치가 테이블 열과 1:1 대응
+  total_evidence: 5
+  derivation: related_assertions의 type이 references로 반복 관찰되며, 상세도·테이블·프로파일·절차 텍스트 간
+    일반 참조 관계를 나타낸다.
+  confidence: 0.88
+- iri: dks:referencesDetail
+  label: referencesDetail
+  domain: dks:CivilDrawingElement
+  range: dks:CivilDrawingElement
+  inverse_of_candidate: dks:isDetailOf
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: DTL-RUNG
+    object: SEC-AA
+    source_page: 14
+    note: 발디딤쇠 설치 위치 참조
+  - subject: SLAB-DTL
+    object: SEC-AA
+    source_page: 14
+    note: 슬래브 상세 → 단면 참조
+  - subject: PIPE-DTL-01
+    object: PIPE-DTL-02
+    source_page: 11
+    note: A 부위 상세 참조 화살표
+  - subject: UNKNOWN-STRUCTURE-01
+    object: SECTION-AA
+    source_page: 10
+    note: PLAN-VIEW에서 A-A 단면 절단선으로 SECTION-AA를 지시
+  - subject: UNKNOWN-STRUCTURE-01
+    object: DETAIL-A
+    source_page: 10
+    note: SECTION-BB에서 상세 'A' 지시선으로 DETAIL-A를 지시
+  total_evidence: 5
+  derivation: related_assertions와 free_notes에서 referencesDetail 라벨이 반복되며, 상세도/단면도/부분상세
+    지시 관계를 나타낸다.
+  confidence: 0.91
+- iri: dks:hasPart
+  label: hasPart
+  domain: dks:CivilStructure
+  range: dks:CivilDrawingElement
+  inverse_of_candidate: dks:isPartOf
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: true
+  evidence_assertions:
+  - subject: UNKNOWN-STRUCTURE-01
+    object: GRATING-PLAN
+    source_page: 10
+    note: 집수정 상세도 내 스틸그레이팅 상세 그룹 구성요소
+  - subject: UNKNOWN-STRUCTURE-01
+    object: GRATING-ISO
+    source_page: 10
+    note: 집수정 상세도 내 스틸그레이팅 상세 그룹 구성요소
+  - subject: UNKNOWN-STRUCTURE-01
+    object: GRATING-DETAIL
+    source_page: 10
+    note: 집수정 상세도 내 스틸그레이팅 상세 그룹 구성요소
+  - subject: UNKNOWN-STRUCTURE-01
+    object: QUANTITY-TABLE
+    source_page: 10
+    note: 집수정 상세도에 포함된 수량표
+  total_evidence: 4
+  derivation: related_assertions의 type이 hasPart로 관찰되며, 구조물 상세를 구성하는 하위 도면요소/부분요소를
+    묶는 관계로 귀납된다.
+  confidence: 0.8
+- iri: dks:hasPipe
+  label: hasPipe
+  domain: dks:Manhole
+  range: dks:Pipe
+  inverse_of_candidate: dks:isPipeOf
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: SM.4
+    object: LINE 104
+    source_page: 12
+    note: specs.connected_line / line_id indicates connected pipe line
+  - subject: SM.4
+    object: LINE 105
+    source_page: 12
+    note: specs.connected_line indicates connected pipe line
+  total_evidence: 2
+  derivation: related_assertions에서 hasPipe가 직접 관찰되며, 맨홀이 연결된 관로를 가진다는 관계로 해석된다.
+  confidence: 0.74
+- iri: dks:hasPhotoReference
+  label: hasPhotoReference
+  domain: owl:Thing
+  range: dks:ReferencePhoto
+  inverse_of_candidate: dks:referencesSurveyPoint
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: CP.1
+    object: PHOTO-CP1
+    source_page: 3
+    note: 'photo_ref: PHOTO-CP1'
+  - subject: CP.2
+    object: PHOTO-CP2
+    source_page: 3
+    note: 'photo_ref: PHOTO-CP2'
+  - subject: CP.3
+    object: PHOTO-CP3
+    source_page: 3
+    note: 'photo_ref: PHOTO-CP3'
+  - subject: T.B.M
+    object: PHOTO-TBM
+    source_page: 3
+    note: 'specs.photo_ref: PHOTO-TBM'
+  total_evidence: 4
+  derivation: free_notes의 photo_ref / specs.photo_ref가 반복되며, 기준점/측점이 현황 사진을 참조하는 객체관계로
+    승격 가능하다.
+  confidence: 0.89
+- iri: dks:referencesSurveyPoint
+  label: referencesSurveyPoint
+  domain: dks:ReferencePhoto
+  range: owl:Thing
+  inverse_of_candidate: dks:hasPhotoReference
+  functional_candidate: true
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PHOTO-CP2
+    object: CP.2
+    source_page: 3
+    note: 도근점 CP.2
+  - subject: PHOTO-CP3
+    object: CP.3
+    source_page: 3
+    note: 도근점 CP.3
+  total_evidence: 2
+  derivation: ReferencePhoto 쪽 free_notes에서 referencesSurveyPoint / hasReferencedSurveyPoint가
+    관찰되어 사진→측점 참조의 역방향 관계 후보를 별도 귀납한다.
+  confidence: 0.77
+- iri: dks:appliesDimension
+  label: appliesDimension
+  domain: dks:CivilDrawingElement
+  range: dks:CivilDrawingElement
+  inverse_of_candidate: dks:isDimensionAppliedBy
+  functional_candidate: false
+  symmetric_candidate: false
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: PIPE-DTL-01
+    object: TABLE-PVC-01
+    source_page: 11
+    note: 치수 적용 (규격 150~300)
+  total_evidence: 1
+  derivation: related_assertions에서 appliesDimension이 1건 관찰되며, 상세도에 특정 치수표가 적용됨을 나타내는
+    관계 후보이다.
+  confidence: 0.58
+- iri: dks:similarTo
+  label: similarTo
+  domain: owl:Thing
+  range: owl:Thing
+  inverse_of_candidate: dks:similarTo
+  functional_candidate: false
+  symmetric_candidate: true
+  transitive_candidate: false
+  evidence_assertions:
+  - subject: GRADE-LEVEL-3
+    object: GRADE-LEVEL-1
+    source_page: 22
+    note: similar_equipment
+  - subject: GRADE-LEVEL-3
+    object: GRADE-LEVEL-2
+    source_page: 22
+    note: similar_equipment
+  - subject: MH-01
+    object: MH-02
+    source_page: 4
+    note: ontology_hints.similar_equipment
+  - subject: MH-03
+    object: MH-04
+    source_page: 4
+    note: ontology_hints.similar_equipment
+  total_evidence: 4
+  derivation: free_notes에서 similarTo / isSimilarTo / similar_equipment가 반복되며, 동일 계열
+    태그 간 유사성 링크를 위한 객체속성 후보이다.
+  confidence: 0.69
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T13:19:01.400630'
+  plan_reference: ontology_plan.yaml
+  class_taxonomy_reference: ontology_rules/class_taxonomy.yaml
+  confidence_overall: 0.86

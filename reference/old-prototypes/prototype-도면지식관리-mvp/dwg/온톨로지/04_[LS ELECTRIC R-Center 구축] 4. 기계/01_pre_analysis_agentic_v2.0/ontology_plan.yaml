@@ -1,0 +1,177 @@
+ontology_plan:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: entity_details/*.yaml (n=94)
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-20T08:35:28.330689'
+  project_overview:
+    discipline_mix:
+      MECHANICAL: 90
+      ELECTRICAL: 2
+      STRUCTURAL: 2
+    dominant_equipment_types:
+    - type: HVAC Equipment
+      count: 26
+      reasoning: 시스템에어컨 실내기/실외기(IAC/OAC), 환기장치(ERV), 송풍기(SF/EF/TEF) 등 다수 존재
+    - type: Fire Damper & Control
+      count: 26
+      reasoning: SMFD(스마트 방화댐퍼) 개별 기기, 제어반(CTRL-PANEL), 게이트웨이, 제어 그룹(SMFD-GRP-*) 다수
+        존재
+    - type: Space & Zone
+      count: 18
+      reasoning: SPACE-*, ZONE-* 태그로 명명된 건축적/설비적 구획 다수 존재
+    - type: Electrical Power & Load
+      count: 18
+      reasoning: MAIN-MCCB, MCP-PANEL 및 LOAD-* (DCF, EHP, CTRL-PWR) 형태의 전력 계통 객체 존재
+    complexity_estimate: medium
+    estimated_class_count: 25
+    estimated_individual_count: 94
+    estimated_property_count:
+      object: 8
+      data: 35
+  predicted_ontology_structure:
+    class_hierarchy_hint:
+      top_level:
+      - Equipment
+      - Space
+      - LogicalGroup
+      - Document
+      expected_depth: 4
+      likely_disjoint_pairs:
+      - - Equipment
+        - Space
+      - - Equipment
+        - Document
+      - - Space
+        - LogicalGroup
+      reasoning: 물리적 장비(Equipment), 설치 공간(Space), 제어/방화 연동을 위한 논리적 그룹(LogicalGroup),
+        도면/범례(Document)로 명확히 구분됨
+    expected_object_properties:
+    - label: connects_to
+      signal: 제어반과 댐퍼 그룹 간, 댐퍼와 접속함 간의 제어/통신선 연결 관계 다수 관찰됨
+      est_evidence: 45
+      inverse_hint: is_connected_to
+    - label: feeds
+      signal: 차단기(MAIN-MCCB)에서 패널(MCP-PANEL)로, 패널에서 부하(LOAD-*)로의 전력 공급 관계 관찰됨
+      est_evidence: 15
+      inverse_hint: is_fed_by
+    - label: contains
+      signal: 평면도(PANEL-ROOF-PLAN)가 공간(SPACE-*)이나 장비(SMFD)를 포함하는 관계 관찰됨
+      est_evidence: 10
+      inverse_hint: is_contained_in
+    - label: references
+      signal: 장비나 구역이 범례(LEGEND-*)를 참조하는 관계 관찰됨
+      est_evidence: 5
+      inverse_hint: is_referenced_by
+    expected_data_properties:
+    - label: hasCapacity_W
+      datatype_hint: xsd:decimal
+      coverage_estimate: 0.3
+      reasoning: 냉방능력_W, 난방능력_W 등 에어컨 및 코일 장비의 주요 스펙으로 빈번히 등장
+    - label: hasAirflow_CMH_CMM
+      datatype_hint: xsd:string
+      coverage_estimate: 0.2
+      reasoning: 송풍기(SF, EF) 및 에어컨의 풍량 스펙으로 등장 (CMH, CMM 혼용)
+    - label: hasVoltage_V
+      datatype_hint: xsd:integer
+      coverage_estimate: 0.3
+      reasoning: 전원_전압_V, main_voltage_V 등 전력을 사용하는 대부분의 장비에 존재
+    - label: hasModel
+      datatype_hint: xsd:string
+      coverage_estimate: 0.4
+      reasoning: 카탈로그 기반 장비(IAC, OAC, CHU 등)에 명시된 모델명
+    expected_axioms:
+    - type: SubClassOf
+      example: FireDamper SubClassOf Equipment
+      evidence_hint: SMFD-01, SMFD-02 등이 물리적 장비 심볼과 스펙을 가짐
+    - type: DomainRange
+      example: feeds domain PowerPanel or Breaker, range ElectricalLoad or Panel
+      evidence_hint: MCP-PANEL이 LOAD-DCF1 등을 feeds/supplies 함
+    expected_constraints:
+    - type: DomainRange
+      target: contains
+      expected: 'Domain: Document/Plan, Range: Space/Equipment'
+      reasoning: PANEL-ROOF-PLAN이 SPACE-* 및 SMFD-*를 contains 하는 패턴
+  discipline_context_plan:
+    MECHANICAL:
+      focus: HVAC 장비의 열역학적/유체적 스펙(냉난방능력, 풍량, 정압, 배관경) 및 방화댐퍼(SMFD)의 제어 토폴로지(Gateway
+        -> Panel -> Zone -> Group -> Damper) 계층화
+      expected_sub_kinds:
+      - HVACEquipment
+      - FireProtectionEquipment
+      - ControlPanel
+      - LogicalGroup
+    ELECTRICAL:
+      focus: 기계설비에 전원을 공급하는 동력반(MCP-PANEL)과 그 하위 부하(LOAD-*) 간의 전력 공급(feeds) 관계 및 전압/상/전력량
+        스펙 보존
+      expected_sub_kinds:
+      - PowerPanel
+      - CircuitBreaker
+      - ElectricalLoad
+      - JunctionBox
+    STRUCTURAL:
+      focus: 건축적 공간(SPACE-사무실, SPACE-복도 등) 및 구조 그리드(SPACE-GRID-1)의 치수/위치 정보 보존
+      expected_sub_kinds:
+      - Room
+      - Shaft
+      - StructuralGrid
+  merge_candidates_hint:
+    likely_duplicates:
+    - pattern: SPACE-실습시스템전트롤실 vs SPACE-실습시스템컨트롤실
+      estimate: 2건
+      resolution_hint: 오타(전트롤실 -> 컨트롤실)로 보이므로 동일 공간으로 병합 검토
+    - pattern: ZONE-대형공간서측 vs ZONE-좌측대형공간
+      estimate: 2건
+      resolution_hint: 동일한 덕트 사이즈 라벨과 유사한 SMFD 수량을 가지므로 공간적 중복 여부 확인 후 병합 또는 상하위 관계
+        설정
+    - pattern: LEGEND-CABLE vs LEGEND-WIRE
+      estimate: 2건
+      resolution_hint: 전선 및 전선관 범례표로 내용이 유사하므로 하나의 Legend 클래스 인스턴스로 통합 검토
+  ambiguity_risk_areas:
+  - tag_pattern: LOAD-*
+    reason: LOAD-DCF1은 물리적인 팬(DCF-1) 자체가 아니라 동력반 관점에서의 '전기적 부하'를 의미함
+    recommended_handling: LOAD-* 엔티티는 ElectricalLoad 클래스로 분류하고, 실제 기계 장비(DCF-1)와는
+      'representsLoadOf' 등의 속성으로 연결하여 물리 장비와 전기 부하를 분리
+  - tag_pattern: SMFD-GRP-* vs SMFD-CTRL-ZONE-*
+    reason: 둘 다 방화댐퍼를 묶는 논리적 단위이나, Zone은 공간적 구역(상부/중앙/하부)을, Group은 특정 실(진동시험실 등) 단위의
+      댐퍼 묶음을 의미하는 것으로 보임
+    recommended_handling: ControlZone과 EquipmentGroup으로 클래스를 분리하고, Zone이 여러 Group을
+      포함하는 계층 구조로 모델링
+  guidance_for_next_steps:
+    for_0_9b_placement:
+      focus:
+      - 물리적 장비(Equipment), 공간(Space), 논리적 그룹(Group/Zone), 문서(Plan/Legend)의 명확한 분리
+      - LOAD-* 태그를 기계 장비가 아닌 전기 부하(ElectricalLoad)로 정확히 식별
+      expected_owl_role_distribution:
+        NamedIndividual: 94
+        PartOf: 0
+        ObjectPropertyAssertion: 60
+        DataPropertyValue: 250
+        AnnotationOnly: 10
+      watch_outs:
+      - 카탈로그 스펙(raw_row 등)이 누락되지 않도록 DataProperty로 충실히 변환할 것
+    for_0_9c_taxonomy:
+      focus:
+      - 기계/전기/건축 도메인을 아우르는 상위 클래스 설계
+      seed_top_classes:
+      - HVACEquipment
+      - FireDamperSystem
+      - ElectricalDistribution
+      - ArchitecturalSpace
+    for_0_9d_properties:
+      focus:
+      - 제어 신호 흐름(connects_to, signal)과 전력 흐름(feeds, supplies)의 구분
+      priority_properties:
+      - connects_to
+      - feeds
+      - hasCapacity_W
+      - hasAirflow_CMH
+    for_0_9e_axioms:
+      focus:
+      - 공간과 장비 간의 상호 배타성(DisjointClasses) 설정
+      priority_axioms:
+      - Equipment DisjointWith Space
+      - feeds Domain PowerSource Range ElectricalLoad
+  confidence: 0.92
+  self_assessment: 제공된 entity_detail의 스펙과 관계가 매우 구체적이어서 신뢰도 높은 청사진 도출이 가능함. 단, SMFD
+    제어 구역(Zone)과 그룹(Group) 간의 정확한 포함 관계는 도면의 시각적 맥락 없이 텍스트만으로는 완벽히 확정하기 어려워 추론에 의존한
+    부분이 있음.

@@ -1,0 +1,162 @@
+placement:
+  tag: CCTV-CTL-01
+  name: 옥외 CCTV 제어반 (기존)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:CCTV-CTL-01
+    class_hint: ControlPanel
+    alternative_class_hints:
+    - CCTV Control
+    - Video Signal Management
+    related_assertions:
+    - type: cable
+      target_hint: HUB-RACK-01
+      note: 'relation from CCTV-CTL-01 to HUB-RACK-01; annotation: FIBER OPTICAL S.M
+        4CORE / ELP 50Ø / 터파기 신설 구역'
+    applicable_axioms:
+    - AX021
+    applicable_constraints: []
+    confirmed_class: dks:ControlPanel
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: CCTV1
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 표기 라벨
+      - raw_text: 기존 옥외 CCTV 제어반
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: rawLabelText
+          suggested_datatype: xsd:string
+          rationale: labels_inside / labels_above에 반복되는 원문 표기
+      - raw_text: 기존
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: statusText
+          suggested_datatype: xsd:string
+          rationale: 설비 상태를 나타내는 텍스트
+      - raw_text: FIBER OPTICAL S.M 4CORE / ELP 50Ø / 터파기 신설 구역
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 관계 annotation에 포함된 케이블/시공 관련 원문
+      - raw_text: top-center
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 위치 표기
+      - raw_text: CCTV 제어반
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: symbolTypeText
+          suggested_datatype: xsd:string
+          rationale: equipment_symbols의 도면 심볼 유형
+      - raw_text: CCTV Control
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보
+      - raw_text: Video Signal Management
+        source_page: 4
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 기능 후보
+  provenance:
+    name:
+      source_pages:
+      - 4
+      method: entity_detail.name
+    ontology_core.owl_role:
+      source_pages:
+      - 4
+      method: type+specs indicate standalone equipment
+    ontology_core.iri_hint:
+      source_pages:
+      - 4
+      method: tag-based hint
+    ontology_core.class_hint:
+      source_pages:
+      - 4
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 4
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 4
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 4
+      method: relations.annotation
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 4
+      method: specs.raw_labels
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 4
+      method: specs.labels_inside
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 4
+      method: specs.status
+    discipline_context.free_notes[3].raw_text:
+      source_pages:
+      - 4
+      method: relations.annotation
+    discipline_context.free_notes[4].raw_text:
+      source_pages:
+      - 4
+      method: position
+    discipline_context.free_notes[5].raw_text:
+      source_pages:
+      - 4
+      method: equipment_symbols.type
+    discipline_context.free_notes[6].raw_text:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes[7].raw_text:
+      source_pages:
+      - 4
+      method: ontology_hints.function_candidates
+  unresolved: []
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - class_hint selection from suggested_parent_class
+    - related_assertions extraction from relations
+    - preserve raw labels, status, position, equipment_symbols, and annotation in
+      free_notes
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:12:57.764609'
+  confidence: 0.93

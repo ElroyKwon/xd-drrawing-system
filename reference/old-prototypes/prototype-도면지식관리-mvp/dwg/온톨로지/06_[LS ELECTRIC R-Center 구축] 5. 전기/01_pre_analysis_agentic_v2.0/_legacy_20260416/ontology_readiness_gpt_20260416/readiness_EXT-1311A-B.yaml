@@ -1,0 +1,104 @@
+ontology_readiness:
+  tag: EXT-1311A-B
+  verdict: demoted
+  confidence: 0.96
+  entity_qualification:
+    is_independent: false
+    has_unique_tag: true
+    has_own_specs: false
+    spec_count: 1
+    reason: JUNCTION_PANEL로 표기되었지만 specs는 raw_labels 1개뿐이며, 외부 연결/계통 접속을 나타내는 연결 표기
+      성격이 강함. 독립 설비의 자체 사양으로 보기 어렵고, 다른 설비(1311A, BLK-1311A)와의 연결 관계로 정의됨.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 1
+    convertible: 0
+    ambiguous_attributes:
+    - key: raw_labels
+      value: 'B TO: 1311A HV'
+      reason: 설비 사양이라기보다 연결/표기 텍스트로 보이며, 독립 속성으로 정규화하기 어려움.
+    auxiliary_attributes:
+    - raw_labels
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes: []
+    conflicts: []
+  duplicate_candidates: []
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: JunctionPanel
+    alternative_parent_classes:
+    - ExternalConnection
+    - SystemInterconnection
+  spatial_context:
+    position: bottom-right
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 'B TO: 1311A HV'
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: false
+      mini: true
+    collection_sources:
+      cross_validated: true
+      visual_semantics: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  skipped_fields:
+  - requirements (not present)
+  - drawing_texts (not present)
+  - notes (not present)
+  - ontology_hints.observed_relations (not present)
+  - ontology_hints.cross_discipline (not present)
+  demoted_to:
+    role: component
+    parent_tag: 1311A
+    relation_type: part_of
+    owl_pattern: :EXT-1311A-B rdf:type :Component ; :partOf :1311A
+  owl_export_hints:
+    create_individual: true
+    individual_type: :Component
+    annotations_to_emit:
+    - 'raw_labels: B TO: 1311A HV'
+    - 'source_attribution.sonnet: true'
+    - 'source_attribution.gemini: false'
+    - 'source_attribution.mini: true'
+    - 'collection_sources.cross_validated: true'
+    - 'collection_sources.visual_semantics: true'
+    - 'position: bottom-right'
+    relations_to_emit:
+    - part_of:1311A
+    - feeds:1311A -> EXT-1311A-B
+    - 'cable: BLK-1311A -> EXT-1311A-B'
+    needs_human_review: false
+tag: EXT-1311A-B
+discovered_relations: 2

@@ -1,0 +1,262 @@
+constraints:
+- id: CN001
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:drawing_number
+  params: {}
+  derivation: data_properties.drawing_number이 functional_candidate=true이며, 관찰된 3건(EF-001,
+    EF-002, TB-001) 모두 개체당 1개 값만 가짐. 충돌 값이 관찰되지 않음.
+  evidence_tags:
+  - EF-001
+  - EF-002
+  - TB-001
+  confidence: 0.97
+- id: CN002
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:position
+  params: {}
+  derivation: data_properties.position이 functional_candidate=true이며, 예시 3건(EF-001,
+    EX-COR-02, ROOM-OFFICE) 모두 단일 위치 문자열만 가짐. placement 전반에서도 위치는 단일 문자열로 기록되는 패턴이
+    우세함.
+  evidence_tags:
+  - EF-001
+  - EX-COR-02
+  - ROOM-OFFICE
+  - PB-01
+  confidence: 0.98
+- id: CN003
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:discipline
+  params: {}
+  derivation: data_properties.discipline이 functional_candidate=true이며, 예시 3건 모두 개체당
+    단일 discipline 값만 가짐. entity_detail 전반에 단일 discipline이 존재한다고 명시됨.
+  evidence_tags:
+  - EF-002
+  - EX-OFFICE-02
+  - SYM-020
+  confidence: 0.98
+- id: CN004
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:function_category
+  params: {}
+  derivation: data_properties.function_category가 functional_candidate=true이며, 예시 3건
+    모두 단일 값만 가짐. 전체 entity_detail 전반에 반복된다고 기술됨.
+  evidence_tags:
+  - AREA-CORRIDOR-CORE
+  - EF-002
+  - EX-OFFICE-02
+  confidence: 0.99
+- id: CN005
+  type: FunctionalProperty
+  target_class: owl:Thing
+  property: dks:shape
+  params: {}
+  derivation: data_properties.shape가 functional_candidate=true이며, 예시 3건(EX-CENTER-01,
+    ROOM-AMP, FA-2A) 모두 단일 형상값만 가짐. PB-01의 object-like has_shape도 단일값으로 관찰됨.
+  evidence_tags:
+  - EX-CENTER-01
+  - ROOM-AMP
+  - FA-2A
+  - PB-01
+  confidence: 0.97
+- id: CN006
+  type: Cardinality
+  target_class: owl:Thing
+  property: dks:labels_inside
+  params:
+    min: 0
+    max: null
+  derivation: data_properties.labels_inside가 functional_candidate=false이며, 계획/증거에서
+    단일 라벨부터 다중 라벨 목록까지 다양하다고 명시됨. 따라서 존재는 선택적이고 상한은 evidence상 고정 불가.
+  evidence_tags:
+  - EX-CENTER-01
+  - ROOM-AMP
+  - PANEL-TITLE-BANNER
+  - SPACE-PIT-001
+  confidence: 0.98
+- id: CN007
+  type: Cardinality
+  target_class: owl:Thing
+  property: dks:equipment_symbols
+  params:
+    min: 0
+    max: null
+  derivation: data_properties.equipment_symbols가 functional_candidate=false이며, ROOM-LOUNGE,
+    FA-1A, SYM-015처럼 공간 내부 설비 수량/장치 구성/심벌 정의 등 다중 구조를 담음. 일부 객체는 없고 일부는 여러 항목을 가질
+    수 있어 0..n으로 귀납.
+  evidence_tags:
+  - ROOM-LOUNGE
+  - FA-1A
+  - SYM-015
+  - ZONE-전기차반도체
+  confidence: 0.82
+- id: CN008
+  type: FunctionalProperty
+  target_class: dks:SymbolAndLegendEntity
+  property: dks:symbol_id
+  params: {}
+  derivation: data_properties.symbol_id가 functional_candidate=true이며, SYM-001, SYM-010,
+    SYM-023 모두 개체당 1개 symbol_id만 가짐.
+  evidence_tags:
+  - SYM-001
+  - SYM-010
+  - SYM-023
+  confidence: 0.98
+- id: CN009
+  type: FunctionalProperty
+  target_class: dks:SymbolAndLegendEntity
+  property: dks:group
+  params: {}
+  derivation: data_properties.group가 functional_candidate=true이며, SYM-001/010/013이
+    각각 단일 그룹값만 가짐.
+  evidence_tags:
+  - SYM-001
+  - SYM-010
+  - SYM-013
+  confidence: 0.96
+- id: CN010
+  type: FunctionalProperty
+  target_class: dks:SymbolAndLegendEntity
+  property: dks:line_style
+  params: {}
+  derivation: data_properties.line_style가 functional_candidate=true이며, SYM-015, SYM-018,
+    SYM-021이 각각 단일 선형식 값만 가짐.
+  evidence_tags:
+  - SYM-015
+  - SYM-018
+  - SYM-021
+  confidence: 0.94
+- id: CN011
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:title
+  params: {}
+  derivation: data_properties.title이 functional_candidate=true이며, EF-001, EF-002,
+    UNKNOWN-SPACE-05 모두 단일 제목 문자열만 가짐.
+  evidence_tags:
+  - EF-001
+  - EF-002
+  - UNKNOWN-SPACE-05
+  confidence: 0.96
+- id: CN012
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:scale_a1
+  params: {}
+  derivation: data_properties.scale_a1이 functional_candidate=true이며, EF-001, EF-002,
+    UNKNOWN-PANEL-003 모두 단일 값만 가짐.
+  evidence_tags:
+  - EF-001
+  - EF-002
+  - UNKNOWN-PANEL-003
+  confidence: 0.95
+- id: CN013
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:scale_a3
+  params: {}
+  derivation: data_properties.scale_a3가 functional_candidate=true이며, EF-001, EF-002,
+    UNKNOWN-PANEL-003 모두 단일 값만 가짐.
+  evidence_tags:
+  - EF-001
+  - EF-002
+  - UNKNOWN-PANEL-003
+  confidence: 0.95
+- id: CN014
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:project_number
+  params: {}
+  derivation: data_properties.project_number이 functional_candidate=true이며, EF-002,
+    TB-001, UNKNOWN-SPACE-05가 모두 동일 형식의 단일 프로젝트 번호를 가짐.
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-SPACE-05
+  confidence: 0.93
+- id: CN015
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:date
+  params: {}
+  derivation: data_properties.date가 functional_candidate=true이며, EF-002, TB-001, UNKNOWN-PANEL-004
+    모두 단일 날짜 문자열만 가짐.
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-PANEL-004
+  confidence: 0.95
+- id: CN016
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:drawn_by
+  params: {}
+  derivation: data_properties.drawn_by가 functional_candidate=true이며, EF-002, TB-001,
+    UNKNOWN-PANEL-004 모두 개체당 1명만 기록됨.
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-PANEL-004
+  confidence: 0.94
+- id: CN017
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:checked_by
+  params: {}
+  derivation: data_properties.checked_by가 functional_candidate=true이며, EF-002, TB-001,
+    UNKNOWN-PANEL-004 모두 단일 값만 가짐. 표기 오차(이은전/이은진)는 개체 간 값 차이이지 동일 개체 다중값 충돌은 아님.
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-PANEL-004
+  confidence: 0.9
+- id: CN018
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:approved_by
+  params: {}
+  derivation: data_properties.approved_by가 functional_candidate=true이며, EF-002, TB-001,
+    UNKNOWN-PANEL-004 모두 단일 승인자만 가짐.
+  evidence_tags:
+  - EF-002
+  - TB-001
+  - UNKNOWN-PANEL-004
+  confidence: 0.95
+- id: CN019
+  type: FunctionalProperty
+  target_class: dks:SymbolAndLegendEntity
+  property: dks:contained_in
+  params: {}
+  derivation: object_properties.contained_in이 functional_candidate=true이며, 관찰된 3건(SYM-001,
+    SYM-015, SYM-018) 모두 동일하게 PANEL-LEGEND-TABLE 하나에만 포함됨. 현재 관찰 범위에서는 각 심벌이 하나의 범례표에만
+    속함.
+  evidence_tags:
+  - SYM-001
+  - SYM-015
+  - SYM-018
+  - PANEL-LEGEND-TABLE
+  confidence: 0.95
+- id: CN020
+  type: FunctionalProperty
+  target_class: dks:DrawingInformationEntity
+  property: dks:title_block_of
+  params: {}
+  derivation: object_properties.title_block_of가 functional_candidate=true이며, 관찰된 title
+    block 관계는 PANEL-TITLE-BLOCK과 PANEL-LEGEND-TABLE의 단일 쌍으로만 나타남.
+  evidence_tags:
+  - PANEL-TITLE-BLOCK
+  - PANEL-LEGEND-TABLE
+  confidence: 0.88
+summary_by_type:
+  FunctionalProperty: 17
+  Cardinality: 2
+gaps: []
+meta:
+  project: 01_pre_analysis_agentic_v2.0
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:11:39.348479'
+  plan_reference: ontology_plan.yaml
+  confidence_overall: 0.9

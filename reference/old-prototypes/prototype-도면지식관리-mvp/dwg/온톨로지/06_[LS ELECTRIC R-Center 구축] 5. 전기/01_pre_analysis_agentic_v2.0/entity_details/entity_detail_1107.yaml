@@ -1,0 +1,60 @@
+tag: '1107'
+name: SHV 연락 패널 1107
+type: JUNCTION_PANEL
+discipline: ELECTRICAL
+function_category: JUNCTION_PANEL
+source_pages:
+- 5
+specs:
+  raw_labels:
+  - '1107'
+  - SHV
+  - 'TO: 2100 SHV'
+  bus_section: SHV
+  panel_id: '1107'
+  voltage_kV: 22.9
+  destination: 2100 SHV
+relations:
+- from: '1106'
+  to: '1107'
+  relation: connects_to
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 22.9kV SHV BUS-1
+- from: '1107'
+  to: EXT-2100-SHV
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 'TO: 2100 SHV'
+- from: 1310-SHV
+  to: '1107'
+  relation: feeds
+  source_page: 5
+  origin: cross_validated
+  line_style: solid
+  note: 'JUNCTION BOX TO: 1107 SHV'
+collection_sources:
+  cross_validated: true
+  entity_synthesis: true
+position: middle-right
+confidence: 0.95
+equipment_symbols: []
+source_attribution:
+  sonnet: true
+  gemini: true
+  mini: true
+ontology_hints:
+  suggested_parent_class: JunctionBox
+  observed_attributes:
+  - raw_labels
+  - bus_section
+  - panel_id
+  - voltage_kV
+  - destination
+  similar_equipment: []
+  function_candidates:
+  - ConnectionPoint
+  - DistributionPoint

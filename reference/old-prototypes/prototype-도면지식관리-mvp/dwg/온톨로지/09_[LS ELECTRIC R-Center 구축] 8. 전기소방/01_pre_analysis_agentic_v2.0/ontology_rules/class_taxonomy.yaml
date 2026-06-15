@@ -1,0 +1,873 @@
+class_taxonomy:
+  project: 01_pre_analysis_agentic_v2.0
+  derived_from: ontology_placement/placement_*.yaml (n=154)
+  plan_reference: ontology_plan.yaml
+  model: gemini-3.1-pro-preview
+  derived_at: '2026-04-21T14:04:01.035318'
+  classes:
+  - iri: dks:SpatialEntity
+    label: Spatial Entity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - AREA-CORRIDOR-CORE
+    - ROOM-AMP
+    - ROOM-AZS
+    - ROOM-CENTER-DIRECTOR
+    - ROOM-DATA
+    - ROOM-Drive시험실-상
+    - ROOM-Drive시험실-하
+    - ROOM-EMC챔버
+    - ROOM-EMI-EMS
+    - ROOM-LOUNGE
+    - ROOM-MID-MTG
+    - ROOM-OFFICE
+    - ROOM-PLC-Drive시험실
+    - ROOM-REST
+    - ROOM-SEMINAR
+    - ROOM-SMALL-MTG-1
+    - ROOM-SMALL-MTG-2
+    - ROOM-SOFTWARE-LAB
+    - ROOM-VERIFICATION-CTRL
+    - ROOM-고객대기실
+    - ROOM-고객접견실
+    - ROOM-극한환경시험실
+    - ROOM-대용량모터부하실
+    - ROOM-로비
+    - ROOM-방풍실
+    - ROOM-부하제어기능시험실
+    - ROOM-설비보전실
+    - ROOM-시험전원실
+    - ROOM-제어룸
+    - ROOM-진동시험실
+    - ROOM-컨트롤실
+    - ROOM-항온항습실
+    - ROOM-환경시험실
+    - SPACE-PIT-001
+    - STAIR-CORE
+    - UNKNOWN-SPACE-01
+    - UNKNOWN-SPACE-02
+    - ZONE-EMC챔버실
+    - ZONE-고객접견실
+    - ZONE-극한환경시험실
+    - ZONE-대용량모터부하실
+    - ZONE-로비방풍실
+    - ZONE-시험전원실
+    - ZONE-신사업검증시스템
+    - ZONE-전기적기능시험실
+    - ZONE-전기차반도체
+    - ZONE-전기항온항습실
+    - ZONE-진동시험실
+    - ZONE-컨트롤실
+    - ZONE-환경시험실
+    derivation: class_hint가 Space, Room, Zone, SpatialEntity, SpatialRegion, FireDetectionZone,
+      FireProtectionZone, FireZone, SpatialZone 등으로 반복되며 ROOM-/ZONE-/AREA-/SPACE-/STAIR-
+      패턴이 공간 계열로 수렴.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:Room
+    label: Room
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - ROOM-AMP
+    - ROOM-CENTER-DIRECTOR
+    - ROOM-DATA
+    - ROOM-Drive시험실-상
+    - ROOM-Drive시험실-하
+    - ROOM-EMC챔버
+    - ROOM-EMI-EMS
+    - ROOM-LOUNGE
+    - ROOM-MID-MTG
+    - ROOM-OFFICE
+    - ROOM-PLC-Drive시험실
+    - ROOM-REST
+    - ROOM-SEMINAR
+    - ROOM-SMALL-MTG-1
+    - ROOM-SMALL-MTG-2
+    - ROOM-SOFTWARE-LAB
+    - ROOM-VERIFICATION-CTRL
+    - ROOM-고객대기실
+    - ROOM-고객접견실
+    - ROOM-극한환경시험실
+    - ROOM-대용량모터부하실
+    - ROOM-로비
+    - ROOM-방풍실
+    - ROOM-부하제어기능시험실
+    - ROOM-설비보전실
+    - ROOM-시험전원실
+    - ROOM-제어룸
+    - ROOM-진동시험실
+    - ROOM-컨트롤실
+    - ROOM-항온항습실
+    - ROOM-환경시험실
+    derivation: ROOM- 접두 패턴이 강하며 class_hint도 Space/Room/ControlRoom/TestingRoom/ShieldedRoom
+      등 실 단위 공간으로 관찰됨.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:Zone
+    label: Zone
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - UNKNOWN-SPACE-01
+    - UNKNOWN-SPACE-02
+    - ZONE-EMC챔버실
+    - ZONE-고객접견실
+    - ZONE-극한환경시험실
+    - ZONE-대용량모터부하실
+    - ZONE-로비방풍실
+    - ZONE-시험전원실
+    - ZONE-신사업검증시스템
+    - ZONE-전기적기능시험실
+    - ZONE-전기차반도체
+    - ZONE-전기항온항습실
+    - ZONE-진동시험실
+    - ZONE-컨트롤실
+    - ZONE-환경시험실
+    derivation: ZONE- 접두 및 class_hint가 Zone, FireDetectionZone, FireProtectionZone,
+      FireZone, SpatialZone으로 반복.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:Area
+    label: Area
+    super_classes:
+    - dks:SpatialEntity
+    evidence_tags:
+    - AREA-CORRIDOR-CORE
+    derivation: AREA- 접두와 name의 구역 표현, class_hint FireAlarmZone/alternative FireDetectionArea가
+      공간 하위의 구역 계열을 시사.
+    source_pages: []
+    confidence: 0.83
+  - iri: dks:SpatialReferenceEntity
+    label: Spatial Reference Entity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - GRID-001
+    - UNKNOWN-SHAPE-001
+    - UNKNOWN-SHAPE-002
+    - UNKNOWN-SPACE-11
+    derivation: class_hint가 SpatialReference, GridReference, GridMarker, SpatialReferenceSystem으로
+      반복되며 그리드/좌표 참조 객체군을 형성.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:DrawingInformationEntity
+    label: Drawing Information Entity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EF-001
+    - EF-002
+    - EF-004
+    - EF-201
+    - EF-202
+    - EF-203
+    - EF-301
+    - EF-302
+    - EF-303
+    - LEGEND-001
+    - PANEL-CABLE-TABLE
+    - PANEL-DESIGN-NOTES
+    - PANEL-LEGEND-TABLE
+    - PANEL-TITLE-BANNER
+    - PANEL-TITLE-BLOCK
+    - STAIR-DN-UP
+    - TB-001
+    - UNKNOWN-PANEL-001
+    - UNKNOWN-PANEL-002
+    - UNKNOWN-PANEL-003
+    - UNKNOWN-PANEL-004
+    - UNKNOWN-SPACE-03
+    - UNKNOWN-SPACE-04
+    - UNKNOWN-SPACE-05
+    - UNKNOWN-SPACE-06
+    - UNKNOWN-SPACE-07
+    - UNKNOWN-SPACE-08
+    - UNKNOWN-SPACE-09
+    - UNKNOWN-SPACE-10
+    derivation: AnnotationOnly가 다수이며 class_hint가 DrawingTitle, TitleBlock, Legend,
+      Schedule, DrawingMetadata, InformationPanel, GeneralNote 등 도면 정보/메타 객체로 수렴.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:LegendTable
+    label: Legend Table
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - PANEL-LEGEND-TABLE
+    - UNKNOWN-PANEL-002
+    - UNKNOWN-SPACE-03
+    derivation: class_hint가 직접 LegendTable로 반복되고 범례표/범례 및 주기사항 표라는 name 패턴이 일치.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:TitleBlock
+    label: Title Block
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - EF-303
+    - TB-001
+    - UNKNOWN-PANEL-003
+    derivation: class_hint가 TitleBlock 또는 alternative에 TitleBlock이 직접 관찰됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DrawingMetadata
+    label: Drawing Metadata
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - UNKNOWN-PANEL-004
+    - UNKNOWN-SPACE-05
+    - UNKNOWN-SPACE-09
+    - UNKNOWN-SPACE-10
+    derivation: class_hint가 DrawingMetadata로 반복되며 표제란/개정이력/도장 등 메타 정보 패턴.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:DrawingTitleOrIndex
+    label: Drawing Title Or Index
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - EF-001
+    - EF-002
+    derivation: class_hint가 DrawingIndex, DrawingTitle로 관찰되며 둘 다 도면 식별/목록 정보 계열.
+    source_pages: []
+    confidence: 0.82
+  - iri: dks:Schedule
+    label: Schedule
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - PANEL-CABLE-TABLE
+    derivation: class_hint가 Schedule이며 배관 배선 규격 표라는 name이 표 형식 정보 객체를 지시.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:Note
+    label: Note
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - PANEL-DESIGN-NOTES
+    - UNKNOWN-SPACE-04
+    derivation: 주기사항/GeneralNote/DesignSpecification 패턴으로 note 계열 정보 객체를 형성.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:InformationPanel
+    label: Information Panel
+    super_classes:
+    - dks:DrawingInformationEntity
+    evidence_tags:
+    - PANEL-TITLE-BANNER
+    - PANEL-TITLE-BLOCK
+    - UNKNOWN-PANEL-001
+    - UNKNOWN-SPACE-06
+    - UNKNOWN-SPACE-07
+    - UNKNOWN-SPACE-08
+    derivation: class_hint가 InformationPanel, DrawingInformationEntity, DrawingLayout,
+      ProjectInformation, InformationArea, DrawingInformation 등 패널/정보영역 계열로 묶임.
+    source_pages: []
+    confidence: 0.78
+  - iri: dks:SymbolAndLegendEntity
+    label: Symbol And Legend Entity
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - SYM-001
+    - SYM-002
+    - SYM-003
+    - SYM-004
+    - SYM-005
+    - SYM-006
+    - SYM-007
+    - SYM-008
+    - SYM-009
+    - SYM-010
+    - SYM-011
+    - SYM-012
+    - SYM-013
+    - SYM-014
+    - SYM-015
+    - SYM-016
+    - SYM-017
+    - SYM-018
+    - SYM-019
+    - SYM-020
+    - SYM-021
+    - SYM-022
+    - SYM-023
+    derivation: SYM- 접두가 강한 패턴이며 대부분 PANEL-LEGEND-TABLE에 contained_in 관계를 가지므로 범례/심벌
+      객체군으로 귀납.
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:EquipmentSymbol
+    label: Equipment Symbol
+    super_classes:
+    - dks:SymbolAndLegendEntity
+    evidence_tags:
+    - SYM-001
+    - SYM-002
+    - SYM-003
+    - SYM-004
+    - SYM-005
+    - SYM-006
+    - SYM-007
+    - SYM-008
+    - SYM-009
+    - SYM-010
+    - SYM-011
+    - SYM-012
+    - SYM-013
+    - SYM-014
+    derivation: name이 감지기/수동발신기/수신반/유도등/PULL BOX/분전반 등 설비 표상을 가리키며 line-type 심벌과 구분됨.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:LineTypeSymbol
+    label: Line Type Symbol
+    super_classes:
+    - dks:SymbolAndLegendEntity
+    evidence_tags:
+    - SYM-015
+    - SYM-016
+    - SYM-017
+    - SYM-018
+    - SYM-019
+    - SYM-020
+    - SYM-021
+    - SYM-022
+    - SYM-023
+    derivation: 배관배선/귀로/입상입하 화표시 등 선종·배선 경로 표기 name 패턴과 defines_line_type 관계가 반복.
+    source_pages: []
+    confidence: 0.95
+  - iri: dks:EquipmentOrDevice
+    label: Equipment Or Device
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - EX-CENTER-01
+    - EX-COR-01
+    - EX-COR-02
+    - EX-CTRL-01
+    - EX-DATA-01
+    - EX-LOUNGE-01
+    - EX-MTG-M-01
+    - EX-MTG-S1-01
+    - EX-OFFICE-01
+    - EX-OFFICE-02
+    - EX-REST-01
+    - EX-SEM-01
+    - EX-SEM-02
+    - EX-SW-LAB-01
+    - EX-SW-LAB-02
+    - EX1-STAIR-01
+    - PB-01
+    - PB-02
+    - SOURCE_PANEL_1
+    - SOURCE_PANEL_2
+    - UNKNOWN-LIGHT-001
+    - UNKNOWN-LIGHT-002
+    - UNKNOWN-LIGHT-003
+    - WF-001
+    derivation: class_hint가 EmergencyLighting, EmergencyLightingFixture, ElectricalEquipment,
+      ElectricalPanel, PowerSupply, SealingDevice 등 실제 설비/장치 계열로 관찰.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:EmergencyLighting
+    label: Emergency Lighting
+    super_classes:
+    - dks:EquipmentOrDevice
+    evidence_tags:
+    - EX-CENTER-01
+    - EX-COR-01
+    - EX-COR-02
+    - EX-CTRL-01
+    - EX-DATA-01
+    - EX-LOUNGE-01
+    - EX-MTG-M-01
+    - EX-MTG-S1-01
+    - EX-OFFICE-01
+    - EX-OFFICE-02
+    - EX-REST-01
+    - EX-SEM-01
+    - EX-SEM-02
+    - EX-SW-LAB-01
+    - EX-SW-LAB-02
+    - EX1-STAIR-01
+    - UNKNOWN-LIGHT-001
+    - UNKNOWN-LIGHT-002
+    - UNKNOWN-LIGHT-003
+    derivation: EX-/EX1-/UNKNOWN-LIGHT- 패턴과 class_hint EmergencyLighting/EmergencyLightingFixture가
+      일관됨.
+    source_pages: []
+    confidence: 0.98
+  - iri: dks:PullBox
+    label: Pull Box
+    super_classes:
+    - dks:EquipmentOrDevice
+    evidence_tags:
+    - PB-01
+    - PB-02
+    derivation: electrical discipline의 PB-01/02는 name이 PULL BOX이고 alternative_class_hints에
+      PullBox/JunctionBox가 반복.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:ElectricalPanel
+    label: Electrical Panel
+    super_classes:
+    - dks:EquipmentOrDevice
+    evidence_tags:
+    - SOURCE_PANEL_1
+    - SOURCE_PANEL_2
+    derivation: class_hint가 ElectricalPanel/PowerSupply이며 name이 유도등 전원 인입으로 패널/전원
+      공급 장치 계열.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:DistributionNetworkElement
+    label: Distribution Network Element
+    super_classes:
+    - owl:Thing
+    evidence_tags:
+    - CABLE-TRAY-01
+    - EF-003
+    - EF-101
+    - EF-103
+    - FA-1A
+    - FA-1B
+    - FA-1C
+    - FA-1D
+    - FA-1E
+    - FA-1F
+    - FA-2A
+    - FA-2B
+    - FD-1A
+    - FD-1B
+    - FD-2A
+    - FD-2B
+    - OUTDOOR-CONN
+    - PB-001
+    - PB-002
+    - PULL-BOX-외부
+    - RISER-MAIN
+    - UNKNOWN-LIGHT-004
+    - 통신-맨홀
+    derivation: class_hint가 CableManagementSystem, FireAlarmStation/Relay/ControlUnit,
+      TerminalBox, Shaft, ConnectionPoint, PullBox, FireProtectionPiping, ElectricalConductor,
+      CommunicationInfrastructure 등 연결·분배·간선 요소로 반복.
+    source_pages: []
+    confidence: 0.93
+  - iri: dks:FireAlarmControlOrRelay
+    label: Fire Alarm Control Or Relay
+    super_classes:
+    - dks:DistributionNetworkElement
+    evidence_tags:
+    - FA-1A
+    - FA-1B
+    - FA-1C
+    - FA-1D
+    - FA-1E
+    - FA-1F
+    derivation: FA-1A~1F가 동일 name 패턴 '자동화재탐지 발신기/중계기 세트'를 가지며 class_hint도 station/system
+      component/device/control unit/relay로 근접 군집.
+    source_pages: []
+    confidence: 0.96
+  - iri: dks:FireControlPanel
+    label: Fire Control Panel
+    super_classes:
+    - dks:DistributionNetworkElement
+    evidence_tags:
+    - FD-1A
+    - FD-1B
+    derivation: FD-1A/1B가 동일 name 패턴 '방화셔터 연동제어반'이며 class_hint가 FireProtectionControlPanel/FireControlPanel.
+    source_pages: []
+    confidence: 0.97
+  - iri: dks:ShaftOrRiser
+    label: Shaft Or Riser
+    super_classes:
+    - dks:DistributionNetworkElement
+    evidence_tags:
+    - FA-2A
+    - FA-2B
+    - FD-2A
+    - FD-2B
+    - RISER-MAIN
+    derivation: name에 샤프트/수직/간선/입상 패턴이 반복되고 class_hint가 TerminalBox, Shaft, FireProtectionShaft,
+      FireProtectionPiping 등 수직 분배 요소로 수렴.
+    source_pages: []
+    confidence: 0.9
+  - iri: dks:ConnectionInfrastructure
+    label: Connection Infrastructure
+    super_classes:
+    - dks:DistributionNetworkElement
+    evidence_tags:
+    - CABLE-TRAY-01
+    - OUTDOOR-CONN
+    - PB-001
+    - PB-002
+    - PULL-BOX-외부
+    - UNKNOWN-LIGHT-004
+    - 통신-맨홀
+    derivation: connects_to/cable 관계 중심이며 name이 cable tray, connection point, pull
+      box, conductor, manhole 등 연결 인프라 패턴.
+    source_pages: []
+    confidence: 0.88
+  - iri: dks:FireProtectionSystemDrawingObject
+    label: Fire Protection System Drawing Object
+    super_classes:
+    - dks:DistributionNetworkElement
+    evidence_tags:
+    - EF-003
+    - EF-101
+    - EF-103
+    derivation: EF-003/101/103은 EF- 패턴이지만 AnnotationOnly가 아니고 class_hint가 FireProtectionSystem/MainLine/Drawing으로
+      관찰되어 도면 내 시스템 표현 객체로 별도 군집.
+    source_pages: []
+    confidence: 0.62
+  - iri: dks:ProtectiveDevice
+    label: Protective Device
+    super_classes:
+    - dks:EquipmentOrDevice
+    evidence_tags:
+    - WF-001
+    derivation: class_hint SealingDevice와 name 관로구방수장치가 보호 장치 계열을 시사.
+    source_pages: []
+    confidence: 0.78
+  subclass_relations:
+  - sub: dks:Room
+    super: dks:SpatialEntity
+    derivation: ROOM- 접두와 Space/Room 계열 class_hint의 공통성.
+    confidence: 0.97
+  - sub: dks:Zone
+    super: dks:SpatialEntity
+    derivation: ZONE- 접두와 Zone/FireDetectionZone/FireZone 계열 class_hint의 공통성.
+    confidence: 0.97
+  - sub: dks:Area
+    super: dks:SpatialEntity
+    derivation: AREA- 접두와 구역 의미 name 패턴.
+    confidence: 0.83
+  - sub: dks:SpatialReferenceEntity
+    super: owl:Thing
+    derivation: 공간 자체가 아니라 그리드/좌표 참조 객체군으로 독립.
+    confidence: 0.86
+  - sub: dks:LegendTable
+    super: dks:DrawingInformationEntity
+    derivation: class_hint LegendTable 직접 반복.
+    confidence: 0.95
+  - sub: dks:TitleBlock
+    super: dks:DrawingInformationEntity
+    derivation: class_hint TitleBlock 직접 반복.
+    confidence: 0.9
+  - sub: dks:DrawingMetadata
+    super: dks:DrawingInformationEntity
+    derivation: class_hint DrawingMetadata 직접 반복.
+    confidence: 0.93
+  - sub: dks:DrawingTitleOrIndex
+    super: dks:DrawingInformationEntity
+    derivation: DrawingTitle/DrawingIndex는 도면 식별 정보 하위.
+    confidence: 0.82
+  - sub: dks:Schedule
+    super: dks:DrawingInformationEntity
+    derivation: class_hint Schedule.
+    confidence: 0.9
+  - sub: dks:Note
+    super: dks:DrawingInformationEntity
+    derivation: 주기사항/GeneralNote 패턴.
+    confidence: 0.9
+  - sub: dks:InformationPanel
+    super: dks:DrawingInformationEntity
+    derivation: 정보영역/배너/레이아웃/프로젝트 정보 패널 패턴.
+    confidence: 0.78
+  - sub: dks:EquipmentSymbol
+    super: dks:SymbolAndLegendEntity
+    derivation: 설비를 나타내는 심벌 name 패턴.
+    confidence: 0.9
+  - sub: dks:LineTypeSymbol
+    super: dks:SymbolAndLegendEntity
+    derivation: 배관배선/귀로/화표시 등 선종 정의 패턴.
+    confidence: 0.95
+  - sub: dks:EmergencyLighting
+    super: dks:EquipmentOrDevice
+    derivation: EmergencyLighting/EmergencyLightingFixture class_hint 반복.
+    confidence: 0.98
+  - sub: dks:PullBox
+    super: dks:EquipmentOrDevice
+    derivation: PB-01/02의 PullBox/JunctionBox 패턴.
+    confidence: 0.88
+  - sub: dks:ElectricalPanel
+    super: dks:EquipmentOrDevice
+    derivation: SOURCE_PANEL의 ElectricalPanel/PowerSupply 패턴.
+    confidence: 0.9
+  - sub: dks:ProtectiveDevice
+    super: dks:EquipmentOrDevice
+    derivation: WF-001의 SealingDevice 패턴.
+    confidence: 0.78
+  - sub: dks:FireAlarmControlOrRelay
+    super: dks:DistributionNetworkElement
+    derivation: FA-1A~1F의 발신기/중계기 세트 패턴과 연결망 역할.
+    confidence: 0.96
+  - sub: dks:FireControlPanel
+    super: dks:DistributionNetworkElement
+    derivation: FD-1A/1B의 연동제어반 패턴.
+    confidence: 0.97
+  - sub: dks:ShaftOrRiser
+    super: dks:DistributionNetworkElement
+    derivation: 샤프트/수직 간선/입상 패턴.
+    confidence: 0.9
+  - sub: dks:ConnectionInfrastructure
+    super: dks:DistributionNetworkElement
+    derivation: cable/connects_to 중심의 연결 인프라 패턴.
+    confidence: 0.88
+  - sub: dks:FireProtectionSystemDrawingObject
+    super: dks:DistributionNetworkElement
+    derivation: 시스템/간선 평면 표현이지만 NamedIndividual로 배치된 EF 객체군.
+    confidence: 0.62
+  disjoint_candidates:
+  - classes:
+    - dks:SpatialEntity
+    - dks:DrawingInformationEntity
+    reason: evidence_tags 교집합 0건. 공간 태그와 도면 정보 태그가 분리되어 관찰됨.
+    confidence: 0.95
+  - classes:
+    - dks:SpatialEntity
+    - dks:SymbolAndLegendEntity
+    reason: evidence_tags 교집합 0건. ROOM/ZONE/AREA와 SYM 계열이 완전히 분리.
+    confidence: 0.97
+  - classes:
+    - dks:SpatialEntity
+    - dks:EquipmentOrDevice
+    reason: evidence_tags 교집합 0건. 공간과 실제 장치가 별도 태그군.
+    confidence: 0.94
+  - classes:
+    - dks:DrawingInformationEntity
+    - dks:EquipmentOrDevice
+    reason: evidence_tags 교집합 0건. AnnotationOnly 중심 정보 객체와 장치 객체가 분리.
+    confidence: 0.95
+  - classes:
+    - dks:DrawingInformationEntity
+    - dks:DistributionNetworkElement
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.9
+  - classes:
+    - dks:SymbolAndLegendEntity
+    - dks:EquipmentOrDevice
+    reason: evidence_tags 교집합 0건. 심벌과 실제 장치가 분리.
+    confidence: 0.96
+  - classes:
+    - dks:SymbolAndLegendEntity
+    - dks:DistributionNetworkElement
+    reason: evidence_tags 교집합 0건.
+    confidence: 0.94
+  - classes:
+    - dks:SpatialReferenceEntity
+    - dks:EquipmentOrDevice
+    reason: evidence_tags 교집합 0건. 그리드 참조와 장치가 분리.
+    confidence: 0.9
+  hierarchy_summary:
+    total_classes: 22
+    max_depth: 3
+    by_discipline:
+      fire_protection: 17
+      electrical: 4
+      unknown_discipline: 1
+  unclassified_tags:
+  - tag: SYM-017
+    reason: class_hint가 DocumentMetadata이나 name은 비상조명 배관배선으로 line-type symbol 패턴이
+      더 강함. 상위 SymbolAndLegendEntity 아래 LineTypeSymbol로 분류했으나 hint와 불일치가 있어 유보 기록.
+    hint: defines_line_type 관계를 우선 근거로 유지
+  - tag: SYM-012
+    reason: class_hint가 DocumentMetadata이나 name은 통로 유도등-LED로 equipment symbol 패턴.
+      EquipmentSymbol로 분류했으나 hint 불일치.
+    hint: PANEL-LEGEND-TABLE contained_in 및 EX-SYMBOL-GROUP linked_to 재검토
+  - tag: SYM-013
+    reason: class_hint가 DocumentMetadata이나 name은 PULL BOX 심벌. EquipmentSymbol로 분류했으나
+      hint 불일치.
+    hint: legend symbol 여부를 후속 단계에서 확인
+  - tag: EF-003
+    reason: EF- 접두는 보통 도면정보이나 본 태그는 NamedIndividual이며 class_hint가 FireProtectionSystem.
+      정보객체인지 시스템객체인지 혼재.
+    hint: 현재는 FireProtectionSystemDrawingObject로 임시 귀속
+  - tag: EF-101
+    reason: 도면 제목형 name이지만 NamedIndividual이며 class_hint가 FireProtectionMainLine.
+    hint: 현재는 FireProtectionSystemDrawingObject로 임시 귀속
+  - tag: EF-103
+    reason: 도면 제목형 name이지만 NamedIndividual이며 class_hint가 FireProtectionDrawing.
+    hint: 현재는 FireProtectionSystemDrawingObject로 임시 귀속
+  plan_deviations:
+  - plan_item: top_level에 EquipmentOrDevice와 DistributionNetworkElement를 분리 제안
+    actual_finding: 실제 evidence에서는 PB 계열이 electrical에서는 장치, fire_protection에서는 연결
+      인프라로 나타나 동일 명칭군이 상이한 축에 배치됨.
+    action_taken: PB-01/02는 dks:PullBox, PB-001/002 및 PULL-BOX-외부는 dks:ConnectionInfrastructure로
+      분리 기록.
+  - plan_item: DrawingInformationEntity와 SymbolAndLegendEntity를 별도 축으로 제안
+    actual_finding: SYM 일부가 DocumentMetadata hint를 가지나 PANEL-LEGEND-TABLE contained_in
+      및 SYM 접두 패턴상 심벌 축이 더 강함.
+    action_taken: SYM 전반을 SymbolAndLegendEntity로 수렴시키고 불일치 태그는 unclassified_tags에
+      메모.
+  - plan_item: EF 계열을 주로 DrawingInformationEntity로 예상
+    actual_finding: EF-003, EF-101, EF-103은 NamedIndividual이며 class_hint가 시스템/간선/도면
+      객체로 관찰되어 순수 메타정보와 다름.
+    action_taken: dks:FireProtectionSystemDrawingObject 임시 하위 클래스를 생성.
+  - plan_item: WiringOrConnectionEntity를 별도 top-level로 예상
+    actual_finding: 배선/연결 요소가 실제로는 간선·샤프트·pull box·manhole 등 분배망 요소와 강하게 결합됨.
+    action_taken: 독립 top-level 대신 dks:DistributionNetworkElement 아래 ConnectionInfrastructure/ShaftOrRiser로
+      귀납.
+  back_update_instructions:
+    per_tag_confirmed_class:
+      AREA-CORRIDOR-CORE: dks:Area
+      CABLE-TRAY-01: dks:ConnectionInfrastructure
+      EF-001: dks:DrawingTitleOrIndex
+      EF-002: dks:DrawingTitleOrIndex
+      EF-003: dks:FireProtectionSystemDrawingObject
+      EF-004: dks:DrawingInformationEntity
+      EF-101: dks:FireProtectionSystemDrawingObject
+      EF-102: dks:DrawingInformationEntity
+      EF-103: dks:FireProtectionSystemDrawingObject
+      EF-201: dks:DrawingInformationEntity
+      EF-202: dks:DrawingInformationEntity
+      EF-203: dks:DrawingInformationEntity
+      EF-301: dks:DrawingInformationEntity
+      EF-302: dks:DrawingInformationEntity
+      EF-303: dks:TitleBlock
+      EX-CENTER-01: dks:EmergencyLighting
+      EX-COR-01: dks:EmergencyLighting
+      EX-COR-02: dks:EmergencyLighting
+      EX-CTRL-01: dks:EmergencyLighting
+      EX-DATA-01: dks:EmergencyLighting
+      EX-LOUNGE-01: dks:EmergencyLighting
+      EX-MTG-M-01: dks:EmergencyLighting
+      EX-MTG-S1-01: dks:EmergencyLighting
+      EX-OFFICE-01: dks:EmergencyLighting
+      EX-OFFICE-02: dks:EmergencyLighting
+      EX-REST-01: dks:EmergencyLighting
+      EX-SEM-01: dks:EmergencyLighting
+      EX-SEM-02: dks:EmergencyLighting
+      EX-SW-LAB-01: dks:EmergencyLighting
+      EX-SW-LAB-02: dks:EmergencyLighting
+      EX1-STAIR-01: dks:EmergencyLighting
+      FA-1A: dks:FireAlarmControlOrRelay
+      FA-1B: dks:FireAlarmControlOrRelay
+      FA-1C: dks:FireAlarmControlOrRelay
+      FA-1D: dks:FireAlarmControlOrRelay
+      FA-1E: dks:FireAlarmControlOrRelay
+      FA-1F: dks:FireAlarmControlOrRelay
+      FA-2A: dks:ShaftOrRiser
+      FA-2B: dks:ShaftOrRiser
+      FD-1A: dks:FireControlPanel
+      FD-1B: dks:FireControlPanel
+      FD-2A: dks:ShaftOrRiser
+      FD-2B: dks:ShaftOrRiser
+      GRID-001: dks:SpatialReferenceEntity
+      LEGEND-001: dks:DrawingInformationEntity
+      OUTDOOR-CONN: dks:ConnectionInfrastructure
+      PANEL-CABLE-TABLE: dks:Schedule
+      PANEL-DESIGN-NOTES: dks:Note
+      PANEL-LEGEND-TABLE: dks:LegendTable
+      PANEL-TITLE-BANNER: dks:InformationPanel
+      PANEL-TITLE-BLOCK: dks:InformationPanel
+      PB-001: dks:ConnectionInfrastructure
+      PB-002: dks:ConnectionInfrastructure
+      PB-01: dks:PullBox
+      PB-02: dks:PullBox
+      PULL-BOX-외부: dks:ConnectionInfrastructure
+      RISER-MAIN: dks:ShaftOrRiser
+      ROOM-AMP: dks:Room
+      ROOM-AZS: dks:Room
+      ROOM-CENTER-DIRECTOR: dks:Room
+      ROOM-DATA: dks:Room
+      ROOM-Drive시험실-상: dks:Room
+      ROOM-Drive시험실-하: dks:Room
+      ROOM-EMC챔버: dks:Room
+      ROOM-EMI-EMS: dks:Room
+      ROOM-LOUNGE: dks:Room
+      ROOM-MID-MTG: dks:Room
+      ROOM-OFFICE: dks:Room
+      ROOM-PLC-Drive시험실: dks:Room
+      ROOM-REST: dks:Room
+      ROOM-SEMINAR: dks:Room
+      ROOM-SMALL-MTG-1: dks:Room
+      ROOM-SMALL-MTG-2: dks:Room
+      ROOM-SOFTWARE-LAB: dks:Room
+      ROOM-VERIFICATION-CTRL: dks:Room
+      ROOM-고객대기실: dks:Room
+      ROOM-고객접견실: dks:Room
+      ROOM-극한환경시험실: dks:Room
+      ROOM-대용량모터부하실: dks:Room
+      ROOM-로비: dks:Room
+      ROOM-방풍실: dks:Room
+      ROOM-부하제어기능시험실: dks:Room
+      ROOM-설비보전실: dks:Room
+      ROOM-시험전원실: dks:Room
+      ROOM-제어룸: dks:Room
+      ROOM-진동시험실: dks:Room
+      ROOM-컨트롤실: dks:Room
+      ROOM-항온항습실: dks:Room
+      ROOM-환경시험실: dks:Room
+      SOURCE_PANEL_1: dks:ElectricalPanel
+      SOURCE_PANEL_2: dks:ElectricalPanel
+      SPACE-PIT-001: dks:SpatialEntity
+      STAIR-CORE: dks:SpatialEntity
+      STAIR-DN-UP: dks:DrawingInformationEntity
+      SYM-001: dks:EquipmentSymbol
+      SYM-002: dks:EquipmentSymbol
+      SYM-003: dks:EquipmentSymbol
+      SYM-004: dks:EquipmentSymbol
+      SYM-005: dks:EquipmentSymbol
+      SYM-006: dks:EquipmentSymbol
+      SYM-007: dks:EquipmentSymbol
+      SYM-008: dks:EquipmentSymbol
+      SYM-009: dks:EquipmentSymbol
+      SYM-010: dks:EquipmentSymbol
+      SYM-011: dks:EquipmentSymbol
+      SYM-012: dks:EquipmentSymbol
+      SYM-013: dks:EquipmentSymbol
+      SYM-014: dks:EquipmentSymbol
+      SYM-015: dks:LineTypeSymbol
+      SYM-016: dks:LineTypeSymbol
+      SYM-017: dks:LineTypeSymbol
+      SYM-018: dks:LineTypeSymbol
+      SYM-019: dks:LineTypeSymbol
+      SYM-020: dks:LineTypeSymbol
+      SYM-021: dks:LineTypeSymbol
+      SYM-022: dks:LineTypeSymbol
+      SYM-023: dks:LineTypeSymbol
+      TB-001: dks:TitleBlock
+      UNKNOWN-LIGHT-001: dks:EmergencyLighting
+      UNKNOWN-LIGHT-002: dks:EmergencyLighting
+      UNKNOWN-LIGHT-003: dks:EmergencyLighting
+      UNKNOWN-LIGHT-004: dks:ConnectionInfrastructure
+      UNKNOWN-PANEL-001: dks:InformationPanel
+      UNKNOWN-PANEL-002: dks:LegendTable
+      UNKNOWN-PANEL-003: dks:TitleBlock
+      UNKNOWN-PANEL-004: dks:DrawingMetadata
+      UNKNOWN-SHAPE-001: dks:SpatialReferenceEntity
+      UNKNOWN-SHAPE-002: dks:SpatialReferenceEntity
+      UNKNOWN-SPACE-01: dks:Zone
+      UNKNOWN-SPACE-02: dks:Zone
+      UNKNOWN-SPACE-03: dks:LegendTable
+      UNKNOWN-SPACE-04: dks:Note
+      UNKNOWN-SPACE-05: dks:DrawingMetadata
+      UNKNOWN-SPACE-06: dks:InformationPanel
+      UNKNOWN-SPACE-07: dks:InformationPanel
+      UNKNOWN-SPACE-08: dks:InformationPanel
+      UNKNOWN-SPACE-09: dks:DrawingMetadata
+      UNKNOWN-SPACE-10: dks:DrawingMetadata
+      UNKNOWN-SPACE-11: dks:SpatialReferenceEntity
+      WF-001: dks:ProtectiveDevice
+      ZONE-EMC챔버실: dks:Zone
+      ZONE-고객접견실: dks:Zone
+      ZONE-극한환경시험실: dks:Zone
+      ZONE-대용량모터부하실: dks:Zone
+      ZONE-로비방풍실: dks:Zone
+      ZONE-시험전원실: dks:Zone
+      ZONE-신사업검증시스템: dks:Zone
+      ZONE-전기적기능시험실: dks:Zone
+      ZONE-전기차반도체: dks:Zone
+      ZONE-전기항온항습실: dks:Zone
+      ZONE-진동시험실: dks:Zone
+      ZONE-컨트롤실: dks:Zone
+      ZONE-환경시험실: dks:Zone
+      통신-맨홀: dks:ConnectionInfrastructure
+    confirmed_at: '2026-04-21T00:00:00Z'
+    by: step_0-9c
+  confidence_overall: 0.88
+  self_assessment: ROOM/ZONE/SYM/FA-FD/PANEL 계열은 관찰 패턴이 강해 비교적 안정적으로 귀납되었다. 다만 EF
+    일부와 SYM-012/013/017처럼 class_hint와 name/관계 패턴이 충돌하는 태그는 임시 분류 성격이 남아 있다.

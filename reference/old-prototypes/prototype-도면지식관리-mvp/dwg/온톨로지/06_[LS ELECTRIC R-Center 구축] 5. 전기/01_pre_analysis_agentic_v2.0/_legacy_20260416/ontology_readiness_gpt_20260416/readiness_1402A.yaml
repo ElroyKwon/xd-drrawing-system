@@ -1,0 +1,208 @@
+ontology_readiness:
+  tag: 1402A
+  verdict: qualified
+  confidence: 0.97
+  entity_qualification:
+    is_independent: true
+    has_unique_tag: true
+    has_own_specs: true
+    spec_count: 18
+    reason: 고유 tag 1402A가 있고, panel_id/vcb_rating/ct_ratio/sa_rating/protection_functions
+      등 자체 사양이 명확하며 다른 설비의 부품으로만 보이지 않음.
+  relation_completeness:
+    declared_relations: 2
+    discovered_relations: 2
+    missing_relations: []
+    completeness_rate: 1.0
+  attribute_convertibility:
+    total_specs: 18
+    convertible: 16
+    ambiguous_attributes:
+    - key: raw_labels
+      value:
+      - 1402A
+      - GP
+      - VCB 3P
+      - 7.2kV 600A
+      - 250MVA
+      - 2×CT 100/5A
+      - GIPAM
+      - 50/51
+      - SA 9kV 5kA
+      reason: 원문 라벨 묶음으로, 개별 속성으로 분해 가능하지만 원문도 annotation으로 보존 필요.
+    - key: destination
+      value: 'TO: 13020 HV'
+      reason: 연결 대상 표기이므로 속성보다는 관계/주석으로도 해석 가능. 원문 보존 필요.
+    - key: protection_relay_indicators_gemini
+      value:
+      - A
+      reason: 단일 지시자 값으로 의미가 불충분하여 원문 보존.
+    - key: load_name
+      value: U/T 비상
+      reason: 부하명은 식별 가능하나 표기 원문 보존 필요.
+    - key: load_name_gemini
+      value: U/T 비상
+      reason: 이중 출처 필드로 provenance 보존 필요.
+    - key: grounding_mark
+      value: E1
+      reason: 도면 표기값으로 해석 가능하나 원문 annotation 보존 필요.
+    auxiliary_attributes:
+    - raw_labels
+    - bus_section
+    - vcb_rating
+    - ct_ratio
+    - sa_rating
+    - protection_functions
+    - destination
+    - panel_id
+    - voltage_kV
+    - vcb_poles
+    - vcb_rated_voltage_kV
+    - vcb_rated_current_A
+    - vcb_breaking_capacity_MVA
+    - ct_count
+    - sa_voltage_kV
+    - sa_discharge_current_kA
+    - protection_relay_model
+    - protection_relay_indicators_gemini
+    - load_name
+    - load_name_gemini
+    - grounding_mark
+    requirement_attributes: []
+    extracted_attributes: []
+    provenance_attributes:
+    - key: protection_relay_indicators
+      value: A
+      source: gemini
+      conflict_with: null
+    - key: load_name
+      value: U/T 비상
+      source: sonnet
+      conflict_with: null
+    - key: load_name
+      value: U/T 비상
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.sonnet
+      value: true
+      source: sonnet
+      conflict_with: null
+    - key: source_attribution.gemini
+      value: true
+      source: gemini
+      conflict_with: null
+    - key: source_attribution.mini
+      value: true
+      source: mini
+      conflict_with: null
+    conflicts: []
+  duplicate_candidates:
+  - 1402B
+  cross_discipline:
+    links_found: []
+    hints_added: []
+  ontology_class_hint:
+    suggested_parent_class: ElectricalEquipment
+    alternative_parent_classes:
+    - SwitchgearPanel
+    - CircuitProtection
+    - PowerDistribution
+  spatial_context:
+    position: middle-left
+    source_pages:
+    - 5
+    room_or_zone: ''
+    floor: ''
+  preserved_auxiliary:
+    specs_full:
+      raw_labels:
+      - 1402A
+      - GP
+      - VCB 3P
+      - 7.2kV 600A
+      - 250MVA
+      - 2×CT 100/5A
+      - GIPAM
+      - 50/51
+      - SA 9kV 5kA
+      bus_section: GP
+      vcb_rating: 3P 7.2kV 600A 250MVA
+      ct_ratio: 100/5A
+      sa_rating: 9kV 5kA
+      protection_functions:
+      - 50/51
+      destination: 'TO: 13020 HV'
+      panel_id: 1402A
+      voltage_kV: 6.6
+      vcb_poles: 3
+      vcb_rated_voltage_kV: 7.2
+      vcb_rated_current_A: 600
+      vcb_breaking_capacity_MVA: 250
+      ct_count: 2
+      sa_voltage_kV: 9
+      sa_discharge_current_kA: 5
+      protection_relay_model: GIPAM
+      protection_relay_indicators_gemini:
+      - A
+      load_name: U/T 비상
+      load_name_gemini: U/T 비상
+      grounding_mark: E1
+    notes: []
+    drawing_texts: []
+    requirements: []
+    source_attribution:
+      sonnet: true
+      gemini: true
+      mini: true
+    collection_sources:
+      cross_validated: true
+      entity_synthesis: true
+  used_fields:
+  - tag
+  - name
+  - type
+  - discipline
+  - function_category
+  - source_pages
+  - specs
+  - relations
+  - collection_sources
+  - position
+  - confidence
+  - equipment_symbols
+  - source_attribution
+  - ontology_hints.suggested_parent_class
+  - ontology_hints.observed_attributes
+  - ontology_hints.similar_equipment
+  - ontology_hints.function_candidates
+  - notes
+  - drawing_texts
+  - requirements
+  skipped_fields:
+  - notes (없음)
+  - drawing_texts (없음)
+  - requirements (없음)
+  demoted_to:
+    role: null
+    parent_tag: null
+    relation_type: null
+    owl_pattern: null
+  owl_export_hints:
+    create_individual: true
+    individual_type: SwitchgearPanel
+    annotations_to_emit:
+    - raw_labels
+    - destination
+    - protection_relay_indicators_gemini
+    - load_name
+    - load_name_gemini
+    - grounding_mark
+    - source_attribution.sonnet
+    - source_attribution.gemini
+    - source_attribution.mini
+    relations_to_emit:
+    - connects_to(GP-BUS-VCB, 1402A)
+    - connects_to(1402A, 1402B)
+    needs_human_review: false
+tag: 1402A
+discovered_relations: 2

@@ -1,0 +1,241 @@
+placement:
+  tag: FDC-CONNECTION
+  name: 연결송수구(쌍구형) 및 PIT 연결 주석
+  discipline: fire_protection
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: FireDepartmentConnectionNote
+    alternative_class_hints:
+    - ConnectionNote
+    - FireDepartmentConnection
+    - PITConnectionAnnotation
+    related_assertions:
+    - type: annotates
+      target_hint: PIT 소화 배관 평면도
+      note: 연결송수구(쌍구형) 주석이 PIT 소화 배관 평면도에 연결됨
+    - type: references
+      target_hint: PIT 소화 배관 평면도
+      note: labels_inside에 '○ PIT 소화 배관 평면도에 연결' 표기
+    applicable_axioms:
+    - AX037
+    - AX038
+    - AX039
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN005
+    - CN006
+    - CN007
+    - CN013
+    confirmed_class: dks:FireDepartmentConnectionNote
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-21T14:11:49.378312'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-21T14:20:29.522132'
+  discipline_context:
+    discipline: fire_protection
+    sub_kinds:
+      free_notes:
+      - raw_text: 연결송수구(쌍구형)
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 주석의 핵심 표기 문자열
+      - raw_text: 100a × 65a × 65a
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: connectionSize
+          suggested_datatype: xsd:string
+          rationale: 치수/규격 표기이지만 supplement sub_kind 없음
+      - raw_text: (반드시 시 면상 방향)
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: installationOrientationNote
+          suggested_datatype: xsd:string
+          rationale: 설치 방향 지시 문구
+      - raw_text: ○ PIT 소화 배관 평면도에 연결
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: connectionNote
+          suggested_datatype: xsd:string
+          rationale: 연결 대상과 연결 지시를 포함한 주석
+      - raw_text: equipment_symbols.type = fire_department_connection, count = 1
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: symbolCount
+          suggested_datatype: xsd:integer
+          rationale: 도면 심볼 수량 정보
+      - raw_text: position = bottom-center
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 정보
+  provenance:
+    tag:
+      source_pages:
+      - 12
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 12
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 12
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 12
+      method: classification_from_observed_text
+    ontology_core.class_hint:
+      source_pages:
+      - 12
+      method: ontology_hints + specs.raw_labels
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 12
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 12
+      method: relation_inference
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 12
+      method: specs.labels_inside
+    ontology_core.related_assertions[1].type:
+      source_pages:
+      - 12
+      method: relation_inference
+    ontology_core.related_assertions[1].target_hint:
+      source_pages:
+      - 12
+      method: specs.labels_inside
+    discipline_context.sub_kinds.free_notes[0].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[1].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[2].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[3].raw_text:
+      source_pages:
+      - 12
+      method: specs.raw_labels
+    discipline_context.sub_kinds.free_notes[4].raw_text:
+      source_pages:
+      - 12
+      method: specs.equipment_symbols
+    discipline_context.sub_kinds.free_notes[5].raw_text:
+      source_pages:
+      - 12
+      method: specs.position
+    source_pages:
+      source_pages:
+      - 12
+      method: entity_detail.source_pages
+    specs.raw_labels:
+      source_pages:
+      - 12
+      method: entity_detail.specs.raw_labels
+    specs.inferred_name:
+      source_pages:
+      - 12
+      method: entity_detail.specs.inferred_name
+    specs.shape:
+      source_pages:
+      - 12
+      method: entity_detail.specs.shape
+    specs.labels_inside:
+      source_pages:
+      - 12
+      method: entity_detail.specs.labels_inside
+    specs.equipment_symbols:
+      source_pages:
+      - 12
+      method: entity_detail.specs.equipment_symbols
+    specs.position:
+      source_pages:
+      - 12
+      method: entity_detail.specs.position
+    type:
+      source_pages:
+      - 12
+      method: entity_detail.type
+    function_category:
+      source_pages:
+      - 12
+      method: entity_detail.function_category
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 12
+      method: entity_detail.ontology_hints
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 12
+      method: entity_detail.ontology_hints
+    ontology_hints.function_candidates:
+      source_pages:
+      - 12
+      method: entity_detail.ontology_hints
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 연결송수구(쌍구형)
+    source_page: 12
+    reason: 정확한 OWL class 또는 data property로 확정하지 않음
+    preservation_note: 주석의 핵심 명칭으로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 100a × 65a × 65a
+    source_page: 12
+    reason: 규격 표기이나 이 단계에서 속성명 확정 불가
+    preservation_note: 치수/구경 표기로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: (반드시 시 면상 방향)
+    source_page: 12
+    reason: 설치 지시 문구이나 구조화 불가
+    preservation_note: 방향 주석으로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: ○ PIT 소화 배관 평면도에 연결
+    source_page: 12
+    reason: 연결 지시 문구이나 관계 타입 확정 불가
+    preservation_note: 연결 대상 주석으로 보존
+  - field_candidate: specs.equipment_symbols
+    raw_text: 'type: fire_department_connection, count: 1'
+    source_page: 12
+    reason: 심볼 정보는 있으나 별도 개체인지 주석인지 확정 불가
+    preservation_note: 도면 심볼 존재 정보로 보존
+  - field_candidate: specs.position
+    raw_text: bottom-center
+    source_page: 12
+    reason: 도면 내 위치 정보이나 ontology core로 승격하지 않음
+    preservation_note: 배치 위치 메타로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그가 연결송수구 자체를 지칭하는지, 연결송수구에 대한 주석인지, 또는 PIT 평면도 연결 지시문인지 경계가 혼재함. type도
+      CONNECTION_NOTE로 주석 성격이 강함.
+    recommended_handling: 0-9c에서 AnnotationEntity 계열 우선 검토, 필요 시 FireDepartmentConnection
+      관련 개체와 주석 관계로 분리
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 문서/범례/주석 성격의 엔티티를 AnnotationOnly로 배치
+    - 관계 사실은 related_assertions 원형으로만 보존
+    - specs.raw_labels, labels_inside, position, equipment_symbols를 모두 provenance/unresolved로
+      보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-21T14:02:35.128184'
+  confidence: 0.86

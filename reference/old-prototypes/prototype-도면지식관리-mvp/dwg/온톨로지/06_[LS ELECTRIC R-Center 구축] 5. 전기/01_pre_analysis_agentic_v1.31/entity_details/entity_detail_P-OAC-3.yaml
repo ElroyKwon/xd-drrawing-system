@@ -1,0 +1,90 @@
+entity_detail:
+  tag: P-OAC-3
+  type: Power Panelboard
+  specs:
+    voltage:
+      value: 380/220V
+      unit: V
+      source: page 23
+      confidence: 0.98
+    phase_wire:
+      value: 3Ф 4W
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    cable_spec:
+      value: F-CV 120㎟ -1C x4
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    earth_cable_spec:
+      value: E-70㎟ (82C)
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    breaker:
+      value: MCCB 1개
+      unit: ''
+      source: page 23
+      confidence: 0.98
+    location:
+      value: 지붕층 F.L
+      unit: ''
+      source: page 23
+      confidence: 0.98
+  drawing_texts:
+  - source: page 23
+    page_number: 23
+    text: P-OAC-3 외기조화기 분전반
+  - source: page 23
+    page_number: 23
+    text: 3Ф 4W 380/220V, F-CV 120㎟ -1C x4, E-70㎟ (82C), MCCB 1개
+  - source: page 23
+    page_number: 23
+    text: 지붕층 F.L
+  - source: page 23
+    page_number: 23
+    text: S/S R-Center에서 P-OAC-3로 연결되는 전력간선 계통도 표기
+  requirements:
+  - text: 3Ф 4W 380/220V
+    source: page 23
+    type: electrical_supply
+  - text: MCCB 1개
+    source: page 23
+    type: protection
+  - text: 지붕층 F.L
+    source: page 23
+    type: location
+  connection_specs:
+  - relation: electrical_supply
+    partner: S/S R-Center 수전반
+    details:
+      source: page 23
+      text: P-OAC-3 외기조화기 분전반은 S/S R-Center 전력간선 계통도에서 공급되는 패널로 표시됨
+  - relation: cable_connection
+    partner: S/S R-Center 수전반
+    details:
+      source: page 23
+      text: F-CV 120㎟ -1C x4, E-70㎟ (82C)
+  ontology_hints:
+    observed_relations:
+    - relation_type: supplied_by
+      partner_tag: S/S R-Center
+      direction: incoming
+      source: page 23
+    observed_attributes:
+    - voltage
+    - phase_wire
+    - cable_spec
+    - earth_cable_spec
+    - breaker
+    - location
+    similar_equipment:
+    - P-OAC-1
+    - P-OAC-2
+    suggested_parent_class: Electrical Panelboard
+    cross_discipline: []
+  notes:
+  - 도면상 P-OAC-3는 외기조화기 분전반으로 표기됨.
+  - 연결 방향은 계통도상 S/S R-Center에서 P-OAC-3로의 공급으로 해석됨.
+tag: P-OAC-3

@@ -1,0 +1,57 @@
+entity_detail:
+  tag: B동
+  type: room_or_space
+  specs:
+    building_name:
+      value: B동
+      unit: null
+      source:
+      - 4
+      confidence: 0.98
+  drawing_texts:
+  - source: page_4_context.yaml
+    page_number: 4
+    text: "SP-BLDG-B\n    name: B동\n    spec: null\n    discipline: ARCHITECTURAL\n\
+      \    function_category: BOUNDARY\n    location: 평면도 우측\n    confidence: 0.98"
+  - source: page_4_context.yaml
+    page_number: 4
+    text: "spaces:\n  - space_id: SP-BLDG-B\n    type: 건물\n    name: B동\n    parent:\
+      \ null"
+  - source: page_5_context.yaml
+    page_number: 5
+    text: "visible_tags:\n  - tag: B동\n    type: room_or_space\n    source: both"
+  - source: page_5_context.yaml
+    page_number: 5
+    text: "  - tag: GEN-비상-B동\n    name: B동 비상 피더 (B Building Emergency Feeder)\n\
+      \    type: emergency_feeder\n    discipline: ELECTRICAL\n    function_category:\
+      \ DISTRIBUTE\n    note: TO:4302/HV"
+  requirements: []
+  connection_specs: []
+  ontology_hints:
+    observed_relations:
+    - relation_type: located_on_page
+      partner_tag: SP-BLDG-B
+      direction: UNKNOWN
+      source: page 4
+    - relation_type: visible_tag
+      partner_tag: B동
+      direction: UNKNOWN
+      source: page 5
+    observed_attributes:
+    - name
+    - type
+    - discipline
+    - function_category
+    - location
+    - parent
+    similar_equipment:
+    - A동
+    - UT동
+    - 사무동
+    suggested_parent_class: Building
+    cross_discipline:
+    - ARCHITECTURAL
+    - ELECTRICAL
+  notes:
+  - 페이지 5의 'B동 비상 피더'는 B동과 관련된 항목으로 보이나, 대상 자체는 공간/건물 B동이므로 직접 설비 사양으로는 분리하지 않음.
+tag: B동

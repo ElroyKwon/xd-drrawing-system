@@ -1,0 +1,200 @@
+placement:
+  tag: FLOOR-ROOF
+  name: 지붕층 F.L
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: FLOOR-ROOF
+    class_hint: BroadcastZone
+    alternative_class_hints:
+    - SpatialEntity
+    - PublicAddressZone
+    - AudioOutputZone
+    related_assertions:
+    - type: connectedTo
+      target_hint: PA-HEAD-END
+      note: S1 계통, Fa/Fb 케이블로 연결됨
+    - type: hasInstalledEquipment
+      target_hint: 천정형/벽부형 스피커
+      note: 스피커 심볼 다수, 수량 8
+    - type: hasInstalledEquipment
+      target_hint: 스피커 단자함
+      note: 수량 1
+    applicable_axioms:
+    - AX004
+    - AX005
+    applicable_constraints:
+    - CN014
+    confirmed_class: dks:BroadcastZone
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T14:57:28.725814'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 지붕층 F.L
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 도면 표기 문자열
+      - raw_text: S1 (지붕층 방송 계통)
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: systemLabel
+          suggested_datatype: xsd:string
+          rationale: 계통명과 괄호 설명이 함께 있는 주석성 문자열
+      - raw_text: 스피커 심볼 다수
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: equipmentSymbolSummary
+          suggested_datatype: xsd:string
+          rationale: 설치 심볼의 요약 설명
+      - raw_text: Fa, Fb 케이블 분기
+        source_page: 5
+        promotion_hint:
+          suggested_property_label: cableBranchLabel
+          suggested_datatype: xsd:string
+          rationale: 케이블 분기 표기
+      - raw_text: 지붕층 F.L
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: rawLabel
+          suggested_datatype: xsd:string
+          rationale: 동일 표기 재출현
+      spatial_markers:
+      - raw_text: 지붕층 F.L
+        source_page: 5
+      - raw_text: 지붕층 F.L
+        source_page: 12
+      groups:
+      - raw_text: S1 (지붕층 방송 계통)
+        source_page: 5
+      references:
+      - raw_text: PA-HEAD-END
+        source_page: 12
+        note: relations.from
+      operational_states: []
+  provenance:
+    tag:
+      source_pages:
+      - 5
+      - 12
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 5
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 5
+      - 12
+      method: entity_detail.discipline + input discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 5
+      - 12
+      method: classification by observed entity with own specs and relations
+    ontology_core.iri_hint:
+      source_pages:
+      - 5
+      - 12
+      method: entity_detail.tag
+    ontology_core.class_hint:
+      source_pages:
+      - 5
+      - 12
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 5
+      - 12
+      method: derived from observed function and spatial semantics
+    ontology_core.related_assertions:
+      source_pages:
+      - 12
+      method: entity_detail.relations
+    discipline_context.sub_kinds.spatial_markers:
+      source_pages:
+      - 5
+      - 12
+      method: entity_detail.specs.raw_labels + labels_above
+    discipline_context.sub_kinds.groups:
+      source_pages:
+      - 5
+      method: entity_detail.specs.raw_labels
+    discipline_context.sub_kinds.references:
+      source_pages:
+      - 12
+      method: entity_detail.relations
+    discipline_context.sub_kinds.free_notes:
+      source_pages:
+      - 5
+      - 12
+      method: entity_detail.specs.raw_labels + ontology_hints + relations
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 5
+      - 12
+      method: classification uncertainty between spatial zone and broadcast zone
+    plan_reference.guidance_applied:
+      source_pages:
+      - 5
+      - 12
+      method: applied ontology_plan guidance_for_next_steps.for_0_9b_placement.focus
+  unresolved:
+  - field_candidate: specs.raw_labels
+    raw_text: 지붕층 F.L
+    source_page: 5
+    reason: 표기 자체는 읽히나 정확한 표준명/약어 확정 불가
+    preservation_note: 공간명 또는 층 표기 후보로 유지
+  - field_candidate: specs.raw_labels
+    raw_text: S1 (지붕층 방송 계통)
+    source_page: 5
+    reason: 계통명과 설명이 혼재되어 구조화 분해를 확정할 수 없음
+    preservation_note: 방송 계통 관련 주석으로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: 스피커 심볼 다수
+    source_page: 5
+    reason: 심볼 요약은 있으나 개별 심볼 식별자 없음
+    preservation_note: 설치 장비 존재 근거로 보존
+  - field_candidate: specs.raw_labels
+    raw_text: Fa, Fb 케이블 분기
+    source_page: 5
+    reason: 분기 표기만 있고 케이블 실체/종류 확정 불가
+    preservation_note: 관계 및 free_notes로 유지
+  - field_candidate: specs.equipment_symbols
+    raw_text: 천정형/벽부형 스피커 x8
+    source_page: 5
+    reason: 장비 유형은 보이지만 개별 인스턴스 식별 불가
+    preservation_note: 설치 수량 정보로 보존
+  - field_candidate: specs.equipment_symbols
+    raw_text: 스피커 단자함 x1
+    source_page: 5
+    reason: 단자함의 정확한 클래스/역할 확정 불가
+    preservation_note: 설치 수량 정보로 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: entity_detail.name과 ontology_hints는 공간/구역(BroadcastZone) 성격을 강하게 보이지만,
+      raw_labels와 equipment_symbols는 방송 설비가 설치된 공간임을 함께 나타내어 공간-설비 혼합성이 있음.
+    recommended_handling: 0-9c에서 SpatialEntity/BroadcastZone 계열과 설치 장비 관계를 함께 검증하고,
+      필요 시 공간 Individual로 유지한 뒤 hasInstalledEquipment를 부여.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - hasInstalledEquipment
+    - servesZone
+    - locatedOnPage
+    - belongsToSystem
+    deviations:
+    - supplement가 없어 standard_sub_kinds를 새로 만들지 않고 free_notes 중심으로 보존함
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:42:54.138716'
+  confidence: 0.84

@@ -1,0 +1,223 @@
+placement:
+  tag: USER-PC-04
+  name: PC (본 공사 제외)
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: USER-PC-04
+    class_hint: CommunicationDevice
+    alternative_class_hints:
+    - TerminalEquipment
+    - PC
+    related_assertions:
+    - type: cable
+      target_hint: SYSBOX-DATA-04
+      note: CAT.6 UTP CABLE (1Gbps)
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:CommunicationDevice
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T14:51:02.724781'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: PC (본 공사 제외)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: note
+          suggested_datatype: xsd:string
+          rationale: 도면 주석성 문구이며 제외 조건을 포함한 라벨 텍스트
+      - raw_text: 사용자 PC 단말 (본 공사 제외) - 4번
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: inferredName
+          suggested_datatype: xsd:string
+          rationale: inferred_name에 반영된 사용자 PC 단말 식별 문구
+      - raw_text: bottom-center-right
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: position
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치 문자열
+      - raw_text: dashed_box
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: shape
+          suggested_datatype: xsd:string
+          rationale: 시각적 도형/표현 방식
+      - raw_text: PC
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: equipment_symbols
+          suggested_datatype: xsd:string
+          rationale: 장비 심볼 타입이 PC로 관찰됨
+      - raw_text: CAT.6 UTP CABLE (1Gbps)
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: cableSpec
+          suggested_datatype: xsd:string
+          rationale: 관계 주석에 포함된 케이블 규격 및 속도 정보
+      - raw_text: Data Processing
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 function_candidates 중 하나
+      - raw_text: Network Connectivity
+        source_page: 18
+        promotion_hint:
+          suggested_property_label: functionCategory
+          suggested_datatype: xsd:string
+          rationale: ontology_hints의 function_candidates 중 하나
+  provenance:
+    tag:
+      source_pages:
+      - 18
+      method: entity_detail.tag
+    name:
+      source_pages:
+      - 18
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 18
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 18
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 18
+      method: direct
+    ontology_core.class_hint:
+      source_pages:
+      - 18
+      method: ontology_hints.suggested_parent_class
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions[0].type:
+      source_pages:
+      - 18
+      method: relations.relation
+    ontology_core.related_assertions[0].target_hint:
+      source_pages:
+      - 18
+      method: relations.to
+    ontology_core.related_assertions[0].note:
+      source_pages:
+      - 18
+      method: relations.annotation
+    discipline_context.free_notes[0].raw_text:
+      source_pages:
+      - 18
+      method: specs.raw_labels
+    discipline_context.free_notes[1].raw_text:
+      source_pages:
+      - 18
+      method: specs.inferred_name
+    discipline_context.free_notes[2].raw_text:
+      source_pages:
+      - 18
+      method: specs.position
+    discipline_context.free_notes[3].raw_text:
+      source_pages:
+      - 18
+      method: specs.shape
+    discipline_context.free_notes[4].raw_text:
+      source_pages:
+      - 18
+      method: equipment_symbols.type
+    discipline_context.free_notes[5].raw_text:
+      source_pages:
+      - 18
+      method: relations.annotation
+    discipline_context.free_notes[6].raw_text:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    discipline_context.free_notes[7].raw_text:
+      source_pages:
+      - 18
+      method: ontology_hints.function_candidates
+    unresolved:
+      source_pages:
+      - 18
+      method: scan_complete
+    ambiguous:
+      source_pages:
+      - 18
+      method: classification_check
+    merge_info:
+      source_pages:
+      - 18
+      method: similarity_check
+    plan_reference.guidance_applied:
+    - expected_object_properties.connectedTo
+    - expected_object_properties.terminatesAt
+    - expected_data_properties.tag
+    - expected_data_properties.name
+    - expected_data_properties.entityType
+    - expected_data_properties.functionCategory
+    - expected_data_properties.inferredName
+    - expected_data_properties.rawLabel
+    - expected_data_properties.position
+    - expected_data_properties.shape
+  unresolved:
+  - field_candidate: specs
+    raw_text: 'raw_labels: [PC (본 공사 제외)] | inferred_name: 사용자 PC 단말 (본 공사 제외) - 4번
+      | position: bottom-center-right | shape: dashed_box | labels_inside: [PC (본
+      공사 제외)] | equipment_symbols: [{type: PC, count: 1}]'
+    source_page: 18
+    reason: 원문은 해석 가능하나, 모든 원시 필드를 보존하기 위해 통합 원문으로 기록
+    preservation_note: specs 하위의 모든 관찰값을 그대로 유지
+  - field_candidate: relations
+    raw_text: 'from: SYSBOX-DATA-04, to: USER-PC-04, relation: cable, annotation:
+      CAT.6 UTP CABLE (1Gbps)'
+    source_page: 18
+    reason: 관계 원형을 보존하기 위한 원문 기록
+    preservation_note: 0-9d에서 정식 object property로 승격 가능
+  - field_candidate: ontology_hints
+    raw_text: 'suggested_parent_class: CommunicationDevice | observed_attributes:
+      raw_labels, inferred_name, position, shape, labels_inside, equipment_symbols
+      | function_candidates: Data Processing, Network Connectivity'
+    source_page: 18
+    reason: 후속 분류용 힌트 원문 보존
+    preservation_note: class_hint 및 free_notes 승격 근거
+  - field_candidate: collection_sources
+    raw_text: 'visual_semantics: true, entity_synthesis: true'
+    source_page: 18
+    reason: 생성/수집 방식 정보는 분류값이 아니므로 보존
+    preservation_note: 출처 메타데이터
+  - field_candidate: position
+    raw_text: bottom-center-right
+    source_page: 18
+    reason: specs.position과 동일하나 별도 최상위 필드로도 존재
+    preservation_note: 중복 보존
+  - field_candidate: equipment_symbols
+    raw_text: 'type: PC, count: 1'
+    source_page: 18
+    reason: 최상위 equipment_symbols도 존재하여 중복 관찰됨
+    preservation_note: 심볼 관찰값 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: false
+    reason: ''
+    recommended_handling: ''
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - locatedOnPage provenance emphasis
+    - connectedTo/terminatesAt relation pattern
+    - tag/name/entityType/functionCategory/inferredName/rawLabel/position/shape preservation
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T14:47:35.259209'
+  confidence: 0.91

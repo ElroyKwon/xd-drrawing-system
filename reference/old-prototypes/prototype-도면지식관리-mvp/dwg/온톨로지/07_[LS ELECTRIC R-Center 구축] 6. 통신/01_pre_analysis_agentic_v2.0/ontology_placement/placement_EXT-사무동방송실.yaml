@@ -1,0 +1,223 @@
+placement:
+  tag: EXT-사무동방송실
+  name: 외부 인입 소스
+  discipline: communication
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: EXT-사무동방송실
+    class_hint: CommunicationSource
+    alternative_class_hints:
+    - ExternalSourceConnection
+    - BroadcastingSignalSupply
+    - CommunicationConnectionEntity
+    related_assertions:
+    - type: cable
+      target_hint: 정보통신용-맨홀
+      note: relations에 명시된 케이블 연결 사실
+      confirmed_property: dks:connectedTo
+      confirmed_target: 정보통신용-맨홀
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    - type: routesThrough
+      target_hint: 지하공동구 → 정보통신용-맨홀 → PULL BOX
+      note: specs.route에 기재된 경로 원형
+      confirmed_property: dks:routesThrough
+      confirmed_target: 정보통신용-맨홀
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    - type: originatesFromExternalPoint
+      target_hint: 사무동 지상1층 방송실
+      note: raw_labels의 FROM 표기
+      confirmed_property: dks:originatesFromExternalPoint
+      confirmed_target: dks:Space
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-20T17:33:09.591389'
+    applicable_axioms:
+    - AX045
+    applicable_constraints:
+    - CN017
+    confirmed_class: dks:CommunicationSource
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-20T17:21:36.078817'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-20T17:39:10.168838'
+  discipline_context:
+    discipline: communication
+    sub_kinds:
+      free_notes:
+      - raw_text: 'FROM : 사무동 지상1층 방송실'
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: sourceLabelText
+          suggested_datatype: xsd:string
+          rationale: FROM 표기와 출발지 텍스트가 함께 나타나는 원문 라벨
+      - raw_text: ELP 50 / IN TRAY
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: conduitSpecification
+          suggested_datatype: xsd:string
+          rationale: 관로/트레이 규격으로 보이는 문자열
+      - raw_text: FR-3 2.5sq / 10C
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: cableSpecification
+          suggested_datatype: xsd:string
+          rationale: 케이블 규격 문자열
+      - raw_text: 지하공동구 사용
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: routeUsageNote
+          suggested_datatype: xsd:string
+          rationale: 경로 사용 방식에 대한 주석
+      - raw_text: 외부
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: floorLabel
+          suggested_datatype: xsd:string
+          rationale: floor 필드의 값이지만 공간/층 표기와 유사한 텍스트
+      - raw_text: bottom-external
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: positionText
+          suggested_datatype: xsd:string
+          rationale: 도면 내 배치 위치를 나타내는 텍스트
+      - raw_text: Broadcasting Signal Supply
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: functionCategoryText
+          suggested_datatype: xsd:string
+          rationale: function_candidates에 제시된 기능 후보
+      - raw_text: External Source Connection
+        source_page: 12
+        promotion_hint:
+          suggested_property_label: functionCategoryText
+          suggested_datatype: xsd:string
+          rationale: function_candidates에 제시된 기능 후보
+  provenance:
+    tag:
+      source_pages:
+      - 12
+      method: entity_header
+    name:
+      source_pages:
+      - 12
+      method: entity_detail.name
+    discipline:
+      source_pages:
+      - 12
+      method: entity_detail.discipline
+    ontology_core.owl_role:
+      source_pages:
+      - 12
+      method: classification
+    ontology_core.iri_hint:
+      source_pages:
+      - 12
+      method: tag_as_iri_hint
+    ontology_core.class_hint:
+      source_pages:
+      - 12
+      method: ontology_hints.suggested_parent_class + specs/function
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 12
+      method: ontology_hints.function_candidates
+    ontology_core.related_assertions:
+      source_pages:
+      - 12
+      method: relations + specs.raw_labels + specs.route
+    specs.raw_labels:
+      source_pages:
+      - 12
+      method: direct_scan
+    specs.label:
+      source_pages:
+      - 12
+      method: direct_scan
+    specs.cable:
+      source_pages:
+      - 12
+      method: direct_scan
+    specs.conduit:
+      source_pages:
+      - 12
+      method: direct_scan
+    specs.route:
+      source_pages:
+      - 12
+      method: direct_scan
+    specs.floor:
+      source_pages:
+      - 12
+      method: direct_scan
+    relations:
+      source_pages:
+      - 12
+      method: direct_scan
+    position:
+      source_pages:
+      - 12
+      method: direct_scan
+    ontology_hints.suggested_parent_class:
+      source_pages:
+      - 12
+      method: direct_scan
+    ontology_hints.observed_attributes:
+      source_pages:
+      - 12
+      method: direct_scan
+    ontology_hints.function_candidates:
+      source_pages:
+      - 12
+      method: direct_scan
+    collection_sources.visual_semantics:
+      source_pages:
+      - 12
+      method: direct_scan
+    collection_sources.entity_synthesis:
+      source_pages:
+      - 12
+      method: direct_scan
+  unresolved:
+  - field_candidate: specs.floor
+    raw_text: 외부
+    source_page: 12
+    reason: 층/구역 값인지 외부 위치 표기인지 단정 불가
+    preservation_note: 원문 그대로 보존; 위치/공간 속성 후보
+  - field_candidate: specs.route
+    raw_text: 지하공동구 사용 → 정보통신용 맨홀 → PULL BOX
+    source_page: 12
+    reason: 경로 요소가 복합 문자열로 결합되어 있어 개별 관계로 확정 분해하지 않음
+    preservation_note: 경로 원문 보존; 0-9d에서 routesThrough/connectedTo 후보로 분해 가능
+  - field_candidate: ontology_hints.suggested_parent_class
+    raw_text: CommunicationEquipment
+    source_page: 12
+    reason: 외부 인입 소스는 설비/연결점/소스 중 어느 상위군으로 둘지 확정 불가
+    preservation_note: 상위 클래스 후보로만 보존
+  - field_candidate: ontology_hints.function_candidates
+    raw_text: Broadcasting Signal Supply; External Source Connection
+    source_page: 12
+    reason: 기능 후보가 복수이며 도면상 단일 기능으로 확정 불가
+    preservation_note: 기능 후보 텍스트 보존
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 외부 인입 소스라는 명칭상 독립 설비인지, 연결점/소스 노드인지, 혹은 관계 사실 중심 엔티티인지 경계가 다소 모호함. 다만
+      tag와 specs가 함께 존재하고 관계가 1건 이상 있어 NamedIndividual로 우선 배치.
+    recommended_handling: 0-9c에서 CommunicationSource 또는 ExternalSourceConnection 계열
+      후보를 검토하고, 0-9d에서 cable/routesThrough/originatesFromExternalPoint 관계를 정식 속성으로
+      분해
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - 외부 연결/인입/출처 지점 패턴으로 해석
+    - relations의 원형만 보존
+    - free_notes에 분류 불가 원문과 promotion_hint 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-20T17:13:33.257517'
+  confidence: 0.86

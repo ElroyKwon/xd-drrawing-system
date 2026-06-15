@@ -1,0 +1,86 @@
+placement:
+  tag: UNKNOWN-BUILDING-SERVICE-002
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: AnnotationOnly
+    iri_hint: ''
+    class_hint: UnknownEntity
+    alternative_class_hints:
+    - AnnotationOrReferenceEntity
+    - DocumentEntity
+    related_assertions: []
+    applicable_axioms: []
+    applicable_constraints: []
+    confirmed_class: dks:UnknownEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+        120, 121, 122.'
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasSourcePages
+        suggested_datatype: xsd:string
+        rationale: 페이지 목록 형태의 출처 정보이며, 엔티티의 관찰 범위를 보존할 수 있음.
+    - raw_text: 원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.
+      source_page: 0
+      promotion_hint:
+        suggested_property_label: hasNote
+        suggested_datatype: xsd:string
+        rationale: 도면 분석 안내 문구로, 주석성 텍스트로 보존 가능.
+  provenance:
+    tag:
+      source_pages:
+      - 0
+      method: entity_detail.header
+    ontology_core.owl_role:
+      source_pages:
+      - 0
+      method: rule_based_classification
+    ontology_core.class_hint:
+      source_pages:
+      - 0
+      method: rule_based_classification
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 0
+      method: rule_based_classification
+    discipline_context.free_notes:
+      source_pages:
+      - 0
+      method: raw_text_preservation
+  unresolved:
+  - field_candidate: raw
+    raw_text: '확인 가능한 페이지는 다음과 같습니다: 1, 2, 3, 4, 5, 60, 61, 62, 63, 64, 118, 119,
+      120, 121, 122.
+
+
+      원하시면 특정 페이지의 분석 결과를 읽어드리겠습니다.'
+    source_page: 0
+    reason: entity_detail에 raw만 존재하며 설비 실체, 관계, 수치 스펙으로 직접 해석할 수 없음.
+    preservation_note: 페이지 범위와 안내 문구를 그대로 보존. 후속 단계에서 문서/주석 엔티티 여부 재검토 가능.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: 태그는 UNKNOWN-BUILDING-SERVICE-002이지만 제공된 원문은 페이지 목록과 안내 문구뿐이라 물리 설비, 관계,
+      문서 주석 중 어느 범주인지 확정 불가.
+    recommended_handling: AnnotationOnly로 임시 보존하고, 후속 페이지 원문 또는 인근 태그 관계가 확보되면 DocumentEntity/AnnotationOrReferenceEntity
+      여부를 재판정.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - unknown 분야의 raw-only 엔티티는 AnnotationOnly로 보존
+    - free_notes에 분류 불가 텍스트와 promotion_hint를 함께 기록
+    - provenance와 unresolved에 원문 페이지 정보 보존
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:23:24.158172'
+  confidence: 0.86

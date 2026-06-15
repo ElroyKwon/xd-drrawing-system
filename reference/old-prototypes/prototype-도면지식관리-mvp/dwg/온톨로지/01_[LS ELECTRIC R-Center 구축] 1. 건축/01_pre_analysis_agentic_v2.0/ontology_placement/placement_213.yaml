@@ -1,0 +1,125 @@
+placement:
+  tag: '213'
+  name: ''
+  discipline: unknown
+  ontology_core:
+    owl_role: NamedIndividual
+    iri_hint: dks:213
+    class_hint: SpatialEntity
+    alternative_class_hints:
+    - RoomLikeEntity
+    - UnknownEntity
+    related_assertions:
+    - type: adjacent_to
+      target_hint: T01
+      note: incoming relation observed; T01 adjacent_to 213
+      confirmed_property: dks:adjacent_to
+      confirmed_target: T01
+      property_confirmed_by: step_0-9d
+      property_confirmed_at: '2026-04-22T09:30:45.858627'
+    applicable_axioms:
+    - AX032
+    - AX033
+    - AX036
+    applicable_constraints:
+    - CN001
+    - CN002
+    - CN009
+    confirmed_class: dks:SpatialEntity
+    class_confirmed_by: step_0-9c
+    class_confirmed_at: '2026-04-22T09:26:59.014031'
+    axioms_linked_by: step_0-9e
+    axioms_linked_at: '2026-04-22T09:33:15.383239'
+  discipline_context:
+    discipline: unknown
+    sub_kinds: {}
+    free_notes:
+    - raw_text: tag 213 is adjacent_to T01
+      source_page: 63
+      promotion_hint:
+        suggested_property_label: adjacent_to
+        suggested_datatype: owl:ObjectProperty
+        rationale: Explicit relation fact between two tags; preserve as relation assertion
+          candidate.
+    - raw_text: from T01 to 213 adjacent_to
+      source_page: 63
+      promotion_hint:
+        suggested_property_label: adjacent_to
+        suggested_datatype: owl:ObjectProperty
+        rationale: Cross-validated relation record indicates a bidirectional adjacency
+          pattern.
+  provenance:
+    tag:
+      source_pages:
+      - 63
+      method: direct
+    ontology_core.owl_role:
+      source_pages:
+      - 63
+      method: inferred_from_relation_only
+    ontology_core.iri_hint:
+      source_pages:
+      - 63
+      method: constructed
+    ontology_core.class_hint:
+      source_pages:
+      - 63
+      method: plan_guidance_inferred
+    ontology_core.alternative_class_hints:
+      source_pages:
+      - 63
+      method: plan_guidance_inferred
+    ontology_core.related_assertions:
+      source_pages:
+      - 63
+      method: direct_and_cross_validated
+    discipline_context.free_notes:
+      source_pages:
+      - 63
+      method: direct
+    ambiguous.is_ambiguous:
+      source_pages:
+      - 63
+      method: assessment
+    plan_reference.guidance_applied:
+      source_pages:
+      - 63
+      method: plan_guidance_applied
+  unresolved:
+  - field_candidate: relations[0].partner
+    raw_text: T01
+    source_page: 63
+    reason: Relation target exists but no entity_detail for T01 is provided in this
+      input.
+    preservation_note: Keep as target_hint for later assertion linking.
+  - field_candidate: relations[0].relation_type
+    raw_text: adjacent_to
+    source_page: 63
+    reason: Relation is clear, but property IRI is not to be fixed at this stage.
+    preservation_note: Promote to object property assertion in later step.
+  - field_candidate: relations[1].relation
+    raw_text: adjacent_to
+    source_page: 63
+    reason: Same relation repeated in cross-validated record; preserve raw form.
+    preservation_note: Use as duplicate evidence, not merged away.
+  orphan_relations: []
+  ambiguous:
+    is_ambiguous: true
+    reason: Only adjacency relation is observed; no explicit name, spec, or functional
+      description is provided for tag 213.
+    recommended_handling: Keep as NamedIndividual with spatial/room-like candidate
+      hints until more context is available.
+  merge_info:
+    is_merge_candidate: false
+    other_tag: ''
+    reason: ''
+  plan_reference:
+    guidance_applied:
+    - Use plan emphasis on space_room_like_entities and adjacent_to patterns around
+      T01/numbered tags.
+    - Preserve relation facts as raw assertion candidates.
+    deviations: []
+  assigned_by: step_0-9b
+  model: gpt-5.4-mini
+  assigned_at: '2026-04-22T09:22:10.799167'
+  confidence: 0.74
