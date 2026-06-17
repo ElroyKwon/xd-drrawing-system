@@ -1092,3 +1092,129 @@ Next action:
   Commit Task 0 docs/gate changes.
   Then begin Task 1 with TDD: write failing projectAdminData helper tests before creating implementation code.
 ```
+
+## AI Loop Runner Mode Dispatch - 2026-06-17
+
+```text
+Date: 2026-06-17
+Agent: Codex
+Purpose:
+  Extend the review-only .ai-loop runner into explicit mode dispatch while preserving review-only behavior.
+
+Updated:
+  scripts/ai-loop/run-next-ai-loop-request.ps1
+  scripts/ai-loop/test-ai-loop-hook.ps1
+  .ai-loop/README.md
+  .ai-loop/prompts/validation-evidence.md
+  .ai-loop/prompts/implementation.md
+  .ai-loop/state/loop-state.json
+  CHECKS.md
+  EVIDENCE.md
+  docs/sessions/NEXT_SESSION.md
+
+TDD evidence:
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    EXPECTED FAIL before implementation.
+    Observed: Missing .ai-loop\prompts\validation-evidence.md.
+
+Mode dispatch implementation:
+  review-only:
+    prompt: baseline-review.md
+    sandbox: read-only
+  validation-evidence:
+    prompt: validation-evidence.md
+    sandbox: workspace-write
+    boundary: evidence/handoff only by default; implementation code edits are blocked unless explicitly authorized.
+  implementation:
+    prompt: implementation.md
+    sandbox: workspace-write
+    boundary: owned files and verification commands must be explicit in the request.
+  unknown mode:
+    fails before worker launch with Unsupported mode and the supported mode list.
+
+Verification:
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    PASS; AI loop hook scaffold verification passed.
+
+  review-only dry-run fixture 9111-dispatch-review-dry-run
+    PASS; Prompt baseline-review.md, Sandbox read-only.
+
+  validation-evidence dry-run fixture 9112-dispatch-validation-evidence-dry-run
+    PASS; Prompt validation-evidence.md, Sandbox workspace-write.
+
+  implementation dry-run fixture 9113-dispatch-implementation-dry-run
+    PASS; Prompt implementation.md, Sandbox workspace-write.
+
+  unknown mode dry-run fixture 9120-dispatch-unknown-mode-dry-run
+    EXPECTED FAIL; exit code 1.
+    Observed: Unsupported mode 'unknown-mode'. Supported modes: review-only, validation-evidence, implementation.
+
+Not run:
+  Real Codex worker launch for validation-evidence or implementation modes.
+  npm test / npm run build, because this change is limited to the file-based runner and prompt contracts.
+  Browser/dev-server verification.
+
+Remaining risks:
+  workspace-write modes rely on request scope and worker prompt discipline to avoid broad edits.
+  Real worker behavior for validation-evidence and implementation modes still needs a controlled non-dry-run request before treating those modes as production automation.
+  Dry-run verification created ignored .ai-loop runtime request/result/log artifacts.
+```
+
+## Session Closeout - AI Loop Mode Dispatch Handoff - 2026-06-17
+
+```text
+Date: 2026-06-17
+Agent: Codex
+Closeout scope:
+  End the session after mode dispatch runner work and leave the next-session entry current.
+
+Closeout commits:
+  a7125c0 chore: add ai loop mode dispatch
+  this docs closeout commit: docs: close ai loop mode dispatch session
+
+Final git status:
+  Clean for tracked and untracked files.
+  Ignored runtime queue remains outside git status.
+
+Runner state:
+  No run-next-ai-loop-request.ps1 process is running at closeout.
+  Pending inbox requests:
+    .ai-loop/control/inbox/0007-project-admin-task6-validation-evidence-real-run.request.md
+
+Fresh closeout checks:
+  git status --short --untracked-files=all
+    PASS after closeout commits; no tracked or untracked files reported.
+  git diff --stat
+    PASS after closeout commits; no tracked diff reported.
+  Get-CimInstance Win32_Process for run-next-ai-loop-request.ps1
+    PASS; no running runner process found.
+  Get-ChildItem .ai-loop/control/inbox/*.request.md
+    OBSERVED; only 0007 pending after removing duplicate 0006.
+
+Most recent mode dispatch verification from this session:
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    PASS; AI loop hook scaffold verification passed.
+  review-only dry-run:
+    PASS; Prompt baseline-review.md, Sandbox read-only.
+  validation-evidence dry-run:
+    PASS; Prompt validation-evidence.md, Sandbox workspace-write.
+  implementation dry-run:
+    PASS; Prompt implementation.md, Sandbox workspace-write.
+  unknown mode dry-run:
+    EXPECTED FAIL; Unsupported mode with supported mode list.
+  npm test:
+    PASS; 3 test files / 16 tests passed.
+  npm run build:
+    PASS; tsc && vite build completed.
+  git diff --check:
+    PASS; no whitespace errors.
+
+Not run during closeout:
+  browser/dev-server verification
+  real Codex worker launch for pending 0007
+
+Next action:
+  Start next session by reviewing this closeout, then run the pending 0007 validation-evidence request without -DryRun.
+  If 0007 returns DRY-RUN, it does not count as validation evidence.
+  The mode-dispatch and handoff changes are committed; do not rework them unless 0007 exposes a real runner issue.
+```
