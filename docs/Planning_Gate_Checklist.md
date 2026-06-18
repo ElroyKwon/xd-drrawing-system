@@ -183,3 +183,55 @@
 - Checklist truth: the checked kickoff and traceability items above were verified against the live PRD, TRD, UI, data, task, acceptance, test, design, and user-flow documents during this gate review.
 - Implementation eligibility: the local-only viewer shell/static sheet render slice may proceed to a scoped implementation request with owned files and TDD checks. This PASS does not authorize real viewer engine or external integration work.
 - Human gate: real viewer engine evaluation/adoption, customer drawings, Autodesk-backed processing, paid SDK, DB/API/TypeDB/schema integration, CAD editor behavior, and deployment remain unapproved.
+
+## DWG/DXF Upload Conversion Management Gate - 2026-06-18
+
+### Document Existence
+
+- [x] `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md`
+- [x] `docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md`
+- [x] `docs/PRD.md`
+- [x] `docs/TRD.md`
+- [x] `docs/UI_Spec.md`
+- [x] `docs/Data_Model.md`
+- [x] `docs/Task_List.md`
+- [x] `docs/Acceptance_Criteria.md`
+- [x] `docs/Test_Scenarios.md`
+- [x] `docs/Design_Map.md`
+- [x] `docs/User_Flow.md`
+
+### DUC Cross Checks
+
+- [x] FR-DUC-001 through FR-DUC-010 are represented in PRD, TRD, UI, data, task, acceptance, test, design, and user-flow documents.
+- [x] T-DUC-001 through T-DUC-010 map to FR-DUC-001 through FR-DUC-010.
+- [x] AC-DUC-001 through AC-DUC-010 map to FR-DUC-001 through FR-DUC-010.
+- [x] TS-DUC-001 through TS-DUC-010 map to FR-DUC-001 through FR-DUC-010.
+- [x] Visible DUC management actions map to `UF-DUC-*` user-flow steps.
+- [x] DUC scope is separate from ACC #11 local-only viewer shell/static sheet render.
+- [x] Local conversion/scanning evidence is documented separately from viewer-rendering quality.
+- [x] APS and Chrome DevTools research is documented as benchmark evidence only.
+- [x] JSON traceability/progress is a future loop artifact proposal, not a current production data contract.
+- [x] ODA/APS/customer drawing/DB/API/TypeDB/auth/RBAC/deployment work remains HUMAN_GATE.
+- [x] Project Admin Task 6 remains a separate `BLOCKED_BROWSER_UNAVAILABLE` evidence-path blocker.
+
+### DUC Requirement Coverage
+
+| Requirement ID | Gate check |
+|---|---|
+| FR-DUC-001 | Local/reference drawing intake queue is documented. |
+| FR-DUC-002 | File validation and xref/package handling are documented. |
+| FR-DUC-003 | Conversion job status and metadata are documented. |
+| FR-DUC-004 | DXF scan summary fields are documented. |
+| FR-DUC-005 | Sheet/viewable candidate rules are documented without paperspace-only assumptions. |
+| FR-DUC-006 | Render-risk separation is documented. |
+| FR-DUC-007 | Build `Sheet` and ACC #11 viewer relation points are documented without scope mixing. |
+| FR-DUC-008 | Future issue/memo/markup overlay slots are documented without persistence. |
+| FR-DUC-009 | APS/DevTools research boundary is documented. |
+| FR-DUC-010 | JSON traceability/progress artifact proposal is documented. |
+
+### DUC Gate Status
+
+- Result: DOCS READY / FORMAL GATE NEEDED NEXT SESSION.
+- Current result: document scaffold is complete for the DUC planning slice, but product implementation must not start until a next-session planning-gate pass explicitly reviews these DUC changes.
+- Implementation eligibility: none yet for DUC product code.
+- Human gate: real Autodesk/APS use, ODA/paid SDK product adoption, customer drawings, production storage, DB/API/TypeDB/schema integration, auth/RBAC, CAD editor behavior, and deployment remain unapproved.

@@ -2864,3 +2864,231 @@ Next session entry:
   Start from docs/sessions/NEXT_SESSION.md.
   First command: git status --short --untracked-files=all.
 ```
+
+## DWG/DXF Upload Conversion Management Documentation - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Scope:
+  User requested documentation and session closeout for the next real drawing-upload direction.
+  No product implementation.
+  No source/package/reference/evidence-asset/.ai-loop runtime edits.
+
+Current stage:
+  DUC document scaffold complete.
+  Formal DUC planning gate still required before implementation.
+  ACC #11 local-only viewer shell/static render remains a separate implementation-ready slice.
+
+Coordination:
+  Direct subagents were used earlier in this session for DWG/DXF inventory, document boundary review, and git/worktree safety.
+  Main session verified status and committed prior ACC #11 docs before this DUC documentation pass.
+
+Pre-DUC clean baseline:
+  git status --short --untracked-files=all
+    PASS; no output after commit a927459.
+
+Prior commit completed in this session:
+  a927459 docs: record acc viewer planning handoff
+
+Local tooling check:
+  Test-Path 'C:\Program Files\ODA\ODAFileConverter 27.1.0\ODAFileConverter.exe'
+    True
+  python --version
+    Python 3.12.9
+  python package availability:
+    ezdxf True
+    fitz True
+
+Data_Knowledge_Studio check:
+  Root: D:\_Project\Data_Knowledge_Studio
+  DWG: 0
+  DXF: 0
+  Python: 297
+  Interpretation:
+    The user-mentioned project is relevant as prior context, but current DWG/DXF samples for this run are not located there.
+
+Reference DWG source:
+  reference/old-prototypes/prototype-도면지식관리-mvp/dwg/
+
+Representative sample conversion:
+  Output location:
+    C:\Users\cruel\AppData\Local\Temp\xd-dwg-upload-lab-20260618-161438
+  ARCH-A03:
+    ExitCode 0
+    Seconds 7.08
+    InputDwg 11
+    OutputDxf 11
+  ARCH-A04:
+    ExitCode 0
+    Seconds 7.6
+    InputDwg 11
+    OutputDxf 11
+  ELEC-EE01:
+    ExitCode 0
+    Seconds 5.14
+    InputDwg 3
+    OutputDxf 3
+  COMM-ET01:
+    ExitCode 0
+    Seconds 4.44
+    InputDwg 3
+    OutputDxf 3
+
+DXF scan evidence:
+  ARCH-A03:
+    Main DXF size: 1.86 MB
+    Layouts: Model 595 entities; 배치1 0; 배치2 0
+    Layers: 260
+    Blocks: 232
+    Modelspace entities: 595
+    Top entity types: INSERT 169, TEXT 137, DIMENSION 133, LEADER 67, LWPOLYLINE 53
+    Text samples include: R-Center, I-Center, 1층
+  ARCH-A04:
+    Main DXF size: 2.31 MB
+    Layouts: Model 867 entities; 배치1 0; 배치2 0
+    Layers: 198
+    Blocks: 513
+    Modelspace entities: 867
+    Top entity types: DIMENSION 488, INSERT 168, TEXT 106, LEADER 49, LWPOLYLINE 43
+  ELEC-EE01:
+    Main DXF size: 12.23 MB
+    Layouts: Model 3565 entities; 배치1 0
+    Layers: 37
+    Blocks: 253
+    Modelspace entities: 3565
+    Top entity types: LWPOLYLINE 1040, TEXT 905, LINE 843, CIRCLE 249, ARC 206
+    Text samples include: NO., SIZE, QT'Y, FROM, ELECTRICAL EQUIPMENT LIST
+  COMM-ET01:
+    Main DXF size: 1.57 MB
+    Layouts: Model 1684 entities; 배치1 0
+    Layers: 47
+    Blocks: 59
+    Modelspace entities: 1684
+    Top entity types: TEXT 483, LINE 333, LWPOLYLINE 286, INSERT 267, ARC 144
+    Text samples include: PIT층 정보통신설비 평면도, 축척:A1 : 1/200, A3 : 1/400
+
+Render attempt:
+  A DXF to PNG preview attempt was started for COMM-ET01 using ezdxf PyMuPDF backend.
+  The user interrupted because it appeared stalled.
+  A running Python process was found and stopped:
+    ProcessName: python
+    StartTime: 2026-06-18 오후 4:16:03
+  Result:
+    Render quality/performance remains NOT PROVEN.
+    Conversion and metadata scan are separate from viewer rendering success.
+
+Official Autodesk/APS research:
+  Sources checked:
+    https://get-started.aps.autodesk.com/tutorials/simple-viewer/
+    https://get-started.aps.autodesk.com/tutorials/simple-viewer/data/
+    https://get-started.aps.autodesk.com/tutorials/simple-viewer/viewer/
+    https://aps.autodesk.com/developer/overview/viewer-sdk
+    https://aps.autodesk.com/developer/overview/model-derivative-api
+    https://aps.autodesk.com/blog/fast-debugging-codepen-viewer-and-bim-360-acc-docs
+  Findings:
+    APS Simple Viewer explicitly frames upload, translate, and preview for 3D designs and 2D drawings.
+    The tutorial architecture uses Authentication, Data Management, Model Derivative, and Viewer.
+    Data Management/OSS creates buckets, uploads objects, lists objects, and returns URNs.
+    Model Derivative starts translation to SVF2 with 2D/3D views and checks manifest/status.
+    Viewer SDK is a JavaScript browser viewer for 2D/3D design models with customization/extensions.
+    Chrome DevTools/Network can help debug BIM360/Forma Viewer token/model-loading flows, but tokens/session data must not be committed.
+
+JSON/progress artifact check:
+  Existing project docs are Markdown-first with stable ID traceability.
+  No production JSON documentation contract exists yet.
+  DUC docs now propose a future JSON traceability/progress artifact for loop automation.
+
+Documents changed:
+  README.md
+  SPEC.md
+  PLAN.md
+  CHECKS.md
+  HUMAN_GATE.md
+  EVIDENCE.md
+  docs/PRD.md
+  docs/TRD.md
+  docs/UI_Spec.md
+  docs/Data_Model.md
+  docs/Task_List.md
+  docs/Acceptance_Criteria.md
+  docs/Test_Scenarios.md
+  docs/Design_Map.md
+  docs/User_Flow.md
+  docs/Planning_Gate_Checklist.md
+  docs/feature-notes/README.md
+  docs/feature-notes/005-dwg-dxf-upload-conversion-management.md
+  docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md
+  docs/sessions/NEXT_SESSION.md
+
+Human approval items:
+  APS credentials/API calls, paid usage, ODA product adoption, customer drawings, production file storage, DB/API/schema, TypeDB ingestion, auth/RBAC, token capture, and deployment remain gated.
+
+Project Admin Task 6:
+  Still open / BLOCKED_BROWSER_UNAVAILABLE.
+  No 0009 request created.
+  Browser validation not rerun.
+  DUC/Build/viewer evidence must not be reused for Task 6.
+```
+
+## Session Closeout - DUC Documentation Ready - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Closeout trigger:
+  User requested "모두 문서화 하고, 세션 종료".
+
+Current stage:
+  DUC document scaffold is complete.
+  Formal DUC planning gate is required next session before any DUC implementation.
+  ACC #11 local-only viewer shell/static render remains separately implementation-ready.
+  Project Admin Task 6 remains BLOCKED_BROWSER_UNAVAILABLE.
+
+Verification:
+  FR-DUC coverage script for PRD, TRD, UI_Spec, Data_Model, Task_List, Acceptance_Criteria, Test_Scenarios, Design_Map, and User_Flow
+    PASS; no output.
+
+  T-DUC / AC-DUC / TS-DUC coverage script
+    PASS; no output.
+
+  git diff --check
+    PASS; no output.
+
+  git diff --name-only -- src package.json package-lock.json reference docs/evidence evidence .ai-loop
+    PASS; no output.
+
+  Get-ChildItem -Recurse -Force -LiteralPath '.ai-loop' | Where-Object { $_.Name -match '0009' }
+    PASS; no output.
+
+  npm test
+    PASS; 5 test files passed, 24 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-CMIG4SXn.css
+      dist/assets/index-ZL6kPUJK.js
+
+Obsidian worklog:
+  G:\내 드라이브\_Obsidian\CLAUDE.md 업무일지 자동 기록 rule check
+    PASS; rule section read.
+  G:\내 드라이브\_Obsidian\지식관리\업무일지\2026-06-18.md
+    Appended: ### 16:45 | 세션 14
+
+Not run:
+  Browser validation.
+  Reason: no product UI implementation changed in this DUC documentation pass.
+
+Human approval items:
+  APS credentials/API calls, paid usage, ODA product dependency adoption, customer drawings, production file storage, DB/API/schema, TypeDB ingestion, auth/RBAC, token capture, and deployment remain gated.
+
+Next session entry:
+  Start from docs/sessions/NEXT_SESSION.md.
+  First command: git status --short --untracked-files=all.
+  Then run the formal DUC planning gate and choose one implementation path:
+    Option A: ACC #11 local viewer shell first.
+    Option B: DUC local conversion-lab management UI first.
+    Option C: DUC script adapter / JSON scan output first.
+```

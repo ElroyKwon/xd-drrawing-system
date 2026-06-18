@@ -233,3 +233,98 @@ SheetViewerState
 | FR-SV-007 | Existing local `Sheet[]` supports navigation context. |
 | FR-SV-008 | `equipmentEntityIdSlot` reserves future ontology binding. |
 | FR-SV-009 | No external persistence, viewer engine, customer drawing, or integration data is introduced. |
+
+## DWG/DXF Upload Conversion Management Model
+
+The DUC planning slice adds a future local data shape for drawing intake, conversion, scan summaries, and traceability. It does not create DB schema, API contracts, TypeDB schema, production storage, Autodesk objects, customer drawing records, or viewer-rendering guarantees.
+
+### Entities
+
+```text
+DrawingSourceFile
+- id: string
+- sourceName: string
+- extension: "dwg" | "dxf" | "zip"
+- discipline: "architecture" | "structure" | "civil" | "mechanical" | "electrical" | "communication" | "fire" | "unknown"
+- sourcePathLabel: string
+- sizeBytes: number
+- hasXrefs: boolean
+- xrefPolicy: "none" | "folder-copied" | "nearby-xr-files" | "missing"
+- intakeStatus: "candidate" | "validated" | "blocked"
+
+DrawingConversionJob
+- id: string
+- sourceFileId: string
+- converter: "local-oda-experiment" | "future-aps" | "future-other"
+- status: "queued" | "converting" | "converted" | "scanned" | "failed" | "render-risk"
+- startedAt: string | null
+- endedAt: string | null
+- inputDwgCount: number
+- outputDxfCount: number
+- message: string | null
+
+DrawingConversionArtifact
+- id: string
+- jobId: string
+- artifactType: "dxf" | "scan-json" | "preview" | "future-svf2"
+- localPathLabel: string
+- sizeBytes: number | null
+- retainedInRepo: false
+
+DxfScanSummary
+- artifactId: string
+- layoutNames: string[]
+- layerCount: number
+- blockCount: number
+- modelspaceEntityCount: number
+- topEntityTypes: Array<[string, number]>
+- topInsertNames: Array<[string, number]>
+- textSamples: string[]
+
+DrawingViewableCandidate
+- id: string
+- sourceFileId: string
+- conversionJobId: string
+- label: string
+- candidateType: "layout" | "modelspace-region" | "title-text" | "manual-review"
+- renderStatus: "not-tested" | "risky" | "previewable" | "blocked"
+- linkedSheetId: string | null
+```
+
+### JSON Traceability Artifact Proposal
+
+The current canonical planning docs remain Markdown with stable IDs. A future loop artifact may additionally emit a structured JSON summary for automation:
+
+```json
+{
+  "slice": "DUC",
+  "requirements": ["FR-DUC-001"],
+  "tasks": ["T-DUC-001"],
+  "acceptance": ["AC-DUC-001"],
+  "tests": ["TS-DUC-001"],
+  "conversionJobs": [
+    {
+      "sourceFileId": "source-arch-a03",
+      "status": "scanned",
+      "outputDxfCount": 11
+    }
+  ]
+}
+```
+
+This is a proposed progress/traceability artifact only. It is not a production DB/API schema.
+
+### DUC Requirement Mapping
+
+| Requirement ID | Data support |
+|---|---|
+| FR-DUC-001 | `DrawingSourceFile` and intake queue state. |
+| FR-DUC-002 | `DrawingSourceFile` validation fields and `xrefPolicy`. |
+| FR-DUC-003 | `DrawingConversionJob` status, timing, converter, counts, and messages. |
+| FR-DUC-004 | `DxfScanSummary` layout/layer/block/entity/text fields. |
+| FR-DUC-005 | `DrawingViewableCandidate` for layout/modelspace/title/manual candidates. |
+| FR-DUC-006 | `renderStatus` and `render-risk` keep rendering separate from conversion. |
+| FR-DUC-007 | `linkedSheetId` reserves future relation to Build `Sheet`. |
+| FR-DUC-008 | Future overlays remain out of this data model; no persisted markup/issue/memo entities are added. |
+| FR-DUC-009 | APS source object/URN fields are intentionally absent until HUMAN_GATE. |
+| FR-DUC-010 | JSON artifact proposal mirrors IDs but does not replace Markdown docs or create production schema. |

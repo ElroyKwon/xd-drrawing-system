@@ -166,6 +166,49 @@ Future implementation pass/fail checks after planning gate:
 - Browser console has no errors during open, tool selection, panel switching, and return-to-sheets flows when browser automation is available.
 - Desktop and narrow/mobile widths do not show overlapping text, clipped labels, or broken viewer controls.
 
+## Planning Checks For DWG/DXF Upload Conversion Management
+
+These checks are for the DUC document/planning slice only. They do not authorize production upload, customer drawings, Autodesk/APS API use, ODA product adoption, DB/API/schema, TypeDB, auth/RBAC, or deployment.
+
+Reference evidence:
+
+- `reference/old-prototypes/prototype-도면지식관리-mvp/docs/ai-3d-builder/_archive-dxf-pivot-2026-04-22/parity-lab-p062/FINDINGS.md`
+- `reference/old-prototypes/prototype-도면지식관리-mvp/docs/ai-3d-builder/_archive-dxf-pivot-2026-04-22/parity-lab-p062/SESSION-HANDOFF-2026-04-21.md`
+- Autodesk Platform Services Simple Viewer tutorial: upload, translate, and preview 2D/3D designs.
+- Autodesk Platform Services Viewer SDK overview.
+- Autodesk Platform Services Model Derivative API overview.
+
+Planning pass/fail checks:
+
+- `FR-DUC-001` through `FR-DUC-010` appear in `docs/PRD.md`.
+- `FR-DUC-001` through `FR-DUC-010` appear in `docs/TRD.md`, `docs/UI_Spec.md`, `docs/Data_Model.md`, `docs/Task_List.md`, `docs/Acceptance_Criteria.md`, `docs/Test_Scenarios.md`, `docs/Design_Map.md`, and `docs/User_Flow.md`.
+- `T-DUC-001` through `T-DUC-010` appear in `docs/Task_List.md`.
+- `AC-DUC-001` through `AC-DUC-010` appear in `docs/Acceptance_Criteria.md`.
+- `TS-DUC-001` through `TS-DUC-010` appear in `docs/Test_Scenarios.md`.
+- `UF-DUC-*` flow steps appear in `docs/User_Flow.md`.
+- DUC documents keep ACC #11 local viewer shell work separate from upload/conversion work.
+- DUC documents distinguish conversion metadata extraction from viewer rendering quality.
+- DUC documents record that Chrome DevTools/Network inspection can help understand Autodesk web viewer behavior only when there is legitimate account/session access, and captured tokens must not be committed.
+- DUC documents record that official APS Simple Viewer architecture uses Authentication, Data Management, Model Derivative, and Viewer, but real APS use remains HUMAN_GATE.
+- DUC documents record that initial JSON/structured progress output is a proposed traceability artifact for the next loop, not an existing production contract.
+
+Local experiment verification commands, when explicitly approved for a future implementation/spike session:
+
+```powershell
+Test-Path 'C:\Program Files\ODA\ODAFileConverter 27.1.0\ODAFileConverter.exe'
+python --version
+python -c "import importlib.util; print('ezdxf', bool(importlib.util.find_spec('ezdxf'))); print('fitz', bool(importlib.util.find_spec('fitz')))"
+git diff --name-only -- src package.json package-lock.json reference docs/evidence evidence .ai-loop
+Get-ChildItem -Recurse -Force -LiteralPath '.ai-loop' | Where-Object { $_.Name -match '0009' }
+```
+
+Expected boundaries:
+
+- Reference DWG files are read-only.
+- Temporary conversion output must stay outside the repo or in an explicitly approved ignored scratch path.
+- No product source/package changes are implied by this planning check.
+- No browser evidence from DUC may be reused for Project Admin Task 6.
+
 ## Current Evidence Files
 
 - `docs/evidence/initial-setup-desktop.png`

@@ -163,9 +163,10 @@ Implementation status:
 
 Deferred slices:
 
-1. 2D sheet viewer
-2. Project Admin role/permission matrix after human approval
-3. Company management after separate scope approval
+1. 2D sheet viewer implementation from the existing ACC #11 local-only plan
+2. DWG/DXF upload conversion implementation after DUC planning gate
+3. Project Admin role/permission matrix after human approval
+4. Company management after separate scope approval
 
 ## Phase 4: 2D Sheet Viewer First Slice
 
@@ -215,6 +216,56 @@ Scoped implementation request status:
 - Owned source candidates are limited to `src/App.tsx`, `src/App.test.tsx`, `src/BuildSheetsView.tsx`, `src/BuildSheetsView.test.tsx`, `src/buildSheetsData.ts`, `src/buildSheetsData.test.ts`, `src/SheetViewerView.tsx`, `src/SheetViewerView.test.tsx`, `src/sheetViewerData.ts`, `src/sheetViewerData.test.ts`, and `src/styles.css`.
 - Verification plan: `npm test`, `npm run build`, `git diff --check`, forbidden-path check excluding `src`, and `.ai-loop` 0009 guard.
 - Browser evidence remains separate from Project Admin Task 6 and must not be reused for that blocker.
+
+## Phase 5: DWG/DXF Upload Conversion Management Planning
+
+Selected planning slice:
+
+- `DWG/DXF Upload Conversion Management`
+- Namespace: `DUC`
+- Current purpose: document and sequence the technical path toward Autodesk Cloud-like drawing upload, conversion, extraction, and later viewer integration.
+
+Planning basis:
+
+- User clarified that the goal is not to make the system complex for its own sake. The immediate purpose is a technical experiment and design-direction pass for the future real drawing upload/viewer workflow.
+- Local environment check found:
+  - `C:\Program Files\ODA\ODAFileConverter 27.1.0\ODAFileConverter.exe`
+  - Python 3.12.9
+  - installed `ezdxf`
+  - installed `fitz`
+- `D:\_Project\Data_Knowledge_Studio` currently has no DWG/DXF files by recursive file search; the usable DWG sample set is in this repository's reference old prototype tree.
+- Four read-only reference DWG samples were copied to `%TEMP%\xd-dwg-upload-lab-*` and converted to DXF outside the git worktree:
+  - `ARCH-A03`: architectural floor plan, 11 input DWG including xrefs, 11 output DXF.
+  - `ARCH-A04`: architectural enlarged plan, 11 input DWG including xrefs, 11 output DXF.
+  - `ELEC-EE01`: electrical equipment layout, 3 input DWG, 3 output DXF.
+  - `COMM-ET01`: communication equipment plan, 3 input DWG, 3 output DXF.
+- DXF scan confirmed metadata extraction is practical for layouts, layers, blocks, modelspace entity counts, INSERT names, and text samples.
+- DXF render preview remains risky. One render attempt was interrupted and the Python process was stopped. Rendering quality/performance must be evaluated separately.
+
+Document-loop tasks:
+
+- [x] Keep ACC #11 local-only viewer shell/static sheet render separate from DWG/DXF upload/conversion planning.
+- [x] Create `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md`.
+- [x] Create `docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md`.
+- [x] Update `docs/PRD.md`, `docs/TRD.md`, `docs/UI_Spec.md`, `docs/Data_Model.md`, `docs/Task_List.md`, `docs/Acceptance_Criteria.md`, `docs/Test_Scenarios.md`.
+- [x] Update `docs/Design_Map.md`, `docs/User_Flow.md`, `docs/Planning_Gate_Checklist.md`.
+- [x] Update `SPEC.md`, `PLAN.md`, `CHECKS.md`, `HUMAN_GATE.md`, `EVIDENCE.md`, and `docs/sessions/NEXT_SESSION.md`.
+- [ ] Next session: run a formal planning gate for FR-DUC-001 through FR-DUC-010 before implementation.
+- [ ] Next session: decide whether the first implementation is a local conversion-lab UI, a backend/script adapter, or the ACC #11 local viewer shell first.
+
+Implementation status:
+
+- No product implementation has started for DUC.
+- No source files, package files, reference files, evidence screenshots, or `.ai-loop` runtime files are changed by this planning slice.
+- Commit `a927459 docs: record acc viewer planning handoff` already captured the prior ACC #11 planning handoff.
+- The DUC documentation update should be committed separately from ACC #11.
+
+Gates:
+
+- Local technical experiment with copied reference DWG in `%TEMP%`: documented evidence only.
+- ODA as installed external converter: allowed only as local experiment evidence; product adoption, redistribution, or dependency policy requires HUMAN_GATE.
+- Autodesk/APS official workflow research: product-direction reference only; real API calls, credentials, app registration, and paid usage require HUMAN_GATE.
+- Customer drawings, production storage, DB/API schema, TypeDB ingestion, auth/RBAC, and deployment remain HUMAN_GATE items.
 
 ## Operating Rule
 

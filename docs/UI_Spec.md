@@ -269,3 +269,62 @@
 - Engine unavailable: not applicable because no real viewer engine is used.
 - Integration boundary: `FR-SV-009` keeps real viewer engine adoption, customer drawings, upload/publish, persisted markup/issues, DB/API/TypeDB, Autodesk, paid SDK, auth/RBAC, CAD editor behavior, and deployment outside this UI slice.
 - Responsive: desktop prioritizes full viewer layout; narrow widths keep context, static sheet surface, and essential controls reachable without overlapping text.
+
+## UI-DUC-001 DWG/DXF Upload Conversion Management
+
+### Screen
+
+| ID | Screen | Source evidence |
+|---|---|---|
+| UI-DUC-001 | Drawing upload/conversion management queue | Local DWG/DXF experiment; APS Simple Viewer upload/status pattern |
+
+### Layout
+
+- Screen is a management work surface, not a marketing/landing page.
+- Header shows project context `Study_Project`, module context `시트`, and a planning badge such as `DUC`.
+- Primary area contains an intake queue table with source file name, discipline, size, xref policy, validation status, conversion status, scan status, and render-risk status.
+- Secondary detail panel shows selected job details: input DWG count, output DXF count, layouts, layer/block/entity counts, top INSERT names, text samples, and messages.
+- A future artifact section shows derived artifacts such as DXF and scan JSON as metadata rows only; no real repository storage is implied.
+- Viewer integration section shows future relation to Build `Sheet` and ACC #11 viewer without opening a real drawing file.
+- Issue/memo/markup overlay section is a reserved future slot only.
+
+### Fields
+
+| Field | Display | Requirement |
+|---|---|---|
+| sourceName | DWG/DXF source file name | FR-DUC-001, FR-DUC-002 |
+| discipline | Architecture/electrical/communication/etc. | FR-DUC-002 |
+| fileSize | Size in bytes or MB | FR-DUC-002 |
+| xrefPolicy | `folder-copied`, `nearby-xr-files`, `missing`, or `none` | FR-DUC-002 |
+| conversionStatus | queued/converting/converted/scanned/failed/render-risk | FR-DUC-003, FR-DUC-006 |
+| inputDwgCount | Count of staged DWG files | FR-DUC-003 |
+| outputDxfCount | Count of converted DXF files | FR-DUC-003 |
+| layouts | DXF layout names and entity counts | FR-DUC-004, FR-DUC-005 |
+| entitySummary | top entity types, INSERT names, text samples | FR-DUC-004 |
+| viewableCandidate | layout/modelspace/title/manual candidate label | FR-DUC-005, FR-DUC-007 |
+| jsonTraceability | future JSON progress/traceability artifact preview | FR-DUC-010 |
+
+### Actions
+
+| Action | Result | Requirement | User-flow step |
+|---|---|---|---|
+| Add local sample candidate | Adds a local/reference sample row in planning UI only | FR-DUC-001 | UF-DUC-001 |
+| Validate sample | Updates validation metadata and xref policy | FR-DUC-002 | UF-DUC-002 |
+| Start conversion job | Creates a queued/converting job in future implementation | FR-DUC-003 | UF-DUC-003 |
+| Scan DXF summary | Populates scan summary fields | FR-DUC-004 | UF-DUC-004 |
+| Review sheet/viewable candidates | Shows candidate rows without requiring viewer render | FR-DUC-005 | UF-DUC-005 |
+| Mark render risk | Keeps rendering separate from conversion/scanning | FR-DUC-006 | UF-DUC-006 |
+| Link future sheet/viewer target | Reserves relation to Build `Sheet` and ACC #11 viewer | FR-DUC-007 | UF-DUC-007 |
+| Review overlay slots | Shows future issue/memo/markup overlay slots only | FR-DUC-008 | UF-DUC-008 |
+| Review APS/DevTools notes | Opens documentation/research notes, not credentials | FR-DUC-009 | UF-DUC-009 |
+| Export/inspect JSON proposal | Shows future traceability shape only | FR-DUC-010 | UF-DUC-010 |
+
+### DUC States
+
+- Empty: no drawing candidates selected.
+- Validated: metadata is known and conversion can be queued in a future implementation.
+- Blocked: missing xrefs, unsupported file, or gated scope.
+- Converted: DXF artifact exists in an approved local/scratch context.
+- Scanned: scan summary exists.
+- Render-risk: conversion/scan succeeded but visual rendering is slow, incomplete, or unverified.
+- HUMAN_GATE: real APS, paid SDK adoption, customer drawing upload/storage, DB/API/TypeDB, auth/RBAC, deployment, and token capture are not allowed without approval.

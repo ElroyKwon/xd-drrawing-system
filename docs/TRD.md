@@ -191,3 +191,75 @@ SheetViewerState
 | FR-SV-007 | Reuse local mock sheet list for navigation context. |
 | FR-SV-008 | Reserve `equipmentEntityIdSlot` only; no ontology integration. |
 | FR-SV-009 | Keep all real viewer, persistence, external integration, customer drawing, and deployment work out of scope. |
+
+## DWG/DXF Upload Conversion Management Technical Addendum
+
+The DUC slice is a planning and feasibility bridge, not product implementation. It defines how future work can move from local DWG samples to conversion/scanning artifacts and eventually into a viewer workflow. It must not be merged into the ACC #11 local-only viewer shell implementation.
+
+### Local Experiment Baseline
+
+Observed local tooling:
+
+```text
+ODA File Converter:
+  C:\Program Files\ODA\ODAFileConverter 27.1.0\ODAFileConverter.exe
+Python:
+  3.12.9
+Python packages:
+  ezdxf: available
+  fitz: available
+```
+
+Observed local conversion pipeline:
+
+```text
+Reference DWG sample
+-> copy to repo-outside temp upload-staging
+-> include xref folder or nearby XR*.dwg when available
+-> ODA File Converter DWG to ACAD2018 DXF
+-> ezdxf readfile
+-> scan layouts, layers, blocks, modelspace entity types, INSERT names, text samples
+-> record conversion and scan summary
+```
+
+### Future Technical Shape
+
+```text
+DrawingSourceFile
+-> DrawingIntakeValidation
+-> DrawingConversionJob
+-> DrawingConversionArtifact
+-> DxfScanSummary
+-> DrawingViewableCandidate
+-> Future viewer surface
+-> Future issue/memo/markup overlays
+```
+
+### Official APS Benchmark
+
+Autodesk Platform Services Simple Viewer shows the cloud reference architecture as Authentication, Data Management, Model Derivative, and Viewer. In that tutorial, server endpoints list models, check translation status, and upload a model before starting translation. Model Derivative translates designs to Viewer-compatible derivatives such as SVF2 and extracts metadata. The Viewer SDK is a JavaScript library for viewing 2D/3D design models in websites and supports customization/extensions.
+
+This project does not call APS in the DUC planning slice. APS remains a benchmark and future HUMAN_GATE item.
+
+### Chrome DevTools Research Boundary
+
+Autodesk's own APS blog demonstrates that Chrome DevTools Network inspection can help debug BIM360/Forma Viewer scenarios by observing token/refresh calls and loading a model in a minimal viewer test page. For this project:
+
+- DevTools/Network analysis can help understand request order, viewer asset loading, model URN flow, and translation status polling.
+- Tokens, cookies, account IDs, and proprietary payloads must not be committed or copied into project docs.
+- This route requires legitimate account/session access and is a research aid, not a product dependency.
+
+### DUC Requirement Mapping
+
+| Requirement ID | Technical handling |
+|---|---|
+| FR-DUC-001 | Model a local intake queue using copied reference samples or later mock file metadata. |
+| FR-DUC-002 | Validate file extension, source discipline, size, xref/package availability, and conversion eligibility. |
+| FR-DUC-003 | Represent conversion as a job with status, timestamps, converter adapter, input/output counts, and messages. |
+| FR-DUC-004 | Scan DXF using structured APIs such as `ezdxf`, not ad hoc string parsing. |
+| FR-DUC-005 | Derive sheet/viewable candidates from layouts, modelspace extents, title text, and block/INSERT evidence; do not rely on paperspace alone. |
+| FR-DUC-006 | Track render readiness separately from conversion/scanning readiness. |
+| FR-DUC-007 | Map artifacts to future `Sheet` rows and viewer entry points without changing current ACC #11 scope. |
+| FR-DUC-008 | Keep issue/memo/markup overlay design as future UI/data slots only. |
+| FR-DUC-009 | Record APS architecture references while keeping credentials/API calls gated. |
+| FR-DUC-010 | Propose JSON traceability/progress output as a future loop artifact, separate from current production data models. |

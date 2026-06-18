@@ -14,6 +14,8 @@ XD 제품군에 포함될 도면관리 시스템 개발 프로젝트.
 - ACC #1 `프로젝트 작성 모달`
 - Project Admin `구성원` access view for `Study_Project`
 - Build shell + `시트` 목록 for `Study_Project`
+- ACC #11 2D sheet viewer first slice는 문서/계획 게이트 완료 상태이며 구현 대기 중이다.
+- DWG/DXF Upload Conversion Management는 문서화된 planning slice이며, 다음 세션에서 formal planning gate 후 구현 경로를 선택한다.
 
 Project Admin Task 6의 브라우저 증거 수집은 `BLOCKED_BROWSER_UNAVAILABLE` 상태로 남아 있다. 같은 조건에서 `0009` 검증 요청을 만들거나 Task 6 browser validation을 반복하지 않는다.
 
@@ -42,6 +44,7 @@ codex
 - 제품군: XD 시스템 통합 라인
 - 벤치마크: Autodesk Construction Cloud Build
 - 1차 범위: 초기 설정, 프로젝트/멤버/시트 목록, 2D 시트 뷰어, 마크업, 이슈
+- 다음 핵심 방향: 실제 도면 업로드에 가까워지기 위한 DWG/DXF intake, conversion, scan, viewer relation 설계
 - 제외: DWG 원본 CAD 편집기, 3D BIM, Bridge, 프로덕션 인증/권한
 - 차별점: 핀, 마크업, 이슈를 픽셀 좌표뿐 아니라 설비 엔티티 ID에 바인딩
 

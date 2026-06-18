@@ -23,6 +23,10 @@
 | `reference/acc-screenshots/Video Screen1781231601337.png` | Viewer issues panel empty state. |
 | `reference/acc-analysis/_ACC-Build-화면분석-재현설계.md` #11/#12/#13/#16/#17 | 2D viewer, markup/issues panel, and settings reproduction notes. |
 | `docs/feature-notes/004-2d-sheet-viewer-first-slice.md` | Viewer first-slice boundary, local-only decision, and ontology data-slot reservation. |
+| `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md` | DUC planning boundary, local conversion evidence, APS research, and JSON traceability proposal. |
+| `reference/old-prototypes/prototype-도면지식관리-mvp/docs/ai-3d-builder/_archive-dxf-pivot-2026-04-22/parity-lab-p062/FINDINGS.md` | Prior DWG to DXF/xref/render limits and A03/A04 investigation path. |
+| Autodesk Platform Services Simple Viewer tutorial | Benchmark upload, translation status, and viewer loading architecture. |
+| Autodesk Platform Services Viewer SDK / Model Derivative docs | Benchmark viewer and derivative-processing capabilities. |
 | `HUMAN_GATE.md` | External integration and risky-change boundaries. |
 
 ## Feature To UI Map
@@ -65,6 +69,16 @@
 | FR-SV-007 | Sheet navigation context | User stays oriented within the local sheet set. |
 | FR-SV-008 | Equipment entity ID data slot | Future XD ontology binding point is reserved without integration. |
 | FR-SV-009 | Viewer integration boundary | User completes the first viewer slice without real engine, customer drawing, DB/API, Autodesk, paid SDK, or deployment. |
+| FR-DUC-001 | DUC intake queue | User selects local/reference DWG sample candidates. |
+| FR-DUC-002 | Validation columns and detail panel | User sees file type, size, discipline, and xref/package status. |
+| FR-DUC-003 | Conversion job row | User sees status, converter, input/output counts, timings, and messages. |
+| FR-DUC-004 | Scan summary panel | User sees layouts, layers, blocks, entity counts, INSERT names, and text samples. |
+| FR-DUC-005 | Viewable candidate list | User reviews layout/modelspace/title/manual candidates. |
+| FR-DUC-006 | Render-risk indicator | User sees that conversion/scanning success is distinct from viewer render success. |
+| FR-DUC-007 | Sheet/viewer relation slot | User sees future relation to Build `Sheet` and ACC #11 viewer without changing current SV scope. |
+| FR-DUC-008 | Overlay slots | User sees future issue/memo/markup overlay targets without persisted records. |
+| FR-DUC-009 | APS/DevTools research note | User sees benchmark architecture and debug boundaries without credentials/tokens. |
+| FR-DUC-010 | JSON traceability preview | User sees future loop artifact shape without replacing Markdown docs. |
 
 ## ACC To XD Adaptation
 
@@ -75,3 +89,5 @@
 - Company references in Project Admin are treated as excluded context only; company details and company management are not implemented in the ProjectMemberAccess slice.
 - ACC Build shell and sheets list are reproduced as local UI and metadata only; real drawing files, viewer engines, upload/publish, and Autodesk-backed processing are excluded until a later approved slice.
 - ACC 2D viewer is reproduced first as a local static viewer shell. The first slice reserves room for markup, issues, measurement, compare, and ontology binding but does not implement those workflows or adopt a real viewer engine.
+- DUC uses Autodesk Cloud-like upload/translate/viewer architecture as a functional benchmark, not as an automatic APS implementation decision.
+- Chrome DevTools/Network analysis may inform how web viewer assets, token flows, URNs, and model status calls are structured, but tokens/account payloads must not be saved or committed.

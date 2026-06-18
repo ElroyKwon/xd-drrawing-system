@@ -33,6 +33,7 @@ These scenarios define the active checks for the implemented local mock initial 
 - `npm test` should cover list structure, search filtering, required-name validation, successful create append, and cancel/close no-change behavior.
 - `npm test` should cover Project Admin rendering, current project access rows, search, row selection, add modal, empty validation, duplicate validation, and valid add.
 - `npm test` should cover Build shell rendering, selected sheets navigation, sheet metadata rows, search, view toggle affordance, and app entry from `Study_Project`.
+- Future DUC automated checks should cover intake validation, conversion job normalization, DXF scan summary normalization, and JSON traceability artifact generation only after a DUC implementation gate.
 - `npm run build` should pass before the baseline is considered stable.
 - Browser automation or manual browser checks should be recorded in `EVIDENCE.md` with screenshot paths when UI behavior changes.
 
@@ -63,6 +64,21 @@ These scenarios define the active checks for the implemented local mock initial 
 | TS-SV-007 | FR-SV-007 | AC-SV-007 | Use local sheet navigation context if implemented. | Selected local sheet context changes without upload/storage/sync. |
 | TS-SV-008 | FR-SV-008 | AC-SV-008 | Review viewer data state. | `equipmentEntityId` / ontology slot is reserved locally only. |
 | TS-SV-009 | FR-SV-009 | AC-SV-009 | Review dependencies and runtime requirements. | No real viewer engine, customer drawing, DB/API/TypeDB, Autodesk, paid SDK, auth/RBAC, or deployment is required. |
+
+## DWG/DXF Upload Conversion Management Scenarios
+
+| Test ID | Requirement ID | Acceptance ID | Scenario | Expected result |
+|---|---|---|---|---|
+| TS-DUC-001 | FR-DUC-001 | AC-DUC-001 | Review DUC intake queue design. | It supports selected local/reference DWG samples and does not require customer upload. |
+| TS-DUC-002 | FR-DUC-002 | AC-DUC-002 | Review validation fields for representative DWG samples. | File type, size, discipline, xref/package availability, and eligibility are captured. |
+| TS-DUC-003 | FR-DUC-003 | AC-DUC-003 | Review conversion job model against the local ODA experiment. | Job status, timestamps, converter identity, input/output counts, and messages are represented. |
+| TS-DUC-004 | FR-DUC-004 | AC-DUC-004 | Review DXF scan model against `ezdxf` scan output. | Layouts, layers, blocks, entity counts, INSERT names, and text samples are supported. |
+| TS-DUC-005 | FR-DUC-005 | AC-DUC-005 | Review sheet/viewable candidate logic for A03/A04 evidence. | Empty paperspace does not prevent modelspace/title/manual candidates. |
+| TS-DUC-006 | FR-DUC-006 | AC-DUC-006 | Review render-risk handling after interrupted preview render. | Conversion/scanning can be successful while render remains risky or untested. |
+| TS-DUC-007 | FR-DUC-007 | AC-DUC-007 | Review relation from DUC artifacts to Build `Sheet` and ACC #11 viewer. | Integration points are documented without expanding current SV scope. |
+| TS-DUC-008 | FR-DUC-008 | AC-DUC-008 | Review future issue/memo/markup overlay plan. | Overlay slots are future-only and no persisted records are required now. |
+| TS-DUC-009 | FR-DUC-009 | AC-DUC-009 | Review APS and Chrome DevTools research notes. | Research is useful for architecture/debugging, but real tokens/API calls remain gated. |
+| TS-DUC-010 | FR-DUC-010 | AC-DUC-010 | Review JSON traceability/progress proposal. | JSON is a future automation artifact proposal and Markdown docs remain canonical. |
 
 ## Manual Browser Checks
 

@@ -198,3 +198,45 @@ Done when:
 - The seven core docs and UI support docs include FR-SV-001 through FR-SV-009 traceability.
 - The planning gate records PASS for the local-only viewer shell/static render slice before implementation starts.
 - Project Admin Task 6 remains a separate blocker and is not closed from viewer-slice evidence.
+
+## Selected Fifth Planning Slice: DWG/DXF Upload Conversion Management
+
+Selected scope:
+
+- Technical-planning slice for Autodesk Cloud-like drawing upload readiness.
+- Local DWG sample staging, DWG to DXF conversion experiment, DXF metadata/layout scan, and conversion job management design.
+- This slice prepares the path for future real upload/viewer integration without mixing that work into ACC #11 local-only viewer shell implementation.
+
+Current technical basis:
+
+- Existing reference DWG samples under `reference/old-prototypes/prototype-도면지식관리-mvp/dwg/` were used read-only.
+- Local experiment copied samples to `%TEMP%` and converted four DWG cases to DXF with the installed ODA File Converter.
+- `ezdxf` scan confirmed layout names, layer counts, block counts, entity counts, INSERT names, and text samples can be extracted from converted DXF files.
+- A low-level DXF render attempt was stopped because rendering can run too long for the planning objective. Rendering quality/performance remains a separate viewer-engine risk, not a blocker for upload/conversion management planning.
+
+In scope for the planning slice:
+
+- DWG file intake model and upload-staging queue design.
+- File validation and xref/package handling rules.
+- DWG to DXF conversion job status and retry/error model.
+- DXF scan summary for layouts, layers, blocks, entity counts, text samples, and sheet/viewable candidates.
+- Relation from converted/derived artifacts to the Build `시트` list and future 2D viewer.
+- Planning for issue/memo/markup overlays above a future viewer surface, without implementing persistence yet.
+- JSON traceability/progress artifact proposal for the next document loop.
+- Official Autodesk Platform Services research notes for upload, derivative translation, Viewer SDK, and Chrome DevTools debugging as product-direction reference only.
+
+Out of scope until HUMAN_GATE approval:
+
+- Real Autodesk/APS account connection, credentials, app registration, or API calls.
+- Bundling, licensing, redistributing, or adopting ODA/paid SDK as a product dependency.
+- Uploading customer/confidential drawings or storing real drawing binaries in the app.
+- DB/API/schema, TypeDB ingestion, auth/RBAC, deployment, production file storage, and cloud object retention policy.
+- Treating DWG/DXF conversion success as viewer-rendering quality PASS.
+- Using any viewer/build evidence as Project Admin Task 6 evidence.
+
+Done when:
+
+- `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md` records the local experiment evidence, source files, scope, and risks.
+- The seven core docs and UI support docs include FR-DUC-001 through FR-DUC-010 traceability.
+- `docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md` defines the next planning/implementation decision path.
+- `HUMAN_GATE.md` keeps Autodesk/APS, paid SDK/ODA product adoption, customer drawings, DB/API/TypeDB, auth/RBAC, and deployment gated.

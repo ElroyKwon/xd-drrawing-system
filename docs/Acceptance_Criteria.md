@@ -54,6 +54,21 @@
 | AC-SV-008 | FR-SV-008 | PASS if `equipmentEntityId` / ontology binding is represented only as a reserved local data slot. FAIL if TypeDB, DB/API, schema, or entity-resolution work is introduced. |
 | AC-SV-009 | FR-SV-009 | PASS if the slice runs without a real viewer engine, customer drawings, upload/publish, markup/issues persistence, DB/API/TypeDB, Autodesk, paid SDK, auth/RBAC, or deployment. FAIL if any gated dependency becomes required. |
 
+## DWG/DXF Upload Conversion Management Criteria
+
+| AC ID | Requirement ID | Pass/fail criterion |
+|---|---|---|
+| AC-DUC-001 | FR-DUC-001 | PASS if the DUC design defines a local intake queue for selected DWG samples without requiring customer upload or production storage. FAIL if real customer drawing intake is required. |
+| AC-DUC-002 | FR-DUC-002 | PASS if validation records file type, size, discipline, xref/package availability, and eligibility. FAIL if xref handling is ignored. |
+| AC-DUC-003 | FR-DUC-003 | PASS if conversion jobs include status, timing, converter identity, input/output counts, and messages. FAIL if conversion is represented as a single boolean. |
+| AC-DUC-004 | FR-DUC-004 | PASS if the scan summary includes layouts, layers, blocks, entity counts, INSERT names, and text samples. FAIL if only a file path is recorded. |
+| AC-DUC-005 | FR-DUC-005 | PASS if sheet/viewable candidates can be derived from modelspace/layout/title/manual evidence and do not rely on non-empty paperspace. FAIL if empty `배치` layouts block all candidates. |
+| AC-DUC-006 | FR-DUC-006 | PASS if rendering quality/performance is tracked separately from conversion/scanning success. FAIL if DXF conversion success is labeled viewer PASS. |
+| AC-DUC-007 | FR-DUC-007 | PASS if future relations to Build `Sheet` and ACC #11 viewer are documented without changing current SV implementation scope. FAIL if DUC silently expands SV. |
+| AC-DUC-008 | FR-DUC-008 | PASS if issue/memo/markup overlays are future reserved slots only. FAIL if persisted records or creation flows are required now. |
+| AC-DUC-009 | FR-DUC-009 | PASS if APS and Chrome DevTools findings are recorded as benchmark research and all real credentials/API calls remain gated. FAIL if tokens, account data, or API calls become required. |
+| AC-DUC-010 | FR-DUC-010 | PASS if the JSON traceability/progress artifact is documented as a future automation aid, not a production contract. FAIL if it replaces the Markdown planning docs without a gate. |
+
 ## Human Approval Criteria
 
 - PASS for planning only if all `HUMAN_GATE.md` risky items remain out of scope.
@@ -61,3 +76,4 @@
 - FAIL or stop before implementation if Project Admin work expands into company management, real RBAC enforcement, email invitation, DB/API persistence, or access deletion.
 - FAIL or stop before implementation if Build sheets work expands into real drawing files, upload/publish, viewer engine, sheet compare, DB/API persistence, Autodesk API, paid SDK, or deployment.
 - FAIL or stop before implementation if 2D viewer work expands into real viewer engine adoption, customer drawing files, drawing parsing, Autodesk-backed processing, paid SDK, DB/API/TypeDB integration, persisted markup/issues, CAD editor behavior, or deployment.
+- FAIL or stop before implementation if DUC work expands into real customer drawing upload/storage, ODA/APS product dependency adoption, captured Autodesk tokens, DB/API/schema, TypeDB ingestion, auth/RBAC, deployment, or Project Admin Task 6 evidence reuse.

@@ -64,9 +64,27 @@ Planning gate PASS recorded 2026-06-18. Implementation may start when the user r
 | T-SV-008 | FR-SV-008 | Gate Passed / Implementation Ready | Reserve `equipmentEntityId` / ontology binding as a local data slot only. | AC-SV-008; TS-SV-008 |
 | T-SV-009 | FR-SV-009 | Gate Passed / Implementation Ready | Keep real viewer engine, customer drawings, TypeDB frontend wiring, Autodesk, paid SDK, auth/RBAC, and deployment out of scope. | AC-SV-009; TS-SV-009 |
 
+## DWG/DXF Upload Conversion Management Tasks
+
+These tasks define the fifth planning slice. They are not implementation authorization. DUC must pass a formal planning gate before any product code or conversion adapter work starts.
+
+| Task ID | Requirement ID | Status | Task | Verification |
+|---|---|---|---|---|
+| T-DUC-001 | FR-DUC-001 | Planning Candidate | Define a local drawing intake queue for selected reference DWG samples and future mock upload rows. | AC-DUC-001; TS-DUC-001 |
+| T-DUC-002 | FR-DUC-002 | Planning Candidate | Define file validation fields for extension, size, discipline, xref/package availability, and conversion eligibility. | AC-DUC-002; TS-DUC-002 |
+| T-DUC-003 | FR-DUC-003 | Planning Candidate | Define DWG to DXF conversion job status, timestamps, converter identity, input/output counts, and messages. | AC-DUC-003; TS-DUC-003 |
+| T-DUC-004 | FR-DUC-004 | Planning Candidate | Define DXF scan summary fields for layouts, layers, blocks, entity counts, INSERT names, and text samples. | AC-DUC-004; TS-DUC-004 |
+| T-DUC-005 | FR-DUC-005 | Planning Candidate | Define sheet/viewable candidate rules that do not depend on populated paperspace layouts. | AC-DUC-005; TS-DUC-005 |
+| T-DUC-006 | FR-DUC-006 | Planning Candidate | Define separate render-risk state so conversion/scanning success is not treated as viewer-quality PASS. | AC-DUC-006; TS-DUC-006 |
+| T-DUC-007 | FR-DUC-007 | Planning Candidate | Define future relation from converted artifacts to Build `Sheet` rows and ACC #11 viewer entry points. | AC-DUC-007; TS-DUC-007 |
+| T-DUC-008 | FR-DUC-008 | Planning Candidate | Define future issue, memo, and markup overlay slots without persisted records. | AC-DUC-008; TS-DUC-008 |
+| T-DUC-009 | FR-DUC-009 | Planning Candidate | Record official APS upload/translate/viewer and Chrome DevTools research as benchmark evidence only. | AC-DUC-009; TS-DUC-009 |
+| T-DUC-010 | FR-DUC-010 | Planning Candidate | Define a JSON traceability/progress artifact proposal for future loop automation. | AC-DUC-010; TS-DUC-010 |
+
 ## Deferred Tasks
 
-- 2D sheet viewer implementation until planning gate PASS.
+- 2D sheet viewer implementation from the existing local-only ACC #11 plan.
+- DWG/DXF upload conversion implementation until DUC planning gate PASS.
 - Real 2D viewer engine evaluation/adoption until human approval.
 - Sheet upload/publish/version compare.
 - Project Admin role/permission matrix after human approval.

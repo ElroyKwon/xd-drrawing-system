@@ -8,6 +8,8 @@ File naming:
 001-initial-setup.md
 002-project-admin-members.md
 003-build-shell-sheets.md
+004-2d-sheet-viewer-first-slice.md
+005-dwg-dxf-upload-conversion-management.md
 ```
 
 Each note should include:
@@ -20,8 +22,12 @@ Each note should include:
 - implementation files
 - checks and evidence links
 
-The next recommended note is:
+Current notes:
 
 ```text
 001-initial-setup.md
+002-project-admin-member-access.md
+003-build-shell-sheets-list.md
+004-2d-sheet-viewer-first-slice.md
+005-dwg-dxf-upload-conversion-management.md
 ```

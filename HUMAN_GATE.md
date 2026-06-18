@@ -17,6 +17,9 @@ Stop and ask before:
 - Deleting or revoking project access records
 - Opening, uploading, publishing, storing, or syncing real customer drawing files
 - Adding a real 2D viewer engine, sheet version compare, or Autodesk-backed sheet processing
+- Adopting ODA File Converter, LibreDWG, APS Model Derivative, APS Viewer, or any other DWG/DXF conversion/viewer engine as a product dependency
+- Storing converted DXF/SVF/SVF2/thumbnail/metadata artifacts in a production or customer-facing repository, bucket, database, or service
+- Capturing, reusing, storing, or committing Autodesk/ACC/BIM360 browser access tokens from Chrome DevTools or network logs
 - Connecting viewer state to real TypeDB without a defined integration design and owned-file scope
 - Designing the TypeDB ontology schema for drawing entities without a separate design gate
 - Deploying any component beyond the local development machine
@@ -36,3 +39,5 @@ Decisions already accepted:
 - Real viewer engine evaluation/adoption remains unapproved.
 - Equipment entity ID / ontology binding may be reserved as a nullable local viewer data slot only.
 - TypeDB deployment strategy: TypeDB is deployed separately on the engineer's PC. All drawings on the engineer's PC are analyzed and ingested into this local TypeDB instance. This is the confirmed XD system direction. Frontend integration design and wiring remain separate gated work — do not connect viewer state to TypeDB without a defined integration slice and human approval.
+- DWG/DXF Upload Conversion Management may be documented as a separate planning slice using read-only reference DWG evidence and repo-outside temporary conversion output.
+- A local technical experiment may use an already-installed ODA File Converter and installed Python packages as evidence only. Product dependency adoption, redistribution, license policy, customer file processing, or production storage remains unapproved.

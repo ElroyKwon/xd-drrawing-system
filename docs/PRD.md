@@ -180,6 +180,53 @@ Out of scope:
 | FR-SV-008 | Reserve `equipmentEntityId` / ontology binding in viewer state as a data slot only. | ACC analysis DKS differentiation notes; user instruction |
 | FR-SV-009 | Keep real viewer engine, customer drawings, upload/publish, markup/issues persistence, DB/API/TypeDB, Autodesk, paid SDK, auth/RBAC, and deployment out of scope. | `HUMAN_GATE.md`; user instruction |
 
+## Selected Fifth Planning Slice: DWG/DXF Upload Conversion Management
+
+Goal:
+
+- Prepare the Autodesk Cloud-like drawing upload path without turning the next implementation into a large cloud clone.
+- Use local DWG to DXF conversion evidence to design the smallest useful upload/conversion management workflow.
+- Keep ACC #11 `2D sheet viewer` local shell work separate from DWG/DXF processing, while defining the later integration point between converted drawing artifacts, viewer surfaces, issue overlays, and memo/markup workflows.
+
+Users:
+
+- Primary user: 도면 파일을 업로드하고 변환 상태와 추출 결과를 확인하는 도면관리 운영자.
+- Secondary user: 변환된 도면에서 레이아웃, 시트 후보, 설비/도면 메타데이터를 검토하는 XD 제품 기획/엔지니어.
+
+In scope:
+
+- Local planning model for DWG intake, validation, conversion queue, DXF scan summary, and derived artifact tracking.
+- Reference sample types: architectural floor plan, architectural enlarged plan, electrical equipment layout, communication equipment plan.
+- Xref/package handling as a first-class validation concern.
+- Layout and modelspace scan results that can become sheet/viewable candidates.
+- Status model for queued, converting, scanned, failed, and render-risk states.
+- A JSON traceability/progress artifact proposal for requirements, tasks, acceptance, tests, and conversion jobs.
+- Official APS architecture research as benchmark evidence: Authentication, Data Management/OSS, Model Derivative, Viewer SDK, and Chrome DevTools debugging route.
+
+Out of scope:
+
+- Real Autodesk/APS credentials, developer hub provisioning, API calls, or paid usage.
+- Product adoption of ODA, APS Viewer, Model Derivative, LibreDWG, or any other conversion/viewer engine without HUMAN_GATE.
+- Customer/confidential drawing upload, storage, retention, deletion, or production sync.
+- DB/API schema, TypeDB ingestion, auth/RBAC, deployment, and production object storage.
+- Treating DXF conversion success as proof of viewer rendering quality.
+- Closing Project Admin Task 6 or reusing any DUC/browser evidence for it.
+
+## DWG/DXF Upload Conversion Functional Requirements
+
+| ID | Requirement | Source evidence |
+|---|---|---|
+| FR-DUC-001 | The system design must provide a local drawing intake queue for selected DWG samples before any real customer upload is implemented. | Local conversion experiment; `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md` |
+| FR-DUC-002 | Intake validation must record file type, file size, source discipline, xref/package availability, and whether the file is eligible for conversion. | ODA/xref prior experiment findings; `FINDINGS.md` |
+| FR-DUC-003 | The conversion design must model DWG to DXF jobs with status, start/end time, converter identity, input count, output count, and error messages. | Local ODA conversion result; APS Simple Viewer `POST /api/models` and status pattern |
+| FR-DUC-004 | The scan design must extract DXF layouts, layer count, block count, entity counts, top INSERT names, and text samples. | Local `ezdxf` scan result |
+| FR-DUC-005 | The design must identify sheet/viewable candidates from modelspace/layout evidence without assuming paperspace is populated. | Prior A04/A03 findings; converted DXF layouts with empty `배치` layouts |
+| FR-DUC-006 | The design must separate conversion/scanning success from viewer rendering success and keep render quality as a distinct risk state. | Interrupted DXF render attempt; prior render performance findings |
+| FR-DUC-007 | The design must define how converted artifacts can later connect to the Build `시트` list and ACC #11 viewer shell without changing the current SV scope. | Existing Build/SV document chain |
+| FR-DUC-008 | The design must reserve future issue, memo, and markup overlays above the viewer surface without creating persisted records in this planning slice. | User instruction; ACC viewer/issue reference screenshots |
+| FR-DUC-009 | The design must document official APS upload/translate/viewer architecture as benchmark research while keeping real APS use gated. | APS Simple Viewer, Viewer SDK, Model Derivative docs |
+| FR-DUC-010 | The design must define a JSON traceability/progress artifact proposal for future loop automation, not as a current production data contract. | User reminder about JSON-shaped docs/progress; current Markdown ID traceability |
+
 ## Source Evidence
 
 - `reference/acc-screenshots/ScreenShot Tool -20260612102152.png`
@@ -201,4 +248,9 @@ Out of scope:
 - `reference/acc-screenshots/Video Screen1781231601337.png`
 - `reference/acc-analysis/_ACC-Build-화면분석-재현설계.md` #11 through #17
 - `docs/feature-notes/004-2d-sheet-viewer-first-slice.md`
+- `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md`
+- `reference/old-prototypes/prototype-도면지식관리-mvp/docs/ai-3d-builder/_archive-dxf-pivot-2026-04-22/parity-lab-p062/FINDINGS.md`
+- Autodesk Platform Services Simple Viewer tutorial: https://get-started.aps.autodesk.com/tutorials/simple-viewer/
+- Autodesk Platform Services Viewer SDK overview: https://aps.autodesk.com/developer/overview/viewer-sdk
+- Autodesk Platform Services Model Derivative API overview: https://aps.autodesk.com/developer/overview/model-derivative-api
 - `SPEC.md`, `CHECKS.md`, `HUMAN_GATE.md`

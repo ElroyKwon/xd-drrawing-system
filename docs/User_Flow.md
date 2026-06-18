@@ -124,6 +124,35 @@
 | FR-SV-008 | Out-of-scope flow list keeps ontology binding as a local data slot only. |
 | FR-SV-009 | Out-of-scope flow list keeps real viewer engine, customer drawing, upload/publish, DB/API/TypeDB, Autodesk, paid SDK, auth/RBAC, and deployment outside this slice. |
 
+## DWG/DXF Upload Conversion Management Flow
+
+1. `UF-DUC-001` User selects representative local/reference DWG sample candidates for upload-conversion planning.
+2. `UF-DUC-002` System validates file extension, size, discipline, and xref/package availability.
+3. `UF-DUC-003` User starts or reviews a future DWG to DXF conversion job.
+4. System records conversion job status, converter identity, input/output counts, timings, and messages.
+5. `UF-DUC-004` System scans converted DXF metadata for layouts, layers, blocks, entity counts, INSERT names, and text samples.
+6. `UF-DUC-005` User reviews sheet/viewable candidates derived from layout/modelspace/title/manual evidence.
+7. `UF-DUC-006` System keeps render state separate and can show `render-risk` when visual preview is slow, incomplete, or unverified.
+8. `UF-DUC-007` User reviews future relation from conversion artifacts to Build `Sheet` rows and ACC #11 viewer entry points.
+9. `UF-DUC-008` User reviews future issue/memo/markup overlay slots without creating persisted records.
+10. `UF-DUC-009` User reviews APS and Chrome DevTools research notes without using real credentials, tokens, or API calls.
+11. `UF-DUC-010` User reviews a future JSON traceability/progress artifact proposal while Markdown docs remain canonical.
+
+## DWG/DXF Upload Conversion Requirement Mapping
+
+| Requirement ID | User-flow coverage |
+|---|---|
+| FR-DUC-001 | UF-DUC-001 |
+| FR-DUC-002 | UF-DUC-002 |
+| FR-DUC-003 | UF-DUC-003 |
+| FR-DUC-004 | UF-DUC-004 |
+| FR-DUC-005 | UF-DUC-005 |
+| FR-DUC-006 | UF-DUC-006 |
+| FR-DUC-007 | UF-DUC-007 |
+| FR-DUC-008 | UF-DUC-008 |
+| FR-DUC-009 | UF-DUC-009 |
+| FR-DUC-010 | UF-DUC-010 |
+
 ## Out Of Scope Flows
 
 - User does not log in.
@@ -133,5 +162,6 @@
 - User does not manage templates beyond selecting a visible modal option.
 - In the Build sheets list slice, user does not open a 2D viewer, upload/publish sheets, compare versions, create markup, create issues, manage files, or manage photos.
 - In the viewer first slice, user may open a local static viewer shell, but does not upload/publish sheets, compare versions, create persisted markup, create persisted issues, parse drawings, or use real viewer-engine behavior.
+- In the DUC planning slice, user may review local/reference sample conversion evidence, but does not operate production customer drawing upload/storage or real Autodesk/APS integration.
 - User does not upload, view, edit, or delete customer drawings.
 - User does not sync with Autodesk cloud or any external API.

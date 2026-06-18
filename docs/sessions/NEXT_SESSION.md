@@ -20,6 +20,68 @@ Read in order:
 9. `docs/feature-notes/004-2d-sheet-viewer-first-slice.md`
 10. `docs/superpowers/plans/2026-06-18-2d-sheet-viewer-first-slice.md`
 11. `docs/superpowers/plans/2026-06-18-2d-sheet-viewer-implementation.md`
+12. `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md`
+13. `docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md`
+
+## Immediate Resume - 2026-06-18 DUC 문서화 및 세션 종료
+
+Current repository state at this handoff:
+
+- Branch: `master`.
+- Latest committed handoff before DUC docs: `a927459 docs: record acc viewer planning handoff`.
+- DUC `DWG/DXF Upload Conversion Management` document scaffold is complete.
+- DUC is a planning slice only. Product implementation has not started.
+- ACC #11 `SV` local-only viewer shell/static render remains a separate implementation-ready slice.
+- Project Admin Task 6 remains open / `BLOCKED_BROWSER_UNAVAILABLE`.
+- No `0009` request was created.
+- No Project Admin Task 6 browser validation was rerun.
+- No product source, package, reference, docs/evidence, evidence asset, or `.ai-loop` runtime files were intentionally changed for DUC.
+
+DUC documents:
+
+- `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md`
+- `docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md`
+- `docs/PRD.md`, `docs/TRD.md`, `docs/UI_Spec.md`, `docs/Data_Model.md`
+- `docs/Task_List.md`, `docs/Acceptance_Criteria.md`, `docs/Test_Scenarios.md`
+- `docs/Design_Map.md`, `docs/User_Flow.md`, `docs/Planning_Gate_Checklist.md`
+- `SPEC.md`, `PLAN.md`, `CHECKS.md`, `HUMAN_GATE.md`, `EVIDENCE.md`
+
+Local technical experiment summary:
+
+- ODA File Converter exists locally at `C:\Program Files\ODA\ODAFileConverter 27.1.0\ODAFileConverter.exe`.
+- Python 3.12.9 is available.
+- Python packages `ezdxf` and `fitz` are available.
+- `D:\_Project\Data_Knowledge_Studio` currently has no DWG/DXF files by recursive search.
+- Usable sample DWGs live under `reference/old-prototypes/prototype-도면지식관리-mvp/dwg/`.
+- Four samples were copied to `%TEMP%\xd-dwg-upload-lab-*` and converted to DXF:
+  - `ARCH-A03`: 11 input DWG, 11 output DXF.
+  - `ARCH-A04`: 11 input DWG, 11 output DXF.
+  - `ELEC-EE01`: 3 input DWG, 3 output DXF.
+  - `COMM-ET01`: 3 input DWG, 3 output DXF.
+- DXF scan extracted layouts, layer/block/entity counts, INSERT names, and text samples.
+- DXF preview rendering is not proven. One render attempt was interrupted and the Python process was killed.
+
+Autodesk/APS research summary:
+
+- APS Simple Viewer documents a reference flow for uploading, translating, and previewing 2D/3D designs using Authentication, Data Management, Model Derivative, and Viewer.
+- Model Derivative translates source designs to Viewer-compatible derivatives such as SVF2 and can extract metadata.
+- Viewer SDK is the browser-side viewer library and supports customization/extensions.
+- Chrome DevTools/Network inspection can help understand viewer/token/model loading behavior, but tokens/session data must not be saved or committed.
+- Real APS credentials, API calls, paid usage, customer files, DB/API/TypeDB, auth/RBAC, and deployment remain HUMAN_GATE items.
+
+Exact next action:
+
+1. Run `git status --short --untracked-files=all`.
+2. Confirm this DUC closeout commit exists if this session committed it.
+3. Read `docs/feature-notes/005-dwg-dxf-upload-conversion-management.md`.
+4. Read `docs/superpowers/plans/2026-06-18-dwg-dxf-upload-conversion-management.md`.
+5. Run a formal planning gate for DUC before implementation.
+6. Choose one path:
+   - Option A: ACC #11 local viewer shell first.
+   - Option B: DUC local conversion-lab management UI first.
+   - Option C: DUC script adapter / JSON scan output first.
+7. Do not combine all options in one implementation pass.
+8. Do not use Autodesk/APS, ODA as product dependency, customer drawings, DB/API/schema, TypeDB, auth/RBAC, deployment, or Project Admin Task 6 PASS changes without HUMAN_GATE.
 
 ## Immediate Resume - 2026-06-18 감사 완료 + TypeDB 방향 확정
 
