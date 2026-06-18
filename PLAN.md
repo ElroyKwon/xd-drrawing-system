@@ -170,3 +170,22 @@ Deferred slices:
 ## Operating Rule
 
 Work one feature at a time. Do not build the whole ACC clone in one pass.
+
+## Session Closeout - 2026-06-18
+
+Current stage:
+
+- Build shell + Sheets list slice is implemented, verified, and committed.
+- AI loop blocker-handling reinforcement is committed.
+- Task 6 blocker handoff is committed.
+- Closeout documentation was refreshed after the commits.
+
+Open work:
+
+- Project Admin Task 6 browser validation remains `BLOCKED_BROWSER_UNAVAILABLE`.
+- Do not create `0009` or rerun the same Task 6 browser validation path without a documented changed browser automation precondition.
+- Recommended next planning slice is ACC #11 `2D sheet viewer` first slice design.
+- Before implementation, decide whether the first viewer slice is a local-only viewer shell/static sheet render or includes real viewer-engine evaluation/adoption.
+- Real 2D viewer engine work touches `HUMAN_GATE.md`; do not proceed automatically.
+- Equipment entity ID / ontology binding should be reserved as a viewer data slot first. Real TypeDB, DB/API, or schema integration remains separate gated work.
+- ACC #8 Build home dashboard is a lower-risk alternative, but it is less central than the sheet-list-to-viewer workflow.

@@ -4,7 +4,23 @@
 
 `xd-drawing-system`을 XD 제품군의 도면관리 시스템 개발 프로젝트로 준비하고, ACC Build 스크린샷/분석/상세설계/이전 프로토타입/AI 개발 루프 자료를 같은 폴더에서 참조할 수 있게 만든다.
 
-## Current Scope
+## Current Product Baseline
+
+Implemented locally:
+
+- ACC #6 `프로젝트 목록`
+- ACC #1 `프로젝트 작성 모달`
+- Project Admin `구성원` access view for `Study_Project`
+- Build shell + `시트` 목록 for `Study_Project`
+
+Current limitations:
+
+- All product data is local mock state only.
+- Project Admin Task 6 browser evidence remains `BLOCKED_BROWSER_UNAVAILABLE`.
+- Build shell + Sheets list has browser evidence, but that evidence does not close Project Admin Task 6.
+- No DB/API/Auth/RBAC enforcement, Autodesk API, paid SDK, customer drawing data, deployment, 2D viewer, upload/publish, markup, or issues workflow is implemented.
+
+## Project Setup Scope
 
 In scope:
 
@@ -16,7 +32,7 @@ In scope:
 - Codex/Claude/Gemini 진입 지침 생성
 - 다음 세션 핸드오프 생성
 
-Out of scope:
+Original setup out of scope:
 
 - 실제 Next.js 앱 생성
 - UI 컴포넌트 구현

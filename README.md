@@ -6,12 +6,16 @@ XD 제품군에 포함될 도면관리 시스템 개발 프로젝트.
 
 ## 현재 단계
 
-초기 세팅과 첫 구현 slice가 완료되었다.
+초기 세팅과 첫 제품 slice들이 완료되어 `master`에 commit되었다.
 
 구현된 slice:
 
 - ACC #6 `프로젝트 목록`
 - ACC #1 `프로젝트 작성 모달`
+- Project Admin `구성원` access view for `Study_Project`
+- Build shell + `시트` 목록 for `Study_Project`
+
+Project Admin Task 6의 브라우저 증거 수집은 `BLOCKED_BROWSER_UNAVAILABLE` 상태로 남아 있다. 같은 조건에서 `0009` 검증 요청을 만들거나 Task 6 browser validation을 반복하지 않는다.
 
 앱 scaffold는 Vite + React + TypeScript + Vitest 기반이며, 현재 구현은 로컬 mock 데이터와 클라이언트 상태만 사용한다. DB/API/Auth/Autodesk 연동/paid SDK/배포는 아직 없다.
 
@@ -70,7 +74,13 @@ reference/
 현재 구현 증거:
 
 - `EVIDENCE.md`의 `Initial Setup Slice Implementation`
+- `EVIDENCE.md`의 `Project Admin Task 6 Validation Evidence Real Run - 2026-06-17`
+- `EVIDENCE.md`의 `Project Admin Task 6 Browser Validation Rerun - 2026-06-17`
+- `EVIDENCE.md`의 `Build Shell And Sheets List Implementation - 2026-06-18`
 - `docs/evidence/initial-setup-desktop.png`
 - `docs/evidence/initial-setup-mobile-list.png`
 - `docs/evidence/initial-setup-mobile-modal.png`
 - `docs/evidence/initial-setup-mobile-modal-bottom.png`
+- `docs/evidence/project-admin-desktop.png` (historical Project Admin artifact only; not fresh Task 6 PASS evidence)
+- `docs/evidence/build-sheets-desktop.jpeg`
+- `docs/evidence/build-sheets-narrow.jpeg`

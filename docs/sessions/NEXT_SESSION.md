@@ -24,11 +24,20 @@ Current repository state at this handoff:
 
 - Branch: `master`.
 - Build shell + Sheets list slice is implemented locally and verified.
-- Commit-ready review has been completed; see `EVIDENCE.md` section `Commit-Ready Review - Build Shell And Sheets List - 2026-06-18`.
-- Changes are not committed.
+- Build shell + Sheets list, ai-loop reinforcement, and Task 6 blocker handoff were committed.
+- Session closeout review is recorded in `EVIDENCE.md` section `Session Closeout - 2026-06-18`.
+- Working tree was dirty only from closeout documentation updates at the time this handoff was written.
 - The dev server was used at `http://127.0.0.1:5173/` and then stopped during closeout.
 - Project Admin Task 6 remains open as a separate browser-evidence blocker; it was not rerun as `0009` and was not marked PASS.
 - `AGENTS.md` now includes an explicit `세션 종료 절차` section so Codex-side closeout expectations match the project handoff workflow.
+
+Recent commits:
+
+```text
+c3022d9 docs: record task 6 blocker handoff
+835168a chore: reinforce ai loop blocker handling
+3d418e1 feat: add build shell sheets list
+```
 
 Build slice scope:
 
@@ -39,9 +48,9 @@ Build slice scope:
 - Grid/list toggle is an affordance; list remains the functional view.
 - No 2D viewer, upload/publish, auth/RBAC, DB/API, Autodesk API, paid SDK, customer drawing, or deployment work was introduced.
 
-Fresh verification:
+Recorded post-commit verification:
 
-- Commit-ready review rerun:
+- Post-commit closeout verification:
   - `npm test`: PASS, 5 test files / 24 tests passed.
   - `npm run build`: PASS, `tsc && vite build` completed.
   - `git diff --check`: PASS.
@@ -52,31 +61,31 @@ Fresh verification:
 - Narrow screenshot: `docs/evidence/build-sheets-narrow.jpeg`.
 - Console: only Vite dev-server debug logs and React DevTools info; no app errors/warnings/issues observed.
 
-Files to review before commit:
-
-- `AGENTS.md`
-- `src/buildSheetsData.ts`
-- `src/buildSheetsData.test.ts`
-- `src/BuildSheetsView.tsx`
-- `src/BuildSheetsView.test.tsx`
-- `src/App.tsx`
-- `src/App.test.tsx`
-- `src/styles.css`
-- `docs/evidence/build-sheets-desktop.jpeg`
-- `docs/evidence/build-sheets-narrow.jpeg`
-- Build slice docs and evidence updates listed in `EVIDENCE.md`.
-
 Exact next action:
 
 1. Run `git status --short --untracked-files=all`.
-2. Review `EVIDENCE.md` section `Commit-Ready Review - Build Shell And Sheets List - 2026-06-18`.
-3. Decide and apply commit split:
-   - ai-loop reinforcement changes
-   - Project Admin Task 6 blocker handoff
-   - Build shell + Sheets list implementation/docs/evidence
-   - `AGENTS.md` closeout-procedure supplement, either with docs/handoff or as its own small docs commit
-4. If accepted, stage and commit the chosen groups.
-5. Do not claim Project Admin Task 6 PASS. Resolve that as a separate browser-path blocker item before rerunning the Project Admin browser validation.
+2. Review `EVIDENCE.md` sections `Session Closeout - 2026-06-18` and `Post-Commit Handoff Cleanup - 2026-06-18`.
+3. Do not claim Project Admin Task 6 PASS. Resolve that as a separate browser-path blocker item before rerunning the Project Admin browser validation.
+4. If continuing product work, start the document loop for the recommended next slice below before implementation.
+
+## Next Slice Recommendation
+
+Recommended next planning slice:
+
+- ACC #11 `2D sheet viewer` first slice design.
+
+Why:
+
+- It is the natural continuation from the committed Build shell + Sheets list slice.
+- ACC analysis treats the sheet list plus 2D viewer path as a P0 core workflow.
+- ACC #8 Build home dashboard is lower risk, but less central to the current drawing-management flow.
+- Equipment entity ID / ontology binding is a key XD differentiator, but should be reserved as a viewer data slot first; real TypeDB/DB/API/schema integration needs a separate human-gate decision.
+
+Required pre-decision before implementation:
+
+- Decide whether the first viewer slice is a local-only viewer shell/static sheet render, or whether it includes real viewer-engine evaluation or adoption.
+- Real 2D viewer engine work touches `HUMAN_GATE.md`; do not proceed automatically.
+- Project Admin Task 6 browser blocker resolution is not a prerequisite for selecting this product slice, but it remains open and must not be marked PASS.
 
 ## Carry-Forward Blocker - 2026-06-17 Project Admin Task 6 Browser Validation Blocked
 
@@ -151,6 +160,7 @@ Implemented slices:
 
 - ACC #6 project list
 - ACC #1 project creation modal
+- Project Admin `구성원` access view for `Study_Project` with browser evidence still blocked
 - Build shell + Sheets list for `Study_Project`
 
 Current app baseline:

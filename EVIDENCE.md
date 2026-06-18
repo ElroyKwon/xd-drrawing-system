@@ -1788,3 +1788,191 @@ Commit guidance:
 Commit/push:
   Not performed. User approval is required before commit.
 ```
+
+## Session Closeout - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Closeout scope:
+  End the session after the development-plan review.
+  No new feature development.
+  Update stale handoff/status documents after the three accepted commits.
+
+Recent commits already present:
+  c3022d9 docs: record task 6 blocker handoff
+  835168a chore: reinforce ai loop blocker handling
+  3d418e1 feat: add build shell sheets list
+
+Documents updated during closeout:
+  README.md
+  SPEC.md
+  PLAN.md
+  docs/Task_List.md
+  docs/sessions/NEXT_SESSION.md
+  EVIDENCE.md
+
+CHECKS.md:
+  Reviewed; no change needed for this closeout.
+
+Dirty file classification after closeout edits:
+  Product/handoff docs:
+    README.md
+    SPEC.md
+    PLAN.md
+    docs/Task_List.md
+    docs/sessions/NEXT_SESSION.md
+    EVIDENCE.md
+
+  Product code/evidence:
+    none
+
+  loop/protocol/skill changes:
+    none
+
+  runtime queue/log/result artifacts:
+    none in normal git status
+
+Verification carried forward from post-commit closeout/current known state:
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    PASS; AI loop hook scaffold verification passed.
+
+  npm test
+    PASS; 5 test files passed, 24 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-CMIG4SXn.css
+      dist/assets/index-ZL6kPUJK.js
+
+  git diff --check
+    PASS; no whitespace errors.
+
+Browser verification:
+  Not rerun during this closeout.
+  Build shell + Sheets list browser evidence remains the committed evidence:
+    docs/evidence/build-sheets-desktop.jpeg
+    docs/evidence/build-sheets-narrow.jpeg
+  Project Admin Task 6 browser validation was not rerun.
+
+Project Admin Task 6 status:
+  Still open / BLOCKED_BROWSER_UNAVAILABLE.
+  No 0009 request was created.
+  Do not mark Task 6 PASS until its own fresh Project Admin browser interaction, console state, and desktop/narrow screenshot paths are recorded after a changed browser automation precondition is documented.
+
+Human approval items:
+  None triggered.
+  No auth/RBAC, DB/API, Autodesk API, paid SDK, customer drawing, deployment, destructive data change, or dependency install was performed.
+
+Commit/push:
+  Not performed in this closeout.
+  Closeout documentation is intentionally left dirty for user review unless the next session chooses to commit it.
+
+Next session entry:
+  Start from docs/sessions/NEXT_SESSION.md.
+  First action is git status.
+  Resolve or change the Project Admin Task 6 browser automation path before rerunning Task 6 validation.
+  If continuing product work instead, select exactly one next slice and run the document loop before implementation.
+```
+
+## Post-Commit Handoff Cleanup - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Mode:
+  Direct subagent orchestration plus main-session integration.
+
+Scope:
+  Post-commit handoff cleanup after:
+    c3022d9 docs: record task 6 blocker handoff
+    835168a chore: reinforce ai loop blocker handling
+    3d418e1 feat: add build shell sheets list
+  No new feature implementation.
+  No Project Admin Task 6 browser validation rerun.
+  No 0009 request created.
+
+Subagent assignments:
+  Assignment A - post-commit handoff mismatch review:
+    Result: HANDOFF_CLEANUP_NEEDED.
+    Finding: live NEXT_SESSION wording still used "Commit-ready review rerun".
+    Main-session action: replaced it with post-commit closeout verification wording.
+
+  Assignment B - Task_List / PLAN / SPEC / README consistency review:
+    Result: DOC_CONSISTENCY_NEEDED.
+    Finding: Project Admin T-PA-* status should remain Code Done / Browser Blocked; Build slice section still said before implementation.
+    Main-session action: kept T-PA-* as Code Done / Browser Blocked and changed the Build task section to implemented-slice wording.
+
+  Assignment C - next slice candidate comparison:
+    Result: RECOMMEND_READY for decision, not implementation-ready.
+    Finding: next planning slice should be ACC #11 2D sheet viewer first slice design.
+    Main-session action: recorded the recommendation and pre-decision in PLAN.md and docs/sessions/NEXT_SESSION.md.
+
+Documents updated:
+  PLAN.md
+  docs/Task_List.md
+  docs/sessions/NEXT_SESSION.md
+  EVIDENCE.md
+
+Previously dirty post-commit cleanup docs preserved:
+  README.md
+  SPEC.md
+
+Product check status vs evidence-path status:
+  Build shell + Sheets list remains PASS based on prior committed evidence.
+  Project Admin implementation code exists, but Task 6 browser evidence remains open / BLOCKED_BROWSER_UNAVAILABLE.
+  Build browser evidence is not Project Admin Task 6 evidence.
+
+Next slice recommendation:
+  Recommended next planning slice: ACC #11 2D sheet viewer first slice design.
+  Pre-decision before implementation:
+    local-only viewer shell/static sheet render
+    vs real viewer-engine evaluation/adoption.
+  Real 2D viewer engine work touches HUMAN_GATE.md.
+  Equipment entity ID / ontology binding should be reserved as a viewer data slot first; real TypeDB, DB/API, or schema integration remains separate gated work.
+  ACC #8 Build home dashboard is lower risk but less central than the current sheet-list-to-viewer workflow.
+
+Verification:
+  git status --short --untracked-files=all
+    OBSERVED after cleanup edits:
+      M EVIDENCE.md
+      M PLAN.md
+      M README.md
+      M SPEC.md
+      M docs/Task_List.md
+      M docs/sessions/NEXT_SESSION.md
+
+  git diff --check
+    PASS; no output.
+
+  git diff --name-only -- src package.json package-lock.json reference docs/evidence
+    PASS; no output.
+
+  rg stale handoff terms in live handoff docs:
+    PASS; no stale "Changes are not committed", "not committed", "commit split", "Commit-ready review rerun", or "Files to review before commit" matches.
+
+  git diff --name-only
+    OBSERVED:
+      EVIDENCE.md
+      PLAN.md
+      README.md
+      SPEC.md
+      docs/Task_List.md
+      docs/sessions/NEXT_SESSION.md
+
+Not rerun:
+  npm test
+  npm run build
+  Browser validation
+
+Reason:
+  This cleanup edited documentation only.
+  The required proof for this pass was no source/package/reference/evidence-asset diff plus whitespace and stale-handoff checks.
+
+Remaining risk:
+  The working tree is intentionally dirty with post-commit documentation cleanup.
+  Project Admin Task 6 remains blocked until a changed page-level browser automation precondition is proven.
+  The next viewer slice still needs document-loop setup and the local-only vs real-engine pre-decision.
+```

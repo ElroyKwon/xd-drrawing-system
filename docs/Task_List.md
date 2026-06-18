@@ -16,25 +16,25 @@ The initial setup slice has been implemented. This table remains the traceabilit
 
 ## Project Admin Member Access Tasks
 
-These tasks define the second product slice before implementation. Company information and company management remain excluded.
+These tasks define the second product slice. Code implementation exists, but Task 6 browser evidence remains blocked by `BLOCKED_BROWSER_UNAVAILABLE`. Company information and company management remain excluded.
 
 | Task ID | Requirement ID | Status | Task | Verification |
 |---|---|---|---|---|
-| T-PA-001 | FR-PA-001 | Planned | Render the Project Admin member access shell for `Study_Project`. | AC-PA-001; TS-PA-001 |
-| T-PA-002 | FR-PA-002 | Planned | Build local derived rows from `ProjectMemberAccess` and show only current project access members. | AC-PA-002; TS-PA-002 |
-| T-PA-003 | FR-PA-003 | Planned | Add local search by project-access member name or email. | AC-PA-003; TS-PA-003 |
-| T-PA-004 | FR-PA-004 | Planned | Add row selection and right inspector details. | AC-PA-004; TS-PA-004 |
-| T-PA-005 | FR-PA-005 | Planned | Add `구성원 추가` action and add-existing-member modal. | AC-PA-005; TS-PA-005 |
-| T-PA-006 | FR-PA-006 | Planned | Block empty add submit with `구성원을 선택하세요.` | AC-PA-006; TS-PA-006 |
-| T-PA-007 | FR-PA-007 | Planned | Block duplicate `ProjectMemberAccess` for the same project/member pair with `이미 이 프로젝트에 추가된 구성원입니다.` | AC-PA-007; TS-PA-007 |
-| T-PA-008 | FR-PA-008 | Planned | Add a valid existing mock member with the selected project role to `Study_Project`. | AC-PA-008; TS-PA-008 |
-| T-PA-009 | FR-PA-009 | Planned | Keep `Project`, `Member`, and `ProjectMemberAccess` separate and avoid company/auth/DB/API scope. | AC-PA-009; TS-PA-009 |
+| T-PA-001 | FR-PA-001 | Code Done / Browser Blocked | Render the Project Admin member access shell for `Study_Project`. | AC-PA-001; TS-PA-001 |
+| T-PA-002 | FR-PA-002 | Code Done / Browser Blocked | Build local derived rows from `ProjectMemberAccess` and show only current project access members. | AC-PA-002; TS-PA-002 |
+| T-PA-003 | FR-PA-003 | Code Done / Browser Blocked | Add local search by project-access member name or email. | AC-PA-003; TS-PA-003 |
+| T-PA-004 | FR-PA-004 | Code Done / Browser Blocked | Add row selection and right inspector details. | AC-PA-004; TS-PA-004 |
+| T-PA-005 | FR-PA-005 | Code Done / Browser Blocked | Add `구성원 추가` action and add-existing-member modal. | AC-PA-005; TS-PA-005 |
+| T-PA-006 | FR-PA-006 | Code Done / Browser Blocked | Block empty add submit with `구성원을 선택하세요.` | AC-PA-006; TS-PA-006 |
+| T-PA-007 | FR-PA-007 | Code Done / Browser Blocked | Block duplicate `ProjectMemberAccess` for the same project/member pair with `이미 이 프로젝트에 추가된 구성원입니다.` | AC-PA-007; TS-PA-007 |
+| T-PA-008 | FR-PA-008 | Code Done / Browser Blocked | Add a valid existing mock member with the selected project role to `Study_Project`. | AC-PA-008; TS-PA-008 |
+| T-PA-009 | FR-PA-009 | Code Done / Browser Blocked | Keep `Project`, `Member`, and `ProjectMemberAccess` separate and avoid company/auth/DB/API scope. | AC-PA-009; TS-PA-009 |
 
 ## Deferred Tasks
 
 ## Build Shell And Sheets List Tasks
 
-These tasks define the third product slice before implementation. 2D viewer, upload/publish, customer drawing data, and persistence remain excluded.
+These tasks track the implemented third product slice. 2D viewer, upload/publish, customer drawing data, and persistence remain excluded.
 
 | Task ID | Requirement ID | Status | Task | Verification |
 |---|---|---|---|---|
