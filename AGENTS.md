@@ -53,6 +53,27 @@
 - 실행 결과는 `EVIDENCE.md`에 기록한다.
 - 브라우저 확인이 필요한 경우에는 가능하면 스크린샷과 콘솔 에러 상태를 함께 남긴다.
 
+## 세션 종료 절차
+
+사용자가 `세션 종료`를 요청하면 구현을 새로 확장하지 말고 closeout/handoff 작업으로 전환한다.
+
+1. `git status --short --untracked-files=all`로 dirty 파일을 확인하고, 기존 변경과 이번 세션 변경을 분리해 기록한다.
+2. `PLAN.md`, `CHECKS.md`, `EVIDENCE.md`, `docs/sessions/NEXT_SESSION.md`를 현재 상태에 맞게 갱신한다.
+3. `CHECKS.md` 기준의 검증을 실행하고 결과를 `EVIDENCE.md`에 남긴다. 실행하지 못한 검증은 이유와 남은 증거 요구사항을 적는다.
+4. 브라우저 검증이 필요한 작업은 fresh interaction, console state, screenshot path가 없으면 PASS로 쓰지 않는다.
+5. 남아 있는 blocker, human gate, 다음 세션의 첫 명령과 읽을 파일을 `docs/sessions/NEXT_SESSION.md`에 명시한다.
+6. 사용자가 명시적으로 요청하지 않으면 commit/push하지 않는다.
+
+완료 보고에는 다음을 포함한다.
+
+- 현재 stage
+- dirty 파일 분류
+- 변경 파일
+- 실행한 검증과 결과
+- 실패 또는 미실행 검증
+- blocker와 human gate 상태
+- 다음 세션이 이어갈 정확한 next action
+
 ## 사람 승인 게이트
 
 `HUMAN_GATE.md`에 있는 항목은 자동으로 넘기지 않는다. 특히 인증, 권한, DB 스키마, 고객 데이터, 삭제, 배포 관련 변경은 먼저 확인한다.

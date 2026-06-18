@@ -1218,3 +1218,573 @@ Next action:
   If 0007 returns DRY-RUN, it does not count as validation evidence.
   The mode-dispatch and handoff changes are committed; do not rework them unless 0007 exposes a real runner issue.
 ```
+
+## Project Admin Task 6 Validation Evidence Real Run - 2026-06-17
+
+```text
+Date: 2026-06-17
+Agent: Codex
+Request:
+  0007-project-admin-task6-validation-evidence-real-run
+Mode:
+  validation-evidence
+Scope:
+  Project Admin member-access Task 6 validation evidence only.
+  Implementation code was not edited.
+
+Validation Result:
+  BLOCKED
+
+Fresh command evidence:
+  git status --short --untracked-files=all
+    PASS; no output, working tree had no tracked or untracked changes before evidence edits.
+
+  npm test
+    PASS; 3 test files passed, 16 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-uWM_OZ25.css
+      dist/assets/index-_URAgZR7.js
+
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    PASS; AI loop hook scaffold verification passed.
+
+Browser/dev-server evidence:
+  Result: BLOCKED_BROWSER_UNAVAILABLE
+  Requested URL:
+    http://127.0.0.1:5173/
+  Requested viewports:
+    Desktop 1440x900
+    Narrow/mobile 390x844
+  Browser tool attempts:
+    Chrome DevTools MCP list_pages succeeded and showed about:blank.
+    Chrome DevTools MCP navigate_page to http://127.0.0.1:5173/ returned "user cancelled MCP tool call".
+    Retried navigate_page returned the same result.
+    Chrome DevTools MCP new_page returned the same result.
+    Chrome DevTools MCP evaluate_script on about:blank returned the same result.
+  Fallback attempts:
+    Local Vite dev server responded at http://127.0.0.1:5173/.
+    Local Chrome executable found at C:\Program Files\Google\Chrome\Application\chrome.exe.
+    Browser-level Chrome CDP Browser.getVersion succeeded.
+    Page/session-level CDP automation timed out on Page.enable and Runtime.evaluate, so UI interaction evidence was not captured.
+    Playwright, @playwright/test, puppeteer, and puppeteer-core are not installed in node_modules.
+  Console state:
+    Not verified. Browser page actions could not be executed.
+  Screenshots created in this run:
+    None.
+  Existing evidence file present:
+    docs/evidence/project-admin-desktop.png
+  Evidence file usage:
+    Existing project-admin-desktop.png was not treated as fresh Task 6 browser validation evidence for this run.
+
+Previous project-document evidence kept separate:
+  0004 review result recorded Task 6 as validation/evidence/handoff incomplete.
+  0005 review result recorded validation-evidence mode readiness work only.
+  0006 is not used as validation evidence because the 0007 request explicitly excluded it.
+
+Runner real-run / dry-run status:
+  This validation did not use `-DryRun` output.
+  Fresh commands above were executed in this worker session.
+  This worker did not launch a nested `run-next-ai-loop-request.ps1 -Once` command because it was not one of the required verification commands and would risk double-processing the same request.
+  From inside this worker, external runner-launch provenance is not independently verifiable beyond the request context.
+
+Files changed:
+  EVIDENCE.md
+  docs/sessions/NEXT_SESSION.md
+
+Files not changed:
+  src/
+  package.json
+  package-lock.json
+  CHECKS.md
+  PLAN.md
+  reference/
+
+Remaining risks:
+  Project Admin browser/manual checks are still not complete.
+  Browser console state for Project Admin is still not verified.
+  Desktop/narrow Project Admin screenshots from this run do not exist.
+  The existing project-admin-desktop.png may be useful as a prior artifact, but it is not fresh evidence for this request.
+
+Human approval items:
+  None triggered.
+  No auth/RBAC, DB/API persistence, email invite, company management, deletion, Autodesk cloud/API, paid SDK, customer drawing, deployment, or implementation code work was performed.
+
+Next action:
+  Orchestrator should keep Task 6 open.
+  Re-run Project Admin Task 6 in an environment where browser page navigation/evaluation works, or provide an authorized browser automation path.
+  Do not mark Project Admin member-access validation PASS until desktop/narrow browser checks, console state, and fresh screenshot paths are recorded.
+```
+
+## Project Admin Task 6 Browser Validation Rerun - 2026-06-17
+
+```text
+Date: 2026-06-17
+Agent: Codex
+Request:
+  0008-project-admin-task6-browser-validation-rerun
+Mode:
+  validation-evidence
+Scope:
+  Browser/devtools availability and validation-evidence rerun for Project Admin member-access Task 6.
+  Implementation code was not edited.
+
+Validation Result:
+  BLOCKED
+
+Fresh command evidence:
+  git status --short --untracked-files=all
+    OBSERVED; working tree was already dirty at the start of this rerun:
+      M EVIDENCE.md
+      M docs/sessions/NEXT_SESSION.md
+    These were the only paths reported by the command before this 0008 evidence update.
+
+  npm test
+    PASS; Vitest completed with 3 test files passed and 16 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-uWM_OZ25.css
+      dist/assets/index-_URAgZR7.js
+
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    PASS; AI loop hook scaffold verification passed.
+
+Browser/dev-server evidence:
+  Result: BLOCKED_BROWSER_UNAVAILABLE
+  Requested URL:
+    http://127.0.0.1:5173/
+  Requested viewports:
+    Desktop 1440x900
+    Narrow/mobile 390x844
+  Dev server attempt:
+    npm.cmd run dev -- --port 5173 was started by Start-Process.
+    The returned process id was 5052, but cleanup later reported no process with that id.
+  Browser tool attempts:
+    Chrome DevTools MCP list_pages failed before page interaction:
+      The browser is already running for C:\Users\cruel\.cache\chrome-devtools-mcp\chrome-profile.
+      The tool advised using --isolated or a different userDataDir, or stopping the running browser first.
+    Chrome DevTools MCP new_page to http://127.0.0.1:5173/ returned "user cancelled MCP tool call".
+    Chrome DevTools MCP navigate_page to http://127.0.0.1:5173/ returned "user cancelled MCP tool call".
+    Chrome DevTools MCP select_page returned the same chrome-profile already-running blocker.
+  Fallback attempts:
+    PowerShell Start-Process for a separate Chrome remote-debugging process was rejected by policy before execution.
+    Node REPL fallback failed with "windows sandbox failed: spawn setup refresh", including after kernel reset and a simple smoke test.
+    Get-CimInstance Win32_Process to identify the locked chrome-devtools-mcp profile process failed with access denied.
+  Console state:
+    Not verified. No browser page-level automation path was available.
+  Screenshots created in this run:
+    None.
+  Evidence screenshot files:
+    docs/evidence/project-admin-task6-desktop.png was not created or reused.
+    docs/evidence/project-admin-task6-narrow.png was not created or reused.
+
+Previous project-document evidence kept separate:
+  0007 remains the previous blocked validation-evidence run.
+  This 0008 run provides fresh command evidence and a fresh browser availability blocker, but no Project Admin browser PASS evidence.
+
+Runner real-run / dry-run status:
+  This was a real worker run in the current session, not dry-run output.
+  The required commands above were executed fresh in this session.
+  A nested run-next-ai-loop-request.ps1 was not executed because it was not one of the required checks for 0008.
+
+Files changed:
+  EVIDENCE.md
+  docs/sessions/NEXT_SESSION.md
+
+Files not changed:
+  src/
+  package.json
+  package-lock.json
+  CHECKS.md
+  PLAN.md
+  reference/
+
+Remaining risks:
+  Project Admin browser/manual checks are still not complete.
+  Browser console state for Project Admin is still not verified.
+  Desktop/narrow Project Admin screenshots from this run do not exist.
+  The initial working tree was already dirty in the allowed evidence/handoff files before this rerun.
+
+Human approval items:
+  None triggered.
+  No auth/RBAC, DB/API persistence, email invite, company management, deletion, Autodesk cloud/API, paid SDK, customer drawing, deployment, or implementation code work was performed.
+
+Next action:
+  Orchestrator should keep Task 6 open.
+  Re-run Project Admin Task 6 only when a page-level browser automation path is available.
+  Do not mark Project Admin member-access validation PASS until desktop/narrow browser interaction, console state, and fresh screenshot paths are recorded.
+```
+
+## Build Shell And Sheets List Document Loop - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Purpose:
+  Start the next product slice after Project Admin implementation commits while keeping Project Admin Task 6 browser evidence open.
+
+Selected slice:
+  Build shell + Sheets list for Study_Project.
+
+Created:
+  docs/feature-notes/003-build-shell-sheets-list.md
+  docs/superpowers/plans/2026-06-18-build-shell-sheets-list.md
+
+Updated:
+  SPEC.md
+  PLAN.md
+  CHECKS.md
+  HUMAN_GATE.md
+  docs/PRD.md
+  docs/TRD.md
+  docs/UI_Spec.md
+  docs/Data_Model.md
+  docs/Task_List.md
+  docs/Acceptance_Criteria.md
+  docs/Test_Scenarios.md
+  docs/Design_Map.md
+  docs/User_Flow.md
+  docs/Planning_Gate_Checklist.md
+
+Planning gate result:
+  PASS for the local mock Build shell and sheets list slice.
+  No required docs missing.
+  FR-BS-001 through FR-BS-009 map to task, acceptance, test, UI, data, design, and user-flow documents.
+  2D viewer, upload/publish, sheet compare, markup/issues, auth/RBAC, DB/API persistence, Autodesk API, paid SDK, customer drawing data, and deployment remain out of scope.
+
+Verification:
+  rg -n "FR-BS-00[1-9]" docs SPEC.md PLAN.md CHECKS.md HUMAN_GATE.md EVIDENCE.md
+    PASS; FR-BS-001 through FR-BS-009 are represented across the current document set.
+  rg -n "T-BS-00[1-9]|AC-BS-00[1-9]|TS-BS-00[1-9]|UF-BS-00[1-9]" docs PLAN.md CHECKS.md
+    PASS; task, acceptance, test, and user-flow mappings are present.
+  Scope-boundary rg for viewer/upload/publish/Autodesk/customer/DB/API/auth/RBAC/paid SDK/deployment terms
+    PASS; matches are explicit exclusions, gates, or deferred scope statements.
+
+Project Admin Task 6 status:
+  Still open.
+  This document loop does not change Project Admin Task 6 to PASS.
+  No 0009 validation rerun was created.
+```
+
+## Build Shell And Sheets List Implementation - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Scope:
+  Build shell + Sheets list for Study_Project.
+  Local mock state only.
+
+Owned files:
+  src/buildSheetsData.ts
+  src/buildSheetsData.test.ts
+  src/BuildSheetsView.tsx
+  src/BuildSheetsView.test.tsx
+  src/App.tsx
+  src/App.test.tsx
+  src/styles.css
+  docs/evidence/build-sheets-desktop.jpeg
+  docs/evidence/build-sheets-narrow.jpeg
+  Build shell and sheets list planning/evidence docs updated in this session.
+
+Blocked files / boundaries:
+  reference/
+  package.json and package-lock.json dependency changes
+  Auth/RBAC
+  DB/API persistence
+  Autodesk API or paid SDK
+  customer drawing data
+  deployment
+  2D viewer, upload/publish, version compare, markup/issues workflows
+  Project Admin Task 6 browser evidence status
+
+TDD evidence:
+  npm test -- src/buildSheetsData.test.ts
+    EXPECTED FAIL before implementation: Failed to resolve import "./buildSheetsData".
+    PASS after adding local sheet data and filter helper.
+
+  npm test -- src/BuildSheetsView.test.tsx
+    EXPECTED FAIL before implementation: Failed to resolve import "./BuildSheetsView".
+    PASS after adding Build sheets view.
+    EXPECTED FAIL after adding explicit mobile nav accessibility expectation: missing aria-label on Build nav buttons.
+    PASS after adding aria-label to primary and secondary Build nav buttons.
+
+  npm test -- src/App.test.tsx
+    EXPECTED FAIL before entry wiring: no button named "Study_Project Build 열기".
+    PASS after wiring the project-list Build entry.
+
+Automated verification:
+  npm test
+    PASS; 5 test files passed, 24 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-CMIG4SXn.css
+      dist/assets/index-ZL6kPUJK.js
+
+Browser/dev-server verification:
+  URL:
+    http://127.0.0.1:5173/
+
+  Tool:
+    Chrome DevTools MCP.
+
+  Desktop viewport:
+    1440x900 emulated viewport.
+    PASS.
+    Observed:
+      Project List exposed "Study_Project Build 열기".
+      Build shell opened with project context, left rail, and `시트` selected.
+      Six local mock sheets rendered.
+      Search value `mechanical` filtered to M101.
+      Grid view toggle selected the affordance and kept the list usable with the scoped note.
+    Screenshot:
+      docs/evidence/build-sheets-desktop.jpeg
+
+  Narrow viewport:
+    390x844 mobile emulated viewport.
+    PASS.
+    Observed:
+      Build shell opened from the project list.
+      Mobile rail collapsed to icon-first layout while retaining accessible button names.
+      Sheets list remained scrollable without requiring viewer/upload/backend behavior.
+    Screenshot:
+      docs/evidence/build-sheets-narrow.jpeg
+
+  Console:
+    PASS.
+    Observed only Vite dev-server debug logs and the React DevTools informational message.
+    No app console errors, warnings, or DevTools form-field issues remained after adding input/checkbox names and Build nav aria labels.
+
+Human approval items:
+  None triggered.
+  No real auth/RBAC, DB/API, Autodesk cloud/API, paid SDK, customer drawing, deployment, destructive data change, or dependency install was performed.
+
+Project Admin Task 6 status:
+  Still open.
+  This Build slice browser evidence is not Project Admin Task 6 evidence.
+  No 0009 Task 6 validation rerun was created.
+  Do not mark Project Admin Task 6 PASS until its own fresh Project Admin browser interaction, console state, and desktop/narrow screenshot paths are recorded after a changed browser automation precondition is documented.
+
+Next action:
+  Review and commit the Build shell + Sheets list slice if accepted.
+  Keep Project Admin Task 6 as a separate blocker-resolution item.
+```
+
+## Session Closeout - Build Shell And Sheets List Handoff - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Closeout scope:
+  End the session after Build shell + Sheets list implementation and leave a durable handoff.
+  Apply global CLAUDE.md / AGENTS.md style closeout requirements and supplement project AGENTS.md where missing.
+
+Instruction files checked:
+  C:\Users\cruel\.claude\CLAUDE.md
+  C:\Users\cruel\.codex\AGENTS.md
+  AGENTS.md
+  CLAUDE.md
+  GEMINI.md
+
+Instruction update:
+  AGENTS.md was missing an explicit session closeout procedure.
+  Added a `세션 종료 절차` section covering dirty-file classification, PLAN/CHECKS/EVIDENCE/NEXT_SESSION updates, verification, browser evidence rules, blocker/human-gate handoff, no commit/push without request, and final report contents.
+
+Fresh closeout verification:
+  powershell -ExecutionPolicy Bypass -File .\scripts\ai-loop\test-ai-loop-hook.ps1
+    PASS; AI loop hook scaffold verification passed.
+
+  npm test
+    PASS; 5 test files passed, 24 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-CMIG4SXn.css
+      dist/assets/index-ZL6kPUJK.js
+
+  git diff --check
+    PASS; no whitespace errors.
+
+Dev server cleanup:
+  Found xd-drawing-system Vite dev server processes for port 5173:
+    cmd.exe pid 22864
+    node.exe pid 41716
+  Stopped those processes.
+  Follow-up process query showed only the current PowerShell query process matching the search string.
+
+Browser evidence:
+  No new browser interaction was run during this closeout after the AGENTS.md documentation update.
+  The current Build slice browser evidence remains the same-session evidence recorded in `Build Shell And Sheets List Implementation - 2026-06-18`:
+    docs/evidence/build-sheets-desktop.jpeg
+    docs/evidence/build-sheets-narrow.jpeg
+  Project Admin Task 6 browser evidence remains open and was not rerun.
+
+Dirty file classification at closeout:
+  Existing ai-loop reinforcement changes:
+    .agents/skills/development-loop-orchestrator/SKILL.md
+    .agents/skills/evidence-report/SKILL.md
+    .agents/skills/validator-loop/SKILL.md
+    .ai-loop/README.md
+    .ai-loop/prompts/validation-evidence.md
+
+  Task 6 blocker handoff plus closeout/evidence updates:
+    EVIDENCE.md
+    docs/sessions/NEXT_SESSION.md
+
+  Project instruction closeout supplement:
+    AGENTS.md
+
+  Build shell + Sheets list docs:
+    CHECKS.md
+    HUMAN_GATE.md
+    PLAN.md
+    SPEC.md
+    docs/Acceptance_Criteria.md
+    docs/Data_Model.md
+    docs/Design_Map.md
+    docs/PRD.md
+    docs/Planning_Gate_Checklist.md
+    docs/TRD.md
+    docs/Task_List.md
+    docs/Test_Scenarios.md
+    docs/UI_Spec.md
+    docs/User_Flow.md
+    docs/feature-notes/003-build-shell-sheets-list.md
+    docs/superpowers/plans/2026-06-18-build-shell-sheets-list.md
+
+  Build shell + Sheets list implementation/evidence:
+    src/App.test.tsx
+    src/App.tsx
+    src/styles.css
+    src/BuildSheetsView.test.tsx
+    src/BuildSheetsView.tsx
+    src/buildSheetsData.test.ts
+    src/buildSheetsData.ts
+    docs/evidence/build-sheets-desktop.jpeg
+    docs/evidence/build-sheets-narrow.jpeg
+
+Human approval items:
+  None triggered in this closeout.
+  No auth/RBAC, DB/API, Autodesk API, paid SDK, customer drawing, deployment, destructive data change, or dependency install was performed.
+
+Commit/push:
+  Not performed. The user did not request commit or push.
+
+Next action:
+  Start the next session from docs/sessions/NEXT_SESSION.md.
+  Review dirty file groups, then decide commit split.
+  Keep Project Admin Task 6 as a separate browser-path blocker-resolution item; do not mark it PASS from the Build slice evidence.
+```
+
+## Commit-Ready Review - Build Shell And Sheets List - 2026-06-18
+
+```text
+Date: 2026-06-18
+Agent: Codex
+Scope:
+  Review current dirty worktree and make the completed Build shell + Sheets list slice commit-ready.
+  No new feature development.
+
+Dirty worktree reviewed:
+  ai-loop/skill/prompt reinforcement:
+    .agents/skills/development-loop-orchestrator/SKILL.md
+    .agents/skills/evidence-report/SKILL.md
+    .agents/skills/validator-loop/SKILL.md
+    .ai-loop/README.md
+    .ai-loop/prompts/implementation.md
+    .ai-loop/prompts/validation-evidence.md
+
+  Task 6 blocker handoff:
+    EVIDENCE.md
+    docs/sessions/NEXT_SESSION.md
+
+  Build slice docs:
+    CHECKS.md
+    HUMAN_GATE.md
+    PLAN.md
+    SPEC.md
+    docs/Acceptance_Criteria.md
+    docs/Data_Model.md
+    docs/Design_Map.md
+    docs/PRD.md
+    docs/Planning_Gate_Checklist.md
+    docs/TRD.md
+    docs/Task_List.md
+    docs/Test_Scenarios.md
+    docs/UI_Spec.md
+    docs/User_Flow.md
+    docs/feature-notes/003-build-shell-sheets-list.md
+    docs/superpowers/plans/2026-06-18-build-shell-sheets-list.md
+
+  Build slice product code/evidence:
+    src/App.test.tsx
+    src/App.tsx
+    src/styles.css
+    src/BuildSheetsView.test.tsx
+    src/BuildSheetsView.tsx
+    src/buildSheetsData.test.ts
+    src/buildSheetsData.ts
+    docs/evidence/build-sheets-desktop.jpeg
+    docs/evidence/build-sheets-narrow.jpeg
+
+  Runtime queue/log/result artifacts:
+    .ai-loop/control/outbox/*
+    .ai-loop/control/processed/*
+    .ai-loop/logs/*
+    .ai-loop/results/*
+    .ai-loop/workers/codex/*
+    These are ignored runtime artifacts and should stay out of commits.
+
+Build slice review:
+  Result: PASS for commit readiness.
+  Source diff is scoped to local mock Build shell, sheet metadata data helper, view tests, App navigation wiring, CSS, docs, and evidence screenshots.
+  No package/dependency, reference, DB/API/Auth/RBAC, Autodesk API, paid SDK, customer drawing, deployment, 2D viewer, upload/publish, or Project Admin Task 6 PASS change was introduced.
+  Screenshot evidence files exist:
+    docs/evidence/build-sheets-desktop.jpeg
+    docs/evidence/build-sheets-narrow.jpeg
+
+Progress-doc consistency:
+  Updated docs/superpowers/plans/2026-06-18-build-shell-sheets-list.md Tasks 1-4 from open checkboxes to completed checkboxes.
+  PLAN.md, EVIDENCE.md, docs/sessions/NEXT_SESSION.md, docs/Task_List.md, CHECKS.md, HUMAN_GATE.md, and SPEC.md are consistent with Build slice completion and Project Admin Task 6 remaining blocked.
+
+Fresh verification:
+  npm test
+    PASS; 5 test files passed, 24 tests passed.
+
+  npm run build
+    PASS; tsc && vite build completed.
+    Output assets:
+      dist/index.html
+      dist/assets/index-CMIG4SXn.css
+      dist/assets/index-ZL6kPUJK.js
+
+  git diff --check
+    PASS; no whitespace errors.
+
+Project Admin Task 6 status:
+  Still open / BLOCKED_BROWSER_UNAVAILABLE.
+  No 0009 request was created.
+  Task 6 browser validation was not rerun.
+  Build browser evidence was not treated as Project Admin evidence.
+
+Commit guidance:
+  Recommended split:
+    1. Build shell + Sheets list code/docs/evidence.
+    2. ai-loop skill/prompt reinforcement.
+    3. Task 6 blocker handoff / closeout docs if staging can separate shared files cleanly.
+  Shared files EVIDENCE.md and docs/sessions/NEXT_SESSION.md contain multiple groups, so use partial staging if separate commits are desired.
+
+Commit/push:
+  Not performed. User approval is required before commit.
+```
