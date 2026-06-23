@@ -1,13 +1,14 @@
 import {
   ArrowLeft,
-  Camera,
-  CheckCircle2,
+  ArrowLeftRight,
+  CircleDot,
   ClipboardList,
   Download,
   File,
   Filter,
   FolderPlus,
   Grid2X2,
+  Hammer,
   Home,
   Image,
   List,
@@ -22,6 +23,7 @@ import {
   Ruler,
   Search,
   Settings,
+  Sheet as SheetIcon,
   Square,
   Type,
   Upload,
@@ -43,16 +45,16 @@ type ViewMode = "list" | "grid";
 
 const primaryNav = [
   { label: "홈", icon: Home },
-  { label: "시트", icon: ClipboardList },
+  { label: "시트", icon: SheetIcon },
   { label: "파일", icon: File },
-  { label: "이슈", icon: CheckCircle2 },
+  { label: "이슈", icon: CircleDot },
   { label: "양식", icon: ClipboardList },
-  { label: "사진", icon: Camera }
+  { label: "사진", icon: Image }
 ] as const;
 
 const secondaryNav = [
   { label: "구성원", icon: Users },
-  { label: "브리지", icon: ArrowLeft },
+  { label: "브리지", icon: ArrowLeftRight },
   { label: "설정", icon: Settings }
 ] as const;
 
@@ -92,7 +94,7 @@ export default function BuildSheetsView({ project = selectedBuildProject, onBack
       <aside className="build-rail" aria-label="Build 메뉴">
         <div className="build-module">
           <span className="module-mark" aria-hidden="true">
-            <ClipboardList size={19} />
+            <Hammer size={19} />
           </span>
           <span>Build</span>
         </div>

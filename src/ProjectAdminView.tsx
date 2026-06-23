@@ -1,4 +1,17 @@
-import { ArrowLeft, Download, Filter, Search, Settings, Users, X } from "lucide-react";
+import {
+  Activity,
+  ArrowLeft,
+  ArrowLeftRight,
+  Bell,
+  Building2,
+  Download,
+  Filter,
+  MapPin,
+  Search,
+  Settings,
+  Users,
+  X
+} from "lucide-react";
 import { useMemo, useState, type FormEvent } from "react";
 import {
   buildProjectAccessRows,
@@ -29,6 +42,16 @@ type AddMemberForm = {
 };
 
 const adminSections = ["구성원", "회사", "브리지", "액티비티", "알림", "위치", "설정"] as const;
+
+const adminSectionIcons = {
+  구성원: Users,
+  회사: Building2,
+  브리지: ArrowLeftRight,
+  액티비티: Activity,
+  알림: Bell,
+  위치: MapPin,
+  설정: Settings
+} as const;
 
 type AdminSection = (typeof adminSections)[number];
 
@@ -124,17 +147,20 @@ export default function ProjectAdminView({
           <Settings size={18} aria-hidden="true" />
           <span>Project Admin</span>
         </div>
-        {adminSections.map((item) => (
-          <button
-            key={item}
-            type="button"
-            aria-current={item === activeSection ? "page" : undefined}
-            onClick={() => setActiveSection(item)}
-          >
-            <Users size={17} aria-hidden="true" />
-            <span>{item}</span>
-          </button>
-        ))}
+        {adminSections.map((item) => {
+          const SectionIcon = adminSectionIcons[item];
+          return (
+            <button
+              key={item}
+              type="button"
+              aria-current={item === activeSection ? "page" : undefined}
+              onClick={() => setActiveSection(item)}
+            >
+              <SectionIcon size={17} aria-hidden="true" />
+              <span>{item}</span>
+            </button>
+          );
+        })}
       </aside>
 
       <section className="admin-main">
