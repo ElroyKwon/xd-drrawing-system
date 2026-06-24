@@ -220,4 +220,102 @@ describe("BuildSheetsView", () => {
     await user.click(within(dialog).getByRole("button", { name: "닫기" }));
     expect(screen.queryByRole("dialog", { name: "파일 업로드" })).not.toBeInTheDocument();
   });
+
+  async function openViewer(user: ReturnType<typeof userEvent.setup>) {
+    await user.click(screen.getByRole("button", { name: "A001 열기" }));
+  }
+
+  it("toggles the active markup tool in the viewer tool rail", async () => {
+    const { user } = renderBuildSheets();
+    await openViewer(user);
+
+    const rail = screen.getByRole("complementary", { name: "마크업 도구" });
+    expect(within(rail).getByRole("button", { name: "선택" })).toHaveAttribute("aria-pressed", "true");
+
+    await user.click(within(rail).getByRole("button", { name: "텍스트" }));
+    expect(within(rail).getByRole("button", { name: "텍스트" })).toHaveAttribute("aria-pressed", "true");
+    expect(within(rail).getByRole("button", { name: "선택" })).toHaveAttribute("aria-pressed", "false");
+  });
+
+  it("shows a type-specific property panel when a markup is selected", async () => {
+    const { user } = renderBuildSheets();
+    await openViewer(user);
+
+    await user.click(screen.getByRole("button", { name: "텍스트 마크업: 치수 확인 요망" }));
+    const textProps = screen.getByRole("complementary", { name: "텍스트 마크업 속성" });
+    expect(within(textProps).getByText("글꼴")).toBeInTheDocument();
+    expect(within(textProps).getByText("작성자 김도면")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "클라우드 마크업: 리비전 클라우드" }));
+    const cloudProps = screen.getByRole("complementary", { name: "클라우드 마크업 속성" });
+    expect(within(cloudProps).getByText("선 두께")).toBeInTheDocument();
+    expect(within(cloudProps).queryByText("글꼴")).not.toBeInTheDocument();
+  });
+
+  it("switches the left viewer panel between markup, log, and issue tabs", async () => {
+    const { user } = renderBuildSheets();
+    await openViewer(user);
+
+    expect(screen.getByRole("tab", { name: "마크업", selected: true })).toBeInTheDocument();
+
+    await user.click(screen.getByRole("tab", { name: "마크업 로그" }));
+    expect(screen.getByRole("tab", { name: "마크업 로그", selected: true })).toBeInTheDocument();
+    expect(screen.getByLabelText("색상 필터")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("tab", { name: "이슈" }));
+    expect(screen.getByRole("tab", { name: "이슈", selected: true })).toBeInTheDocument();
+    expect(screen.getByLabelText("이슈 검색")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Clash/ })).toBeInTheDocument();
+  });
+
+  it("opens the measure panel and calibration modal affordance", async () => {
+    const { user } = renderBuildSheets();
+    await openViewer(user);
+
+    await user.click(screen.getByRole("button", { name: "측정" }));
+    const measure = screen.getByRole("complementary", { name: "측정 교정" });
+    expect(within(measure).getByLabelText("축척 설정")).toBeInTheDocument();
+    expect(within(measure).getByRole("button", { name: "다각형 면적" })).toBeInTheDocument();
+
+    await user.click(within(measure).getByRole("button", { name: "교정" }));
+    expect(screen.getByRole("dialog", { name: "교정을 만드시겠습니까?" })).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "취소" }));
+    expect(screen.queryByRole("dialog", { name: "교정을 만드시겠습니까?" })).not.toBeInTheDocument();
+  });
+
+  it("compares two sheets: B selection enables compare and opens the result overlay", async () => {
+    const { user } = renderBuildSheets();
+    await openViewer(user);
+
+    await user.click(screen.getByRole("button", { name: "시트 비교" }));
+    const dialog = screen.getByRole("dialog", { name: "시트 비교" });
+    expect(within(dialog).getByRole("button", { name: "비교" })).toBeDisabled();
+
+    await user.selectOptions(within(dialog).getByLabelText("시트 B 선택"), "sheet-e101");
+    expect(within(dialog).getByRole("button", { name: "비교" })).toBeEnabled();
+
+    await user.click(within(dialog).getByRole("button", { name: "비교" }));
+    expect(screen.queryByRole("dialog", { name: "시트 비교" })).not.toBeInTheDocument();
+    expect(screen.getByLabelText("비교 결과 A001 대 E101")).toBeInTheDocument();
+    expect(screen.getByText("비교한 문서")).toBeInTheDocument();
+
+    // 비교 모드에서는 메인 하단 컨트롤이 숨겨져 zoom 라벨이 중복되지 않는다.
+    expect(screen.queryByRole("button", { name: "시트 비교" })).not.toBeInTheDocument();
+    expect(screen.getAllByRole("button", { name: "축소" })).toHaveLength(1);
+  });
+
+  it("closes the measure panel when a non-measure tool is selected", async () => {
+    const { user } = renderBuildSheets();
+    await openViewer(user);
+
+    const rail = screen.getByRole("complementary", { name: "마크업 도구" });
+    await user.click(within(rail).getByRole("button", { name: "측정" }));
+    expect(screen.getByRole("complementary", { name: "측정 교정" })).toBeInTheDocument();
+
+    await user.click(within(rail).getByRole("button", { name: "텍스트" }));
+    expect(screen.queryByRole("complementary", { name: "측정 교정" })).not.toBeInTheDocument();
+    expect(within(rail).getByRole("button", { name: "측정" })).toHaveAttribute("aria-pressed", "false");
+    expect(within(rail).getByRole("button", { name: "텍스트" })).toHaveAttribute("aria-pressed", "true");
+  });
 });

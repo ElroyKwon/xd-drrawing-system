@@ -109,3 +109,44 @@
 ### 비차단 학습점 (제품 결함 아님)
 - 검증 오케스트레이션: chrome-devtools 프로파일 **락** 충돌(isolatedContext로도 우회 불가 — MCP 서버 기동 레벨). 해결=점유 크롬 프로세스를 `CommandLine -like *chrome-devtools-mcp*` 필터로 종료 후 단독 실행. 다중 브라우저 검증자는 검증자별 `userDataDir` 분리 또는 순차 실행 필요.
 - 미세 스멜(렌즈1, 차단 아님): 미정의 CSS 클래스 4개 no-op(`files-page`·`build-home-page`·`home-progress-card`·`files-table-scroll` — 동반 클래스가 레이아웃 구동), `legend-${indexOf}` O(n²) 미세 비효율. 후속 정리 후보.
+
+## §M4 — 2D 뷰어 + 마크업/측정/비교/이슈 (2026-06-24, 세션 13)
+
+메타프롬프트: `prompts/04-m4-viewer.md` (freeze v1). 4결정 AskUserQuestion 공동설계(+Q2 의미 재확인): ①범위=§E·F·G·H 4영역 전부 한 사이클(affordance 깊이) ②마크업 캔버스=충실한 정적 외관(이미 그려진 모습, 드로잉 없음) ③측정/비교/이슈=풀 affordance ④코드구조=`src/build/viewer/` 하위 분할. 검증팀 3렌즈(렌즈1=구조 비평가 정적 채점, 렌즈2=접근성/엣지케이스 비평가 정적, 렌즈3=메인 에이전트 브라우저 직접 실측). 신규 9컴포넌트(`MarkupToolRail`·`MarkupCanvas`·`MarkupPropertyPanel`·`MarkupListPanel`·`IssueAddPanel`·`MeasurePanel`·`CalibrationModal`·`CompareModal`·`CompareOverlay`) + `viewerData.ts`. `SheetViewerShell.tsx`는 헤더+`viewer-grid`+상태 오케스트레이션 셸로 재작성.
+
+### Acceptance checklist 판정 (frozen 메타프롬프트 §Acceptance)
+
+| 항목 | 판정 | 증거등급 | 근거(3렌즈 종합) |
+|---|---|---|---|
+| A1 툴레일 도구군 확장+활성 토글 | MET | emulated | 브라우저: 툴레일 10도구(선택·텍스트·도형·클라우드·폴리라인·다각형·펜·지우개·이슈핀·측정), `aria-pressed` 토글. 회귀 테스트 PASS. |
+| A2 캔버스 정적 데모 마크업 5종+이슈핀 | MET | emulated | 브라우저: `demo-markup` 5개(텍스트박스·클라우드 점선·폴리라인 화살표·삼각형·다각형) + `demo-issue-pin` 2개 렌더. 드로잉 이벤트 없음. |
+| A3 마크업 선택→타입별 속성 패널 | MET | emulated | 텍스트 클릭→속성에 "글꼴"·작성자, 클라우드 클릭→"선 두께" 有/"글꼴" 無. 회귀 테스트로 타입 분기 고정. |
+| A4 좌측 3탭+필터/카테고리 | MET | emulated | 마크업/마크업로그/이슈 탭 전환, 로그=색상/굵기/유형 필터, 이슈=검색및추가+Clash·Quality·Coordination. |
+| A5 측정 패널+교정 모달 | MET | emulated | 측정 도구→"측정 교정" 패널(축척·단위·측정타입4·측정값2행), 교정→`dialog "교정을 만드시겠습니까?"`+마커입력, 취소/확인/ESC 닫힘. |
+| A6 비교 모달 A/B→정적 결과 오버레이 | MET | emulated | `dialog "시트 비교"` B 미선택 시 [비교] disabled→E101 선택 시 enabled→`compare-overlay`(빨강 이전/파랑 현재 diff + "비교한 문서" 색상 토글 + 비교 뷰 컨트롤). |
+| A7 이슈 연계 패널+캔버스 핀 | MET | emulated | 이슈 탭=검색및추가+3카테고리(count 칩), 캔버스 이슈 핀 2개. affordance(실 생성/영속 없음). |
+| A8 코드 분할+시그니처 무변경 | MET | static | 9컴포넌트+`viewerData.ts` `src/build/viewer/*` 분리. `SheetViewerShell`=헤더+레이아웃+상태 합성. `BuildSheetsView` 호출 시그니처·`buildSheetsData` export 무변경(렌즈1 확인). |
+| B1 `npm run build` 성공 | MET | device | tsc+vite build 성공(로컬, 304.14kB). |
+| B2 `npm test` 전부 PASS | MET | device | **49 PASS**(기준선 43 + 신규 6: 도구 토글·타입별 속성·3탭·측정+교정·비교 A/B+오버레이·측정 패널 자동닫힘). 분할 무회귀는 기존 뷰어 진입/복귀 테스트 무수정 PASS로 보증. |
+| B3 콘솔 에러 0 | MET | emulated | 도구·탭·측정/교정·비교 모달/오버레이·이슈 전 과정 `list_console_messages` error/warn 0. |
+| B4 HUMAN_GATE 미침범 | MET | static | 캔버스 마크업·diff 정적 하드코딩, 모달 입력 무영속, 내보내기/측정값추가 핸들러 없음, 교정 확인=닫기만. 살아있는 state=도구·탭·패널/모달 토글·비교 B선택·마크업 선택뿐. 실드로잉/diff연산/영속 없음. |
+| C1 1920·2560 가로 오버플로 0 | **MET (device 1920·2048 / 2560 정적)** | device+static | 직접 실측 `documentElement.scrollWidth - clientWidth`: 1920=-16, 2048(측정패널 4열 has-aside)=-15, `viewer-aside` 내부 오버플로 0. **OS 창 한계로 2560 정확 실측 미실시** — 4열 고정폭 합산(좌270+우300+레일56=626, 스테이지 `minmax(0,1fr)`)·뷰어 내 넓은 표 없음으로 안전. M5에서 2560 재확인. |
+| D1 뷰어 진입→도구/탭/패널 왕복→복귀 | MET | emulated | 시트목록→A001 진입→3탭·측정·비교·이슈 왕복→시트목록 복귀, 컨텍스트 누수 0. |
+| D2 패널/모달 반복+엣지 무파손 | MET | emulated+device | 비교 B 미선택 시 [비교] 비활성, 비교 모드에서 메인 하단 컨트롤 숨김(zoom 라벨 중복 1로 해소·실측), 측정 외 도구 선택 시 측정 패널 자동 닫힘. 회귀 테스트로 고정. |
+
+### 차단 결함 (적발→수정 후 0)
+렌즈2(접근성/엣지) 적발 5건 → 수정 완료:
+- **B1 비교 오버레이 시 하단 컨트롤 중복**(zoom 라벨 2세트) → 비교 모드에서 메인 `viewer-bottom-controls` 숨김(stage 삼항 fragment). 브라우저 실측 dup 2→1 확인.
+- **B2 비교 모드 위 측정/속성 패널 중첩**(컨텍스트 누수) → `hasAside = !compareResultOpen && (…)` + 비교 진입 시 `measureOpen/selectedMarkupId/activeTool` 리셋.
+- **B3 측정 외 도구 선택 시 측정 패널 잔류** → `selectTool` else 분기로 측정 패널 닫기. 회귀 테스트.
+- **B4 측정 패널 X 후 `activeTool="측정"` 잔류**(aria-pressed 불일치) → `closeMeasure`가 `activeTool="선택"` 복귀.
+- **B5 모달 ESC 부재** → 두 신규 모달에 ESC 닫기(`keydown` useEffect) 추가.
+렌즈1(구조) 적발 비차단 2건 → 정리: 고아 CSS `.viewer-panel-body`(M4 재작성이 유발 — surgical 규칙) 제거, 속성 스와치 "투명" 값에 색 스와치 미표시.
+
+### 비차단 이월 (차단 아님)
+- **모달 포커스 트랩 부재**(렌즈2 B5 일부): 기존 모달(프로젝트 작성·이슈·업로드)과 동일 수준 → M4 단독 회귀 아님. 전 모달 일괄 접근성 정리 후보(별도). ESC만 M4 신규 모달에 선제 추가.
+- **ARIA 패턴 미세**(렌즈2 R1·R3): tablist 화살표 roving·`tabpanel` 연결 부재, 측정타입/필터의 `aria-pressed` vs `aria-selected` 표현 혼재. 기존 탭 구현과 일관 — 후속 정리 후보.
+
+### Done-When 이월 (Phase 6.5 최종 reconcile 입력 — M5)
+- **FR-FS-007(마크업)·008(측정/축척)·009(비교)·010(이슈 연계)** → M4가 커버, **MET**(브라우저 실측, affordance 수준). 실 드로잉/diff연산/영속화는 LOOP Human gates 대상으로 의도적 affordance 한정.
+- C1 2560 정확 실측은 OS 창 한계로 미실시(2048까지 device) — M5에서 재확인.

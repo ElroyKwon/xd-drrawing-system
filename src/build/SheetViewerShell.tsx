@@ -1,18 +1,27 @@
-import {
-  ArrowLeft,
-  Download,
-  Grid2X2,
-  Maximize2,
-  MessageSquare,
-  Move,
-  MousePointer2,
-  Pencil,
-  Ruler,
-  Square,
-  Type
-} from "lucide-react";
+import { ArrowLeft, Download, Grid2X2, Maximize2, Minus, Move, Plus, RotateCw } from "lucide-react";
 import { useState } from "react";
 import type { Sheet } from "../buildSheetsData";
+import CalibrationModal from "./viewer/CalibrationModal";
+import CompareModal from "./viewer/CompareModal";
+import CompareOverlay from "./viewer/CompareOverlay";
+import IssueAddPanel from "./viewer/IssueAddPanel";
+import MarkupCanvas from "./viewer/MarkupCanvas";
+import MarkupListPanel from "./viewer/MarkupListPanel";
+import MarkupPropertyPanel from "./viewer/MarkupPropertyPanel";
+import MarkupToolRail from "./viewer/MarkupToolRail";
+import MeasurePanel from "./viewer/MeasurePanel";
+import {
+  demoIssuePins,
+  demoMarkups,
+  issueCategories,
+  measureRows,
+  measureTypes,
+  type MarkupTool,
+  type MeasureType,
+  type ViewerLeftTab
+} from "./viewer/viewerData";
+
+const leftTabs: ViewerLeftTab[] = ["마크업", "마크업 로그", "이슈"];
 
 export default function SheetViewerShell({
   projectName,
@@ -25,7 +34,58 @@ export default function SheetViewerShell({
   sheets: Sheet[];
   onBack: () => void;
 }) {
-  const [activePanel, setActivePanel] = useState<"마크업" | "이슈">("마크업");
+  const [activeTool, setActiveTool] = useState<MarkupTool>("선택");
+  const [leftTab, setLeftTab] = useState<ViewerLeftTab>("마크업");
+  const [selectedMarkupId, setSelectedMarkupId] = useState<string | null>(null);
+  const [selectedIssueCategory, setSelectedIssueCategory] = useState<string | null>(null);
+  const [measureOpen, setMeasureOpen] = useState(false);
+  const [activeMeasureType, setActiveMeasureType] = useState<MeasureType>("선형");
+  const [calibrationOpen, setCalibrationOpen] = useState(false);
+  const [compareOpen, setCompareOpen] = useState(false);
+  const [compareSheetB, setCompareSheetB] = useState<Sheet | null>(null);
+  const [compareResultOpen, setCompareResultOpen] = useState(false);
+
+  const selectedMarkup = demoMarkups.find((markup) => markup.id === selectedMarkupId) ?? null;
+  // 비교 결과 모드에서는 우측 보조 패널을 띄우지 않는다(컨텍스트 누수 방지).
+  const hasAside = !compareResultOpen && (measureOpen || Boolean(selectedMarkup));
+
+  function selectTool(tool: MarkupTool) {
+    setActiveTool(tool);
+    if (tool === "측정") {
+      setSelectedMarkupId(null);
+      setMeasureOpen(true);
+    } else {
+      // 측정 외 도구를 고르면 측정 패널을 닫아 도구-패널 상태를 일치시킨다.
+      setMeasureOpen(false);
+    }
+  }
+
+  function closeMeasure() {
+    setMeasureOpen(false);
+    setActiveTool("선택");
+  }
+
+  function selectMarkup(id: string) {
+    setSelectedMarkupId((current) => (current === id ? null : id));
+    setMeasureOpen(false);
+  }
+
+  function runCompare() {
+    if (!compareSheetB) {
+      return;
+    }
+    // 비교 진입 시 마크업/측정 상태를 리셋해 비교 모드 위 패널 중첩을 막는다.
+    setMeasureOpen(false);
+    setSelectedMarkupId(null);
+    setActiveTool("선택");
+    setCompareOpen(false);
+    setCompareResultOpen(true);
+  }
+
+  function closeCompareResult() {
+    setCompareResultOpen(false);
+    setCompareSheetB(null);
+  }
 
   return (
     <section className="viewer-shell" aria-label="2D 시트 뷰어">
@@ -45,80 +105,89 @@ export default function SheetViewerShell({
         </button>
       </header>
 
-      <div className="viewer-grid">
+      <div className={`viewer-grid${hasAside ? " has-aside" : ""}`}>
         <aside className="viewer-panel">
           <div className="viewer-panel-tabs" role="tablist" aria-label="뷰어 패널">
-            <button type="button" role="tab" aria-selected={activePanel === "마크업"} onClick={() => setActivePanel("마크업")}>
-              마크업
-            </button>
-            <button type="button" role="tab" aria-selected={activePanel === "이슈"} onClick={() => setActivePanel("이슈")}>
-              이슈
-            </button>
+            {leftTabs.map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                role="tab"
+                aria-selected={leftTab === tab}
+                onClick={() => setLeftTab(tab)}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
-          {activePanel === "마크업" ? (
-            <div className="viewer-panel-body">
-              <Pencil size={20} aria-hidden="true" />
-              <strong>마크업 없음</strong>
-              <span>펜, 도형, 화살표, 검색 affordance만 표시합니다.</span>
-            </div>
+          {leftTab === "이슈" ? (
+            <IssueAddPanel
+              categories={issueCategories}
+              selectedCategoryId={selectedIssueCategory}
+              onSelectCategory={(id) => setSelectedIssueCategory((current) => (current === id ? null : id))}
+            />
           ) : (
-            <div className="viewer-panel-body">
-              <MessageSquare size={20} aria-hidden="true" />
-              <strong>이슈 없음</strong>
-              <span>핀, 상세 필드, 댓글, 활동 로그 affordance만 표시합니다.</span>
-            </div>
+            <MarkupListPanel
+              markups={demoMarkups}
+              selectedMarkupId={selectedMarkupId}
+              isLog={leftTab === "마크업 로그"}
+              onSelectMarkup={selectMarkup}
+            />
           )}
         </aside>
 
         <div className="viewer-stage">
-          <div className="static-sheet" aria-label="정적 시트 렌더">
-            <span>정적 시트 렌더</span>
-            <div className="drawing-title">{selectedSheet.number}</div>
-            <div className="drawing-gridline vertical-one" />
-            <div className="drawing-gridline vertical-two" />
-            <div className="drawing-gridline horizontal-one" />
-            <div className="drawing-gridline horizontal-two" />
-            <div className="drawing-room room-large" />
-            <div className="drawing-room room-small" />
-            <div className="drawing-callout">A</div>
-          </div>
-          <div className="viewer-bottom-controls" aria-label="뷰어 하단 컨트롤">
-            <button type="button" aria-label="선택">
-              <MousePointer2 size={18} aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="이동">
-              <Move size={18} aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="맞춤">
-              <Maximize2 size={18} aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="측정">
-              <Ruler size={18} aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="시트 비교">
-              <Grid2X2 size={18} aria-hidden="true" />
-              <span>시트 비교</span>
-            </button>
-          </div>
+          {compareResultOpen && compareSheetB ? (
+            <CompareOverlay sheetA={selectedSheet} sheetB={compareSheetB} onClose={closeCompareResult} />
+          ) : (
+            <>
+              <MarkupCanvas
+                selectedSheet={selectedSheet}
+                markups={demoMarkups}
+                issuePins={demoIssuePins}
+                selectedMarkupId={selectedMarkupId}
+                onSelectMarkup={selectMarkup}
+              />
+              <div className="viewer-bottom-controls" aria-label="뷰어 하단 컨트롤">
+                <button type="button" aria-label="이동">
+                  <Move size={18} aria-hidden="true" />
+                </button>
+                <button type="button" aria-label="축소">
+                  <Minus size={18} aria-hidden="true" />
+                </button>
+                <button type="button" aria-label="확대">
+                  <Plus size={18} aria-hidden="true" />
+                </button>
+                <button type="button" aria-label="맞춤">
+                  <Maximize2 size={18} aria-hidden="true" />
+                </button>
+                <button type="button" aria-label="회전">
+                  <RotateCw size={18} aria-hidden="true" />
+                </button>
+                <button type="button" aria-pressed={compareOpen} onClick={() => setCompareOpen(true)}>
+                  <Grid2X2 size={18} aria-hidden="true" />
+                  <span>시트 비교</span>
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
-        <aside className="viewer-tool-rail" aria-label="뷰어 도구">
-          <button type="button" aria-label="텍스트">
-            <Type size={18} aria-hidden="true" />
-          </button>
-          <button type="button" aria-label="도형">
-            <Square size={18} aria-hidden="true" />
-          </button>
-          <button type="button" aria-label="펜">
-            <Pencil size={18} aria-hidden="true" />
-          </button>
-          <button type="button" aria-label="이슈 핀">
-            <MessageSquare size={18} aria-hidden="true" />
-          </button>
-          <button type="button" aria-label="측정 도구">
-            <Ruler size={18} aria-hidden="true" />
-          </button>
-        </aside>
+        {hasAside &&
+          (measureOpen ? (
+            <MeasurePanel
+              measureTypes={measureTypes}
+              activeMeasureType={activeMeasureType}
+              measureRows={measureRows}
+              onSelectMeasureType={setActiveMeasureType}
+              onCalibrate={() => setCalibrationOpen(true)}
+              onClose={closeMeasure}
+            />
+          ) : selectedMarkup ? (
+            <MarkupPropertyPanel markup={selectedMarkup} onClose={() => setSelectedMarkupId(null)} />
+          ) : null)}
+
+        <MarkupToolRail activeTool={activeTool} onSelectTool={selectTool} />
       </div>
 
       <footer className="sheet-filmstrip" aria-label="필름스트립">
@@ -131,6 +200,20 @@ export default function SheetViewerShell({
           ))}
         </div>
       </footer>
+
+      {calibrationOpen && (
+        <CalibrationModal onClose={() => setCalibrationOpen(false)} onConfirm={() => setCalibrationOpen(false)} />
+      )}
+      {compareOpen && (
+        <CompareModal
+          currentSheet={selectedSheet}
+          sheets={sheets}
+          sheetB={compareSheetB}
+          onSelectB={setCompareSheetB}
+          onClose={() => setCompareOpen(false)}
+          onCompare={runCompare}
+        />
+      )}
     </section>
   );
 }

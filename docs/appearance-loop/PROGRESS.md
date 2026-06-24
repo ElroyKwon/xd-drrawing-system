@@ -2,10 +2,16 @@
 
 > 매 재진입 시 `LOOP.md` → 이 파일 순으로 읽고 이어받는다.
 
-## 현재 상태 (2026-06-24, 세션 12 — M3 구현 완료)
+## 현재 상태 (2026-06-24, 세션 13 — M4 구현 완료)
 
-- **단계**: **M3 Build 비뷰어 표면 완료**(검증 2렌즈 차단0, build PASS, test 43 PASS, 1920/2560 오버플로 0, 콘솔 0). 체크인 정지(예산 규칙).
-- **다음 행동(다음 세션 진입점)**: `ai-loop` 장착 → `LOOP.md`·이 파일 읽기 → **M4 2D 뷰어 + 마크업/측정/비교/이슈**의 메타프롬프트 공동설계(Phase 2.5)부터. M4는 아직 메타프롬프트 미작성 → 초안→AskUserQuestion 공동설계→freeze 후 구현(M1~M3처럼 곧바로 구현 아님).
+- **단계**: **M4 2D 뷰어 표면 완료**(검증 3렌즈: 구조 차단0 / 접근성·엣지 차단5 적발→전부 수정 / 브라우저 직접 실측 PASS. build PASS, test 49 PASS, 1920·2048 오버플로 음수, 콘솔 0). 체크인 정지(예산 규칙).
+- **다음 행동(다음 세션 진입점)**: `ai-loop` 장착 → `LOOP.md`·이 파일 읽기 → **M5 횡단 레이아웃 호환 + 최종 reconcile**. M5는 ①M1~M4 신규 화면 전체를 1920·2560·macOS 폰트 분기에서 무파손 재확인(특히 **C1 2560 정확 실측** — M1·M3·M4 모두 OS 창 한계로 2048까지만 device 실측, 2560은 정적 근거) ②신선한 비평가가 LOOP Done-When 전 항목 MET/NARROWED/UNMET+증거등급 reconcile. M5 메타프롬프트 미작성 → 공동설계→freeze부터.
+- **M4 4결정(`04-m4-viewer.md` 공동설계)**: ①범위=§E·F·G·H 4영역 전부 한 사이클(affordance 깊이) — §F·G·H는 캡처 존재라 추정금지 원칙 무관, FR-FS-007~010 본 M4가 커버 ②마크업 캔버스=충실한 정적 외관(이미 그려진 모습, 드로잉 없음 — 휘발성 인터랙티브 드로잉은 비대상 명시) ③측정/비교/이슈=풀 affordance(교정 패널+확인모달 / A·B 비교모달+정적 diff 오버레이 / 이슈 검색및추가 3카테고리) ④코드구조=`src/build/viewer/` 하위 컴포넌트 분할.
+- **M4 구현 결과**: `src/build/viewer/` 신규 9컴포넌트(`MarkupToolRail`·`MarkupCanvas`·`MarkupPropertyPanel`·`MarkupListPanel`·`IssueAddPanel`·`MeasurePanel`·`CalibrationModal`·`CompareModal`·`CompareOverlay`) + `viewerData.ts`(데모 마크업5·이슈핀2·카테고리3·측정값2 시드). `SheetViewerShell.tsx`는 헤더+`viewer-grid`+상태 오케스트레이션 셸로 재작성(좌3탭·우측 보조 슬롯·툴레일10·하단 뷰컨트롤). `styles.css`에 "M4 2D 뷰어" 섹션 추가(데모 마크업·viewer-aside·markup-list·measure·compare-overlay 등), `viewer-panel-tabs` 3열화. 회귀 테스트 6건 추가.
+
+### M3 결과 요약 (2026-06-24, 세션 12)
+- M3 4결정(`03-m3-build.md`): ①범위=캡처 강한 3개(홈·시트·파일) 집중 + 나머지 6 이월 ②상호작용=구조 우선 계승 ③분석차트=빈상태 골격+정적 축/범례 ④코드구조=화면별 파일 분할.
+- M3 구현 결과: `src/build/` 신규 8뷰 파일(`BuildHomeView`[개요/종합 탭]·`SheetsListView`[행메뉴 팝오버]·`FilesView`[Welcome배너·11폴더트리·11컬럼·업로드모달]·`IssuesView`·`FormsView`·`PhotosView`·`BuildManagementView`·`SheetViewerShell`) + `nav.ts` + `buildFilesData.ts`(11폴더 시드). `BuildSheetsView.tsx`는 rail+topbar+라우팅 셸(143줄)로 축소. `styles.css`에 `home-*`·`row-menu-*`·`files-welcome`·`upload-*` 추가, `.files-table` min-width 1320. 회귀 테스트 4건 추가.
   - M3 4결정(`03-m3-build.md` 공동설계): ①범위=캡처 강한 3개(홈·시트·파일) 집중 + 나머지 6 이월 ②상호작용=구조 우선 계승 ③분석차트=빈상태 골격+정적 축/범례 ④코드구조=화면별 파일 분할.
   - M3 구현 결과: `src/build/` 신규 8뷰 파일(`BuildHomeView`[개요/종합 탭]·`SheetsListView`[행메뉴 팝오버]·`FilesView`[Welcome배너·11폴더트리·11컬럼·업로드모달]·`IssuesView`·`FormsView`·`PhotosView`·`BuildManagementView`·`SheetViewerShell`) + `nav.ts` + `buildFilesData.ts`(11폴더 시드). `BuildSheetsView.tsx`는 rail+topbar+라우팅 셸(143줄)로 축소. `styles.css`에 `home-*`·`row-menu-*`·`files-welcome`·`upload-*` 추가, `.files-table` min-width 1320. 회귀 테스트 4건 추가.
 
@@ -35,13 +41,13 @@
 - [x] M1 Hub 표면 (2026-06-24 — 검증 PASS, 체크인 정지)
 - [x] M2 Project Admin + 템플릿 상세 (2026-06-24 — 2렌즈 검증 차단0, 체크인 정지)
 - [x] M3 Build 비뷰어 표면 (2026-06-24 — 2렌즈 검증 차단0, 체크인 정지)
-- [ ] M4 2D 뷰어 + 마크업/측정/비교/이슈
+- [x] M4 2D 뷰어 + 마크업/측정/비교/이슈 (2026-06-24 — 3렌즈 검증, 접근성 차단5 적발→수정, 체크인 정지)
 - [ ] M5 횡단 레이아웃 호환 + 최종 reconcile
 
 ## 프로세스 완결성 (Done-When과 별도 추적)
 
-- [x] 각 마일스톤 메타프롬프트를 `prompts/`에 freeze했는가 (M1·M2·M3 freeze 완료; M4~M5 미작성)
-- [x] 각 마일스톤 별도 검증팀(2~4 렌즈) 돌렸는가 (M1=2렌즈, M2=2렌즈, M3=2렌즈; M4~M5 예정)
+- [x] 각 마일스톤 메타프롬프트를 `prompts/`에 freeze했는가 (M1·M2·M3·M4 freeze 완료; M5 미작성)
+- [x] 각 마일스톤 별도 검증팀(2~4 렌즈) 돌렸는가 (M1=2렌즈, M2=2렌즈, M3=2렌즈, M4=3렌즈; M5 예정)
 - [ ] 최종 Phase 6.5 reconcile(신선한 비평가)을 돌렸는가 (M5 최종에서 LOOP Done-When 전 항목 reconcile 예정 — 아직 미실시)
 
 ## 검증 로그
@@ -50,4 +56,5 @@
 - **M2 메타프롬프트 검토 (2026-06-24)**: freeze 전 3렌즈 객관 검토(캡처 충실도·구현 가능성·스코프/게이트). 차단 7건 적발·수정 → freeze v2. 주요: 알림 도구 13→15(자료전송 누락)·"필요한 작업 알림" 3단 계층 오기·주파수 "즉시" 누락·진입점 시드 부재·App state/네비 타입 격리 미명시·FR-FS-004 NARROWING 추적 부재. (구현은 다음 세션.)
 - **M2 구현 (2026-06-24, 세션 11)**: `npm run build` PASS · `npm test` **39 PASS**(34→시드 반영 기존 2건 정정 + M2 회귀 5건). 검증팀 2 독립 렌즈(구조/엣지·레이아웃/비기능) 모두 **차단 0**. acceptance A1~A9·A7-bis·B1~B4·C1·D1·D2 전부 MET. C1 2560 device 등급 실측 보강(M1 부채 해소: 1920=1906==1906, 2560=2546==2546, 매트릭스 최대 전개 오버플로 0). 상세 `EVIDENCE.md` §M2.
 - **M3 구현 (2026-06-24, 세션 12)**: `npm run build` PASS · `npm test` **43 PASS**(기준선 39 + M3 회귀 4건: 홈 개요/종합 탭전환·종합 6분석카드·시트 행메뉴 팝오버·파일 업로드 모달). 검증팀 2 독립 렌즈(렌즈1=구조 비평가 정적, 렌즈2=브라우저 렌더/레이아웃) 모두 **차단 0**. acceptance A1~A8·B1~B4·C1·D1·D2 전부 MET. C1 1920/2560 device 실측(파일 11컬럼 -15/-16·홈/시트 -16, 넓은 표는 `.table-scroll` 내부 격리). 콘솔 0. 이동 5화면 마크업 바이트 동일(분할 무회귀). 상세 `EVIDENCE.md` §M3.
-- 기준선: M3 종료 시점 **43 PASS**·build PASS.
+- **M4 구현 (2026-06-24, 세션 13)**: `npm run build` PASS · `npm test` **49 PASS**(기준선 43 + M4 회귀 6건: 도구 토글·타입별 속성·3탭·측정+교정·비교 A/B+오버레이·측정패널 자동닫힘). 검증팀 3 독립 렌즈(렌즈1=구조 비평가 차단0, 렌즈2=접근성/엣지 비평가 차단5 적발, 렌즈3=브라우저 직접 실측). 렌즈2 차단5(비교 모드 하단컨트롤 중복·패널 중첩·측정 도구 잔류·activeTool 잔류·모달 ESC 부재) **전부 수정** + 브라우저 재실측으로 해소 확인(dup 2→1). acceptance A1~A8·B1~B4·C1·D1·D2 전부 MET. C1 1920=-16·2048(4열 has-aside)=-15 device 실측, 2560은 고정폭 합산 정적 근거(OS 창 한계). 콘솔 0. 상세 `EVIDENCE.md` §M4.
+- 기준선: M4 종료 시점 **49 PASS**·build PASS.

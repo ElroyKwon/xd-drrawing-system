@@ -2350,7 +2350,8 @@ button {
 
 .viewer-panel-tabs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   border-bottom: 1px solid var(--line);
 }
 
@@ -2370,21 +2371,6 @@ button {
 .viewer-panel-tabs button[aria-selected="true"] {
   color: var(--blue);
   background: #edf8ff;
-}
-
-.viewer-panel-body {
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  gap: 10px;
-  min-height: 240px;
-  padding: 24px;
-  color: var(--muted);
-  text-align: center;
-}
-
-.viewer-panel-body strong {
-  color: #1d3448;
 }
 
 .viewer-stage {
@@ -2541,6 +2527,552 @@ button {
   background: #edf8ff;
 }
 
+/* ===== M4 2D 뷰어 — 마크업/측정/비교/이슈 affordance ===== */
+.viewer-grid.has-aside {
+  grid-template-columns: 270px minmax(0, 1fr) 300px 56px;
+}
+
+.viewer-tool-rail button[aria-pressed="true"] {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: #edf8ff;
+}
+
+.viewer-bottom-controls button[aria-pressed="true"] {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: #edf8ff;
+}
+
+/* 캔버스 데모 마크업(이미 그려진 외관 — 드로잉/영속 없음) */
+.demo-markup {
+  position: absolute;
+  z-index: 2;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.demo-markup[aria-pressed="true"] {
+  outline: 2px dashed currentColor;
+  outline-offset: 3px;
+}
+
+.demo-markup-text {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4px 6px;
+  border: 1px solid currentColor;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.demo-markup-cloud {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed currentColor;
+  border-radius: 40% 60% 55% 45% / 55% 45% 60% 40%;
+}
+
+.demo-markup-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.demo-issue-pin {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  border-radius: 50% 50% 50% 0;
+  background: var(--blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(20, 47, 63, 0.3);
+}
+
+/* 우측 보조 패널(속성·측정 공용 슬롯) */
+.viewer-aside {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 16px;
+  border-left: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+}
+
+.viewer-aside-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.viewer-aside-kicker {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.viewer-aside-head strong {
+  color: #1d3448;
+  font-size: 17px;
+}
+
+.viewer-prop-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.viewer-prop-row {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.viewer-prop-row dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.viewer-prop-row dd {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: #233747;
+  font-weight: 700;
+}
+
+.prop-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+.viewer-aside-meta {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 좌측 패널 본문(마크업 목록/로그/이슈) */
+.viewer-panel-section {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.markup-log-filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.markup-log-filters label {
+  display: grid;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.markup-log-filters select {
+  min-height: 30px;
+  border: 1px solid #b8c2ca;
+  border-radius: 2px;
+  background: #fff;
+  color: #253747;
+}
+
+.markup-list,
+.issue-category-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.markup-list-item,
+.issue-category-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  text-align: left;
+}
+
+.markup-list-item[aria-pressed="true"],
+.issue-category-item[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: #edf8ff;
+}
+
+.markup-list-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  flex: none;
+}
+
+.markup-list-text {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.markup-list-text strong {
+  color: #1d3448;
+  font-size: 13px;
+}
+
+.markup-list-text span {
+  color: var(--muted);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.markup-list-meta {
+  display: grid;
+  gap: 2px;
+  text-align: right;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* 이슈 검색 및 추가 */
+.issue-add-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  min-height: 36px;
+  border: 1px solid #b8c2ca;
+  border-radius: 2px;
+  color: #687684;
+}
+
+.issue-add-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #253747;
+}
+
+.issue-category-text {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.issue-category-text strong {
+  color: #1d3448;
+  font-size: 13px;
+}
+
+.issue-category-text span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.issue-category-count {
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 12px;
+  background: #eef2f5;
+  color: #38495b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* 측정 교정 패널 */
+.measure-settings {
+  display: grid;
+  gap: 10px;
+}
+
+.measure-settings label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.measure-settings select {
+  min-height: 34px;
+  border: 1px solid #b8c2ca;
+  border-radius: 2px;
+  background: #fff;
+  color: #253747;
+}
+
+.measure-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.measure-types button {
+  min-height: 34px;
+  border: 1px solid #c8d2da;
+  border-radius: 4px;
+  background: #fff;
+  color: #31475a;
+  font-weight: 700;
+}
+
+.measure-types button[aria-pressed="true"] {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: #edf8ff;
+}
+
+.measure-rows {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.measure-rows li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.measure-marker {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #eef2f5;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.measure-type-label {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.measure-value {
+  color: #1d3448;
+  font-weight: 800;
+}
+
+.measure-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* 교정·비교 모달 카드 */
+.calibration-modal,
+.compare-modal {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: min(560px, 100%);
+  max-height: min(92vh, 760px);
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 18px 38px rgba(10, 22, 32, 0.28);
+}
+
+.modal-desc {
+  margin: 0;
+  color: #4a5a69;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.compare-slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 22px 24px;
+  overflow-y: auto;
+}
+
+.compare-slot {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fafcfd;
+}
+
+.compare-slot strong {
+  color: #1d3448;
+  font-size: 20px;
+}
+
+.compare-slot-kicker {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* 비교 결과 오버레이 */
+.compare-overlay {
+  position: relative;
+  display: grid;
+  min-height: 0;
+}
+
+.compare-canvas {
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-diff {
+  position: absolute;
+  border-radius: 2px;
+  opacity: 0.55;
+}
+
+.diff-previous {
+  top: 26%;
+  left: 22%;
+  width: 30%;
+  height: 26%;
+  border: 2px solid #d8232a;
+  background: rgba(216, 35, 42, 0.16);
+}
+
+.diff-current {
+  top: 32%;
+  left: 30%;
+  width: 30%;
+  height: 26%;
+  border: 2px solid #1971c2;
+  background: rgba(25, 113, 194, 0.16);
+}
+
+.compare-doc-panel {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 4;
+  display: grid;
+  gap: 8px;
+  width: 220px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(30, 47, 63, 0.18);
+}
+
+.compare-doc-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #1d3448;
+}
+
+.compare-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #233747;
+}
+
+.compare-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.swatch-previous {
+  background: #d8232a;
+}
+
+.swatch-current {
+  background: #1971c2;
+}
+
+.compare-bottom-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 16px rgba(30, 47, 63, 0.18);
+}
+
+.compare-bottom-controls button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 38px;
+  height: 36px;
+  border: 1px solid #c8d2da;
+  border-radius: 4px;
+  color: #31475a;
+  background: #fff;
+}
+
 @media (max-width: 920px) {
   .build-shell {
     grid-template-columns: 78px minmax(0, 1fr);
@@ -2588,7 +3120,8 @@ button {
   .files-layout,
   .issue-layout,
   .photo-layout,
-  .viewer-grid {
+  .viewer-grid,
+  .viewer-grid.has-aside {
     grid-template-columns: 1fr;
   }
 
