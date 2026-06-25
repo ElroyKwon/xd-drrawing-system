@@ -4,7 +4,7 @@
 
 ## 현재 상태 (2026-06-25, 세션 3 — S2 시트 레지스터 DONE)
 
-- **단계**: **S2 DONE.** PDF 페이지 분할→시트 목록 실데이터 완전 교체 + 타이틀블록 휴리스틱(번호/제목/공종+폴백) + paperspace 다중 분리. 메타프롬프트 `prompts/03-s2-sheet-register.md` FROZEN, acceptance **C1~C8 전부 MET**(EVIDENCE 하단 S2 섹션). **미커밋.**
+- **단계**: **S2 DONE.** PDF 페이지 분할→시트 목록 실데이터 완전 교체 + 타이틀블록 휴리스틱(번호/제목/공종+폴백) + paperspace 다중 분리. 메타프롬프트 `prompts/03-s2-sheet-register.md` FROZEN, acceptance **C1~C8 전부 MET**(EVIDENCE 하단 S2 섹션). **커밋 `877518d`.**
 - **구현 요약**: backend `sheet_meta.py`(휴리스틱 추출), `conversion.py`(PDF 페이지 분할 메타·paperspace 분리·Sheet 메타필드), `GET /api/drawings` `_with_urls`(png_url 부여·png_path 제거). 프론트 `BuildSheetsView`(실데이터 fetch+poll·정적 시드 제거·공종 필터·자연정렬), `drawingsToSheets`, `SheetDisciplineCode` string화.
 - **검증**: build PASS · npm test **57** · backend pytest **15** · git diff clean · 브라우저 e2e(8p PDF→8시트 C1·EE-01-006 추출 C2·실데이터 교체 C3·공종필터 C4·시트열기 실 PDF 렌더 C6·콘솔 0 C8, 스크린샷 `evidence/s2-*.png`).
 - **독립 검증팀 3렌즈 통과**: 백엔드 적대적(C1·C2·C5·C7)·프론트 비기능(C3·C4·C6·C7·C8)·Done-When 비평가(C1~C8 MET). BLOCKER 0. MAJOR 1(휴리스틱 장비태그 노이즈) + MINOR(png_path 노출·select name·stale 필터) **수리·재검증 완료**(pytest 15).
@@ -54,7 +54,7 @@
 
 ## 다음 작업 — S1·S1.5·S2 DONE, 다음은 S3
 
-**S1 완료**(e146fc8+f7b1a99). **S1.5 완료**(`2284512`). **S2 완료**(미커밋, C1~C8 MET, 3렌즈 검증). 다음 진입:
+**S1 완료**(e146fc8+f7b1a99). **S1.5 완료**(`2284512`). **S2 완료**(`877518d`, C1~C8 MET, 3렌즈 검증). 다음 진입:
 - **S3 파일/폴더 관리 + 버전 + 권한**: ACC Files(카탈로그 I). `buildFilesData` 11폴더 정적 시드 → 실 폴더트리 CRUD + 업로드 + **버전 히스토리**(S2에서 연기) + 다운로드/삭제 + 폴더 권한. → `prompts/04-*.md` 공동설계·freeze 후 ai-loop.
 - (참고) S2 후속 부채: 멀티페이지 타이틀블록 강추출 개선·빈 paperspace modelspace 자동분할·TypeDB 직접쿼리화 — 별도 요구 시.
 
