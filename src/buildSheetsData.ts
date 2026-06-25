@@ -1,4 +1,6 @@
-export type SheetDisciplineCode = "A" | "E" | "M" | "P";
+// S2: 실데이터 공종은 A/E/M/P 외에 S(구조)·C(토목)·G(기타) 등이 나오므로 문자열로 넓힌다.
+// 색상 클래스(discipline-a/e/m/p)는 알려진 4종에만 적용, 그 외는 기본 칩 스타일.
+export type SheetDisciplineCode = string;
 
 export type BuildProject = {
   id: string;
@@ -29,80 +31,17 @@ export const selectedBuildProject: BuildProject = {
   name: "Study_Project"
 };
 
-export const initialSheets: Sheet[] = [
-  {
-    id: "sheet-a001",
-    projectId: selectedBuildProject.id,
-    number: "A001",
-    title: "ARCHITECTURAL- GRAPHIC SYMBOLS& ABBREVIATIONS",
-    version: "1",
-    versionSet: "Addendum 1",
-    disciplineCode: "A",
-    disciplineLabel: "A (건축)",
-    tag: "architectural",
-    lastUpdatedBy: "Forma Sample Proj..."
-  },
-  {
-    id: "sheet-a101",
-    projectId: selectedBuildProject.id,
-    number: "A101",
-    title: "OFFICE- FLOOR PLAN- LEVEL1",
-    version: "1",
-    versionSet: "Addendum 1",
-    disciplineCode: "A",
-    disciplineLabel: "A (건축)",
-    tag: "architectural",
-    lastUpdatedBy: "Forma Sample Proj..."
-  },
-  {
-    id: "sheet-a102",
-    projectId: selectedBuildProject.id,
-    number: "A102",
-    title: "OFFICE- FLOOR PLAN- LEVEL 2,3&4",
-    version: "1",
-    versionSet: "Addendum 1",
-    disciplineCode: "A",
-    disciplineLabel: "A (건축)",
-    tag: "architectural",
-    lastUpdatedBy: "Forma Sample Proj..."
-  },
-  {
-    id: "sheet-e101",
-    projectId: selectedBuildProject.id,
-    number: "E101",
-    title: "OFFICE- POWER PLAN- LEVEL1",
-    version: "1",
-    versionSet: "Addendum 1",
-    disciplineCode: "E",
-    disciplineLabel: "E (전기)",
-    tag: "electrical",
-    lastUpdatedBy: "Forma Sample Proj..."
-  },
-  {
-    id: "sheet-m101",
-    projectId: selectedBuildProject.id,
-    number: "M101",
-    title: "OFFICE- MECHANICAL PLAN- LEVEL1",
-    version: "1",
-    versionSet: "Addendum 1",
-    disciplineCode: "M",
-    disciplineLabel: "M (기계)",
-    tag: "mechanical",
-    lastUpdatedBy: "Forma Sample Proj..."
-  },
-  {
-    id: "sheet-p101",
-    projectId: selectedBuildProject.id,
-    number: "P101",
-    title: "OFFICE- PLUMBING PLAN- LEVEL1",
-    version: "1",
-    versionSet: "Addendum 1",
-    disciplineCode: "P",
-    disciplineLabel: "P (배관)",
-    tag: "plumbing",
-    lastUpdatedBy: "Forma Sample Proj..."
-  }
-];
+// S2: 정적 시드(initialSheets)는 실데이터 교체로 제거됨. 시트 목록은 백엔드 업로드 도면에서 구성한다.
+
+export type SheetSortKey = "number-asc" | "number-desc";
+
+/** 시트번호 자연정렬(EE-01-002 < EE-01-010). asc/desc 토글. */
+export function sortSheets(sheets: Sheet[], key: SheetSortKey): Sheet[] {
+  const sorted = [...sheets].sort((a, b) =>
+    a.number.localeCompare(b.number, undefined, { numeric: true, sensitivity: "base" })
+  );
+  return key === "number-desc" ? sorted.reverse() : sorted;
+}
 
 export function filterSheets(projectId: string, sheets: Sheet[], query: string): Sheet[] {
   const projectSheets = sheets.filter((sheet) => sheet.projectId === projectId);

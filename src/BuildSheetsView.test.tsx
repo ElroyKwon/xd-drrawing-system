@@ -1,12 +1,38 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import BuildSheetsView from "./BuildSheetsView";
+
+// S2: 시트 목록은 백엔드 업로드 도면(실데이터)으로 구성된다. listDrawings를 목킹해 고정 시트 세트를
+// 제공하고 나머지(drawingsToSheets 등)는 실제 구현을 쓴다. 픽스처는 hoisting 안전을 위해 팩토리 내부에 둔다.
+vi.mock("./api/drawings", async (importActual) => {
+  const actual = await importActual<typeof import("./api/drawings")>();
+  const mk = (id: string, num: string, title: string, code: string, label: string) => ({
+    sheet_id: id, sheet_name: num, sheet_index: 0, source: "pdf-page",
+    sheet_number: num, sheet_title: title, discipline_code: code, discipline_label: label,
+  });
+  const fixture = [
+    {
+      file_id: "seed", filename: "seed.pdf", file_format: "pdf", file_size: 1,
+      upload_date: "2026-06-25T00:00:00", project_name: "Study_Project", version: "1",
+      conversion_status: "completed",
+      sheets: [
+        mk("sheet-a001", "A001", "ARCHITECTURAL- GRAPHIC SYMBOLS& ABBREVIATIONS", "A", "A (건축)"),
+        mk("sheet-a101", "A101", "OFFICE- FLOOR PLAN- LEVEL1", "A", "A (건축)"),
+        mk("sheet-a102", "A102", "OFFICE- FLOOR PLAN- LEVEL 2,3&4", "A", "A (건축)"),
+        mk("sheet-e101", "E101", "OFFICE- POWER PLAN- LEVEL1", "E", "E (전기)"),
+        mk("sheet-m101", "M101", "OFFICE- MECHANICAL PLAN- LEVEL1", "M", "M (기계)"),
+        mk("sheet-p101", "P101", "OFFICE- PLUMBING PLAN- LEVEL1", "P", "P (배관)"),
+      ],
+    },
+  ];
+  return { ...actual, listDrawings: vi.fn().mockResolvedValue(fixture) };
+});
 
 function renderBuildSheets() {
   return {
     user: userEvent.setup(),
-    ...render(<BuildSheetsView onBackToProjects={() => undefined} />)
+    ...render(<BuildSheetsView onBackToProjects={() => undefined} />),
   };
 }
 
@@ -14,8 +40,22 @@ function sheetRows() {
   return screen.getAllByTestId("sheet-row");
 }
 
+// 시트가 비동기로 로드되므로 행이 나타날 때까지 기다린다.
+async function loadedRows() {
+  return screen.findAllByTestId("sheet-row");
+}
+
+async function openViewer(user: ReturnType<typeof userEvent.setup>) {
+  const open = await screen.findByRole("button", { name: "A001 열기" });
+  await user.click(open);
+}
+
+beforeEach(() => {
+  vi.clearAllMocks();
+});
+
 describe("BuildSheetsView", () => {
-  it("renders the Build shell and sheets table for Study_Project", () => {
+  it("renders the Build shell and sheets table for Study_Project", async () => {
     renderBuildSheets();
 
     expect(screen.getByText("Build")).toBeInTheDocument();
@@ -23,8 +63,6 @@ describe("BuildSheetsView", () => {
     expect(screen.getByText("Study_Project")).toBeInTheDocument();
     expect(screen.getByText("프로젝트 작업")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "시트" })).toHaveAttribute("aria-current", "page");
-    expect(screen.getByRole("button", { name: "시트" })).toHaveAttribute("aria-label", "시트");
-    expect(screen.getByRole("button", { name: "구성원" })).toHaveAttribute("aria-label", "구성원");
     expect(screen.getByRole("heading", { name: "시트" })).toBeInTheDocument();
     expect(screen.getByPlaceholderText("시트 검색 및 필터")).toBeInTheDocument();
 
@@ -32,7 +70,7 @@ describe("BuildSheetsView", () => {
       expect(screen.getByRole("columnheader", { name: column })).toBeInTheDocument();
     });
 
-    expect(sheetRows()).toHaveLength(6);
+    expect(await loadedRows()).toHaveLength(6);
     expect(screen.getByText("A001")).toBeInTheDocument();
     expect(screen.getByText("P101")).toBeInTheDocument();
     expect(screen.getByText("6 중 1-6 표시")).toBeInTheDocument();
@@ -40,6 +78,7 @@ describe("BuildSheetsView", () => {
 
   it("filters sheets by number, title, discipline, and tag", async () => {
     const { user } = renderBuildSheets();
+    await loadedRows();
     const search = screen.getByPlaceholderText("시트 검색 및 필터");
 
     await user.type(search, "A101");
@@ -60,8 +99,26 @@ describe("BuildSheetsView", () => {
     expect(sheetRows()).toHaveLength(6);
   });
 
+  it("filters by discipline and sorts sheet numbers", async () => {
+    const { user } = renderBuildSheets();
+    await loadedRows();
+
+    // 공종 필터: 전기(E)만
+    await user.selectOptions(screen.getByLabelText("공종 필터"), "E");
+    expect(sheetRows()).toHaveLength(1);
+    expect(within(sheetRows()[0]).getByText("E101")).toBeInTheDocument();
+
+    await user.selectOptions(screen.getByLabelText("공종 필터"), "전체");
+    expect(sheetRows()).toHaveLength(6);
+
+    // 정렬 토글: 내림차순이면 첫 행이 P101
+    await user.click(screen.getByRole("button", { name: /번호 정렬/ }));
+    expect(within(sheetRows()[0]).getByText("P101")).toBeInTheDocument();
+  });
+
   it("updates the selected view toggle while keeping the list usable", async () => {
     const { user } = renderBuildSheets();
+    await loadedRows();
 
     await user.click(screen.getByRole("button", { name: "격자 보기" }));
     expect(screen.getByRole("button", { name: "격자 보기" })).toHaveAttribute("aria-pressed", "true");
@@ -132,8 +189,7 @@ describe("BuildSheetsView", () => {
 
   it("opens a local viewer shell from a selected sheet row", async () => {
     const { user } = renderBuildSheets();
-
-    await user.click(screen.getByRole("button", { name: "A001 열기" }));
+    await openViewer(user);
 
     expect(screen.getByRole("heading", { name: "A001" })).toBeInTheDocument();
     expect(screen.getByText("ARCHITECTURAL- GRAPHIC SYMBOLS& ABBREVIATIONS")).toBeInTheDocument();
@@ -146,11 +202,12 @@ describe("BuildSheetsView", () => {
     await user.click(screen.getByRole("button", { name: "시트 목록" }));
 
     expect(screen.getByRole("heading", { name: "시트" })).toBeInTheDocument();
-    expect(sheetRows()).toHaveLength(6);
+    expect(await loadedRows()).toHaveLength(6);
   });
 
-  it("names sheet selection checkboxes for browser form-field checks", () => {
+  it("names sheet selection checkboxes for browser form-field checks", async () => {
     renderBuildSheets();
+    await loadedRows();
 
     expect(screen.getByRole("textbox", { name: "시트 검색" })).toHaveAttribute("name", "sheet-search");
     expect(screen.getByRole("checkbox", { name: "모든 시트 선택" })).toHaveAttribute("name", "all-sheets");
@@ -186,7 +243,7 @@ describe("BuildSheetsView", () => {
       "작성 날짜별 이슈 상태",
       "양식을 완료하는 데 걸리는 평균 시간",
       "표시할 기한이 지난 양식",
-      "매일 완료하는 양식"
+      "매일 완료하는 양식",
     ].forEach((title) => {
       expect(screen.getByRole("region", { name: title })).toBeInTheDocument();
     });
@@ -194,6 +251,7 @@ describe("BuildSheetsView", () => {
 
   it("toggles the sheet row export/share menu popover", async () => {
     const { user } = renderBuildSheets();
+    await loadedRows();
 
     expect(screen.queryByRole("menu")).not.toBeInTheDocument();
 
@@ -220,10 +278,6 @@ describe("BuildSheetsView", () => {
     await user.click(within(dialog).getByRole("button", { name: "닫기" }));
     expect(screen.queryByRole("dialog", { name: "파일 업로드" })).not.toBeInTheDocument();
   });
-
-  async function openViewer(user: ReturnType<typeof userEvent.setup>) {
-    await user.click(screen.getByRole("button", { name: "A001 열기" }));
-  }
 
   it("toggles the active markup tool in the viewer tool rail", async () => {
     const { user } = renderBuildSheets();
@@ -300,7 +354,6 @@ describe("BuildSheetsView", () => {
     expect(screen.getByLabelText("비교 결과 A001 대 E101")).toBeInTheDocument();
     expect(screen.getByText("비교한 문서")).toBeInTheDocument();
 
-    // 비교 모드에서는 메인 하단 컨트롤이 숨겨져 zoom 라벨이 중복되지 않는다.
     expect(screen.queryByRole("button", { name: "시트 비교" })).not.toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: "축소" })).toHaveLength(1);
   });

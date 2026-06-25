@@ -28,6 +28,12 @@ class Sheet:
     sheet_index: int
     png_path: Optional[str] = None  # 절대경로
     source: str = ""                # "paperspace" | "modelspace" | "pdf-page"
+    # S2: 시트 레지스터 메타(휴리스틱 추출)
+    sheet_number: str = ""
+    sheet_title: str = ""
+    discipline_code: str = "G"
+    discipline_label: str = "G (기타)"
+    meta_source: str = ""           # filename+page | title-block | filename | page-index | layout
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -117,19 +123,26 @@ def _render_layout_png(doc, layout, out_png: str, dpi: int) -> None:
         plt.close(fig)  # 예외 시에도 figure 누수 방지
 
 
-def render_dxf_sheets(dxf_path: str, file_id: str, base_dir: str, dpi: int = None) -> tuple:
-    """DXF를 시트(PNG)로 분리. (sheets, scan) 반환."""
+def render_dxf_sheets(dxf_path: str, file_id: str, base_dir: str, filename: str = "", dpi: int = None) -> tuple:
+    """DXF를 시트(PNG)로 분리. (sheets, scan) 반환.
+
+    S2: 다중 paperspace 레이아웃을 각각 시트로 분리(viewport-only 레이아웃 포함).
+    빈 paperspace(엔티티 0)인 DWG는 modelspace 단일 시트로 폴백(modelspace 자동분할은 범위 밖).
+    """
     import ezdxf
+    from sheet_meta import discipline_from_filename
     dpi = dpi or config.RENDER_DPI
     doc = ezdxf.readfile(dxf_path)
 
     paper_layouts = [l for l in doc.layouts if l.name.lower() != "model"]
-    # paperspace layout에 엔티티가 있는 것만 시트로 채택
+    # paperspace layout에 그릴 엔티티(viewport 포함)가 있는 것만 시트로 채택.
     paper_layouts = [l for l in paper_layouts if len(list(l)) > 0]
 
     sheets_dir = Path(base_dir) / "sheets"
     sheets_dir.mkdir(parents=True, exist_ok=True)
     sheets: list[Sheet] = []
+    dcode, dlabel = discipline_from_filename(filename)
+    stem = os.path.splitext(os.path.basename(filename or ""))[0] or "도면"
 
     if paper_layouts:
         for i, layout in enumerate(paper_layouts):
@@ -137,7 +150,12 @@ def render_dxf_sheets(dxf_path: str, file_id: str, base_dir: str, dpi: int = Non
             png = sheets_dir / f"{sid}.png"
             try:
                 _render_layout_png(doc, layout, str(png), dpi)
-                sheets.append(Sheet(sid, layout.name, i, str(png), "paperspace"))
+                # 레이아웃명을 시트번호로(없으면 stem-N), 제목은 파일명 stem.
+                num = layout.name if layout.name else f"{stem}-{i+1}"
+                sheets.append(Sheet(sid, layout.name, i, str(png), "paperspace",
+                                    sheet_number=num, sheet_title=stem,
+                                    discipline_code=dcode, discipline_label=dlabel,
+                                    meta_source="layout"))
             except Exception as e:  # noqa: BLE001
                 logger.error("paperspace render fail %s: %s", layout.name, e)
     if not sheets:
@@ -145,7 +163,11 @@ def render_dxf_sheets(dxf_path: str, file_id: str, base_dir: str, dpi: int = Non
         sid = f"{file_id}_sheet_001"
         png = sheets_dir / f"{sid}.png"
         _render_layout_png(doc, doc.modelspace(), str(png), dpi)
-        sheets.append(Sheet(sid, "Model", 0, str(png), "modelspace"))
+        logger.info("paperspace 비어 modelspace 단일 렌더: %s", file_id)
+        sheets.append(Sheet(sid, "Model", 0, str(png), "modelspace",
+                            sheet_number=stem, sheet_title=stem,
+                            discipline_code=dcode, discipline_label=dlabel,
+                            meta_source="filename"))
 
     msp = doc.modelspace()
     scan = {
@@ -162,8 +184,10 @@ def render_dxf_sheets(dxf_path: str, file_id: str, base_dir: str, dpi: int = Non
 # PDF → 페이지 PNG (PyMuPDF)
 # ---------------------------------------------------------------------------
 
-def render_pdf_sheets(pdf_path: str, file_id: str, base_dir: str, dpi: int = None) -> tuple:
+def render_pdf_sheets(pdf_path: str, file_id: str, base_dir: str, filename: str = "", dpi: int = None) -> tuple:
+    """PDF를 페이지별 시트(PNG)로 분할(S2). 각 페이지 텍스트로 시트 메타 휴리스틱 추출."""
     import fitz  # PyMuPDF
+    from sheet_meta import extract_sheet_meta
     dpi = dpi or config.RENDER_DPI
     sheets_dir = Path(base_dir) / "sheets"
     sheets_dir.mkdir(parents=True, exist_ok=True)
@@ -175,7 +199,12 @@ def render_pdf_sheets(pdf_path: str, file_id: str, base_dir: str, dpi: int = Non
         sid = f"{file_id}_sheet_{i+1:03d}"
         png = sheets_dir / f"{sid}.png"
         page.get_pixmap(matrix=mat).save(str(png))
-        sheets.append(Sheet(sid, f"Page {i+1}", i, str(png), "pdf-page"))
+        meta = extract_sheet_meta(page.get_text(), filename, i)
+        sheets.append(Sheet(sid, meta["number"], i, str(png), "pdf-page",
+                            sheet_number=meta["number"], sheet_title=meta["title"],
+                            discipline_code=meta["discipline_code"],
+                            discipline_label=meta["discipline_label"],
+                            meta_source=meta["meta_source"]))
     scan = {"pages": len(doc)}
     doc.close()
     return sheets, scan
@@ -185,8 +214,8 @@ def render_pdf_sheets(pdf_path: str, file_id: str, base_dir: str, dpi: int = Non
 # 통합 워크플로
 # ---------------------------------------------------------------------------
 
-def process_drawing(file_path: str, file_id: str, file_format: str, base_dir: str) -> ConversionResult:
-    """포맷별 변환→시트→PNG. 예외는 status=failed로 흡수."""
+def process_drawing(file_path: str, file_id: str, file_format: str, base_dir: str, filename: str = "") -> ConversionResult:
+    """포맷별 변환→시트→PNG. 예외는 status=failed로 흡수. filename은 시트 메타 추출용."""
     res = ConversionResult(status="converting")
     fmt = file_format.lower()
     try:
@@ -194,12 +223,12 @@ def process_drawing(file_path: str, file_id: str, file_format: str, base_dir: st
             dxf_path = os.path.join(base_dir, "converted.dxf")
             convert_dwg_to_dxf(file_path, dxf_path)
             res.dxf_path = dxf_path
-            sheets, scan = render_dxf_sheets(dxf_path, file_id, base_dir)
+            sheets, scan = render_dxf_sheets(dxf_path, file_id, base_dir, filename)
         elif fmt == "dxf":
             res.dxf_path = file_path
-            sheets, scan = render_dxf_sheets(file_path, file_id, base_dir)
+            sheets, scan = render_dxf_sheets(file_path, file_id, base_dir, filename)
         elif fmt == "pdf":
-            sheets, scan = render_pdf_sheets(file_path, file_id, base_dir)
+            sheets, scan = render_pdf_sheets(file_path, file_id, base_dir, filename)
         else:
             raise ValueError(f"Unsupported format: {file_format}")
         res.sheets = [s.to_dict() for s in sheets]

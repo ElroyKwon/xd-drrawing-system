@@ -1,7 +1,36 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import App from "./App";
+
+// S2: Build 시트 목록은 백엔드 도면(실데이터)으로 구성된다. Study_Project만 시트를 제공하고
+// 그 외(새 빈 프로젝트)는 빈 목록으로 응답하도록 listDrawings를 목킹(픽스처는 hoisting 안전상 팩토리 내부).
+vi.mock("./api/drawings", async (importActual) => {
+  const actual = await importActual<typeof import("./api/drawings")>();
+  const mk = (id: string, num: string, title: string, code: string, label: string, idx: number) => ({
+    sheet_id: id, sheet_name: num, sheet_index: idx, source: "pdf-page",
+    sheet_number: num, sheet_title: title, discipline_code: code, discipline_label: label,
+  });
+  const study = [
+    {
+      file_id: "seed", filename: "seed.pdf", file_format: "pdf", file_size: 1,
+      upload_date: "2026-06-25T00:00:00", project_name: "Study_Project", version: "1",
+      conversion_status: "completed",
+      sheets: [
+        mk("sheet-a001", "A001", "ARCHITECTURAL- GRAPHIC SYMBOLS& ABBREVIATIONS", "A", "A (건축)", 0),
+        mk("sheet-a101", "A101", "OFFICE- FLOOR PLAN- LEVEL1", "A", "A (건축)", 1),
+        mk("sheet-a102", "A102", "OFFICE- FLOOR PLAN", "A", "A (건축)", 2),
+        mk("sheet-e101", "E101", "OFFICE- POWER PLAN", "E", "E (전기)", 3),
+        mk("sheet-m101", "M101", "OFFICE- MECHANICAL PLAN", "M", "M (기계)", 4),
+        mk("sheet-p101", "P101", "OFFICE- PLUMBING PLAN", "P", "P (배관)", 5),
+      ],
+    },
+  ];
+  return {
+    ...actual,
+    listDrawings: vi.fn((name?: string) => Promise.resolve(name === "Study_Project" ? study : [])),
+  };
+});
 
 function renderApp() {
   return {
@@ -221,7 +250,7 @@ describe("initial setup project list and create modal", () => {
     expect(screen.getByText("Project 작업 레벨")).toBeInTheDocument();
     expect(screen.getByText("Study_Project")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "시트" })).toBeInTheDocument();
-    expect(screen.getByText("A001")).toBeInTheDocument();
+    expect(await screen.findByText("A001")).toBeInTheDocument();
     expect(screen.getByText("6 중 1-6 표시")).toBeInTheDocument();
     expect(screen.queryByText("Hub Admin")).not.toBeInTheDocument();
     expect(screen.queryByRole("tab", { name: "프로젝트" })).not.toBeInTheDocument();

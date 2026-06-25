@@ -48,15 +48,20 @@ def _png_url(abs_png: str) -> str | None:
 
 def _with_urls(row: dict) -> dict:
     row = dict(row)
+    sheets = []
     for s in row.get("sheets", []) or []:
+        s = dict(s)
         s["png_url"] = _png_url(s.get("png_path"))
+        s.pop("png_path", None)  # 절대 서버경로는 응답에서 제거(정보 노출 차단)
+        sheets.append(s)
+    row["sheets"] = sheets
     return row
 
 
-def _run_conversion(file_id: str, file_path: str, file_format: str, base_dir: str):
+def _run_conversion(file_id: str, file_path: str, file_format: str, base_dir: str, filename: str = ""):
     store = get_store()
     store.update_conversion(file_id, "converting")
-    res = process_drawing(file_path, file_id, file_format, base_dir)
+    res = process_drawing(file_path, file_id, file_format, base_dir, filename)
     store.update_conversion(
         file_id, res.status, sheets=res.sheets, scan=res.scan,
         dxf_path=res.dxf_path, error=res.error,
@@ -99,14 +104,15 @@ async def upload_drawing(
         "sheets": [],
     }
     get_store().add_drawing(meta)
-    background.add_task(_run_conversion, file_id, str(dest), ext, str(base_dir))
+    background.add_task(_run_conversion, file_id, str(dest), ext, str(base_dir), file.filename or "")
     logger.info("uploaded %s (%s, %d bytes)", file_id, file.filename, len(data))
     return _with_urls(meta)
 
 
 @router.get("")
 async def list_drawings(project_name: str | None = None):
-    return get_store().list_drawings(project_name)
+    # 각 시트에 png_url을 부여해야 시트 레지스터(목록)에서 뷰어가 실 렌더를 띄운다.
+    return [_with_urls(r) for r in get_store().list_drawings(project_name)]
 
 
 @router.get("/{file_id}")

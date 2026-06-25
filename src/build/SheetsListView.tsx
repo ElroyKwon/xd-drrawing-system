@@ -1,6 +1,6 @@
-import { Download, Filter, Grid2X2, List, MoreVertical, Search, Share2 } from "lucide-react";
+import { ArrowDownAZ, ArrowUpAZ, Download, Grid2X2, List, MoreVertical, Search, Share2 } from "lucide-react";
 import { useState } from "react";
-import type { Sheet } from "../buildSheetsData";
+import type { Sheet, SheetSortKey } from "../buildSheetsData";
 
 export type ViewMode = "list" | "grid";
 
@@ -10,9 +10,14 @@ type SheetsListViewProps = {
   query: string;
   sheets: Sheet[];
   viewMode: ViewMode;
+  disciplines: string[];
+  disciplineFilter: string;
+  sortKey: SheetSortKey;
   onOpenSheet: (sheet: Sheet) => void;
   onQueryChange: (value: string) => void;
   onViewModeChange: (mode: ViewMode) => void;
+  onDisciplineChange: (discipline: string) => void;
+  onSortToggle: () => void;
 };
 
 export default function SheetsListView({
@@ -21,9 +26,14 @@ export default function SheetsListView({
   query,
   sheets,
   viewMode,
+  disciplines,
+  disciplineFilter,
+  sortKey,
   onOpenSheet,
   onQueryChange,
-  onViewModeChange
+  onViewModeChange,
+  onDisciplineChange,
+  onSortToggle
 }: SheetsListViewProps) {
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
@@ -52,8 +62,26 @@ export default function SheetsListView({
             onChange={(event) => onQueryChange(event.target.value)}
           />
         </label>
-        <button className="icon-button" type="button" aria-label="필터">
-          <Filter size={18} />
+        <select
+          className="discipline-filter"
+          name="discipline-filter"
+          aria-label="공종 필터"
+          value={disciplineFilter}
+          onChange={(event) => onDisciplineChange(event.target.value)}
+        >
+          {disciplines.map((d) => (
+            <option key={d} value={d}>
+              {d === "전체" ? "전체 공종" : d}
+            </option>
+          ))}
+        </select>
+        <button
+          className="icon-button"
+          type="button"
+          aria-label={`번호 정렬 (${sortKey === "number-asc" ? "오름차순" : "내림차순"})`}
+          onClick={onSortToggle}
+        >
+          {sortKey === "number-asc" ? <ArrowDownAZ size={18} /> : <ArrowUpAZ size={18} />}
         </button>
         <div className="view-toggle" aria-label="보기 전환">
           <button type="button" aria-label="격자 보기" aria-pressed={viewMode === "grid"} onClick={() => onViewModeChange("grid")}>

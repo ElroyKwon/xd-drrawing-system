@@ -1,6 +1,8 @@
 // S1 백엔드(xd 로컬 FastAPI) 도면 API 클라이언트.
 // 로컬 개발: http://127.0.0.1:8000 (CORS 허용됨).
 
+import type { Sheet } from "../buildSheetsData";
+
 export const BACKEND_BASE =
   (import.meta.env?.VITE_BACKEND_BASE as string | undefined) ?? "http://127.0.0.1:8000";
 
@@ -11,6 +13,12 @@ export type BackendSheet = {
   png_path?: string;
   png_url?: string | null;
   source?: string;
+  // S2 시트 레지스터 메타(휴리스틱 추출)
+  sheet_number?: string;
+  sheet_title?: string;
+  discipline_code?: string;
+  discipline_label?: string;
+  meta_source?: string;
 };
 
 export type Drawing = {
@@ -74,6 +82,32 @@ export async function getDrawing(fileId: string): Promise<Drawing> {
     throw new Error(`조회 실패 (${res.status})`);
   }
   return res.json();
+}
+
+/** 백엔드 도면 목록(완료분)을 프론트 Sheet[]로 매핑(S2 시트 레지스터 실데이터). */
+export function drawingsToSheets(drawings: Drawing[], projectId: string): Sheet[] {
+  const sheets: Sheet[] = [];
+  for (const d of drawings) {
+    if (d.conversion_status !== "completed") continue;
+    for (const s of d.sheets) {
+      sheets.push({
+        id: s.sheet_id,
+        projectId,
+        number: s.sheet_number || s.sheet_name || d.filename,
+        title: s.sheet_title || d.filename,
+        version: d.version || "1",
+        versionSet: "-",
+        disciplineCode: s.discipline_code || "G",
+        disciplineLabel: s.discipline_label || "G (기타)",
+        tag: s.source || d.file_format,
+        lastUpdatedBy: "업로드",
+        imageUrl: sheetImageUrl(s),
+        fileId: d.file_id,
+        source: s.source,
+      });
+    }
+  }
+  return sheets;
 }
 
 export async function listDrawings(projectName?: string): Promise<Drawing[]> {
