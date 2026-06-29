@@ -174,18 +174,164 @@ export type VectorStroke = { pts: [number, number][]; color: string; layer: stri
 /** 벡터 채움 폴리곤(HATCH·SOLID·텍스트 path 등). */
 export type VectorFill = { pts: [number, number][]; color: string; layer: string };
 
+/** S4: DXF 측정 단위(model 1단위 = to_meter 미터). 미상이면 to_meter=null. */
+export type VectorUnits = { insunits: number; name: string; to_meter: number | null };
+
 export type VectorData = {
   strokes: VectorStroke[];
   fills: VectorFill[];
   points: { x: number; y: number; color: string; layer: string }[];
   layers: string[];
   bbox: [number, number, number, number] | null;
+  units?: VectorUnits;
   stats: Record<string, unknown>;
 };
 
+// --- S4: 마크업 / 측정 / 비교 ---
+
+export type MarkupGeometry = [number, number][];
+export type MarkupStyle = { color?: string; width?: number; fill?: string; opacity?: number };
+
+export type Markup = {
+  markup_id: string;
+  file_id: string;
+  sheet_id: string;
+  kind: string;
+  coord_space: "world" | "image";
+  geometry: MarkupGeometry;
+  style: MarkupStyle;
+  text: string;
+  author: string;
+  created_at: string;
+};
+
+export type Measurement = {
+  measurement_id: string;
+  file_id: string;
+  sheet_id: string;
+  type: string;
+  geometry: MarkupGeometry;
+  value: number;
+  unit: string;
+  created_at: string;
+};
+
+export type CompareResult = {
+  file_id: string;
+  against: string;
+  sheet_index: number;
+  mask_url: string | null;
+  png_a_url: string | null;
+  png_b_url: string | null;
+  width: number;
+  height: number;
+  changed_pixels: number;
+  total_pixels: number;
+  changed_ratio: number;
+  changed_bbox: number[] | null;
+};
+
+export async function listMarkups(fileId: string, sheetId: string): Promise<Markup[]> {
+  const url = new URL(`${BACKEND_BASE}/api/drawings/${fileId}/markups`);
+  url.searchParams.set("sheet_id", sheetId);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`마크업 조회 실패 (${res.status})`);
+  return res.json();
+}
+
+export async function createMarkup(
+  fileId: string,
+  input: {
+    sheet_id: string;
+    kind: string;
+    coord_space: "world" | "image";
+    geometry: MarkupGeometry;
+    style?: MarkupStyle;
+    text?: string;
+    author?: string;
+  },
+): Promise<Markup> {
+  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/markups`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input),
+  });
+  if (!res.ok) throw new Error(`마크업 생성 실패 (${res.status}): ${await res.text()}`);
+  return res.json();
+}
+
+export async function updateMarkup(
+  fileId: string,
+  markupId: string,
+  patch: { geometry?: MarkupGeometry; style?: MarkupStyle; text?: string; kind?: string },
+): Promise<Markup> {
+  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/markups/${markupId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(patch),
+  });
+  if (!res.ok) throw new Error(`마크업 수정 실패 (${res.status})`);
+  return res.json();
+}
+
+export async function deleteMarkup(fileId: string, markupId: string): Promise<void> {
+  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/markups/${markupId}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error(`마크업 삭제 실패 (${res.status})`);
+}
+
+export async function listMeasurements(fileId: string, sheetId: string): Promise<Measurement[]> {
+  const url = new URL(`${BACKEND_BASE}/api/drawings/${fileId}/measurements`);
+  url.searchParams.set("sheet_id", sheetId);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`측정 조회 실패 (${res.status})`);
+  return res.json();
+}
+
+export async function createMeasurement(
+  fileId: string,
+  input: { sheet_id: string; type: string; geometry: MarkupGeometry; value: number; unit: string },
+): Promise<Measurement> {
+  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/measurements`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input),
+  });
+  if (!res.ok) throw new Error(`측정 생성 실패 (${res.status}): ${await res.text()}`);
+  return res.json();
+}
+
+export async function deleteMeasurement(fileId: string, measurementId: string): Promise<void> {
+  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/measurements/${measurementId}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error(`측정 삭제 실패 (${res.status})`);
+}
+
+/** 같은 version_set 두 버전 PNG 픽셀 diff(백엔드 마스크 + 변경 통계). */
+export async function compareVersions(
+  fileId: string,
+  against: string,
+  sheetIndex = 0,
+): Promise<CompareResult> {
+  const url = new URL(`${BACKEND_BASE}/api/drawings/${fileId}/compare`);
+  url.searchParams.set("against", against);
+  url.searchParams.set("sheet_index", String(sheetIndex));
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`비교 실패 (${res.status}): ${await res.text()}`);
+  return res.json();
+}
+
+/** png_url(상대) → 백엔드 절대 URL. null이면 undefined. */
+export function fileUrl(relUrl: string | null | undefined): string | undefined {
+  return relUrl ? `${BACKEND_BASE}${relUrl}` : undefined;
+}
+
 /** DXF에서 추출한 벡터 엔티티(②경로). PDF/변환 미완이면 4xx. */
 export async function fetchVector(fileId: string): Promise<VectorData> {
-  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/vector`);
+  // 벡터 JSON은 재변환/스키마 변경으로 갱신될 수 있어 항상 재검증한다(휴리스틱 stale 캐시 방지).
+  const res = await fetch(`${BACKEND_BASE}/api/drawings/${fileId}/vector`, { cache: "no-cache" });
   if (!res.ok) {
     throw new Error(`벡터 조회 실패 (${res.status}): ${await res.text()}`);
   }
@@ -220,6 +366,8 @@ export function drawingsToSheets(drawings: Drawing[], projectId: string): Sheet[
         imageUrl: sheetImageUrl(s),
         fileId: d.file_id,
         source: s.source,
+        sheetIndex: s.sheet_index,
+        versionSetId: d.version_set_id || d.file_id,
       });
     }
   }

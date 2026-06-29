@@ -18,6 +18,22 @@ from typing import Iterable
 
 logger = logging.getLogger(__name__)
 
+# DXF $INSUNITS 코드 → (단위명, model→meter 환산계수). 측정 실척 환산용(S4).
+# 미정의/0(unitless)은 unknown으로 두고 측정은 model 단위로만 표기(무성 가정 금지).
+_INSUNITS = {
+    1: ("in", 0.0254),
+    2: ("ft", 0.3048),
+    3: ("mi", 1609.344),
+    4: ("mm", 0.001),
+    5: ("cm", 0.01),
+    6: ("m", 1.0),
+    7: ("km", 1000.0),
+    8: ("uin", 0.0254e-6),
+    9: ("mil", 0.0254e-3),
+    10: ("yd", 0.9144),
+    14: ("dm", 0.1),
+}
+
 # flatten 시 곡선→직선 근사 거리(도면 단위). 작을수록 곡선이 매끄럽지만 점이 많아진다.
 _FLATTEN_DISTANCE = 0.5
 # 좌표 반올림 자리수. 도면은 보통 수만~수십만 단위 폭이라 소수 1자리면 표시에 충분.
@@ -129,6 +145,9 @@ def extract_vector(dxf_path: str) -> dict:
 
     doc = ezdxf.readfile(dxf_path)
     msp = doc.modelspace()
+    # S4: $INSUNITS로 model 좌표 → 실척 단위 환산계수 도출(측정 자동 캘리브레이션).
+    insunits = int(doc.header.get("$INSUNITS", 0) or 0)
+    unit_name, unit_to_meter = _INSUNITS.get(insunits, ("unknown", None))
     backend = _JSONRecorderBackend()
     ctx = RenderContext(doc)
     try:
@@ -144,6 +163,12 @@ def extract_vector(dxf_path: str) -> dict:
         "points": backend.points,
         "layers": sorted(backend.layers),
         "bbox": bbox,
+        # S4 측정 단위: insunits 코드 + 단위명 + model 1단위가 몇 미터인지(미상이면 null).
+        "units": {
+            "insunits": insunits,
+            "name": unit_name,
+            "to_meter": unit_to_meter,
+        },
         "stats": {
             "strokes": len(backend.strokes),
             "fills": len(backend.fills),
@@ -159,7 +184,10 @@ def get_vector_json(dxf_path: str, cache_path: str) -> dict:
     cache = Path(cache_path)
     if cache.exists():
         try:
-            return json.loads(cache.read_text(encoding="utf-8"))
+            cached = json.loads(cache.read_text(encoding="utf-8"))
+            # 스키마 진화 가드: 구 캐시(S4 이전, units 필드 없음)는 재생성한다.
+            if "units" in cached:
+                return cached
         except (json.JSONDecodeError, OSError):
             pass
     data = extract_vector(dxf_path)

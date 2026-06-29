@@ -315,3 +315,58 @@ Study_Project에 제주 68p 업로드 후 시트/파일 뷰 검증(스크린샷 
 - EVIDENCE "35 PASS" → **37**(수리 전), 수리 후 **39** 정정.
 
 **잔여 후속 부채(비차단, S2.5 범위 외)**: 멀티벤더 양식의 날짜/노이즈 값 오염·below 탐색창·공종 첫글자 폴백 오분류(ATS→A 등)=양식 프로파일/추출 강화 후속 · 용량 stat 매 목록호출 rglob 캐시 · 페이저 aria-live · OCR/스캔 PDF.
+
+---
+
+# EVIDENCE — S4 마크업·측정·시트비교 실연산 + 영속 (2026-06-29)
+
+> 메타프롬프트 `prompts/05-s4-markup-measure-compare.md` FROZEN(acceptance E1~E13) 기준. 구현 후 자체 e2e + 독립 검증팀 채점.
+
+## 게이트 (must-pass)
+- `npm run build`(tsc+vite) PASS · `npm test` **76 PASS**(geometry 6 신규) · backend `pytest` **51 PASS**(S4 12 신규) · `git diff --check` clean(CRLF 경고만).
+
+## 구현 범위
+- **백엔드**: `store.py`(DrawingStore에 markup/measurement CRUD — Json·TypeDB 양 백엔드, `_markups.json`/`_measurements.json` 인덱스, `(file_id,sheet_id)` 스코프), `schema/04-drawings.tql`(markup·measurement entity+속성 추가), `vector.py`(`$INSUNITS`→`units{name,to_meter}` 추출+스키마진화 캐시가드), `compare.py`(PIL 픽셀 diff 마스크+변경비율), `routes_markup.py`(신설: markups GET/POST/PATCH/DELETE·measurements GET/POST/DELETE·compare GET, 같은 version_set 검증·traversal 방어), `routes_drawing.py`(/vector `Cache-Control: no-cache`), `main.py`(라우트 등록).
+- **프론트**: `VectorCanvas.tsx`(world↔screen 변환으로 같은 draw 루프에 마크업/측정 오버레이 렌더+도구 드래그/클릭 생성+히트테스트+텍스트 입력+onUnits), `MarkupCanvas.tsx`(PDF/래스터 정규화 좌표 SVG 오버레이+드로잉, draftRef 단일 진실원), `geometry.ts`(측정 순수함수 distance/polygonArea/measureValue), `SheetViewerShell.tsx`(전면 오케스트레이션: 로드·생성·편집·삭제·비교), `MarkupListPanel`/`MarkupPropertyPanel`/`MeasurePanel`/`CalibrationModal`(실데이터·편집·삭제·단위), `CompareModal`(버전 조회·선택)/`CompareOverlay`(canvas 색상합성+투명도/스와이프+백엔드 diff 마스크 토글), `drawings.ts`(S4 API·타입), `viewerData.ts`(데모 시드 제거), `s1-buildout.css`(S4 스타일).
+
+## Acceptance 체크 (E1~E13) — 브라우저 e2e device 증거
+실데이터: DWG `09a5c45a`(original.dwg, INSUNITS=4 mm, 범위 ~244m), PDF `0fc96642`(6.6kV 단선결선도), 비교 버전세트 plan_a(v1)/plan_b(v2 박스 이동).
+
+- **E1 마크업 그리기(벡터)** MET(device): DXF Model 시트에서 도구레일로 도형/클라우드/폴리라인/다각형/텍스트를 마우스 드래그·클릭으로 실제 생성(스크린샷 `s4-02-markups-restored.png`).
+- **E2 마크업 영속+복원(world)** MET(device): 5개 마크업 `POST` 저장 → **전체 페이지 새로고침+재진입** 후 `GET`으로 전부 복원, world 좌표라 줌/핏 무관 도면에 고정. 텍스트 geom=실 DXF 좌표 `[86919,41182]`.
+- **E3 선택/편집/삭제** MET(device): 도형 선택→속성패널(종류·좌표계 world·정점수·작성자)→색상 PATCH(#d8232a→#2f9e44 백엔드 반영)→삭제(5→4 영속).
+- **E4 PDF 마크업(정규화)** MET(device): PDF 단선결선도에서 도형·텍스트 생성, `coord_space=image`·정규화 좌표 `[0.32,0.28]→[0.58,0.5]`∈[0,1] 영속(`s4-04-*.png`).
+- **E5 측정 실연산(DXF 자동)** MET(device): mm 단위 자동 인식("mm (실척 자동)"), 선형=**43.645 m**(model 43645mm×0.001), 다각형 면적=**615.83 ㎡**. 정적 measureRows 아님(`s4-03-measure-dxf.png`).
+- **E6 측정 영속** MET(device): MeasurePanel 실데이터(M1 선형·M2 면적), `_measurements.json` 영속.
+- **E7 PDF 측정 비활성** MET(device): PDF 시트 측정 패널 "측정은 DXF 벡터 시트 전용입니다(PDF 제외)." 안내, 측정 도구 비활성.
+- **E8 비교 오버레이(클라)** MET(device): plan v1/v2를 canvas 픽셀 색상 합성 — 이전=빨강/현재=파랑(박스 이동이 빨강·파랑 분리로 가시), 공통 프레임=검정. 투명도·스와이프 슬라이더·이전/현재 토글 동작(`s4-05-compare-overlay-diff.png`).
+- **E9 비교 diff(백엔드)** MET(device): `GET /compare?against=` 픽셀 diff 마스크 PNG 생성·반환, **변경 픽셀 2.00%** 표시, 변경 영역 강조 토글. 같은 version_set 검증·traversal 방어(pytest).
+- **E10 백엔드 영속 모델** MET(static+device): store markup/measurement CRUD Json·TypeDB 양 구현, TypeDB 스키마 entity 추가, `(file_id,sheet_id)` 스코프(pytest 12 + JSON 인덱스 확인).
+- **E11 테스트 게이트** MET: build PASS · npm test 76 · pytest 51 · diff clean.
+- **E12 브라우저 e2e + 콘솔 0** MET(device): 클린 리로드 후 전 플로우, 콘솔 **error 0**(CORS·draft 잔여는 수리 후 소거; 잔여 1 a11y issue+1 canvas warn도 `willReadFrequently`+select `name`으로 해소).
+- **E13 실제 도면 기반 운영자 사례** MET(device): DXF에 "**현장 패널 번호와 도면 표기 상이 - CAD 수정 요청**", PDF 단선결선도에 "**차단기 용량 표기 재확인 요망**" — 실제 렌더 도면을 보고 만든 운영자 관점 마크업(generic seed 아님).
+
+## 구현 중 적발·수리한 실 버그(자체)
+1. **벡터 캐시 units 누락**: S1.5 캐시 vector.json에 units 없음 → 측정 model 단위로만 계산. **스키마진화 가드**(`if "units" in cached`) + 캐시 재생성으로 수리.
+2. **이미지 CORS 캐시 충돌**: 일반 `<img>`가 ACAO 없이 캐시한 응답을 crossOrigin 합성 요청이 재사용 → taint로 색상 합성 실패. CompareOverlay 합성 로드에 `?cors=1` 캐시키 분리 + `/vector` `Cache-Control: no-cache`로 수리.
+3. **MarkupCanvas stale 클로저**: PDF 드로잉이 draft를 `useState`로 읽어 단일 제스처 내 빈 값 → 마크업 미생성. **draftRef 단일 진실원**으로 수리(VectorCanvas 선례).
+4. **setPointerCapture 합성포인터 throw**: try/catch 방어(best-effort).
+
+## 독립 검증팀 3렌즈 (2026-06-29) + 수리
+
+- **백엔드 적대적**: PASS. 스코프 격리(다른 시트/파일 마크업 누수 0)·compare version_set 검증(같은 vset 200·다른 vset 400·없는 against 404·sheet_index 초과 400, 라이브 입증)·traversal 방어·units 무성가정금지·diff 정규화(동일 0·해상도 불일치 resize) 전부 실증. BLOCKER/MAJOR 0. **MINOR 2**(TypeDB markup/measurement insert 소수초 datetime 리터럴·`update_markup` 그래프 미반영 — 둘 다 JSON-SoT·미실행 경로라 무해, "TypeDB 직접쿼리화 후속" freeze 가정 범위).
+- **프론트 코드/정확성**: PASS(조건부). 좌표 역변환·측정 수학(geometry.test 7케이스)·coord_space 분기·편집/삭제 영속·CompareOverlay 픽셀 루프 전부 정확 확인. **MAJOR-1 적발** — `VectorCanvas` 클릭 선택 게이팅이 client/local 좌표 혼용(`e.clientX` vs `down.sx`) → `hypot<4` 불성립 → **캔버스 클릭으로 마크업 선택이 죽어 있음**(리스트 선택 우회로 E3는 충족돼 MAJOR). MINOR-2(이미지 하드 실패 시 무한 스피너), MINOR-3(리스트가 coord_space 미필터).
+- **Done-When 비평가**: **E1~E13 전 항목 MET, NARROWED/UNMET 0** → DONE 가능·HUMAN_GATE 불필요. 측정값 산술 직접 재계산 일치(선형 43.645m·면적 615.83㎡). 비차단 권고: E5 지름 device 증거 부재(코드+버튼+unit test만).
+
+### 수리(수리 후 재검증)
+- **MAJOR-1 수리**: `VectorCanvas.tsx` 클릭 게이팅을 로컬-로컬 비교(`localPos(e)`)로 통일. **device 재검증**: Model 시트에서 캔버스 다각형을 직접 클릭 → "다각형 마크업 속성" 패널 오픈 확인(클릭 선택 복구).
+- **MINOR-2 수리**: CompareOverlay 이미지 로드 `.catch`에서 `setTainted(true)`+`setDiffError` → 무한 스피너 차단.
+- **MINOR-3 수리**: `MarkupListPanel`에 `visibleMarkups` 전달(리스트=현재 캔버스 coord_space 일치). device 확인(벡터 모드 리스트=world 4건).
+- **E5 지름 device 보강**: Model 시트에서 지름 2점 측정 → **27.258 m** 영속(`_measurements.json` 3건: 선형 43.645m·면적 615.83㎡·지름 27.258m). 3종 전부 device. 패널·캔버스 동시 표시 스크린샷 `evidence/s4-06-measure-three-types.png`(M1 선형 43.64m·M2 면적 615.83㎡·M3 지름 27.26m, 캔버스 오버레이 라벨 가시) → E5 비차단 부채 해소.
+- **콘솔 정리**: `CompareOverlay` tmp 컨텍스트 `willReadFrequently:true` + `CompareModal` select `name` 추가 → 최종 콘솔 **error/warn/issue 0**.
+- **수리 후 게이트 재검증**: build PASS · npm test **76 PASS** · pytest **51 PASS** · git diff --check clean(CRLF만).
+
+### 잔여 후속 부채(비차단, S4 범위 외)
+- TypeDB 그래프 markup/measurement 직접 적재·갱신(현재 JSON 미러 SoT, STORE_BACKEND=json) — "직접쿼리화 후속" freeze 가정.
+- CompareOverlay 다해상도 버전 정렬이 stretch-to-A(동일 시트 버전은 무해, 시맨틱 bbox 정렬은 후속).
+- 수동 2점 캘리브레이션·PDF 측정·이슈 영속(S5)·마크업↔이슈 연계.

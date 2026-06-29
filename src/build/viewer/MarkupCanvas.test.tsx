@@ -24,9 +24,10 @@ describe("MarkupCanvas — S1 실 도면 렌더", () => {
       <MarkupCanvas
         selectedSheet={{ ...baseSheet, imageUrl: "http://127.0.0.1:8000/files/x/a.png" }}
         markups={[]}
-        issuePins={[]}
+        activeTool="선택"
         selectedMarkupId={null}
         onSelectMarkup={noop}
+        onCommitMarkup={noop}
       />,
     );
     const img = screen.getByRole("img", { name: /도면 렌더/ });
@@ -40,9 +41,10 @@ describe("MarkupCanvas — S1 실 도면 렌더", () => {
       <MarkupCanvas
         selectedSheet={baseSheet}
         markups={[]}
-        issuePins={[]}
+        activeTool="선택"
         selectedMarkupId={null}
         onSelectMarkup={noop}
+        onCommitMarkup={noop}
       />,
     );
     expect(screen.getByText("정적 시트 렌더")).toBeInTheDocument();

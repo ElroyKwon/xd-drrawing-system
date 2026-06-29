@@ -275,6 +275,8 @@ async def get_drawing_vector(file_id: str):
         logger.exception("vector extract failed: %s", file_id)
         raise HTTPException(500, "벡터 추출 실패")
     # 캐시 파일을 그대로 서빙(대용량 JSON 재파싱/재직렬화 회피).
+    # no-cache: 재변환/스키마 변경 시 브라우저가 stale 본문을 재사용하지 않도록 항상 재검증.
     if cache_path.exists():
-        return FileResponse(str(cache_path), media_type="application/json")
+        return FileResponse(str(cache_path), media_type="application/json",
+                            headers={"Cache-Control": "no-cache"})
     raise HTTPException(500, "벡터 캐시 생성 실패")

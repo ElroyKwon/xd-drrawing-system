@@ -32,6 +32,17 @@ attribute model_name, value string;
 attribute result_json, value string;
 attribute confidence_score, value double;
 
+# S4: Markup / Measurement attributes
+attribute markup_id, value string;
+attribute markup_kind, value string;
+attribute coord_space, value string;
+attribute geometry_json, value string;
+attribute created_at, value datetime;
+attribute measurement_id, value string;
+attribute measure_type, value string;
+attribute measure_value, value double;
+attribute measure_unit, value string;
+
 # ===========================
 # Entity Types
 # ===========================
@@ -61,6 +72,27 @@ entity analysis_result,
     owns analysis_date,
     owns result_json,
     owns confidence_score;
+
+# S4: 마크업(벡터 world / 래스터 정규화 좌표). (file_id, sheet_id) 스코프.
+entity markup,
+    owns markup_id @key,
+    owns file_id,
+    owns sheet_id,
+    owns markup_kind,
+    owns coord_space,
+    owns geometry_json,
+    owns created_at;
+
+# S4: 측정(DXF 실척 거리/면적/지름).
+entity measurement,
+    owns measurement_id @key,
+    owns file_id,
+    owns sheet_id,
+    owns measure_type,
+    owns geometry_json,
+    owns measure_value,
+    owns measure_unit,
+    owns created_at;
 
 # ===========================
 # Relation Types

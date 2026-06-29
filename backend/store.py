@@ -97,6 +97,28 @@ class DrawingStore(ABC):
     def delete_folder(self, folder_id: str) -> bool:
         """폴더 + 하위 폴더 삭제. 소속 도면의 folder_id는 None으로 리셋(고아 방지)."""
 
+    # --- S4: 마크업/측정 영속 ((file_id, sheet_id) 스코프) ---
+    @abstractmethod
+    def add_markup(self, meta: dict) -> None: ...
+
+    @abstractmethod
+    def list_markups(self, file_id: str, sheet_id: str) -> list: ...
+
+    @abstractmethod
+    def update_markup(self, markup_id: str, **fields) -> Optional[dict]: ...
+
+    @abstractmethod
+    def delete_markup(self, markup_id: str) -> bool: ...
+
+    @abstractmethod
+    def add_measurement(self, meta: dict) -> None: ...
+
+    @abstractmethod
+    def list_measurements(self, file_id: str, sheet_id: str) -> list: ...
+
+    @abstractmethod
+    def delete_measurement(self, measurement_id: str) -> bool: ...
+
 
 class JsonDrawingStore(DrawingStore):
     """uploads/_index.json 단일 인덱스. 단일 프로세스 로컬 개발용."""
@@ -105,11 +127,17 @@ class JsonDrawingStore(DrawingStore):
     def __init__(self):
         self._path = Path(config.UPLOADS_DIR) / "_index.json"
         self._folders_path = Path(config.UPLOADS_DIR) / "_folders.json"
+        self._markups_path = Path(config.UPLOADS_DIR) / "_markups.json"
+        self._measurements_path = Path(config.UPLOADS_DIR) / "_measurements.json"
         self._lock = threading.Lock()
         if not self._path.exists():
             self._write({})
         if not self._folders_path.exists():
             self._write_folders({})
+        if not self._markups_path.exists():
+            self._write_at(self._markups_path, {})
+        if not self._measurements_path.exists():
+            self._write_at(self._measurements_path, {})
 
     def _read_at(self, path: Path) -> dict:
         try:
@@ -296,6 +324,66 @@ class JsonDrawingStore(DrawingStore):
                 self._write(drawings)
         return True
 
+    # --- S4: 마크업/측정 영속 ---
+    def add_markup(self, meta: dict) -> None:
+        with self._lock:
+            data = self._read_at(self._markups_path)
+            data[meta["markup_id"]] = meta
+            self._write_at(self._markups_path, data)
+
+    def list_markups(self, file_id: str, sheet_id: str) -> list:
+        rows = [
+            r for r in self._read_at(self._markups_path).values()
+            if r.get("file_id") == file_id and r.get("sheet_id") == sheet_id
+        ]
+        rows.sort(key=lambda r: r.get("created_at", ""))
+        return rows
+
+    def update_markup(self, markup_id: str, **fields) -> Optional[dict]:
+        with self._lock:
+            data = self._read_at(self._markups_path)
+            row = data.get(markup_id)
+            if not row:
+                return None
+            # 좌표·내용·스타일·텍스트만 갱신 허용(스코프 키 file_id/sheet_id/coord_space는 불변).
+            for k in ("geometry", "style", "text", "kind"):
+                if k in fields and fields[k] is not None:
+                    row[k] = fields[k]
+            self._write_at(self._markups_path, data)
+            return row
+
+    def delete_markup(self, markup_id: str) -> bool:
+        with self._lock:
+            data = self._read_at(self._markups_path)
+            if markup_id not in data:
+                return False
+            del data[markup_id]
+            self._write_at(self._markups_path, data)
+            return True
+
+    def add_measurement(self, meta: dict) -> None:
+        with self._lock:
+            data = self._read_at(self._measurements_path)
+            data[meta["measurement_id"]] = meta
+            self._write_at(self._measurements_path, data)
+
+    def list_measurements(self, file_id: str, sheet_id: str) -> list:
+        rows = [
+            r for r in self._read_at(self._measurements_path).values()
+            if r.get("file_id") == file_id and r.get("sheet_id") == sheet_id
+        ]
+        rows.sort(key=lambda r: r.get("created_at", ""))
+        return rows
+
+    def delete_measurement(self, measurement_id: str) -> bool:
+        with self._lock:
+            data = self._read_at(self._measurements_path)
+            if measurement_id not in data:
+                return False
+            del data[measurement_id]
+            self._write_at(self._measurements_path, data)
+            return True
+
 
 class TypeDBDrawingStore(DrawingStore):
     """typedb-driver 적재. 04-drawings 온톨로지(이식). 미가동 시 생성에서 예외."""
@@ -402,6 +490,79 @@ class TypeDBDrawingStore(DrawingStore):
 
     def delete_folder(self, folder_id: str) -> bool:
         return _MIRROR.delete_folder(folder_id)
+
+    # --- S4: 마크업/측정 — 그래프 best-effort 적재 + JSON 미러 SoT(직접쿼리화는 후속) ---
+    def add_markup(self, meta: dict) -> None:
+        try:
+            from typedb.driver import TransactionType
+            with self._driver.transaction(self._db, TransactionType.WRITE) as tx:
+                tx.query(
+                    'insert $m isa markup, '
+                    f'has markup_id "{meta["markup_id"]}", '
+                    f'has file_id "{meta["file_id"]}", '
+                    f'has sheet_id "{meta["sheet_id"]}", '
+                    f'has markup_kind "{_esc(meta.get("kind", ""))}", '
+                    f'has coord_space "{meta.get("coord_space", "world")}", '
+                    f'has geometry_json "{_esc(json.dumps(meta.get("geometry"), ensure_ascii=False))}", '
+                    f'has created_at {meta["created_at"]};'
+                ).resolve()
+                tx.commit()
+        except Exception as e:  # noqa: BLE001
+            logger.error("typedb add_markup: %s", e)
+        _MIRROR.add_markup(meta)
+
+    def list_markups(self, file_id: str, sheet_id: str) -> list:
+        return _MIRROR.list_markups(file_id, sheet_id)
+
+    def update_markup(self, markup_id: str, **fields) -> Optional[dict]:
+        return _MIRROR.update_markup(markup_id, **fields)
+
+    def delete_markup(self, markup_id: str) -> bool:
+        try:
+            from typedb.driver import TransactionType
+            with self._driver.transaction(self._db, TransactionType.WRITE) as tx:
+                tx.query(
+                    f'match $m isa markup, has markup_id "{markup_id}"; delete $m isa markup;'
+                ).resolve()
+                tx.commit()
+        except Exception as e:  # noqa: BLE001
+            logger.error("typedb delete_markup: %s", e)
+        return _MIRROR.delete_markup(markup_id)
+
+    def add_measurement(self, meta: dict) -> None:
+        try:
+            from typedb.driver import TransactionType
+            with self._driver.transaction(self._db, TransactionType.WRITE) as tx:
+                tx.query(
+                    'insert $ms isa measurement, '
+                    f'has measurement_id "{meta["measurement_id"]}", '
+                    f'has file_id "{meta["file_id"]}", '
+                    f'has sheet_id "{meta["sheet_id"]}", '
+                    f'has measure_type "{_esc(meta.get("type", ""))}", '
+                    f'has geometry_json "{_esc(json.dumps(meta.get("geometry"), ensure_ascii=False))}", '
+                    f'has measure_value {float(meta.get("value") or 0)}, '
+                    f'has measure_unit "{_esc(meta.get("unit", ""))}", '
+                    f'has created_at {meta["created_at"]};'
+                ).resolve()
+                tx.commit()
+        except Exception as e:  # noqa: BLE001
+            logger.error("typedb add_measurement: %s", e)
+        _MIRROR.add_measurement(meta)
+
+    def list_measurements(self, file_id: str, sheet_id: str) -> list:
+        return _MIRROR.list_measurements(file_id, sheet_id)
+
+    def delete_measurement(self, measurement_id: str) -> bool:
+        try:
+            from typedb.driver import TransactionType
+            with self._driver.transaction(self._db, TransactionType.WRITE) as tx:
+                tx.query(
+                    f'match $ms isa measurement, has measurement_id "{measurement_id}"; delete $ms isa measurement;'
+                ).resolve()
+                tx.commit()
+        except Exception as e:  # noqa: BLE001
+            logger.error("typedb delete_measurement: %s", e)
+        return _MIRROR.delete_measurement(measurement_id)
 
 
 def _esc(s: str) -> str:

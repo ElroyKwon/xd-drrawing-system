@@ -13,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 import config
 from routes_drawing import router as drawing_router
 from routes_files import router as files_router
+from routes_markup import router as markup_router
 from store import get_store
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -31,6 +32,7 @@ app.add_middleware(
 app.mount("/files", StaticFiles(directory=str(config.UPLOADS_DIR)), name="files")
 app.include_router(drawing_router)
 app.include_router(files_router)
+app.include_router(markup_router)
 
 
 @app.get("/health")

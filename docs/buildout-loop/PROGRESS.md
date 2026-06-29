@@ -2,7 +2,23 @@
 
 > 매 재진입 시 `LOOP.md` → `PLAN.md` → 이 파일 순으로 읽고 이어받는다.
 
-## 현재 상태 (2026-06-29, 세션 5 — S2.5 멀티페이지 스케일 강건화 DONE)
+## 현재 상태 (2026-06-29, 세션 6 — S4 마크업·측정·시트비교 DONE)
+
+- **단계**: **S4 DONE.** 뷰어 affordance(마크업·측정·시트비교)를 실동작+영속으로 교체. 메타프롬프트 `prompts/05-s4-markup-measure-compare.md` FROZEN, acceptance **E1~E13 전부 MET**(EVIDENCE 하단 S4). **미커밋**(diff --check clean, 커밋은 사용자 지시 시).
+- **freeze 4결정 반영**: (Q1)마크업+측정+비교 한 스테이지 · (Q2)벡터 world + PDF 정규화 이중트랙(coord_space) · (Q3)측정 DXF 자동(doc.units)만·PDF 제외 · (Q4)클라 색상오버레이 + 백엔드 픽셀 diff 둘 다.
+- **구현 요약**: backend `store.py`(markup/measurement CRUD Json·TypeDB+`_markups.json`/`_measurements.json`), `vector.py`(`$INSUNITS`→units+캐시 스키마가드), `compare.py`(PIL diff 마스크), `routes_markup.py`(신설), `schema/04-drawings.tql`(entity 추가), `/vector` no-cache. 프론트 `VectorCanvas.tsx`(world↔screen 오버레이+드로잉+측정+히트테스트), `MarkupCanvas.tsx`(PDF 정규화 SVG, draftRef), `geometry.ts`(측정 순수함수), `SheetViewerShell.tsx`(오케스트레이션), 패널 5종 실데이터, `CompareModal`/`CompareOverlay`(버전 색상합성+diff), `drawings.ts` API, `viewerData.ts` 데모 제거.
+- **검증(device)**: DXF에 도형/클라우드/폴리라인/다각형/텍스트 그리기→**새로고침 복원**(world 좌표)→선택/색상편집/삭제 영속→측정 **선형 43.645m·면적 615.83㎡·지름 27.258m**(mm 자동 실척)→PDF 마크업(정규화 [0,1])·측정 비활성→plan v1/v2 비교(이전=빨강/현재=파랑 합성+투명도/스와이프 + 백엔드 diff **변경 2.00%** 마스크). 콘솔 error/warn/issue **0**. 스크린샷 `evidence/s4-01~05`.
+- **게이트**: build PASS · npm test **76**(geometry 6 신규) · backend pytest **51**(S4 12 신규) · git diff clean.
+- **독립 검증팀 3렌즈**: 백엔드 적대적(PASS, MINOR 2=TypeDB 그래프 drift 무해)·프론트 코드(PASS 조건부, **MAJOR-1 적발**=VectorCanvas 클릭선택 client/local 좌표혼용)·Done-When 비평가(E1~E13 MET·NARROWED 0). **MAJOR-1+MINOR-2/3 수리·재검증**(캔버스 클릭선택 복구 device 확인, 무한스피너 차단, 리스트 coord_space 일치), E5 지름 device 보강, 콘솔 정리(willReadFrequently+select name).
+- **자체 적발·수리 실버그**: 벡터 캐시 units 누락(스키마가드)·이미지 CORS 캐시충돌(cors=1+no-cache)·MarkupCanvas stale클로저(draftRef)·setPointerCapture throw(try/catch).
+- **남은 위험(비차단)**: TypeDB 그래프 직접적재(JSON 미러 SoT)·CompareOverlay 다해상도 stretch정렬·수동 캘리브레이션/PDF측정·이슈 영속=S5.
+
+### 세션 6 진입점
+- `prompts/05` FROZEN·E1~E13 MET. 다음=**S5 이슈 영속+뷰어 핀 연계**(마크업↔이슈, `IssuesView`·`IssueAddPanel`·`demoIssuePins` 실동작). prompts/07 작성부터.
+
+---
+
+## 이전 상태 (2026-06-29, 세션 5 — S2.5 멀티페이지 스케일 강건화 DONE)
 
 - **단계**: **S2.5 DONE.** 실측(제주 BESS 68p/94MB 전기도면)으로 도출한 스케일 부채 3건 해소. 메타프롬프트 `prompts/06-s2_5-multipage-scale.md` FROZEN, acceptance **F1~F10 전부 MET**(EVIDENCE 하단 S2.5). **미커밋**(diff --check clean, 커밋은 사용자 지시 시).
 - **공동설계 freeze**: P1=라벨앵커+폴백 · P2=클라 페이지네이션(50/페이지) · P3=용량 가시화(현행 보관 유지).
@@ -84,7 +100,7 @@
 ## 다음 작업 — S1·S1.5·S2·S3 DONE, 다음은 S4
 
 **S1 완료**(e146fc8+f7b1a99). **S1.5 완료**(`2284512`). **S2 완료**(`877518d`). **S3 완료**(D1~D9 MET, 3렌즈+e2e 검증, 이 세션 커밋). 다음 진입:
-- **S4 마크업·측정·비교 실연산 + 영속**: 뷰어 affordance 실동작화. 마크업 그리기/저장(영속), 측정(픽셀↔실척 캘리브레이션 연산), 시트 비교(두 버전 실제 오버레이/diff). `viewerData` 정적 → 영속. → `prompts/05-*.md` 공동설계·freeze 후 ai-loop.
+- **S4 마크업·측정·비교 실연산 + 영속**: 뷰어 affordance 실동작화. 마크업 그리기/저장(영속), 측정(픽셀↔실척 캘리브레이션 연산), 시트 비교(두 버전 실제 오버레이/diff). `viewerData` 정적 → 영속. 2026-06-29 범위 정정: 웹 화면은 DWG/PDF 원본 직접 수정 도구가 아니며, S4 증거는 실제 도면 이미지 기반 운영자 마크업·이슈 예시를 포함해야 한다.
 - (참고) S3 후속 부채: 설명 컬럼 실데이터(Drawing description 모델 추가)·TypeDB folder 직접쿼리화·파일 단위 공유 override·인증/RBAC 강제(S7).
 - (참고) S2 후속 부채: 멀티페이지 타이틀블록 강추출·빈 paperspace modelspace 자동분할·TypeDB 직접쿼리화.
 

@@ -24,6 +24,10 @@ export type Sheet = {
   fileId?: string;
   /** S1.5: 시트 소스("modelspace"|"paperspace"|"pdf-page"). 벡터 가용 판단에 사용. */
   source?: string;
+  /** S4: 도면 내 시트 인덱스(비교 diff에서 같은 페이지 대응에 사용). */
+  sheetIndex?: number;
+  /** S4: 버전세트 id(비교 대상 후보 묶음). */
+  versionSetId?: string;
 };
 
 export const selectedBuildProject: BuildProject = {
