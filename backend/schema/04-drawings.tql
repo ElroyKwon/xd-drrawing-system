@@ -43,6 +43,14 @@ attribute measure_type, value string;
 attribute measure_value, value double;
 attribute measure_unit, value string;
 
+# S5: Issue attributes (생성/조회/상태변경 영속, 선택적 핀)
+attribute issue_id, value string;
+attribute issue_title, value string;
+attribute issue_type, value string;
+attribute issue_status, value string;
+attribute issue_category, value string;
+attribute issue_assignee, value string;
+
 # ===========================
 # Entity Types
 # ===========================
@@ -92,6 +100,20 @@ entity measurement,
     owns geometry_json,
     owns measure_value,
     owns measure_unit,
+    owns created_at;
+
+# S5: 이슈(생성/조회/상태변경 영속). file_id/sheet_id는 선택적(핀 없는 전역 이슈 허용),
+# geometry_json = 핀 좌표({point, coord_space}) 또는 null.
+entity issue,
+    owns issue_id @key,
+    owns file_id,
+    owns sheet_id,
+    owns issue_title,
+    owns issue_type,
+    owns issue_status,
+    owns issue_category,
+    owns issue_assignee,
+    owns geometry_json,
     owns created_at;
 
 # ===========================

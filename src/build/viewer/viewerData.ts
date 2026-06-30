@@ -17,13 +17,17 @@ export type MarkupTool =
 
 export type ViewerLeftTab = "마크업" | "마크업 로그" | "이슈";
 
-// 좌측 이슈 탭 "검색 및 추가" 카테고리(175657)
-export type IssueCategory = { id: string; name: string; description: string; count: number };
+// 좌측 이슈 탭 "검색 및 추가" 카테고리(175657). count는 백엔드 실집계로 주입(정적값 제거).
+export type IssueCategory = { id: string; name: string; description: string };
 export const issueCategories: IssueCategory[] = [
-  { id: "clash", name: "Clash", description: "간섭/충돌 항목", count: 3 },
-  { id: "quality", name: "Quality", description: "품질 점검 항목", count: 1 },
-  { id: "coordination", name: "Coordination", description: "협의/조정 항목", count: 2 }
+  { id: "clash", name: "Clash", description: "간섭/충돌 항목" },
+  { id: "quality", name: "Quality", description: "품질 점검 항목" },
+  { id: "coordination", name: "Coordination", description: "협의/조정 항목" }
 ];
+
+// S5: 이슈 작성 폼 옵션(ACC식 충실 — 유형/상태). 백엔드 _ISSUE_TYPES/_ISSUE_STATUSES와 일치.
+export const issueTypes = ["설계 검토", "현장 확인", "간섭", "품질", "협의", "기타"] as const;
+export const issueStatuses = ["열림", "진행중", "답변됨", "닫힘"] as const;
 
 // 측정 패널(175811) — 축척/단위/측정 타입 + 측정값 리스트
 // S4: 측정 타입(실연산 대상). "합산"은 후속(범위 외).

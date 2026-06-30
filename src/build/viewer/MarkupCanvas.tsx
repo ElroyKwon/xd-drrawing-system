@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import type { Sheet } from "../../buildSheetsData";
-import type { Markup } from "../../api/drawings";
+import type { Issue, Markup } from "../../api/drawings";
 import type { MarkupTool } from "./viewerData";
 
 type Pt = [number, number];
 
 const DRAG_TOOLS: MarkupTool[] = ["도형", "클라우드", "펜"];
 const SEQ_TOOLS: MarkupTool[] = ["폴리라인", "다각형"];
+
+const ISSUE_STATUS_COLOR: Record<string, string> = {
+  열림: "#e8590c",
+  진행중: "#1971c2",
+  답변됨: "#2f9e44",
+  닫힘: "#868e96"
+};
 
 function toolColor(tool: MarkupTool | string): string {
   switch (tool) {
@@ -70,16 +77,24 @@ function MarkupGlyph({ markup, selected }: { markup: Markup; selected: boolean }
 export default function MarkupCanvas({
   selectedSheet,
   markups,
+  issues = [],
   activeTool,
   selectedMarkupId,
+  selectedIssueId = null,
   onSelectMarkup,
+  onSelectIssue,
+  onPlacePin,
   onCommitMarkup
 }: {
   selectedSheet: Sheet;
   markups: Markup[];
+  issues?: Issue[];
   activeTool: MarkupTool;
   selectedMarkupId: string | null;
+  selectedIssueId?: string | null;
   onSelectMarkup: (id: string | null) => void;
+  onSelectIssue?: (id: string | null) => void;
+  onPlacePin?: (pt: Pt) => void;
   onCommitMarkup: (m: { kind: string; geometry: Pt[]; text?: string; color: string }) => void;
 }) {
   const hasImage = Boolean(selectedSheet.imageUrl);
@@ -93,7 +108,9 @@ export default function MarkupCanvas({
   const isDrag = DRAG_TOOLS.includes(activeTool);
   const isSeq = SEQ_TOOLS.includes(activeTool);
   const isText = activeTool === "텍스트";
+  const isPin = activeTool === "이슈 핀";
   const drawing = isDrag || isSeq || isText;
+  const imagePins = issues.filter((i) => i.pin && i.pin.coord_space === "image");
 
   function setDraft(pts: Pt[]) {
     draftRef.current = pts;
@@ -153,6 +170,8 @@ export default function MarkupCanvas({
       setDraft([...draftRef.current, down.n]);
     } else if (isText) {
       setTextDraft(down.n);
+    } else if (isPin) {
+      onPlacePin?.(down.n);
     } else {
       // 선택: 히트테스트
       hitTest(down.n);
@@ -174,15 +193,26 @@ export default function MarkupCanvas({
   }
 
   function hitTest(n: Pt) {
+    // 이슈 핀 우선(작은 타겟). 정규화 좌표 거리.
+    for (let i = imagePins.length - 1; i >= 0; i--) {
+      const p = imagePins[i].pin!.point;
+      if (Math.hypot(n[0] - p[0], n[1] - p[1]) < 0.025) {
+        onSelectIssue?.(imagePins[i].issue_id);
+        onSelectMarkup(null);
+        return;
+      }
+    }
     for (let i = markups.length - 1; i >= 0; i--) {
       const b = bbox(markups[i].geometry);
       const pad = 0.02;
       if (n[0] >= b.x - pad && n[0] <= b.x + b.w + pad && n[1] >= b.y - pad && n[1] <= b.y + b.h + pad) {
         onSelectMarkup(markups[i].markup_id);
+        onSelectIssue?.(null);
         return;
       }
     }
     onSelectMarkup(null);
+    onSelectIssue?.(null);
   }
 
   function commitText(value: string) {
@@ -218,7 +248,7 @@ export default function MarkupCanvas({
           className="markup-overlay"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
-          style={{ cursor: drawing ? "crosshair" : "default" }}
+          style={{ cursor: drawing || isPin ? "crosshair" : "default" }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
@@ -230,6 +260,28 @@ export default function MarkupCanvas({
               <MarkupGlyph markup={m} selected={m.markup_id === selectedMarkupId} />
             </g>
           ))}
+          {imagePins.map((issue) => {
+            const p = issue.pin!.point;
+            const cx = p[0] * 100;
+            const cy = p[1] * 100;
+            const selected = issue.issue_id === selectedIssueId;
+            const color = ISSUE_STATUS_COLOR[issue.status] ?? "#e8590c";
+            return (
+              <g key={issue.issue_id} className="issue-pin-glyph" data-status={issue.status}>
+                <path
+                  d={`M ${cx} ${cy} C ${cx - 2.2} ${cy - 2.6}, ${cx - 2.2} ${cy - 5.4}, ${cx} ${cy - 5.4} C ${cx + 2.2} ${cy - 5.4}, ${cx + 2.2} ${cy - 2.6}, ${cx} ${cy} Z`}
+                  fill={color}
+                  stroke="#ffffff"
+                  strokeWidth={selected ? 0.7 : 0.4}
+                  vectorEffect="non-scaling-stroke"
+                />
+                <circle cx={cx} cy={cy - 4} r={selected ? 1.6 : 1.2} fill="#ffffff" />
+                {selected ? (
+                  <circle cx={cx} cy={cy - 4} r={3.4} fill="none" stroke="#ffd43b" strokeWidth={0.5} vectorEffect="non-scaling-stroke" />
+                ) : null}
+              </g>
+            );
+          })}
           {draftRef.current.length >= 2 && (
             <polyline
               points={draftRef.current.map((p) => `${p[0] * 100},${p[1] * 100}`).join(" ")}

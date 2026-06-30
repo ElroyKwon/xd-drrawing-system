@@ -1,8 +1,15 @@
 import { Layers, Loader2, Maximize2, Minus, Plus } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { fetchVector, type Markup, type Measurement, type VectorData, type VectorUnits } from "../../api/drawings";
+import { fetchVector, type Issue, type Markup, type Measurement, type VectorData, type VectorUnits } from "../../api/drawings";
 import type { MarkupTool, MeasureType } from "./viewerData";
 import { distance as dist, measureValue, type Pt } from "./geometry";
+
+const ISSUE_STATUS_COLOR: Record<string, string> = {
+  열림: "#e8590c",
+  진행중: "#1971c2",
+  답변됨: "#2f9e44",
+  닫힘: "#868e96"
+};
 
 type View = { scale: number; tx: number; ty: number };
 
@@ -42,9 +49,14 @@ export default function VectorCanvas({
   activeTool = "선택",
   markups = [],
   measurements = [],
+  issues = [],
   measureType = "선형",
   selectedMarkupId = null,
+  selectedIssueId = null,
+  focusPin = null,
   onSelectMarkup,
+  onSelectIssue,
+  onPlacePin,
   onCommitMarkup,
   onCommitMeasurement,
   onUnits,
@@ -53,9 +65,14 @@ export default function VectorCanvas({
   activeTool?: MarkupTool;
   markups?: Markup[];
   measurements?: Measurement[];
+  issues?: Issue[];
   measureType?: MeasureType;
   selectedMarkupId?: string | null;
+  selectedIssueId?: string | null;
+  focusPin?: Pt | null;
   onSelectMarkup?: (id: string | null) => void;
+  onSelectIssue?: (id: string | null) => void;
+  onPlacePin?: (pt: Pt) => void;
   onCommitMarkup?: (m: { kind: string; geometry: Pt[]; text?: string; color: string }) => void;
   onCommitMeasurement?: (m: { type: MeasureType; geometry: Pt[]; value: number; unit: string }) => void;
   onUnits?: (units: VectorUnits | undefined) => void;
@@ -72,6 +89,7 @@ export default function VectorCanvas({
   const rafRef = useRef<number | null>(null);
 
   const isMeasure = activeTool === "측정";
+  const isPin = activeTool === "이슈 핀";
   const isDrag = DRAG_TOOLS.includes(activeTool) || (isMeasure && (measureType === "선형" || measureType === "지름"));
   const isSeq = SEQ_TOOLS.includes(activeTool) || (isMeasure && measureType === "다각형 면적");
   const isText = activeTool === "텍스트";
@@ -149,13 +167,19 @@ export default function VectorCanvas({
     for (const ms of measurements) {
       drawMeasurement(ctx, ms, sx, sy);
     }
+    // --- 이슈 핀 오버레이(world 좌표) ---
+    for (const it of issues) {
+      if (it.pin && it.pin.coord_space === "world") {
+        drawIssuePin(ctx, sx(it.pin.point[0]), sy(it.pin.point[1]), it.status, it.issue_id === selectedIssueId);
+      }
+    }
     // --- 진행 중 초안 ---
     const draft = draftRef.current;
     if (draft && draft.pts.length) {
       drawDraft(ctx, draft, sx, sy);
     }
     ctx.restore();
-  }, [data, hidden, markups, measurements, selectedMarkupId]);
+  }, [data, hidden, markups, measurements, issues, selectedMarkupId, selectedIssueId]);
 
   const scheduleDraw = useCallback(() => {
     if (rafRef.current != null) return;
@@ -185,7 +209,18 @@ export default function VectorCanvas({
   }, [data, fit]);
   useEffect(() => {
     scheduleDraw();
-  }, [hidden, markups, measurements, selectedMarkupId, scheduleDraw]);
+  }, [hidden, markups, measurements, issues, selectedMarkupId, selectedIssueId, scheduleDraw]);
+
+  // 딥링크: 목록에서 핀 있는 이슈로 점프하면 해당 world 좌표를 화면 중앙으로(줌 유지).
+  useEffect(() => {
+    if (!focusPin || !data) return;
+    const cv = canvasRef.current;
+    if (!cv) return;
+    const v = viewRef.current;
+    v.tx = cv.clientWidth / 2 - focusPin[0] * v.scale;
+    v.ty = cv.clientHeight / 2 + focusPin[1] * v.scale;
+    scheduleDraw();
+  }, [focusPin, data, scheduleDraw]);
 
   useEffect(() => {
     const ro = new ResizeObserver(() => scheduleDraw());
@@ -289,11 +324,12 @@ export default function VectorCanvas({
     const down = downRef.current;
     if (panRef.current) {
       panRef.current = null;
-      // 거의 움직이지 않았으면 클릭 → 선택 히트테스트.
+      // 거의 움직이지 않았으면 클릭 → 핀 배치(이슈 핀 도구) 또는 선택 히트테스트.
       // down.sx/sy는 로컬 좌표이므로 up도 로컬로 변환해 비교한다(client 혼용 금지).
       const [ux, uy] = localPos(e);
       if (down && Math.hypot(ux - down.sx, uy - down.sy) < 4) {
-        hitTestSelect(down.sx, down.sy);
+        if (isPin) onPlacePin?.(down.world);
+        else hitTestSelect(down.sx, down.sy);
       }
       downRef.current = null;
       return;
@@ -325,24 +361,36 @@ export default function VectorCanvas({
   }
 
   function hitTestSelect(mx: number, my: number) {
-    if (!onSelectMarkup) return;
-    // 위에서부터(나중에 그린 것 우선) bbox 히트테스트
-    for (let i = markups.length - 1; i >= 0; i--) {
-      const m = markups[i];
-      const scr = m.geometry.map(worldToScreen);
-      const xs = scr.map((p) => p[0]);
-      const ys = scr.map((p) => p[1]);
-      const pad = 8;
-      const minx = Math.min(...xs) - pad;
-      const maxx = Math.max(...xs) + pad;
-      const miny = Math.min(...ys) - pad;
-      const maxy = Math.max(...ys) + pad;
-      if (mx >= minx && mx <= maxx && my >= miny && my <= maxy) {
-        onSelectMarkup(m.markup_id);
+    // 이슈 핀 우선(작은 타겟). world 핀만 이 캔버스 대상.
+    for (let i = issues.length - 1; i >= 0; i--) {
+      const it = issues[i];
+      if (!it.pin || it.pin.coord_space !== "world") continue;
+      const [px, py] = worldToScreen(it.pin.point as Pt);
+      // 핀은 tip=(px,py), 원형 헤드는 그 위(py-14). 두 지점 모두 너그럽게 히트.
+      if (Math.hypot(mx - px, my - py) < 14 || Math.hypot(mx - px, my - (py - 14)) < 13) {
+        onSelectIssue?.(it.issue_id);
+        onSelectMarkup?.(null);
         return;
       }
     }
-    onSelectMarkup(null);
+    if (onSelectMarkup) {
+      // 위에서부터(나중에 그린 것 우선) bbox 히트테스트
+      for (let i = markups.length - 1; i >= 0; i--) {
+        const m = markups[i];
+        const scr = m.geometry.map(worldToScreen);
+        const xs = scr.map((p) => p[0]);
+        const ys = scr.map((p) => p[1]);
+        const pad = 8;
+        if (mx >= Math.min(...xs) - pad && mx <= Math.max(...xs) + pad &&
+            my >= Math.min(...ys) - pad && my <= Math.max(...ys) + pad) {
+          onSelectMarkup(m.markup_id);
+          onSelectIssue?.(null);
+          return;
+        }
+      }
+    }
+    onSelectMarkup?.(null);
+    onSelectIssue?.(null);
   }
 
   function onDoubleClick() {
@@ -399,7 +447,7 @@ export default function VectorCanvas({
     });
   }
 
-  const cursor = isDrawing || isMeasure ? "crosshair" : "grab";
+  const cursor = isDrawing || isMeasure || isPin ? "crosshair" : "grab";
 
   return (
     <div className="vector-viewer" ref={wrapRef} aria-label="벡터 도면 렌더">
@@ -608,6 +656,38 @@ function drawMeasurement(ctx: CanvasRenderingContext2D, ms: Measurement, sx: Pro
   ctx.fillRect(cx - w / 2 - 4, cy - 9, w + 8, 16);
   ctx.fillStyle = "#ffd43b";
   ctx.fillText(label, cx - w / 2, cy + 3);
+  ctx.restore();
+}
+
+/** 이슈 핀: tip이 (x,y)를 가리키는 물방울 마커 + 상태색. 선택 시 흰 링 강조. */
+function drawIssuePin(ctx: CanvasRenderingContext2D, x: number, y: number, status: string, selected: boolean) {
+  const color = ISSUE_STATUS_COLOR[status] || "#e8590c";
+  const r = selected ? 9 : 7;
+  const cy = y - r * 2; // 헤드 중심
+  ctx.save();
+  // tip → 헤드 물방울
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x - r * 0.8, cy + r * 0.55);
+  ctx.arc(x, cy, r, Math.PI * 0.8, Math.PI * 0.2, false);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.lineWidth = selected ? 2.5 : 1.5;
+  ctx.strokeStyle = "#ffffff";
+  ctx.stroke();
+  // 헤드 내부 점
+  ctx.beginPath();
+  ctx.arc(x, cy, r * 0.42, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffffff";
+  ctx.fill();
+  if (selected) {
+    ctx.beginPath();
+    ctx.arc(x, cy, r + 4, 0, Math.PI * 2);
+    ctx.strokeStyle = "#ffd43b";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
   ctx.restore();
 }
 

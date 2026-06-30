@@ -1,6 +1,6 @@
 import { ArrowLeft, Hammer } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { drawingsToSheets, listDrawings, type Drawing } from "./api/drawings";
+import { drawingsToSheets, listDrawings, type Drawing, type Issue } from "./api/drawings";
 import { filterSheets, selectedBuildProject, sortSheets, type Sheet, type SheetSortKey } from "./buildSheetsData";
 import BuildHomeView from "./build/BuildHomeView";
 import BuildManagementView from "./build/BuildManagementView";
@@ -25,14 +25,16 @@ export default function BuildSheetsView({ project = selectedBuildProject, onBack
   const [viewMode, setViewMode] = useState<ViewMode>("list");
   const [activeSection, setActiveSection] = useState<BuildSection>("시트");
   const [selectedSheet, setSelectedSheet] = useState<Sheet | null>(null);
+  // S5: 이슈 목록 → 뷰어 핀 딥링크. 점프 대상 이슈(핀 좌표 포함)를 SheetViewerShell로 전달.
+  const [focusIssue, setFocusIssue] = useState<Issue | null>(null);
   // S2: 시트 목록을 백엔드 업로드 도면(실데이터)으로 구성. 정적 시드 제거.
   const [drawings, setDrawings] = useState<Drawing[]>([]);
   const [disciplineFilter, setDisciplineFilter] = useState<string>("전체");
   const [sortKey, setSortKey] = useState<SheetSortKey>("number-asc");
 
-  // 시트 섹션에서 도면 목록을 조회·폴링(변환 완료분 반영).
+  // 시트/이슈 섹션에서 도면 목록을 조회·폴링(변환 완료분 + 이슈→시트 매핑용).
   useEffect(() => {
-    if (activeSection !== "시트" || selectedSheet) {
+    if (selectedSheet || (activeSection !== "시트" && activeSection !== "이슈")) {
       return;
     }
     let alive = true;
@@ -73,11 +75,20 @@ export default function BuildSheetsView({ project = selectedBuildProject, onBack
   function openSection(section: BuildSection) {
     setActiveSection(section);
     setSelectedSheet(null);
+    setFocusIssue(null);
   }
 
   function openSheet(sheet: Sheet) {
     setActiveSection("시트");
     setSelectedSheet(sheet);
+    setFocusIssue(null);
+  }
+
+  // S5: 이슈 목록에서 핀 있는 이슈를 열면 해당 시트 뷰어로 점프(딥링크).
+  function openIssuePin(sheet: Sheet, issue: Issue) {
+    setActiveSection("시트");
+    setSelectedSheet(sheet);
+    setFocusIssue(issue);
   }
 
   const emptyMessage = projectSheets.length === 0 ? "아직 등록된 시트가 없습니다." : "검색 결과가 없습니다.";
@@ -146,7 +157,9 @@ export default function BuildSheetsView({ project = selectedBuildProject, onBack
             projectName={project.name}
             selectedSheet={selectedSheet}
             sheets={projectSheets}
-            onBack={() => setSelectedSheet(null)}
+            focusIssueId={focusIssue?.issue_id ?? null}
+            focusPin={focusIssue?.pin?.coord_space === "world" ? focusIssue.pin.point : null}
+            onBack={() => { setSelectedSheet(null); setFocusIssue(null); }}
           />
         ) : activeSection === "홈" ? (
           <BuildHomeView projectName={project.name} sheetCount={projectSheets.length} />
@@ -168,7 +181,7 @@ export default function BuildSheetsView({ project = selectedBuildProject, onBack
         ) : activeSection === "파일" ? (
           <FilesView onOpenSheet={openSheet} />
         ) : activeSection === "이슈" ? (
-          <IssuesView />
+          <IssuesView projectName={project.name} sheets={projectSheets} onOpenIssuePin={openIssuePin} />
         ) : activeSection === "양식" ? (
           <FormsView />
         ) : activeSection === "사진" ? (

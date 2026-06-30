@@ -370,3 +370,63 @@ Study_Project에 제주 68p 업로드 후 시트/파일 뷰 검증(스크린샷 
 - TypeDB 그래프 markup/measurement 직접 적재·갱신(현재 JSON 미러 SoT, STORE_BACKEND=json) — "직접쿼리화 후속" freeze 가정.
 - CompareOverlay 다해상도 버전 정렬이 stretch-to-A(동일 시트 버전은 무해, 시맨틱 bbox 정렬은 후속).
 - 수동 2점 캘리브레이션·PDF 측정·이슈 영속(S5)·마크업↔이슈 연계.
+
+---
+
+# S5 — 이슈 영속 + 뷰어 핀 연계 (2026-06-30, 세션 8 — 검증 마무리 완료 · DONE)
+
+> 메타프롬프트 `prompts/07-s5-issues-pins.md` FROZEN(AskUserQuestion 4결정: 독립 Issue 엔티티 · ACC식 상태 4종+메타 · 양방향 점프 · 핀 선택적+S4 좌표계). acceptance **H1~H13 전부 MET**. 세션 7 구현+부분검증 → 세션 8에서 이월분(H7·H10 e2e·독립 3렌즈·reconcile·커밋) 마무리. 자동 게이트 GREEN(pytest **61**·npm **83**·build·diff clean), 적발 결함 수리 후 DONE.
+
+## 구현 요약
+- **백엔드**: `store.py` 이슈 CRUD(`add_issue`/`list_issues(file_id·sheet_id·status·category·project_name 필터)`/`get_issue`/`update_issue`/`delete_issue`=soft) Json·TypeDB 양 백엔드(TypeDB best-effort 그래프+JSON 미러 SoT). `routes_issue.py` 신설(prefix `/api/issues` — `/api/drawings/{file_id}`가 "issues"를 file_id로 오인하는 경로 충돌 회피, 동작 동일). 상태머신 검증(열림→진행중→답변됨→닫힘, 닫힘→진행중 거부·닫힘→열림 재오픈 허용)·핀 좌표 검증(world/image, image=[0,1])·카테고리 집계(닫힘·삭제 제외). `schema/04-drawings.tql` `issue` entity 추가. `main.py` 라우터 등록.
+- **프론트**: `drawings.ts` `Issue`/`IssuePin` 타입 + `listIssues`/`createIssue`/`updateIssue`/`deleteIssue`/`issueCategoryCounts` + `ISSUE_STATUS_TRANSITIONS`. `IssuesView.tsx` 전면 실연결(목록·열린/삭제됨 필터·검색·작성 모달·상태 변경·핀 딥링크 버튼, 정적 행 제거). `IssueAddPanel.tsx` 실집계 count + 시트 이슈 목록 + 선택. `IssueCreateForm.tsx`·`IssueDetailPanel.tsx` 신설(뷰어 핀 작성/상세). `VectorCanvas.tsx`(이슈 핀 도구→world 클릭 생성·`drawIssuePin` 렌더·핀 히트테스트 선택·`focusPin` 센터링)·`MarkupCanvas.tsx`(image 정규화 핀). `SheetViewerShell.tsx`(이슈 상태·placePin·createIssueFromPin·changeIssueStatus·removeIssue·focusIssueId/focusPin). `BuildSheetsView.tsx`(이슈 섹션도 도면 로드·`openIssuePin` 딥링크 배선). `viewerData.ts`(issueTypes·issueStatuses, IssueCategory count 제거).
+
+## 게이트 (전부 PASS — 세션 8 재확인)
+- `npm run build` PASS(tsc+vite) · `npm test` **83 PASS**(신규 7: IssuesView 5 + VectorCanvas 핀 2) · backend `pytest` **61 PASS**(S5 10 = 세션7 8 + 세션8 회귀 2[PATCH 핀-위치 불변식·핀 비유한 거부]) · `git diff --check` clean(CRLF 경고만).
+
+## 브라우저 e2e (device, json 백엔드 + 실 DWG `original.dwg` Model 시트)
+- **H4 핀 생성(world)**: 이슈 핀 도구 선택 → 캔버스 클릭 → 작성 폼에 **실 DXF world 좌표 "도면 좌표 (140819.7, 36724.7)"** 캡처. 운영자 제목 "현장 분전반 위치가 도면 표기와 상이 — CAD 수정 요청" 작성 → 생성.
+- **H1 생성 영속 / H8 카테고리 실집계**: 작성 직후 IssueDetailPanel(현장 확인·도면 검토자·핀(world)·열림). 브라우저→백엔드 fetch로 영속 확인(`/api/issues` total 1, pin=[140819.7,36724.7] world, sheet_id 09a5c45a). 카테고리 `{clash:1, quality:0, coordination:0}`.
+- **H3 상태 전이 영속**: 열림→진행중 변경 → fetch status="진행중" 확인.
+- **H2 전역 목록 / H5 복원**: 페이지 새로고침 → Build→이슈 탭 전역 IssuesView에 "현장 확인 · 진행중 · 핀" 1행(정적 "문 출입 방향 확인" 시드 제거). 인스펙터 위치="Model 핀"(시트 해석).
+- **H6 양방향 딥링크**: IssuesView 인스펙터 "뷰어에서 핀 보기" → Model 시트 뷰어 점프 → 이슈 탭 자동 선택 + "이 시트의 이슈 (1)" 복원 + IssueDetailPanel 자동 선택 + 핀 world 좌표 캔버스 복원(focusPin 센터링).
+- **H12 콘솔 0**: error/warn/issue **0**. 스크린샷 `evidence/s5-01-pin-created.png`·`s5-02-deeplink-pin-restored.png`.
+
+## 세션 8 이월 e2e (device, json 백엔드)
+- **H7 핀 없는 전역 이슈**: IssuesView 작성 모달 → "전기·기계 도면 간 케이블 트레이 경로 협의 필요"(유형 협의·Coordination·설계 코디네이터, 핀 없음) 작성 → 인스펙터 "위치: 위치 없음", 목록 "협의 · 열림"(핀 마커 없음, 핀 이슈의 "· 핀"과 대조). 백엔드 fetch `pin:null, sheet_id:null, category:coordination` 영속 확인. 스크린샷 `evidence/s5-03-global-nopin-issue.png`.
+- **H10 PDF image 핀**: EE-01-006 단선결선도(pdf-page) 뷰어 → 이슈 핀 도구 → 도면 클릭 → 작성 폼 "핀 위치: 정규화 (0.50, 0.50)" → "단선결선도 차단기 정격 표기 불명확 — 현장 명판과 대조 필요"(Quality·전기 검토자) 작성 → 상세 "위치: 핀(image)". fetch `pin.coord_space:"image", point:[0.49999,0.50000]` ∈ [0,1] 영속.
+- **H10/H6 새로고침 복원+딥링크**: 새로고침 → 전역 IssuesView 3이슈 복원 → PDF 이슈 "뷰어에서 핀 보기" → EE-01-006 시트 점프 + 이슈 탭 자동 선택 + "이 시트의 이슈 (1)" + 상세 "위치: 핀(image)" 복원. **콘솔 error/warn/issue 0**. 스크린샷 `evidence/s5-04-pdf-image-pin-restored.png`.
+
+## 독립 검증팀 3렌즈 (세션 8)
+- **백엔드 적대적**: BLOCKER 0. 상태머신·핀 좌표·카테고리 집계·soft delete·스코프·원자적 쓰기(tmp+os.replace, 단일 lock)·에러계약 PASS. **MAJOR-1 적발**(`patch_issue`가 create와 달리 핀-위치 불변식 미검증 → 전역 이슈에 PATCH로 부유 핀 부착·유령 시트 재배치 가능). MINOR: 삭제후 편집 가능·생성 시 종착상태 주입·**world 핀 NaN/Infinity 수락(JSON 직렬화 깨짐→콘솔 위협)**·self전이 no-op.
+- **프론트 비기능/a11y**: BLOCKER/MAJOR 0. 모달 a11y(role/aria-modal/포커스트랩/ESC)·좌표 일관(S4 MAJOR-1 회귀 없음)·image 클램프·전이 가드·하드코딩 제거 PASS. MINOR: **딥링크 focusIssueId 잔존→issues 변경마다 선택 강제 재설정**·focusPin draw마다 재중심화·"열린 이슈" 탭에 닫힘 노출·핀 색상전용(색맹)·인라인폼 ESC 없음·검색 제목한정.
+- **Done-When 비평가**: H1~H13 전부 MET/NARROWED, **침묵 좁힘 0건**. H12만 PDF/무핀 e2e 미실시로 NARROWED였으나 세션 8 e2e로 해소.
+
+## 세션 8 수리 (적발 결함)
+- **백엔드 MAJOR-1 수리**: `routes_issue.py patch_issue`에 핀-위치 불변식 추가 — 결과 이슈가 핀을 가지면 `_require_pin_location(file_id, sheet_id)` 강제(create와 동일). 라이브 재현 확인: 전역 이슈 부유 핀 PATCH→**400**, 핀 이슈 유령 시트 재배치→**404**(수리 전 둘 다 수락됨). 회귀 `test_issue_patch_pin_location_invariant`.
+- **백엔드 MINOR(H12 위협) 수리**: `_validate_pin`에 `math.isfinite` 검사 추가 — world/image 공통 NaN/Infinity 거부(JSON 직렬화 깨짐·브라우저 JSON.parse throw 방지). 회귀 `test_issue_pin_rejects_non_finite`.
+- **프론트 MINOR 수리**: `SheetViewerShell` 딥링크 effect에 `appliedFocusRef` 1회 적용 가드 — focusIssueId당 1회만 선택·탭 전환, 이후 issues 변경(상태변경·새 핀 작성)이 선택을 되돌리지 않음.
+
+## 세션 7 자체 적발·수리
+- POST `/api/issues` 빈 경로(`""`) trailing-slash 307 → no-slash 경로가 정답(프론트 일치) 확인. curl(Git Bash) body 전송 아티팩트("error parsing the body")는 S4 markup POST에도 동일 → 라우트 무관, 브라우저 경로 정상.
+- `getByLabelText("제목")` 회귀: 필수 표시(`*`)로 라벨 텍스트 변동 → 입력에 `aria-label="제목"` 부여(시각 `*` 유지 + 접근명 일치).
+
+## Done-When reconcile (H1~H13)
+- **H1 생성 영속** — MET(A): 모달+뷰어 핀 둘 다 실 POST, no-op 제거. e2e+unit.
+- **H2 목록 실데이터/필터/검색** — MET(A): 전역 3이슈 e2e, 정적 시드 제거.
+- **H3 상태 변경 영속** — MET(A): 열림→진행중 e2e+fetch, 불가 전이 거부 unit.
+- **H4 뷰어 핀 생성(world)** — MET(A): 실 DXF world (140819.7, 36724.7).
+- **H5 핀 렌더+복원 고정** — MET(A): 새로고침 복원+focusPin 센터링.
+- **H6 양방향 점프(딥링크)** — MET(A): DWG+PDF 딥링크 e2e.
+- **H7 핀 선택적(전역 이슈)** — MET(A): 무핀 전역 이슈 e2e(pin:null).
+- **H8 메타 충실·카테고리 실집계** — MET(A): 유형/담당자/카테고리/상태 + clash:1.
+- **H9 백엔드 영속 모델** — MET(B json / C TypeDB 그래프): CRUD·soft delete·검증·스코프 pytest. TypeDB 그래프 직접적재는 후속(freeze 명시).
+- **H10 PDF 핀(정규화)** — MET(A): image [0.5,0.5] e2e 생성·영속·복원.
+- **H11 테스트 게이트** — MET(B): pytest 61·npm 83·build·diff clean.
+- **H12 브라우저 e2e + 콘솔 0** — MET(A): DWG+PDF+무핀 e2e, 콘솔 0(세션 8 PDF/무핀 보강으로 NARROWED 해소).
+- **H13 실 도면 기반 운영자 이슈** — MET(A): DWG 분전반 위치 + PDF 단선결선도 차단기 정격(둘 다 실 렌더 도면 기반, generic seed 아님).
+
+## 잔여 비차단 부채 (S5 범위 외·후속)
+- 백엔드: 삭제됨 이슈 편집 가능·생성 시 종착상태 주입(UI 경로로는 불가, 정상 경로 무영향)·없는 file_id 목록=빈배열(마크업과 일관).
+- 프론트: focusPin draw마다 재중심화·"열린 이슈" 탭에 닫힘 노출(닫힘 전용 뷰 추가 시 해소, 설계 결정)·핀 색상전용 상태구분(텍스트 대체경로 존재)·인라인 폼 ESC·검색 제목한정·로드 race 가드.
+- TypeDB 그래프 직접 쿼리화(JSON 미러 SoT 유지), 이슈 첨부/댓글/알림(ACC 협업), 권한 enforcement=S7.

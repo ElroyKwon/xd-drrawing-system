@@ -119,6 +119,25 @@ class DrawingStore(ABC):
     @abstractmethod
     def delete_measurement(self, measurement_id: str) -> bool: ...
 
+    # --- S5: 이슈 영속 (file_id/sheet_id 선택적 = 핀 없는 프로젝트 전역 이슈 허용) ---
+    @abstractmethod
+    def add_issue(self, meta: dict) -> None: ...
+
+    @abstractmethod
+    def list_issues(self, *, file_id: Optional[str] = None, sheet_id: Optional[str] = None,
+                    status: Optional[str] = None, category: Optional[str] = None,
+                    project_name: Optional[str] = None) -> list: ...
+
+    @abstractmethod
+    def get_issue(self, issue_id: str) -> Optional[dict]: ...
+
+    @abstractmethod
+    def update_issue(self, issue_id: str, **fields) -> Optional[dict]: ...
+
+    @abstractmethod
+    def delete_issue(self, issue_id: str) -> bool:
+        """soft delete: status를 '삭제됨'으로 전환(이력 보존)."""
+
 
 class JsonDrawingStore(DrawingStore):
     """uploads/_index.json 단일 인덱스. 단일 프로세스 로컬 개발용."""
@@ -129,6 +148,7 @@ class JsonDrawingStore(DrawingStore):
         self._folders_path = Path(config.UPLOADS_DIR) / "_folders.json"
         self._markups_path = Path(config.UPLOADS_DIR) / "_markups.json"
         self._measurements_path = Path(config.UPLOADS_DIR) / "_measurements.json"
+        self._issues_path = Path(config.UPLOADS_DIR) / "_issues.json"
         self._lock = threading.Lock()
         if not self._path.exists():
             self._write({})
@@ -138,6 +158,8 @@ class JsonDrawingStore(DrawingStore):
             self._write_at(self._markups_path, {})
         if not self._measurements_path.exists():
             self._write_at(self._measurements_path, {})
+        if not self._issues_path.exists():
+            self._write_at(self._issues_path, {})
 
     def _read_at(self, path: Path) -> dict:
         try:
@@ -384,6 +406,59 @@ class JsonDrawingStore(DrawingStore):
             self._write_at(self._measurements_path, data)
             return True
 
+    # --- S5: 이슈 ---
+    def add_issue(self, meta: dict) -> None:
+        with self._lock:
+            data = self._read_at(self._issues_path)
+            data[meta["issue_id"]] = meta
+            self._write_at(self._issues_path, data)
+
+    def list_issues(self, *, file_id=None, sheet_id=None, status=None,
+                    category=None, project_name=None) -> list:
+        rows = list(self._read_at(self._issues_path).values())
+        if file_id is not None:
+            rows = [r for r in rows if r.get("file_id") == file_id]
+        if sheet_id is not None:
+            rows = [r for r in rows if r.get("sheet_id") == sheet_id]
+        if status is not None:
+            rows = [r for r in rows if r.get("status") == status]
+        if category is not None:
+            rows = [r for r in rows if r.get("category") == category]
+        if project_name is not None:
+            rows = [r for r in rows if r.get("project_name") == project_name]
+        # 최신 생성 우선(목록 상단 = 최근).
+        rows.sort(key=lambda r: r.get("created_at", ""), reverse=True)
+        return rows
+
+    def get_issue(self, issue_id: str) -> Optional[dict]:
+        return self._read_at(self._issues_path).get(issue_id)
+
+    def update_issue(self, issue_id: str, **fields) -> Optional[dict]:
+        with self._lock:
+            data = self._read_at(self._issues_path)
+            row = data.get(issue_id)
+            if not row:
+                return None
+            # 스코프 키(file_id)는 불변. 핀(pin) 재배치는 허용.
+            for k in ("title", "type", "status", "category", "assignee", "description", "pin", "sheet_id"):
+                if k in fields and fields[k] is not None:
+                    row[k] = fields[k]
+            row["updated_at"] = datetime.now().isoformat()
+            self._write_at(self._issues_path, data)
+            return row
+
+    def delete_issue(self, issue_id: str) -> bool:
+        # soft delete: 레코드를 지우지 않고 status를 '삭제됨'으로 전환(삭제된 이슈 탭에서 조회).
+        with self._lock:
+            data = self._read_at(self._issues_path)
+            row = data.get(issue_id)
+            if not row:
+                return False
+            row["status"] = "삭제됨"
+            row["updated_at"] = datetime.now().isoformat()
+            self._write_at(self._issues_path, data)
+            return True
+
 
 class TypeDBDrawingStore(DrawingStore):
     """typedb-driver 적재. 04-drawings 온톨로지(이식). 미가동 시 생성에서 예외."""
@@ -563,6 +638,56 @@ class TypeDBDrawingStore(DrawingStore):
         except Exception as e:  # noqa: BLE001
             logger.error("typedb delete_measurement: %s", e)
         return _MIRROR.delete_measurement(measurement_id)
+
+    # --- S5: 이슈 — best-effort 그래프 적재 + JSON 미러 SoT(직접쿼리화는 후속) ---
+    def add_issue(self, meta: dict) -> None:
+        try:
+            from typedb.driver import TransactionType
+            with self._driver.transaction(self._db, TransactionType.WRITE) as tx:
+                tx.query(
+                    'insert $i isa issue, '
+                    f'has issue_id "{meta["issue_id"]}", '
+                    f'has file_id "{_esc(meta.get("file_id") or "")}", '
+                    f'has sheet_id "{_esc(meta.get("sheet_id") or "")}", '
+                    f'has issue_title "{_esc(meta.get("title", ""))}", '
+                    f'has issue_type "{_esc(meta.get("type", ""))}", '
+                    f'has issue_status "{_esc(meta.get("status", ""))}", '
+                    f'has issue_category "{_esc(meta.get("category", ""))}", '
+                    f'has issue_assignee "{_esc(meta.get("assignee", ""))}", '
+                    f'has geometry_json "{_esc(json.dumps(meta.get("pin"), ensure_ascii=False))}", '
+                    f'has created_at {meta["created_at"]};'
+                ).resolve()
+                tx.commit()
+        except Exception as e:  # noqa: BLE001
+            logger.error("typedb add_issue: %s", e)
+        _MIRROR.add_issue(meta)
+
+    def list_issues(self, *, file_id=None, sheet_id=None, status=None,
+                    category=None, project_name=None) -> list:
+        return _MIRROR.list_issues(file_id=file_id, sheet_id=sheet_id, status=status,
+                                   category=category, project_name=project_name)
+
+    def get_issue(self, issue_id: str) -> Optional[dict]:
+        return _MIRROR.get_issue(issue_id)
+
+    def update_issue(self, issue_id: str, **fields) -> Optional[dict]:
+        # 상태/속성 변경은 미러 권위. 그래프 status 동기화는 best-effort.
+        if "status" in fields and fields["status"]:
+            try:
+                from typedb.driver import TransactionType
+                with self._driver.transaction(self._db, TransactionType.WRITE) as tx:
+                    tx.query(
+                        f'match $i isa issue, has issue_id "{issue_id}"; '
+                        '$i has issue_status $s; '
+                        f'delete $i has $s; insert $i has issue_status "{_esc(fields["status"])}";'
+                    ).resolve()
+                    tx.commit()
+            except Exception as e:  # noqa: BLE001
+                logger.error("typedb update_issue: %s", e)
+        return _MIRROR.update_issue(issue_id, **fields)
+
+    def delete_issue(self, issue_id: str) -> bool:
+        return self.update_issue(issue_id, status="삭제됨") is not None
 
 
 def _esc(s: str) -> str:

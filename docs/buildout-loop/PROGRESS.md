@@ -2,7 +2,20 @@
 
 > 매 재진입 시 `LOOP.md` → `PLAN.md` → 이 파일 순으로 읽고 이어받는다.
 
-## 현재 상태 (2026-06-29, 세션 6 — S4 마크업·측정·시트비교 DONE)
+## 현재 상태 (2026-06-30, 세션 8 — S5 이슈 영속+핀 연계 검증 마무리 DONE)
+
+- **단계**: **S5 DONE.** 세션 7 구현+부분검증 → 세션 8에서 이월분(H7·H10 e2e·독립 3렌즈·reconcile·커밋) 마무리. 메타프롬프트 `prompts/07-s5-issues-pins.md` FROZEN(4결정: **독립 Issue 엔티티 · ACC식 상태 4종+메타 · 양방향 점프 · 핀 선택적+S4 좌표계**). acceptance **H1~H13 전부 MET**(EVIDENCE 하단 S5 reconcile).
+- **구현 요약**: 백엔드 `store.py`(이슈 CRUD Json·TypeDB+`_issues.json`, soft delete, 상태머신/핀좌표/카테고리집계), `routes_issue.py` 신설(prefix `/api/issues` — 도면 라우트 경로충돌 회피), `schema/04-drawings.tql`(issue entity), `main.py` 등록. 프론트 `drawings.ts`(Issue API), `IssuesView`(전역 실데이터·필터·검색·작성·상태변경·핀 딥링크), `IssueAddPanel`(실집계+시트 이슈목록), `IssueCreateForm`·`IssueDetailPanel` 신설, `VectorCanvas`(world 핀)·`MarkupCanvas`(image 핀), `SheetViewerShell`(이슈 배선·focusIssue), `BuildSheetsView`(딥링크).
+- **게이트(전부 PASS)**: build · npm test **83** · pytest **61**(S5 10 = 세션7 8 + 세션8 회귀 2) · git diff --check clean.
+- **브라우저 e2e(device)**: 세션7 H1~H6·H8·H12(실 DXF world 140819.7,36724.7) + **세션8 H7**(무핀 전역 이슈 pin:null) + **H10**(PDF 단선결선도 image 핀 [0.5,0.5] 생성·영속·새로고침 복원·딥링크). 콘솔 0. 스크린샷 `evidence/s5-01~04`.
+- **독립 검증팀 3렌즈**: 백엔드 적대적(**MAJOR-1**=PATCH 핀-위치 불변식 미검증 + MINOR world핀 비유한 수락)·프론트 비기능/a11y(MINOR 딥링크 focus 잔존 등)·Done-When 비평가(H1~H13 MET, 침묵 좁힘 0). **MAJOR-1+H12위협 MINOR+프론트 딥링크 MINOR 수리·재검증**(라이브 부유핀 PATCH→400·유령시트→404, 회귀 2 추가).
+
+### 세션 8 진입점
+- `prompts/07` FROZEN·H1~H13 MET·커밋 완료. 다음 = **S6**(Build 홈 위젯 실데이터+전역 검색, prompts/08 작성부터). 재기동법은 세션6 블록과 동일(XD_STORE=auto/json, backend .venv python uvicorn 8000, npm run dev 5173).
+
+---
+
+## 이전 상태 (2026-06-29, 세션 6 — S4 마크업·측정·시트비교 DONE)
 
 - **단계**: **S4 DONE.** 뷰어 affordance(마크업·측정·시트비교)를 실동작+영속으로 교체. 메타프롬프트 `prompts/05-s4-markup-measure-compare.md` FROZEN, acceptance **E1~E13 전부 MET**(EVIDENCE 하단 S4). **미커밋**(diff --check clean, 커밋은 사용자 지시 시).
 - **freeze 4결정 반영**: (Q1)마크업+측정+비교 한 스테이지 · (Q2)벡터 world + PDF 정규화 이중트랙(coord_space) · (Q3)측정 DXF 자동(doc.units)만·PDF 제외 · (Q4)클라 색상오버레이 + 백엔드 픽셀 diff 둘 다.
@@ -97,12 +110,12 @@
   - 변환 도구체인 검증됨: ODA File Converter(설치), ezdxf, PyMuPDF(fitz), matplotlib, Pillow.
   - 테스트 도면: `D:\_Project` 전역 dwg 822·pdf 901·dxf 25. xd 레포 내 `reference/old-prototypes/.../dwg/`에 다분야 도면.
 
-## 다음 작업 — S1·S1.5·S2·S3 DONE, 다음은 S4
+## 다음 작업 — S1~S5 DONE, 다음은 S6
 
-**S1 완료**(e146fc8+f7b1a99). **S1.5 완료**(`2284512`). **S2 완료**(`877518d`). **S3 완료**(D1~D9 MET, 3렌즈+e2e 검증, 이 세션 커밋). 다음 진입:
-- **S4 마크업·측정·비교 실연산 + 영속**: 뷰어 affordance 실동작화. 마크업 그리기/저장(영속), 측정(픽셀↔실척 캘리브레이션 연산), 시트 비교(두 버전 실제 오버레이/diff). `viewerData` 정적 → 영속. 2026-06-29 범위 정정: 웹 화면은 DWG/PDF 원본 직접 수정 도구가 아니며, S4 증거는 실제 도면 이미지 기반 운영자 마크업·이슈 예시를 포함해야 한다.
-- (참고) S3 후속 부채: 설명 컬럼 실데이터(Drawing description 모델 추가)·TypeDB folder 직접쿼리화·파일 단위 공유 override·인증/RBAC 강제(S7).
-- (참고) S2 후속 부채: 멀티페이지 타이틀블록 강추출·빈 paperspace modelspace 자동분할·TypeDB 직접쿼리화.
+**S1**(e146fc8+f7b1a99) · **S1.5**(`2284512`) · **S2**(`877518d`) · **S3**(`dbb1b6f`) · **S2.5**(`82ae45f`) · **S4**(`0051f87`) · **S5**(H1~H13 MET, 3렌즈+e2e, 세션8 커밋) **완료**. 다음 진입:
+- **S6 Build 홈 위젯 실데이터 + 전역 검색**: Build 홈 대시보드 위젯(시트/이슈/파일 집계)을 실데이터로, 프로젝트 전역 검색 실동작화. prompts/08 메타프롬프트 작성부터(공동설계 freeze).
+- (참고) S5 후속 부채: 삭제됨 이슈 편집·"열린 이슈" 탭 닫힘 노출(닫힘 전용뷰)·핀 색맹 대체·이슈 첨부/댓글/알림·TypeDB 그래프 직접쿼리화·권한 enforcement(S7).
+- (참고) S3 후속 부채: 설명 컬럼 실데이터·TypeDB folder 직접쿼리화·파일 단위 공유 override·인증/RBAC(S7). S2 후속: 멀티페이지 타이틀블록 강추출·빈 paperspace 자동분할.
 
 ### ⚙️ 다음 세션 재기동 방법 (중요)
 1. **TypeDB 컨테이너**: `docker ps`로 `typedb-server`(typedb/typedb:3.7.3, 포트 1729) 확인. 없으면 `docker start typedb-server`(또는 Study_TypeDB README의 run 명령).

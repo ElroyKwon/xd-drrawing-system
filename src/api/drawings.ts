@@ -309,6 +309,116 @@ export async function deleteMeasurement(fileId: string, measurementId: string): 
   if (!res.ok) throw new Error(`측정 삭제 실패 (${res.status})`);
 }
 
+// --- S5: 이슈 영속 + 뷰어 핀 연계 (독립 Issue 엔티티) ---
+
+export type IssueStatus = "열림" | "진행중" | "답변됨" | "닫힘" | "삭제됨";
+export type IssuePin = { point: [number, number]; coord_space: "world" | "image" };
+
+export type Issue = {
+  issue_id: string;
+  file_id: string | null;
+  sheet_id: string | null;
+  title: string;
+  type: string;
+  status: IssueStatus;
+  category: string;
+  assignee: string;
+  author: string;
+  description: string;
+  project_name: string;
+  pin: IssuePin | null;
+  created_at: string;
+  updated_at: string;
+};
+
+/** ACC식 상태 전이(클라 가드 — 백엔드가 권위 검증). */
+export const ISSUE_STATUS_TRANSITIONS: Record<string, IssueStatus[]> = {
+  열림: ["진행중", "답변됨", "닫힘"],
+  진행중: ["답변됨", "닫힘", "열림"],
+  답변됨: ["닫힘", "진행중", "열림"],
+  닫힘: ["열림"],
+  삭제됨: ["열림"],
+};
+
+export type IssueFilters = {
+  status?: IssueStatus;
+  fileId?: string;
+  sheetId?: string;
+  category?: string;
+  projectName?: string;
+};
+
+export async function listIssues(filters: IssueFilters = {}): Promise<Issue[]> {
+  const url = new URL(`${BACKEND_BASE}/api/issues`);
+  if (filters.status) url.searchParams.set("status", filters.status);
+  if (filters.fileId) url.searchParams.set("file_id", filters.fileId);
+  if (filters.sheetId) url.searchParams.set("sheet_id", filters.sheetId);
+  if (filters.category) url.searchParams.set("category", filters.category);
+  if (filters.projectName) url.searchParams.set("project_name", filters.projectName);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`이슈 조회 실패 (${res.status})`);
+  return res.json();
+}
+
+/** 카테고리별 진행 중 이슈 수(닫힘/삭제 제외) 실집계. */
+export async function issueCategoryCounts(projectName?: string): Promise<Record<string, number>> {
+  const url = new URL(`${BACKEND_BASE}/api/issues/categories`);
+  if (projectName) url.searchParams.set("project_name", projectName);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`카테고리 집계 실패 (${res.status})`);
+  return res.json();
+}
+
+export async function createIssue(input: {
+  title: string;
+  type?: string;
+  category?: string;
+  assignee?: string;
+  description?: string;
+  status?: IssueStatus;
+  projectName?: string;
+  fileId?: string | null;
+  sheetId?: string | null;
+  pin?: IssuePin | null;
+}): Promise<Issue> {
+  const res = await fetch(`${BACKEND_BASE}/api/issues`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: input.title,
+      type: input.type ?? "설계 검토",
+      category: input.category ?? "",
+      assignee: input.assignee ?? "",
+      description: input.description ?? "",
+      status: input.status ?? "열림",
+      project_name: input.projectName ?? "Study_Project",
+      file_id: input.fileId ?? null,
+      sheet_id: input.sheetId ?? null,
+      pin: input.pin ?? null,
+    }),
+  });
+  if (!res.ok) throw new Error(`이슈 생성 실패 (${res.status}): ${await res.text()}`);
+  return res.json();
+}
+
+export async function updateIssue(
+  issueId: string,
+  patch: { title?: string; type?: string; category?: string; assignee?: string; description?: string; status?: IssueStatus; pin?: IssuePin },
+): Promise<Issue> {
+  const res = await fetch(`${BACKEND_BASE}/api/issues/${issueId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(patch),
+  });
+  if (!res.ok) throw new Error(`이슈 수정 실패 (${res.status}): ${await res.text()}`);
+  return res.json();
+}
+
+export async function deleteIssue(issueId: string): Promise<void> {
+  const res = await fetch(`${BACKEND_BASE}/api/issues/${issueId}`, { method: "DELETE" });
+  if (!res.ok) throw new Error(`이슈 삭제 실패 (${res.status})`);
+}
+
 /** 같은 version_set 두 버전 PNG 픽셀 diff(백엔드 마스크 + 변경 통계). */
 export async function compareVersions(
   fileId: string,
