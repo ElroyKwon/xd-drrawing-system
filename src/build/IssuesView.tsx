@@ -21,6 +21,9 @@ const STATUS_DOT: Record<string, string> = {
   삭제됨: "#adb5bd"
 };
 
+// 홈 위젯 issueActiveCount와 동일 정의 — '열린 이슈' 뷰 카운트 정합.
+const ACTIVE_STATUSES = ["열림", "진행중", "답변됨"];
+
 export default function IssuesView({
   projectName = "Study_Project",
   sheets = [],
@@ -36,17 +39,20 @@ export default function IssuesView({
   canEdit?: boolean;
 }) {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
-  const [showDeleted, setShowDeleted] = useState(false);
+  // 부채 정합: 홈 '진행 중' 카운트(active=열림+진행중+답변됨)와 '열린 이슈' 뷰를 일치시킨다.
+  // 기존엔 '열린 이슈'가 삭제됨 제외 전부(닫힘 포함)를 보여 홈 active와 어긋났다.
+  const [view, setView] = useState<"open" | "closed" | "deleted">("open");
+  const showDeleted = view === "deleted";
   const [query, setQuery] = useState("");
   const [issues, setIssues] = useState<Issue[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(() => {
-    listIssues(showDeleted ? { status: "삭제됨", projectName } : { projectName })
+    listIssues(view === "deleted" ? { status: "삭제됨", projectName } : { projectName })
       .then(setIssues)
       .catch((e) => setError(e instanceof Error ? e.message : "이슈 조회 실패"));
-  }, [showDeleted, projectName]);
+  }, [view, projectName]);
 
   useEffect(() => {
     load();
@@ -61,9 +67,15 @@ export default function IssuesView({
 
   const visible = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    if (!normalized) return issues;
-    return issues.filter((i) => i.title.toLowerCase().includes(normalized));
-  }, [issues, query]);
+    // open 뷰 = active(닫힘 제외, 홈 카운트와 정합), closed 뷰 = 닫힘, deleted 뷰 = 로드분(삭제됨).
+    const byView = issues.filter((i) =>
+      view === "open" ? ACTIVE_STATUSES.includes(i.status)
+        : view === "closed" ? i.status === "닫힘"
+          : true
+    );
+    if (!normalized) return byView;
+    return byView.filter((i) => i.title.toLowerCase().includes(normalized));
+  }, [issues, view, query]);
 
   const selected = issues.find((i) => i.issue_id === selectedId) ?? null;
   const selectedSheet = selected?.sheet_id ? sheets.find((s) => s.id === selected.sheet_id) ?? null : null;
@@ -89,8 +101,12 @@ export default function IssuesView({
   async function changeStatus(id: string, status: IssueStatus) {
     try {
       const updated = await updateIssue(id, { status });
-      // 삭제됨/닫힘 등으로 현재 탭 필터에서 벗어나면 목록에서 제거.
-      if (!showDeleted && status === "삭제됨") {
+      // 새 상태가 현재 뷰(open=active / closed=닫힘 / deleted=삭제됨)를 벗어나면 목록에서 제거.
+      const staysInView =
+        view === "open" ? ACTIVE_STATUSES.includes(status)
+          : view === "closed" ? status === "닫힘"
+            : status === "삭제됨";
+      if (!staysInView) {
         setIssues((prev) => prev.filter((i) => i.issue_id !== id));
         setSelectedId(null);
       } else {
@@ -121,7 +137,7 @@ export default function IssuesView({
       <div className="build-page-heading">
         <div>
           <h1 id="issues-title">이슈</h1>
-          <p>열린 이슈와 삭제된 이슈</p>
+          <p>열린 이슈 · 닫힌 이슈 · 삭제된 이슈</p>
         </div>
         <button
           className="primary-action"
@@ -145,16 +161,24 @@ export default function IssuesView({
             <button
               className="secondary-action"
               type="button"
-              aria-pressed={!showDeleted}
-              onClick={() => { setShowDeleted(false); setSelectedId(null); }}
+              aria-pressed={view === "open"}
+              onClick={() => { setView("open"); setSelectedId(null); }}
             >
               열린 이슈
             </button>
             <button
               className="secondary-action"
               type="button"
-              aria-pressed={showDeleted}
-              onClick={() => { setShowDeleted(true); setSelectedId(null); }}
+              aria-pressed={view === "closed"}
+              onClick={() => { setView("closed"); setSelectedId(null); }}
+            >
+              닫힌 이슈
+            </button>
+            <button
+              className="secondary-action"
+              type="button"
+              aria-pressed={view === "deleted"}
+              onClick={() => { setView("deleted"); setSelectedId(null); }}
             >
               삭제된 이슈
             </button>
@@ -172,7 +196,11 @@ export default function IssuesView({
 
           {visible.length === 0 ? (
             <div className="empty-state" role="status">
-              {showDeleted ? "삭제된 이슈가 없습니다." : "열린 이슈가 없습니다. 이슈를 작성하거나 뷰어에서 핀을 추가하세요."}
+              {view === "deleted"
+                ? "삭제된 이슈가 없습니다."
+                : view === "closed"
+                  ? "닫힌 이슈가 없습니다."
+                  : "열린 이슈가 없습니다. 이슈를 작성하거나 뷰어에서 핀을 추가하세요."}
             </div>
           ) : (
             visible.map((issue) => (
