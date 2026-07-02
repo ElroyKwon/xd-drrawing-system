@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { drawingsToSheets, listDrawings, type Drawing, type Issue } from "./api/drawings";
 import { filterSheets, selectedBuildProject, sortSheets, type Sheet, type SheetSortKey } from "./buildSheetsData";
 import BuildHomeView from "./build/BuildHomeView";
+import BuildTasksView from "./build/BuildTasksView";
 import BuildManagementView from "./build/BuildManagementView";
 import GlobalSearch from "./build/GlobalSearch";
 import FilesView from "./build/FilesView";
@@ -203,6 +204,7 @@ export default function BuildSheetsView({ project = selectedBuildProject, canEdi
             onOpenSheets={() => openSection("시트")}
             onOpenIssues={() => openSection("이슈")}
             onOpenFiles={() => openSection("파일")}
+            onOpenTasks={() => openSection("작업")}
           />
         ) : activeSection === "시트" ? (
           <SheetsListView
@@ -223,6 +225,8 @@ export default function BuildSheetsView({ project = selectedBuildProject, canEdi
           <FilesView onOpenSheet={openSheet} focusFolderId={filesFocusFolderId} canEdit={canEdit} projectName={project.name} />
         ) : activeSection === "이슈" ? (
           <IssuesView projectName={project.name} sheets={projectSheets} onOpenIssuePin={openIssuePin} focusIssueId={issuesFocusId} canEdit={canEdit} />
+        ) : activeSection === "작업" ? (
+          <BuildTasksView projectName={project.name} canEdit={canEdit} />
         ) : activeSection === "양식" ? (
           <FormsView />
         ) : activeSection === "사진" ? (

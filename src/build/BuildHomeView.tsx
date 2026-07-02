@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { listDrawings, listFolders, listIssues, type Drawing, type Folder, type Issue } from "../api/drawings";
+import { taskSummary, type TaskSummary } from "../api/tasks";
 import { computeHomeStats, formatBytes, type IssueStatusDay } from "./homeStats";
 
 type HomeTab = "개요" | "종합";
@@ -16,30 +17,35 @@ export default function BuildHomeView({
   projectName,
   onOpenSheets,
   onOpenIssues,
-  onOpenFiles
+  onOpenFiles,
+  onOpenTasks
 }: {
   projectName: string;
   onOpenSheets?: () => void;
   onOpenIssues?: () => void;
   onOpenFiles?: () => void;
+  onOpenTasks?: () => void;
 }) {
   const [activeTab, setActiveTab] = useState<HomeTab>("개요");
   const [drawings, setDrawings] = useState<Drawing[]>([]);
   const [issues, setIssues] = useState<Issue[]>([]);
   const [folders, setFolders] = useState<Folder[]>([]);
+  const [tasks, setTasks] = useState<TaskSummary | null>(null);
 
-  // 홈 진입 시 실데이터 집계 로드(시트/파일/폴더/이슈). 정적 하드코딩 대체.
+  // 홈 진입 시 실데이터 집계 로드(시트/파일/폴더/이슈/작업). 정적 하드코딩 대체.
   useEffect(() => {
     let alive = true;
     Promise.all([
       listDrawings(projectName).catch(() => [] as Drawing[]),
       listIssues({ projectName }).catch(() => [] as Issue[]),
-      listFolders(projectName).catch(() => [] as Folder[])
-    ]).then(([d, i, f]) => {
+      listFolders(projectName).catch(() => [] as Folder[]),
+      taskSummary(projectName).catch(() => null)
+    ]).then(([d, i, f, t]) => {
       if (!alive) return;
       setDrawings(d);
       setIssues(i);
       setFolders(f);
+      setTasks(t);
     });
     return () => {
       alive = false;
@@ -69,7 +75,7 @@ export default function BuildHomeView({
       </div>
 
       {activeTab === "개요" ? (
-        <HomeOverview stats={stats} onOpenSheets={onOpenSheets} onOpenIssues={onOpenIssues} onOpenFiles={onOpenFiles} />
+        <HomeOverview stats={stats} tasks={tasks} onOpenSheets={onOpenSheets} onOpenIssues={onOpenIssues} onOpenFiles={onOpenFiles} onOpenTasks={onOpenTasks} />
       ) : (
         <HomeAnalytics issuesByDate={stats.issuesByDate} />
       )}
@@ -79,14 +85,18 @@ export default function BuildHomeView({
 
 function HomeOverview({
   stats,
+  tasks,
   onOpenSheets,
   onOpenIssues,
-  onOpenFiles
+  onOpenFiles,
+  onOpenTasks
 }: {
   stats: ReturnType<typeof computeHomeStats>;
+  tasks: TaskSummary | null;
   onOpenSheets?: () => void;
   onOpenIssues?: () => void;
   onOpenFiles?: () => void;
+  onOpenTasks?: () => void;
 }) {
   return (
     <div className="home-overview-grid">
@@ -132,10 +142,15 @@ function HomeOverview({
 
         <section className="home-card" aria-label="작업 상태">
           <h2>작업 상태</h2>
-          <div className="home-status-row home-status-empty">
-            <span>나에게 할당된 작업</span>
-            <span className="home-status-value muted">작업 없음 · 추가 예정</span>
-          </div>
+          <button className="home-status-row" type="button" onClick={onOpenTasks}>
+            <span>진행 중인 작업</span>
+            {tasks && tasks.total > 0 ? (
+              <span className="home-status-value">{tasks.open}개 진행 · {tasks.done}개 완료</span>
+            ) : (
+              <span className="home-status-value muted">작업 없음 · 작업 작성</span>
+            )}
+            <ChevronRight size={16} aria-hidden="true" />
+          </button>
           <button className="home-status-row" type="button" onClick={onOpenIssues}>
             <span>진행 중인 프로젝트 이슈</span>
             <span className="home-status-value">{stats.issueActiveCount}개</span>

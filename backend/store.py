@@ -164,6 +164,23 @@ class DrawingStore(ABC):
     def delete_issue(self, issue_id: str) -> bool:
         """soft delete: status를 '삭제됨'으로 전환(이력 보존)."""
 
+    # --- S9: 작업(Tasks) — 프로젝트 전역 작업 항목(담당·상태·기한). 핀 없음 ---
+    @abstractmethod
+    def add_task(self, meta: dict) -> None: ...
+
+    @abstractmethod
+    def list_tasks(self, *, project_name: Optional[str] = None,
+                   status: Optional[str] = None, assignee: Optional[str] = None) -> list: ...
+
+    @abstractmethod
+    def get_task(self, task_id: str) -> Optional[dict]: ...
+
+    @abstractmethod
+    def update_task(self, task_id: str, **fields) -> Optional[dict]: ...
+
+    @abstractmethod
+    def delete_task(self, task_id: str) -> bool: ...
+
     # --- S7: 구성원 · 프로젝트 · 프로젝트-구성원(역할) · 현재 사용자(로컬 모의) ---
     @abstractmethod
     def list_members(self) -> list: ...
@@ -213,6 +230,7 @@ class JsonDrawingStore(DrawingStore):
         self._markups_path = Path(config.UPLOADS_DIR) / "_markups.json"
         self._measurements_path = Path(config.UPLOADS_DIR) / "_measurements.json"
         self._issues_path = Path(config.UPLOADS_DIR) / "_issues.json"
+        self._tasks_path = Path(config.UPLOADS_DIR) / "_tasks.json"  # S9: 작업(Tasks)
         # S7: 구성원·프로젝트·프로젝트-구성원·현재 사용자
         self._members_path = Path(config.UPLOADS_DIR) / "_members.json"
         self._projects_path = Path(config.UPLOADS_DIR) / "_projects.json"
@@ -229,6 +247,8 @@ class JsonDrawingStore(DrawingStore):
             self._write_at(self._measurements_path, {})
         if not self._issues_path.exists():
             self._write_at(self._issues_path, {})
+        if not self._tasks_path.exists():
+            self._write_at(self._tasks_path, {})
 
     def _read_at(self, path: Path) -> dict:
         try:
@@ -526,6 +546,52 @@ class JsonDrawingStore(DrawingStore):
             row["status"] = "삭제됨"
             row["updated_at"] = datetime.now().isoformat()
             self._write_at(self._issues_path, data)
+            return True
+
+    # --- S9: 작업(Tasks) ---
+    def add_task(self, meta: dict) -> None:
+        with self._lock:
+            data = self._read_at(self._tasks_path)
+            data[meta["task_id"]] = meta
+            self._write_at(self._tasks_path, data)
+
+    def list_tasks(self, *, project_name=None, status=None, assignee=None) -> list:
+        rows = list(self._read_at(self._tasks_path).values())
+        if project_name is not None:
+            rows = [r for r in rows if r.get("project_name") == project_name]
+        if status is not None:
+            rows = [r for r in rows if r.get("status") == status]
+        if assignee is not None:
+            rows = [r for r in rows if r.get("assignee") == assignee]
+        # 미완료 우선 + 최신 생성 우선(안정 정렬 2패스). 목록 상단 = 처리 대상.
+        rows.sort(key=lambda r: r.get("created_at", ""), reverse=True)
+        rows.sort(key=lambda r: r.get("status") == "완료")
+        return rows
+
+    def get_task(self, task_id: str) -> Optional[dict]:
+        return self._read_at(self._tasks_path).get(task_id)
+
+    def update_task(self, task_id: str, **fields) -> Optional[dict]:
+        with self._lock:
+            data = self._read_at(self._tasks_path)
+            row = data.get(task_id)
+            if not row:
+                return None
+            for k in ("title", "description", "assignee", "status", "priority", "due_date"):
+                if k in fields and fields[k] is not None:
+                    row[k] = fields[k]
+            row["updated_at"] = datetime.now().isoformat()
+            self._write_at(self._tasks_path, data)
+            return row
+
+    def delete_task(self, task_id: str) -> bool:
+        # 작업은 하드 삭제(이슈와 달리 이력 보존 불필요).
+        with self._lock:
+            data = self._read_at(self._tasks_path)
+            if task_id not in data:
+                return False
+            del data[task_id]
+            self._write_at(self._tasks_path, data)
             return True
 
     # --- S7: 구성원 · 프로젝트 · 프로젝트-구성원(역할) · 현재 사용자 ---
@@ -890,6 +956,22 @@ class TypeDBDrawingStore(DrawingStore):
 
     def set_current_user(self, member_id: str) -> None:
         _MIRROR.set_current_user(member_id)
+
+    # --- S9: 작업(Tasks) — JSON 미러 SoT(직접쿼리화는 후속) ---
+    def add_task(self, meta: dict) -> None:
+        _MIRROR.add_task(meta)
+
+    def list_tasks(self, *, project_name=None, status=None, assignee=None) -> list:
+        return _MIRROR.list_tasks(project_name=project_name, status=status, assignee=assignee)
+
+    def get_task(self, task_id: str) -> Optional[dict]:
+        return _MIRROR.get_task(task_id)
+
+    def update_task(self, task_id: str, **fields) -> Optional[dict]:
+        return _MIRROR.update_task(task_id, **fields)
+
+    def delete_task(self, task_id: str) -> bool:
+        return _MIRROR.delete_task(task_id)
 
 
 def _esc(s: str) -> str:

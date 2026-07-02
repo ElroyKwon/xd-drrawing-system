@@ -5,6 +5,7 @@ import {
   File,
   Home,
   Image,
+  ListTodo,
   Settings,
   Sheet as SheetIcon,
   Users
@@ -15,6 +16,7 @@ export const primaryNav = [
   { label: "시트", icon: SheetIcon },
   { label: "파일", icon: File },
   { label: "이슈", icon: CircleDot },
+  { label: "작업", icon: ListTodo },
   { label: "양식", icon: ClipboardList },
   { label: "사진", icon: Image }
 ] as const;

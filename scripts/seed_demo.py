@@ -204,6 +204,43 @@ def seed_markups(created):
         print(f"  + {label}  ({cs}, sheet …{sheet_id[-10:]})")
 
 
+# ---------------------------------------------------------------------------
+# 4) 작업(Tasks) — 전기 시공 현장의 현실적 작업 항목
+# ---------------------------------------------------------------------------
+# (제목, 담당, 상태, 우선순위, 기한, 설명)
+TASK_SPECS = [
+    ("수전실 접지저항 측정 결과 제출", "시공 전기팀", "진행중", "높음", "2026-07-10",
+     "준공 전 접지저항 측정값 기록해 감리에 제출."),
+    ("단선결선도 주차단기 정격 최종 승인", "전기 설계팀", "할 일", "높음", "2026-07-08",
+     "차단기 정격(ACB) 현장 명판 대조 후 도면 최종 승인."),
+    ("22.9kV 인입 케이블 발주 (CV 400sq)", "구매팀", "할 일", "높음", "2026-07-15",
+     "부하계산 반영 규격으로 인입 간선 발주."),
+    ("케이블 트레이 시공 상세도 작성", "BIM 조정자", "진행중", "보통", "2026-07-18",
+     "덕트 간섭 구간 우회 반영한 트레이 시공 상세도."),
+    ("비상발전기 시운전 계획 수립", "시공 전기팀", "할 일", "보통", "2026-07-22",
+     "ATS 전환·부하 시험 포함 시운전 절차서 작성."),
+    ("조명 분전반 회로 재분배 검토", "전기 설계팀", "진행중", "낮음", "2026-07-20",
+     "LP-2F 회로 초과 해소 위한 회로 재분배."),
+    ("접지 시스템 준공 검사 신청", "전기 감리", "완료", "보통", "2026-06-28",
+     "TN-S 계통 준공 검사 신청 완료."),
+    ("피뢰설비 설치 확인서 제출", "시공 전기팀", "완료", "보통", "2026-06-30",
+     "인하도선 경로 변경 반영한 설치 확인서 제출 완료."),
+]
+
+
+def seed_tasks():
+    print("[4] 작업(Tasks) 생성")
+    # 멱등: 기존 작업 전부 삭제 후 재생성.
+    for t in (api("GET", "/api/tasks?project_name=Study_Project") or []):
+        api("DELETE", f"/api/tasks/{t['task_id']}")
+    for (title, assignee, status, priority, due, desc) in TASK_SPECS:
+        r = api("POST", "/api/tasks", {
+            "title": title, "assignee": assignee, "status": status,
+            "priority": priority, "due_date": due, "description": desc})
+        if r:
+            print(f"  + [{status}·{priority}] {title[:34]}")
+
+
 def main():
     me = api("GET", "/api/auth/me")
     if not me:
@@ -214,8 +251,10 @@ def main():
     drawings = api("GET", "/api/drawings") or []
     created = seed_issues(drawings)
     seed_markups(created)
+    seed_tasks()
     issues = api("GET", "/api/issues") or []
-    print(f"\n완료: 활성 이슈 {len(issues)}건 (핀 {sum(1 for i in issues if i.get('pin'))}건)")
+    tasks = api("GET", "/api/tasks?project_name=Study_Project") or []
+    print(f"\n완료: 활성 이슈 {len(issues)}건 (핀 {sum(1 for i in issues if i.get('pin'))}건) · 작업 {len(tasks)}건")
 
 
 if __name__ == "__main__":
