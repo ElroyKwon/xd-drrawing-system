@@ -120,8 +120,11 @@ async def create_project(body: dict):
         "role": "관리자", "status": "활성",
         "added_at": datetime.now().strftime("%Y.%m.%d."),
     })
-    logger.info("project created %s (%s) by %s", meta["id"], name, creator)
-    return meta
+    # S9.3: 선택한 템플릿의 폴더/구성원을 새 프로젝트에 적용.
+    from routes_template import apply_template_to_project
+    applied = apply_template_to_project(store, body.get("templateId"), name, creator)
+    logger.info("project created %s (%s) by %s (template=%s)", meta["id"], name, creator, applied)
+    return {**meta, "template_applied": applied}
 
 
 @router.delete("/projects/{project_id}")

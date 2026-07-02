@@ -23,6 +23,7 @@ import ProjectAdminView from "./ProjectAdminView";
 import { useModalDismiss } from "./hooks/useModalDismiss";
 import { initialProjectAccess, type ProjectMemberAccess } from "./projectAdminData";
 import { createProject as apiCreateProject, deleteProject as apiDeleteProject, getMe, listMembers, listProjects, switchUser, type Me, type Member } from "./api/admin";
+import { createTemplate as apiCreateTemplate, deleteTemplate as apiDeleteTemplate, listTemplates } from "./api/templates";
 
 type Project = {
   id: string;
@@ -169,6 +170,10 @@ export default function App() {
     listProjects<Project>().then((rows) => {
       if (alive && rows.length) setProjects(rows);
     }).catch(() => {/* 백엔드 미가동 시 시드 유지 */});
+    // S9.3: 허브 템플릿을 백엔드에서 로드(미가동 시 로컬 시드 유지).
+    listTemplates().then((rows) => {
+      if (alive && rows.length) setHubTemplates(rows.map((t) => ({ id: t.template_id, name: t.name })));
+    }).catch(() => {/* 백엔드 미가동 시 시드 유지 */});
     return () => { alive = false; };
   }, []);
 
@@ -287,8 +292,21 @@ export default function App() {
     }
   }
 
-  function addHubTemplate(name: string) {
-    setHubTemplates((current) => [...current, { id: `template-${Date.now()}`, name }]);
+  function addHubTemplate(name: string, kind: "blank" | "existing" = "blank", sourceProject?: string) {
+    const localId = `template-${Date.now()}`;
+    // 낙관적 반영(즉시 표시). 백엔드 영속은 뒤따르고, 성공 시 서버 id로 교체.
+    setHubTemplates((current) => [...current, { id: localId, name }]);
+    apiCreateTemplate({ name, source: kind, source_project: sourceProject ?? null })
+      .then((created) =>
+        setHubTemplates((current) => current.map((t) => (t.id === localId ? { id: created.template_id, name: created.name } : t)))
+      )
+      .catch(() => {/* 백엔드 미가동 폴백 — 로컬 유지 */});
+  }
+
+  function handleDeleteTemplate(templateId: string, name: string) {
+    if (!window.confirm(`'${name}' 템플릿을 삭제하시겠습니까?`)) return;
+    setHubTemplates((current) => current.filter((t) => t.id !== templateId));
+    apiDeleteTemplate(templateId).catch(() => {/* 백엔드 미가동 폴백 */});
   }
 
   function openTemplateAdmin(templateId: string) {
@@ -370,9 +388,11 @@ export default function App() {
         ) : activeView === "project-templates" ? (
           <ProjectTemplatesView
             hubTemplates={hubTemplates}
+            projects={projects}
             onCreateTemplate={addHubTemplate}
             onUseTemplate={openModalWithTemplate}
             onOpenTemplate={openTemplateAdmin}
+            onDeleteTemplate={handleDeleteTemplate}
           />
         ) : (
           <section className="project-panel" aria-labelledby="project-list-title">
@@ -511,6 +531,7 @@ export default function App() {
         <ProjectCreateModal
           form={form}
           nameError={nameError}
+          hubTemplates={hubTemplates}
           onClose={closeModal}
           onSubmit={submitProject}
           onUpdate={updateForm}
@@ -728,15 +749,18 @@ function MyHomeView({ onOpenProject }: MyHomeViewProps) {
 
 type ProjectTemplatesViewProps = {
   hubTemplates: HubTemplate[];
-  onCreateTemplate: (name: string) => void;
+  projects: Project[];
+  onCreateTemplate: (name: string, kind: "blank" | "existing", sourceProject?: string) => void;
   onUseTemplate: (templateName: string) => void;
   onOpenTemplate: (templateId: string) => void;
+  onDeleteTemplate: (templateId: string, name: string) => void;
 };
 
-function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, onOpenTemplate }: ProjectTemplatesViewProps) {
+function ProjectTemplatesView({ hubTemplates, projects, onCreateTemplate, onUseTemplate, onOpenTemplate, onDeleteTemplate }: ProjectTemplatesViewProps) {
   const [flowStep, setFlowStep] = useState<"none" | "type" | "name">("none");
   const [templateKind, setTemplateKind] = useState<"blank" | "existing">("blank");
   const [templateName, setTemplateName] = useState("");
+  const [sourceProject, setSourceProject] = useState("");
   const [sampleOpen, setSampleOpen] = useState(true);
   const typeModalRef = useRef<HTMLDivElement>(null);
   const nameModalRef = useRef<HTMLFormElement>(null);
@@ -746,6 +770,7 @@ function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, o
   function startFlow() {
     setTemplateKind("blank");
     setTemplateName("");
+    setSourceProject(projects[0]?.name ?? "");
     setFlowStep("type");
   }
 
@@ -755,7 +780,7 @@ function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, o
     if (!name) {
       return;
     }
-    onCreateTemplate(name);
+    onCreateTemplate(name, templateKind, templateKind === "existing" ? sourceProject : undefined);
     setFlowStep("none");
   }
 
@@ -835,6 +860,7 @@ function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, o
                   <th scope="col">이름</th>
                   <th scope="col">액세스</th>
                   <th scope="col">작성 날짜</th>
+                  <th scope="col" aria-label="작업" />
                 </tr>
               </thead>
               <tbody>
@@ -852,6 +878,16 @@ function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, o
                     </td>
                     <td>소유자</td>
                     <td>방금 전</td>
+                    <td>
+                      <button
+                        className="table-icon danger"
+                        type="button"
+                        aria-label={`${template.name} 템플릿 삭제`}
+                        onClick={() => onDeleteTemplate(template.id, template.name)}
+                      >
+                        <Trash2 size={17} aria-hidden="true" />
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -929,6 +965,23 @@ function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, o
                   autoFocus
                 />
               </label>
+              {templateKind === "existing" ? (
+                <label className="field select-field">
+                  <span>원본 프로젝트</span>
+                  <select
+                    name="template-source-project"
+                    aria-label="원본 프로젝트"
+                    value={sourceProject}
+                    onChange={(event) => setSourceProject(event.target.value)}
+                  >
+                    {projects.map((project) => (
+                      <option key={project.id} value={project.name}>
+                        {project.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : null}
             </div>
             <footer className="modal-footer">
               <button type="button" className="secondary-action" onClick={() => setFlowStep("none")}>
@@ -948,12 +1001,13 @@ function ProjectTemplatesView({ hubTemplates, onCreateTemplate, onUseTemplate, o
 type ProjectCreateModalProps = {
   form: ProjectForm;
   nameError: boolean;
+  hubTemplates: HubTemplate[];
   onClose: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   onUpdate: <K extends keyof ProjectForm>(key: K, value: ProjectForm[K]) => void;
 };
 
-function ProjectCreateModal({ form, nameError, onClose, onSubmit, onUpdate }: ProjectCreateModalProps) {
+function ProjectCreateModal({ form, nameError, hubTemplates, onClose, onSubmit, onUpdate }: ProjectCreateModalProps) {
   const dialogRef = useRef<HTMLFormElement>(null);
   useModalDismiss(onClose, dialogRef);
   return (
@@ -1013,11 +1067,22 @@ function ProjectCreateModal({ form, nameError, onClose, onSubmit, onUpdate }: Pr
             </span>
             <select name="project-template" value={form.templateId} onChange={(event) => onUpdate("templateId", event.target.value)}>
               <option value="">템플릿 없음 (결정 보류)</option>
-              {sampleTemplates.map((template) => (
-                <option key={template.name} value={template.name}>
-                  {template.name}
-                </option>
-              ))}
+              {hubTemplates.length > 0 ? (
+                <optgroup label="허브 템플릿">
+                  {hubTemplates.map((template) => (
+                    <option key={template.id} value={template.id}>
+                      {template.name}
+                    </option>
+                  ))}
+                </optgroup>
+              ) : null}
+              <optgroup label="샘플 템플릿">
+                {sampleTemplates.map((template) => (
+                  <option key={template.name} value={template.name}>
+                    {template.name}
+                  </option>
+                ))}
+              </optgroup>
             </select>
           </label>
 

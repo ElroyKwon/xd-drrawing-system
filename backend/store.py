@@ -68,6 +68,21 @@ _SEED_PROJECT_MEMBERS = [
     {"project_name": "Study_Project", "member_id": "member-viewer", "role": "뷰어", "status": "활성", "added_at": "2026.06.13."},
     {"project_name": "Construction : Sample Project - Seaport Civic Center", "member_id": "member-field", "role": "관리자", "status": "활성", "added_at": "2026.06.14."},
 ]
+# S9.3: 허브 기본 템플릿 시드. folders=추가 폴더(ACC 기본 폴더 위에 더함),
+# default_members=새 프로젝트에 자동 부여할 구성원(생성자=관리자는 별도).
+_SEED_TEMPLATES = [
+    {"template_id": "template-standard", "name": "표준 프로젝트 템플릿", "access": "소유자",
+     "source": "blank", "source_project": None,
+     "folders": ["시방서", "제출물", "회의록"],
+     "default_members": [{"member_id": "member-reviewer", "role": "편집자"},
+                         {"member_id": "member-viewer", "role": "뷰어"}],
+     "created_by": "member-owner", "created_at": "2026.06.20."},
+    {"template_id": "template-electrical", "name": "전기 시공 표준", "access": "일반 액세스",
+     "source": "blank", "source_project": None,
+     "folders": ["단선결선도", "부하계산서", "준공도서"],
+     "default_members": [{"member_id": "member-field", "role": "편집자"}],
+     "created_by": "member-owner", "created_at": "2026.06.20."},
+]
 
 
 class DrawingStore(ABC):
@@ -215,6 +230,19 @@ class DrawingStore(ABC):
     @abstractmethod
     def delete_photo(self, photo_id: str) -> bool: ...
 
+    # --- S9.3: 프로젝트 템플릿(허브 레벨) — 폴더/구성원 사전구성을 새 프로젝트에 적용 ---
+    @abstractmethod
+    def list_templates(self) -> list: ...
+
+    @abstractmethod
+    def add_template(self, meta: dict) -> None: ...
+
+    @abstractmethod
+    def get_template(self, template_id: str) -> Optional[dict]: ...
+
+    @abstractmethod
+    def delete_template(self, template_id: str) -> bool: ...
+
     # --- S7: 구성원 · 프로젝트 · 프로젝트-구성원(역할) · 현재 사용자(로컬 모의) ---
     @abstractmethod
     def list_members(self) -> list: ...
@@ -271,6 +299,7 @@ class JsonDrawingStore(DrawingStore):
         self._tasks_path = Path(config.UPLOADS_DIR) / "_tasks.json"  # S9: 작업(Tasks)
         self._forms_path = Path(config.UPLOADS_DIR) / "_forms.json"  # S9.1: 양식(Forms)
         self._photos_path = Path(config.UPLOADS_DIR) / "_photos.json"  # S9.2: 사진(Photos)
+        self._templates_path = Path(config.UPLOADS_DIR) / "_templates.json"  # S9.3: 프로젝트 템플릿
         # S7: 구성원·프로젝트·프로젝트-구성원·현재 사용자
         self._members_path = Path(config.UPLOADS_DIR) / "_members.json"
         self._projects_path = Path(config.UPLOADS_DIR) / "_projects.json"
@@ -293,6 +322,8 @@ class JsonDrawingStore(DrawingStore):
             self._write_at(self._forms_path, {})
         if not self._photos_path.exists():
             self._write_at(self._photos_path, {})
+        if not self._templates_path.exists():
+            self._write_at(self._templates_path, {})
 
     def _read_at(self, path: Path) -> dict:
         try:
@@ -725,6 +756,42 @@ class JsonDrawingStore(DrawingStore):
             self._write_at(self._photos_path, data)
             return True
 
+    # --- S9.3: 프로젝트 템플릿 ---
+    def _seed_templates(self) -> None:
+        """템플릿이 비었으면 허브 기본 템플릿 시드(idempotent)."""
+        if self._read_at(self._templates_path):
+            return
+        self._write_at(self._templates_path, {t["template_id"]: t for t in _SEED_TEMPLATES})
+
+    def list_templates(self) -> list:
+        with self._lock:
+            self._seed_templates()
+        rows = list(self._read_at(self._templates_path).values())
+        rows.sort(key=lambda t: t.get("created_at", ""), reverse=True)
+        return rows
+
+    def add_template(self, meta: dict) -> None:
+        with self._lock:
+            self._seed_templates()
+            data = self._read_at(self._templates_path)
+            data[meta["template_id"]] = meta
+            self._write_at(self._templates_path, data)
+
+    def get_template(self, template_id: str) -> Optional[dict]:
+        with self._lock:
+            self._seed_templates()
+        return self._read_at(self._templates_path).get(template_id)
+
+    def delete_template(self, template_id: str) -> bool:
+        with self._lock:
+            self._seed_templates()
+            data = self._read_at(self._templates_path)
+            if template_id not in data:
+                return False
+            del data[template_id]
+            self._write_at(self._templates_path, data)
+            return True
+
     # --- S7: 구성원 · 프로젝트 · 프로젝트-구성원(역할) · 현재 사용자 ---
     def _seed_s7(self) -> None:
         """구성원/프로젝트/역할이 비었으면 ACC식 시드 생성(idempotent). project_member는 project_name 키."""
@@ -1154,6 +1221,19 @@ class TypeDBDrawingStore(DrawingStore):
 
     def delete_photo(self, photo_id: str) -> bool:
         return _MIRROR.delete_photo(photo_id)
+
+    # --- S9.3: 프로젝트 템플릿 — JSON 미러 SoT ---
+    def list_templates(self) -> list:
+        return _MIRROR.list_templates()
+
+    def add_template(self, meta: dict) -> None:
+        _MIRROR.add_template(meta)
+
+    def get_template(self, template_id: str) -> Optional[dict]:
+        return _MIRROR.get_template(template_id)
+
+    def delete_template(self, template_id: str) -> bool:
+        return _MIRROR.delete_template(template_id)
 
 
 def _esc(s: str) -> str:

@@ -2,7 +2,17 @@
 
 > 매 재진입 시 `LOOP.md` → `PLAN.md` → 이 파일 순으로 읽고 이어받는다.
 
-## 현재 상태 (2026-07-02, 세션 12 — GATE-1 해소 + 데모 실데이터 + S9 작업 도구)
+## 현재 상태 (2026-07-02, 세션 13 — 백로그 소진: 정리 + 사진 도구)
+
+사용자 지시: "남은 것 전부 다음 세션 백로그 순서대로, ai-loop 선택은 추천안으로 진행". 백로그 순서대로 자율 실행 중.
+
+- **백로그 1 — 정리(DONE, 커밋 `af32b07`)**: 프로젝트 삭제 API + Hub 행 삭제 액션. `store.remove_project`(구성원 cascade, Json·TypeDB미러) + `DELETE /api/projects/{id}`(require_role 관리자, 404) + 프론트 `deleteProject`·App 테이블 행 삭제 버튼(관리자 게이트+confirm). 테스트 프로젝트 3종(x·S7검증현장·S7canManage검증) 실서버 API로 삭제 → **Hub 2개(Study/Seaport)로 클린**. pytest 12(신규 1)·vitest 108·build. device: 실서버 DELETE+cascade, UI 임시프로젝트 생성→삭제(confirm·목록갱신·콘솔0). evidence/s9_2-cleanup-hub.png.
+- **백로그 2a — 사진(Photos) 도구(DONE, 커밋 `a9f9b3f`)**: 정적 플레이스홀더 → 실기능. store Photo 엔티티(add/list[project·sheet]/get/update/delete) + `routes_photo.py`(`/api/photos` 멀티파트 업로드·목록·/summary·PATCH·DELETE, RBAC 편집자·이미지검증·traversal방어·삭제시 파일정리) + `/files` static 서빙. 프론트 `api/photos.ts`·PhotosView 재작성(갤러리 그리드·다중 업로드·연결/미연결 필터·검색·라이트박스[캡션·시트연결 select·삭제], 게이팅) + BuildSheetsView 배선 + CSS. seed_demo `seed_photos()`(PIL 라벨 6장, 5연결·1미연결, 멱등). **pytest 92(사진 5)·vitest 108·build**. device: 갤러리 6장·연결5·라이트박스(백엔드 이미지·연결시트·캡션·select·삭제)·미연결 필터 1장·콘솔0. evidence/s9_2-photos-*.png.
+- **다음(세션13 진행 중)**: 백로그 2b 프로젝트 템플릿 워크플로우 → 2c 홈 잔여 위젯 → (게이트) S8 사이드카 AI[GATE-2/3·LLM egress] → S10 온톨로지[Docker]. 재기동법 세션6 블록(⚠️ 라우트 추가 후 uvicorn 수동 재기동).
+
+---
+
+## 이전 상태 (2026-07-02, 세션 12 — GATE-1 해소 + 데모 실데이터 + S9 작업 도구)
 
 사용자 3갈래 요청(개발 확대+문서화 / 현실적 이슈+마크업 / S8 병행)에 대해 4결정 freeze 후 자율 실행. **추천대로 진행 + 미커밋 커밋** 승인.
 
