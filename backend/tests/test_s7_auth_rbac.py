@@ -171,6 +171,33 @@ def test_create_issue_enforced_by_real_file_not_self_reported_project(tmp_path, 
     assert created["file_id"] == "F1"
 
 
+def test_delete_project_cascades_members_admin_only(tmp_path, monkeypatch):
+    """정리(백로그1): 프로젝트 삭제는 관리자만, 구성원 cascade, 미존재 404, 비관리자 403."""
+    ra, _ = _reload(tmp_path, monkeypatch)
+    from fastapi import HTTPException
+    s = ra.get_store()
+    # 관리자가 신규 프로젝트 생성(생성자=관리자 자동)
+    s.set_current_user("member-reviewer")
+    proj = asyncio.run(ra.create_project({"name": "삭제대상 현장"}))
+    pid = proj["id"]
+    assert s.get_project_member("삭제대상 현장", "member-reviewer") is not None
+    # 비관리자(뷰어)는 삭제 403
+    s.set_current_user("member-viewer")
+    with pytest.raises(HTTPException) as e1:
+        asyncio.run(ra.delete_project(pid))
+    assert e1.value.status_code == 403
+    # 관리자는 삭제 허용 + 구성원 cascade
+    s.set_current_user("member-reviewer")
+    res = asyncio.run(ra.delete_project(pid))
+    assert res["removed"] == pid
+    assert not any(p["id"] == pid for p in s.list_projects())
+    assert s.get_project_member("삭제대상 현장", "member-reviewer") is None
+    # 미존재 삭제 404
+    with pytest.raises(HTTPException) as e2:
+        asyncio.run(ra.delete_project(pid))
+    assert e2.value.status_code == 404
+
+
 def test_last_admin_cannot_be_removed_or_demoted(tmp_path, monkeypatch):
     """MAJOR-D/E: 마지막 활성 관리자 제거·강등으로 RBAC 무력화/락아웃 방지."""
     ra, _ = _reload(tmp_path, monkeypatch)

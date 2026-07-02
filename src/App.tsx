@@ -14,6 +14,7 @@ import {
   Plus,
   Search,
   Settings,
+  Trash2,
   X
 } from "lucide-react";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
@@ -21,7 +22,7 @@ import BuildSheetsView from "./BuildSheetsView";
 import ProjectAdminView from "./ProjectAdminView";
 import { useModalDismiss } from "./hooks/useModalDismiss";
 import { initialProjectAccess, type ProjectMemberAccess } from "./projectAdminData";
-import { createProject as apiCreateProject, getMe, listMembers, listProjects, switchUser, type Me, type Member } from "./api/admin";
+import { createProject as apiCreateProject, deleteProject as apiDeleteProject, getMe, listMembers, listProjects, switchUser, type Me, type Member } from "./api/admin";
 
 type Project = {
   id: string;
@@ -273,6 +274,19 @@ export default function App() {
     setActiveView("build-sheets");
   }
 
+  async function handleDeleteProject(project: Project) {
+    if (!window.confirm(`'${project.name}' 프로젝트를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`)) return;
+    try {
+      await apiDeleteProject(project.id);
+      setProjects((current) => current.filter((p) => p.id !== project.id));
+      if (selectedProjectId === project.id) {
+        setSelectedProjectId((current) => (current === project.id ? initialProjects[0].id : current));
+      }
+    } catch (error) {
+      window.alert(error instanceof Error ? error.message : "프로젝트 삭제 실패");
+    }
+  }
+
   function addHubTemplate(name: string) {
     setHubTemplates((current) => [...current, { id: `template-${Date.now()}`, name }]);
   }
@@ -447,7 +461,18 @@ export default function App() {
                       <td>{project.hub}</td>
                       <td>{project.createdAt}</td>
                       <td />
-                      <td />
+                      <td>
+                        {me?.roles?.[project.name] === "관리자" ? (
+                          <button
+                            className="table-icon danger"
+                            type="button"
+                            aria-label={`${project.name} 프로젝트 삭제`}
+                            onClick={() => handleDeleteProject(project)}
+                          >
+                            <Trash2 size={17} aria-hidden="true" />
+                          </button>
+                        ) : null}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

@@ -124,6 +124,21 @@ async def create_project(body: dict):
     return meta
 
 
+@router.delete("/projects/{project_id}")
+async def delete_project(project_id: str):
+    """프로젝트 삭제(파괴적) — 해당 프로젝트 관리자만. 구성원은 cascade 삭제."""
+    store = get_store()
+    project = next((p for p in store.list_projects() if p.get("id") == project_id), None)
+    if project is None:
+        raise HTTPException(404, f"프로젝트 없음: {project_id}")
+    require_role(project.get("name"), "관리자")
+    removed = store.remove_project(project_id)
+    if removed is None:
+        raise HTTPException(404, f"프로젝트 없음: {project_id}")
+    logger.info("project deleted %s (%s)", project_id, removed.get("name"))
+    return {"removed": project_id}
+
+
 # ---------------------------------------------------------------------------
 # 구성원
 # ---------------------------------------------------------------------------

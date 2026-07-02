@@ -215,6 +215,10 @@ class DrawingStore(ABC):
     def add_project(self, meta: dict) -> None: ...
 
     @abstractmethod
+    def remove_project(self, project_id: str) -> Optional[dict]:
+        """프로젝트를 삭제하고 소속 구성원(project_member)을 cascade 삭제. 삭제된 레코드 반환(없으면 None)."""
+
+    @abstractmethod
     def list_project_members(self, project_name: str) -> list: ...
 
     @abstractmethod
@@ -702,6 +706,22 @@ class JsonDrawingStore(DrawingStore):
             data[meta["id"]] = meta
             self._write_at(self._projects_path, data)
 
+    def remove_project(self, project_id: str) -> Optional[dict]:
+        with self._lock:
+            self._seed_s7()
+            projects = self._read_at(self._projects_path)
+            removed = projects.pop(project_id, None)
+            if removed is None:
+                return None
+            self._write_at(self._projects_path, projects)
+            # cascade: 해당 프로젝트 이름의 구성원 레코드 삭제.
+            name = removed.get("name")
+            members = self._read_at(self._project_members_path)
+            kept = {k: v for k, v in members.items() if v.get("project_name") != name}
+            if len(kept) != len(members):
+                self._write_at(self._project_members_path, kept)
+            return removed
+
     def list_project_members(self, project_name: str) -> list:
         with self._lock:
             self._seed_s7()
@@ -1000,6 +1020,9 @@ class TypeDBDrawingStore(DrawingStore):
 
     def add_project(self, meta: dict) -> None:
         _MIRROR.add_project(meta)
+
+    def remove_project(self, project_id: str) -> Optional[dict]:
+        return _MIRROR.remove_project(project_id)
 
     def list_project_members(self, project_name: str) -> list:
         return _MIRROR.list_project_members(project_name)

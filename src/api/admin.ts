@@ -49,6 +49,13 @@ export async function createProject<T = Record<string, unknown>>(project: T): Pr
   );
 }
 
+export async function deleteProject(projectId: string): Promise<void> {
+  const res = await fetch(`${BACKEND_BASE}/api/projects/${encodeURIComponent(projectId)}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error(`프로젝트 삭제 실패 (${res.status}): ${await res.text()}`);
+}
+
 // --- 구성원 ---
 export async function listMembers(): Promise<Member[]> {
   return jsonOrThrow(await fetch(`${BACKEND_BASE}/api/members`), "구성원 목록 실패");
