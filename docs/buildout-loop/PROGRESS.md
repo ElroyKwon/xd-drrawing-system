@@ -11,11 +11,13 @@
 - **트랙A — 데모 실데이터**(`b20977f`): 테스트 산물 이슈·junk 도면 정리 + 현실적 전기설계 이슈 **12건(핀 11)**을 단선결선도/배치 DWG(world)/BESS 8p에 분산 + 리비전 클라우드·실무 라벨 마크업. `scripts/seed_demo.py`(재현 산출물, uploads/ gitignore 대응). **사용자 피드백("안 이쁨") 반영**: 시트당 1~3개 분산·의미 라벨·겹침 제거.
 - **마크업 가독성**(`1edb6af`): VectorCanvas 흰 배경 박스 + MarkupCanvas SVG 흰 외곽선(halo) → 도면 위 라벨 가독. build+test 98.
 - **트랙B S9 — 작업(Tasks) 도구**(`a2c1f6a`): 홈 '작업 상태' 빈 상태 → 실데이터. 신규 Task 엔티티 CRUD(`store.py`·`routes_task.py`·`/api/tasks`+`/summary`) + RBAC(편집자) + `api/tasks.ts`·`BuildTasksView`(IssuesView 톤) + '작업' 네비 + 홈 위젯 딥링크. 시드 작업 8건. **build · vitest 103 · pytest 82** · 브라우저 e2e(작업뷰 8건·홈 6진행/2완료·콘솔0). *구현+자체검증(독립 3렌즈는 미실시).*
-- **다음 후보**: 트랙B 추가 기능(양식/템플릿/사진 — 사용자 미확답 멀티셀렉트) · 트랙C 문서 3종(제안서 PPTX+매뉴얼/설명서 MD) · S8.0 사이드카(GATE-2/3은 S8.3/S8.1 前). 테스트 프로젝트("x"·S7검증*) 정리는 보류(파괴적·미확인).
+- **트랙B S9.1 — 양식(Forms) 도구**(`76ad33d`): 양식 플레이스홀더 → 체크리스트 점검표 실기능. `store.py` Form 엔티티(items 체크리스트)+`routes_form.py`(`/api/forms`+`/summary`+완료율 산출)+RBAC · `api/forms.ts`·`FormsView`(완료율 진행바·체크박스 토글·필터) · 홈 종합 탭 양식 KPI 3카드 실데이터 · 시드 점검표 5건(완료율 0~100%). build·vitest **108**·pytest **86**·브라우저 e2e(양식 5건·40% 진행바·콘솔0).
+- **트랙C 문서화**(`3c6539b`): 완성 화면 스크린샷 10종(`docs/product/screenshots/01~10`) + `기능설명서.md`(모듈별 구현 명세) + `사용자매뉴얼.md`(작업별 안내). **제안서 PPTX는 사용자가 별도 터미널에서 진행**(세션 종료 답변으로 제안서 콘텐츠 전달).
+- **다음 후보**: 제안서 PPTX(사용자 진행 중) · 트랙B 추가 기능(템플릿/사진) · S8.0 사이드카(GATE-2/3은 S8.3/S8.1 前). 테스트 프로젝트("x"·S7검증*) 정리는 보류(파괴적·미확인) — Hub 스크린샷 클린업 시 필요.
 
 ### 세션 12 진입점
-- 재기동: 백엔드 `XD_STORE=auto backend/.venv/Scripts/python.exe -m uvicorn main:app --app-dir backend --port 8000 --reload` · 프론트 `npm run dev`(5173). 데모 데이터 재생성 = `PYTHONUTF8=1 backend/.venv/Scripts/python.exe scripts/seed_demo.py`.
-- 다음 = 사용자에게 트랙B 추가/트랙C 문서/S8 중 우선순위 확인 후 진행.
+- 재기동: 백엔드 `XD_STORE=auto backend/.venv/Scripts/python.exe -m uvicorn main:app --app-dir backend --port 8000` (⚠️ `--reload`는 backend/ 변경을 놓치는 사례 있음 — 라우트 추가 후엔 수동 재기동 권장) · 프론트 `npm run dev`(5173). 데모 재생성 = `PYTHONUTF8=1 backend/.venv/Scripts/python.exe scripts/seed_demo.py`.
+- 다음 = 제안서 PPTX 완성(사용자) 또는 트랙B 추가/S8 우선순위 확인.
 
 ---
 
