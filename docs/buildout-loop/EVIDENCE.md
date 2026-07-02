@@ -565,3 +565,24 @@ Study_Project에 제주 68p 업로드 후 시트/파일 뷰 검증(스크린샷 
 
 ## 잔여 비차단 부채 (S7 이후·후속)
 - 파일 없는 전역 이슈에 가짜 project_name(0-구성원) 지정 시 orphan 이슈 생성 가능(폴더/업로드와 동급 저영향, 실프로젝트 목록 미노출). 초기 me 로드 전 순간 fail-open(서버 403이 최종 게이트). 프로젝트명 키 역할 조회(rename 취약). 죽은 체크박스(일괄액션 미배선). TypeDB 미러 json 모드 static-only. 실제 인증(비밀번호·세션·OAuth)=HUMAN_GATE 후속.
+
+---
+
+## S8 설계 검수 (2026-07-01, 세션 11 — 독립 4렌즈, 구현 전 설계 단계)
+
+> S8은 아직 **설계·계약 단계**(구현 미착수). 아래는 설계 산출물(S8-ai-chat-design.md v2 + prompts/10)에 대한 4렌즈 적대 검수 결과와 product Done-When reconcile.
+
+### product Done-When reconcile (LOOP.md 항목)
+- **XD 고유(온톨로지)** [LOOP.md L34, "XD 차별화의 핵심"] — **NARROWED/DEFERRED (미해결)**. S8 사이드카 재설계로 온톨로지 적재/바인딩 산출물이 담당 스테이지 없이 이탈. OPEN-1(a) 승인은 Q&A 축소만 커버, 산출물 제거는 미승인 → **HUMAN_GATE GATE-1로 라우팅**(폐기/S10 연기/S8 재편입 3지 미확정). 이 항목 미해결 동안 S8 DONE 불가.
+
+### 4렌즈 검수 요약
+- **렌즈1 (아키텍처/격리)**: BLOCKER **B1**=BuildShell 허상(실제 App.tsx+BuildSheetsView.tsx) → GATE-2. MAJOR=프론트 격리 불변식 미채점·"어느 화면에서든" 모순·owner 전역 사용자 레이스(→GATE-3). **백엔드 격리(별도 8001·import0·diff0)는 실검증 가능·OPEN-1 narrowing 정직**으로 확인.
+- **렌즈3 (코드 대조)**: BLOCKER **0**. `/api/auth/me`(전역 current_user·세션 불요)·`/api/search`(딥링크 ID)·`/api/drawings`(시트번호/공종)·CORS 구분·GET 무가드(403 위험0)·`Study_Project` 시드 = 전부 코드 근거 확인. MAJOR=시트가 시드 아닌 런타임 업로드 의존(K5/K10 재현). MINOR=`/api/files` 부재(실제 `/api/drawings`+`/api/folders`, S8.2 교정).
+- **렌즈2 (메타프롬프트 실행가능성)**: 하드블로커 **0**, **조건부 Y**. MAJOR=health↔"시트 수 반환" 3자 모순·라이브 스모크 재현(시드 시트0). MINOR=K7 `_*.json` untracked 공허·CORS 조기/origin·PROGRESS 경로 중의·diff 명령 불명확. → **전부 prompts/10에 교정 반영**.
+- **렌즈4 (완성도/드리프트)**: BLOCKER **B1**=온톨로지 산출물 조용한 실종(위 reconcile→GATE-1). MAJOR=그라운딩/환각 이밸 부재(S8.2 접기)·ai_store 동시성 미언급(S8.1 원자적write, S1 전례)·챗 UI a11y 부재(S8.3). MINOR=egress 감사로그·4번째 그라운딩 렌즈 명시·S8.4 게이트 분리·대화0 빈상태.
+
+### 반영 (이 세션)
+- **즉시 교정 (factual, prompts/10 재freeze)**: health vs 시트수 단일화(툴이 카운트, health는 연결성)·라이브 스모크 도면 업로드 전제·K7 `_*.json` 제거·CORS origin 하드코딩·PROGRESS 경로 명시·diff 명령 구체화.
+- **설계 문서 교정 (S8-ai-chat-design.md §9 신설)**: BuildShell→실파일 정정·`/api/files`→`/api/drawings`+`/api/folders`·owner 문구 하향, GATE 포인터.
+- **게이트 (HUMAN_GATE.md 신설)**: GATE-1(온톨로지 처분)·GATE-2(프론트 재설계)·GATE-3(owner 프라이버시). 세션12 결정.
+- **후속 스테이지 접기 목록 (FROZEN 전 필수)**: S8.1=ai_store 원자적write+동시성 테스트 / S8.2=그라운딩 골든이밸+환각 적대·`list_files` 경로교정 / S8.3=챗 a11y(live region·focus)+프론트 격리 채점 / S8.4=egress 감사로그+게이트 분리 / 검증팀에 그라운딩·환각 4번째 렌즈 추가.

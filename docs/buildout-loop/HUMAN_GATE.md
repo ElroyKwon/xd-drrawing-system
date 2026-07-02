@@ -1,0 +1,30 @@
+# HUMAN_GATE — 자율 진행 금지·사용자 결정 대기 항목
+
+> LOOP.md §Stop conditions / §Human gates 계약. NARROWED/UNMET Done-When·스코프 변경·AI egress 등은 여기 기록하고 정지·보고한다. 각 항목은 사용자 결정 전까지 미해결(OPEN)이며, DONE 선언을 차단한다.
+
+## 2026-07-01 — S8 설계 4렌즈 검수에서 발생한 게이트
+
+세션 11 설계 검수(독립 4렌즈)가 다음 3건을 적발. **S8.0 부트스트랩 착수는 이들에 절연되어 병행 가능**하나, S8을 DONE 선언하려면 GATE-1 해소 필수, S8.3/S8.1 FROZEN 전 GATE-2/3 해소 필수.
+
+### GATE-1 [BLOCKER·즉시 결정 필요] — 온톨로지 바인딩 product Done-When의 처분
+- **문제**: `LOOP.md` L34 "**XD 고유(온톨로지)**: 도면 entity TypeDB 적재 + `equipmentEntityId` 바인딩(Study_TypeDB `analysis_result` 계승)"은 독립 product Done-When이자 `PLAN.md` L48에서 **"XD 차별화의 핵심"**. S8 v2 사이드카 재설계("8000 완전 무수정, 신규 라우트 0")로 이 **적재/바인딩 산출물이 S8.0~S8.5 어느 스테이지에도 없다**.
+- **왜 게이트**: OPEN-1(a) 승인이 덮은 것은 "장비-그래프 **Q&A**는 v1 밖 + 8000 무수정"뿐. "온톨로지 **적재/바인딩 산출물을 loop에서 제거**"는 **별개 결정인데 승인받지 않았다**. LOOP.md L36(NARROWED/UNMET→HUMAN_GATE)을 위반한 채 조용히 사라짐 = 프로세스 계약 위반.
+- **사용자 결정 필요(3지 택1, freeze)**:
+  - **(i) 공식 폐기** — 온톨로지 바인딩을 loop 산출물에서 제거. → `LOOP.md` L34·`PLAN.md` L48 개정 + 사유 기록.
+  - **(ii) 후속 스테이지로 연기** — 예: **S10 온톨로지**. → LOOP Done-When에 NARROWED+연기처+등급 기록.
+  - **(iii) S8로 재편입** — S8.0~S8.5에 온톨로지 적재/바인딩 스테이지 추가(사이드카는 읽기 그라운딩용 온톨로지 read API 필요 → OPEN-1 (b) 재검토 연동).
+- **상태**: **OPEN.** 세션 12 진입 시 최우선 결정.
+
+### GATE-2 [MAJOR·S8.3 FROZEN 전] — 프론트 격리 아키텍처 재설계 (BuildShell 허상)
+- **문제**: S8 설계가 "유일 접점"으로 못박은 `BuildShell.tsx`가 **존재하지 않음**. 실제 셸=`App.tsx`(6개 activeView), Build 뷰=`BuildSheetsView.tsx`(네비 상태 `openSheet`/`searchOpenIssue`/`searchOpenFolder`가 그 안 private useState). 딥링크는 두 컴포넌트의 사적 상태를 건드려야 함 → 설계의 "무수정·단일 접점·어느 화면에서든" **3자 모순**. (참고: `GlobalSearch`가 이미 props로 딥링크 패턴 구현 → 재사용 후보.)
+- **추가**: 프론트 격리 불변식("flag off → 100% 동일")에 **채점 항목 없음**(백엔드 diff=0/import 0만 있음). S8.3에 프론트 스냅샷 무변화 테스트 + `src/build/**`가 `src/ai/**` import 0 정적 검사(K6의 프론트 미러) 필요.
+- **사용자 결정 필요**: v1 드로어 범위 = **Build 내부 한정**(단일 접점 모델 유지) vs **전역(어느 화면에서든)**(App 상태 리프트=2번째 접점 문서화). 어느 쪽이든 딥링크 접점을 실제 파일(`BuildSheetsView.tsx`/`App.tsx`)로 재기술.
+- **상태**: **OPEN.** S8.3 메타프롬프트 공동설계 시 확정. S8.0 무관.
+
+### GATE-3 [MAJOR·S8.1 FROZEN 전] — 대화 owner-scoping 프라이버시 한계
+- **문제**: 설계가 "사용자 A는 B의 대화를 못 본다(scope 강제)"라 했으나, S7 `current_user`는 **세션 없는 서버 전역 가변** 사용자(`PUT /api/auth/me`로 누구나 아무 member로 전환). → 보안 경계 아님 + 교차 프로세스 레이스(전환이 8001 owner 귀속 중 끼어들면 오귀속).
+- **사용자 결정/보강**: 설계 문구를 "owner=표시용, S7 로컬 모의 한계상 프라이버시 보장 아님"으로 하향(§8 "실제 인증=S7 로컬 모의 유지"와 일관). S8.1에 owner를 **메시지 전송 시점 요청 컨텍스트에서 고정**(별도 `/auth/me` 재조회 아님) + 전환-중-전송 레이스 테스트 추가.
+- **상태**: **OPEN.** S8.1 메타프롬프트 공동설계 시 확정. S8.0 무관.
+
+---
+> 갱신 규칙: 결정되면 해당 항목에 "RESOLVED (날짜·결정)"를 달고 관련 LOOP/PLAN/설계/EVIDENCE를 개정한다. 미해결 항목이 있는 한 S8 DONE 선언 금지.

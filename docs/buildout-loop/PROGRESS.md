@@ -2,7 +2,22 @@
 
 > 매 재진입 시 `LOOP.md` → `PLAN.md` → 이 파일 순으로 읽고 이어받는다.
 
-## 현재 상태 (2026-07-01, 세션 10 — S7 검증 마무리 DONE: J7 Build UI 게이팅 + 독립 3렌즈 + 결함 전량 수리 + 디바이스 e2e + reconcile)
+## 현재 상태 (2026-07-01, 세션 11 — S8 설계 v2 격리형 사이드카 FROZEN)
+
+- **단계**: **S8 설계 FROZEN(구현 전).** 초안(v1 통합형)을 사용자 지시("기존과 별개로 동작")로 **완전 격리형 사이드카**로 재설계 → `docs/buildout-loop/S8-ai-chat-design.md` **STATUS: v2 FROZEN**.
+- **공동설계 9결정 확정**: 핵심4(tool-use 그라운딩·제공자 로컬기본·프로젝트+사용자 대화·읽기 Q&A+딥링크) + **격리4**(별도 8001 프로세스·8000 공개 HTTP만 호출[기존 import 0]·src/ai 격리+BuildShell 1곳 마운트+킬스위치·강한 격리 불변식) + **OPEN-1=(a) 순수 클라이언트**(8000 완전 무수정, 장비-그래프 Q&A는 v1 밖).
+- **격리 Done-When (e~g)**: flag OFF→기존 build/98 test/78 pytest GREEN·기존 routes_*/_*.json diff=0 / 8001 죽여도 8000 정상 / backend/ai가 기존 import 0(grep). "별개 동작"을 채점 가능한 기준으로 못박음.
+- **로드맵(사이드카 개정)**: S8.0 8001 부트스트랩+데이터표면 / S8.1 ai_store+provider(로컬·Mock) / S8.2 tool-use+8000 HTTP 툴(respx 스텁) / S8.3 src/ai 드로어+SSE+BuildShell 마운트+flag / S8.4 딥링크 xd:navigate 브리지+egress 게이트+클라우드 어댑터 / S8.5 3렌즈+reconcile+킬스위치 불변식. S9=액션.
+- **설계 검수 (독립 4렌즈, 구현 전)**: 렌즈1 아키텍처·렌즈2 메타프롬프트·렌즈3 코드대조·렌즈4 완성도. **백엔드 격리(별도 8001·import0·diff0)·OPEN-1(a)·S8.0 부트스트랩은 검증 통과.** 발견: **BLOCKER 2**(렌즈4 온톨로지 산출물 실종·렌즈1 BuildShell 허상)+**MAJOR 다수**(그라운딩/환각 이밸·ai_store 동시성·프론트 격리 미채점·owner 레이스·챗 a11y·라이브 스모크 재현). **즉시 교정 반영**(prompts/10 재freeze: health↔시트수·스모크 전제·K7 공허·CORS·경로 / 설계 §9 신설: BuildShell·`/api/files`·owner 정정). **미결 3게이트 → `HUMAN_GATE.md`**.
+- **다음(세션12)**: **① GATE-1 결정 최우선** — 온톨로지 바인딩(LOOP.md L34 "핵심 차별화") 처분: 폐기/S10 연기/S8 재편입 3지. **미결 시 S8 DONE 경로 없음.** ② 그 후 S8.0 구현(`prompts/10` 교정 FROZEN, `backend/ai/` 신설, K1~K10). GATE-2/3은 S8.3/S8.1 FROZEN 전.
+
+### 세션 11 진입점 (설계+검수 완료, 구현 미착수)
+- S8 설계 v2 + S8.0 메타프롬프트(`prompts/10`) **검수 교정 반영 FROZEN**. 4렌즈 검수 결과 = `EVIDENCE.md` "S8 설계 검수" 블록, 미결 = `HUMAN_GATE.md`(GATE-1/2/3).
+- **세션12 = GATE-1 결정(AskUserQuestion 3지) → 반영(LOOP/PLAN/EVIDENCE) → S8.0 구현 진입.** 재기동법 세션6 블록과 동일 + **8001 신규**(backend/ai/.venv 자체, `python -m uvicorn main_ai:app --port 8001`, 라이브 스모크 전 Study_Project에 도면 1건 업로드 필요).
+
+---
+
+## 이전 상태 (2026-07-01, 세션 10 — S7 검증 마무리 DONE: J7 Build UI 게이팅 + 독립 3렌즈 + 결함 전량 수리 + 디바이스 e2e + reconcile)
 
 - **단계**: **S7 DONE.** 세션 9 이월분(3렌즈·reconcile·J7 Build 콘텐츠 UI 게이팅·J11 e2e 확장)을 전량 완결. acceptance **J1~J12 전부 MET**(NARROWED/UNMET 0), 세션9 NARROWED였던 **J11 device 해소**.
 - **J7 구현**: `canEdit = currentRole !== "뷰어"`를 App→BuildSheetsView→FilesView/IssuesView/SheetViewerShell(+MarkupToolRail/IssueDetailPanel/MarkupPropertyPanel/MeasurePanel)로 스레딩. 뷰어=업로드·폴더·마크업/측정/이슈 작성·수정·삭제 비활성/숨김 + 전역 `:disabled` 시각 처리. 게이팅 단위 6.
