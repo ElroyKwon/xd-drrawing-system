@@ -56,6 +56,14 @@ export default function ChatDrawer({ project }: Props) {
   const [conversations, setConversations] = useState<ConversationSummary[]>([]);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const fabRef = useRef<HTMLButtonElement>(null);
+  const wasOpen = useRef(false);
+
+  // 닫힐 때(ESC/X) FAB로 focus 반환 — 키보드/SR 사용자 위치 소실 방지(WCAG 2.4.3).
+  useEffect(() => {
+    if (!open && wasOpen.current) fabRef.current?.focus();
+    wasOpen.current = open;
+  }, [open]);
 
   async function refreshList() {
     try {

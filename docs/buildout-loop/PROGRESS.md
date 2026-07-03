@@ -304,3 +304,12 @@
 - **검증자 환경지적 처분**: 8001에 이전 세션 잔류 uvicorn이 남아 신규와 레이스(라이브 킬스위치 교차검증 훼손 + 그 사이 실 GPT egress 1~2회 청구) → 잔류 종료·단일 클린 재기동·device 재검증. 코드는 단일 프로세스 설계(Q2) 전제라 무결. 증거 `EVIDENCE.md` S8.4 블록.
 - **병행**: 사용자 자동 데모 시스템(`demo/`) 개발/테스트와 병행. 나는 별도 Chrome(포트 9223·독립 프로필)를 제로설치 Node CDP 드라이버(`scratchpad/cdp.js`)로 몰며 옆에서 검증(허브 렌더 확인). 데모는 세션 중 사용자가 종료.
 - **다음 = S8.5**(S8.1/8.3/8.4 독립 3렌즈 consolidated + S8 전체 Done-When reconcile → S8 DONE 게이트). 이후 S10 온톨로지. 미푸시 커밋 push 결정 대기.
+
+## 세션 17 (2026-07-03) — S8.5 독립 3렌즈+reconcile → **S8 DONE** ✅
+
+**S8(AI 사이드카 챗) DONE.** `prompts/13-s8_5-review-reconcile.md` FROZEN(2결정 AFK자율=추천안: 렌즈범위 미검증분집중·DONE차단선 BLOCKER+MAJOR). 독립 3렌즈(별도 general-purpose 에이전트):
+- 렌즈1 백엔드 적대: **BLOCKER/MAJOR 0**(격리·툴그라운딩·프롬프트인젝션저항·킬스위치·감사·ai_store원자성 견고). MINOR 5 부채.
+- 렌즈2 프론트/a11y: **MAJOR 1 수리**(드로어 닫을때 FAB focus반환 없음 WCAG2.4.3 → `ChatDrawer.tsx` fabRef+반환effect). MINOR 3 부채.
+- 렌즈3 Done-When 비평: **product 4요소 전부 MET(device)·좁힘 0**(격리8001·8000HTTP그라운딩·실데이터·실gpt-5.5, 라이브 실 openai 1턴 실증).
+- 회귀 0: vitest **116**(8000 down 클린)·사이드카 **36**·backend **97**·build·격리 8000 diff0·src 변경 ChatDrawer 1파일. reconcile NARROWED/UNMET 0. 증거 `EVIDENCE.md` S8.5.
+- **밤샘 자율 모드**(사용자 확정: 비게이트 전부+신규 mock/설계·제한없이 끝까지): 다음 **S10 온톨로지**(실동작)→S11/S12(mock+egress게이트)→S13(설계+인증게이트). 게이트는 안 넘고 `HUMAN_GATE.md`에 남김.

@@ -648,3 +648,36 @@ Study_Project에 제주 68p 업로드 후 시트/파일 뷰 검증(스크린샷 
 
 ### 남은 것
 - S8.1/8.3/8.4 **독립 3렌즈 consolidated + S8 전체 Done-When reconcile → S8.5**(S8 DONE 게이트). S8.4 자체는 위로 닫힘.
+
+---
+
+## S8.5 — 독립 3렌즈 검수 + S8 Done-When reconcile → **S8 DONE** (prompts/13 FROZEN, 세션17 2026-07-03)
+
+> R1(S8.1/8.3 독립 3렌즈 미실시)·R7(owner 레이스) 정산. 구현자(나)는 채점하지 않음 — 독립 general-purpose 에이전트 3렌즈가 적대적으로 채점. 2결정(AFK 자율=추천안): 렌즈 범위=미검증분 집중(S8.1·8.3·8.4)·DONE 차단선=BLOCKER+MAJOR.
+
+### 독립 3렌즈 채점 (별도 에이전트, 반례 우선)
+| 렌즈 | 결과 | 발견 |
+|---|---|---|
+| **렌즈1 백엔드 적대** | **BLOCKER/MAJOR 0** | 격리 import0·8000 diff0·툴 7종 실GET 그라운딩(하드코딩0)·프롬프트인젝션 저항(키·타프로젝트 미노출, 설계상 누출경로 부재)·킬스위치 mock강제(egress0)·감사 메타데이터만·ai_store 원자적write+Lock(레이스 없음). MINOR 5(부채). |
+| **렌즈2 프론트/a11y** | **MAJOR 1 → 수리** | 격리(앱모듈 import0·단일접점)·킬스위치·마크다운 XSS 안전(dangerouslySetInnerHTML 0)·딥링크 안전 견고. **MAJOR: 드로어 닫을 때 FAB로 focus 반환 없음(WCAG 2.4.3)** → 수리(`ChatDrawer.tsx` fabRef+반환focus effect). MINOR 3(부채). |
+| **렌즈3 Done-When 비평** | **전항목 MET·좁힘 0** | product 4요소(격리8001·8000HTTP그라운딩·실데이터·실gpt-5.5) 전부 **MET(device)**. 침묵좁힘 0. 이밸 기준 사후하향 없음(freeze계약, 100% 초과달성). 온톨로지→S10 분리는 게이트 거친 정당한 결정. |
+
+### 수리 + 회귀 재검증
+- **a11y MAJOR 수리**(`ChatDrawer.tsx` +8줄): `fabRef`+`wasOpen` ref, `open` true→false 시 FAB에 focus 반환. ESC/X 닫기 시 키보드/SR 위치 소실 방지.
+- 회귀 0: vitest **116**(8000 down 클린 — 렌즈2 진단대로 라이브 2 FAIL은 8000 템플릿 오염, 실회귀 아님)·사이드카 pytest **36**·backend pytest **97**·build ✓·격리 8000 diff **0**·src 변경=ChatDrawer.tsx 1파일.
+
+### S8 Done-When reconcile (신선 비평가 = 렌즈3)
+| product 요소 | 판정 | 등급 |
+|---|---|---|
+| ① 격리 8001 사이드카(독립프로세스·8000무수정·import0) | **MET** | device |
+| ② 8000 공개 HTTP만으로 그라운딩(하드코딩0) | **MET** | device |
+| ③ 프로젝트 실데이터 그라운딩·환각 없음 | **MET** | device(골든 15/15 + 라이브 스팟체크 + 3층 순환성 대조) |
+| ④ 실 gpt-5.5 Q&A(자율 툴선택·다중턴·실경로) | **MET** | device(라이브 실 openai 1턴) |
+- **NARROWED/UNMET: 0. 침묵 좁힘: 0.** (온톨로지는 S10으로 게이트 거쳐 분리 — S8 제외 정당.)
+
+### MINOR 부채 (Q2: BLOCKER+MAJOR만 차단, MINOR는 후속)
+- (렌즈1) `test_isolation._FORBIDDEN`에 최상위 `backend` 리터럴 누락(방어) · 8000 `/api/folders` 비스코핑(없는 프로젝트에 seed 10폴더 — 근본=8000) · mock턴 감사에 model 기록(cosmetic) · 라우트 async 인라인 블로킹(단일프로세스 N/A) · ai_store tmp파일명 고정(단일프로세스 N/A).
+- (렌즈2) 리사이즈 핸들 키보드 조작 불가 · 입력 focus 색상 단독(WCAG 1.4.11) · 딥링크 `searchOpenIssue` 미존재id 가드 비대칭(크래시 없음).
+
+### ✅ S8 DONE 선언
+**S8(AI 사이드카 챗) DONE.** S8.0~S8.4 구현 + S8.2·S8.5 독립검증 + S8.5 3렌즈(BLOCKER/MAJOR 0, a11y MAJOR 수리) + Done-When reconcile 전항목 MET(device). R1·R7 정산 완료. 프로세스 부채를 product DONE으로 반올림하지 않음 — 이제 검수 절차까지 실제로 완료됨.
