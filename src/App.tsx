@@ -561,10 +561,6 @@ function BrandBar({ me, members, onSwitch }: { me: Me | null; members: Member[];
       </div>
 
       <div className="brand-tools">
-        <span className="trial-text">평가판 - XD Build Essentials이(가) 23일 남음</span>
-        <button type="button" className="buy-button">
-          지금 구입
-        </button>
         <button type="button" className="round-button" aria-label="도움말">
           <CircleHelp size={18} />
         </button>
@@ -603,15 +599,6 @@ function HubAdminBar() {
           <Settings size={16} />
         </span>
         <span>Hub Admin</span>
-      </div>
-
-      <div className="product-strip" aria-label="관련 제품">
-        <span>더 많은 XD 제품</span>
-        <span className="product-pill">xD-HUB</span>
-        <span className="product-pill">xD-Works</span>
-        <span className="product-pill">xD-ACS</span>
-        <span className="product-pill">xD-Cost</span>
-        <span className="product-pill">xD-Specs</span>
       </div>
     </div>
   );

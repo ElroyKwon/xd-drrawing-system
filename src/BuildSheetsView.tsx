@@ -184,7 +184,6 @@ export default function BuildSheetsView({ project = selectedBuildProject, canEdi
               onPickFolder={searchOpenFolder}
             />
             <span className="settings-scope-chip">프로젝트 작업</span>
-            <div className="build-trial">30일 평가판 - XD Build Essentials</div>
           </div>
         </header>
 
