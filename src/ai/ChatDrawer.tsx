@@ -24,8 +24,26 @@ export default function ChatDrawer({ project }: Props) {
   const [loading, setLoading] = useState(false);
   const [degraded, setDegraded] = useState(false);
   const [conversationId, setConversationId] = useState<string | undefined>();
+  const [width, setWidth] = useState<number | null>(null); // null = CSS 기본(400px)
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // 왼쪽 가장자리 드래그로 폭 조절(드로어는 우측 고정 → 폭 = 창너비 - 마우스X).
+  function startResize(e: React.MouseEvent) {
+    e.preventDefault();
+    const onMove = (ev: MouseEvent) => {
+      const max = Math.min(window.innerWidth * 0.92, 900);
+      setWidth(Math.max(320, Math.min(window.innerWidth - ev.clientX, max)));
+    };
+    const onUp = () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      document.body.style.userSelect = "";
+    };
+    document.body.style.userSelect = "none";
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+  }
 
   // 열릴 때 8001/8000 도달성 점검 + 입력 포커스.
   useEffect(() => {
@@ -100,7 +118,20 @@ export default function ChatDrawer({ project }: Props) {
   }
 
   return (
-    <aside className="ai-drawer" role="dialog" aria-label="AI 어시스턴트" aria-modal="false">
+    <aside
+      className="ai-drawer"
+      role="dialog"
+      aria-label="AI 어시스턴트"
+      aria-modal="false"
+      style={width ? { width } : undefined}
+    >
+      <div
+        className="ai-resize"
+        role="separator"
+        aria-label="어시스턴트 너비 조절"
+        aria-orientation="vertical"
+        onMouseDown={startResize}
+      />
       <header className="ai-drawer-head">
         <span className="ai-drawer-title">
           <Sparkles size={16} /> AI 어시스턴트
