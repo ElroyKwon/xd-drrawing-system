@@ -328,3 +328,22 @@
 **S11 DONE(mock 수준).** `prompts/15` FROZEN. `email_service.py`(provider 추상화·템플릿·감사 메타데이터만·킬스위치)+`routes_email.py`(4라우트, RBAC)+GATE-5(실 이메일 egress=사용자 결정). 독립 검증자 **P1~P6 PASS·외부 egress 0 실증**, 발견 MINOR2(outbox 교차본문노출·mode 무인증)→**수리**(스코프필터+RBAC). backend **104**·build.
 - **S10 안정화**: TypeDB Python 드라이버 간헐 패닉(overflow subtracting durations, 프로세스 abort)이 서버 크래시 유발 → 8000은 온톨로지를 **JSON 미러 읽기**(TypeDB+미러 동시기록 동기), TypeDB=시드 쓰기 권위(`XD_ONTOLOGY_DIRECT_TYPEDB=1`). 서버 크래시 제거.
 - **다음 = S12 이슈 이메일 알림**(이슈 생성/상태변경 훅→구독자 mock 발송, S11 위). 실 발송은 GATE-5 후.
+
+## 세션 17 (2026-07-03) — 밤샘 자율 실행 완료 요약 ✅
+
+**사용자 밤샘 승인(비게이트 전부+신규 mock/설계·제한없이 끝까지) 하에 남은 6 스테이지 전부 처리.** 각 스테이지 = 메타프롬프트 freeze→구현→독립 검증자 채점→수리→reconcile→커밋(로컬, **push 미실행**).
+
+| 스테이지 | 결과 | 커밋 | 독립검증 |
+|---|---|---|---|
+| S8.4 egress 감사/게이트 | DONE | `ab3148b` | M1~M10, 코드결함0 |
+| S8.5 3렌즈+reconcile → **S8 DONE** | DONE | `a11a7ed` | 3렌즈, a11y MAJOR 수리 |
+| S10 온톨로지 적재+바인딩 | DONE | `8bc31c8`+`739054e` | O1~O8, 진실성 4중일치 |
+| S11 이메일 인프라(mock) | DONE | `b324ac3` | P1~P6, MINOR2 수리 |
+| S12 이슈 이메일 알림(mock) | DONE | `d0e0d9b` | Q1~Q7, MINOR 수리 |
+| S13 실 인증(설계+게이트) | 설계 DONE | `d0e0d9b` | 설계 R1~R3 |
+
+- **최종 회귀 GREEN**: vitest **116**·사이드카 pytest **39**·backend pytest **109**·build·격리 import0·작업트리 clean.
+- **HUMAN_GATE 미해결(아침 결정)**: GATE-5(이메일 서비스·SMTP 자격증명·egress 승인), GATE-6(프로덕션 인증 방식·세션보안·외부노출). 실 이메일 발송·실 인증은 이 게이트 뒤.
+- **미푸시 커밋 누적**: origin 대비 다수 ahead. push는 사용자 승인 대기.
+- **운영 메모**: TypeDB Python 드라이버가 이 Windows 호스트에서 간헐 "overflow subtracting durations" 패닉(프로세스 abort) → 서버 온톨로지는 **미러 읽기**로 하드닝(TypeDB=시드 쓰기 권위). 서버 기동 권장: **8000 `XD_STORE=json`**(안정)·8001 사이드카·시드는 `XD_ONTOLOGY_DIRECT_TYPEDB=1`. TypeDB 재적재 필요 시 컨테이너 재시작 후 `scripts/seed_ontology.py`.
+- **아침 진입점**: `LOOP.md`(Done-When 대부분 [x]) → 이 요약 → `EVIDENCE.md` S8.4~S13 블록 → `HUMAN_GATE.md` GATE-5·6. 다음 결정: ①미푸시 push ②GATE-5(이메일) ③GATE-6(실 인증) ④.obsidian·demo gitignore.
