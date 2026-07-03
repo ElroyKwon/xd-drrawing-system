@@ -2,7 +2,19 @@
 
 > 매 재진입 시 `LOOP.md` → `PLAN.md` → 이 파일 순으로 읽고 이어받는다.
 
-## 현재 상태 (2026-07-02, 세션 13 — 백로그 소진: 정리 + 사진 도구)
+## 현재 상태 (2026-07-03, 세션 14 — S8.0 AI 사이드카 부트스트랩 DONE)
+
+**S8.0 DONE** (커밋 예정). `prompts/10` FROZEN 기준 격리형 AI 사이드카 골격 구현 + K1~K10 실측 채점.
+
+- **구현**(전부 신규 `backend/ai/`, 기존 8000 **무수정**): `main_ai.py`(FastAPI 8001·CORS 자체상수) · `client.py`(httpx lazy read-only·`XD_BACKEND_BASE`·`BackendError`) · `tools.py`(`search`·`list_sheets` 8000 GET 그라운딩) · `health.py`(`GET /api/chat/health` 연결성만) · `conftest.py` · 자체 `requirements.txt`(uvicorn plain — httptools C++ 빌드 회피) · `.gitignore`·`README.md`·`run.ps1`·`smoke_live.py`·`tests/`(격리2+respx6).
+- **검증(K1~K10 MET)**: 사이드카 pytest **8 PASS**(격리 AST import0 + respx 스모크 + degraded). 라이브: `tools.list_sheets(Study_Project)=15 == 8000 raw 15`(하드코딩 아님), health reachable(current_user=member-owner)/degraded(죽은포트 200 무크래시). 회귀 0 — `npm build`·`npm test` **111**·backend `pytest` **97**·K7 기존코드 diff 0(`git status`=backend/ai 신규만). 증거 `EVIDENCE.md` S8.0 블록.
+- **GATE**: GATE-1 RESOLVED(S10 연기). GATE-2(프론트 드로어, S8.3)·GATE-3(owner 프라이버시, S8.1) OPEN — S8.0 무관.
+- **재기동 (8001 신규)**: `backend/ai` 에서 `.venv/Scripts/python.exe -m uvicorn main_ai:app --host 127.0.0.1 --port 8001`(또는 `./run.ps1`). 8000과 별개 프로세스. 최초 1회 `python -m venv .venv` + `pip install -r requirements.txt`. `XD_BACKEND_BASE`로 8000 URL 재정의(기본 8000).
+- **다음**: LLM provider 방향(로컬/Mock 추천)·S8.1 ai_store+provider. **사용자 세션14 추가 요청**: ① 평가판 배너/XD 제품리스트 전화면 숨김(최우선) ② docs/product 스크린샷 재촬영(G: 보고서 샷 기준, 기존=이전버전 표시) ③ Docker/TypeDB 기동됨 → 실 AI 채팅 기록.
+
+---
+
+## 이전 상태 (2026-07-02, 세션 13 — 백로그 소진: 정리 + 사진 도구)
 
 사용자 지시: "남은 것 전부 다음 세션 백로그 순서대로, ai-loop 선택은 추천안으로 진행". 백로그 순서대로 자율 실행 중.
 

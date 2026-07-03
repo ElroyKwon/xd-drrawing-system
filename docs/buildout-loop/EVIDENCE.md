@@ -586,3 +586,26 @@ Study_Project에 제주 68p 업로드 후 시트/파일 뷰 검증(스크린샷 
 - **설계 문서 교정 (S8-ai-chat-design.md §9 신설)**: BuildShell→실파일 정정·`/api/files`→`/api/drawings`+`/api/folders`·owner 문구 하향, GATE 포인터.
 - **게이트 (HUMAN_GATE.md 신설)**: GATE-1(온톨로지 처분)·GATE-2(프론트 재설계)·GATE-3(owner 프라이버시). 세션12 결정.
 - **후속 스테이지 접기 목록 (FROZEN 전 필수)**: S8.1=ai_store 원자적write+동시성 테스트 / S8.2=그라운딩 골든이밸+환각 적대·`list_files` 경로교정 / S8.3=챗 a11y(live region·focus)+프론트 격리 채점 / S8.4=egress 감사로그+게이트 분리 / 검증팀에 그라운딩·환각 4번째 렌즈 추가.
+
+---
+
+## S8.0 — AI 챗 사이드카 부트스트랩 (prompts/10 FROZEN, 세션14 2026-07-03)
+
+> K1~K10 실측 증거. 격리형 8001 프로세스 + 8000 HTTP 데이터 경로 + 격리 불변식 자동검사.
+
+### 구현 (전부 신규 `backend/ai/`, 기존 8000 무수정)
+- `main_ai.py`(FastAPI 8001·CORS 자체상수)·`client.py`(httpx lazy read-only·`XD_BACKEND_BASE`·`BackendError` 우아처리)·`tools.py`(`search`·`list_sheets` 8000 GET 그라운딩)·`health.py`(`GET /api/chat/health` 연결성만)·`conftest.py`(flat import 경로)·`requirements.txt`(자체, uvicorn plain — httptools C++ 빌드 회피)·`.gitignore`·`README.md`·`run.ps1`·`smoke_live.py`·`tests/`(격리2+respx 스모크6).
+
+### 검증 실행 + 결과 (실측)
+| 항목 | 결과 |
+|---|---|
+| K1 독립 기동 | `backend/ai/.venv` 자체 생성·설치, `uvicorn main_ai:app :8001` 기동 확인 |
+| K2 8000 무의존 부팅 | lazy 클라이언트 — 모듈 import 시 연결 없음(`test_client_base_url_lazy`) |
+| K3 health 정직 (live) | reachable: `{ok:true, reachable:true, current_user:member-owner}` / degraded(죽은포트 8099): `{ok:true, reachable:false, checks.backend_8000:"degraded: WinError 10061"}` — 200 무크래시 |
+| K5·K10 라이브 데이터 경로 (핵심) | `tools.list_sheets(Study_Project).count == 15 == 8000 raw completed-sheet(15)` — 툴이 실 8000 GET, 하드코딩 아님 |
+| K6 격리 import 0 | `test_no_backend_module_imports` GREEN (AST 스캔, store/routes_*/auth/conversion/vector/... 참조 0) |
+| K7 기존코드 무수정 | `git diff --stat -- backend/routes_*.py store.py main.py auth.py` 공백, `git status` = `backend/ai/` 신규만 |
+| K9 자체테스트+회귀0 | `backend/ai` pytest **8 PASS** / 기존 `npm run build` OK · `npm test` **111 PASS** · backend `pytest` **97 PASS** (회귀 0) · `git diff --check` clean |
+
+- **참고**: freeze 당시 baseline(pytest 78·test 98)은 세션12·13 증가로 현재 97·111. 회귀 0 불변식 충족.
+- **GATE 상태**: GATE-1 RESOLVED(S10). GATE-2(S8.3)·GATE-3(S8.1) OPEN — S8.0 무관.
