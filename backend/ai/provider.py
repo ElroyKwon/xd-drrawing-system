@@ -15,7 +15,8 @@ import json
 import os
 from typing import Any, Optional
 
-DEFAULT_MODEL = "gpt-5.5-fast"
+DEFAULT_MODEL = "gpt-5.5"
+DEFAULT_EFFORT = "low"  # gpt-5.x reasoning effort: minimal|low|medium|high
 
 
 class ProviderError(Exception):
@@ -78,26 +79,86 @@ class OpenAIProvider(LLMProvider):
             raise ProviderError(f"openai 패키지 미설치: {e}") from e
         self._client = OpenAI(api_key=key)
         self._model = model or os.environ.get("XD_AI_MODEL", DEFAULT_MODEL)
+        self._effort = os.environ.get("XD_AI_EFFORT", DEFAULT_EFFORT) or None
 
     def complete(self, messages: list[dict], tools: list[dict]) -> dict:
+        """Responses API 호출. gpt-5.x는 '함수 툴 + reasoning effort'를 chat.completions가
+        아닌 /v1/responses에서만 지원 → 여기서 chat.completions 포맷을 Responses 포맷으로
+        변환(agent.py·Mock·테스트는 chat.completions 포맷 유지).
+        """
+        instructions = "\n".join(
+            m["content"] for m in messages
+            if m.get("role") == "system" and m.get("content")
+        )
+        input_items = self._to_responses_input(messages)
+        resp_tools = [
+            {"type": "function", "name": t["function"]["name"],
+             "description": t["function"].get("description", ""),
+             "parameters": t["function"].get("parameters", {})}
+            for t in (tools or [])
+        ]
+        kwargs: dict = {"model": self._model, "input": input_items}
+        if instructions:
+            kwargs["instructions"] = instructions
+        if resp_tools:
+            kwargs["tools"] = resp_tools
+        if self._effort:
+            kwargs["reasoning"] = {"effort": self._effort}
         try:
-            resp = self._client.chat.completions.create(
-                model=self._model,
-                messages=messages,
-                tools=tools or None,
-                tool_choice="auto" if tools else None,
-            )
+            resp = self._client.responses.create(**kwargs)
         except Exception as e:  # openai 예외 계층 광범위 → 구조화
             raise ProviderError(f"OpenAI 호출 실패: {e}") from e
-        msg = resp.choices[0].message
+        return self._parse_responses_output(resp)
+
+    @staticmethod
+    def _to_responses_input(messages: list[dict]) -> list[dict]:
+        items: list[dict] = []
+        for m in messages:
+            role = m.get("role")
+            if role in ("system",):
+                continue  # instructions로 이동
+            if role == "user":
+                items.append({"role": "user", "content": m.get("content") or ""})
+            elif role == "assistant":
+                for tc in m.get("tool_calls") or []:
+                    items.append({
+                        "type": "function_call",
+                        "call_id": tc["id"],
+                        "name": tc["function"]["name"],
+                        "arguments": tc["function"]["arguments"],
+                    })
+                if m.get("content"):
+                    items.append({"role": "assistant", "content": m["content"]})
+            elif role == "tool":
+                items.append({
+                    "type": "function_call_output",
+                    "call_id": m.get("tool_call_id"),
+                    "output": m.get("content") or "",
+                })
+        return items
+
+    @staticmethod
+    def _parse_responses_output(resp) -> dict:
+        content_text = None
         calls = []
-        for tc in (msg.tool_calls or []):
-            calls.append({
-                "id": tc.id,
-                "name": tc.function.name,
-                "arguments": tc.function.arguments or "{}",
-            })
-        return {"content": msg.content, "tool_calls": calls}
+        for item in getattr(resp, "output", []) or []:
+            itype = getattr(item, "type", None)
+            if itype == "function_call":
+                calls.append({
+                    "id": getattr(item, "call_id", None) or getattr(item, "id", None),
+                    "name": item.name,
+                    "arguments": item.arguments or "{}",
+                })
+            elif itype == "message":
+                parts = getattr(item, "content", None) or []
+                texts = [getattr(p, "text", None) for p in parts
+                         if getattr(p, "type", None) in ("output_text", "text")]
+                texts = [t for t in texts if t]
+                if texts:
+                    content_text = "".join(texts)
+        if content_text is None:
+            content_text = getattr(resp, "output_text", None) or None
+        return {"content": content_text, "tool_calls": calls}
 
 
 def make_provider(prefer: Optional[str] = None) -> LLMProvider:
