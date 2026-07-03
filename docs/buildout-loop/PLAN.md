@@ -49,9 +49,9 @@
 **목표**: 8000 무수정·신규 라우트 0의 사이드카(8001) AI 챗. 읽기 그라운딩 기반 Q&A. LLM egress=사용자 승인(OpenAI gpt-5.5). (온톨로지 바인딩은 S10 연기.)
 - **S8.0 DONE**(`e6309c1`): 격리 8001 부트스트랩 + 8000 HTTP 데이터경로 + 격리 불변식(import0·diff0). `prompts/10` FROZEN.
 - **S8.1 DONE**(`beb56c9`+`12096f1`): provider(OpenAI **Responses API**+Mock)·tool-use 루프·대화영속. **LLM=gpt-5.5·effort low** 확정. 실 GPT 라이브 실증.
-- **S8.2 TODO**: 전체 툴 카탈로그(`get_project_summary`·`get_sheet`·`list_issues`·`get_issue`·`list_files`) + 그라운딩 골든 이밸 + 환각 적대 테스트. (현재 툴 2종=search·list_sheets.)
+- **S8.2 DONE**(`c39d6bf`): 전체 툴 카탈로그(`get_project_summary`·`get_sheet`·`list_issues`·`get_issue`·`list_files`) + 그라운딩 골든 이밸 + 환각 적대 테스트. 골든 이밸 15/15, 사이드카 pytest 22.
 - **S8.3 DONE**(`d6e8b8b`): 앱 챗 드로어 UI(`src/ai/` 격리·Build 단일 마운트·킬스위치). GATE-2=Build 스코프로 처분.
-  - **S8.3-폴리시 TODO**: 답변 마크다운 렌더(현재 `**` raw)·대화 목록/이력 UI·딥링크 브리지(xd:navigate — 답의 sheet_id/issue_id로 시트 이동).
+  - **S8.3-폴리시 DONE**: 답변 마크다운 렌더(`cc510c8`)·드로어 폭 리사이즈(`8dba37b`)·대화 목록/이력 UI(`9b0ebc7`)·딥링크 브리지(`086c331`, xd:navigate — 답의 sheet_id/issue_id로 시트/이슈 열기, `test_references.py`) 전부 로컬 커밋 완료. device 검증 콘솔0.
 - **S8.4 TODO**: 클라우드 provider egress **감사로그 + 게이트 정식화**(openai 동작하나 감사·킬스위치·게이트 분리 미완). API 키 관리.
 - **S8.5 TODO**: 3렌즈 독립 검수 + 격리 불변식(백엔드 import0/diff0 · 프론트 src/ai 미의존) 재확인 + Done-When reconcile.
 
@@ -71,8 +71,8 @@
 - [x] S8.0 사이드카 부트스트랩 (격리 8001+8000 데이터경로, K1~K10 MET, prompts/10 FROZEN)
 - [x] S8.1 챗 두뇌 (provider OpenAI[Responses API]+Mock·tool-use 루프·대화영속, 실 GPT-5.5 라이브 실증)
 - [x] S8.3 앱 챗 드로어 UI (src/ai 격리·Build 단일 마운트·킬스위치, device e2e 콘솔0)
-- [ ] S8.2 전체 툴 카탈로그 + 골든 이밸/환각 적대
-- [ ] S8.3-폴리시 마크다운 렌더·대화이력 UI·딥링크 xd:navigate
+- [x] S8.2 전체 툴 카탈로그 + 골든 이밸/환각 적대
+- [x] S8.3-폴리시 마크다운 렌더·리사이즈·대화이력 UI·딥링크 xd:navigate (4종 전부 로컬 커밋 완료 `cc510c8`·`8dba37b`·`9b0ebc7`·`086c331`)
 - [ ] S8.4 egress 감사로그/게이트 정식화
 - [ ] S8.5 3렌즈 검수 + 격리 불변식 reconcile
 - [ ] S10 XD 온톨로지 적재 + equipmentEntityId 바인딩 (TypeDB 기동됨 → 착수 가능)

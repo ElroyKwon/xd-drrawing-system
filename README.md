@@ -8,7 +8,7 @@ Autodesk Construction Cloud Build를 벤치마크로 삼아, 도면관리 화면
 
 - 앱은 Vite + React + TypeScript + Vitest 기반 프론트엔드와 `backend/` FastAPI 로컬 백엔드로 구성된다.
 - 현재 `docs/appearance-loop/PROGRESS.md` 기준 외관 루프는 M5까지 완료됐다.
-- 현재 `docs/buildout-loop/PROGRESS.md` 기준 buildout 루프는 **S6 DONE + S7 구현완료(검증 이월)**이다(S1~S6 + S2.5 DONE, S7=로컬 모의 인증·RBAC 강제·구성원/프로젝트 영속, J1~J12 중 자동게이트+RBAC 라이브+핵심 UI e2e 입증·3렌즈/reconcile/일부 UI게이팅 이월).
+- 현재 `docs/buildout-loop/PROGRESS.md` 기준 buildout 루프는 **S8 AI 챗 사이드카 진행 중**이다. S8.0~S8.3 + S8.3-폴리시 4종(마크다운 렌더·드로어 리사이즈·대화 목록 UI·딥링크 `xd:navigate`)까지 로컬 커밋 완료. 남은 루프는 S8.4 egress 감사→S8.5 3렌즈 검수(S8 DONE)→S10 온톨로지. 추천 순서는 `docs/buildout-loop/ROADMAP.md` §6.
 - 로컬 백엔드는 `XD_STORE=json` 폴백으로 실제 파일 업로드, PDF 분할, DWG/DXF 변환 경로, 시트 목록, 폴더/버전 메타, 마크업·측정·시트비교·이슈/핀 영속을 다룬다.
 - TypeDB 연결 경로는 코드와 과거 검증 근거가 있으나, 현재 재현은 Docker/TypeDB가 떠 있을 때만 `XD_STORE=auto`로 가능하다. TypeDB 직접 쿼리화는 후속 부채다.
 - Auth, 운영 배포, Autodesk cloud/API 연동, paid SDK, 고객 실도면 반입/저장 정책은 아직 HUMAN_GATE 범위다.
@@ -28,7 +28,7 @@ Autodesk Construction Cloud Build를 벤치마크로 삼아, 도면관리 화면
 
 ## Next Session
 
-다음 개발 진입점은 `docs/buildout-loop/PROGRESS.md`의 **S7 검증 마무리**다(구현 완료·커밋·자동 게이트 GREEN, 잔여=독립 3렌즈·Done-When reconcile·J7 Build 콘텐츠 UI 게이팅·e2e 확장). 그 다음 **S8 온톨로지+AI**(AI=HUMAN_GATE). `docs/buildout-loop/prompts/09-s7-auth-rbac-members.md` FROZEN. 2026-06-29 사용자 범위 정정(**웹 DWG/PDF 원본 직접 수정 금지**, **실제 도면 이미지 기반 운영자 이슈 예시**)을 계승한다.
+다음 개발 진입점은 `docs/buildout-loop/PROGRESS.md`(세션16) + `docs/buildout-loop/ROADMAP.md` §6(추천 루프 순서)다. 첫 스테이지는 **S8.4 egress 감사/게이트**, 이후 S8.5 3렌즈 검수(→S8 DONE)→S10 온톨로지→신규 3종(이메일·이슈알림·실인증). 미푸시 7커밋 push 여부와 `.obsidian/`·`demo/` untracked 처리를 먼저 확인한다. ⚠️ 프론트 Vitest는 8000 내리고 실행(라이브 백엔드면 App 템플릿 테스트 오염 — 백엔드 내리면 116 전부 통과).
 
 재시작 순서:
 
@@ -37,7 +37,7 @@ Autodesk Construction Cloud Build를 벤치마크로 삼아, 도면관리 화면
 3. TypeDB가 필요하면 `docker ps`로 `typedb-server`를 확인하고, 없으면 JSON 폴백으로 범위를 명시한다.
 4. 백엔드: `cd backend; $env:XD_STORE='json'; .\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000`
 5. 프론트엔드: `npm run dev -- --host 127.0.0.1 --port 5173`
-6. 작업 후 최소 검증은 `npm test`, `npm run build`, `backend\.venv\Scripts\python.exe -m pytest backend\tests`, `git diff --check`다.
+6. 작업 후 최소 검증은 `npm test`, `npm run build`, `backend\.venv\Scripts\python.exe -m pytest backend\tests`, `backend\ai\.venv\Scripts\python.exe -m pytest backend\ai\tests -q`, `git diff --check`다. 프론트 Vitest는 live backend 영속 데이터와 섞이면 템플릿 fixture 테스트가 흔들릴 수 있으므로, 실패 시 backend 상태/fixture 오염을 먼저 분리한다.
 
 ## Start
 
