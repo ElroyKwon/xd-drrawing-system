@@ -4,25 +4,29 @@
 
 ---
 
-## 1. 현황 한 눈에
+## 1. 현황 한 눈에  (세션16 갱신)
 
-빌드아웃 루프 **S1~S7 DONE + S8.0/S8.1/S8.3 DONE**. AI 챗 어시스턴트가 앱에서 **실 GPT-5.5로 실동작**(격리 사이드카 8001 → tool-use → 8000/TypeDB 그라운딩 → 앱 드로어 UI).
+빌드아웃 루프 **S1~S7 DONE + S8.0~S8.3 DONE(S8.2 이밸100%, S8.3-폴리시 4종 커밋)**. AI 챗이 앱에서 **실 gpt-5.5 + TypeDB 그라운딩 + 마크다운·리사이즈·대화목록·딥링크**까지 실동작. 로컬 `main` origin 대비 **7커밋 ahead(미푸시)**.
 
 | 스테이지 | 상태 | 커밋 | 검증 근거 |
 |---|---|---|---|
 | S1~S6 | ✅ DONE | (세션1~8) | 각 acceptance MET, 3렌즈+e2e |
 | S7 인증/RBAC | ✅ DONE | (세션9~10) | J1~J12 MET |
-| S8.0 사이드카 부트스트랩 | ✅ DONE | `e6309c1` | K1~K10 MET, `EVIDENCE.md` S8.0 |
-| S8.1 챗 두뇌(provider·루프·영속) | ✅ DONE | `beb56c9`·`12096f1` | pytest12, 실 GPT 라이브 `evidence/s8_1-real-gpt-transcript.md` |
-| S8.3 앱 챗 드로어 UI | ✅ DONE | `d6e8b8b` | device e2e 콘솔0, `evidence/s8_3-chat-drawer.png` |
-| UI 정리(배너/제품 숨김·스크린샷) | ✅ | `0060c44` | 스크린샷 10장 재촬영 |
-| **S8.2 툴 카탈로그+이밸** | ⬜ TODO | — | 다음 세션 |
-| **S8.3-폴리시**(마크다운·이력·딥링크) | ⬜ TODO | — | 다음 세션 |
-| **S8.4 egress 감사/게이트** | ⬜ TODO | — | 다음 세션 |
-| **S8.5 3렌즈 검수+reconcile** | ⬜ TODO | — | 다음 세션 |
+| S8.0 사이드카 부트스트랩 | ✅ DONE | `e6309c1` | K1~K10 MET |
+| S8.1 챗 두뇌(provider·루프·영속) | ✅ DONE | `beb56c9`·`12096f1` | 실 GPT 라이브 |
+| S8.2 툴 카탈로그+골든 이밸 | ✅ DONE | `c39d6bf` | **L1~L10 MET·이밸 15/15=100%**, 독립검증자 PASS, `evidence/s8_2-golden-eval.md` |
+| S8.3 앱 챗 드로어 UI | ✅ DONE | `d6e8b8b` | device e2e 콘솔0 |
+| S8.3-폴리시 마크다운 렌더 | ✅ DONE | `cc510c8` | vitest+5, device raw** 제거 |
+| S8.3-폴리시 드로어 리사이즈 | ✅ DONE | `8dba37b` | device 400→클램프 |
+| S8.3-폴리시 대화 목록 UI | ✅ DONE | `9b0ebc7` | device 65건·복원·새대화 |
+| S8.3-폴리시 딥링크(xd:navigate) | ✅ DONE | `086c331` | device ⚠이슈뷰·📄뷰어, `evidence/s8_3-deeplink-*.png` |
+| **S8.4 egress 감사/게이트** | ⬜ TODO | — | **다음 세션 1순위** |
+| **S8.5 3렌즈 검수+reconcile→S8 DONE** | ⬜ TODO | — | 다음 세션(S8.1/8.3 독립검증 이월분 포함) |
 | **S10 온톨로지 적재+바인딩** | ⬜ TODO | — | TypeDB 기동됨 → 착수 가능 |
 
-**게이트**: GATE-1~4 전부 RESOLVED(`HUMAN_GATE.md`). **S8 DONE 선언은 S8.2·S8.4·S8.5 + Done-When reconcile 후.**
+**게이트**: GATE-1~4 전부 RESOLVED. **S8 DONE 선언은 S8.4·S8.5 + Done-When reconcile 후**(S8.2는 DONE).
+
+**신규 백로그(세션16 사용자 요청, ACC 범위 밖 신규 스코프)**: ① 관계자 이메일 발송(미구현·egress 게이트) ② 이슈 라이프사이클 이메일 알림(미구현·①의존) ③ 실 로그인+매직링크 초대+외부 업로드(버전추적은 S3 구현됨·실인증은 프로덕션 게이트). 상세·순서는 §6.
 
 ---
 
@@ -85,7 +89,39 @@
 4. **검증 게이트**: 매 스테이지 `npm build`·`vitest`(현 111)·backend `pytest`(현 97)·사이드카 `pytest`(현 12) 회귀0 + 격리 불변식(import0·diff0·프론트 미의존) 유지.
 
 ## 5. 파일 지도 (AI 챗 관련)
-- 백엔드 사이드카: `backend/ai/`(`main_ai`·`client`·`tools`·`agent`·`provider`·`ai_store`·`routes_chat`·`health`·`tests/`). 키=`.env`(gitignore). 데이터=`_ai_data/`(gitignore).
-- 프론트: `src/ai/`(`aiClient`·`ChatDrawer`·`chat.css`), 마운트=`src/BuildSheetsView.tsx`.
-- 증거: `evidence/s8_1-real-gpt-transcript.md`·`evidence/s8_3-chat-drawer.png`·`EVIDENCE.md` S8.0 블록.
+- 백엔드 사이드카: `backend/ai/`(`main_ai`·`client`·`tools`·`agent`·`provider`·`ai_store`·`routes_chat`·`health`·`eval/`·`tests/`). 키=`.env`(gitignore). 데이터=`_ai_data/`(gitignore).
+- 프론트: `src/ai/`(`aiClient`·`ChatDrawer`·`markdown`·`chat.css`), 마운트=`src/BuildSheetsView.tsx`(딥링크 `xd:navigate` 수신도 여기).
+- 증거: `evidence/s8_2-golden-eval.md`·`s8_2-chat-typedb-live.png`·`s8_3-*.png`·`EVIDENCE.md` S8.0 블록.
 - 게이트: `HUMAN_GATE.md`(GATE-1~4 전부 RESOLVED).
+
+---
+
+## 6. 다음 세션 추천 루프 순서 (세션16 확정 — "루프 먼저, 신규 나중")
+
+> 사용자 질문: 신규 연결기능(이메일·알림·실인증)을 **루프 다음에 할지 먼저 할지**. **결론: 굴러가던 S8 루프를 먼저 닫고(S8.4→S8.5), S10까지 간 뒤, 신규 3종을 각자 하나의 루프 스테이지로**. 이유는 아래 판단근거.
+
+### 판단 근거 (왜 루프 먼저인가)
+1. **S8은 거의 끝났다** — S8.0~S8.3 전부 DONE. 남은 건 S8.4(egress 감사)·S8.5(3렌즈 검수)뿐. 여기서 멈추면 **S8.1/S8.3의 독립검증(프로세스 부채 R1)이 영영 미결**로 남는다. 시작한 걸 닫는 비용이 가장 싸고 확실하다.
+2. **S8.4가 이메일의 토대다** — S8.4에서 만드는 **egress 감사로그·킬스위치·키 관리**는 이메일 발송(외부 egress)이 그대로 재사용할 인프라다. 즉 S8.4를 먼저 하면 신규 이메일 기능이 그 위에 얹힌다(순서 시너지).
+3. **신규 3종은 게이트가 걸려 있다** — 이메일=외부 egress 결정(어느 SMTP/서비스), 실인증=프로덕션 인증(LOOP.md HUMAN_GATE). 조용히 착수 불가, **메타프롬프트 공동설계+게이트 확정**이 선행. 루프를 도는 동안 이 결정을 병행 논의하면 매끄럽다.
+4. **S10은 차별화 핵심** — 온톨로지는 이 제품의 고유가치. TypeDB 기동돼 있어 바로 착수 가능.
+
+### 추천 순서 (각 스테이지 = 기존 루프 규율: 메타프롬프트 공동설계→freeze `prompts/<n>.md`→구현→검증팀 채점→reconcile)
+
+| 순서 | 스테이지 | 내용 | 게이트/선행 |
+|---|---|---|---|
+| **1** | **S8.4 egress 감사/게이트** | 감사로그(무엇이·언제·어느 provider), 런타임 킬스위치(mock 강제), API 키 관리 정식화 | 이미 openai 동작 → 운영 안전장치. **이메일의 토대** |
+| **2** | **S8.5 3렌즈+reconcile → S8 DONE** | 렌즈1 백엔드적대·렌즈2 프론트/a11y·렌즈3 Done-When 비평. S8.1/8.3 독립검증 이월분 정산. 통과 시 **S8 DONE 선언** | 없음 |
+| **3** | **S10 온톨로지 적재+바인딩** | 도면 entity TypeDB 실적재 + `equipmentEntityId` 바인딩(Study_TypeDB `analysis_result` 계승). 사이드카에 온톨로지 read 툴 추가 여부 공동설계 | 데이터 진실성 검증(세션15 순환성 이월)도 여기서 |
+| **4** | **S11 이메일 발송 인프라(신규)** | 메일 provider 추상화(사이드카 provider 패턴 재사용)·발송 서비스·템플릿. S8.4 egress 감사/킬스위치 위에 구축 | **egress 게이트**: 어느 SMTP/서비스·자격증명. 공동설계 필수 |
+| **5** | **S12 이슈 라이프사이클 이메일 알림(신규)** | 이슈 생성/상태변경 훅 → 구독자에게 발송. 알림 매트릭스(`notificationGroups` 목업)를 실동작화 | S11 의존. 구독 정책 공동설계 |
+| **6** | **S13 실 로그인+매직링크+외부 업로드(신규)** | S7 로컬모의 → 실 자격증명/세션 + 초대 매직링크 + 링크 접속 업로드. **버전추적은 S3 이미 구현** → 실인증만 접붙임 | **프로덕션 인증 게이트**(LOOP.md). 도입 여부·방식 사용자 확정 필수 |
+
+**조정 여지**: 관계자 데모/영업이 급하면 S11(이메일)을 S10보다 앞당길 수 있음 — **단 S8.4는 항상 먼저**(egress 토대). S8.5(검수)는 S8.4 뒤 고정(검수 대상이 모여야).
+
+### 다음 세션 진입 (그대로 따라하면 이어짐)
+1. **읽기**: `LOOP.md → PLAN.md → PROGRESS.md(세션16) → 이 ROADMAP §1·§6`.
+2. **서버 기동**: 8000 `XD_STORE=typedb ...`(TypeDB Docker 확인, 폴백원하면 `XD_STORE=auto`) · 8001 `backend/ai` `run.ps1` · 프론트 `npm run dev`. ⚠️ vitest는 8000 내리고, 8001 라우트 변경 후 수동 재기동.
+3. **첫 스테이지 = S8.4**: `prompts/12-s8_4-egress-audit.md` 공동설계(AskUserQuestion: 감사 범위·킬스위치 방식·키 관리)→freeze→구현→검증팀 채점.
+4. **검증 게이트**: 매 스테이지 `npm build`·vitest(현 116)·backend pytest(현 97)·사이드카 pytest(현 26) 회귀0 + 격리 불변식 유지.
+5. **push 결정**: 미푸시 7커밋(`bf6c055`~`02be4f3`) origin `main` push 여부 먼저 확인.
