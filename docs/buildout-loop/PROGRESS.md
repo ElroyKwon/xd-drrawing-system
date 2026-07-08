@@ -23,8 +23,19 @@
 - **단계10 온톨로지 연결**: 추출태그→/api/ontology/equipment 승격. TypeDB on/off 2회 e2e.
 - **단계11 회귀 게이트 + 독립 3렌즈 검수**.
 
-### 이번 세션 산출물(미커밋, 전부 backend/scripts/docs)
-신규: `backend/equipment_vocab.py`·`rule_extract.py`·`sheet_indexing.py`·`routes_sheet_meta.py`·`scripts/migrate_sheet_keys.py` + 테스트 5파일(`test_s15_*`). 수정: `backend/store.py`(레지스트리·sheet_meta CRUD, 추상+Json+TypeDB위임)·`routes_drawing.py`(변환훅 색인)·`main.py`(라우터 등록). 데이터(gitignore): `_sheet_keys.json`·`_sheet_meta.json` 실 청주 backfill 완료.
+### 이번 세션 산출물 (커밋 완료 — main 3커밋, 미푸시)
+- `bb14be4` docs(s15) 설계문서 FROZEN · `95647d3` feat(s15) 단계1-4,7 구현 · `85e5e9a` docs(product) 스크린샷+매뉴얼.
+- 신규: `backend/equipment_vocab.py`·`rule_extract.py`·`sheet_indexing.py`·`routes_sheet_meta.py`·`scripts/migrate_sheet_keys.py` + 테스트 5파일(`test_s15_*`). 수정: `backend/store.py`(레지스트리·sheet_meta CRUD, 추상+Json+TypeDB위임)·`routes_drawing.py`(변환훅 색인)·`main.py`(라우터 등록). 데이터(gitignore): `_sheet_keys.json`·`_sheet_meta.json` 실 청주 backfill 완료.
+
+### ▶ 다음 세션(23) 진입점 — 바로 이어서
+- **읽기**: `ROADMAP.md §0` → `prompts/20`(FROZEN, O1~O15) → 이 세션22 블록.
+- **사용자 결정(2026-07-08)**: "먼저 커밋 후 계속" → **다음 = 단계8 AI 툴 배선**(payoff: 업로드한 도면을 AI가 본다).
+  - 단계8 구현: `backend/ai/tools.py`·`agent.py`에 신규 툴 `get_sheet_content`(sheet_id/sheet_key→text_index+tags)·`find_sheets_by_equipment`(태그→시트) 추가 + `search`에 본문색인 포함 + `get_sheet`/`list_sheets`에 tags·summary. **툴은 8000 신규 read API를 HTTP GET으로만** 소비(`/api/sheet-meta`·`/search`·`/by-equipment` — 이미 구현·라이브 확인됨). `backend/ai/` 격리 계약 유지(8000 import 0).
+  - **라이브 검증은 사용자 환경 필요**: 8000(`XD_STORE=json` 충분) + 8001 사이드카(`.env` OPENAI_API_KEY·gpt-5.5) 기동 후 "PP-380V 어느 시트?" 류 질문. 이후 단계9 골든이밸(정직성 문항).
+- **선행 설계 필요(단계6 DWG↔PDF 병합, D7)**: 같은 sheet_key가 PDF·DXF 양쪽에 있어야 하는데 현 발급규칙상 도면(version_set)별로 키가 갈림. **S14 `sheet_source`↔레지스트리 계승(D5) 재조정을 사용자와 공동설계**한 뒤 착수. supersede(백본3) 토대와 함께.
+- **단계5 8002 사이드카**: HUMAN_GATE-7. 규칙 트랙만으로 완주하므로 부가 레이어 — 우선순위 낮음.
+- **회귀 기준선(단계8 착수 전 GREEN 확인)**: backend pytest **152** · vitest 128(미변경) · 사이드카 pytest 39(단계8서 +).
+- **재기동**: 8000 `XD_STORE=json backend/.venv/Scripts/python.exe -m uvicorn main:app --app-dir backend --port 8000` · 8001 `cd backend/ai && .venv/Scripts/python.exe -m uvicorn main_ai:app --port 8001` · 프론트 `npm run dev`. ⚠️ vitest는 8000 내리고, 8001 라우트 변경 후 수동 재기동. ⚠️ backend pytest는 `--ignore=ai`(사이드카는 자체 venv httpx).
 
 ---
 
