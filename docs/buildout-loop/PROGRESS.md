@@ -3,7 +3,30 @@
 > 매 재진입 시 `LOOP.md` → `PLAN.md` → 이 파일 순으로 읽고 이어받는다.
 > **★ 세션22는 `ROADMAP.md §0`(확정 방향)을 §1보다 먼저 읽는다.** 방향 표류 방지 SoT.
 
-## 현재 상태 (2026-07-08, 세션 22 — **S15 구현 착수: 단계 1·2·3·4·7 DONE**, 추출→저장→HTTP질의 백본 완성) ⬅ 최신
+## 현재 상태 (2026-07-08, 세션 23 — **S15 단계8 AI 툴 배선 DONE**, 자동추출 표면이 AI 그라운딩에 노출됨) ⬅ 최신
+
+> prompts/20 FROZEN 수행 11단계 중 **6단계 완료**(1·2·3·4·7·8). 업로드 도면의 본문색인·설비태그를 AI가 본다(payoff 달성).
+
+### 완료 (사이드카만 변경 — 8000 egress 0·`backend/ai` 격리 유지)
+- **단계8 AI 툴 강화·신설**(D3, `backend/ai/tools.py`·`agent.py`): 신규 툴 2종 `get_sheet_content`(sheet_id/sheet_key→text_index 발췌+태그+요약)·`find_sheets_by_equipment`(설비태그 역조회) + 기존 강화 `search`(본문색인 `/api/sheet-meta/search` 병합→`content_matches`)·`get_sheet`/`list_sheets`(sheet-meta 조인→tags·summary·sheet_key). 모두 **8000 read API를 HTTP GET으로만** 소비(import 0). 딥링크 refs 수집·요약 배선 포함.
+- **단계9 시스템프롬프트분(선반영)**: SYSTEM_PROMPT에 정직성 지침 — 자동추출 태그 `confidence<0.6` 인용 시 "자동추출(미검증)" 명시 + 큐레이트 온톨로지(list_equipment)와 구분. **골든 이밸 문항 추가 + 실 gpt-5.5 라이브는 미완**(사용자 env 필요).
+- **검증**: 사이드카 pytest **39→46**(+7 신규: 신규툴 4·강화 3, 회귀 0). **실 청주 라이브 배관검증**(LLM 없이 read API→tools, egress 0): `find_sheets_by_equipment("TR-")`=6시트 실태그 TR-3201~3204 · `search("변압기")` content_matches 3 · `get_sheet_content` 실 text_index+태그(conf 0.65) · `list_sheets` 40중 20시트 태그. 기존 respx 테스트 6건은 강화 호출(sheet-meta) 스텁 추가로 갱신.
+
+### 남은 단계 (성격별 — 전부 사용자 게이트/환경)
+- **단계9 완결**: 골든 이밸에 정직성 문항 추가 + 8001+gpt-5.5 라이브 이밸(O9). **사용자 env 필요.**
+- **단계6 DWG↔PDF 병합**(D7): S14 sheet_source↔레지스트리 계승(D5) 재조정 **공동설계 선행 필요**. 순수 확장 아님.
+- **단계5 8002 LLM 사이드카**(D8): **HUMAN_GATE-7**. 규칙트랙만으로 완주하므로 부가레이어.
+- **단계10 온톨로지 연결**: 추출태그→`/api/ontology/equipment` 승격. TypeDB on/off 2회 e2e.
+- **단계11 회귀 게이트 + 독립 3렌즈 검수**.
+
+### ▶ 다음 세션(24) 진입점
+- **읽기**: `ROADMAP.md §0` → `prompts/20`(FROZEN) → 이 세션23 블록.
+- **선택지**: (a) 단계9 라이브 이밸(8000+8001+gpt-5.5 기동 후 "PP-380V 어느 시트?"·저신뢰 정직성 문항) → 골든셋 확정. (b) 단계6 DWG↔PDF 병합 공동설계(D5 재조정). (c) 단계10 온톨로지 승격.
+- **재기동**: 8000 `XD_STORE=json backend/.venv/Scripts/python.exe -m uvicorn main:app --app-dir backend --port 8000` · 8001 `cd backend/ai && .venv/Scripts/python.exe -m uvicorn main_ai:app --port 8001`. ⚠️ 사이드카 pytest는 `backend/ai/.venv`(자체 httpx/respx).
+
+---
+
+## 현재 상태 (2026-07-08, 세션 22 — **S15 구현 착수: 단계 1·2·3·4·7 DONE**, 추출→저장→HTTP질의 백본 완성)
 
 > prompts/20 FROZEN 수행 11단계 중 **5단계 완료**(1 정체성 레지스트리 · 2 소급 마이그레이션 · 3 규칙 추출 · 4 sheet_meta 이력 · 7 read API). 실 청주 데이터로 검증. **미커밋.**
 

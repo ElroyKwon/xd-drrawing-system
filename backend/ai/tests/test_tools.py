@@ -82,13 +82,113 @@ def test_get_issue_not_found():
     assert out == {"found": False, "issue_id": "i-999"}
 
 
+_META_EMPTY = {"count": 0, "results": [], "truncated": False}  # S15 단계8 강화 호출 스텁
+_META_S2 = {"count": 1, "truncated": False, "results": [{
+    "meta_id": "sm1", "sheet_key": "sk-2", "sheet_id": "s2", "file_id": "f1",
+    "source_kind": "dxf", "is_current": True, "summary": "배관 상세",
+    "text_index": "PIPE ROUTING M-201 " * 100,
+    "tags": [{"tag": "PP-380V", "type": "분전반", "confidence": 0.92, "src": "rule",
+              "evidence": "타이틀블록 PP-380V"},
+             {"tag": "TR-2", "type": "transformer", "confidence": 0.5, "src": "rule",
+              "evidence": "저신뢰 접두 추론"}],
+}]}
+
+
 @respx.mock
 def test_get_sheet_found():
     respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_S2))
     out = tools.get_sheet("Study_Project", "s2")
     assert out["found"] is True
     assert out["number"] == "M-201"
     assert out["file_id"] == "f1"
+    # S15 단계8: 자동추출본 조인 — tags·summary·sheet_key·has_content
+    assert out["sheet_key"] == "sk-2"
+    assert out["summary"] == "배관 상세"
+    assert out["has_content"] is True
+    assert {t["tag"] for t in out["tags"]} == {"PP-380V", "TR-2"}
+    assert "evidence" not in out["tags"][0]  # 축약(장문 제외)
+
+
+@respx.mock
+def test_get_sheet_found_no_meta():
+    respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_EMPTY))
+    out = tools.get_sheet("Study_Project", "s2")
+    assert out["found"] is True
+    assert out["tags"] == [] and out["summary"] is None and out["has_content"] is False
+
+
+@respx.mock
+def test_get_sheet_content_by_id():
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_S2))
+    out = tools.get_sheet_content("Study_Project", sheet_id="s2")
+    assert out["found"] is True
+    assert out["sheet_key"] == "sk-2"
+    assert out["source_kind"] == "dxf"
+    assert out["text_truncated"] is True and len(out["text_excerpt"]) == 1200
+    assert out["tags"][1]["confidence"] == 0.5  # 저신뢰 유지(정직성 판정용)
+
+
+@respx.mock
+def test_get_sheet_content_needs_id():
+    out = tools.get_sheet_content("Study_Project")
+    assert out["found"] is False and "sheet_id" in out["reason"]
+
+
+@respx.mock
+def test_get_sheet_content_not_found():
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_EMPTY))
+    out = tools.get_sheet_content("Study_Project", sheet_key="sk-none")
+    assert out["found"] is False and out["sheet_key"] == "sk-none"
+
+
+_BY_EQUIP = {"tag": "PP-380V", "count": 1, "truncated": False, "results": [{
+    "sheet_key": "sk-2", "sheet_id": "s2", "file_id": "f1", "source_kind": "dxf",
+    "matched_tags": [{"tag": "PP-380V", "type": "분전반", "confidence": 0.92, "src": "rule",
+                      "evidence": "타이틀블록"}]}]}
+
+
+@respx.mock
+def test_find_sheets_by_equipment():
+    route = respx.get(f"{BASE}/api/sheet-meta/by-equipment").mock(
+        return_value=httpx.Response(200, json=_BY_EQUIP))
+    out = tools.find_sheets_by_equipment("Study_Project", "PP-380V")
+    assert out["count"] == 1
+    assert out["sheets"][0]["sheet_id"] == "s2"
+    assert out["sheets"][0]["matched_tags"][0]["tag"] == "PP-380V"
+    assert "evidence" not in out["sheets"][0]["matched_tags"][0]  # 축약
+    assert route.calls.last.request.url.params["tag"] == "PP-380V"
+
+
+_SEARCH = {"query": "케이블", "sheets": [{"sheet_id": "s1", "number": "E-101"}],
+           "issues": [], "files": [], "folders": [], "truncated": False}
+_CONTENT = {"query": "케이블", "count": 1, "truncated": False, "results": [{
+    "sheet_key": "sk-9", "sheet_id": "s9", "file_id": "f3", "source_kind": "pdf",
+    "snippet": "…케이블 트레이 경로…"}]}
+
+
+@respx.mock
+def test_search_merges_content_matches():
+    respx.get(f"{BASE}/api/search").mock(return_value=httpx.Response(200, json=_SEARCH))
+    respx.get(f"{BASE}/api/sheet-meta/search").mock(return_value=httpx.Response(200, json=_CONTENT))
+    out = tools.search("Study_Project", "케이블")
+    assert out["sheets"][0]["sheet_id"] == "s1"
+    assert len(out["content_matches"]) == 1
+    assert out["content_matches"][0]["sheet_id"] == "s9"
+    assert "케이블" in out["content_matches"][0]["snippet"]
+
+
+@respx.mock
+def test_list_sheets_enriched_with_tags():
+    respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_S2))
+    out = tools.list_sheets("Study_Project")
+    s2 = next(s for s in out["sheets"] if s["sheet_id"] == "s2")
+    assert {t["tag"] for t in s2["tags"]} == {"PP-380V", "TR-2"}
+    assert s2["summary"] == "배관 상세"
+    s1 = next(s for s in out["sheets"] if s["sheet_id"] == "s1")
+    assert s1["tags"] == [] and s1["summary"] is None  # 추출본 없는 시트
 
 
 @respx.mock

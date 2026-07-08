@@ -24,7 +24,14 @@ SYSTEM_PROMPT = (
     "list_sheets의 discipline 필터가 아니라 list_files로 파일 목록을 받아 파일명을 부분일치로 찾으세요"
     "(파일별 sheet_count가 '몇 페이지'입니다). search가 0건이어도 곧바로 없다고 하지 말고 list_files로 확인하세요. "
     "discipline 필터는 공종 코드(E=전기, M=기계, G=기타 등)로 물을 때만 씁니다. "
-    "특정 분류(간섭/품질/협의)의 이슈 전부를 물으면 list_issues의 category 필터를 쓰세요."
+    "특정 분류(간섭/품질/협의)의 이슈 전부를 물으면 list_issues의 category 필터를 쓰세요. "
+    "설비/장비나 도면 본문 내용을 물으면: 특정 설비 태그(예: 'TR-3201', 'PP-380V')가 "
+    "어느 시트에 나오는지는 find_sheets_by_equipment로 역조회하고, 한 시트의 추출 본문·태그·요약은 "
+    "get_sheet_content로 조회하세요. search 결과의 content_matches는 도면 본문색인 매칭입니다. "
+    "정직성 지침: get_sheet_content·find_sheets_by_equipment·list_sheets/get_sheet의 tags는 "
+    "업로드 도면에서 자동추출된 것이며 confidence(신뢰도)가 붙습니다. confidence가 0.6 미만인 태그를 "
+    "인용할 때는 반드시 '자동추출(미검증)'임을 밝히세요. 반면 list_equipment/get_equipment의 장비는 "
+    "사람이 큐레이트한 온톨로지(고신뢰)이므로 그 구분을 흐리지 마세요."
 )
 
 # OpenAI function-calling 스키마. project는 서버가 주입하므로 파라미터에 없음.
@@ -161,6 +168,34 @@ TOOLS_SCHEMA = [
             },
         },
     },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_sheet_content",
+            "description": "한 시트에서 업로드 도면으로부터 자동추출된 본문색인 발췌·설비태그·요약을 반환한다. sheet_id 또는 sheet_key 중 하나로 조회. 태그는 confidence(신뢰도)·src를 포함하며, 0.6 미만은 '자동추출(미검증)'으로 밝혀야 한다. 추출본이 없으면 found=false.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "sheet_id": {"type": "string", "description": "조회할 시트 ID."},
+                    "sheet_key": {"type": "string", "description": "버전을 가로지르는 시트 정체성 키(선택)."},
+                },
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "find_sheets_by_equipment",
+            "description": "설비 태그(예: TR-3201, PP-380V, VCB)가 나타나는 도면 시트를 역방향으로 찾는다. 매칭 태그마다 confidence·src를 포함(자동추출 — 저신뢰는 '자동추출(미검증)' 명시). '이 설비가 어느 도면에 있나' 질문에 쓴다. 사람이 큐레이트한 온톨로지 조회는 list_equipment.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "tag": {"type": "string", "description": "설비 태그(부분일치, 예: 'TR-', 'PP-380V')."},
+                },
+                "required": ["tag"],
+            },
+        },
+    },
 ]
 
 
@@ -187,6 +222,16 @@ def _collect_refs(name: str, result: dict, sheets: dict, issues: dict) -> None:
         for it in result.get("issues") or []:
             if it.get("issue_id"):
                 issues[it["issue_id"]] = it.get("title") or it["issue_id"]
+        for m in result.get("content_matches") or []:
+            if m.get("sheet_id") and m["sheet_id"] not in sheets:
+                sheets[m["sheet_id"]] = m.get("sheet_key") or m["sheet_id"]
+    elif name == "find_sheets_by_equipment":
+        for s in result.get("sheets") or []:
+            if s.get("sheet_id"):
+                tag = (s.get("matched_tags") or [{}])[0].get("tag")
+                sheets[s["sheet_id"]] = tag or s.get("sheet_key") or s["sheet_id"]
+    elif name == "get_sheet_content" and result.get("found") and result.get("sheet_id"):
+        sheets[result["sheet_id"]] = result.get("sheet_key") or result["sheet_id"]
 
 
 def _build_references(sheets: dict, issues: dict, cap: int = 6) -> list[dict]:
@@ -216,6 +261,10 @@ def _dispatch(name: str, args: dict, project: str) -> dict:
         return tools.list_equipment(project, args.get("sheet_id"))
     if name == "get_equipment":
         return tools.get_equipment(project, args.get("equipment_id", ""))
+    if name == "get_sheet_content":
+        return tools.get_sheet_content(project, args.get("sheet_id"), args.get("sheet_key"))
+    if name == "find_sheets_by_equipment":
+        return tools.find_sheets_by_equipment(project, args.get("tag", ""))
     return {"error": f"알 수 없는 툴: {name}"}
 
 
@@ -301,4 +350,8 @@ def _summarize(name: str, result: dict) -> str:
         return f"count={result.get('count')}"
     if name == "get_equipment":
         return f"found={result.get('found')}"
+    if name == "get_sheet_content":
+        return f"found={result.get('found')} tags={len(result.get('tags', []))}"
+    if name == "find_sheets_by_equipment":
+        return f"sheets={result.get('count')}"
     return "ok"

@@ -34,11 +34,13 @@ _SEARCH = {
     "issues": [], "files": [], "folders": [], "truncated": False,
 }
 _ME = {"member_id": "m-1", "member": {"id": "m-1", "name": "개혁"}, "roles": {}}
+_META_EMPTY = {"count": 0, "results": [], "truncated": False}  # S15 단계8 강화 호출 스텁
 
 
 @respx.mock
 def test_list_sheets_maps_completed_only():
     respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_EMPTY))
     out = tools.list_sheets("Study_Project")
     assert out["count"] == 2
     assert {s["sheet_id"] for s in out["sheets"]} == {"s1", "s2"}
@@ -48,6 +50,7 @@ def test_list_sheets_maps_completed_only():
 @respx.mock
 def test_list_sheets_discipline_filter():
     respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_EMPTY))
     out = tools.list_sheets("Study_Project", discipline="E")
     assert out["count"] == 1
     assert out["sheets"][0]["number"] == "E-101"
@@ -56,8 +59,10 @@ def test_list_sheets_discipline_filter():
 @respx.mock
 def test_search_passthrough():
     respx.get(f"{BASE}/api/search").mock(return_value=httpx.Response(200, json=_SEARCH))
+    respx.get(f"{BASE}/api/sheet-meta/search").mock(return_value=httpx.Response(200, json=_META_EMPTY))
     out = tools.search("Study_Project", "EE")
     assert out["sheets"][0]["sheet_id"] == "s1"
+    assert out["content_matches"] == []
     assert out["truncated"] is False
 
 

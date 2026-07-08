@@ -66,6 +66,8 @@ def test_kill_switch_forces_mock_provider():
 def test_kill_switch_chat_no_openai_egress():
     """mode=mock에서 run_chat이 MockProvider로 돌아 openai 호출이 0."""
     respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(  # S15 단계8 list_sheets 강화 호출
+        return_value=httpx.Response(200, json={"count": 0, "results": [], "truncated": False}))
     _reset_mode()
     egress.set_mode("mock")
     from provider import make_provider

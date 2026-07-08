@@ -1,7 +1,10 @@
-"""읽기 툴 카탈로그 7종. 오직 8000 공개 HTTP GET으로 그라운딩.
+"""읽기 툴 카탈로그. 오직 8000 공개 HTTP GET으로 그라운딩.
 
 S8.0: search, list_sheets. S8.2 추가: get_project_summary, get_sheet,
-list_issues, get_issue, list_files. 각 툴은 구조화 JSON + 안정 ID
+list_issues, get_issue, list_files. S10: list_equipment, get_equipment.
+S15 단계8 추가: get_sheet_content, find_sheets_by_equipment(업로드 도면의
+자동추출 본문색인·설비태그를 AI 그라운딩 표면으로) + search 본문검색 병합,
+get_sheet/list_sheets에 tags·summary 강화. 각 툴은 구조화 JSON + 안정 ID
 (sheet_id/file_id/issue_id, 딥링크용)를 반환한다. 존재하지 않는 ID는
 허위 생성 대신 {"found": False, ...}로 정직하게 응답한다.
 """
@@ -12,16 +15,46 @@ from typing import Optional
 from client import get
 
 
+def _compact_tags(tags: Optional[list]) -> list:
+    """자동추출 태그를 AI 노출용으로 축약 — 장문 evidence는 빼고, 정직성 판정에 필요한
+    confidence·src(rule/llm/merged)는 유지한다(저신뢰 태그는 '자동추출(미검증)' 명시용)."""
+    return [{
+        "tag": t.get("tag"),
+        "type": t.get("type"),
+        "confidence": t.get("confidence"),
+        "src": t.get("src"),
+    } for t in (tags or [])]
+
+
+def _current_meta_by_sheet_id(project: str) -> dict:
+    """현재 rev(sheet_meta) 추출본을 sheet_id로 색인한 맵(list_sheets 강화용, 1회 GET)."""
+    data = get("/api/sheet-meta", params={"project_name": project, "current_only": "true"})
+    out = {}
+    for r in data.get("results", []):
+        sid = r.get("sheet_id")
+        if sid:
+            out[sid] = r
+    return out
+
+
 def search(project: str, query: str) -> dict:
-    """GET /api/search — 시트·이슈·파일·폴더 교차 부분일치 검색 결과."""
+    """GET /api/search + /api/sheet-meta/search — 교차 검색 + 도면 본문색인 매칭 병합."""
     data = get("/api/search", params={"q": query, "project_name": project})
+    content = get("/api/sheet-meta/search", params={"q": query, "project_name": project})
     return {
         "query": data.get("query", query),
         "sheets": data.get("sheets", []),
         "issues": data.get("issues", []),
         "files": data.get("files", []),
         "folders": data.get("folders", []),
-        "truncated": data.get("truncated", False),
+        "content_matches": [{
+            "sheet_key": m.get("sheet_key"),
+            "sheet_id": m.get("sheet_id"),
+            "file_id": m.get("file_id"),
+            "source_kind": m.get("source_kind"),
+            "snippet": m.get("snippet"),
+        } for m in content.get("results", [])],
+        "truncated": data.get("truncated", False) or content.get("truncated", False),
     }
 
 
@@ -31,6 +64,7 @@ def list_sheets(project: str, discipline: Optional[str] = None) -> dict:
     검색 라우트와 동일 매핑(sheet_number→number, sheet_title→title)으로 딥링크 ID 유지.
     """
     drawings = get("/api/drawings", params={"project_name": project})
+    meta = _current_meta_by_sheet_id(project)  # S15 단계8: 자동추출 태그·요약 강화
     sheets = []
     for d in drawings:
         if d.get("conversion_status") != "completed":
@@ -40,6 +74,7 @@ def list_sheets(project: str, discipline: Optional[str] = None) -> dict:
             if discipline and code != discipline:
                 continue
             number = s.get("sheet_number") or s.get("sheet_name") or d.get("filename")
+            m = meta.get(s.get("sheet_id")) or {}
             sheets.append({
                 "sheet_id": s.get("sheet_id"),
                 "file_id": d.get("file_id"),
@@ -47,6 +82,8 @@ def list_sheets(project: str, discipline: Optional[str] = None) -> dict:
                 "title": s.get("sheet_title") or d.get("filename"),
                 "discipline_code": code,
                 "discipline_label": s.get("discipline_label") or "",
+                "tags": _compact_tags(m.get("tags")),
+                "summary": m.get("summary"),
             })
     return {"project": project, "count": len(sheets), "sheets": sheets}
 
@@ -99,12 +136,15 @@ def get_issue(project: str, issue_id: str) -> dict:
 
 
 def get_sheet(project: str, sheet_id: str) -> dict:
-    """GET /api/drawings 완료 도면 시트에서 sheet_id로 단일 시트 조회. 없으면 found=False."""
+    """GET /api/drawings 완료 도면 시트에서 sheet_id로 단일 시트 조회. 없으면 found=False.
+
+    S15 단계8: 자동추출본(tags·summary·sheet_key)을 sheet-meta에서 조인해 함께 반환.
+    """
     drawings = get("/api/drawings", params={"project_name": project})
     for d in drawings:
         for s in d.get("sheets") or []:
             if s.get("sheet_id") == sheet_id:
-                return {
+                result = {
                     "found": True,
                     "sheet_id": s.get("sheet_id"),
                     "file_id": d.get("file_id"),
@@ -114,6 +154,15 @@ def get_sheet(project: str, sheet_id: str) -> dict:
                     "discipline_code": s.get("discipline_code") or "G",
                     "discipline_label": s.get("discipline_label") or "",
                 }
+                meta = get("/api/sheet-meta", params={
+                    "project_name": project, "sheet_id": sheet_id, "current_only": "true"})
+                rows = meta.get("results", [])
+                m = rows[0] if rows else {}
+                result["sheet_key"] = m.get("sheet_key")
+                result["tags"] = _compact_tags(m.get("tags"))
+                result["summary"] = m.get("summary")
+                result["has_content"] = bool(m.get("text_index"))
+                return result
     return {"found": False, "sheet_id": sheet_id}
 
 
@@ -189,3 +238,54 @@ def get_equipment(project: str, equipment_id: str) -> dict:
     if not e or e.get("project_name") != project:
         return {"found": False, "equipment_id": equipment_id}
     return {"found": True, **e}
+
+
+def get_sheet_content(project: str, sheet_id: Optional[str] = None,
+                      sheet_key: Optional[str] = None) -> dict:
+    """GET /api/sheet-meta — 시트의 자동추출 본문색인·설비태그·요약(현재 rev).
+
+    sheet_id 또는 sheet_key 중 하나로 조회. 태그의 confidence·src를 함께 반환하므로
+    저신뢰(<0.6) 항목을 인용할 땐 '자동추출(미검증)'으로 밝혀야 한다. 없으면 found=False.
+    """
+    if not sheet_id and not sheet_key:
+        return {"found": False, "reason": "sheet_id 또는 sheet_key 필요"}
+    params = {"project_name": project, "current_only": "true"}
+    if sheet_key:
+        params["sheet_key"] = sheet_key
+    if sheet_id:
+        params["sheet_id"] = sheet_id
+    rows = get("/api/sheet-meta", params=params).get("results", [])
+    if not rows:
+        return {"found": False, "sheet_id": sheet_id, "sheet_key": sheet_key}
+    r = rows[0]
+    text = r.get("text_index") or ""
+    return {
+        "found": True,
+        "sheet_key": r.get("sheet_key"),
+        "sheet_id": r.get("sheet_id"),
+        "file_id": r.get("file_id"),
+        "source_kind": r.get("source_kind"),
+        "summary": r.get("summary"),
+        "tags": _compact_tags(r.get("tags")),
+        "conflicts": r.get("conflicts") or [],
+        "text_excerpt": text[:1200],
+        "text_truncated": len(text) > 1200,
+    }
+
+
+def find_sheets_by_equipment(project: str, tag: str) -> dict:
+    """GET /api/sheet-meta/by-equipment — 설비 태그가 나타나는 시트 역방향 조회.
+
+    자동추출 태그이므로 confidence·src를 함께 반환한다(저신뢰 매칭은 '자동추출(미검증)').
+    수동 큐레이트 온톨로지(list_equipment)와 구분할 것.
+    """
+    data = get("/api/sheet-meta/by-equipment", params={"project_name": project, "tag": tag})
+    sheets = [{
+        "sheet_key": r.get("sheet_key"),
+        "sheet_id": r.get("sheet_id"),
+        "file_id": r.get("file_id"),
+        "source_kind": r.get("source_kind"),
+        "matched_tags": _compact_tags(r.get("matched_tags")),
+    } for r in data.get("results", [])]
+    return {"tag": data.get("tag", tag), "count": len(sheets),
+            "sheets": sheets, "truncated": data.get("truncated", False)}

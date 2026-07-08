@@ -19,11 +19,13 @@ _DRAWINGS = [
 ]
 _SEARCH = {"query": "케이블", "sheets": [], "issues": [{"issue_id": "i1", "title": "케이블 트레이"}],
            "files": [], "folders": [], "truncated": False}
+_META_EMPTY = {"count": 0, "results": [], "truncated": False}  # S15 단계8 강화 호출 스텁
 
 
 @respx.mock
 def test_run_chat_mock_list_sheets():
     respx.get(f"{BASE}/api/drawings").mock(return_value=httpx.Response(200, json=_DRAWINGS))
+    respx.get(f"{BASE}/api/sheet-meta").mock(return_value=httpx.Response(200, json=_META_EMPTY))
     out = agent.run_chat("Study_Project", "시트 몇 장 있어?", provider=MockProvider())
     assert out["provider"] == "mock"
     assert out["tool_calls"][0]["name"] == "list_sheets"
@@ -34,6 +36,7 @@ def test_run_chat_mock_list_sheets():
 @respx.mock
 def test_run_chat_mock_search():
     respx.get(f"{BASE}/api/search").mock(return_value=httpx.Response(200, json=_SEARCH))
+    respx.get(f"{BASE}/api/sheet-meta/search").mock(return_value=httpx.Response(200, json=_META_EMPTY))
     out = agent.run_chat("Study_Project", "케이블 이슈 있나", provider=MockProvider())
     assert out["tool_calls"][0]["name"] == "search"
     assert "issues=1" in out["tool_calls"][0]["result_summary"]
