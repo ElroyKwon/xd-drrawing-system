@@ -205,7 +205,7 @@ def _merge(g: dict, omap: dict) -> dict:
     out_edges = []
     matched = set()
     for e in g.get("edges", []):
-        if e.get("track") != "llm":
+        if e.get("track") != "llm" or e.get("type") != "relates_to":
             out_edges.append(e)
             continue
         key = edge_key(e["src"], e["dst"])
@@ -218,12 +218,13 @@ def _merge(g: dict, omap: dict) -> dict:
         elif action == "reject":
             matched.add(key)
             # drop — 결과 목록에서 제외.
-        else:  # 알 수 없는 action → 안전하게 원본 유지.
+        else:  # 알 수 없는 action → 안전하게 원본 유지(매칭은 됐으므로 dangling 아님).
+            matched.add(key)
             out_edges.append(e)
     dangling = set(omap) - matched
     if dangling:
-        logger.warning("오버레이 dangling override 무시(%d건): %s",
-                       len(dangling), ", ".join(sorted(dangling)[:5]))
+        logger.debug("오버레이 dangling override 무시(%d건): %s",
+                     len(dangling), ", ".join(sorted(dangling)[:5]))
     return {**g, "edges": out_edges}
 
 
