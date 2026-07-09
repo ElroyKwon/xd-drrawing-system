@@ -7,6 +7,7 @@
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import sys
@@ -176,8 +177,9 @@ def build_graph(project: str, built_at: str | None = None) -> dict:
         about = tag_to_eq.get(_norm(note.get("about_tag", "")))
         if not about:
             continue
-        # 결정적 note id — 내용 기반(시계·난수 없음).
-        nid = f"nt:{abs(hash((note.get('about_tag'), note.get('text')))) % (10**10)}"
+        # 결정적 note id — 내용 기반 content hash(프로세스 간 안정, 시계·난수 없음).
+        _h = hashlib.sha256(f"{note.get('about_tag','')}|{note.get('text','')}".encode("utf-8")).hexdigest()[:16]
+        nid = f"nt:{_h}"
         add({"id": nid, "type": "note", "ref_id": None, "label": (note.get("text") or "")[:40],
              "props": {"text": note.get("text", ""), "confidence": float(note.get("confidence", 0.5))}})
         edges.append({"src": nid, "dst": about, "type": "describes",
