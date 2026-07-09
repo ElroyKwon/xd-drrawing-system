@@ -47,3 +47,25 @@ export async function fetchNeighbors(
   url.searchParams.set("depth", String(depth));
   return jsonOrThrow(await fetch(url.toString()), "이웃 노드 조회");
 }
+
+export type ConfirmResult = { ok: boolean; edge_key: string; new_track: "curated" };
+export type RejectResult = { ok: boolean; edge_key: string; hidden: boolean };
+
+async function postJson<T>(path: string, body: unknown, what: string): Promise<T> {
+  const res = await fetch(`${BACKEND_BASE}${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  return jsonOrThrow(res, what);
+}
+
+/** AI 제안 relates_to(llm)를 확인 → curated 승격. */
+export async function confirmEdge(projectName: string, src: string, dst: string): Promise<ConfirmResult> {
+  return postJson("/api/kg/edge/confirm", { project_name: projectName, src, dst }, "관계 확인");
+}
+
+/** AI 제안 relates_to(llm)를 오탐 거부 → 뷰에서 숨김. */
+export async function rejectEdge(projectName: string, src: string, dst: string, reason?: string): Promise<RejectResult> {
+  return postJson("/api/kg/edge/reject", { project_name: projectName, src, dst, reason }, "관계 거부");
+}
