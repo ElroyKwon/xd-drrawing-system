@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import BuildSheetsView from "./BuildSheetsView";
+import KnowledgeGraphView from "./KnowledgeGraphView";
 import ProjectAdminView from "./ProjectAdminView";
 import { useModalDismiss } from "./hooks/useModalDismiss";
 import { initialProjectAccess, type ProjectMemberAccess } from "./projectAdminData";
@@ -155,7 +156,7 @@ export default function App() {
   const [form, setForm] = useState<ProjectForm>(emptyForm);
   const [nameError, setNameError] = useState(false);
   const [activeView, setActiveView] = useState<
-    "my-home" | "projects" | "project-templates" | "project-admin" | "template-admin" | "build-sheets"
+    "my-home" | "projects" | "project-templates" | "project-admin" | "template-admin" | "build-sheets" | "knowledge-graph"
   >("projects");
   const [selectedProjectId, setSelectedProjectId] = useState(initialProjects[0].id);
   const [selectedTemplateId, setSelectedTemplateId] = useState(seedHubTemplates[0].id);
@@ -381,6 +382,14 @@ export default function App() {
           >
             프로젝트 템플릿
           </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeView === "knowledge-graph"}
+            onClick={() => setActiveView("knowledge-graph")}
+          >
+            지식그래프
+          </button>
         </nav>
 
         {activeView === "my-home" ? (
@@ -393,6 +402,11 @@ export default function App() {
             onUseTemplate={openModalWithTemplate}
             onOpenTemplate={openTemplateAdmin}
             onDeleteTemplate={handleDeleteTemplate}
+          />
+        ) : activeView === "knowledge-graph" ? (
+          <KnowledgeGraphView
+            projectName={selectedProject.name}
+            onBack={() => setActiveView("projects")}
           />
         ) : (
           <section className="project-panel" aria-labelledby="project-list-title">

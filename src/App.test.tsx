@@ -427,3 +427,17 @@ describe("M5 a11y 부채 정리 (접기 헤더 + 모달 해제 동작)", () => {
     expect(typeDialog).toContainElement(document.activeElement as HTMLElement);
   });
 });
+
+describe("지식그래프 네비게이션", () => {
+  it("지식그래프 탭이 있고 클릭하면 뷰로 전환된다", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({ nodes: [], edges: [] }), { status: 200 })
+    );
+    const { user } = renderApp();
+
+    await user.click(screen.getByRole("tab", { name: "지식그래프" }));
+
+    // 탭 라벨("지식그래프")은 kicker에도 렌더되어 이름이 겹치므로, 뷰 고유 텍스트(범례)로 전환을 확인한다.
+    expect(await screen.findByText(/curated 실선/)).toBeInTheDocument();
+  });
+});
