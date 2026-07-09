@@ -53,9 +53,12 @@ def test_confirm_is_undirected(client):
 
 
 def test_reject_hides_edge(client):
-    c, _ = client
+    c, tmp = client
     r = c.post("/api/kg/edge/reject", json={"project_name": "P1", "src": "eq:E1", "dst": "eq:E2", "reason": "오탐"})
     assert r.status_code == 200 and r.json()["hidden"] is True
+    ov = json.loads((tmp / "_kg_overlay.json").read_text(encoding="utf-8"))
+    entry = ov["graphs"]["P1"]["overrides"][-1]
+    assert entry["action"] == "reject" and entry["reason"] == "오탐" and entry["at"] is not None
 
 
 def test_confirm_nonexistent_edge_400(client):
