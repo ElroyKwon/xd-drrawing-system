@@ -42,7 +42,7 @@ def _incident(g: dict, node_id: str) -> list:
 
 
 def get_node(project: str, node_id: str) -> dict:
-    g = _graph(project)
+    g = _merged_graph(project)
     n = _index(g).get(node_id)
     if n is None:
         return {"found": False, "id": node_id}
@@ -52,7 +52,7 @@ def get_node(project: str, node_id: str) -> dict:
 def neighbors(project: str, node_id: str, depth: int = 1, types: Optional[list] = None) -> dict:
     """N홉 이웃(순회). depth 상한 5(폭주 방어). types 지정 시 그 노드 타입만 포함."""
     depth = max(1, min(int(depth), 5))
-    g = _graph(project)
+    g = _merged_graph(project)
     idx = _index(g)
     if node_id not in idx:
         return {"found": False, "id": node_id}
@@ -79,7 +79,7 @@ def neighbors(project: str, node_id: str, depth: int = 1, types: Optional[list] 
 
 def path(project: str, src: str, dst: str) -> dict:
     """두 노드 최단 경로(BFS, 무방향)."""
-    g = _graph(project)
+    g = _merged_graph(project)
     idx = _index(g)
     if src not in idx or dst not in idx:
         return {"found": False, "from": src, "to": dst}
@@ -112,7 +112,7 @@ def path(project: str, src: str, dst: str) -> dict:
 
 def evidence(project: str, node_id: str) -> dict:
     """근거체인 — 노드의 인접 엣지 evidence + 그 노드를 describes 하는 note."""
-    g = _graph(project)
+    g = _merged_graph(project)
     idx = _index(g)
     if node_id not in idx:
         return {"found": False, "id": node_id}
@@ -128,7 +128,7 @@ def subgraph(project: str, scope: Optional[str] = None) -> dict:
     """시각화용 — scope 미지정 시 전체. scope=<node_id> 면 그 노드 2홉 이웃."""
     if scope:
         return neighbors(project, scope, depth=2)
-    g = _graph(project)
+    g = _merged_graph(project)
     return {"found": True, "nodes": g.get("nodes", []), "edges": g.get("edges", []),
             "built_at": g.get("built_at")}
 
@@ -154,7 +154,10 @@ def edge_key(a: str, b: str) -> str:
 def _load_overlay() -> dict:
     if _OVERLAY_PATH.exists():
         try:
-            return json.loads(_OVERLAY_PATH.read_text(encoding="utf-8"))
+            data = json.loads(_OVERLAY_PATH.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+            logger.error("오버레이 저널이 dict 아님(%s) → 빈 오버레이 반환", _OVERLAY_PATH)
         except json.JSONDecodeError:
             logger.error("오버레이 저널 파싱 실패(%s) → 빈 오버레이 반환", _OVERLAY_PATH)
     return {"version": 1, "graphs": {}}
@@ -186,3 +189,44 @@ def append_override(project: str, key: str, action: str,
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     os.replace(tmp, _OVERLAY_PATH)
     return entry
+
+
+def _merge(g: dict, omap: dict) -> dict:
+    """스냅샷 그래프 g 에 오버레이 맵(omap: {edge_key: action})을 적용한 병합 그래프 반환.
+
+    규칙(스펙 §4):
+      - track != 'llm' → 무시(rule·curated 보호).
+      - track == 'llm' + override 없음 → 그대로.
+      - track == 'llm' + confirm → track 을 'curated' 로 치환.
+      - track == 'llm' + reject → 결과에서 제외(drop).
+      - dangling override(어느 엣지와도 안 맞음) → 조용히 무시(로그 경고).
+    스냅샷 파일 자체는 변경하지 않는다(병합은 읽기 경로 메모리에서만).
+    """
+    out_edges = []
+    matched = set()
+    for e in g.get("edges", []):
+        if e.get("track") != "llm":
+            out_edges.append(e)
+            continue
+        key = edge_key(e["src"], e["dst"])
+        action = omap.get(key)
+        if action is None:
+            out_edges.append(e)
+        elif action == "confirm":
+            matched.add(key)
+            out_edges.append({**e, "track": "curated"})
+        elif action == "reject":
+            matched.add(key)
+            # drop — 결과 목록에서 제외.
+        else:  # 알 수 없는 action → 안전하게 원본 유지.
+            out_edges.append(e)
+    dangling = set(omap) - matched
+    if dangling:
+        logger.warning("오버레이 dangling override 무시(%d건): %s",
+                       len(dangling), ", ".join(sorted(dangling)[:5]))
+    return {**g, "edges": out_edges}
+
+
+def _merged_graph(project: str) -> dict:
+    """순수 스냅샷(_graph) + 오버레이 병합 — 모든 읽기 경로의 단일 진입점."""
+    return _merge(_graph(project), _overlay_map(project))
