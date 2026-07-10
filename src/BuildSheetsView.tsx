@@ -253,7 +253,7 @@ export default function BuildSheetsView({ project = selectedBuildProject, canEdi
         )}
       </section>
 
-      {AI_ENABLED ? <ChatDrawer project={project.name} /> : null}
+      {AI_ENABLED ? <ChatDrawer project={project.name} canEdit={canEdit} /> : null}
     </main>
   );
 }

@@ -10,7 +10,9 @@ import {
   type ChatToolCall,
   type ChatReference,
   type ConversationSummary,
+  type PendingAction,
 } from "./aiClient";
+import ActionCard from "./ActionCard";
 import { renderRichText } from "./markdown";
 import "./chat.css";
 
@@ -19,6 +21,7 @@ interface Msg {
   content: string;
   tools?: ChatToolCall[];
   refs?: ChatReference[];
+  actions?: PendingAction[];
   error?: boolean;
 }
 
@@ -29,6 +32,7 @@ function navigateTo(ref: ChatReference) {
 
 interface Props {
   project: string;
+  canEdit?: boolean;
 }
 
 function formatWhen(iso: string): string {
@@ -44,7 +48,7 @@ function formatWhen(iso: string): string {
   }
 }
 
-export default function ChatDrawer({ project }: Props) {
+export default function ChatDrawer({ project, canEdit = false }: Props) {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
@@ -158,7 +162,8 @@ export default function ChatDrawer({ project }: Props) {
       setConversationId(res.conversation_id);
       setMessages((m) => [
         ...m,
-        { role: "assistant", content: res.answer, tools: res.tool_calls, refs: res.references },
+        { role: "assistant", content: res.answer, tools: res.tool_calls,
+          refs: res.references, actions: res.pending_actions },
       ]);
     } catch (e) {
       setMessages((m) => [
@@ -311,6 +316,24 @@ export default function ChatDrawer({ project }: Props) {
                 ))}
               </div>
             ) : null}
+            {m.role === "assistant" && m.actions?.length
+              ? m.actions.map((a) => (
+                  <ActionCard
+                    key={a.action_id}
+                    action={a}
+                    project={project}
+                    canEdit={canEdit}
+                    conversationId={conversationId}
+                    onDone={(msg, ref) => {
+                      setMessages((mm) => [
+                        ...mm,
+                        { role: "assistant", content: msg,
+                          refs: ref ? [{ type: ref.type, id: ref.id, label: msg }] : undefined },
+                      ]);
+                    }}
+                  />
+                ))
+              : null}
           </div>
         ))}
         {loading ? (

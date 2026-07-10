@@ -27,6 +27,7 @@ from routes_ontology import router as ontology_router
 from routes_kg import router as kg_router
 from routes_kg_writeback import router as kg_writeback_router
 from routes_email import router as email_router
+from routes_audit import router as audit_router
 from store import get_store
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -59,6 +60,7 @@ app.include_router(ontology_router)
 app.include_router(kg_router)
 app.include_router(kg_writeback_router)
 app.include_router(email_router)
+app.include_router(audit_router)
 app.include_router(auth_router)
 
 

@@ -16,11 +16,20 @@ export interface ChatReference {
   label: string;
 }
 
+export interface PendingAction {
+  action_id: string;
+  type: "create_issue" | "change_issue_status" | "create_task";
+  summary: string;
+  params: Record<string, unknown>;
+  target_label?: string | null;
+}
+
 export interface ChatResponse {
   conversation_id: string;
   answer: string;
   tool_calls: ChatToolCall[];
   references: ChatReference[];
+  pending_actions: PendingAction[];
   provider: string;
 }
 

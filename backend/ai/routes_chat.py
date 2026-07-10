@@ -92,6 +92,7 @@ async def chat(body: ChatRequest):
         "answer": result["answer"],
         "tool_calls": result.get("tool_calls", []),
         "references": result.get("references", []),
+        "pending_actions": result.get("pending_actions", []),
         "provider": result.get("provider"),
     }
 

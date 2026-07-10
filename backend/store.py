@@ -376,6 +376,7 @@ class JsonDrawingStore(DrawingStore):
         self._sheet_sources_path = Path(config.UPLOADS_DIR) / "_sheet_sources.json"  # S14: 시트↔DWG 링크
         self._sheet_keys_path = Path(config.UPLOADS_DIR) / "_sheet_keys.json"  # S15: 시트 정체성 레지스트리
         self._sheet_meta_path = Path(config.UPLOADS_DIR) / "_sheet_meta.json"  # S15: 버전별 추출본(이력)
+        self._action_audit_path = Path(config.UPLOADS_DIR) / "_action_audit.json"  # P2: 액션 감사로그
         # S7: 구성원·프로젝트·프로젝트-구성원·현재 사용자
         self._members_path = Path(config.UPLOADS_DIR) / "_members.json"
         self._projects_path = Path(config.UPLOADS_DIR) / "_projects.json"
@@ -752,6 +753,24 @@ class JsonDrawingStore(DrawingStore):
             del data[task_id]
             self._write_at(self._tasks_path, data)
             return True
+
+    # --- P2: 액션 감사로그(append-only 리스트) ---
+    def add_action_audit(self, rec: dict) -> dict:
+        with self._lock:
+            data = self._read_at(self._action_audit_path)
+            if not isinstance(data, list):
+                data = []
+            data.append(rec)
+            self._write_at(self._action_audit_path, data)
+        return rec
+
+    def list_action_audit(self, project_name: Optional[str] = None) -> list:
+        data = self._read_at(self._action_audit_path)
+        if not isinstance(data, list):
+            return []
+        if project_name:
+            data = [r for r in data if r.get("project_name") == project_name]
+        return data
 
     # --- S9.1: 양식(Forms) ---
     def add_form(self, meta: dict) -> None:
@@ -1436,6 +1455,13 @@ class TypeDBDrawingStore(DrawingStore):
 
     def delete_task(self, task_id: str) -> bool:
         return _MIRROR.delete_task(task_id)
+
+    # --- P2: 액션 감사로그 — JSON 미러 SoT ---
+    def add_action_audit(self, rec: dict) -> dict:
+        return _MIRROR.add_action_audit(rec)
+
+    def list_action_audit(self, project_name=None) -> list:
+        return _MIRROR.list_action_audit(project_name)
 
     # --- S9.1: 양식(Forms) — JSON 미러 SoT ---
     def add_form(self, meta: dict) -> None:

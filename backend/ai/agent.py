@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 from typing import Optional
 
+import actions
 import tools
 from provider import LLMProvider, make_provider
 
@@ -37,6 +38,9 @@ SYSTEM_PROMPT = (
     "업로드 도면에서 자동추출된 것이며 confidence(신뢰도)가 붙습니다. confidence가 0.7 미만인 태그를 "
     "인용할 때는 반드시 '자동추출(미검증)'임을 밝히세요. 반면 list_equipment/get_equipment의 장비는 "
     "사람이 큐레이트한 온톨로지(고신뢰)이므로 그 구분을 흐리지 마세요."
+    " 사용자가 이슈/작업을 남기거나 상태를 바꿔달라고 하면 propose_* 툴로 '제안'하라. "
+    "제안은 즉시 실행이 아니라 사용자에게 확인 카드를 띄우는 것이다. 필수 정보(제목 등)가 "
+    "없으면 추측하지 말고 되물어라. 한 턴에 액션 하나만 제안하라."
 )
 
 # OpenAI function-calling 스키마. project는 서버가 주입하므로 파라미터에 없음.
@@ -232,6 +236,58 @@ TOOLS_SCHEMA = [
         "name": "kg_evidence",
         "description": "지식그래프 노드의 근거체인(엣지 evidence + describes 노트)을 track·confidence 와 함께 조회. 저신뢰·llm 은 '미검증'으로 밝혀 인용.",
         "parameters": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]}}},
+    {
+        "type": "function",
+        "function": {
+            "name": "propose_create_issue",
+            "description": "이슈 생성을 '제안'한다(즉시 실행 아님 — 사용자 확인 카드가 뜬다). 사용자가 이슈를 남겨달라고 할 때 쓴다. sheet_ref에 시트번호(예: EE-01-001)나 도면명을 주면 해당 시트에 연결한다. 제목이 없으면 먼저 되물어라.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "title": {"type": "string", "description": "이슈 제목."},
+                    "category": {"type": "string", "description": "분류: clash=간섭, quality=품질, coordination=협의."},
+                    "assignee": {"type": "string", "description": "담당(선택)."},
+                    "description": {"type": "string", "description": "상세 설명(선택)."},
+                    "status": {"type": "string", "description": "상태(열림/진행중/답변됨/닫힘). 생략 시 열림."},
+                    "sheet_ref": {"type": "string", "description": "연결할 시트번호/도면명(선택)."},
+                },
+                "required": ["title"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "propose_change_issue_status",
+            "description": "이슈 상태변경을 '제안'한다(확인 카드). issue_ref는 이슈 제목 일부나 issue_id. to_status는 열림/진행중/답변됨/닫힘.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "issue_ref": {"type": "string", "description": "대상 이슈(제목 일부 또는 ID)."},
+                    "to_status": {"type": "string", "description": "바꿀 상태(열림/진행중/답변됨/닫힘)."},
+                },
+                "required": ["issue_ref", "to_status"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "propose_create_task",
+            "description": "작업(Task) 생성을 '제안'한다(확인 카드). 시공/설계 작업 항목을 만들 때 쓴다.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "title": {"type": "string", "description": "작업 제목."},
+                    "assignee": {"type": "string", "description": "담당(선택)."},
+                    "priority": {"type": "string", "description": "우선순위(높음/보통/낮음). 생략 시 보통."},
+                    "due_date": {"type": "string", "description": "기한 YYYY-MM-DD(선택)."},
+                    "description": {"type": "string", "description": "설명(선택)."},
+                },
+                "required": ["title"],
+            },
+        },
+    },
 ]
 
 
@@ -275,6 +331,19 @@ def _build_references(sheets: dict, issues: dict, cap: int = 6) -> list[dict]:
         [{"type": "sheet", "id": k, "label": v} for k, v in list(sheets.items())[:cap]]
         + [{"type": "issue", "id": k, "label": v} for k, v in list(issues.items())[:cap]]
     )
+
+
+_ACTION_TOOLS = {"propose_create_issue", "propose_change_issue_status", "propose_create_task"}
+
+
+def _dispatch_action(name: str, args: dict, project: str) -> dict:
+    if name == "propose_create_issue":
+        return actions.propose_create_issue(project, args)
+    if name == "propose_change_issue_status":
+        return actions.propose_change_issue_status(project, args)
+    if name == "propose_create_task":
+        return actions.propose_create_task(project, args)
+    return {"error": f"알 수 없는 액션: {name}"}
 
 
 def _dispatch(name: str, args: dict, project: str) -> dict:
@@ -332,6 +401,7 @@ def run_chat(
     trace: list[dict] = []
     ref_sheets: dict = {}
     ref_issues: dict = {}
+    pending_actions: list[dict] = []
     for _ in range(_MAX_STEPS):
         out = provider.complete(messages, TOOLS_SCHEMA)
         calls = out.get("tool_calls") or []
@@ -340,6 +410,7 @@ def run_chat(
                 "answer": out.get("content") or "",
                 "tool_calls": trace,
                 "references": _build_references(ref_sheets, ref_issues),
+                "pending_actions": pending_actions,
                 "provider": provider.name,
             }
         # assistant 툴콜 메시지(OpenAI 재공급 포맷).
@@ -357,7 +428,14 @@ def run_chat(
                 args = json.loads(c["arguments"] or "{}")
             except json.JSONDecodeError:
                 args = {}
-            result = _dispatch(c["name"], args, project)
+            if c["name"] in _ACTION_TOOLS:
+                pa = _dispatch_action(c["name"], args, project)
+                pending_actions.append(pa)
+                # LLM에는 '제안됨'만 알려 실행으로 오인하지 않게 한다.
+                result = {"proposed": True, "action_id": pa["action_id"],
+                          "summary": pa["summary"]}
+            else:
+                result = _dispatch(c["name"], args, project)
             _collect_refs(c["name"], result, ref_sheets, ref_issues)
             trace.append({"name": c["name"], "arguments": args,
                           "result_summary": _summarize(c["name"], result)})
@@ -369,7 +447,8 @@ def run_chat(
     # 스텝 초과 — 마지막 응답 유도(툴 없이).
     out = provider.complete(messages, [])
     return {"answer": out.get("content") or "", "tool_calls": trace,
-            "references": _build_references(ref_sheets, ref_issues), "provider": provider.name}
+            "references": _build_references(ref_sheets, ref_issues),
+            "pending_actions": pending_actions, "provider": provider.name}
 
 
 def _summarize(name: str, result: dict) -> str:
