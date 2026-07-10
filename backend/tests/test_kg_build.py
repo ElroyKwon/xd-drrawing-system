@@ -72,3 +72,15 @@ def test_build_persists_snapshot(build_mod, monkeypatch, tmp_path):
     import json
     snap = json.loads((tmp_path / "_knowledge_graph.json").read_text(encoding="utf-8"))
     assert "P1" in snap["graphs"]
+
+
+def test_call_analyze_forwards_sheet_ids(build_mod, monkeypatch):
+    """slim_eq 가 sheet_ids 를 8002 로 넘겨야 provider 가 공존을 계산할 수 있다(변경점 1)."""
+    b = build_mod
+    captured = {}
+    monkeypatch.setattr(b, "_post",
+                        lambda url, body: (captured.update(body), {"relations": [], "notes": []})[1])
+    b._call_analyze(
+        [{"tag": "MTR-1", "type": "motor", "sheet_ids": ["s1", "s2"]}], [])
+    assert captured["equipment"][0]["sheet_ids"] == ["s1", "s2"]
+    assert captured["equipment"][0]["tag"] == "MTR-1"

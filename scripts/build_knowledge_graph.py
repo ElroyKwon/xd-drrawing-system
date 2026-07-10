@@ -74,7 +74,8 @@ def _fetch_files(project: str) -> list:
 
 
 def _call_analyze(equipment: list, sheets: list) -> dict:
-    slim_eq = [{"tag": e.get("tag"), "type": e.get("type")} for e in equipment]
+    slim_eq = [{"tag": e.get("tag"), "type": e.get("type"),
+                "sheet_ids": e.get("sheet_ids") or []} for e in equipment]
     slim_sh = [{"sheet_id": s["sheet_id"], "tags": s.get("tags") or [],
                 "text_excerpt": s.get("text_excerpt", "")} for s in sheets]
     try:
