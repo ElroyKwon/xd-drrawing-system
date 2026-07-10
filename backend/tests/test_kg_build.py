@@ -84,3 +84,24 @@ def test_call_analyze_forwards_sheet_ids(build_mod, monkeypatch):
         [{"tag": "MTR-1", "type": "motor", "sheet_ids": ["s1", "s2"]}], [])
     assert captured["equipment"][0]["sheet_ids"] == ["s1", "s2"]
     assert captured["equipment"][0]["tag"] == "MTR-1"
+
+
+def test_coexistence_relations_map_to_equipment(build_mod, monkeypatch):
+    """설비 공존 → 설비 tag 반환 → build tag_to_eq 매핑 성공 → relates_to(llm) > 0.
+    _call_analyze 를 실제 MockExtractProvider 로 스텁해 어휘 매핑을 end-to-end 검증(8002 없이)."""
+    b = build_mod
+    monkeypatch.setattr(b, "_fetch_equipment", lambda p: [
+        {"equipment_id": "E1", "tag": "MTR-1", "type": "motor", "sheet_ids": ["s1", "s2"]},
+        {"equipment_id": "E2", "tag": "VCB-1", "type": "breaker", "sheet_ids": ["s1"]}])
+    for fn in ("_fetch_sheets", "_fetch_issues", "_fetch_tasks", "_fetch_files"):
+        monkeypatch.setattr(b, fn, lambda p: [])
+    from extract.provider import MockExtractProvider
+    prov = MockExtractProvider()
+    monkeypatch.setattr(b, "_call_analyze", lambda eq, sh: prov.analyze(eq, sh))
+    g = b.build_graph("P1", built_at="2026-07-09T00:00:00")
+    rels = [e for e in g["edges"] if e["type"] == "relates_to"]
+    assert len(rels) >= 1                       # 어휘 벽 해소 — 0 이 아님
+    assert rels[0]["track"] == "llm"            # 항상 미검증(⑥ write-back 대상)
+    assert {rels[0]["src"], rels[0]["dst"]} == {"eq:E1", "eq:E2"}  # 설비 노드로 매핑
+    import kg_store
+    assert kg_store.check_integrity(g) == []    # 무결성 위반 0
