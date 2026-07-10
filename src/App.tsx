@@ -388,7 +388,7 @@ export default function App() {
             aria-selected={activeView === "knowledge-graph"}
             onClick={() => setActiveView("knowledge-graph")}
           >
-            지식그래프
+            메타그래프
           </button>
         </nav>
 

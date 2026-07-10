@@ -125,7 +125,7 @@ export default function KnowledgeGraphView({ projectName, onBack }: KnowledgeGra
             <span>뒤로</span>
           </button>
           <div className="project-context-stack">
-            <span className="level-kicker">지식그래프</span>
+            <span className="level-kicker">메타그래프</span>
             <strong>{projectName}</strong>
           </div>
         </div>

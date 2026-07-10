@@ -435,7 +435,7 @@ describe("지식그래프 네비게이션", () => {
     );
     const { user } = renderApp();
 
-    await user.click(screen.getByRole("tab", { name: "지식그래프" }));
+    await user.click(screen.getByRole("tab", { name: "메타그래프" }));
 
     // 탭 라벨("지식그래프")은 kicker에도 렌더되어 이름이 겹치므로, 뷰 고유 텍스트(범례)로 전환을 확인한다.
     expect(await screen.findByText(/curated 실선/)).toBeInTheDocument();
