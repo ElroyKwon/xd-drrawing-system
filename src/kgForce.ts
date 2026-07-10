@@ -41,6 +41,14 @@ export function layout(nodes: FNode[], edges: FEdge[], W: number, H: number, ite
       disp[e.src].x -= dx * f; disp[e.src].y -= dy * f;
       disp[e.dst].x += dx * f; disp[e.dst].y += dy * f;
     }
+    // 중심 인력(gravity) — 노드를 캔버스 중심으로 약하게 당겨, 반발로 경계에 산개하는 것을
+    // 막고 Obsidian 그래프뷰처럼 중앙에서 원형으로 퍼지게 한다(결정적).
+    const cx0 = W / 2, cy0 = H / 2;
+    for (const nd of nodes) {
+      const p = pos[nd.id];
+      disp[nd.id].x += (cx0 - p.x) * 0.06;
+      disp[nd.id].y += (cy0 - p.y) * 0.06;
+    }
     const t = (1 - it / iters) * (k / 2);
     for (const nd of nodes) {
       const dp = disp[nd.id];
@@ -48,8 +56,7 @@ export function layout(nodes: FNode[], edges: FEdge[], W: number, H: number, ite
       const p = pos[nd.id];
       p.x += (dp.x / dl) * Math.min(dl, t);
       p.y += (dp.y / dl) * Math.min(dl, t);
-      p.x = Math.max(0, Math.min(W, p.x));
-      p.y = Math.max(0, Math.min(H, p.y));
+      // clamp 제거: 중심 인력(gravity)이 응집을 유지하므로 경계에 붙지 않고 자유롭게 배치된다.
     }
   }
   return pos;

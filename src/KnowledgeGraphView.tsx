@@ -1,10 +1,11 @@
-// ④ 지식그래프 전용 뷰 — canvas force 그래프(xg-web web/nms.js 이식, 결정적 kgForce.layout).
-// 노드 색=type, 엣지 track=curated 실선·llm 점선(미검증), 클릭=인스펙트.
+// ④ 지식그래프 전용 뷰 — react-force-graph-2d 물리 시뮬레이션(Neo4j 브라우저式).
+// 노드 색=type, 엣지 track=curated 실선·llm 점선(미검증). 노드 드래그·휠 줌·팬 내장.
+// llm 엣지 클릭 → 확인(승격)/거부(숨김) write-back.
 
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import ForceGraph2D from "react-force-graph-2d";
 import { confirmEdge, fetchGraph, rejectEdge, type KgEdge, type KgGraph, type KgNode } from "./api/kg";
-import { layout, type Pos } from "./kgForce";
 
 const TYPE_COLOR: Record<string, string> = {
   equipment: "#2563eb",
@@ -16,27 +17,6 @@ const TYPE_COLOR: Record<string, string> = {
   note: "#0891b2",
 };
 
-const W = 900;
-const H = 640;
-
-/** 점(px,py)에서 임계거리 안에 있는 가장 가까운 엣지 선분을 고른다(없으면 null). */
-export function pickEdge(edges: KgEdge[], pos: Pos, px: number, py: number, threshold = 6): KgEdge | null {
-  let best: KgEdge | null = null;
-  let bestD = threshold;
-  for (const e of edges) {
-    const a = pos[e.src], b = pos[e.dst];
-    if (!a || !b) continue;
-    const dx = b.x - a.x, dy = b.y - a.y;
-    const len2 = dx * dx + dy * dy || 1;
-    let t = ((px - a.x) * dx + (py - a.y) * dy) / len2;
-    t = Math.max(0, Math.min(1, t));
-    const cx = a.x + t * dx, cy = a.y + t * dy;
-    const d = Math.hypot(px - cx, py - cy);
-    if (d < bestD) { bestD = d; best = e; }
-  }
-  return best;
-}
-
 type KnowledgeGraphViewProps = {
   projectName: string;
   onBack: () => void;
@@ -47,7 +27,10 @@ export default function KnowledgeGraphView({ projectName, onBack }: KnowledgeGra
   const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<KgNode | null>(null);
   const [selectedEdge, setSelectedEdge] = useState<KgEdge | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const fgRef = useRef<any>(null);
+  const [dims, setDims] = useState({ w: 1200, h: 680 });
 
   useEffect(() => {
     let live = true;
@@ -67,53 +50,48 @@ export default function KnowledgeGraphView({ projectName, onBack }: KnowledgeGra
       .catch((e) => setError(String(e)));
   };
 
-  const pos: Pos = useMemo(
-    () => (graph ? layout(graph.nodes, graph.edges, W, H, 200) : {}),
-    [graph],
-  );
+  // KgGraph → force-graph 데이터(노드 name=라벨, 링크 source/target=엣지 양끝).
+  const data = useMemo(() => {
+    if (!graph) return { nodes: [], links: [] };
+    return {
+      nodes: graph.nodes.map((n) => ({ ...n, name: n.label })),
+      links: graph.edges.map((e) => ({
+        source: e.src, target: e.dst, type: e.type, track: e.track,
+        confidence: e.confidence, evidence: e.evidence ?? null,
+      })),
+    };
+  }, [graph]);
 
+  // 컨테이너 폭에 맞춰 캔버스 크기(반응형).
   useEffect(() => {
-    const cv = canvasRef.current;
-    if (!cv || !graph) return;
-    const ctx = cv.getContext("2d");
-    if (!ctx) return;
-    ctx.clearRect(0, 0, W, H);
-    for (const e of graph.edges) {
-      const a = pos[e.src], b = pos[e.dst];
-      if (!a || !b) continue;
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.lineTo(b.x, b.y);
-      ctx.strokeStyle = e.track === "llm" ? "rgba(120,120,120,0.5)" : "rgba(60,60,60,0.7)";
-      ctx.setLineDash(e.track === "llm" ? [4, 4] : []);
-      ctx.lineWidth = e.confidence < 0.7 ? 0.6 : 1.2;
-      ctx.stroke();
-    }
-    ctx.setLineDash([]);
-    for (const nd of graph.nodes) {
-      const p = pos[nd.id];
-      if (!p) continue;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 6, 0, 2 * Math.PI);
-      ctx.fillStyle = TYPE_COLOR[nd.type] || "#374151";
-      ctx.fill();
-      ctx.fillStyle = "#111";
-      ctx.font = "11px sans-serif";
-      ctx.fillText(nd.label, p.x + 8, p.y + 3);
-    }
-  }, [graph, pos]);
+    const el = wrapRef.current;
+    if (!el) return;
+    const update = () => setDims({ w: el.clientWidth || 1200, h: 680 });
+    update();
+    if (typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
-  function onCanvasClick(ev: React.MouseEvent<HTMLCanvasElement>) {
-    if (!graph) return;
-    const rect = ev.currentTarget.getBoundingClientRect();
-    const x = ev.clientX - rect.left, y = ev.clientY - rect.top;
-    const hitNode = graph.nodes.find((nd) => {
-      const p = pos[nd.id];
-      return p && Math.hypot(p.x - x, p.y - y) <= 8;
-    });
-    if (hitNode) { setSelected(hitNode); setSelectedEdge(null); return; }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function onLinkClick(link: any) {
     setSelected(null);
-    setSelectedEdge(pickEdge(graph.edges, pos, x, y));
+    const src = typeof link.source === "object" ? link.source.id : link.source;
+    const dst = typeof link.target === "object" ? link.target.id : link.target;
+    setSelectedEdge({
+      src, dst, type: link.type, track: link.track,
+      confidence: link.confidence, evidence: link.evidence ?? null,
+    });
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function onNodeClick(node: any) {
+    setSelectedEdge(null);
+    setSelected(node);
+  }
+
+  function fitAll() {
+    if (fgRef.current) fgRef.current.zoomToFit(400, 50);
   }
 
   async function onConfirm() {
@@ -165,15 +143,56 @@ export default function KnowledgeGraphView({ projectName, onBack }: KnowledgeGra
           <span key={t} style={{ color: c }}>● {t}</span>
         ))}
         <span>— curated 실선 · llm 점선(미검증)</span>
+        <span style={{ marginLeft: "auto", color: "#6b7280" }}>
+          휠=확대/축소 · 드래그=이동 · 노드 드래그=재배치 · 클릭=상세
+        </span>
+        <button type="button" onClick={fitAll} style={{ marginLeft: 8 }}>전체보기</button>
       </div>
 
-      <canvas
-        ref={canvasRef}
-        width={W}
-        height={H}
-        onClick={onCanvasClick}
-        style={{ border: "1px solid #e5e7eb", cursor: "pointer" }}
-      />
+      <div
+        ref={wrapRef}
+        style={{
+          width: "100%",
+          height: dims.h,
+          border: "1px solid #e5e7eb",
+          borderRadius: 8,
+          overflow: "hidden",
+          background: "#fafafa",
+        }}
+      >
+        <ForceGraph2D
+          ref={fgRef}
+          graphData={data}
+          width={dims.w}
+          height={dims.h}
+          backgroundColor="#fafafa"
+          nodeRelSize={5}
+          nodeColor={(n: KgNode) => TYPE_COLOR[n.type] || "#374151"}
+          nodeLabel={(n: KgNode & { name?: string }) => `${n.name ?? n.label} · ${n.type}`}
+          nodeCanvasObjectMode={() => "after"}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          nodeCanvasObject={(node: any, ctx: CanvasRenderingContext2D, scale: number) => {
+            if (scale < 1.4) return;  // 충분히 확대했을 때만 라벨(겹침 방지).
+            const raw = node.name ?? node.label ?? "";
+            const lab = raw.length > 24 ? raw.slice(0, 23) + "…" : raw;
+            ctx.font = `${11 / scale}px sans-serif`;
+            ctx.fillStyle = "#111827";
+            ctx.textAlign = "left";
+            ctx.textBaseline = "middle";
+            ctx.fillText(lab, node.x + 7 / scale, node.y);
+          }}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          linkColor={(l: any) => (l.track === "llm" ? "rgba(148,163,184,0.6)" : "rgba(71,85,105,0.55)")}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          linkLineDash={(l: any) => (l.track === "llm" ? [3, 3] : null)}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          linkWidth={(l: any) => (l.confidence < 0.7 ? 0.8 : 1.6)}
+          onNodeClick={onNodeClick}
+          onLinkClick={onLinkClick}
+          cooldownTicks={120}
+          onEngineStop={fitAll}
+        />
+      </div>
 
       {selected && (
         <aside className="kg-inspect">
